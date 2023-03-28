@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10,7 +10,9 @@ Material:
   m_Name: Material_Spirit_Lit
   m_Shader: {fileID: -6465566751694194690, guid: 98337e8f3519afb47bece3b0fd693d8e,
     type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -24,6 +26,19 @@ Material:
         m_Texture: {fileID: 2800000, guid: 15828aaaddbbe154b99f258d5d927b1e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - Vector1_356DE96F: 1.07
     - Vector1_39218ACB: -0.23
@@ -36,3 +51,4 @@ Material:
     - Color_5B866001: {r: 4, g: 4, b: 4, a: 0}
     - Color_926009DC: {r: 0.9811321, g: 0, b: 0, a: 1}
     - _SourcePosition: {r: 23.072, g: -5.031, b: 0, a: 0}
+  m_BuildTextureStacks: []
