@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
    
-
+    // stat
     public static int str;
     public static int intl;
     public static int dex;
@@ -16,6 +16,9 @@ public class DataBaseManager : MonoBehaviour
     public static int weal;
 
 
+    //skill
+    public static int strSkillPoint;
+    public static int martialArtsPoint = 25;
 
 
     static public DataBaseManager instance;

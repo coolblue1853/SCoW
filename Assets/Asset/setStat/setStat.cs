@@ -30,6 +30,7 @@ public class setStat : MonoBehaviour
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         str_txt.text = DataBaseManager.str.ToString();
         str_image.fillAmount = ((float)DataBaseManager.str / 100);
+        DataBaseManager.strSkillPoint = DataBaseManager.str;
 
         DataBaseManager.intl = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         intl_txt.text = DataBaseManager.intl.ToString();
