@@ -16,10 +16,29 @@ public class DataBaseManager : MonoBehaviour
     public static int weal;
 
 
-    //skill
+    //skill -str
     public static int strSkillPoint;
     public static int martialArtsPoint = 25;
+    public static int gunShotPoint = 15;
+    public static int swordPoint = 20;
+    public static int listeningPoint = 20;
+    public static int swimingPoint = 10;
 
+    //skill -int
+    public static int intSkillPoint;
+    public static int medicinePoint = 10;
+    public static int analysisPoint = 30;
+    public static int psychologyPoint = 5;
+    public static int psychotherapyPoint = 5;
+    public static int occultPoint = 5;
+
+    //skill -dex
+    public static int dexSkillPoint;
+    public static int evasionPoint = 30;
+    public static int deftnessPoint = 20;
+    public static int rhetoricPoint = 20;
+    public static int stealthPoint = 15;
+    public static int DisguisePoint = 10;
 
     static public DataBaseManager instance;
 

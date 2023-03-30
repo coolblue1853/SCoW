@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class setStat : MonoBehaviour
 {
+
     public Text str_txt;
     public Text intl_txt;
     public Text dex_txt;
@@ -25,6 +26,14 @@ public class setStat : MonoBehaviour
     public GameObject next_B;
     public GameObject setStatWindow;
     public GameObject setSkillWindow;
+    public GameObject setStatButton;
+    public GameObject allRandButton;
+
+    public Text strPoint_t;
+    public Text intPoint_t;
+    public Text dexPoint_t;
+
+    public setSkill setSkill;
     public void SetStatButton()
     {
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
@@ -35,10 +44,13 @@ public class setStat : MonoBehaviour
         DataBaseManager.intl = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         intl_txt.text = DataBaseManager.intl.ToString();
         intl_image.fillAmount = ((float)DataBaseManager.intl / 100);
+        DataBaseManager.intSkillPoint = DataBaseManager.intl;
 
         DataBaseManager.dex = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         dex_txt.text = DataBaseManager.dex.ToString();
         dex_image.fillAmount = ((float)DataBaseManager.dex / 100);
+        DataBaseManager.dexSkillPoint = DataBaseManager.dex;
+
 
         DataBaseManager.hp = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         hp_txt.text = DataBaseManager.hp.ToString();
@@ -61,7 +73,7 @@ public class setStat : MonoBehaviour
         weal_image.fillAmount = ((float)DataBaseManager.weal / 25);
 
 
-
+        setSkill.resetSkillPoint();
 
     }
 
@@ -69,6 +81,12 @@ public class setStat : MonoBehaviour
     {
         setStatWindow.SetActive(false);
         setSkillWindow.SetActive(true);
+        setStatButton.SetActive(false);
+        allRandButton.SetActive(false);
+
+        strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
+        intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
+        dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
     }
 
     // Start is called before the first frame update
@@ -90,6 +108,12 @@ public class setStat : MonoBehaviour
         }
     }
 
-
+    public void AllRandChar()
+    {
+        SetStatButton();
+        setSkill.RandDex();
+        setSkill.RandInt();
+        setSkill.RandStr();
+    }
 
 }
