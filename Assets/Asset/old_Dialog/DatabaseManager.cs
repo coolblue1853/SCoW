@@ -6,9 +6,9 @@ public class DataBaseManager : MonoBehaviour
 {
    
     // stat
-    public static int str;
-    public static int intl;
-    public static int dex;
+    public static int str = 0;
+    public static int intl = 0;
+    public static int dex = 0;
     public static int hp;
     public static int mp;
     public static int san;
@@ -17,7 +17,7 @@ public class DataBaseManager : MonoBehaviour
 
 
     //skill -str
-    public static int strSkillPoint;
+    public static int strSkillPoint = 0;
     public static int martialArtsPoint = 25;
     public static int gunShotPoint = 15;
     public static int swordPoint = 20;
@@ -25,7 +25,7 @@ public class DataBaseManager : MonoBehaviour
     public static int swimingPoint = 10;
 
     //skill -int
-    public static int intSkillPoint;
+    public static int intSkillPoint = 0;
     public static int medicinePoint = 10;
     public static int analysisPoint = 30;
     public static int psychologyPoint = 5;
@@ -33,7 +33,7 @@ public class DataBaseManager : MonoBehaviour
     public static int occultPoint = 5;
 
     //skill -dex
-    public static int dexSkillPoint;
+    public static int dexSkillPoint = 0;
     public static int evasionPoint = 30;
     public static int deftnessPoint = 20;
     public static int rhetoricPoint = 20;
