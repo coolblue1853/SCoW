@@ -8,12 +8,12 @@ public class DataBaseManager : MonoBehaviour
     public static bool isScene;
     public static bool isPresentation;
     public static bool isOption;
-
+    public static bool endDialogLine;
     public static bool skipActive;
-    public static float textDelay = 0.2f;
+    public static float textDelay = 0.07f;
 
-
-
+    public static bool isActiveDialog1;
+    public static bool isActiveDialog2;
 
 
 
