@@ -4,7 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
-   
+    //dialog
+    public static bool isScene;
+    public static bool isPresentation;
+    public static bool isOption;
+
+    public static bool skipActive;
+    public static float textDelay = 0.2f;
+
+
+
+
+
+
+
+
+
     // stat
     public static int str = 0;
     public static int intl = 0;
