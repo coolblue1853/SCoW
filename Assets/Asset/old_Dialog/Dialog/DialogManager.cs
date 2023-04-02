@@ -10,7 +10,6 @@ using UnityEngine.Assertions;
 
 public class DialogManager : MonoBehaviour
 {
-
     //public 정보창Manager 정보창매니저;
 
     // 정보 플로팅 위치
@@ -142,10 +141,11 @@ public class DialogManager : MonoBehaviour
     {
         if (isSelectButton == false && DataBaseManager.isPresentation == false)
         {
+
             skipButton.SetActive(false);
             skipStopButton.SetActive(true);
             DataBaseManager.skipActive = true;
-            DataBaseManager.textDelay = 0.00001f;
+
             StartCoroutine(Skip());
 
         }
@@ -164,7 +164,7 @@ public class DialogManager : MonoBehaviour
 
     IEnumerator SkipNormalize()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         isSelection = false;
         skipButton.SetActive(true);
 
@@ -176,10 +176,10 @@ public class DialogManager : MonoBehaviour
         z_nextkey1 = true;   //이 부분을 true로 두면  스킵이 엄청 빨라지고 false로 두면 적당해짐
         z_nextkey2 = true;
 
-        yield return new WaitForSeconds(0.03f);
+        yield return new WaitForSeconds(0.05f);
         //selectionUIManager.엘라심리학선택지끄기();
         Ex_NextPageT();
-        yield return new WaitForSeconds(0.03f);
+        yield return new WaitForSeconds(0.05f);
         if(go_dialogBar.activeSelf == false)
         {
             SkipStopOn();

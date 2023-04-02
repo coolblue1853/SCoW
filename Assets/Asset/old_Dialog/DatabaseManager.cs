@@ -74,7 +74,7 @@ public class DataBaseManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
             instance = this;
         }
-
+        isPresentation = false;
 
     }
 
