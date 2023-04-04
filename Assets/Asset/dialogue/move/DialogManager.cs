@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Febucci.UI;
 using Febucci.UI.Core;
 using System;
 using System.Linq;
@@ -53,7 +54,7 @@ public class DialogManager : MonoBehaviour
     [Header("텍스트 출력 딜레이.")]
     [SerializeField] float textDelay;
     public TAnimPlayerBase TypeA;
-
+    public TextAnimatorPlayer TextAnimatorPlayer;
     private void Start()
     {
         FirstClick = true;
@@ -121,7 +122,7 @@ public class DialogManager : MonoBehaviour
 
 
 
-
+    
 
 
     public void SkipOn()
@@ -131,14 +132,23 @@ public class DialogManager : MonoBehaviour
             SkipButton.SetActive(false);
             SkipStopButton.SetActive(true);
             DataBaseManager.skipActive = true;
-           // DataBaseManager.textDelay = 0.00001f;
+
+            //TypeA.wait = 1;
+            //DataBaseManager.textDelay = 0.00001f;
+            TextAnimatorPlayer.waitForNormalChars = 0.003f;
+            TextAnimatorPlayer.waitLong = 0.003f;
+            TextAnimatorPlayer.waitMiddle = 0.003f;
+
             StartCoroutine(Skip());
 
         }
     }
 
     public void SkipStopON()
-    {
+    {   
+        TextAnimatorPlayer.waitForNormalChars = 0.03f;
+        TextAnimatorPlayer.waitLong = 0.03f;
+        TextAnimatorPlayer.waitMiddle = 0.03f;
         DataBaseManager.skipActive = false;
         SkipStopButton.SetActive(false);
         ShowChoice = true;
@@ -157,9 +167,9 @@ public class DialogManager : MonoBehaviour
     {
         z_next1 = true;   //이 부분을 true로 두면  스킵이 엄청 빨라지고 false로 두면 적당해짐
         z_next2 = true;
-        yield return new WaitForSeconds(0.06f);
+        yield return new WaitForSeconds(0.08f);
         ChoiceEx_NextPage_t();
-        yield return new WaitForSeconds(0.06f);
+        yield return new WaitForSeconds(0.08f);
         if (go_dialogBar.activeSelf == false)
         {
             SkipStopON();

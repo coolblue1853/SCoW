@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    //Rollet
+    public static string Condition = "Nomal";
+
+
     //dialog
     public static bool isScene;
     public static bool isPresentation;

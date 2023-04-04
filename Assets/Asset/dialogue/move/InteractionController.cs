@@ -17,7 +17,7 @@ public class InteractionController : MonoBehaviour
 
     private void Start()
     {
-        TestNar();
+        //TestNar();
     }
     public void TestNar()
     {
