@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class RolletTest : MonoBehaviour
 {
+
     // setRollet(string skill, string point_sting, int point_int)
 
+    public int TEXT;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -33,6 +35,6 @@ public class RolletTest : MonoBehaviour
 
     public void NewsRollet()
     {
-        Rollet.Instance.setRollet("신문 : 살펴보기", "자료조사", 35);
+        Rollet.Instance.setRollet("신문 : 살펴보기", "자료조사", 80);
     }
 }
