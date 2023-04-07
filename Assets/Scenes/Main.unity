@@ -3334,7 +3334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207408655}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -84.1, y: 0, z: 0}
+  m_LocalPosition: {x: -138.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5166,7 +5166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257492486}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -64, y: 0, z: 40.6}
+  m_LocalPosition: {x: 1.2, y: 0, z: 40.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5692,20 +5692,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 0, g: 0.11030483, b: 0.18867922, a: 1}
-    key2: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0.0010873271, g: 0.14547683, b: 0.7798766, a: 1}
+    key1: {r: 0.3443396, g: 0.48913127, b: 1, a: 1}
+    key2: {r: 0.88394445, g: 0.95003206, b: 0.9811321, a: 0}
+    key3: {r: 0.81843525, g: 0.8951352, b: 0.9790021, a: 0}
+    key4: {r: 0.5566038, g: 0.2775297, b: 0.19166073, a: 0}
+    key5: {r: 0.007831969, g: 0.037960645, b: 0.1509434, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 53392
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
+    ctime1: 3662
+    ctime2: 23516
+    ctime3: 34888
+    ctime4: 47224
+    ctime5: 59753
     ctime6: 0
     ctime7: 0
     atime0: 0
@@ -5717,7 +5717,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 3
+    m_NumColorKeys: 6
     m_NumAlphaKeys: 2
 --- !u!1 &331815047
 GameObject:
@@ -11384,7 +11384,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.665
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.007831991, g: 0.03796065, b: 0.1509434, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 0
@@ -11844,7 +11844,7 @@ MonoBehaviour:
   m_LightType: 1
   m_BlendStyleIndex: 1
   m_FalloffIntensity: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_Intensity: 0.09
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 0
@@ -20074,21 +20074,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gradient:
     serializedVersion: 2
-    key0: {r: 0, g: 0.77869123, b: 0.9716981, a: 1}
-    key1: {r: 0.98608196, g: 0.98761714, b: 0.98870796, a: 1}
-    key2: {r: 1, g: 0.42393357, b: 0.19339621, a: 0}
-    key3: {r: 0.053571403, g: 0.15796703, b: 0.2321428, a: 0}
-    key4: {r: 0.17716226, g: 0.17297079, b: 0.21698111, a: 0}
-    key5: {r: 0.47432357, g: 0.5377358, b: 0.5162797, a: 0}
-    key6: {r: 0.5773852, g: 0.7075472, b: 0.6668716, a: 0}
+    key0: {r: 0, g: 0.0626512, b: 0.3490566, a: 1}
+    key1: {r: 0.0010873271, g: 0.14547683, b: 0.7798766, a: 1}
+    key2: {r: 0.013483422, g: 0.2205834, b: 0.9528302, a: 0}
+    key3: {r: 0.88394445, g: 0.95003206, b: 0.9811321, a: 0}
+    key4: {r: 0.81843525, g: 0.8951352, b: 0.9790021, a: 0}
+    key5: {r: 0.5471698, g: 0.29239246, b: 0.21422213, a: 0}
+    key6: {r: 0.00035599942, g: 0.014706356, b: 0.0754717, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 7710
-    ctime1: 20239
-    ctime2: 40670
-    ctime3: 57247
-    ctime4: 48959
-    ctime5: 62066
-    ctime6: 65535
+    ctime0: 0
+    ctime1: 4241
+    ctime2: 11951
+    ctime3: 29684
+    ctime4: 34888
+    ctime5: 47224
+    ctime6: 59753
     ctime7: 0
     atime0: 0
     atime1: 65535
@@ -20099,7 +20099,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 4
+    m_NumColorKeys: 7
     m_NumAlphaKeys: 2
   colorName: RimColor
   materials:
@@ -20156,7 +20156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6cc2818504776142aa43fe9a0ef11e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0
+  time: 1
 --- !u!1 &1243519185
 GameObject:
   m_ObjectHideFlags: 0
@@ -20340,7 +20340,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.665
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.007831991, g: 0.03796065, b: 0.1509434, a: 1}
   m_Intensity: 0.72
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 0
@@ -30512,7 +30512,7 @@ MonoBehaviour:
   m_LightType: 1
   m_BlendStyleIndex: 1
   m_FalloffIntensity: 0.413
-  m_Color: {r: 0.6132076, g: 0.611207, b: 0.5813902, a: 1}
+  m_Color: {r: 0.26666668, g: 0.29412508, b: 0.6509804, a: 1}
   m_Intensity: 0.29
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 0
@@ -38238,7 +38238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079347880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -78.3, y: 0, z: 0}
+  m_LocalPosition: {x: -132.39998, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -38262,7 +38262,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.665
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.007831991, g: 0.03796065, b: 0.1509434, a: 1}
   m_Intensity: 0.12
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 0
@@ -38445,21 +38445,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 0, g: 0.11030483, b: 0.18867922, a: 1}
-    key2: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0.0010873271, g: 0.14547683, b: 0.7798766, a: 1}
+    key1: {r: 0.3443396, g: 0.48913127, b: 1, a: 1}
+    key2: {r: 0.88394445, g: 0.95003206, b: 0.9811321, a: 0}
+    key3: {r: 0.81843525, g: 0.8951352, b: 0.9790021, a: 0}
+    key4: {r: 0.5566038, g: 0.2775297, b: 0.19166073, a: 0}
+    key5: {r: 0.007831969, g: 0.037960645, b: 0.1509434, a: 0}
+    key6: {r: 0.00035601854, g: 0.014706343, b: 0.0754717, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 53392
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
+    ctime1: 3662
+    ctime2: 23516
+    ctime3: 34888
+    ctime4: 47224
+    ctime5: 59753
+    ctime6: 60716
     ctime7: 0
     atime0: 0
     atime1: 65535
@@ -38470,7 +38470,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 3
+    m_NumColorKeys: 6
     m_NumAlphaKeys: 2
 --- !u!1 &1115380664373845352
 GameObject:
@@ -43168,7 +43168,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.665
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.007831991, g: 0.03796065, b: 0.1509434, a: 1}
   m_Intensity: 0.12
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 0
@@ -43333,7 +43333,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.665
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.007831991, g: 0.03796065, b: 0.1509434, a: 1}
   m_Intensity: 0.12
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 0
@@ -53735,7 +53735,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.665
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.007831991, g: 0.03796065, b: 0.1509434, a: 1}
   m_Intensity: 0.12
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 0
