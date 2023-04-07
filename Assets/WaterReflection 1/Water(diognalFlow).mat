@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water 1
-  m_Shader: {fileID: -6465566751694194690, guid: 7a7943a40a4ecde49966f86f848436db,
+  m_Name: Water(diognalFlow)
+  m_Shader: {fileID: -6465566751694194690, guid: edbcc6df29606db49a0847d04d3cc8a2,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -42,7 +42,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _WaterTextuer:
-        m_Texture: {fileID: 2800000, guid: 5f9b6fb959d19a241b3efbcaa90b5a77, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3be78bb2f2e9ef64885d9f752872fe62, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -61,7 +61,7 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     - _ReflectionStrength: 1
-    - _WaterSpeed: 0.2
+    - _WaterSpeed: 0.1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
