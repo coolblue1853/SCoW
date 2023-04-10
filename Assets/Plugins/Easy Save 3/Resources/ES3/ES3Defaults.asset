@@ -30,29 +30,15 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - Assembly-CSharp-firstpass
-    - MoreMountains.Feedbacks
     - Assembly-CSharp
-    - MoreMountains.Tools
-    - MoreMountains.Feedbacks.URP
     - Cinemachine
-    - MoreMountains.Feedbacks.MMTools
     - Febucci.TextAnimator.Runtime
-    - MoreMountains.Feedbacks.NiceVibrations
-    - MoreMountains.Feedbacks.PostProcessing
-    - MoreMountains.Feedbacks.HDRP
-    - MoreMountains.Feedbacks.TextMeshPro
     - Febucci.TextAnimator.Demo.Runtime
-    - Lofelt.NiceVibrations
-    - Lofelt.NiceVibrations.Demo
-    - MoreMountains.Feedbacks.Cinemachine
-    - MoreMountains.Feedbacks.Authorizations
-    - MoreMountains.Tools.Editor
+    - V_Animation
     - PsdPlugin
-    - MoreMountains.Feedbacks.Editor
     - Febucci.TextAnimator.Editor
     - PPv2URPConverters
     - Febucci.TextAnimator.Demo.Editor
-    - Lofelt.NiceVibrations.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

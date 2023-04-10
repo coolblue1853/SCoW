@@ -34,6 +34,9 @@ public class DataBaseManager : MonoBehaviour
     public static int luk;
     public static int weal;
 
+    public static int nowHP;
+    public static int nowMP;
+
 
     //skill -str
     public static int strSkillPoint = 0;
