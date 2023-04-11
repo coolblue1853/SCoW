@@ -26,45 +26,65 @@ public class RolletTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            DataBaseManager.Intel_DetectiveOffice1 = true;
-            DataBaseManager.Intel_Hospital1 = true;
+            DataBaseManager.Intel_Ella1 = true;
             NewsRollet();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            DataBaseManager.Intel_Newspaper1 = true;
-            DataBaseManager.Intel_QuestHouse1 = true;
+            DataBaseManager.Intel_Ella2 = true;
             DataBaseManager.Condition = "Good";
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            DataBaseManager.Intel_Station1 = true;
-            DataBaseManager.Intel_Restaurant1 = true;
+            DataBaseManager.Intel_Ella3 = true;
             DataBaseManager.Condition = "Best";
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            DataBaseManager.Intel_University1 = true;
-            DataBaseManager.Intel_Riverside1 = true;
+            DataBaseManager.Intel_Ella4 = true;
             DataBaseManager.Condition = "Bad";
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            DataBaseManager.Intel_Slum1 = true;
-            DataBaseManager.Intel_PoliceOffice1 = true;
+            DataBaseManager.Intel_Ella5 = true;
             DataBaseManager.Condition = "Worst";
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            DataBaseManager.Intel_Gunsmith1 = true;
-            DataBaseManager.Intel_SewageMaintenanceOffice1 = true;
-            DataBaseManager.Intel_Bar1 = true;
+            DataBaseManager.Intel_Ella6 = true;
             BillowUIManager.Instance.HP_down(5);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha7))
+
+        if (Input.GetKeyDown(KeyCode.F1))
         {
-            DataBaseManager.Intel_BlackWell1 = true;
+            DataBaseManager.Intel_Aiden1 = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            DataBaseManager.Intel_Aiden2 = true;
+
+        }
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            DataBaseManager.Intel_Aiden3 = true;
+
+        }
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            DataBaseManager.Intel_Aiden4 = true;
+
+        }
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            DataBaseManager.Intel_Aiden5 = true;
+
+        }
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+            DataBaseManager.Intel_Aiden6 = true;
+
         }
     }
 

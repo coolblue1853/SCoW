@@ -103,8 +103,10 @@ public class DataBaseManager : MonoBehaviour
 
     //인물정보
 
-    public static int GainCharacterInt = 0;
+    public static int NowPage_Ella = 1;
+    public static int NowPage_Aiden = 1;
 
+    public static int GainCharacterInt = 0;
 
     public static int ButtonCount_Ella = -1;
     public static int ButtonCount_Aiden = -1;
