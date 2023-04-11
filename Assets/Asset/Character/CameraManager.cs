@@ -22,12 +22,12 @@ public class CameraManager : MonoBehaviour
 
     
 
-    public void 카메라다시움직이기()
+    public void CameraMove()
     {
         isCheckEnd = false;
     }
 
-    public void 카메라멈추기()
+    public void CameraStop()
     {
         isCheckEnd = true;
     }

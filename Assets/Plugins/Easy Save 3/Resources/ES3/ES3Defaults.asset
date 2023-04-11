@@ -33,8 +33,8 @@ MonoBehaviour:
     - Assembly-CSharp
     - Cinemachine
     - Febucci.TextAnimator.Runtime
-    - Febucci.TextAnimator.Demo.Runtime
     - V_Animation
+    - Febucci.TextAnimator.Demo.Runtime
     - PsdPlugin
     - Febucci.TextAnimator.Editor
     - PPv2URPConverters

@@ -23,34 +23,41 @@ public class RolletTest : MonoBehaviour
     }
     private void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            DataBaseManager.Intel_Ella1 = true;
             NewsRollet();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            DataBaseManager.Intel_Aiden1 = true;
             DataBaseManager.Condition = "Good";
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
+            DataBaseManager.Intel_Albert1 = true;
             DataBaseManager.Condition = "Best";
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
+            DataBaseManager.Intel_Cane1 = true;
             DataBaseManager.Condition = "Bad";
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
+            DataBaseManager.Intel_Meiv1 = true;
             DataBaseManager.Condition = "Worst";
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
+            DataBaseManager.Intel_Swain1 = true;
             BillowUIManager.Instance.HP_down(5);
         }
         if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            BillowUIManager.Instance.MP_Down(5);
+            DataBaseManager.Intel_BlackWell1 = true;
         }
     }
 

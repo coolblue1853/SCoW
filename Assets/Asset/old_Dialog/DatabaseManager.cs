@@ -93,15 +93,76 @@ public class DataBaseManager : MonoBehaviour
 
 
 
-    void Start()
-    {
 
-    }
+    // Intel Database
 
-    // Update is called once per frame
-    void Update()
-    {
+    //Event
+    // 현재 획득한 사건정보가지수
+    // 행성대직렬 현재 페이지
+    public static int PlanetarySequenceNowPage;
+    //행성대직렬 정보
 
-    }
+    //인물정보
+
+    public static int GainCharacterInt = 0;
+
+
+    public static int ButtonCount_Ella = -1;
+    public static int ButtonCount_Aiden = -1;
+    public static int ButtonCount_Cane = -1;
+    public static int ButtonCount_Albert = -1;
+    public static int ButtonCount_Meiv = -1;
+    public static int ButtonCount_BlackWell = -1;
+    public static int ButtonCount_Swain = -1;
+
+    public static bool Intel_Aiden1 = false;
+    public static bool Intel_Aiden2 = false;
+    public static bool Intel_Aiden3 = false;
+    public static bool Intel_Aiden4 = false;
+    public static bool Intel_Aiden5 = false;
+    public static bool Intel_Aiden6 = false;
+
+    public static bool Intel_Ella1 = false;
+    public static bool Intel_Ella2 = false;
+    public static bool Intel_Ella3 = false;
+    public static bool Intel_Ella4 = false;
+    public static bool Intel_Ella5 = false;
+    public static bool Intel_Ella6 = false;
+
+    public static bool Intel_Swain1 = false;
+    public static bool Intel_Swain2 = false;
+    public static bool Intel_Swain3 = false;
+    public static bool Intel_Swain4 = false;
+    public static bool Intel_Swain5 = false;
+    public static bool Intel_Swain6 = false;
+
+    public static bool Intel_Cane1 = false;
+    public static bool Intel_Cane2 = false;
+    public static bool Intel_Cane3 = false;
+    public static bool Intel_Cane4 = false;
+    public static bool Intel_Cane5 = false;
+    public static bool Intel_Cane6 = false;
+
+    public static bool Intel_Albert1 = false;
+    public static bool Intel_Albert2 = false;
+    public static bool Intel_Albert3 = false;
+    public static bool Intel_Albert4 = false;
+    public static bool Intel_Albert5 = false;
+    public static bool Intel_Albert6 = false;
+
+    public static bool Intel_Meiv1 = false;
+    public static bool Intel_Meiv2 = false;
+    public static bool Intel_Meiv3 = false;
+    public static bool Intel_Meiv4 = false;
+    public static bool Intel_Meiv5 = false;
+    public static bool Intel_Meiv6 = false;
+
+    public static bool Intel_BlackWell1 = false;
+    public static bool Intel_BlackWell2 = false;
+    public static bool Intel_BlackWell3 = false;
+    public static bool Intel_BlackWell4 = false;
+    public static bool Intel_BlackWell5 = false;
+    public static bool Intel_BlackWell6 = false;
+
 
 }
