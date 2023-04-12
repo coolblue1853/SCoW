@@ -105,6 +105,11 @@ public class DataBaseManager : MonoBehaviour
 
     public static int NowPage_Ella = 1;
     public static int NowPage_Aiden = 1;
+    public static int NowPage_Cane = 1;
+    public static int NowPage_Albert = 1;
+    public static int NowPage_Meiv = 1;
+    public static int NowPage_BlackWell = 1;
+    public static int NowPage_Swain = 1;
 
     public static int GainCharacterInt = 0;
 
