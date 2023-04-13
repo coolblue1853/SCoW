@@ -26,68 +26,98 @@ public class RolletTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            DataBaseManager.Intel_Cane1 = true;
-            DataBaseManager.Intel_Aiden1 = true;
-            DataBaseManager.Intel_Ella1 = true;
-            DataBaseManager.Intel_Swain1 = true;
-            DataBaseManager.Intel_BlackWell1 = true;
-            DataBaseManager.Intel_Albert1 = true;
-            DataBaseManager.Intel_Meiv1 = true;
+            DataBaseManager.Intel_PlanetarySequence1 = true;
+            DataBaseManager.Intel_Nightmare1 = true;
+            DataBaseManager.Intel_Paranoia1 = true;
+            DataBaseManager.Intel_Insomnia1 = true;
+            DataBaseManager.Intel_SewerGhostStory1 = true;
+            DataBaseManager.Intel_MissingPeople1 = true;
+            DataBaseManager.Intel_FishySmell1 = true;
+            DataBaseManager.Intel_RiverWaterQuality1 = true;
+            DataBaseManager.Intel_CreepyEyes1 = true;
+            DataBaseManager.Intel_SewerWorker1 = true;
+            DataBaseManager.Intel_Safe1 = true;
+            DataBaseManager.Intel_SuddenChange1 = true;
             NewsRollet();
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            DataBaseManager.Intel_Cane2 = true;
-            DataBaseManager.Intel_Aiden2 = true;
-            DataBaseManager.Intel_Ella2 = true;
-            DataBaseManager.Intel_Swain2 = true;
-            DataBaseManager.Intel_BlackWell2 = true;
-            DataBaseManager.Intel_Albert2 = true;
-            DataBaseManager.Intel_Meiv2 = true;
+            DataBaseManager.Intel_PlanetarySequence2 = true;
+            DataBaseManager.Intel_Nightmare2 = true;
+            DataBaseManager.Intel_Paranoia2 = true;
+            DataBaseManager.Intel_Insomnia2 = true;
+            DataBaseManager.Intel_SewerGhostStory2 = true;
+            DataBaseManager.Intel_MissingPeople2 = true;
+            DataBaseManager.Intel_FishySmell2 = true;
+            DataBaseManager.Intel_RiverWaterQuality2 = true;
+            DataBaseManager.Intel_CreepyEyes2 = true;
+            DataBaseManager.Intel_SewerWorker2 = true;
+            DataBaseManager.Intel_Safe2 = true;
+            DataBaseManager.Intel_SuddenChange2 = true;
             DataBaseManager.Condition = "Good";
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            DataBaseManager.Intel_Cane3 = true;
-            DataBaseManager.Intel_Aiden3 = true;
-            DataBaseManager.Intel_Ella3 = true;
-            DataBaseManager.Intel_Swain3 = true;
-            DataBaseManager.Intel_BlackWell3 = true;
-            DataBaseManager.Intel_Albert3 = true;
-            DataBaseManager.Intel_Meiv3 = true;
+            DataBaseManager.Intel_PlanetarySequence3 = true;
+            DataBaseManager.Intel_Nightmare3 = true;
+            DataBaseManager.Intel_Paranoia3 = true;
+            DataBaseManager.Intel_Insomnia3 = true;
+            DataBaseManager.Intel_SewerGhostStory3 = true;
+            DataBaseManager.Intel_MissingPeople3 = true;
+            DataBaseManager.Intel_FishySmell3 = true;
+            DataBaseManager.Intel_RiverWaterQuality3 = true;
+            DataBaseManager.Intel_CreepyEyes3 = true;
+            DataBaseManager.Intel_SewerWorker3 = true;
+            DataBaseManager.Intel_Safe3 = true;
+            DataBaseManager.Intel_SuddenChange3 = true;
             DataBaseManager.Condition = "Best";
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            DataBaseManager.Intel_Cane4 = true;
-            DataBaseManager.Intel_Aiden4 = true;
-            DataBaseManager.Intel_Ella4 = true;
-            DataBaseManager.Intel_Swain4 = true;
-            DataBaseManager.Intel_BlackWell4 = true;
-            DataBaseManager.Intel_Albert4 = true;
-            DataBaseManager.Intel_Meiv4 = true;
+            DataBaseManager.Intel_PlanetarySequence4 = true;
+            DataBaseManager.Intel_Nightmare4 = true;
+            DataBaseManager.Intel_Paranoia4 = true;
+            DataBaseManager.Intel_Insomnia4 = true;
+            DataBaseManager.Intel_SewerGhostStory4 = true;
+            DataBaseManager.Intel_MissingPeople4 = true;
+            DataBaseManager.Intel_FishySmell4 = true;
+            DataBaseManager.Intel_RiverWaterQuality4 = true;
+            DataBaseManager.Intel_CreepyEyes4 = true;
+            DataBaseManager.Intel_SewerWorker4 = true;
+            DataBaseManager.Intel_Safe4 = true;
+            DataBaseManager.Intel_SuddenChange4 = true;
             DataBaseManager.Condition = "Bad";
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            DataBaseManager.Intel_Cane5 = true;
-            DataBaseManager.Intel_Aiden5 = true;
-            DataBaseManager.Intel_Ella5 = true;
-            DataBaseManager.Intel_Swain5 = true;
-            DataBaseManager.Intel_BlackWell5 = true;
-            DataBaseManager.Intel_Albert5 = true;
-            DataBaseManager.Intel_Meiv5 = true;
+            DataBaseManager.Intel_PlanetarySequence5 = true;
+            DataBaseManager.Intel_Nightmare5 = true;
+            DataBaseManager.Intel_Paranoia5 = true;
+            DataBaseManager.Intel_Insomnia5 = true;
+            DataBaseManager.Intel_SewerGhostStory5 = true;
+            DataBaseManager.Intel_MissingPeople5 = true;
+            DataBaseManager.Intel_FishySmell5 = true;
+            DataBaseManager.Intel_RiverWaterQuality5 = true;
+            DataBaseManager.Intel_CreepyEyes5 = true;
+            DataBaseManager.Intel_SewerWorker5= true;
+            DataBaseManager.Intel_Safe5 = true;
+            DataBaseManager.Intel_SuddenChange5 = true;
             DataBaseManager.Condition = "Worst";
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            DataBaseManager.Intel_Cane6 = true;
-            DataBaseManager.Intel_Aiden6 = true;
-            DataBaseManager.Intel_Ella6 = true;
-            DataBaseManager.Intel_Swain6 = true;
-            DataBaseManager.Intel_BlackWell6 = true;
-            DataBaseManager.Intel_Albert6 = true;
-            DataBaseManager.Intel_Meiv6 = true;
+            DataBaseManager.Intel_PlanetarySequence6 = true;
+            DataBaseManager.Intel_Nightmare6 = true;
+            DataBaseManager.Intel_Paranoia6 = true;
+            DataBaseManager.Intel_Insomnia6 = true;
+            DataBaseManager.Intel_SewerGhostStory6 = true;
+            DataBaseManager.Intel_MissingPeople6 = true;
+            DataBaseManager.Intel_FishySmell6 = true;
+            DataBaseManager.Intel_RiverWaterQuality6 = true;
+            DataBaseManager.Intel_CreepyEyes6 = true;
+            DataBaseManager.Intel_SewerWorker6 = true;
+            DataBaseManager.Intel_Safe6 = true;
+            DataBaseManager.Intel_SuddenChange6 = true;
             BillowUIManager.Instance.HP_down(5);
         }
 

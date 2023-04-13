@@ -170,7 +170,20 @@ public class DataBaseManager : MonoBehaviour
     public static bool Intel_BlackWell5 = false;
     public static bool Intel_BlackWell6 = false;
 
-    //사건정보
+    //사건 정보
+    public static int NowPage_PlanetarySequence = 1;
+    public static int NowPage_Nightmare = 1;
+    public static int NowPage_Paranoia = 1;
+    public static int NowPage_Insomnia = 1;
+    public static int NowPage_SewerGhostStory = 1;
+    public static int NowPage_MissingPeople = 1;
+    public static int NowPage_FishySmell = 1;
+    public static int NowPage_RiverWaterQuality = 1;
+    public static int NowPage_CreepyEyes = 1;
+    public static int NowPage_SewerWorker = 1;
+    public static int NowPage_Safe = 1;
+    public static int NowPage_SuddenChange = 1;
+
     public static int GainEventInt = 0;
 
     public static int ButtonCount_PlanetarySequence = -1;

@@ -6,94 +6,94 @@ public class Test : MonoBehaviour
 {
     string NowPage;
 
-     GameObject Detail_BlackWell1;
-     GameObject Detail_BlackWell2;
-     GameObject Detail_BlackWell3;
-     GameObject Detail_BlackWell4;
-     GameObject Detail_BlackWell5;
-     GameObject Detail_BlackWell6;
-    bool ON_BlackWell1;
-    bool ON_BlackWell2;
-    bool ON_BlackWell3;
-    bool ON_BlackWell4;
-    bool ON_BlackWell5;
-    bool ON_BlackWell6;
-    int Count_BlackWell = 0;
-    public GameObject BlackWellContents;
-    public GameObject BlackWell_Detail; 
-    public static int BlackWellIntelInt;
-    public GameObject NextButton_BlackWell;
-    public GameObject PrevButton_BlackWell;
+     GameObject Detail_SewerGhostStory1;
+     GameObject Detail_SewerGhostStory2;
+     GameObject Detail_SewerGhostStory3;
+     GameObject Detail_SewerGhostStory4;
+     GameObject Detail_SewerGhostStory5;
+     GameObject Detail_SewerGhostStory6;
+    bool ON_SewerGhostStory1;
+    bool ON_SewerGhostStory2;
+    bool ON_SewerGhostStory3;
+    bool ON_SewerGhostStory4;
+    bool ON_SewerGhostStory5;
+    bool ON_SewerGhostStory6;
+    int Count_SewerGhostStory = 0;
+    public GameObject SewerGhostStoryContents;
+    public GameObject SewerGhostStory_Detail; 
+    public static int SewerGhostStoryIntelInt;
+    public GameObject NextButton_SewerGhostStory;
+    public GameObject PrevButton_SewerGhostStory;
 
-    void BlackWellDetail()
+    void SewerGhostStoryDetail()
     {
-        if (ON_BlackWell1 == false && DataBaseManager.Intel_BlackWell1 == true)
+        if (ON_SewerGhostStory1 == false && DataBaseManager.Intel_SewerGhostStory1 == true)
         {
-            ON_BlackWell1 = true;
-            Detail_BlackWell1.SetActive(true);
-            Detail_BlackWell1.transform.SetAsLastSibling();
-            Count_BlackWell += 1;
+            ON_SewerGhostStory1 = true;
+            Detail_SewerGhostStory1.SetActive(true);
+            Detail_SewerGhostStory1.transform.SetAsLastSibling();
+            Count_SewerGhostStory += 1;
         }
-        if (ON_BlackWell2 == false && DataBaseManager.Intel_BlackWell2 == true)
+        if (ON_SewerGhostStory2 == false && DataBaseManager.Intel_SewerGhostStory2 == true)
         {
-            ON_BlackWell2 = true;
-            Detail_BlackWell2.SetActive(true);
-            Detail_BlackWell2.transform.SetAsLastSibling();
-            Count_BlackWell += 1;
+            ON_SewerGhostStory2 = true;
+            Detail_SewerGhostStory2.SetActive(true);
+            Detail_SewerGhostStory2.transform.SetAsLastSibling();
+            Count_SewerGhostStory += 1;
         }
-        if (ON_BlackWell3 == false && DataBaseManager.Intel_BlackWell3 == true)
+        if (ON_SewerGhostStory3 == false && DataBaseManager.Intel_SewerGhostStory3 == true)
         {
-            ON_BlackWell3 = true;
-            Detail_BlackWell3.SetActive(true);
-            Detail_BlackWell3.transform.SetAsLastSibling();
-            Count_BlackWell += 1;
+            ON_SewerGhostStory3 = true;
+            Detail_SewerGhostStory3.SetActive(true);
+            Detail_SewerGhostStory3.transform.SetAsLastSibling();
+            Count_SewerGhostStory += 1;
         }
-        if (ON_BlackWell4 == false && DataBaseManager.Intel_BlackWell4 == true)
+        if (ON_SewerGhostStory4 == false && DataBaseManager.Intel_SewerGhostStory4 == true)
         {
-            ON_BlackWell4 = true;
-            Detail_BlackWell4.SetActive(true);
-            Detail_BlackWell4.transform.SetAsLastSibling();
-            Count_BlackWell += 1;
+            ON_SewerGhostStory4 = true;
+            Detail_SewerGhostStory4.SetActive(true);
+            Detail_SewerGhostStory4.transform.SetAsLastSibling();
+            Count_SewerGhostStory += 1;
         }
-        if (ON_BlackWell5 == false && DataBaseManager.Intel_BlackWell5 == true)
+        if (ON_SewerGhostStory5 == false && DataBaseManager.Intel_SewerGhostStory5 == true)
         {
-            ON_BlackWell5 = true;
-            Detail_BlackWell5.SetActive(true);
-            Detail_BlackWell5.transform.SetAsLastSibling();
-            Count_BlackWell += 1;
+            ON_SewerGhostStory5 = true;
+            Detail_SewerGhostStory5.SetActive(true);
+            Detail_SewerGhostStory5.transform.SetAsLastSibling();
+            Count_SewerGhostStory += 1;
         }
-        if (ON_BlackWell6 == false && DataBaseManager.Intel_BlackWell6 == true)
+        if (ON_SewerGhostStory6 == false && DataBaseManager.Intel_SewerGhostStory6 == true)
         {
-            ON_BlackWell6 = true;
-            Detail_BlackWell6.SetActive(true);
-            Detail_BlackWell6.transform.SetAsLastSibling();
-            Count_BlackWell += 1;
+            ON_SewerGhostStory6 = true;
+            Detail_SewerGhostStory6.SetActive(true);
+            Detail_SewerGhostStory6.transform.SetAsLastSibling();
+            Count_SewerGhostStory += 1;
         }
 
-        if (Count_BlackWell > 2 && DataBaseManager.NowPage_BlackWell == 1)
+        if (Count_SewerGhostStory > 2 && DataBaseManager.NowPage_SewerGhostStory == 1)
         {
-            NextButton_BlackWell.SetActive(true);
+            NextButton_SewerGhostStory.SetActive(true);
         }
-        else if (Count_BlackWell > 4 && DataBaseManager.NowPage_BlackWell == 2)
+        else if (Count_SewerGhostStory > 4 && DataBaseManager.NowPage_SewerGhostStory == 2)
         {
-            NextButton_BlackWell.SetActive(true);
+            NextButton_SewerGhostStory.SetActive(true);
         }
         else
         {
-            NextButton_BlackWell.SetActive(false);
+            NextButton_SewerGhostStory.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_BlackWell == 2)
+        if (DataBaseManager.NowPage_SewerGhostStory == 2)
         {
-            PrevButton_BlackWell.SetActive(true);
+            PrevButton_SewerGhostStory.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_BlackWell == 3)
+        else if (DataBaseManager.NowPage_SewerGhostStory == 3)
         {
-            PrevButton_BlackWell.SetActive(true);
+            PrevButton_SewerGhostStory.SetActive(true);
         }
         else
         {
-            PrevButton_BlackWell.SetActive(false);
+            PrevButton_SewerGhostStory.SetActive(false);
         }
     }
 
@@ -101,49 +101,49 @@ public class Test : MonoBehaviour
     public void NextPage()
     {
 
-        if (NowPage == "BlackWell")
+        if (NowPage == "SewerGhostStory")
         {
-            if (DataBaseManager.NowPage_BlackWell == 1)
+            if (DataBaseManager.NowPage_SewerGhostStory == 1)
             {
-                if (Count_BlackWell >= 6)
+                if (Count_SewerGhostStory >= 6)
                 {
-                    Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(2).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(3).gameObject.SetActive(true);
+                    Reset_SewerGhostStory();
+                    SewerGhostStoryContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SewerGhostStoryContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 5)
+                else if (Count_SewerGhostStory >= 5)
                 {
-                    Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(3).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(4).gameObject.SetActive(true);
+                    Reset_SewerGhostStory();
+                    SewerGhostStoryContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SewerGhostStoryContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 4)
+                else if (Count_SewerGhostStory >= 4)
                 {
-                    Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(4).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_SewerGhostStory();
+                    SewerGhostStoryContents.transform.GetChild(4).gameObject.SetActive(true);
+                    SewerGhostStoryContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 3)
+                else if (Count_SewerGhostStory >= 3)
                 {
-                    Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_SewerGhostStory();
+                    SewerGhostStoryContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_BlackWell = 2;
+                DataBaseManager.NowPage_SewerGhostStory = 2;
             }
-            else if (DataBaseManager.NowPage_BlackWell == 2)
+            else if (DataBaseManager.NowPage_SewerGhostStory == 2)
             {
-                if (Count_BlackWell >= 6)
+                if (Count_SewerGhostStory >= 6)
                 {
-                    Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(4).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_SewerGhostStory();
+                    SewerGhostStoryContents.transform.GetChild(4).gameObject.SetActive(true);
+                    SewerGhostStoryContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 5)
+                else if (Count_SewerGhostStory >= 5)
                 {
-                    Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_SewerGhostStory();
+                    SewerGhostStoryContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_BlackWell = 3;
+                DataBaseManager.NowPage_SewerGhostStory = 3;
             }
         }
     }
@@ -151,65 +151,65 @@ public class Test : MonoBehaviour
     public void PrevPage()
     {
      
-        if (NowPage == "BlackWell")
+        if (NowPage == "SewerGhostStory")
         {
-            if (DataBaseManager.NowPage_BlackWell == 2)
+            if (DataBaseManager.NowPage_SewerGhostStory == 2)
             {
-                if (Count_BlackWell >= 6)
+                if (Count_SewerGhostStory >= 6)
                 {
-                    Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(0).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(1).gameObject.SetActive(true);
+                    Reset_SewerGhostStory();
+                    SewerGhostStoryContents.transform.GetChild(0).gameObject.SetActive(true);
+                    SewerGhostStoryContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 5)
+                else if (Count_SewerGhostStory >= 5)
                 {
-                    Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(1).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(2).gameObject.SetActive(true);
+                    Reset_SewerGhostStory();
+                    SewerGhostStoryContents.transform.GetChild(1).gameObject.SetActive(true);
+                    SewerGhostStoryContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 4)
+                else if (Count_SewerGhostStory >= 4)
                 {
-                    Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(2).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(3).gameObject.SetActive(true);
+                    Reset_SewerGhostStory();
+                    SewerGhostStoryContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SewerGhostStoryContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 3)
+                else if (Count_SewerGhostStory >= 3)
                 {
-                    Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(3).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(4).gameObject.SetActive(true);
+                    Reset_SewerGhostStory();
+                    SewerGhostStoryContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SewerGhostStoryContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_BlackWell = 1;
+                DataBaseManager.NowPage_SewerGhostStory = 1;
             }
-            else if (DataBaseManager.NowPage_BlackWell == 3)
+            else if (DataBaseManager.NowPage_SewerGhostStory == 3)
             {
-                if (Count_BlackWell >= 6)
+                if (Count_SewerGhostStory >= 6)
                 {
-                    Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(2).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(3).gameObject.SetActive(true);
+                    Reset_SewerGhostStory();
+                    SewerGhostStoryContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SewerGhostStoryContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 5)
+                else if (Count_SewerGhostStory >= 5)
                 {
-                    Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(3).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(4).gameObject.SetActive(true);
+                    Reset_SewerGhostStory();
+                    SewerGhostStoryContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SewerGhostStoryContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_BlackWell = 2;
+                DataBaseManager.NowPage_SewerGhostStory = 2;
             }
         }
     }
 
 
 
-    void Reset_BlackWell()
+    void Reset_SewerGhostStory()
     {
-        BlackWellContents.transform.GetChild(0).gameObject.SetActive(false);
-        BlackWellContents.transform.GetChild(1).gameObject.SetActive(false);
-        BlackWellContents.transform.GetChild(2).gameObject.SetActive(false);
-        BlackWellContents.transform.GetChild(3).gameObject.SetActive(false);
-        BlackWellContents.transform.GetChild(4).gameObject.SetActive(false);
-        BlackWellContents.transform.GetChild(5).gameObject.SetActive(false);
+        SewerGhostStoryContents.transform.GetChild(0).gameObject.SetActive(false);
+        SewerGhostStoryContents.transform.GetChild(1).gameObject.SetActive(false);
+        SewerGhostStoryContents.transform.GetChild(2).gameObject.SetActive(false);
+        SewerGhostStoryContents.transform.GetChild(3).gameObject.SetActive(false);
+        SewerGhostStoryContents.transform.GetChild(4).gameObject.SetActive(false);
+        SewerGhostStoryContents.transform.GetChild(5).gameObject.SetActive(false);
     }
 }
