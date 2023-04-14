@@ -100,6 +100,138 @@ public class IntelEventDetail : MonoBehaviour
     public GameObject NextButton_SewerGhostStory;
     public GameObject PrevButton_SewerGhostStory;
 
+    GameObject Detail_MissingPeople1;
+    GameObject Detail_MissingPeople2;
+    GameObject Detail_MissingPeople3;
+    GameObject Detail_MissingPeople4;
+    GameObject Detail_MissingPeople5;
+    GameObject Detail_MissingPeople6;
+    bool ON_MissingPeople1;
+    bool ON_MissingPeople2;
+    bool ON_MissingPeople3;
+    bool ON_MissingPeople4;
+    bool ON_MissingPeople5;
+    bool ON_MissingPeople6;
+    int Count_MissingPeople = 0;
+    public GameObject MissingPeopleContents;
+    public GameObject MissingPeople_Detail;
+    public static int MissingPeopleIntelInt;
+    public GameObject NextButton_MissingPeople;
+    public GameObject PrevButton_MissingPeople;
+
+    GameObject Detail_FishySmell1;
+    GameObject Detail_FishySmell2;
+    GameObject Detail_FishySmell3;
+    GameObject Detail_FishySmell4;
+    GameObject Detail_FishySmell5;
+    GameObject Detail_FishySmell6;
+    bool ON_FishySmell1;
+    bool ON_FishySmell2;
+    bool ON_FishySmell3;
+    bool ON_FishySmell4;
+    bool ON_FishySmell5;
+    bool ON_FishySmell6;
+    int Count_FishySmell = 0;
+    public GameObject FishySmellContents;
+    public GameObject FishySmell_Detail;
+    public static int FishySmellIntelInt;
+    public GameObject NextButton_FishySmell;
+    public GameObject PrevButton_FishySmell;
+
+    GameObject Detail_RiverWaterQuality1;
+    GameObject Detail_RiverWaterQuality2;
+    GameObject Detail_RiverWaterQuality3;
+    GameObject Detail_RiverWaterQuality4;
+    GameObject Detail_RiverWaterQuality5;
+    GameObject Detail_RiverWaterQuality6;
+    bool ON_RiverWaterQuality1;
+    bool ON_RiverWaterQuality2;
+    bool ON_RiverWaterQuality3;
+    bool ON_RiverWaterQuality4;
+    bool ON_RiverWaterQuality5;
+    bool ON_RiverWaterQuality6;
+    int Count_RiverWaterQuality = 0;
+    public GameObject RiverWaterQualityContents;
+    public GameObject RiverWaterQuality_Detail;
+    public static int RiverWaterQualityIntelInt;
+    public GameObject NextButton_RiverWaterQuality;
+    public GameObject PrevButton_RiverWaterQuality;
+
+    GameObject Detail_CreepyEyes1;
+    GameObject Detail_CreepyEyes2;
+    GameObject Detail_CreepyEyes3;
+    GameObject Detail_CreepyEyes4;
+    GameObject Detail_CreepyEyes5;
+    GameObject Detail_CreepyEyes6;
+    bool ON_CreepyEyes1;
+    bool ON_CreepyEyes2;
+    bool ON_CreepyEyes3;
+    bool ON_CreepyEyes4;
+    bool ON_CreepyEyes5;
+    bool ON_CreepyEyes6;
+    int Count_CreepyEyes = 0;
+    public GameObject CreepyEyesContents;
+    public GameObject CreepyEyes_Detail;
+    public static int CreepyEyesIntelInt;
+    public GameObject NextButton_CreepyEyes;
+    public GameObject PrevButton_CreepyEyes;
+
+    GameObject Detail_SewerWorker1;
+    GameObject Detail_SewerWorker2;
+    GameObject Detail_SewerWorker3;
+    GameObject Detail_SewerWorker4;
+    GameObject Detail_SewerWorker5;
+    GameObject Detail_SewerWorker6;
+    bool ON_SewerWorker1;
+    bool ON_SewerWorker2;
+    bool ON_SewerWorker3;
+    bool ON_SewerWorker4;
+    bool ON_SewerWorker5;
+    bool ON_SewerWorker6;
+    int Count_SewerWorker = 0;
+    public GameObject SewerWorkerContents;
+    public GameObject SewerWorker_Detail;
+    public static int SewerWorkerIntelInt;
+    public GameObject NextButton_SewerWorker;
+    public GameObject PrevButton_SewerWorker;
+
+    GameObject Detail_Safe1;
+    GameObject Detail_Safe2;
+    GameObject Detail_Safe3;
+    GameObject Detail_Safe4;
+    GameObject Detail_Safe5;
+    GameObject Detail_Safe6;
+    bool ON_Safe1;
+    bool ON_Safe2;
+    bool ON_Safe3;
+    bool ON_Safe4;
+    bool ON_Safe5;
+    bool ON_Safe6;
+    int Count_Safe = 0;
+    public GameObject SafeContents;
+    public GameObject Safe_Detail;
+    public static int SafeIntelInt;
+    public GameObject NextButton_Safe;
+    public GameObject PrevButton_Safe;
+
+    GameObject Detail_SuddenChange1;
+    GameObject Detail_SuddenChange2;
+    GameObject Detail_SuddenChange3;
+    GameObject Detail_SuddenChange4;
+    GameObject Detail_SuddenChange5;
+    GameObject Detail_SuddenChange6;
+    bool ON_SuddenChange1;
+    bool ON_SuddenChange2;
+    bool ON_SuddenChange3;
+    bool ON_SuddenChange4;
+    bool ON_SuddenChange5;
+    bool ON_SuddenChange6;
+    int Count_SuddenChange = 0;
+    public GameObject SuddenChangeContents;
+    public GameObject SuddenChange_Detail;
+    public static int SuddenChangeIntelInt;
+    public GameObject NextButton_SuddenChange;
+    public GameObject PrevButton_SuddenChange;
     void Awake()
     {
         setGameObecject();
@@ -141,6 +273,55 @@ public class IntelEventDetail : MonoBehaviour
         Detail_SewerGhostStory4 = SewerGhostStoryContents.transform.GetChild(3).gameObject;
         Detail_SewerGhostStory5 = SewerGhostStoryContents.transform.GetChild(4).gameObject;
         Detail_SewerGhostStory6 = SewerGhostStoryContents.transform.GetChild(5).gameObject;
+
+        Detail_MissingPeople1 = MissingPeopleContents.transform.GetChild(0).gameObject;
+        Detail_MissingPeople2 = MissingPeopleContents.transform.GetChild(1).gameObject;
+        Detail_MissingPeople3 = MissingPeopleContents.transform.GetChild(2).gameObject;
+        Detail_MissingPeople4 = MissingPeopleContents.transform.GetChild(3).gameObject;
+        Detail_MissingPeople5 = MissingPeopleContents.transform.GetChild(4).gameObject;
+        Detail_MissingPeople6 = MissingPeopleContents.transform.GetChild(5).gameObject;
+
+        Detail_FishySmell1 = FishySmellContents.transform.GetChild(0).gameObject;
+        Detail_FishySmell2 = FishySmellContents.transform.GetChild(1).gameObject;
+        Detail_FishySmell3 = FishySmellContents.transform.GetChild(2).gameObject;
+        Detail_FishySmell4 = FishySmellContents.transform.GetChild(3).gameObject;
+        Detail_FishySmell5 = FishySmellContents.transform.GetChild(4).gameObject;
+        Detail_FishySmell6 = FishySmellContents.transform.GetChild(5).gameObject;
+
+        Detail_RiverWaterQuality1 = RiverWaterQualityContents.transform.GetChild(0).gameObject;
+        Detail_RiverWaterQuality2 = RiverWaterQualityContents.transform.GetChild(1).gameObject;
+        Detail_RiverWaterQuality3 = RiverWaterQualityContents.transform.GetChild(2).gameObject;
+        Detail_RiverWaterQuality4 = RiverWaterQualityContents.transform.GetChild(3).gameObject;
+        Detail_RiverWaterQuality5 = RiverWaterQualityContents.transform.GetChild(4).gameObject;
+        Detail_RiverWaterQuality6 = RiverWaterQualityContents.transform.GetChild(5).gameObject;
+
+        Detail_CreepyEyes1 = CreepyEyesContents.transform.GetChild(0).gameObject;
+        Detail_CreepyEyes2 = CreepyEyesContents.transform.GetChild(1).gameObject;
+        Detail_CreepyEyes3 = CreepyEyesContents.transform.GetChild(2).gameObject;
+        Detail_CreepyEyes4 = CreepyEyesContents.transform.GetChild(3).gameObject;
+        Detail_CreepyEyes5 = CreepyEyesContents.transform.GetChild(4).gameObject;
+        Detail_CreepyEyes6 = CreepyEyesContents.transform.GetChild(5).gameObject;
+
+        Detail_SewerWorker1 = SewerWorkerContents.transform.GetChild(0).gameObject;
+        Detail_SewerWorker2 = SewerWorkerContents.transform.GetChild(1).gameObject;
+        Detail_SewerWorker3 = SewerWorkerContents.transform.GetChild(2).gameObject;
+        Detail_SewerWorker4 = SewerWorkerContents.transform.GetChild(3).gameObject;
+        Detail_SewerWorker5 = SewerWorkerContents.transform.GetChild(4).gameObject;
+        Detail_SewerWorker6 = SewerWorkerContents.transform.GetChild(5).gameObject;
+
+        Detail_Safe1 = SafeContents.transform.GetChild(0).gameObject;
+        Detail_Safe2 = SafeContents.transform.GetChild(1).gameObject;
+        Detail_Safe3 = SafeContents.transform.GetChild(2).gameObject;
+        Detail_Safe4 = SafeContents.transform.GetChild(3).gameObject;
+        Detail_Safe5 = SafeContents.transform.GetChild(4).gameObject;
+        Detail_Safe6 = SafeContents.transform.GetChild(5).gameObject;
+
+        Detail_SuddenChange1 = SuddenChangeContents.transform.GetChild(0).gameObject;
+        Detail_SuddenChange2 = SuddenChangeContents.transform.GetChild(1).gameObject;
+        Detail_SuddenChange3 = SuddenChangeContents.transform.GetChild(2).gameObject;
+        Detail_SuddenChange4 = SuddenChangeContents.transform.GetChild(3).gameObject;
+        Detail_SuddenChange5 = SuddenChangeContents.transform.GetChild(4).gameObject;
+        Detail_SuddenChange6 = SuddenChangeContents.transform.GetChild(5).gameObject;
     }
     // Start is called before the first frame update
     void Start()
@@ -156,7 +337,13 @@ public class IntelEventDetail : MonoBehaviour
         ParanoiaDetail();
         InsomniaDetail();
         SewerGhostStoryDetail();
-
+        MissingPeopleDetail();
+        FishySmellDetail();
+        RiverWaterQualityDetail();
+        CreepyEyesDetail();
+        SewerWorkerDetail();
+        SafeDetail();
+        SuddenChangeDetail();
         if (PlanetarySequence_Detail.activeSelf == true)
         {
             NowPage = "PlanetarySequence";
@@ -177,6 +364,35 @@ public class IntelEventDetail : MonoBehaviour
         {
             NowPage = "SewerGhostStory";
         }
+        if (MissingPeople_Detail.activeSelf == true)
+        {
+            NowPage = "MissingPeople";
+        }
+        if (FishySmell_Detail.activeSelf == true)
+        {
+            NowPage = "FishySmell";
+        }
+        if (RiverWaterQuality_Detail.activeSelf == true)
+        {
+            NowPage = "RiverWaterQuality";
+        }
+        if (CreepyEyes_Detail.activeSelf == true)
+        {
+            NowPage = "CreepyEyes";
+        }
+        if (SewerWorker_Detail.activeSelf == true)
+        {
+            NowPage = "SewerWorker";
+        }
+        if (Safe_Detail.activeSelf == true)
+        {
+            NowPage = "Safe";
+        }
+        if (SuddenChange_Detail.activeSelf == true)
+        {
+            NowPage = "SuddenChange";
+        }
+
     }
 
 
@@ -537,6 +753,508 @@ public class IntelEventDetail : MonoBehaviour
             PrevButton_SewerGhostStory.SetActive(false);
         }
     }
+    void MissingPeopleDetail()
+    {
+        if (ON_MissingPeople1 == false && DataBaseManager.Intel_MissingPeople1 == true)
+        {
+            ON_MissingPeople1 = true;
+            Detail_MissingPeople1.SetActive(true);
+            Detail_MissingPeople1.transform.SetAsLastSibling();
+            Count_MissingPeople += 1;
+        }
+        if (ON_MissingPeople2 == false && DataBaseManager.Intel_MissingPeople2 == true)
+        {
+            ON_MissingPeople2 = true;
+            Detail_MissingPeople2.SetActive(true);
+            Detail_MissingPeople2.transform.SetAsLastSibling();
+            Count_MissingPeople += 1;
+        }
+        if (ON_MissingPeople3 == false && DataBaseManager.Intel_MissingPeople3 == true)
+        {
+            ON_MissingPeople3 = true;
+            Detail_MissingPeople3.SetActive(true);
+            Detail_MissingPeople3.transform.SetAsLastSibling();
+            Count_MissingPeople += 1;
+        }
+        if (ON_MissingPeople4 == false && DataBaseManager.Intel_MissingPeople4 == true)
+        {
+            ON_MissingPeople4 = true;
+            Detail_MissingPeople4.SetActive(true);
+            Detail_MissingPeople4.transform.SetAsLastSibling();
+            Count_MissingPeople += 1;
+        }
+        if (ON_MissingPeople5 == false && DataBaseManager.Intel_MissingPeople5 == true)
+        {
+            ON_MissingPeople5 = true;
+            Detail_MissingPeople5.SetActive(true);
+            Detail_MissingPeople5.transform.SetAsLastSibling();
+            Count_MissingPeople += 1;
+        }
+        if (ON_MissingPeople6 == false && DataBaseManager.Intel_MissingPeople6 == true)
+        {
+            ON_MissingPeople6 = true;
+            Detail_MissingPeople6.SetActive(true);
+            Detail_MissingPeople6.transform.SetAsLastSibling();
+            Count_MissingPeople += 1;
+        }
+
+        if (Count_MissingPeople > 2 && DataBaseManager.NowPage_MissingPeople == 1)
+        {
+            NextButton_MissingPeople.SetActive(true);
+        }
+        else if (Count_MissingPeople > 4 && DataBaseManager.NowPage_MissingPeople == 2)
+        {
+            NextButton_MissingPeople.SetActive(true);
+        }
+        else
+        {
+            NextButton_MissingPeople.SetActive(false);
+        }
+
+        if (DataBaseManager.NowPage_MissingPeople == 2)
+        {
+            PrevButton_MissingPeople.SetActive(true);
+        }
+        else if (DataBaseManager.NowPage_MissingPeople
+            == 3)
+        {
+            PrevButton_MissingPeople.SetActive(true);
+        }
+        else
+        {
+            PrevButton_MissingPeople.SetActive(false);
+        }
+    }
+    void FishySmellDetail()
+    {
+        if (ON_FishySmell1 == false && DataBaseManager.Intel_FishySmell1 == true)
+        {
+            ON_FishySmell1 = true;
+            Detail_FishySmell1.SetActive(true);
+            Detail_FishySmell1.transform.SetAsLastSibling();
+            Count_FishySmell += 1;
+        }
+        if (ON_FishySmell2 == false && DataBaseManager.Intel_FishySmell2 == true)
+        {
+            ON_FishySmell2 = true;
+            Detail_FishySmell2.SetActive(true);
+            Detail_FishySmell2.transform.SetAsLastSibling();
+            Count_FishySmell += 1;
+        }
+        if (ON_FishySmell3 == false && DataBaseManager.Intel_FishySmell3 == true)
+        {
+            ON_FishySmell3 = true;
+            Detail_FishySmell3.SetActive(true);
+            Detail_FishySmell3.transform.SetAsLastSibling();
+            Count_FishySmell += 1;
+        }
+        if (ON_FishySmell4 == false && DataBaseManager.Intel_FishySmell4 == true)
+        {
+            ON_FishySmell4 = true;
+            Detail_FishySmell4.SetActive(true);
+            Detail_FishySmell4.transform.SetAsLastSibling();
+            Count_FishySmell += 1;
+        }
+        if (ON_FishySmell5 == false && DataBaseManager.Intel_FishySmell5 == true)
+        {
+            ON_FishySmell5 = true;
+            Detail_FishySmell5.SetActive(true);
+            Detail_FishySmell5.transform.SetAsLastSibling();
+            Count_FishySmell += 1;
+        }
+        if (ON_FishySmell6 == false && DataBaseManager.Intel_FishySmell6 == true)
+        {
+            ON_FishySmell6 = true;
+            Detail_FishySmell6.SetActive(true);
+            Detail_FishySmell6.transform.SetAsLastSibling();
+            Count_FishySmell += 1;
+        }
+
+        if (Count_FishySmell > 2 && DataBaseManager.NowPage_FishySmell == 1)
+        {
+            NextButton_FishySmell.SetActive(true);
+        }
+        else if (Count_FishySmell > 4 && DataBaseManager.NowPage_FishySmell == 2)
+        {
+            NextButton_FishySmell.SetActive(true);
+        }
+        else
+        {
+            NextButton_FishySmell.SetActive(false);
+        }
+
+        if (DataBaseManager.NowPage_FishySmell == 2)
+        {
+            PrevButton_FishySmell.SetActive(true);
+        }
+        else if (DataBaseManager.NowPage_FishySmell
+            == 3)
+        {
+            PrevButton_FishySmell.SetActive(true);
+        }
+        else
+        {
+            PrevButton_FishySmell.SetActive(false);
+        }
+    }
+    void RiverWaterQualityDetail()
+    {
+        if (ON_RiverWaterQuality1 == false && DataBaseManager.Intel_RiverWaterQuality1 == true)
+        {
+            ON_RiverWaterQuality1 = true;
+            Detail_RiverWaterQuality1.SetActive(true);
+            Detail_RiverWaterQuality1.transform.SetAsLastSibling();
+            Count_RiverWaterQuality += 1;
+        }
+        if (ON_RiverWaterQuality2 == false && DataBaseManager.Intel_RiverWaterQuality2 == true)
+        {
+            ON_RiverWaterQuality2 = true;
+            Detail_RiverWaterQuality2.SetActive(true);
+            Detail_RiverWaterQuality2.transform.SetAsLastSibling();
+            Count_RiverWaterQuality += 1;
+        }
+        if (ON_RiverWaterQuality3 == false && DataBaseManager.Intel_RiverWaterQuality3 == true)
+        {
+            ON_RiverWaterQuality3 = true;
+            Detail_RiverWaterQuality3.SetActive(true);
+            Detail_RiverWaterQuality3.transform.SetAsLastSibling();
+            Count_RiverWaterQuality += 1;
+        }
+        if (ON_RiverWaterQuality4 == false && DataBaseManager.Intel_RiverWaterQuality4 == true)
+        {
+            ON_RiverWaterQuality4 = true;
+            Detail_RiverWaterQuality4.SetActive(true);
+            Detail_RiverWaterQuality4.transform.SetAsLastSibling();
+            Count_RiverWaterQuality += 1;
+        }
+        if (ON_RiverWaterQuality5 == false && DataBaseManager.Intel_RiverWaterQuality5 == true)
+        {
+            ON_RiverWaterQuality5 = true;
+            Detail_RiverWaterQuality5.SetActive(true);
+            Detail_RiverWaterQuality5.transform.SetAsLastSibling();
+            Count_RiverWaterQuality += 1;
+        }
+        if (ON_RiverWaterQuality6 == false && DataBaseManager.Intel_RiverWaterQuality6 == true)
+        {
+            ON_RiverWaterQuality6 = true;
+            Detail_RiverWaterQuality6.SetActive(true);
+            Detail_RiverWaterQuality6.transform.SetAsLastSibling();
+            Count_RiverWaterQuality += 1;
+        }
+
+        if (Count_RiverWaterQuality > 2 && DataBaseManager.NowPage_RiverWaterQuality == 1)
+        {
+            NextButton_RiverWaterQuality.SetActive(true);
+        }
+        else if (Count_RiverWaterQuality > 4 && DataBaseManager.NowPage_RiverWaterQuality == 2)
+        {
+            NextButton_RiverWaterQuality.SetActive(true);
+        }
+        else
+        {
+            NextButton_RiverWaterQuality.SetActive(false);
+        }
+
+        if (DataBaseManager.NowPage_RiverWaterQuality == 2)
+        {
+            PrevButton_RiverWaterQuality.SetActive(true);
+        }
+        else if (DataBaseManager.NowPage_RiverWaterQuality
+            == 3)
+        {
+            PrevButton_RiverWaterQuality.SetActive(true);
+        }
+        else
+        {
+            PrevButton_RiverWaterQuality.SetActive(false);
+        }
+    }
+    void CreepyEyesDetail()
+    {
+        if (ON_CreepyEyes1 == false && DataBaseManager.Intel_CreepyEyes1 == true)
+        {
+            ON_CreepyEyes1 = true;
+            Detail_CreepyEyes1.SetActive(true);
+            Detail_CreepyEyes1.transform.SetAsLastSibling();
+            Count_CreepyEyes += 1;
+        }
+        if (ON_CreepyEyes2 == false && DataBaseManager.Intel_CreepyEyes2 == true)
+        {
+            ON_CreepyEyes2 = true;
+            Detail_CreepyEyes2.SetActive(true);
+            Detail_CreepyEyes2.transform.SetAsLastSibling();
+            Count_CreepyEyes += 1;
+        }
+        if (ON_CreepyEyes3 == false && DataBaseManager.Intel_CreepyEyes3 == true)
+        {
+            ON_CreepyEyes3 = true;
+            Detail_CreepyEyes3.SetActive(true);
+            Detail_CreepyEyes3.transform.SetAsLastSibling();
+            Count_CreepyEyes += 1;
+        }
+        if (ON_CreepyEyes4 == false && DataBaseManager.Intel_CreepyEyes4 == true)
+        {
+            ON_CreepyEyes4 = true;
+            Detail_CreepyEyes4.SetActive(true);
+            Detail_CreepyEyes4.transform.SetAsLastSibling();
+            Count_CreepyEyes += 1;
+        }
+        if (ON_CreepyEyes5 == false && DataBaseManager.Intel_CreepyEyes5 == true)
+        {
+            ON_CreepyEyes5 = true;
+            Detail_CreepyEyes5.SetActive(true);
+            Detail_CreepyEyes5.transform.SetAsLastSibling();
+            Count_CreepyEyes += 1;
+        }
+        if (ON_CreepyEyes6 == false && DataBaseManager.Intel_CreepyEyes6 == true)
+        {
+            ON_CreepyEyes6 = true;
+            Detail_CreepyEyes6.SetActive(true);
+            Detail_CreepyEyes6.transform.SetAsLastSibling();
+            Count_CreepyEyes += 1;
+        }
+
+        if (Count_CreepyEyes > 2 && DataBaseManager.NowPage_CreepyEyes == 1)
+        {
+            NextButton_CreepyEyes.SetActive(true);
+        }
+        else if (Count_CreepyEyes > 4 && DataBaseManager.NowPage_CreepyEyes == 2)
+        {
+            NextButton_CreepyEyes.SetActive(true);
+        }
+        else
+        {
+            NextButton_CreepyEyes.SetActive(false);
+        }
+
+        if (DataBaseManager.NowPage_CreepyEyes == 2)
+        {
+            PrevButton_CreepyEyes.SetActive(true);
+        }
+        else if (DataBaseManager.NowPage_CreepyEyes == 3)
+        {
+            PrevButton_CreepyEyes.SetActive(true);
+        }
+        else
+        {
+            PrevButton_CreepyEyes.SetActive(false);
+        }
+    }
+    void SewerWorkerDetail()
+    {
+        if (ON_SewerWorker1 == false && DataBaseManager.Intel_SewerWorker1 == true)
+        {
+            ON_SewerWorker1 = true;
+            Detail_SewerWorker1.SetActive(true);
+            Detail_SewerWorker1.transform.SetAsLastSibling();
+            Count_SewerWorker += 1;
+        }
+        if (ON_SewerWorker2 == false && DataBaseManager.Intel_SewerWorker2 == true)
+        {
+            ON_SewerWorker2 = true;
+            Detail_SewerWorker2.SetActive(true);
+            Detail_SewerWorker2.transform.SetAsLastSibling();
+            Count_SewerWorker += 1;
+        }
+        if (ON_SewerWorker3 == false && DataBaseManager.Intel_SewerWorker3 == true)
+        {
+            ON_SewerWorker3 = true;
+            Detail_SewerWorker3.SetActive(true);
+            Detail_SewerWorker3.transform.SetAsLastSibling();
+            Count_SewerWorker += 1;
+        }
+        if (ON_SewerWorker4 == false && DataBaseManager.Intel_SewerWorker4 == true)
+        {
+            ON_SewerWorker4 = true;
+            Detail_SewerWorker4.SetActive(true);
+            Detail_SewerWorker4.transform.SetAsLastSibling();
+            Count_SewerWorker += 1;
+        }
+        if (ON_SewerWorker5 == false && DataBaseManager.Intel_SewerWorker5 == true)
+        {
+            ON_SewerWorker5 = true;
+            Detail_SewerWorker5.SetActive(true);
+            Detail_SewerWorker5.transform.SetAsLastSibling();
+            Count_SewerWorker += 1;
+        }
+        if (ON_SewerWorker6 == false && DataBaseManager.Intel_SewerWorker6 == true)
+        {
+            ON_SewerWorker6 = true;
+            Detail_SewerWorker6.SetActive(true);
+            Detail_SewerWorker6.transform.SetAsLastSibling();
+            Count_SewerWorker += 1;
+        }
+
+        if (Count_SewerWorker > 2 && DataBaseManager.NowPage_SewerWorker == 1)
+        {
+            NextButton_SewerWorker.SetActive(true);
+        }
+        else if (Count_SewerWorker > 4 && DataBaseManager.NowPage_SewerWorker == 2)
+        {
+            NextButton_SewerWorker.SetActive(true);
+        }
+        else
+        {
+            NextButton_SewerWorker.SetActive(false);
+        }
+
+        if (DataBaseManager.NowPage_SewerWorker == 2)
+        {
+            PrevButton_SewerWorker.SetActive(true);
+        }
+        else if (DataBaseManager.NowPage_SewerWorker == 3)
+        {
+            PrevButton_SewerWorker.SetActive(true);
+        }
+        else
+        {
+            PrevButton_SewerWorker.SetActive(false);
+        }
+    }
+    void SafeDetail()
+    {
+        if (ON_Safe1 == false && DataBaseManager.Intel_Safe1 == true)
+        {
+            ON_Safe1 = true;
+            Detail_Safe1.SetActive(true);
+            Detail_Safe1.transform.SetAsLastSibling();
+            Count_Safe += 1;
+        }
+        if (ON_Safe2 == false && DataBaseManager.Intel_Safe2 == true)
+        {
+            ON_Safe2 = true;
+            Detail_Safe2.SetActive(true);
+            Detail_Safe2.transform.SetAsLastSibling();
+            Count_Safe += 1;
+        }
+        if (ON_Safe3 == false && DataBaseManager.Intel_Safe3 == true)
+        {
+            ON_Safe3 = true;
+            Detail_Safe3.SetActive(true);
+            Detail_Safe3.transform.SetAsLastSibling();
+            Count_Safe += 1;
+        }
+        if (ON_Safe4 == false && DataBaseManager.Intel_Safe4 == true)
+        {
+            ON_Safe4 = true;
+            Detail_Safe4.SetActive(true);
+            Detail_Safe4.transform.SetAsLastSibling();
+            Count_Safe += 1;
+        }
+        if (ON_Safe5 == false && DataBaseManager.Intel_Safe5 == true)
+        {
+            ON_Safe5 = true;
+            Detail_Safe5.SetActive(true);
+            Detail_Safe5.transform.SetAsLastSibling();
+            Count_Safe += 1;
+        }
+        if (ON_Safe6 == false && DataBaseManager.Intel_Safe6 == true)
+        {
+            ON_Safe6 = true;
+            Detail_Safe6.SetActive(true);
+            Detail_Safe6.transform.SetAsLastSibling();
+            Count_Safe += 1;
+        }
+
+        if (Count_Safe > 2 && DataBaseManager.NowPage_Safe == 1)
+        {
+            NextButton_Safe.SetActive(true);
+        }
+        else if (Count_Safe > 4 && DataBaseManager.NowPage_Safe == 2)
+        {
+            NextButton_Safe.SetActive(true);
+        }
+        else
+        {
+            NextButton_Safe.SetActive(false);
+        }
+
+        if (DataBaseManager.NowPage_Safe == 2)
+        {
+            PrevButton_Safe.SetActive(true);
+        }
+        else if (DataBaseManager.NowPage_Safe == 3)
+        {
+            PrevButton_Safe.SetActive(true);
+        }
+        else
+        {
+            PrevButton_Safe.SetActive(false);
+        }
+    }
+    void SuddenChangeDetail()
+    {
+        if (ON_SuddenChange1 == false && DataBaseManager.Intel_SuddenChange1 == true)
+        {
+            ON_SuddenChange1 = true;
+            Detail_SuddenChange1.SetActive(true);
+            Detail_SuddenChange1.transform.SetAsLastSibling();
+            Count_SuddenChange += 1;
+        }
+        if (ON_SuddenChange2 == false && DataBaseManager.Intel_SuddenChange2 == true)
+        {
+            ON_SuddenChange2 = true;
+            Detail_SuddenChange2.SetActive(true);
+            Detail_SuddenChange2.transform.SetAsLastSibling();
+            Count_SuddenChange += 1;
+        }
+        if (ON_SuddenChange3 == false && DataBaseManager.Intel_SuddenChange3 == true)
+        {
+            ON_SuddenChange3 = true;
+            Detail_SuddenChange3.SetActive(true);
+            Detail_SuddenChange3.transform.SetAsLastSibling();
+            Count_SuddenChange += 1;
+        }
+        if (ON_SuddenChange4 == false && DataBaseManager.Intel_SuddenChange4 == true)
+        {
+            ON_SuddenChange4 = true;
+            Detail_SuddenChange4.SetActive(true);
+            Detail_SuddenChange4.transform.SetAsLastSibling();
+            Count_SuddenChange += 1;
+        }
+        if (ON_SuddenChange5 == false && DataBaseManager.Intel_SuddenChange5 == true)
+        {
+            ON_SuddenChange5 = true;
+            Detail_SuddenChange5.SetActive(true);
+            Detail_SuddenChange5.transform.SetAsLastSibling();
+            Count_SuddenChange += 1;
+        }
+        if (ON_SuddenChange6 == false && DataBaseManager.Intel_SuddenChange6 == true)
+        {
+            ON_SuddenChange6 = true;
+            Detail_SuddenChange6.SetActive(true);
+            Detail_SuddenChange6.transform.SetAsLastSibling();
+            Count_SuddenChange += 1;
+        }
+
+        if (Count_SuddenChange > 2 && DataBaseManager.NowPage_SuddenChange == 1)
+        {
+            NextButton_SuddenChange.SetActive(true);
+        }
+        else if (Count_SuddenChange > 4 && DataBaseManager.NowPage_SuddenChange == 2)
+        {
+            NextButton_SuddenChange.SetActive(true);
+        }
+        else
+        {
+            NextButton_SuddenChange.SetActive(false);
+        }
+
+        if (DataBaseManager.NowPage_SuddenChange == 2)
+        {
+            PrevButton_SuddenChange.SetActive(true);
+        }
+        else if (DataBaseManager.NowPage_SuddenChange == 3)
+        {
+            PrevButton_SuddenChange.SetActive(true);
+        }
+        else
+        {
+            PrevButton_SuddenChange.SetActive(false);
+        }
+    }
+
+
     public void NextPage()
     {
         if (NowPage == "PlanetarySequence")
@@ -764,7 +1482,321 @@ public class IntelEventDetail : MonoBehaviour
                 DataBaseManager.NowPage_SewerGhostStory = 3;
             }
         }
-
+        if (NowPage == "MissingPeople")
+        {
+            if (DataBaseManager.NowPage_MissingPeople == 1)
+            {
+                if (Count_MissingPeople >= 6)
+                {
+                    Reset_MissingPeople();
+                    MissingPeopleContents.transform.GetChild(2).gameObject.SetActive(true);
+                    MissingPeopleContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_MissingPeople >= 5)
+                {
+                    Reset_MissingPeople();
+                    MissingPeopleContents.transform.GetChild(3).gameObject.SetActive(true);
+                    MissingPeopleContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                else if (Count_MissingPeople >= 4)
+                {
+                    Reset_MissingPeople();
+                    MissingPeopleContents.transform.GetChild(4).gameObject.SetActive(true);
+                    MissingPeopleContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_MissingPeople >= 3)
+                {
+                    Reset_MissingPeople();
+                    MissingPeopleContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_MissingPeople = 2;
+            }
+            else if (DataBaseManager.NowPage_MissingPeople == 2)
+            {
+                if (Count_MissingPeople >= 6)
+                {
+                    Reset_MissingPeople();
+                    MissingPeopleContents.transform.GetChild(4).gameObject.SetActive(true);
+                    MissingPeopleContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_MissingPeople >= 5)
+                {
+                    Reset_MissingPeople();
+                    MissingPeopleContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_MissingPeople = 3;
+            }
+        }
+        if (NowPage == "FishySmell")
+        {
+            if (DataBaseManager.NowPage_FishySmell == 1)
+            {
+                if (Count_FishySmell >= 6)
+                {
+                    Reset_FishySmell();
+                    FishySmellContents.transform.GetChild(2).gameObject.SetActive(true);
+                    FishySmellContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_FishySmell >= 5)
+                {
+                    Reset_FishySmell();
+                    FishySmellContents.transform.GetChild(3).gameObject.SetActive(true);
+                    FishySmellContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                else if (Count_FishySmell >= 4)
+                {
+                    Reset_FishySmell();
+                    FishySmellContents.transform.GetChild(4).gameObject.SetActive(true);
+                    FishySmellContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_FishySmell >= 3)
+                {
+                    Reset_FishySmell();
+                    FishySmellContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_FishySmell = 2;
+            }
+            else if (DataBaseManager.NowPage_FishySmell == 2)
+            {
+                if (Count_FishySmell >= 6)
+                {
+                    Reset_FishySmell();
+                    FishySmellContents.transform.GetChild(4).gameObject.SetActive(true);
+                    FishySmellContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_FishySmell >= 5)
+                {
+                    Reset_FishySmell();
+                    FishySmellContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_FishySmell = 3;
+            }
+        }
+        if (NowPage == "RiverWaterQuality")
+        {
+            if (DataBaseManager.NowPage_RiverWaterQuality == 1)
+            {
+                if (Count_RiverWaterQuality >= 6)
+                {
+                    Reset_RiverWaterQuality();
+                    RiverWaterQualityContents.transform.GetChild(2).gameObject.SetActive(true);
+                    RiverWaterQualityContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_RiverWaterQuality >= 5)
+                {
+                    Reset_RiverWaterQuality();
+                    RiverWaterQualityContents.transform.GetChild(3).gameObject.SetActive(true);
+                    RiverWaterQualityContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                else if (Count_RiverWaterQuality >= 4)
+                {
+                    Reset_RiverWaterQuality();
+                    RiverWaterQualityContents.transform.GetChild(4).gameObject.SetActive(true);
+                    RiverWaterQualityContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_RiverWaterQuality >= 3)
+                {
+                    Reset_RiverWaterQuality();
+                    RiverWaterQualityContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_RiverWaterQuality = 2;
+            }
+            else if (DataBaseManager.NowPage_RiverWaterQuality == 2)
+            {
+                if (Count_RiverWaterQuality >= 6)
+                {
+                    Reset_RiverWaterQuality();
+                    RiverWaterQualityContents.transform.GetChild(4).gameObject.SetActive(true);
+                    RiverWaterQualityContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_RiverWaterQuality >= 5)
+                {
+                    Reset_RiverWaterQuality();
+                    RiverWaterQualityContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_RiverWaterQuality = 3;
+            }
+        }
+        if (NowPage == "CreepyEyes")
+        {
+            if (DataBaseManager.NowPage_CreepyEyes == 1)
+            {
+                if (Count_CreepyEyes >= 6)
+                {
+                    Reset_CreepyEyes();
+                    CreepyEyesContents.transform.GetChild(2).gameObject.SetActive(true);
+                    CreepyEyesContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_CreepyEyes >= 5)
+                {
+                    Reset_CreepyEyes();
+                    CreepyEyesContents.transform.GetChild(3).gameObject.SetActive(true);
+                    CreepyEyesContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                else if (Count_CreepyEyes >= 4)
+                {
+                    Reset_CreepyEyes();
+                    CreepyEyesContents.transform.GetChild(4).gameObject.SetActive(true);
+                    CreepyEyesContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_CreepyEyes >= 3)
+                {
+                    Reset_CreepyEyes();
+                    CreepyEyesContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_CreepyEyes = 2;
+            }
+            else if (DataBaseManager.NowPage_CreepyEyes == 2)
+            {
+                if (Count_CreepyEyes >= 6)
+                {
+                    Reset_CreepyEyes();
+                    CreepyEyesContents.transform.GetChild(4).gameObject.SetActive(true);
+                    CreepyEyesContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_CreepyEyes >= 5)
+                {
+                    Reset_CreepyEyes();
+                    CreepyEyesContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_CreepyEyes = 3;
+            }
+        }
+        if (NowPage == "SewerWorker")
+        {
+            if (DataBaseManager.NowPage_SewerWorker == 1)
+            {
+                if (Count_SewerWorker >= 6)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 5)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 4)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 3)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_SewerWorker = 2;
+            }
+            else if (DataBaseManager.NowPage_SewerWorker == 2)
+            {
+                if (Count_SewerWorker >= 6)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 5)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_SewerWorker = 3;
+            }
+        }
+        if (NowPage == "Safe")
+        {
+            if (DataBaseManager.NowPage_Safe == 1)
+            {
+                if (Count_Safe >= 6)
+                {
+                    Reset_Safe();
+                    SafeContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SafeContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_Safe >= 5)
+                {
+                    Reset_Safe();
+                    SafeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SafeContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                else if (Count_Safe >= 4)
+                {
+                    Reset_Safe();
+                    SafeContents.transform.GetChild(4).gameObject.SetActive(true);
+                    SafeContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_Safe >= 3)
+                {
+                    Reset_Safe();
+                    SafeContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_Safe = 2;
+            }
+            else if (DataBaseManager.NowPage_Safe == 2)
+            {
+                if (Count_Safe >= 6)
+                {
+                    Reset_Safe();
+                    SafeContents.transform.GetChild(4).gameObject.SetActive(true);
+                    SafeContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_Safe >= 5)
+                {
+                    Reset_Safe();
+                    SafeContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_Safe = 3;
+            }
+        }
+        if (NowPage == "SuddenChange")
+        {
+            if (DataBaseManager.NowPage_SuddenChange == 1)
+            {
+                if (Count_SuddenChange >= 6)
+                {
+                    Reset_SuddenChange();
+                    SuddenChangeContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_SuddenChange >= 5)
+                {
+                    Reset_SuddenChange();
+                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                else if (Count_SuddenChange >= 4)
+                {
+                    Reset_SuddenChange();
+                    SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(true);
+                    SuddenChangeContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_SuddenChange >= 3)
+                {
+                    Reset_SuddenChange();
+                    SuddenChangeContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_SuddenChange = 2;
+            }
+            else if (DataBaseManager.NowPage_SuddenChange == 2)
+            {
+                if (Count_SuddenChange >= 6)
+                {
+                    Reset_SuddenChange();
+                    SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(true);
+                    SuddenChangeContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_SuddenChange >= 5)
+                {
+                    Reset_SuddenChange();
+                    SuddenChangeContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_SuddenChange = 3;
+            }
+        }
     }
     public void PrevPage()
     {
@@ -1008,7 +2040,342 @@ public class IntelEventDetail : MonoBehaviour
                 DataBaseManager.NowPage_SewerGhostStory = 2;
             }
         }
+        if (NowPage == "MissingPeople")
+        {
+            if (DataBaseManager.NowPage_MissingPeople == 2)
+            {
+                if (Count_MissingPeople >= 6)
+                {
+                    Reset_MissingPeople();
+                    MissingPeopleContents.transform.GetChild(0).gameObject.SetActive(true);
+                    MissingPeopleContents.transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else if (Count_MissingPeople >= 5)
+                {
+                    Reset_MissingPeople();
+                    MissingPeopleContents.transform.GetChild(1).gameObject.SetActive(true);
+                    MissingPeopleContents.transform.GetChild(2).gameObject.SetActive(true);
+                }
+                else if (Count_MissingPeople >= 4)
+                {
+                    Reset_MissingPeople();
+                    MissingPeopleContents.transform.GetChild(2).gameObject.SetActive(true);
+                    MissingPeopleContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_MissingPeople >= 3)
+                {
+                    Reset_MissingPeople();
+                    MissingPeopleContents.transform.GetChild(3).gameObject.SetActive(true);
+                    MissingPeopleContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
 
+                DataBaseManager.NowPage_MissingPeople = 1;
+            }
+            else if (DataBaseManager.NowPage_MissingPeople == 3)
+            {
+                if (Count_MissingPeople >= 6)
+                {
+                    Reset_MissingPeople();
+                    MissingPeopleContents.transform.GetChild(2).gameObject.SetActive(true);
+                    MissingPeopleContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_MissingPeople >= 5)
+                {
+                    Reset_MissingPeople();
+                    MissingPeopleContents.transform.GetChild(3).gameObject.SetActive(true);
+                    MissingPeopleContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_MissingPeople = 2;
+            }
+        }
+        if (NowPage == "FishySmell")
+        {
+            if (DataBaseManager.NowPage_FishySmell == 2)
+            {
+                if (Count_FishySmell >= 6)
+                {
+                    Reset_FishySmell();
+                    FishySmellContents.transform.GetChild(0).gameObject.SetActive(true);
+                    FishySmellContents.transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else if (Count_FishySmell >= 5)
+                {
+                    Reset_FishySmell();
+                    FishySmellContents.transform.GetChild(1).gameObject.SetActive(true);
+                    FishySmellContents.transform.GetChild(2).gameObject.SetActive(true);
+                }
+                else if (Count_FishySmell >= 4)
+                {
+                    Reset_FishySmell();
+                    FishySmellContents.transform.GetChild(2).gameObject.SetActive(true);
+                    FishySmellContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_FishySmell >= 3)
+                {
+                    Reset_FishySmell();
+                    FishySmellContents.transform.GetChild(3).gameObject.SetActive(true);
+                    FishySmellContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+
+                DataBaseManager.NowPage_FishySmell = 1;
+            }
+            else if (DataBaseManager.NowPage_FishySmell == 3)
+            {
+                if (Count_FishySmell >= 6)
+                {
+                    Reset_FishySmell();
+                    FishySmellContents.transform.GetChild(2).gameObject.SetActive(true);
+                    FishySmellContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_FishySmell >= 5)
+                {
+                    Reset_FishySmell();
+                    FishySmellContents.transform.GetChild(3).gameObject.SetActive(true);
+                    FishySmellContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_FishySmell = 2;
+            }
+        }
+        if (NowPage == "RiverWaterQuality")
+        {
+            if (DataBaseManager.NowPage_RiverWaterQuality == 2)
+            {
+                if (Count_RiverWaterQuality >= 6)
+                {
+                    Reset_RiverWaterQuality();
+                    RiverWaterQualityContents.transform.GetChild(0).gameObject.SetActive(true);
+                    RiverWaterQualityContents.transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else if (Count_RiverWaterQuality >= 5)
+                {
+                    Reset_RiverWaterQuality();
+                    RiverWaterQualityContents.transform.GetChild(1).gameObject.SetActive(true);
+                    RiverWaterQualityContents.transform.GetChild(2).gameObject.SetActive(true);
+                }
+                else if (Count_RiverWaterQuality >= 4)
+                {
+                    Reset_RiverWaterQuality();
+                    RiverWaterQualityContents.transform.GetChild(2).gameObject.SetActive(true);
+                    RiverWaterQualityContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_RiverWaterQuality >= 3)
+                {
+                    Reset_RiverWaterQuality();
+                    RiverWaterQualityContents.transform.GetChild(3).gameObject.SetActive(true);
+                    RiverWaterQualityContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+
+                DataBaseManager.NowPage_RiverWaterQuality = 1;
+            }
+            else if (DataBaseManager.NowPage_RiverWaterQuality == 3)
+            {
+                if (Count_RiverWaterQuality >= 6)
+                {
+                    Reset_RiverWaterQuality();
+                    RiverWaterQualityContents.transform.GetChild(2).gameObject.SetActive(true);
+                    RiverWaterQualityContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_RiverWaterQuality >= 5)
+                {
+                    Reset_RiverWaterQuality();
+                    RiverWaterQualityContents.transform.GetChild(3).gameObject.SetActive(true);
+                    RiverWaterQualityContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_RiverWaterQuality = 2;
+            }
+        }
+        if (NowPage == "CreepyEyes")
+        {
+            if (DataBaseManager.NowPage_CreepyEyes == 2)
+            {
+                if (Count_CreepyEyes >= 6)
+                {
+                    Reset_CreepyEyes();
+                    CreepyEyesContents.transform.GetChild(0).gameObject.SetActive(true);
+                    CreepyEyesContents.transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else if (Count_CreepyEyes >= 5)
+                {
+                    Reset_CreepyEyes();
+                    CreepyEyesContents.transform.GetChild(1).gameObject.SetActive(true);
+                    CreepyEyesContents.transform.GetChild(2).gameObject.SetActive(true);
+                }
+                else if (Count_CreepyEyes >= 4)
+                {
+                    Reset_CreepyEyes();
+                    CreepyEyesContents.transform.GetChild(2).gameObject.SetActive(true);
+                    CreepyEyesContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_CreepyEyes >= 3)
+                {
+                    Reset_CreepyEyes();
+                    CreepyEyesContents.transform.GetChild(3).gameObject.SetActive(true);
+                    CreepyEyesContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+
+                DataBaseManager.NowPage_CreepyEyes = 1;
+            }
+            else if (DataBaseManager.NowPage_CreepyEyes == 3)
+            {
+                if (Count_CreepyEyes >= 6)
+                {
+                    Reset_CreepyEyes();
+                    CreepyEyesContents.transform.GetChild(2).gameObject.SetActive(true);
+                    CreepyEyesContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_CreepyEyes >= 5)
+                {
+                    Reset_CreepyEyes();
+                    CreepyEyesContents.transform.GetChild(3).gameObject.SetActive(true);
+                    CreepyEyesContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_CreepyEyes = 2;
+            }
+        }
+        if (NowPage == "SewerWorker")
+        {
+            if (DataBaseManager.NowPage_SewerWorker == 2)
+            {
+                if (Count_SewerWorker >= 6)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(0).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 5)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(1).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 4)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 3)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+
+                DataBaseManager.NowPage_SewerWorker = 1;
+            }
+            else if (DataBaseManager.NowPage_SewerWorker == 3)
+            {
+                if (Count_SewerWorker >= 6)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 5)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_SewerWorker = 2;
+            }
+        }
+        if (NowPage == "Safe")
+        {
+            if (DataBaseManager.NowPage_Safe == 2)
+            {
+                if (Count_Safe >= 6)
+                {
+                    Reset_Safe();
+                    SafeContents.transform.GetChild(0).gameObject.SetActive(true);
+                    SafeContents.transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else if (Count_Safe >= 5)
+                {
+                    Reset_Safe();
+                    SafeContents.transform.GetChild(1).gameObject.SetActive(true);
+                    SafeContents.transform.GetChild(2).gameObject.SetActive(true);
+                }
+                else if (Count_Safe >= 4)
+                {
+                    Reset_Safe();
+                    SafeContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SafeContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_Safe >= 3)
+                {
+                    Reset_Safe();
+                    SafeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SafeContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+
+                DataBaseManager.NowPage_Safe = 1;
+            }
+            else if (DataBaseManager.NowPage_Safe == 3)
+            {
+                if (Count_Safe >= 6)
+                {
+                    Reset_Safe();
+                    SafeContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SafeContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_Safe >= 5)
+                {
+                    Reset_Safe();
+                    SafeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SafeContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_Safe = 2;
+            }
+        }
+        if (NowPage == "SuddenChange")
+        {
+            if (DataBaseManager.NowPage_SuddenChange == 2)
+            {
+                if (Count_SuddenChange >= 6)
+                {
+                    Reset_SuddenChange();
+                    SuddenChangeContents.transform.GetChild(0).gameObject.SetActive(true);
+                    SuddenChangeContents.transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else if (Count_SuddenChange >= 5)
+                {
+                    Reset_SuddenChange();
+                    SuddenChangeContents.transform.GetChild(1).gameObject.SetActive(true);
+                    SuddenChangeContents.transform.GetChild(2).gameObject.SetActive(true);
+                }
+                else if (Count_SuddenChange >= 4)
+                {
+                    Reset_SuddenChange();
+                    SuddenChangeContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_SuddenChange >= 3)
+                {
+                    Reset_SuddenChange();
+                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+
+                DataBaseManager.NowPage_SuddenChange = 1;
+            }
+            else if (DataBaseManager.NowPage_SuddenChange == 3)
+            {
+                if (Count_SuddenChange >= 6)
+                {
+                    Reset_SuddenChange();
+                    SuddenChangeContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_SuddenChange >= 5)
+                {
+                    Reset_SuddenChange();
+                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_SuddenChange = 2;
+            }
+        }
     }
 
     void Reset_PlanetarySequence()
@@ -1055,6 +2422,147 @@ public class IntelEventDetail : MonoBehaviour
         SewerGhostStoryContents.transform.GetChild(3).gameObject.SetActive(false);
         SewerGhostStoryContents.transform.GetChild(4).gameObject.SetActive(false);
         SewerGhostStoryContents.transform.GetChild(5).gameObject.SetActive(false);
+    }
+    void Reset_MissingPeople()
+    {
+        MissingPeopleContents.transform.GetChild(0).gameObject.SetActive(false);
+        MissingPeopleContents.transform.GetChild(1).gameObject.SetActive(false);
+        MissingPeopleContents.transform.GetChild(2).gameObject.SetActive(false);
+        MissingPeopleContents.transform.GetChild(3).gameObject.SetActive(false);
+        MissingPeopleContents.transform.GetChild(4).gameObject.SetActive(false);
+        MissingPeopleContents.transform.GetChild(5).gameObject.SetActive(false);
+    }
+    void Reset_FishySmell()
+    {
+        FishySmellContents.transform.GetChild(0).gameObject.SetActive(false);
+        FishySmellContents.transform.GetChild(1).gameObject.SetActive(false);
+        FishySmellContents.transform.GetChild(2).gameObject.SetActive(false);
+        FishySmellContents.transform.GetChild(3).gameObject.SetActive(false);
+        FishySmellContents.transform.GetChild(4).gameObject.SetActive(false);
+        FishySmellContents.transform.GetChild(5).gameObject.SetActive(false);
+    }
+    void Reset_RiverWaterQuality()
+    {
+        RiverWaterQualityContents.transform.GetChild(0).gameObject.SetActive(false);
+        RiverWaterQualityContents.transform.GetChild(1).gameObject.SetActive(false);
+        RiverWaterQualityContents.transform.GetChild(2).gameObject.SetActive(false);
+        RiverWaterQualityContents.transform.GetChild(3).gameObject.SetActive(false);
+        RiverWaterQualityContents.transform.GetChild(4).gameObject.SetActive(false);
+        RiverWaterQualityContents.transform.GetChild(5).gameObject.SetActive(false);
+    }
+    void Reset_CreepyEyes()
+    {
+        CreepyEyesContents.transform.GetChild(0).gameObject.SetActive(false);
+        CreepyEyesContents.transform.GetChild(1).gameObject.SetActive(false);
+        CreepyEyesContents.transform.GetChild(2).gameObject.SetActive(false);
+        CreepyEyesContents.transform.GetChild(3).gameObject.SetActive(false);
+        CreepyEyesContents.transform.GetChild(4).gameObject.SetActive(false);
+        CreepyEyesContents.transform.GetChild(5).gameObject.SetActive(false);
+    }
+    void Reset_SewerWorker()
+    {
+        SewerWorkerContents.transform.GetChild(0).gameObject.SetActive(false);
+        SewerWorkerContents.transform.GetChild(1).gameObject.SetActive(false);
+        SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(false);
+        SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(false);
+        SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(false);
+        SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(false);
+    }
+    void Reset_Safe()
+    {
+        SafeContents.transform.GetChild(0).gameObject.SetActive(false);
+        SafeContents.transform.GetChild(1).gameObject.SetActive(false);
+        SafeContents.transform.GetChild(2).gameObject.SetActive(false);
+        SafeContents.transform.GetChild(3).gameObject.SetActive(false);
+        SafeContents.transform.GetChild(4).gameObject.SetActive(false);
+        SafeContents.transform.GetChild(5).gameObject.SetActive(false);
+    }
+    void Reset_SuddenChange()
+    {
+        SuddenChangeContents.transform.GetChild(0).gameObject.SetActive(false);
+        SuddenChangeContents.transform.GetChild(1).gameObject.SetActive(false);
+        SuddenChangeContents.transform.GetChild(2).gameObject.SetActive(false);
+        SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(false);
+        SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(false);
+        SuddenChangeContents.transform.GetChild(5).gameObject.SetActive(false);
+    }
+
+    public void Open_PlanetarySequence()
+    {
+        CloseAllContents();
+        PlanetarySequence_Detail.SetActive(true);
+    }
+    public void Open_Nightmare()
+    {
+        CloseAllContents();
+        Nightmare_Detail.SetActive(true);
+    }
+    public void Open_Paranoia()
+    {
+        CloseAllContents();
+        Paranoia_Detail.SetActive(true);
+    }
+    public void Open_Insomnia()
+    {
+        CloseAllContents();
+        Insomnia_Detail.SetActive(true);
+    }
+    public void Open_SewerGhostStory()
+    {
+        CloseAllContents();
+        SewerGhostStory_Detail.SetActive(true);
+    }
+    public void Open_MissingPeople()
+    {
+        CloseAllContents();
+        MissingPeople_Detail.SetActive(true);
+    }
+    public void Open_FishySmell()
+    {
+        CloseAllContents();
+        FishySmell_Detail.SetActive(true);
+    }
+    public void Open_RiverWaterQuality()
+    {
+        CloseAllContents();
+        RiverWaterQuality_Detail.SetActive(true);
+    }
+    public void Open_CreepyEyes()
+    {
+        CloseAllContents();
+        CreepyEyes_Detail.SetActive(true);
+    }
+    public void Open_SewerWorker()
+    {
+        CloseAllContents();
+        SewerWorker_Detail.SetActive(true);
+    }
+    public void Open_Safe()
+    {
+        CloseAllContents();
+        Safe_Detail.SetActive(true);
+    }
+    public void Open_SuddenChange()
+    {
+        CloseAllContents();
+        SuddenChange_Detail.SetActive(true);
+    }
+
+
+    void CloseAllContents()
+    {
+        PlanetarySequence_Detail.SetActive(false);
+        Paranoia_Detail.SetActive(false);
+        Nightmare_Detail.SetActive(false);
+        Insomnia_Detail.SetActive(false);
+        SewerGhostStory_Detail.SetActive(false);
+        MissingPeople_Detail.SetActive(false);
+        FishySmell_Detail.SetActive(false);
+        RiverWaterQuality_Detail.SetActive(false);
+        CreepyEyes_Detail.SetActive(false);
+        SewerWorker_Detail.SetActive(false);
+        Safe_Detail.SetActive(false);
+        SuddenChange_Detail.SetActive(false);
     }
 }
 
