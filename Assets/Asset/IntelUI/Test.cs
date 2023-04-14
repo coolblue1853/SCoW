@@ -6,94 +6,94 @@ public class Test : MonoBehaviour
 {
     string NowPage;
 
-     GameObject Detail_SuddenChange1;
-     GameObject Detail_SuddenChange2;
-     GameObject Detail_SuddenChange3;
-     GameObject Detail_SuddenChange4;
-     GameObject Detail_SuddenChange5;
-     GameObject Detail_SuddenChange6;
-    bool ON_SuddenChange1;
-    bool ON_SuddenChange2;
-    bool ON_SuddenChange3;
-    bool ON_SuddenChange4;
-    bool ON_SuddenChange5;
-    bool ON_SuddenChange6;
-    int Count_SuddenChange = 0;
-    public GameObject SuddenChangeContents;
-    public GameObject SuddenChange_Detail; 
-    public static int SuddenChangeIntelInt;
-    public GameObject NextButton_SuddenChange;
-    public GameObject PrevButton_SuddenChange;
+     GameObject Detail_SewageMaintenanceOffice1;
+     GameObject Detail_SewageMaintenanceOffice2;
+     GameObject Detail_SewageMaintenanceOffice3;
+     GameObject Detail_SewageMaintenanceOffice4;
+     GameObject Detail_SewageMaintenanceOffice5;
+     GameObject Detail_SewageMaintenanceOffice6;
+    bool ON_SewageMaintenanceOffice1;
+    bool ON_SewageMaintenanceOffice2;
+    bool ON_SewageMaintenanceOffice3;
+    bool ON_SewageMaintenanceOffice4;
+    bool ON_SewageMaintenanceOffice5;
+    bool ON_SewageMaintenanceOffice6;
+    int Count_SewageMaintenanceOffice = 0;
+    public GameObject SewageMaintenanceOfficeContents;
+    public GameObject SewageMaintenanceOffice_Detail; 
+    public static int SewageMaintenanceOfficeIntelInt;
+    public GameObject NextButton_SewageMaintenanceOffice;
+    public GameObject PrevButton_SewageMaintenanceOffice;
 
-    void SuddenChangeDetail()
+    void SewageMaintenanceOfficeDetail()
     {
-        if (ON_SuddenChange1 == false && DataBaseManager.Intel_SuddenChange1 == true)
+        if (ON_SewageMaintenanceOffice1 == false && DataBaseManager.Intel_SewageMaintenanceOffice1 == true)
         {
-            ON_SuddenChange1 = true;
-            Detail_SuddenChange1.SetActive(true);
-            Detail_SuddenChange1.transform.SetAsLastSibling();
-            Count_SuddenChange += 1;
+            ON_SewageMaintenanceOffice1 = true;
+            Detail_SewageMaintenanceOffice1.SetActive(true);
+            Detail_SewageMaintenanceOffice1.transform.SetAsLastSibling();
+            Count_SewageMaintenanceOffice += 1;
         }
-        if (ON_SuddenChange2 == false && DataBaseManager.Intel_SuddenChange2 == true)
+        if (ON_SewageMaintenanceOffice2 == false && DataBaseManager.Intel_SewageMaintenanceOffice2 == true)
         {
-            ON_SuddenChange2 = true;
-            Detail_SuddenChange2.SetActive(true);
-            Detail_SuddenChange2.transform.SetAsLastSibling();
-            Count_SuddenChange += 1;
+            ON_SewageMaintenanceOffice2 = true;
+            Detail_SewageMaintenanceOffice2.SetActive(true);
+            Detail_SewageMaintenanceOffice2.transform.SetAsLastSibling();
+            Count_SewageMaintenanceOffice += 1;
         }
-        if (ON_SuddenChange3 == false && DataBaseManager.Intel_SuddenChange3 == true)
+        if (ON_SewageMaintenanceOffice3 == false && DataBaseManager.Intel_SewageMaintenanceOffice3 == true)
         {
-            ON_SuddenChange3 = true;
-            Detail_SuddenChange3.SetActive(true);
-            Detail_SuddenChange3.transform.SetAsLastSibling();
-            Count_SuddenChange += 1;
+            ON_SewageMaintenanceOffice3 = true;
+            Detail_SewageMaintenanceOffice3.SetActive(true);
+            Detail_SewageMaintenanceOffice3.transform.SetAsLastSibling();
+            Count_SewageMaintenanceOffice += 1;
         }
-        if (ON_SuddenChange4 == false && DataBaseManager.Intel_SuddenChange4 == true)
+        if (ON_SewageMaintenanceOffice4 == false && DataBaseManager.Intel_SewageMaintenanceOffice4 == true)
         {
-            ON_SuddenChange4 = true;
-            Detail_SuddenChange4.SetActive(true);
-            Detail_SuddenChange4.transform.SetAsLastSibling();
-            Count_SuddenChange += 1;
+            ON_SewageMaintenanceOffice4 = true;
+            Detail_SewageMaintenanceOffice4.SetActive(true);
+            Detail_SewageMaintenanceOffice4.transform.SetAsLastSibling();
+            Count_SewageMaintenanceOffice += 1;
         }
-        if (ON_SuddenChange5 == false && DataBaseManager.Intel_SuddenChange5 == true)
+        if (ON_SewageMaintenanceOffice5 == false && DataBaseManager.Intel_SewageMaintenanceOffice5 == true)
         {
-            ON_SuddenChange5 = true;
-            Detail_SuddenChange5.SetActive(true);
-            Detail_SuddenChange5.transform.SetAsLastSibling();
-            Count_SuddenChange += 1;
+            ON_SewageMaintenanceOffice5 = true;
+            Detail_SewageMaintenanceOffice5.SetActive(true);
+            Detail_SewageMaintenanceOffice5.transform.SetAsLastSibling();
+            Count_SewageMaintenanceOffice += 1;
         }
-        if (ON_SuddenChange6 == false && DataBaseManager.Intel_SuddenChange6 == true)
+        if (ON_SewageMaintenanceOffice6 == false && DataBaseManager.Intel_SewageMaintenanceOffice6 == true)
         {
-            ON_SuddenChange6 = true;
-            Detail_SuddenChange6.SetActive(true);
-            Detail_SuddenChange6.transform.SetAsLastSibling();
-            Count_SuddenChange += 1;
+            ON_SewageMaintenanceOffice6 = true;
+            Detail_SewageMaintenanceOffice6.SetActive(true);
+            Detail_SewageMaintenanceOffice6.transform.SetAsLastSibling();
+            Count_SewageMaintenanceOffice += 1;
         }
 
-        if (Count_SuddenChange > 2 && DataBaseManager.NowPage_SuddenChange == 1)
+        if (Count_SewageMaintenanceOffice > 2 && DataBaseManager.NowPage_SewageMaintenanceOffice == 1)
         {
-            NextButton_SuddenChange.SetActive(true);
+            NextButton_SewageMaintenanceOffice.SetActive(true);
         }
-        else if (Count_SuddenChange > 4 && DataBaseManager.NowPage_SuddenChange == 2)
+        else if (Count_SewageMaintenanceOffice > 4 && DataBaseManager.NowPage_SewageMaintenanceOffice == 2)
         {
-            NextButton_SuddenChange.SetActive(true);
+            NextButton_SewageMaintenanceOffice.SetActive(true);
         }
         else
         {
-            NextButton_SuddenChange.SetActive(false);
+            NextButton_SewageMaintenanceOffice.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_SuddenChange == 2)
+        if (DataBaseManager.NowPage_SewageMaintenanceOffice == 2)
         {
-            PrevButton_SuddenChange.SetActive(true);
+            PrevButton_SewageMaintenanceOffice.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_SuddenChange == 3)
+        else if (DataBaseManager.NowPage_SewageMaintenanceOffice == 3)
         {
-            PrevButton_SuddenChange.SetActive(true);
+            PrevButton_SewageMaintenanceOffice.SetActive(true);
         }
         else
         {
-            PrevButton_SuddenChange.SetActive(false);
+            PrevButton_SewageMaintenanceOffice.SetActive(false);
         }
     }
 
@@ -101,49 +101,49 @@ public class Test : MonoBehaviour
     public void NextPage()
     {
 
-        if (NowPage == "SuddenChange")
+        if (NowPage == "SewageMaintenanceOffice")
         {
-            if (DataBaseManager.NowPage_SuddenChange == 1)
+            if (DataBaseManager.NowPage_SewageMaintenanceOffice == 1)
             {
-                if (Count_SuddenChange >= 6)
+                if (Count_SewageMaintenanceOffice >= 6)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    Reset_SewageMaintenanceOffice();
+                    SewageMaintenanceOfficeContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SewageMaintenanceOfficeContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 5)
+                else if (Count_SewageMaintenanceOffice >= 5)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(true);
+                    Reset_SewageMaintenanceOffice();
+                    SewageMaintenanceOfficeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SewageMaintenanceOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 4)
+                else if (Count_SewageMaintenanceOffice >= 4)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_SewageMaintenanceOffice();
+                    SewageMaintenanceOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
+                    SewageMaintenanceOfficeContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 3)
+                else if (Count_SewageMaintenanceOffice >= 3)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_SewageMaintenanceOffice();
+                    SewageMaintenanceOfficeContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_SuddenChange = 2;
+                DataBaseManager.NowPage_SewageMaintenanceOffice = 2;
             }
-            else if (DataBaseManager.NowPage_SuddenChange == 2)
+            else if (DataBaseManager.NowPage_SewageMaintenanceOffice == 2)
             {
-                if (Count_SuddenChange >= 6)
+                if (Count_SewageMaintenanceOffice >= 6)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_SewageMaintenanceOffice();
+                    SewageMaintenanceOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
+                    SewageMaintenanceOfficeContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 5)
+                else if (Count_SewageMaintenanceOffice >= 5)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_SewageMaintenanceOffice();
+                    SewageMaintenanceOfficeContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_SuddenChange = 3;
+                DataBaseManager.NowPage_SewageMaintenanceOffice = 3;
             }
         }
     }
@@ -151,65 +151,65 @@ public class Test : MonoBehaviour
     public void PrevPage()
     {
      
-        if (NowPage == "SuddenChange")
+        if (NowPage == "SewageMaintenanceOffice")
         {
-            if (DataBaseManager.NowPage_SuddenChange == 2)
+            if (DataBaseManager.NowPage_SewageMaintenanceOffice == 2)
             {
-                if (Count_SuddenChange >= 6)
+                if (Count_SewageMaintenanceOffice >= 6)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(0).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(1).gameObject.SetActive(true);
+                    Reset_SewageMaintenanceOffice();
+                    SewageMaintenanceOfficeContents.transform.GetChild(0).gameObject.SetActive(true);
+                    SewageMaintenanceOfficeContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 5)
+                else if (Count_SewageMaintenanceOffice >= 5)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(1).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(2).gameObject.SetActive(true);
+                    Reset_SewageMaintenanceOffice();
+                    SewageMaintenanceOfficeContents.transform.GetChild(1).gameObject.SetActive(true);
+                    SewageMaintenanceOfficeContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 4)
+                else if (Count_SewageMaintenanceOffice >= 4)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    Reset_SewageMaintenanceOffice();
+                    SewageMaintenanceOfficeContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SewageMaintenanceOfficeContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 3)
+                else if (Count_SewageMaintenanceOffice >= 3)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(true);
+                    Reset_SewageMaintenanceOffice();
+                    SewageMaintenanceOfficeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SewageMaintenanceOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_SuddenChange = 1;
+                DataBaseManager.NowPage_SewageMaintenanceOffice = 1;
             }
-            else if (DataBaseManager.NowPage_SuddenChange == 3)
+            else if (DataBaseManager.NowPage_SewageMaintenanceOffice == 3)
             {
-                if (Count_SuddenChange >= 6)
+                if (Count_SewageMaintenanceOffice >= 6)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    Reset_SewageMaintenanceOffice();
+                    SewageMaintenanceOfficeContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SewageMaintenanceOfficeContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 5)
+                else if (Count_SewageMaintenanceOffice >= 5)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(true);
+                    Reset_SewageMaintenanceOffice();
+                    SewageMaintenanceOfficeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SewageMaintenanceOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_SuddenChange = 2;
+                DataBaseManager.NowPage_SewageMaintenanceOffice = 2;
             }
         }
     }
 
 
 
-    void Reset_SuddenChange()
+    void Reset_SewageMaintenanceOffice()
     {
-        SuddenChangeContents.transform.GetChild(0).gameObject.SetActive(false);
-        SuddenChangeContents.transform.GetChild(1).gameObject.SetActive(false);
-        SuddenChangeContents.transform.GetChild(2).gameObject.SetActive(false);
-        SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(false);
-        SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(false);
-        SuddenChangeContents.transform.GetChild(5).gameObject.SetActive(false);
+        SewageMaintenanceOfficeContents.transform.GetChild(0).gameObject.SetActive(false);
+        SewageMaintenanceOfficeContents.transform.GetChild(1).gameObject.SetActive(false);
+        SewageMaintenanceOfficeContents.transform.GetChild(2).gameObject.SetActive(false);
+        SewageMaintenanceOfficeContents.transform.GetChild(3).gameObject.SetActive(false);
+        SewageMaintenanceOfficeContents.transform.GetChild(4).gameObject.SetActive(false);
+        SewageMaintenanceOfficeContents.transform.GetChild(5).gameObject.SetActive(false);
     }
 }

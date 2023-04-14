@@ -290,10 +290,6 @@ public class DataBaseManager : MonoBehaviour
 
     //장소정보
 
-
-
-    public static int GainPlaceInt = 0;
-
     public static int ButtonCount_DetectiveOffice = -1;
     public static int ButtonCount_Hospital = -1;
     public static int ButtonCount_Newspaper = -1;
@@ -307,6 +303,22 @@ public class DataBaseManager : MonoBehaviour
     public static int ButtonCount_PoliceOffice = -1;
     public static int ButtonCount_Gunsmith = -1;
     public static int ButtonCount_SewageMaintenanceOffice = -1;
+
+    public static int GainPlaceInt = 0;
+
+    public static int NowPage_DetectiveOffice = 1;
+    public static int NowPage_Hospital = 1;
+    public static int NowPage_Newspaper = 1;
+    public static int NowPage_QuestHouse = 1;
+    public static int NowPage_Station = 1;
+    public static int NowPage_Restaurant = 1;
+    public static int NowPage_University = 1;
+    public static int NowPage_Riverside = 1;
+    public static int NowPage_Bar = 1;
+    public static int NowPage_Slum = 1;
+    public static int NowPage_PoliceOffice = 1;
+    public static int NowPage_Gunsmith = 1;
+    public static int NowPage_SewageMaintenanceOffice = 1;
 
 
 
