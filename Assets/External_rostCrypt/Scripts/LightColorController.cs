@@ -10,7 +10,7 @@ public interface ColorSetterInterface
 [ExecuteInEditMode]
 public class LightColorController : MonoBehaviour
 {
-    [SerializeField] [Range(0,1)] float time;
+    public  float time;
 
     private ColorSetterInterface[] setters;
     private float currentTime = 0;

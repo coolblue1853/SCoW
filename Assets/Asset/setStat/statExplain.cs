@@ -34,12 +34,13 @@ public class statExplain : MonoBehaviour
     public void mp_expl()
     {
         nameEX.text = "< 정신력 >";
-        mainEX.text = "이 기능치는 플레이어의 정신적 건강함을 나타냅니다.  이 능력치가 높을수록 더 많은 양의 정신적 충격을 감당할 수 있습니다. 이 수치가 0이 되면 플레이어는 사망합니다.";
+        mainEX.text = "이 기능치는 플레이어가 이성 감소를 감당할 수 있는 정신력을 나타냅니다. 이 능력치가 높을 수록 더 많은 충격을 버틸수 있습니다."; 
     }
     public void san_expl()
     {
         nameEX.text = "< 이성 >";
-        mainEX.text = "이 기능치는 플레이어가 감당할 수 있는 이성 한계점을 나타냅니다. 이 능력치가 높을 수록 더 많은 이성 감소를 버틸수 있습니다.";
+        mainEX.text = "이 기능치는 플레이어의 정신적 건강함을 나타냅니다.  이 능력치가 높을수록 더 많은 양의 정신적 충격을 감당할 수 있습니다. 이 수치가 0이 되면 플레이어는 사망합니다.";
+
     }
     public void luck_expl()
     {

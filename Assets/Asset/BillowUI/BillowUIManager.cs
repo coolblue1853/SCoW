@@ -12,18 +12,18 @@ public class BillowUIManager : MonoBehaviour
 
     public Image HPBar;
     public Image FadeBar;
-    public Image MPBar;
+    public Image SanBar;
 
     public HealthBarShrink healthBar;
     public HealthBarShrink mentalBar;
 
 
-    public float setMP;
-    public float FullMP;
-    public float nomalizedMP;
+    public float setSan;
+    public float FullSan;
+    public float nomalizedSan;
 
     public TextMeshProUGUI hpText;
-    public TextMeshProUGUI mpText;
+    public TextMeshProUGUI SanText;
 
 
 
@@ -48,14 +48,15 @@ public class BillowUIManager : MonoBehaviour
         nomalizedHP = 1 / FullHP;
 
 
-        setMP = 1;
-        FullMP = DataBaseManager.mp;
-        nomalizedMP = 1 / FullMP;
+        setSan = 1;
+        FullSan = DataBaseManager.san;
+        nomalizedSan = 1 / FullSan;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         HPIntMagaer();
     }
 
@@ -64,7 +65,7 @@ public class BillowUIManager : MonoBehaviour
     void HPIntMagaer()
     {
         hpText.text = "체력 : " + DataBaseManager.nowHP;
-        mpText.text = "정신력 : " + DataBaseManager.nowMP;
+        SanText.text = "정신력 : " + DataBaseManager.nowSan;
     }
 
     private static BillowUIManager instance = null;
@@ -75,10 +76,10 @@ public class BillowUIManager : MonoBehaviour
         setHP = (setHP - nomalizedHP * damage);
         healthBar.healthSystem.Damage(5);
     }
-    public void MP_Down(int damage)
+    public void San_Down(int damage)
     {
-        DataBaseManager.nowMP -= damage;
-        setMP = setMP - nomalizedMP * damage;
+        DataBaseManager.nowSan -= damage;
+        setSan = setSan - nomalizedSan * damage;
         mentalBar.healthSystem.Damage(5);
     }
 

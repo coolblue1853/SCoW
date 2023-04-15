@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    //Map
+    public static int TimeCount = 1;
+
+
     //Rollet
     public static string Condition = "Nomal";
 
@@ -35,7 +39,7 @@ public class DataBaseManager : MonoBehaviour
     public static int weal;
 
     public static int nowHP;
-    public static int nowMP;
+    public static int nowSan;
 
 
     //skill -str

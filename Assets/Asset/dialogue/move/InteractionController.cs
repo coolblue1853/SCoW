@@ -57,7 +57,46 @@ public class InteractionController : MonoBehaviour
         }
     }
     */
-  
 
 
+   public void RetrunDialogResult(string Sub_Dialog, string result_End)
+    {
+        if(Sub_Dialog == "신문 : 살펴보기")
+        {
+            TestNar();
+            //원래는 여기에 결과값도 받아서 구분해줘야함
+        }
+
+    }
+
+
+
+    private static InteractionController instance = null;
+    private void Awake()
+    {
+
+        if (null == instance)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+
+    //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
+    public static InteractionController Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
 }

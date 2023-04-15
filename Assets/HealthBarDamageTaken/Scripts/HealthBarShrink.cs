@@ -42,7 +42,7 @@ public class HealthBarShrink : MonoBehaviour {
         }
         else
         {
-            healthSystem = new HealthSystem(DataBaseManager.mp);
+            healthSystem = new HealthSystem(DataBaseManager.san);
         }
         SetHealth(healthSystem.GetHealthNormalized());
         damagedBarImage.fillAmount = barImage.fillAmount;

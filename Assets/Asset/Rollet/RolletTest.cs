@@ -7,7 +7,7 @@ public class RolletTest : MonoBehaviour
 
     // setRollet(string skill, string point_sting, int point_int)
 
-    public int TEXT;
+
     private void Awake()
     {
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
@@ -19,14 +19,18 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.luk = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         DataBaseManager.weal = (Random.Range(5, 26));
         DataBaseManager.nowHP = DataBaseManager.hp;
-        DataBaseManager.nowMP = DataBaseManager.mp;
+        DataBaseManager.nowSan = DataBaseManager.san;
+    }
+    public void NewsRollet()
+    {
+        Rollet.Instance.setRollet("신문 : 살펴보기", "자료조사", 55, "dialog");
     }
     private void Update()
     {
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            One();
+            //One();
             NewsRollet();
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -52,7 +56,7 @@ public class RolletTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             Six();
-            BillowUIManager.Instance.HP_down(5);
+            BillowUIManager.Instance.San_Down(5);
         }
 
         if (Input.GetKeyDown(KeyCode.F1))
@@ -83,6 +87,12 @@ public class RolletTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F6))
         {
             DataBaseManager.Intel_Restaurant1 = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            StressManager.Instance.UPStress(5);
+            //DataBaseManager.TimeCount += 1;
         }
     }
 
@@ -311,8 +321,5 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_Gunsmith6 = true;
         DataBaseManager.Intel_SewageMaintenanceOffice6 = true;
     }
-    public void NewsRollet()
-    {
-        Rollet.Instance.setRollet("신문 : 살펴보기", "자료조사", 55);
-    }
+
 }

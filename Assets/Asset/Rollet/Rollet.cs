@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 public class Rollet : MonoBehaviour
 {
+    string Subject;
+    string Sub_Dialog;
     public GameObject RolletSetUi;
     public GameObject RolletCheckUI;
     public GameObject RolletRollUI;
@@ -96,8 +98,10 @@ public class Rollet : MonoBehaviour
             return instance;
         }
     }
-    public void setRollet(string skill, string point_sting, int point_int)
+    public void setRollet(string skill, string point_sting, int point_int, string subject)
     {
+        Subject = subject;
+        Sub_Dialog = skill; // 나중에 다이얼로그 결과 전송시 사용
         ResetString();
         RolletSetUi.SetActive(true);
         Skill.text = skill;
@@ -350,6 +354,20 @@ public class Rollet : MonoBehaviour
         RolletCheckUI.SetActive(true);
         RolletRollUI.SetActive(false) ;
         EndButton.SetActive(false);
+
+        // 결과값을 전달하는 함수 필요
+
+        //스트래스 전달
+        if(Subject == "stress")
+        {
+            StressManager.Instance.Result(result_End.text);
+        }
+        if(Subject == "dialog")
+        {
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
+            // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
+            // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 결과값에 따른 문자를 출력하도록 함
+        }
     }
 
     // 중요!!!!!!!
