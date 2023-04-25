@@ -23,7 +23,8 @@ public class RolletTest : MonoBehaviour
     }
     public void NewsRollet()
     {
-        Rollet.Instance.setRollet("신문 : 살펴보기", "자료조사", 55, "dialog");
+        BattleRollet.Instance.setBattleRollet("파비안 : 회피", "회피", 50, "evasion", "??? : 공격", "근접공격", 40);
+        //Rollet.Instance.setRollet("신문 : 살펴보기", "자료조사", 55, "dialog");
     }
     private void Update()
     {
