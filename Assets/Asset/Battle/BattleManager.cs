@@ -25,6 +25,7 @@ public class BattleManager : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            fDestroyTime = 0.01f;
             RoundGameObject.SetActive(false);
             BattleState = "setTrun";
         }
@@ -61,7 +62,8 @@ public class BattleManager : MonoBehaviour
             if (fTickTime >= fDestroyTime)
             {
                 fTickTime = 0;
-                if(PlayerTrunSymbol.activeSelf == true)
+                fDestroyTime = fDestroyTime * 1.01f;
+                if (PlayerTrunSymbol.activeSelf == true)
                 {
                     SymbolUp(PlayerTrunSymbol, 80, "Player");
                 }
@@ -155,5 +157,6 @@ public class BattleManager : MonoBehaviour
     public void TurnEnd()
     {
         BattleState = "setTrun";
+        fDestroyTime = 0.01f;
     }
 }
