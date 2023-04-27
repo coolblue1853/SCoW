@@ -58,6 +58,8 @@ public class BillowUIManager : MonoBehaviour
     {
 
         HPIntMagaer();
+
+
     }
 
 
@@ -74,13 +76,13 @@ public class BillowUIManager : MonoBehaviour
     {
         DataBaseManager.nowHP -= damage;
         setHP = (setHP - nomalizedHP * damage);
-        healthBar.healthSystem.Damage(5);
+        healthBar.healthSystem.Damage(damage);
     }
     public void San_Down(int damage)
     {
         DataBaseManager.nowSan -= damage;
         setSan = setSan - nomalizedSan * damage;
-        mentalBar.healthSystem.Damage(5);
+        mentalBar.healthSystem.Damage(damage);
     }
 
     void Awake()

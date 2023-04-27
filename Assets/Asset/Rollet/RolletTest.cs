@@ -23,7 +23,7 @@ public class RolletTest : MonoBehaviour
     }
     public void NewsRollet()
     {
-        BattleRollet.Instance.setBattleRollet("파비안 : 회피", "회피", 50, "evasion", "??? : 공격", "근접공격", 40);
+        //BattleRollet.Instance.setBattleRollet("파비안 : 회피", "회피", 50, "evasion", "??? : 공격", "근접공격", 40);
         //Rollet.Instance.setRollet("신문 : 살펴보기", "자료조사", 55, "dialog");
     }
     private void Update()
@@ -92,7 +92,7 @@ public class RolletTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            StressManager.Instance.UPStress(5);
+            BillowUIManager.Instance.HP_down(10);   
             //DataBaseManager.TimeCount += 1;
         }
     }

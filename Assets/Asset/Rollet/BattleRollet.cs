@@ -57,6 +57,8 @@ public class BattleRollet : MonoBehaviour
 
 
     // 적 칸
+    public string EnemySubject;
+    
     public TextMeshProUGUI E_Skill;
     public TextMeshProUGUI E_Point;
     public TextMeshProUGUI E_Expect;
@@ -108,7 +110,7 @@ public class BattleRollet : MonoBehaviour
             return instance;
         }
     }
-    public void setBattleRollet(string skill, string point_sting, int point_int, string subject, string E_skill, string E_point_string, int E_Point_int)
+    public void setBattleRollet(string skill, string point_sting, int point_int, string subject,string EnemyName , string E_skill, string E_point_string, int E_Point_int)
     {
         Subject = subject;
         Sub_Dialog = skill; // 나중에 다이얼로그 결과 전송시 사용
@@ -118,6 +120,7 @@ public class BattleRollet : MonoBehaviour
         Skill.text = skill;
         Point.text = point_sting + " : " + point_int;
         //적
+        EnemySubject = EnemyName;
         E_Skill.text = E_skill;
         E_Point.text = E_point_string + " :  ??";
 
@@ -450,7 +453,82 @@ public class BattleRollet : MonoBehaviour
                 FinalResult_t.text = "회피 : " + FinalResult;
             }
 
+            
+        } // 유리판정 예제
+        if (Subject == "counterattack")
+        {
+            if (result_End.text == "판정 : 대성공" && E_result_End.text != "판정 : 대성공")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "반격 : " + FinalResult;
+            }
+            else if (result_End.text == "판정 : 성공" && E_result_End.text != "판정 : 대성공" && E_result_End.text != "판정 : 성공")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "반격 : " + FinalResult;
+            }
+            else if (result_End.text == "판정 : 실패" && E_result_End.text != "판정 : 대성공" && E_result_End.text != "판정 : 성공" && E_result_End.text != "판정 : 실패")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "반격 : " + FinalResult;
+            }
+            else
+            {
+                FinalResult = "실패";
+                FinalResult_t.text = "반격 : " + FinalResult;
+            }
+
+
+        } //불리판정 예제
+
+        // 플레이어행동
+        if (Subject == "MA_attack_Counter")
+        {
+            if (result_End.text == "판정 : 대성공")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
+            else if (result_End.text == "판정 : 성공" && E_result_End.text == "판정 : 성공")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
+            else if (result_End.text == "판정 : 성공" && E_result_End.text == "판정 : 실패")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
+            else if (result_End.text == "판정 : 성공" && E_result_End.text == "판정 : 대실패")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
+            else if (result_End.text == "판정 : 실패" && E_result_End.text == "판정 : 실패")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
+            else if (result_End.text == "판정 : 실패" && E_result_End.text == "판정 : 대실패")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
+            else if (result_End.text == "판정 : 대실패" && E_result_End.text == "판정 : 대실패")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
+            else
+            {
+                FinalResult = "실패";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
+
+
+
         }
+
         EndButton.SetActive(true);
     }
 
@@ -477,7 +555,26 @@ public class BattleRollet : MonoBehaviour
         }
         if (Subject == "evasion")
         {
-            BattleManager.Instance.TurnEnd();
+            if(EnemySubject == "DeepOneHybrid")
+            {
+                BattleManager.Instance.RetrunRolletResult(Subject,FinalResult, EnemySubject);   
+            }
+        }
+        if (Subject == "counterattack")
+        {
+            if (EnemySubject == "DeepOneHybrid")
+            {
+                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
+            }
+        }
+
+        //플레이어행동
+        if (Subject == "MA_attack_Counter")
+        {
+            if (EnemySubject == "DeepOneHybrid")
+            {
+                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
+            }
         }
     }
 
