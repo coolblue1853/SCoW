@@ -31,8 +31,10 @@ public class RolletTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+
+            //DataBaseManager.카메라왼쪽워킹온오프 = true;
             //One();
-            NewsRollet();
+            // NewsRollet();
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {

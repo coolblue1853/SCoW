@@ -1,51 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class EnemySelectButton : MonoBehaviour
 {
-
+    SpriteRenderer spriteRenderer;
+    BoxCollider2D box2d;
+    private void Awake()
+    {
+        spriteRenderer = this.transform.GetComponent<SpriteRenderer>();
+        box2d = this.transform.GetComponent<BoxCollider2D>();
+    }
     public void ButtonClick()
     {
         BattleManager.Instance.SetEnemy(this.transform.name);
     }
-    Vector3 m_vecMouseDownPos;
+    public void ButtonEnter()
+    {
+
+
+    }
+
 
     void Update()
     {
-#if UNITY_EDITOR
-        // 마우스 클릭 시
-        if (Input.GetMouseButtonDown(0))
-#else
-        // 터치 시
-        if (Input.touchCount > 0)
-#endif
+        Debug.Log(BattleManager.Instance.onPointerEnemy);
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 마우스 위치 가져오기
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero); // 마우스 위치에서 Raycast
+
+        if (hit.collider != null)
         {
-
-#if UNITY_EDITOR
-            m_vecMouseDownPos = Input.mousePosition;
-#else
-            m_vecMouseDownPos = Input.GetTouch(0).position;
-            if(Input.GetTouch(0).phase != TouchPhase.Began)
-                return;
-#endif
-
-
-            // 마우스 클릭 위치를 카메라 스크린 월드포인트로 변경합니다.
-            Vector2 pos = Camera.main.ScreenToWorldPoint(m_vecMouseDownPos);
-
-            // Raycast함수를 통해 부딪치는 collider를 hit에 리턴받습니다.
-            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
-
-            if (hit.collider != null)
+            if (hit.collider.gameObject.name == this.transform.name)
             {
-                if(BattleManager.Instance.BattleState == "selectEnemy")
+                if (hit.collider.CompareTag("Enemy")) // Raycast가 무언가에 닿은 경우, 태그를 확인
                 {
-                    ButtonClick();
+                    BattleManager.Instance.onPointerEnemy = this.transform.name;
+                    box2d.size = new Vector2 (5f, 6.2f);
                 }
 
             }
+        }
+        if (hit.collider == null)
+        {
+            BattleManager.Instance.onPointerEnemy = "";
+            box2d.size = new Vector2(3f, 5.2f);
+        }
+
+
+
+
+        if (BattleManager.Instance.onPointerEnemy == "")
+        {
+            if(this.spriteRenderer.color.a >= 0.1f && this.spriteRenderer.color.a != 1f)
+            {
+                Debug.Log(6);
+                spriteRenderer.DOFade(1f, 0.3f).SetAutoKill(true);
+            }
 
         }
+        if (BattleManager.Instance.onPointerEnemy != "")
+        {
+            if (BattleManager.Instance.onPointerEnemy != this.transform.name)
+            {
+                if(this.spriteRenderer.color.a <= 1f)
+                {
+                    Debug.Log(7);
+                    spriteRenderer.DOFade(0.1f, 0.3f).SetAutoKill(true);
+                }
+
+
+            }
+        }
+
     }
+
 }

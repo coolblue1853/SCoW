@@ -23,9 +23,9 @@ public class BattleManager : MonoBehaviour
     public GameObject DeepOneHybrid_Object;
 
 
-
     public string PlayerAction = "";
     public string SelectEnemy = "";
+    public string onPointerEnemy = "";
 
     void Update()
     {
@@ -86,7 +86,7 @@ public class BattleManager : MonoBehaviour
                 fDestroyTime = fDestroyTime * 0.98f;
                 if (PlayerTrunSymbol.activeSelf == true)
                 {
-                    SymbolUp(PlayerTrunSymbol, 30, "Player");
+                    SymbolUp(PlayerTrunSymbol, 99, "Player");
                 }
                 if (EnemyTrunSymbol_1.activeSelf == true)
                 {
@@ -105,7 +105,7 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BattleState = "setTrun";
+        //BattleState = "setTrun";
 
     }
 
