@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class InteractionController : MonoBehaviour
 {
 
-    public GameObject Test;
+    public GameObject Start_1st_Detective;
 
     public DialogManager theDM;
     public DialogManager JudgeDM;
@@ -19,11 +19,11 @@ public class InteractionController : MonoBehaviour
     {
         //TestNar();
     }
-    public void TestNar()
+    public void Start_1st_DetectiveOffice()
     {
-
-        theDM.ShowDialog(Test.transform.GetComponent<interactionEvent>().GetDialogs());
+        theDM.ShowDialog(Start_1st_Detective.transform.GetComponent<interactionEvent>().GetDialogs());
     }
+
 
 
 
@@ -63,7 +63,7 @@ public class InteractionController : MonoBehaviour
     {
         if(Sub_Dialog == "신문 : 살펴보기")
         {
-            TestNar();
+            //판정 이후에 결과 보여주는 곳임.    
             //원래는 여기에 결과값도 받아서 구분해줘야함
         }
 

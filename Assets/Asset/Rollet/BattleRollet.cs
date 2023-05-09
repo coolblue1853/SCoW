@@ -540,19 +540,6 @@ public class BattleRollet : MonoBehaviour
         RolletRollUI.SetActive(false) ;
         EndButton.SetActive(false);
 
-        // 결과값을 전달하는 함수 필요
-
-        //스트래스 전달
-        if(Subject == "stress")
-        {
-            StressManager.Instance.Result(result_End.text);
-        }
-        if(Subject == "dialog")
-        {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
-            // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
-            // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 결과값에 따른 문자를 출력하도록 함
-        }
         if (Subject == "evasion")
         {
             if(EnemySubject == "DeepOneHybrid")
@@ -575,6 +562,17 @@ public class BattleRollet : MonoBehaviour
             {
                 BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
             }
+        }
+        //스트래스 전달
+        if (Subject == "stress")
+        {
+            StressManager.Instance.Result(result_End.text);
+        }
+        if (Subject == "dialog")
+        {
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
+            // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
+            // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 결과값에 따른 문자를 출력하도록 함
         }
     }
 

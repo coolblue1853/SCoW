@@ -5,8 +5,7 @@ using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
     //Battle
-    public static bool 카메라워킹온오프;
-    public static bool 카메라왼쪽워킹온오프;
+
 
 
     //Map
@@ -71,7 +70,7 @@ public class DataBaseManager : MonoBehaviour
     public static int stealthPoint = 15;
     public static int DisguisePoint = 10;
 
-    static public DataBaseManager instance;
+
 
     [SerializeField] string csv_FileName;
 
@@ -79,6 +78,8 @@ public class DataBaseManager : MonoBehaviour
 
     public static bool isFinish;
 
+
+    static public DataBaseManager instance;
     private void Awake()
     {
         if (instance != null)

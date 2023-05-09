@@ -51,65 +51,65 @@ public class BattleCameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-         
-        if(BattleManager.Instance.onPointerEnemy == "" && once == false)
+        if (BattleManager.Instance.BattleState == "setTrun")
         {
-            Debug.Log(1);
-            once = true;
-               nowCam = BattleManager.Instance.onPointerEnemy;
             ResetCam();
         }
-        if (BattleManager.Instance.onPointerEnemy == "DeepOneHybrid" && once == false)
-        {
-            Debug.Log(2);
-            once = true;
-            nowCam = BattleManager.Instance.onPointerEnemy;
-            ZoomMidle();
-        }
-        if (BattleManager.Instance.onPointerEnemy == "DeepOneHybrid2" && once == false)
-        {
-            Debug.Log(3);
-            once = true;
-            nowCam = BattleManager.Instance.onPointerEnemy;
-            ZoomDown();
-        }
-        if (BattleManager.Instance.onPointerEnemy == "DeepOneHybrid3" && once == false)
-        {
-            Debug.Log(4);
-            once = true;
-            nowCam = BattleManager.Instance.onPointerEnemy;
-            ZoomUp();
-        }
 
 
-        if(nowCam != BattleManager.Instance.onPointerEnemy)
+        if (BattleManager.Instance.BattleState == "selectEnemy")
         {
-            Debug.Log(5);
-            once = false;
+            if (BattleManager.Instance.onPointerEnemy == "" && once == false)
+            {
+                once = true;
+                nowCam = BattleManager.Instance.onPointerEnemy;
+                ResetCam();
+
+            }
+            if (BattleManager.Instance.onPointerEnemy == "DeepOneHybrid" && once == false)
+            {
+                once = true;
+                nowCam = BattleManager.Instance.onPointerEnemy;
+                ZoomMidle();
+            }
+            if (BattleManager.Instance.onPointerEnemy == "DeepOneHybrid2" && once == false)
+            {
+                once = true;
+                nowCam = BattleManager.Instance.onPointerEnemy;
+                ZoomDown();
+            }
+            if (BattleManager.Instance.onPointerEnemy == "DeepOneHybrid3" && once == false)
+            {
+                once = true;
+                nowCam = BattleManager.Instance.onPointerEnemy;
+                ZoomUp();
+            }
+
+            if (nowCam != BattleManager.Instance.onPointerEnemy)
+            {
+                once = false;
+            }
         }
+       
+
+   
     }
 
     public void ZoomDown()
     {
         camera.DOOrthoSize(13, 1).SetAutoKill(true);
         Cam.transform.DOMoveY(DownSide, 1).SetAutoKill(true);
-
     }
-
     public void ZoomMidle()
     {
         camera.DOOrthoSize(13, 1).SetAutoKill(true);
         Cam.transform.DOMoveY(OriginPoint, 1).SetAutoKill(true);
     }
-
     public void ZoomUp()
     {
         camera.DOOrthoSize(13, 1).SetAutoKill(true);
         Cam.transform.DOMoveY(UpSide, 1).SetAutoKill(true);
-
     }
-
     public void ResetCam()
     {
         camera.DOOrthoSize(14.5216f, 1).SetAutoKill(true);

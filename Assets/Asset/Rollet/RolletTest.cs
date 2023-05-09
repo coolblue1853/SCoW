@@ -10,6 +10,7 @@ public class RolletTest : MonoBehaviour
 
     private void Awake()
     {
+        DataBaseManager.TimeCount = 2;
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         DataBaseManager.intl = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         DataBaseManager.dex = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
@@ -95,7 +96,7 @@ public class RolletTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             BillowUIManager.Instance.HP_down(10);   
-            //DataBaseManager.TimeCount += 1;
+            DataBaseManager.TimeCount += 1;
         }
     }
 

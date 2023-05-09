@@ -407,7 +407,7 @@ public class DialogManager : MonoBehaviour
                     if (t_ReplaceText[i + 1] == '①')
                     {
                         t_ignore = true;
-                        //연출매니저.노크소리온();
+                         DirectingManager.Instance.End_Directing();
                         break;
                     }
                     if (t_ReplaceText[i + 1] == '②')

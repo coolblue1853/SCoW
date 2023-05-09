@@ -25,6 +25,9 @@ public class BillowUIManager : MonoBehaviour
     public TextMeshProUGUI hpText;
     public TextMeshProUGUI SanText;
 
+    public TextMeshProUGUI intelNameText;
+    public TextMeshProUGUI intelDetailText;
+
 
 
     // Start is called before the first frame update
@@ -41,6 +44,28 @@ public class BillowUIManager : MonoBehaviour
 
     }
 
+    // 정보 관련.
+
+    public void SetIntelUi(string name, string detail)
+    {
+        intelNameText.text = name;
+        intelDetailText.text = detail;
+        
+    }
+    public void ResetIntelUi()
+    {
+        intelNameText.text = "";
+        intelDetailText.text = "";
+
+    }
+
+
+
+
+
+
+
+    //체력바 관련
     private void ResetMHP()
     {
         setHP = 1;

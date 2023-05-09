@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class DialogPaser : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-
     public Dialog[] Prase(string _CVSFileName)
     {
         List<Dialog> dialogList = new List<Dialog>(); // 대사 리스트 생성
@@ -17,20 +14,13 @@ public class DialogPaser : MonoBehaviour
         for (int i = 1; i < data.Length;)
         {
             string[] row = data[i].Split(new char[] { ',' });
-
             Dialog dialog = new Dialog();
-            //Debug.Log(row[1]);
             dialog.name = row[1];
-
-
             List<string> contextList = new List<string>();
             List<string> spriteList = new List<string>();
             do
             {
                 contextList.Add(row[2]);
-
-                //Debug.Log(row[2]);
-
                 if (++i < data.Length)
                 {
                     row = data[i].Split(new char[] { ',' });
@@ -40,20 +30,10 @@ public class DialogPaser : MonoBehaviour
                     break;
                 }
             } while (row[0].ToString() == "");
-
-
             dialog.contexts = contextList.ToArray();
             dialog.spriteName = spriteList.ToArray();
             dialogList.Add(dialog);
-
         }
-
-
- 
         return dialogList.ToArray();
-
- 
     }
-
-
 }

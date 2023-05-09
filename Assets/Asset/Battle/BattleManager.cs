@@ -86,7 +86,7 @@ public class BattleManager : MonoBehaviour
                 fDestroyTime = fDestroyTime * 0.98f;
                 if (PlayerTrunSymbol.activeSelf == true)
                 {
-                    SymbolUp(PlayerTrunSymbol, 99, "Player");
+                    SymbolUp(PlayerTrunSymbol, 90, "Player");
                 }
                 if (EnemyTrunSymbol_1.activeSelf == true)
                 {
@@ -105,7 +105,7 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //BattleState = "setTrun";
+       BattleState = "setTrun";
 
     }
 
@@ -179,8 +179,6 @@ public class BattleManager : MonoBehaviour
             CloseRoundObject();
             BattleRollet.Instance.setBattleRollet("파비안 : 회피", "회피", 50, "evasion","DeepOneHybrid" , "??? : 격투술", "격투술", DeepOneHybrid.DeepOneHybrid_MatialArts);
         }
-
-
     }
     public void PlayerChoiceButton_CounterAttack()
     {
@@ -194,9 +192,9 @@ public class BattleManager : MonoBehaviour
 
     public void RetrunRolletResult(string PlayerAction, string Success, string Enemy)
     {
-        
-        
-        if(PlayerAction == "evasion")
+
+        onPointerEnemy = "";
+        if (PlayerAction == "evasion")
         {
             if(Enemy == "DeepOneHybrid")
             {

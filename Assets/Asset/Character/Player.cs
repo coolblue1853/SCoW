@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
 	Animator anime;
 
-	float ChInRommSize = 2.183431f;
+	float ChInRommSize = 2.383215f;
 
 	public float runPower = 6f;
 	Rigidbody2D rigid;
@@ -29,9 +29,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
 	{
+        if (DataBaseManager.isActiveDialog2 == false)
+        {
+			runAndWalkChanger();
+			Move();
 
-		runAndWalkChanger();
-		Move();
+		}
 
 	}
 
