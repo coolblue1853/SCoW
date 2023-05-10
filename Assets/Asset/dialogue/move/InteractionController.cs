@@ -5,11 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class InteractionController : MonoBehaviour
 {
-
-    public GameObject Start_1st_Detective;
-
     public DialogManager theDM;
+    public DialogManager theDM2;
     public DialogManager JudgeDM;
+
+    // 1st Detective Office
+    public GameObject Start_1st_Detective;
+    public GameObject NewsPaper;
+    public GameObject NewsPaper_Look;
+    public GameObject Desk;
+    public GameObject Stove;
 
 
     // Update is called once per frame
@@ -19,11 +24,30 @@ public class InteractionController : MonoBehaviour
     {
         //TestNar();
     }
-    public void Start_1st_DetectiveOffice()
-    {
-        theDM.ShowDialog(Start_1st_Detective.transform.GetComponent<interactionEvent>().GetDialogs());
-    }
 
+    public void Start_1st_DetectiveOffice(string setDialog)
+    {
+        if(setDialog == "start")
+        {
+            theDM.ShowDialog(Start_1st_Detective.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "NewsPaper_Active")
+        {
+            theDM.ShowDialog(NewsPaper.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "NewsPaper_Look")
+        {
+            theDM2.ShowDialog(NewsPaper_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Desk_Active")
+        {
+            theDM.ShowDialog(Desk.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Stove_Active")
+        {
+            theDM.ShowDialog(Stove.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+    }
 
 
 

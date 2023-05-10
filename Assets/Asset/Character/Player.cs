@@ -30,12 +30,16 @@ public class Player : MonoBehaviour
     private void Update()
 	{
         if (DataBaseManager.isActiveDialog2 == false)
-        {
+		{
+			anime.SetBool("Dialog", false);
 			runAndWalkChanger();
 			Move();
 
 		}
-
+        else
+        {
+			anime.SetBool("Dialog", true);
+		}
 	}
 
 

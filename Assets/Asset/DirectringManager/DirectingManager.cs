@@ -35,7 +35,7 @@ public class DirectingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InteractionController.Instance.Start_1st_DetectiveOffice(); 
+        InteractionController.Instance.Start_1st_DetectiveOffice("start"); 
     }
 
     // Update is called once per frame

@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    //Judge
+    public static bool fst_Detective_isNewspaper = false;
+
+
     //Battle
 
 
@@ -17,6 +21,9 @@ public class DataBaseManager : MonoBehaviour
 
 
     //dialog
+    public static bool isJudge;
+    public static string LookObject = "";
+    public static string NowSelecter = "End"; // End_Look_Judge Á¸Àç
     public static bool isScene;
     public static bool isPresentation;
     public static bool isOption;

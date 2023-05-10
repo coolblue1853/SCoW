@@ -11,6 +11,36 @@ using UnityEngine.Assertions;
 
 public class DialogManager : MonoBehaviour
 {
+
+
+    private static DialogManager instance = null;
+    private void Awake()
+    {
+
+        if (null == instance)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+
+    //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
+    public static DialogManager Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
     public GameObject FloatPosition;
     // 선택지 등장시  해당변수 활성화로 멈추기
     public bool ShowChoice = false;
@@ -263,7 +293,7 @@ public class DialogManager : MonoBehaviour
     }
 
 
-    void EndDialog()
+    public void EndDialog()
     {
         DataBaseManager.endDialogLine = false;
         DataBaseManager.isActiveDialog1 = false;
@@ -273,7 +303,6 @@ public class DialogManager : MonoBehaviour
         //DataBaseManager.연출중움직임제한 = false;
         //PlayerChar.transform.GetComponent<Mins>().다이얼로그다운();
         DialogFace.SetActive(false);
-        DialogFace.SetActive(false);
 
         isDialog = false;
         contextCount = 0;
@@ -282,10 +311,16 @@ public class DialogManager : MonoBehaviour
         isDialogON = false;
         isNext = false;
         SettingUI(false);
+        DataBaseManager.NowSelecter = "End";
+        End_Look.Instance.Inactive();
+        End_Look_Judge.Instance.Inactive();
+
+
     }
 
     public void ShowDialog(Dialog[] P_dialogs)
     {
+
         DataBaseManager.isActiveDialog2 = true;
         //PlayerChar.transform.GetComponent<Mins>().다이얼로그온();
         DialogFace.SetActive(true);
@@ -441,12 +476,17 @@ public class DialogManager : MonoBehaviour
                     t_ignore = true;
                     if (t_ReplaceText[i + 1] == '①')
                     {
-                        ShowChoice = true;
-                        SkipButton.SetActive(false);
-                        SkipStopButton.SetActive(false);
-                        t_ignore = true;
-                        //selectionUIManager.선택지출력1(); // 1번선택지.
-                        isSelectButton = true;
+                        if(DataBaseManager.isJudge == false)
+                        {
+                            End_Look.Instance.Inactive();
+                            End_Look_Judge.Instance.Active();
+                   
+                        }
+                        else if(DataBaseManager.isJudge == true)
+                        {
+                            End_Look.Instance.Active();
+                            End_Look_Judge.Instance.Inactive();
+                        }
                         break;
                     }
 
