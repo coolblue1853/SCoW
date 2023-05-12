@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    //Select
+    public static bool SelectionOn = false;
+
     //Judge
     public static bool fst_Detective_isNewspaper = false;
 
@@ -14,7 +17,7 @@ public class DataBaseManager : MonoBehaviour
 
     //Map
     public static int TimeCount = 1;
-
+    public static int fst_Detectiv_TimeOn = 0;
 
     //Rollet
     public static bool isRollet;

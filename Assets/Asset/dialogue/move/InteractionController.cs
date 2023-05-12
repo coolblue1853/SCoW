@@ -14,17 +14,19 @@ public class InteractionController : MonoBehaviour
     public GameObject NewsPaper_Look;
     public GameObject NewsPaper_Judege_True;
     public GameObject NewsPaper_Judege_False;
-
     public GameObject Desk;
     public GameObject Desk_Look;
-
-
     public GameObject Stove;
     public GameObject Stove_Look;
     public GameObject Stove_Judge_True;
     public GameObject Stove_Judge_False;
-
-
+    public GameObject Directing_Nock;
+    public GameObject Directing_Door;
+    public GameObject Select_AboutCrime;
+    public GameObject Select_AboutHospital;
+    public GameObject Select_AboutRunAway;
+    public GameObject Accept_Request;
+    public GameObject Reject_Request;
     // Update is called once per frame
 
 
@@ -45,13 +47,8 @@ public class InteractionController : MonoBehaviour
         }
         else if (setDialog == "NewsPaper_Look")
         {
+            DataBaseManager.fst_Detectiv_TimeOn += 1;
             theDM.ShowDialog(NewsPaper_Look.transform.GetComponent<interactionEvent>().GetDialogs());
-
-        }
-        else if (setDialog == "NewsPaper_Look")
-        {
-            theDM.ShowDialog(NewsPaper_Look.transform.GetComponent<interactionEvent>().GetDialogs());
-        
         }
         else if (setDialog == "Desk_Active")
         {
@@ -59,6 +56,7 @@ public class InteractionController : MonoBehaviour
         }
         else if (setDialog == "Desk_Look")
         {
+            DataBaseManager.fst_Detectiv_TimeOn += 1;
             theDM.ShowDialog(Desk_Look.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Stove_Active")
@@ -67,7 +65,39 @@ public class InteractionController : MonoBehaviour
         }
         else if (setDialog == "Stove_Look")
         {
+            DataBaseManager.fst_Detectiv_TimeOn += 1;
             theDM.ShowDialog(Stove_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Directing_Nock")
+        {
+            DataBaseManager.fst_Detectiv_TimeOn = -99;
+            theDM.ShowDialog(Directing_Nock.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Directing_Door")
+        {
+            DataBaseManager.fst_Detectiv_TimeOn = -999;
+            theDM.ShowDialog(Directing_Door.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Select_AboutCrime")
+        {
+            Debug.Log(4);
+            theDM.ShowDialog(Select_AboutCrime.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Select_AboutHospital")
+        {
+            theDM.ShowDialog(Select_AboutHospital.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Select_AboutRunAway")
+        {
+            theDM.ShowDialog(Select_AboutRunAway.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Accept_Request")
+        {
+            theDM.ShowDialog(Accept_Request.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Reject_Request")
+        {
+            theDM.ShowDialog(Reject_Request.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
 
@@ -110,7 +140,8 @@ public class InteractionController : MonoBehaviour
         // 1일차 오전 탐정사무소 판정
         if(Sub_Dialog == "신문 : 살펴보기")
         {
-            if(result_End == "판정 : 성공"|| result_End == "판정 : 대성공")
+            DataBaseManager.fst_Detectiv_TimeOn += 1;
+            if (result_End == "판정 : 성공"|| result_End == "판정 : 대성공")
             {
                 theDM.ShowDialog(NewsPaper_Judege_True.transform.GetComponent<interactionEvent>().GetDialogs());
   
@@ -122,8 +153,10 @@ public class InteractionController : MonoBehaviour
         }
         if (Sub_Dialog == "스토브 : 사용하기")
         {
+            DataBaseManager.fst_Detectiv_TimeOn += 1;
             if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
             {
+                DataBaseManager.Condition = "Good";
                 theDM.ShowDialog(Stove_Judge_True.transform.GetComponent<interactionEvent>().GetDialogs());
 
             }

@@ -41,9 +41,23 @@ public class DirectingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(DataBaseManager.fst_Detectiv_TimeOn >= 2)
+        {
+            if(DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                // 노크소리 발동
+                DataBaseManager.isActiveDialog2 = true;
+                Invoke("After_NockSound", 1);
+            }
+        }
+
     }
 
+
+    void After_NockSound()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Directing_Nock");
+    }
     public void End_Directing()
     {
         sit_player.SetActive(false);

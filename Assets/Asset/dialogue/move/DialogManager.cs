@@ -108,7 +108,7 @@ public class DialogManager : MonoBehaviour
 
     void TextCheker()
     {
-        if (isDialog)
+        if (isDialog && DataBaseManager.SelectionOn == false)
         {
             if (isNext)
             {
@@ -157,7 +157,7 @@ public class DialogManager : MonoBehaviour
 
     public void SkipOn()
     {
-        if (isSelectButton == false)
+        if (DataBaseManager.SelectionOn == false)
         {
             SkipButton.SetActive(false);
             SkipStopButton.SetActive(true);
@@ -171,6 +171,10 @@ public class DialogManager : MonoBehaviour
 
             StartCoroutine(Skip());
 
+        }
+        else if (DataBaseManager.SelectionOn == true)
+        {
+            SkipStopON();
         }
     }
 
@@ -195,23 +199,30 @@ public class DialogManager : MonoBehaviour
 
     IEnumerator Skip()
     {
-        z_next1 = true;   //이 부분을 true로 두면  스킵이 엄청 빨라지고 false로 두면 적당해짐
-        z_next2 = true;
-        yield return new WaitForSeconds(0.08f);
-        ChoiceEx_NextPage_t();
-        yield return new WaitForSeconds(0.08f);
-        if (go_dialogBar.activeSelf == false)
+        if(DataBaseManager.SelectionOn == false)
+        {
+            z_next1 = true;   //이 부분을 true로 두면  스킵이 엄청 빨라지고 false로 두면 적당해짐
+            z_next2 = true;
+            yield return new WaitForSeconds(0.08f);
+            ChoiceEx_NextPage_t();
+            yield return new WaitForSeconds(0.08f);
+            if (go_dialogBar.activeSelf == false)
+            {
+                SkipStopON();
+                DataBaseManager.skipActive = false;
+            }
+            else if (ShowChoice == false)
+            {
+                StartCoroutine(Skip());
+            }
+            else if (ShowChoice == true)
+            {
+                DataBaseManager.skipActive = false;
+            }
+        }
+        else if (DataBaseManager.SelectionOn == true)
         {
             SkipStopON();
-            DataBaseManager.skipActive = false;
-        }
-        else if (ShowChoice == false)
-        {
-            StartCoroutine(Skip());
-        }
-        else if (ShowChoice == true)
-        {
-            DataBaseManager.skipActive = false;
         }
     }
 
@@ -532,14 +543,10 @@ public class DialogManager : MonoBehaviour
                     t_ignore = true;
                     if (t_ReplaceText[i + 1] == '①')
                     {
-                        SkipButton.SetActive(false);
-                        SkipStopButton.SetActive(false);
-                        ShowChoice = true;
-                        t_ignore = true;
-                        //selectionUIManager.일번선택지넘기기();
-                        isSelectButton = true;
-                        break;
+                        DataBaseManager.SelectionOn = true;
+                        selectionUIManager.Instance.Open_1st_DetectiveOffice_Select1();
                     }
+
                     break;
 
                 case '♠'://기능판단오프
