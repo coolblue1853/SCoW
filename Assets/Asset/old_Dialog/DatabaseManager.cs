@@ -21,6 +21,7 @@ public class DataBaseManager : MonoBehaviour
 
 
     //dialog
+    public static bool isSelect;
     public static bool isJudge;
     public static string LookObject = "";
     public static string NowSelecter = "End"; // End_Look_Judge Á¸Àç

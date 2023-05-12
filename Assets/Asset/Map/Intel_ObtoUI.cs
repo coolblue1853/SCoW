@@ -10,7 +10,7 @@ public class Intel_ObtoUI : MonoBehaviour
     public string detail;
 
     bool PlayerInTrigger;
-
+    private string previousState;
 
     bool isJudge = false;
 
@@ -19,7 +19,12 @@ public class Intel_ObtoUI : MonoBehaviour
     public string Select_Object;
     public void Update()
     {
-        
+        if (DataBaseManager.isActiveDialog2 == true && previousState != DataBaseManager.NowSelecter)
+        {
+            Res();
+        }
+        previousState = DataBaseManager.NowSelecter;
+
         if (Input.GetKeyDown(KeyCode.E) && DataBaseManager.isActiveDialog2 == false)
         {
             if (this.transform.name == Select_Object)
@@ -36,10 +41,12 @@ public class Intel_ObtoUI : MonoBehaviour
 
                 if (DataBaseManager.NowSelecter == "Look")
                 {
-
+                    DataBaseManager.isSelect = true;
+                    InteractionController.Instance.Start_1st_DetectiveOffice(Look_Dilaog);
                 }
-                else if (DataBaseManager.NowSelecter == "End")
+                else if (DataBaseManager.NowSelecter == "End" && DataBaseManager.isActiveDialog1 == false)
                 {
+
                     InteractionController.Instance.Start_1st_DetectiveOffice(Active_Dilaog);
                 }
 
@@ -50,7 +57,11 @@ public class Intel_ObtoUI : MonoBehaviour
 
     }
 
-
+    private void Res()
+    {
+        // DataBaseManager.NowSelecter = "End";
+        DataBaseManager.isActiveDialog2 = false;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

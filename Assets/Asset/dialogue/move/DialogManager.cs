@@ -320,7 +320,7 @@ public class DialogManager : MonoBehaviour
 
     public void ShowDialog(Dialog[] P_dialogs)
     {
-
+        DataBaseManager.isActiveDialog1 = true;
         DataBaseManager.isActiveDialog2 = true;
         //PlayerChar.transform.GetComponent<Mins>().다이얼로그온();
         DialogFace.SetActive(true);

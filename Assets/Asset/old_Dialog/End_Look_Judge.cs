@@ -11,10 +11,18 @@ public class End_Look_Judge : MonoBehaviour
     public GameObject Look_Back;
     public GameObject Judge_Back;
 
+    public GameObject End;
+    public GameObject Look;
+    public GameObject Judge;
+
     private bool previousState;
 
     private void Reset()
     {
+        DataBaseManager.isSelect = false;
+        End.SetActive(true);
+        Look.SetActive(true);
+        Judge.SetActive(true);
         //DataBaseManager.NowSelecter = "End";
         End_Back.SetActive(true);
         Look_Back.SetActive(false);
@@ -34,7 +42,7 @@ public class End_Look_Judge : MonoBehaviour
 
     void DialogSetter()
     {
-        if (Checker.gameObject.activeSelf == true)
+        if (Checker.gameObject.activeSelf == true && DataBaseManager.isSelect == false)
         {
             if (Input.GetKeyDown(KeyCode.D))
             {
@@ -90,6 +98,15 @@ public class End_Look_Judge : MonoBehaviour
 
                 }
             }
+        }
+        else if(DataBaseManager.isSelect == true)
+        {
+            End_Back.SetActive(false);
+            Look_Back.SetActive(false);
+            Judge_Back.SetActive(false);
+            End.SetActive(false);
+            Look.SetActive(false);
+            Judge.SetActive(false);
         }
     }
 

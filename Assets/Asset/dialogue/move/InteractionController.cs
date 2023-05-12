@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class InteractionController : MonoBehaviour
 {
     public DialogManager theDM;
-    public DialogManager theDM2;
+    public DialogManager_sub theDM_sub;
     public DialogManager JudgeDM;
 
     // 1st Detective Office
@@ -37,7 +37,8 @@ public class InteractionController : MonoBehaviour
         }
         else if (setDialog == "NewsPaper_Look")
         {
-            theDM2.ShowDialog(NewsPaper_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(NewsPaper_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            //heDM_sub.ShowDialog(NewsPaper_Look.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Desk_Active")
         {
