@@ -478,14 +478,14 @@ public class DialogManager : MonoBehaviour
                     {
                         if(DataBaseManager.isJudge == false)
                         {
-                            End_Look.Instance.Inactive();
-                            End_Look_Judge.Instance.Active();
+                            End_Look.Instance.Active();
+                            End_Look_Judge.Instance.Inactive();
                    
                         }
                         else if(DataBaseManager.isJudge == true)
                         {
-                            End_Look.Instance.Active();
-                            End_Look_Judge.Instance.Inactive();
+                            End_Look.Instance.Inactive();
+                            End_Look_Judge.Instance.Active();
                         }
                         break;
                     }

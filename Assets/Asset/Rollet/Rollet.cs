@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 public class Rollet : MonoBehaviour
 {
+    bool activeCheck = false;
+
     string Subject;
     string Sub_Dialog;
     public GameObject RolletSetUi;
@@ -58,33 +60,52 @@ public class Rollet : MonoBehaviour
 
     private void Update()
     {
-        if(isClick == false && isActiveRollet == true)
+        if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            activeCheck = false;
+            DataBaseManager.CancelJudge = true;
+            RolletSetUi.SetActive(false);
+            DataBaseManager.isRollet = false;
+        }
+        if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck== true)
+        {
+            activeCheck = false;
+            activeRollet();
+        }
+
+        if (EndButton.activeSelf == true && Input.GetKeyDown(KeyCode.E))
+        {
+            EndRollet();
+        }
+        {
+            if (isClick == false && isActiveRollet == true)
             {
-                CancelInvoke();
-                isClick = true;
-                isActiveRollet = false;
-                Invoke("GetIntResult", 1f);
+                if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E))
+                {
+                    CancelInvoke();
+                    isClick = true;
+                    isActiveRollet = false;
+                    Invoke("GetIntResult", 1f);
+                }
+
+
             }
-
-
         }
     }
-
     void Awake()
-    {
-        isClick = false;
-        if (null == instance)
         {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            isClick = false;
+            if (null == instance)
+            {
+                instance = this;
+                DontDestroyOnLoad(this.gameObject);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
+ 
 
     //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
     public static Rollet Instance
@@ -100,6 +121,7 @@ public class Rollet : MonoBehaviour
     }
     public void setRollet(string skill, string point_sting, int point_int, string subject)
     {
+        DataBaseManager.isRollet = true;
         Subject = subject;
         Sub_Dialog = skill; // 나중에 다이얼로그 결과 전송시 사용
         ResetString();
@@ -177,6 +199,11 @@ public class Rollet : MonoBehaviour
         {
             Expect.text = "성공예상 : 매우 쉬움";
         }
+        Invoke("waitOneSec", 0.1f);
+    }
+    public void waitOneSec()
+    {
+        activeCheck = true;
     }
     public void activeRollet()
     {
@@ -349,6 +376,7 @@ public class Rollet : MonoBehaviour
 
     public void EndRollet()
     {
+        DataBaseManager.isRollet = false;
         isClick = false;
         RolletSetUi.SetActive(false);
         RolletCheckUI.SetActive(true);

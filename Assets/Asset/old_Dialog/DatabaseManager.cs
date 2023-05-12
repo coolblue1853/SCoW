@@ -17,11 +17,14 @@ public class DataBaseManager : MonoBehaviour
 
 
     //Rollet
+    public static bool isRollet;
     public static string Condition = "Nomal";
 
 
     //dialog
+    public static string Select_Object;
     public static bool isSelect;
+    public static bool CancelJudge;
     public static bool isJudge;
     public static string LookObject = "";
     public static string NowSelecter = "End"; // End_Look_Judge Á¸Àç

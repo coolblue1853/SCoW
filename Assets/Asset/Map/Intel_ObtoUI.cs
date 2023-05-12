@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Intel_ObtoUI : MonoBehaviour
 {
-    
+    private static Intel_ObtoUI instance = null;
+
+
+    //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
+
+    public bool CanJudge;
     public string name;
     [TextArea]
     public string detail;
@@ -16,9 +21,15 @@ public class Intel_ObtoUI : MonoBehaviour
 
     public string Active_Dilaog;
     public string Look_Dilaog;
-    public string Select_Object;
+  //  public string Select_Object;
     public void Update()
     {
+        if (DataBaseManager.CancelJudge == true)
+        {
+            CancelJudge();
+        }
+
+        
         if (DataBaseManager.isActiveDialog2 == true && previousState != DataBaseManager.NowSelecter)
         {
             Res();
@@ -27,8 +38,17 @@ public class Intel_ObtoUI : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && DataBaseManager.isActiveDialog2 == false)
         {
-            if (this.transform.name == Select_Object)
+            if (this.transform.name == DataBaseManager.Select_Object)
             {
+                if (CanJudge == false)
+                {
+                    isJudge = false;
+                }
+                else
+                {
+                    isJudge = true;
+                }
+
 
                 if (isJudge == false)
                 {
@@ -39,23 +59,46 @@ public class Intel_ObtoUI : MonoBehaviour
                     DataBaseManager.isJudge = true;
                 }
 
-                if (DataBaseManager.NowSelecter == "Look")
+                if(DataBaseManager.isRollet == false)
                 {
-                    DataBaseManager.isSelect = true;
-                    InteractionController.Instance.Start_1st_DetectiveOffice(Look_Dilaog);
-                }
-                else if (DataBaseManager.NowSelecter == "End" && DataBaseManager.isActiveDialog1 == false)
-                {
+                    if (DataBaseManager.NowSelecter == "Look")
+                    {
+                        DataBaseManager.isSelect = true;
+                        InteractionController.Instance.Start_1st_DetectiveOffice(Look_Dilaog);
+                    }
+                    else if (DataBaseManager.NowSelecter == "Judge")
+                    {
+                        DialogManager.Instance.EndDialog();
+                        CanJudge = false;
+                        isJudge = true;
+                        SetJudge();
+                    }
+                    else if (DataBaseManager.NowSelecter == "End" && DataBaseManager.isActiveDialog1 == false)
+                    {
 
-                    InteractionController.Instance.Start_1st_DetectiveOffice(Active_Dilaog);
+                        InteractionController.Instance.Start_1st_DetectiveOffice(Active_Dilaog);
+                    }
                 }
-
 
 
             }
         }
 
     }
+
+
+    void SetJudge()
+    {
+        if(DataBaseManager.Select_Object == "NewsPaper_Active")
+        {
+            Rollet.Instance.setRollet("신문 : 살펴보기", "자료조사", DataBaseManager.analysisPoint, "dialog");
+        }
+        if (DataBaseManager.Select_Object == "Stove_Active")
+        {
+            Rollet.Instance.setRollet("스토브 : 사용하기", "행운", DataBaseManager.luk, "dialog");
+        }
+    }
+
 
     private void Res()
     {
@@ -68,7 +111,7 @@ public class Intel_ObtoUI : MonoBehaviour
         PlayerInTrigger = true;
         if (collision.tag == "Player")
         {
-            Select_Object = this.transform.name;
+            DataBaseManager.Select_Object = this.transform.name;
             BillowUIManager.Instance.SetIntelUi(name, detail);
         }
     }
@@ -79,9 +122,20 @@ public class Intel_ObtoUI : MonoBehaviour
         PlayerInTrigger = false;
         if (collision.tag == "Player")
         {
-            Select_Object = "";
+            DataBaseManager.Select_Object = "";
             BillowUIManager.Instance.ResetIntelUi();
         }
     }
 
+
+    public void CancelJudge()
+    {
+        if(DataBaseManager.Select_Object == this.transform.name)
+        {
+
+            DataBaseManager.CancelJudge = false;
+            isJudge = true;
+            CanJudge = true;
+        }
+    }
 }

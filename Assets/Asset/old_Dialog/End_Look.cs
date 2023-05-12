@@ -4,28 +4,35 @@ using UnityEngine;
 
 public class End_Look : MonoBehaviour
 {
+    public bool CanJudge;
+
     public GameObject End_Back;
     public GameObject Look_Back;
     public GameObject Checker;
     private bool previousState;
-
+    public GameObject End;
+    public GameObject Look;
     public void Active()
     {
+
         Checker.SetActive(true);
     }
     public void Inactive()
     {
         Checker.SetActive(false);
     }
-    private void Reset()
+    private void Res()
     {
-       // DataBaseManager.NowSelecter = "End";
+        DataBaseManager.isSelect = false;
         End_Back.SetActive(true);
         Look_Back.SetActive(false);
+        //DataBaseManager.NowSelecter = "End";
+        End.SetActive(true);
+        Look.SetActive(true);
     }
     void DialogSetter()
     {
-        if (Checker.gameObject.activeSelf == true)
+        if (Checker.gameObject.activeSelf == true && DataBaseManager.isSelect == false)
         {
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
             {
@@ -43,6 +50,15 @@ public class End_Look : MonoBehaviour
                 }
             }
         }
+        else if (DataBaseManager.isSelect == true)
+        {
+            End_Back.SetActive(false);
+            Look_Back.SetActive(false);
+
+            End.SetActive(false);
+            Look.SetActive(false);
+
+        }
     }
 
     // Update is called once per frame
@@ -50,7 +66,7 @@ public class End_Look : MonoBehaviour
     {
         if (Checker.gameObject.activeSelf && !previousState)
         {
-            Reset();
+            Res();
         }
 
         previousState = Checker.gameObject.activeSelf;
