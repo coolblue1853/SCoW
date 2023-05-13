@@ -4,6 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    // Map
+    public static string nowPlace = "DetectiveOffice";
+
+    //keyword
+    public static string keyword_main;
+    public static string keyword_upper;
+    public static string keyword_downer;
+
+    //Directing
+    public static bool isDirecting = false;
+
+    public static bool fst_Detective_EndFirstDialog;
+    public static bool fst_Detective_NockDialog;
+    public static bool fst_Detective_AfterSelect;
+    public static bool fst_Detective_AfterSelectNo;
+    public static bool fst_Detective_EndSelect;
     //Select
     public static bool SelectionOn = false;
 
@@ -327,6 +343,9 @@ public class DataBaseManager : MonoBehaviour
     public static int ButtonCount_PoliceOffice = -1;
     public static int ButtonCount_Gunsmith = -1;
     public static int ButtonCount_SewageMaintenanceOffice = -1;
+    public static int ButtonCount_Wharf = -1;
+
+
 
     public static int GainPlaceInt = 0;
 
@@ -343,7 +362,7 @@ public class DataBaseManager : MonoBehaviour
     public static int NowPage_PoliceOffice = 1;
     public static int NowPage_Gunsmith = 1;
     public static int NowPage_SewageMaintenanceOffice = 1;
-
+    public static int NowPage_Wharf = 1;
 
 
     public static bool Intel_DetectiveOffice1 = false;
@@ -441,4 +460,11 @@ public class DataBaseManager : MonoBehaviour
     public static bool Intel_SewageMaintenanceOffice4 = false;
     public static bool Intel_SewageMaintenanceOffice5 = false;
     public static bool Intel_SewageMaintenanceOffice6 = false;
+
+    public static bool Intel_Wharf1 = false;
+    public static bool Intel_Wharf2 = false;
+    public static bool Intel_Wharf3 = false;
+    public static bool Intel_Wharf4 = false;
+    public static bool Intel_Wharf5 = false;
+    public static bool Intel_Wharf6 = false;
 }

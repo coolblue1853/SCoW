@@ -17,20 +17,60 @@ public class IntelManager : MonoBehaviour
     public GameObject IntelWindow;
     public GameObject FloatingTextObject;
     public GameObject FloatingPlace;
-
-    public void AddIntelFloating(string Category, string tag, string detail)
+    public GameObject FloatingPlace2;
+    public void AddIntelFloating( string Category, string detail)
     {
-        if( tag == "행성대직렬")
+        if (Category == "Character")
         {
-            //DataBaseManager.행성대직렬알리미 = true;
-        }
+            if(FloatingPlace.transform.childCount == 0)
+            {
+                var clone = Instantiate(FloatingTextObject, FloatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().Text.text = "<color=#1A6800>(" + detail + ")</color>정보 획득".ToString();
+                clone.transform.SetParent(FloatingPlace.transform);
+                clone.transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if(FloatingPlace.transform.childCount == 1)
+            {
+                var clone = Instantiate(FloatingTextObject, FloatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().Text.text = "<color=#1A6800>(" + detail + ")</color>정보 획득".ToString();
+                clone.transform.SetParent(FloatingPlace2.transform);
+                clone.transform.localScale = new Vector3(1, 1, 1);
+            }
 
-        if(Category == "Event")
+        }
+        if (Category == "Event")
         {
-            var clone = Instantiate(FloatingTextObject, FloatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
-            clone.GetComponent<IntelFloating>().Text.text = "<color=#B30000>("+ detail + ")</color>정보 획득".ToString();
-            clone.transform.SetParent(UI.transform);
-            clone.transform.localScale = new Vector3(1, 1, 1);
+            if (FloatingPlace.transform.childCount == 0)
+            {
+                var clone = Instantiate(FloatingTextObject, FloatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().Text.text = "<color=#B30000>(" + detail + ")</color>정보 획득".ToString();
+                clone.transform.SetParent(FloatingPlace.transform);
+                clone.transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (FloatingPlace.transform.childCount == 1)
+            {
+                var clone = Instantiate(FloatingTextObject, FloatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().Text.text = "<color=#B30000>(" + detail + ")</color>정보 획득".ToString();
+                clone.transform.SetParent(FloatingPlace2.transform);
+                clone.transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+        if (Category == "Place")
+        {
+            if (FloatingPlace.transform.childCount == 0)
+            {
+                var clone = Instantiate(FloatingTextObject, FloatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().Text.text = "<color=#0026A9>(" + detail + ")</color>정보 획득".ToString();
+                clone.transform.SetParent(FloatingPlace.transform);
+                clone.transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (FloatingPlace.transform.childCount == 1)
+            {
+                var clone = Instantiate(FloatingTextObject, FloatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().Text.text = "<color=#0026A9>(" + detail + ")</color>정보 획득".ToString();
+                clone.transform.SetParent(FloatingPlace2.transform);
+                clone.transform.localScale = new Vector3(1, 1, 1);
+            }
         }
 
     }

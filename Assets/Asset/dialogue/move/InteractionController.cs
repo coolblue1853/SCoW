@@ -22,11 +22,15 @@ public class InteractionController : MonoBehaviour
     public GameObject Stove_Judge_False;
     public GameObject Directing_Nock;
     public GameObject Directing_Door;
+    public GameObject Directing_AfterDoor;
     public GameObject Select_AboutCrime;
     public GameObject Select_AboutHospital;
     public GameObject Select_AboutRunAway;
     public GameObject Accept_Request;
+    public GameObject Accept_AfterSelectYes;
     public GameObject Reject_Request;
+    public GameObject Accept_AfterSelectNo;
+
     // Update is called once per frame
 
 
@@ -78,6 +82,10 @@ public class InteractionController : MonoBehaviour
             DataBaseManager.fst_Detectiv_TimeOn = -999;
             theDM.ShowDialog(Directing_Door.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+        else if (setDialog == "Directing_AfterDoor")
+        {
+            theDM.ShowDialog(Directing_AfterDoor.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
         else if (setDialog == "Select_AboutCrime")
         {
             Debug.Log(4);
@@ -95,9 +103,20 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(Accept_Request.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+        else if (setDialog == "Accept_AfterSelectYes")
+        {
+            theDM.ShowDialog(Accept_AfterSelectYes.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        
         else if (setDialog == "Reject_Request")
         {
+            
             theDM.ShowDialog(Reject_Request.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Accept_AfterSelectNo")
+        {
+
+            theDM.ShowDialog(Accept_AfterSelectNo.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
 

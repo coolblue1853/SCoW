@@ -5,15 +5,25 @@ using UnityEngine;
 public class DialogDatabaseManager : MonoBehaviour
 {
     public static DialogDatabaseManager instance;
-
-    [SerializeField] string csv_FileName;
+    private void Update()
+    {
+        if (DataBaseManager.nowPlace == "DetectiveOffice")
+        {
+            csv_FileName = "1st_DetectiveOffice";
+        }
+    }
+    public string csv_FileName;
     Dictionary<int, Dialog> dialogDic = new Dictionary<int, Dialog>();
 
     public static bool isFinish = false;
 
     private void Awake()
     {
-        if(instance == null)
+        if (DataBaseManager.nowPlace == "DetectiveOffice")
+        {
+            csv_FileName = "1st_DetectiveOffice";
+        }
+        if (instance == null)
         {
             instance = this;
             DialogPaser theParser = GetComponent<DialogPaser>();

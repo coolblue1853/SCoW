@@ -93,6 +93,9 @@ public class DialogManager : MonoBehaviour
     }
     void Update()
     {
+
+
+
         settingPlayerCon();
         TextCheker();
         if (Input.GetKeyDown(KeyCode.E))
@@ -380,21 +383,36 @@ public class DialogManager : MonoBehaviour
                     {
                         if (t_ReplaceText[i + 2] == '●')
                         {
-                            if (t_ReplaceText[i + 3] == '행')
+                            if (t_ReplaceText[i + 3] == '1')
                             {
-                              //  DataBaseManager.행성대직렬정보1 = true;
-                              //  정보창매니저.행성대직렬정보추가();
+                                if (t_ReplaceText[i + 4] == '행')
+                                {
+                                    if (DataBaseManager.Intel_PlanetarySequence1 == false)
+                                        IntelManager.Instance.AddIntelFloating("Event", "행성대직렬 - 조간신문 기사");
+                                    DataBaseManager.Intel_PlanetarySequence1 = true;
+     
+
+                                }
+                                if (t_ReplaceText[i + 4] == '불')
+                                {
+                                    if (DataBaseManager.Intel_Insomnia1 == false)
+                                        DataBaseManager.Intel_Insomnia1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "불면증 - 조간신문 기사");
+                                }
+                                if (t_ReplaceText[i + 4] == '악')
+                                {
+                                    if (DataBaseManager.Intel_Nightmare1 == false)
+                                        DataBaseManager.Intel_Nightmare1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "악몽 - 남편의 상태");
+                                }
+                                if (t_ReplaceText[i + 4] == '편')
+                                {
+                                    if (DataBaseManager.Intel_Paranoia1 == false)
+                                        DataBaseManager.Intel_Paranoia1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "편집증 - 남편의 상태");
+                                }
                             }
-                            if (t_ReplaceText[i + 3] == '악')
-                            {
-                               // DataBaseManager.악몽정보1 = true;
-                               // 정보창매니저.악몽정보추가();
-                            }
-                            if (t_ReplaceText[i + 3] == '불')
-                            {
-                                //DataBaseManager.불면증정보1 = true;
-                               // 정보창매니저.불면증정보추가();
-                            }
+
                         }
                     }
                     break;
@@ -404,28 +422,35 @@ public class DialogManager : MonoBehaviour
                     {
                         if (t_ReplaceText[i + 2] == '●')
                         {
-                            if (t_ReplaceText[i + 3] == '병')
+                            if (t_ReplaceText[i + 3] == '1')
                             {
-                              //  DataBaseManager.병원정보1 = true;
-                              //  정보창매니저.병원정보추가();
+                                if (t_ReplaceText[i + 4] == '부')
+                                {
+                                    if (DataBaseManager.Intel_Wharf1 == false)
+                                        DataBaseManager.Intel_Wharf1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Place", "부두 - 일거리");
+                                }
+                                if (t_ReplaceText[i + 4] == '병')
+                                {
+                                    if (DataBaseManager.Intel_Hospital1 == false)
+                                        DataBaseManager.Intel_Hospital1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Place", "병원 - 혼잡 상태");
+                                }
+                                if (t_ReplaceText[i + 4] == '서')
+                                {
+                                    if (DataBaseManager.Intel_QuestHouse1 == false)
+                                        DataBaseManager.Intel_QuestHouse1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Place", "의뢰자의 집 - 집 주소");
+                                }
+                                if (t_ReplaceText[i + 4] == '데')
+                                {
+                                    if (DataBaseManager.Intel_Newspaper1 == false)
+                                        DataBaseManager.Intel_Newspaper1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Place", "데일리뉴스 신문사 - 직장");
+                                }
                             }
-                            if (t_ReplaceText[i + 3] == '서')
-                            {
-                             //   DataBaseManager.의뢰자의집정보1 = true;
-                               // 정보창매니저.의뢰자의집정보추가();
-                            }
-                            if (t_ReplaceText[i + 3] == '아')
-                            {
-                               // DataBaseManager.아컴역정보1 = true;
-                               // 정보창매니저.아캄역정보추가();
-                            }
-                            if (t_ReplaceText[i + 3] == '데')
-                            {
-                               // DataBaseManager.신문사정보1 = true;
-                               // 정보창매니저.신문사정보추가();
-                            }
+
                         }
-  
                     }
                     break;
 
@@ -434,16 +459,35 @@ public class DialogManager : MonoBehaviour
                     {
                         if (t_ReplaceText[i + 2] == '●')
                         {
-                            if (t_ReplaceText[i + 3] == '엘')
+                            if (t_ReplaceText[i + 3] == '1')
                             {
-                              //  DataBaseManager.엘라정보1 = true;
-                              //  정보창매니저.엘라정보추가();
+                                if (t_ReplaceText[i + 4] == '알')
+                                {
+                                    if (DataBaseManager.Intel_Albert1 == false)
+                                        DataBaseManager.Intel_Albert1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Character", "알버트 브래들리 - 친구");
+                                }
+
+                                if (t_ReplaceText[i + 4] == '메')
+                                {
+                                    if (DataBaseManager.Intel_Meiv1 == false)
+                                        DataBaseManager.Intel_Meiv1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Character", "메이브 A 로시 - 친구");
+                                }
+                                if (t_ReplaceText[i + 4] == '엘')
+                                {
+                                    if (DataBaseManager.Intel_Ella1 == false)
+                                        DataBaseManager.Intel_Ella1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Character", "엘라 트리스 - 의뢰자");
+                                }
+                                if (t_ReplaceText[i + 4] == '에')
+                                {
+                                    if (DataBaseManager.Intel_Aiden1 == false)
+                                        DataBaseManager.Intel_Aiden1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Character", "에이든 트리스 - 의뢰 대상");
+                                }
                             }
-                            if (t_ReplaceText[i + 3] == '에')
-                            {
-                               // DataBaseManager.에이든정보1 = true;
-                                //정보창매니저.에이든정보추가();
-                            }
+                                
                         }
                     }
                     break;
@@ -453,30 +497,33 @@ public class DialogManager : MonoBehaviour
                     if (t_ReplaceText[i + 1] == '①')
                     {
                         t_ignore = true;
-                         DirectingManager.Instance.End_Directing();
+                        DataBaseManager.fst_Detective_EndFirstDialog = true;
                         break;
                     }
                     if (t_ReplaceText[i + 1] == '②')
                     {
                         t_ignore = true;
-                        //연출매니저.첫번째의뢰인들어오는연출 = false;
+                        DataBaseManager.fst_Detective_NockDialog = true;
                         break;
                     }
                     if (t_ReplaceText[i + 1] == '③')
                     {
                         t_ignore = true;
+                        DataBaseManager.fst_Detective_AfterSelect = true;
                       //  연출매니저.의뢰인앉는연출 = false;
                         break;
                     }
                     if (t_ReplaceText[i + 1] == '④')
                     {
                         t_ignore = true;
-                     //   연출매니저.의뢰인나감연출 = false;
+                        DataBaseManager.fst_Detective_EndSelect = true;
+                        //   연출매니저.의뢰인나감연출 = false;
 
                         break;
                     }
                     if (t_ReplaceText[i + 1] == '⑤')
                     {
+                        DataBaseManager.fst_Detective_AfterSelectNo = true;
                         t_ignore = true;
                         //연출매니저.연출끝();
                         break;
@@ -524,19 +571,6 @@ public class DialogManager : MonoBehaviour
 
                     }
 
-
-                    if (t_ReplaceText[i + 1] == '②')//행성대직렬 정보 1 추가.
-                    {
-                        if (t_ReplaceText[i + 2] == '㉧')
-                        {
-                            if (t_ReplaceText[i + 3] == '㉤')
-                            {
-                                t_ignore = true;
-                                //DataBaseManager.악몽정보2 = true;
-                                break;
-                            }
-                        }
-                    }
                     break;
 
                 case '★':  // 검은별은 선택지이후 연결파트 표시
@@ -608,7 +642,12 @@ public class DialogManager : MonoBehaviour
                 case '㉤': if (t_ReplaceText[i + -3] == '☆') { t_ignore = true; } break;
 
                 case '●': if (t_ReplaceText[i + -1] == '(') { t_ignore = true; } break;
-
+                case '1': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
+                case '2': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
+                case '3': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
+                case '4': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
+                case '5': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
+                case '6': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
                 //case '0': if (t_ReplaceText[i + 1] == '§') { t_ignore = true; } if (t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
                 case '①': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
                 case '②': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;

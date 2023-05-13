@@ -17,7 +17,7 @@ public class TimeManagere : MonoBehaviour
     {
         if((DataBaseManager.TimeCount % 4 )== 1)
         {
-            lightColorController.time = 0.05f;
+            lightColorController.time = 0.2f;
         }
         if ((DataBaseManager.TimeCount % 4) == 2)
         {

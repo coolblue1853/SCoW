@@ -6,94 +6,94 @@ public class Test : MonoBehaviour
 {
     string NowPage;
 
-     GameObject Detail_SewageMaintenanceOffice1;
-     GameObject Detail_SewageMaintenanceOffice2;
-     GameObject Detail_SewageMaintenanceOffice3;
-     GameObject Detail_SewageMaintenanceOffice4;
-     GameObject Detail_SewageMaintenanceOffice5;
-     GameObject Detail_SewageMaintenanceOffice6;
-    bool ON_SewageMaintenanceOffice1;
-    bool ON_SewageMaintenanceOffice2;
-    bool ON_SewageMaintenanceOffice3;
-    bool ON_SewageMaintenanceOffice4;
-    bool ON_SewageMaintenanceOffice5;
-    bool ON_SewageMaintenanceOffice6;
-    int Count_SewageMaintenanceOffice = 0;
-    public GameObject SewageMaintenanceOfficeContents;
-    public GameObject SewageMaintenanceOffice_Detail; 
-    public static int SewageMaintenanceOfficeIntelInt;
-    public GameObject NextButton_SewageMaintenanceOffice;
-    public GameObject PrevButton_SewageMaintenanceOffice;
+     GameObject Detail_Wharf1;
+     GameObject Detail_Wharf2;
+     GameObject Detail_Wharf3;
+     GameObject Detail_Wharf4;
+     GameObject Detail_Wharf5;
+     GameObject Detail_Wharf6;
+    bool ON_Wharf1;
+    bool ON_Wharf2;
+    bool ON_Wharf3;
+    bool ON_Wharf4;
+    bool ON_Wharf5;
+    bool ON_Wharf6;
+    int Count_Wharf = 0;
+    public GameObject WharfContents;
+    public GameObject Wharf_Detail; 
+    public static int WharfIntelInt;
+    public GameObject NextButton_Wharf;
+    public GameObject PrevButton_Wharf;
 
-    void SewageMaintenanceOfficeDetail()
+    void WharfDetail()
     {
-        if (ON_SewageMaintenanceOffice1 == false && DataBaseManager.Intel_SewageMaintenanceOffice1 == true)
+        if (ON_Wharf1 == false && DataBaseManager.Intel_Wharf1 == true)
         {
-            ON_SewageMaintenanceOffice1 = true;
-            Detail_SewageMaintenanceOffice1.SetActive(true);
-            Detail_SewageMaintenanceOffice1.transform.SetAsLastSibling();
-            Count_SewageMaintenanceOffice += 1;
+            ON_Wharf1 = true;
+            Detail_Wharf1.SetActive(true);
+            Detail_Wharf1.transform.SetAsLastSibling();
+            Count_Wharf += 1;
         }
-        if (ON_SewageMaintenanceOffice2 == false && DataBaseManager.Intel_SewageMaintenanceOffice2 == true)
+        if (ON_Wharf2 == false && DataBaseManager.Intel_Wharf2 == true)
         {
-            ON_SewageMaintenanceOffice2 = true;
-            Detail_SewageMaintenanceOffice2.SetActive(true);
-            Detail_SewageMaintenanceOffice2.transform.SetAsLastSibling();
-            Count_SewageMaintenanceOffice += 1;
+            ON_Wharf2 = true;
+            Detail_Wharf2.SetActive(true);
+            Detail_Wharf2.transform.SetAsLastSibling();
+            Count_Wharf += 1;
         }
-        if (ON_SewageMaintenanceOffice3 == false && DataBaseManager.Intel_SewageMaintenanceOffice3 == true)
+        if (ON_Wharf3 == false && DataBaseManager.Intel_Wharf3 == true)
         {
-            ON_SewageMaintenanceOffice3 = true;
-            Detail_SewageMaintenanceOffice3.SetActive(true);
-            Detail_SewageMaintenanceOffice3.transform.SetAsLastSibling();
-            Count_SewageMaintenanceOffice += 1;
+            ON_Wharf3 = true;
+            Detail_Wharf3.SetActive(true);
+            Detail_Wharf3.transform.SetAsLastSibling();
+            Count_Wharf += 1;
         }
-        if (ON_SewageMaintenanceOffice4 == false && DataBaseManager.Intel_SewageMaintenanceOffice4 == true)
+        if (ON_Wharf4 == false && DataBaseManager.Intel_Wharf4 == true)
         {
-            ON_SewageMaintenanceOffice4 = true;
-            Detail_SewageMaintenanceOffice4.SetActive(true);
-            Detail_SewageMaintenanceOffice4.transform.SetAsLastSibling();
-            Count_SewageMaintenanceOffice += 1;
+            ON_Wharf4 = true;
+            Detail_Wharf4.SetActive(true);
+            Detail_Wharf4.transform.SetAsLastSibling();
+            Count_Wharf += 1;
         }
-        if (ON_SewageMaintenanceOffice5 == false && DataBaseManager.Intel_SewageMaintenanceOffice5 == true)
+        if (ON_Wharf5 == false && DataBaseManager.Intel_Wharf5 == true)
         {
-            ON_SewageMaintenanceOffice5 = true;
-            Detail_SewageMaintenanceOffice5.SetActive(true);
-            Detail_SewageMaintenanceOffice5.transform.SetAsLastSibling();
-            Count_SewageMaintenanceOffice += 1;
+            ON_Wharf5 = true;
+            Detail_Wharf5.SetActive(true);
+            Detail_Wharf5.transform.SetAsLastSibling();
+            Count_Wharf += 1;
         }
-        if (ON_SewageMaintenanceOffice6 == false && DataBaseManager.Intel_SewageMaintenanceOffice6 == true)
+        if (ON_Wharf6 == false && DataBaseManager.Intel_Wharf6 == true)
         {
-            ON_SewageMaintenanceOffice6 = true;
-            Detail_SewageMaintenanceOffice6.SetActive(true);
-            Detail_SewageMaintenanceOffice6.transform.SetAsLastSibling();
-            Count_SewageMaintenanceOffice += 1;
+            ON_Wharf6 = true;
+            Detail_Wharf6.SetActive(true);
+            Detail_Wharf6.transform.SetAsLastSibling();
+            Count_Wharf += 1;
         }
 
-        if (Count_SewageMaintenanceOffice > 2 && DataBaseManager.NowPage_SewageMaintenanceOffice == 1)
+        if (Count_Wharf > 2 && DataBaseManager.NowPage_Wharf == 1)
         {
-            NextButton_SewageMaintenanceOffice.SetActive(true);
+            NextButton_Wharf.SetActive(true);
         }
-        else if (Count_SewageMaintenanceOffice > 4 && DataBaseManager.NowPage_SewageMaintenanceOffice == 2)
+        else if (Count_Wharf > 4 && DataBaseManager.NowPage_Wharf == 2)
         {
-            NextButton_SewageMaintenanceOffice.SetActive(true);
+            NextButton_Wharf.SetActive(true);
         }
         else
         {
-            NextButton_SewageMaintenanceOffice.SetActive(false);
+            NextButton_Wharf.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_SewageMaintenanceOffice == 2)
+        if (DataBaseManager.NowPage_Wharf == 2)
         {
-            PrevButton_SewageMaintenanceOffice.SetActive(true);
+            PrevButton_Wharf.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_SewageMaintenanceOffice == 3)
+        else if (DataBaseManager.NowPage_Wharf == 3)
         {
-            PrevButton_SewageMaintenanceOffice.SetActive(true);
+            PrevButton_Wharf.SetActive(true);
         }
         else
         {
-            PrevButton_SewageMaintenanceOffice.SetActive(false);
+            PrevButton_Wharf.SetActive(false);
         }
     }
 
@@ -101,49 +101,49 @@ public class Test : MonoBehaviour
     public void NextPage()
     {
 
-        if (NowPage == "SewageMaintenanceOffice")
+        if (NowPage == "Wharf")
         {
-            if (DataBaseManager.NowPage_SewageMaintenanceOffice == 1)
+            if (DataBaseManager.NowPage_Wharf == 1)
             {
-                if (Count_SewageMaintenanceOffice >= 6)
+                if (Count_Wharf >= 6)
                 {
-                    Reset_SewageMaintenanceOffice();
-                    SewageMaintenanceOfficeContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SewageMaintenanceOfficeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    Reset_Wharf();
+                    WharfContents.transform.GetChild(2).gameObject.SetActive(true);
+                    WharfContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_SewageMaintenanceOffice >= 5)
+                else if (Count_Wharf >= 5)
                 {
-                    Reset_SewageMaintenanceOffice();
-                    SewageMaintenanceOfficeContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SewageMaintenanceOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
+                    Reset_Wharf();
+                    WharfContents.transform.GetChild(3).gameObject.SetActive(true);
+                    WharfContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                else if (Count_SewageMaintenanceOffice >= 4)
+                else if (Count_Wharf >= 4)
                 {
-                    Reset_SewageMaintenanceOffice();
-                    SewageMaintenanceOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
-                    SewageMaintenanceOfficeContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_Wharf();
+                    WharfContents.transform.GetChild(4).gameObject.SetActive(true);
+                    WharfContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_SewageMaintenanceOffice >= 3)
+                else if (Count_Wharf >= 3)
                 {
-                    Reset_SewageMaintenanceOffice();
-                    SewageMaintenanceOfficeContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_Wharf();
+                    WharfContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_SewageMaintenanceOffice = 2;
+                DataBaseManager.NowPage_Wharf = 2;
             }
-            else if (DataBaseManager.NowPage_SewageMaintenanceOffice == 2)
+            else if (DataBaseManager.NowPage_Wharf == 2)
             {
-                if (Count_SewageMaintenanceOffice >= 6)
+                if (Count_Wharf >= 6)
                 {
-                    Reset_SewageMaintenanceOffice();
-                    SewageMaintenanceOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
-                    SewageMaintenanceOfficeContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_Wharf();
+                    WharfContents.transform.GetChild(4).gameObject.SetActive(true);
+                    WharfContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_SewageMaintenanceOffice >= 5)
+                else if (Count_Wharf >= 5)
                 {
-                    Reset_SewageMaintenanceOffice();
-                    SewageMaintenanceOfficeContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_Wharf();
+                    WharfContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_SewageMaintenanceOffice = 3;
+                DataBaseManager.NowPage_Wharf = 3;
             }
         }
     }
@@ -151,65 +151,65 @@ public class Test : MonoBehaviour
     public void PrevPage()
     {
      
-        if (NowPage == "SewageMaintenanceOffice")
+        if (NowPage == "Wharf")
         {
-            if (DataBaseManager.NowPage_SewageMaintenanceOffice == 2)
+            if (DataBaseManager.NowPage_Wharf == 2)
             {
-                if (Count_SewageMaintenanceOffice >= 6)
+                if (Count_Wharf >= 6)
                 {
-                    Reset_SewageMaintenanceOffice();
-                    SewageMaintenanceOfficeContents.transform.GetChild(0).gameObject.SetActive(true);
-                    SewageMaintenanceOfficeContents.transform.GetChild(1).gameObject.SetActive(true);
+                    Reset_Wharf();
+                    WharfContents.transform.GetChild(0).gameObject.SetActive(true);
+                    WharfContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
-                else if (Count_SewageMaintenanceOffice >= 5)
+                else if (Count_Wharf >= 5)
                 {
-                    Reset_SewageMaintenanceOffice();
-                    SewageMaintenanceOfficeContents.transform.GetChild(1).gameObject.SetActive(true);
-                    SewageMaintenanceOfficeContents.transform.GetChild(2).gameObject.SetActive(true);
+                    Reset_Wharf();
+                    WharfContents.transform.GetChild(1).gameObject.SetActive(true);
+                    WharfContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
-                else if (Count_SewageMaintenanceOffice >= 4)
+                else if (Count_Wharf >= 4)
                 {
-                    Reset_SewageMaintenanceOffice();
-                    SewageMaintenanceOfficeContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SewageMaintenanceOfficeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    Reset_Wharf();
+                    WharfContents.transform.GetChild(2).gameObject.SetActive(true);
+                    WharfContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_SewageMaintenanceOffice >= 3)
+                else if (Count_Wharf >= 3)
                 {
-                    Reset_SewageMaintenanceOffice();
-                    SewageMaintenanceOfficeContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SewageMaintenanceOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
+                    Reset_Wharf();
+                    WharfContents.transform.GetChild(3).gameObject.SetActive(true);
+                    WharfContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_SewageMaintenanceOffice = 1;
+                DataBaseManager.NowPage_Wharf = 1;
             }
-            else if (DataBaseManager.NowPage_SewageMaintenanceOffice == 3)
+            else if (DataBaseManager.NowPage_Wharf == 3)
             {
-                if (Count_SewageMaintenanceOffice >= 6)
+                if (Count_Wharf >= 6)
                 {
-                    Reset_SewageMaintenanceOffice();
-                    SewageMaintenanceOfficeContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SewageMaintenanceOfficeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    Reset_Wharf();
+                    WharfContents.transform.GetChild(2).gameObject.SetActive(true);
+                    WharfContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_SewageMaintenanceOffice >= 5)
+                else if (Count_Wharf >= 5)
                 {
-                    Reset_SewageMaintenanceOffice();
-                    SewageMaintenanceOfficeContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SewageMaintenanceOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
+                    Reset_Wharf();
+                    WharfContents.transform.GetChild(3).gameObject.SetActive(true);
+                    WharfContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_SewageMaintenanceOffice = 2;
+                DataBaseManager.NowPage_Wharf = 2;
             }
         }
     }
 
 
 
-    void Reset_SewageMaintenanceOffice()
+    void Reset_Wharf()
     {
-        SewageMaintenanceOfficeContents.transform.GetChild(0).gameObject.SetActive(false);
-        SewageMaintenanceOfficeContents.transform.GetChild(1).gameObject.SetActive(false);
-        SewageMaintenanceOfficeContents.transform.GetChild(2).gameObject.SetActive(false);
-        SewageMaintenanceOfficeContents.transform.GetChild(3).gameObject.SetActive(false);
-        SewageMaintenanceOfficeContents.transform.GetChild(4).gameObject.SetActive(false);
-        SewageMaintenanceOfficeContents.transform.GetChild(5).gameObject.SetActive(false);
+        WharfContents.transform.GetChild(0).gameObject.SetActive(false);
+        WharfContents.transform.GetChild(1).gameObject.SetActive(false);
+        WharfContents.transform.GetChild(2).gameObject.SetActive(false);
+        WharfContents.transform.GetChild(3).gameObject.SetActive(false);
+        WharfContents.transform.GetChild(4).gameObject.SetActive(false);
+        WharfContents.transform.GetChild(5).gameObject.SetActive(false);
     }
 }

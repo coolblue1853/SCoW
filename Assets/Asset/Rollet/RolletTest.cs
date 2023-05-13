@@ -10,7 +10,7 @@ public class RolletTest : MonoBehaviour
 
     private void Awake()
     {
-        DataBaseManager.TimeCount = 2;
+        DataBaseManager.TimeCount = 1;
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         DataBaseManager.intl = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         DataBaseManager.dex = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
@@ -35,18 +35,20 @@ public class RolletTest : MonoBehaviour
         {
 
             //DataBaseManager.카메라왼쪽워킹온오프 = true;
-            //One();
+            One();
             // NewsRollet();
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            Debug.Log(DataBaseManager.isActiveDialog2);
             Two();
-            DataBaseManager.Condition = "Good";
+            //DataBaseManager.Condition = "Good";
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
+
             Three();
-            DataBaseManager.Condition = "Best";
+            //DataBaseManager.Condition = "Best";
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
@@ -137,6 +139,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_PoliceOffice1 = true;
         DataBaseManager.Intel_Gunsmith1 = true;
         DataBaseManager.Intel_SewageMaintenanceOffice1 = true;
+        DataBaseManager.Intel_Wharf1 = true;
     }
     public void Two()
     {
@@ -174,6 +177,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_PoliceOffice2 = true;
         DataBaseManager.Intel_Gunsmith2 = true;
         DataBaseManager.Intel_SewageMaintenanceOffice2 = true;
+        DataBaseManager.Intel_Wharf2 = true;
 
 
     }
@@ -213,6 +217,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_PoliceOffice3 = true;
         DataBaseManager.Intel_Gunsmith3 = true;
         DataBaseManager.Intel_SewageMaintenanceOffice3 = true;
+        DataBaseManager.Intel_Wharf3 = true;
     }
     public void Four()
     {
@@ -250,6 +255,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_PoliceOffice4 = true;
         DataBaseManager.Intel_Gunsmith4 = true;
         DataBaseManager.Intel_SewageMaintenanceOffice4 = true;
+        DataBaseManager.Intel_Wharf4 = true;
     }
     public void Five()
     {
@@ -287,6 +293,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_PoliceOffice5 = true;
         DataBaseManager.Intel_Gunsmith5 = true;
         DataBaseManager.Intel_SewageMaintenanceOffice5 = true;
+        DataBaseManager.Intel_Wharf5 = true;
     }
 
     public void Six()
@@ -325,6 +332,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_PoliceOffice6 = true;
         DataBaseManager.Intel_Gunsmith6 = true;
         DataBaseManager.Intel_SewageMaintenanceOffice6 = true;
+        DataBaseManager.Intel_Wharf6 = true;
     }
 
 }

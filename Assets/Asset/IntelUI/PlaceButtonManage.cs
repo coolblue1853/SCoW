@@ -41,6 +41,7 @@ public class PlaceButtonManage : MonoBehaviour
     public GameObject Button_PoliceOffice;
     public GameObject Button_Gunsmith;
     public GameObject Button_SewageMaintenanceOffice;
+    public GameObject Button_Wharf;
 
     bool ButtonRize_DetectiveOffice = false;
     bool ButtonRize_Hospital = false;
@@ -55,7 +56,7 @@ public class PlaceButtonManage : MonoBehaviour
     bool ButtonRize_PoliceOffice = false;
     bool ButtonRize_Gunsmith = false;
     bool ButtonRize_SewageMaintenanceOffice = false;
-
+    bool ButtonRize_Wharf = false;
 
     void ButtonUpdate()
     {
@@ -137,7 +138,12 @@ public class PlaceButtonManage : MonoBehaviour
             DataBaseManager.ButtonCount_SewageMaintenanceOffice = DataBaseManager.GainPlaceInt;
             DataBaseManager.GainPlaceInt += 1;
         }
-
+        if ((DataBaseManager.Intel_Wharf1 == true || DataBaseManager.Intel_Wharf2 == true || DataBaseManager.Intel_Wharf3 == true || DataBaseManager.Intel_Wharf4 == true || DataBaseManager.Intel_Wharf5 == true || DataBaseManager.Intel_Wharf6 == true) && ButtonRize_Wharf == false)
+        {
+            ButtonRize_Wharf = true;
+            DataBaseManager.ButtonCount_Wharf = DataBaseManager.GainPlaceInt;
+            DataBaseManager.GainPlaceInt += 1;
+        }
     }
 
 
@@ -211,7 +217,11 @@ public class PlaceButtonManage : MonoBehaviour
             Button_SewageMaintenanceOffice.transform.SetSiblingIndex(DataBaseManager.ButtonCount_SewageMaintenanceOffice);
         }
 
-
+        if (DataBaseManager.ButtonCount_Wharf != -1)
+        {
+            Button_Wharf.SetActive(true);
+            Button_Wharf.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Wharf);
+        }
         if (DataBaseManager.GainPlaceInt > 6)
         {
             DownButton.SetActive(true);

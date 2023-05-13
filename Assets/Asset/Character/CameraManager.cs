@@ -4,7 +4,34 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
+    private static CameraManager instance = null;
+    private void Awake()
+    {
 
+        if (null == instance)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+
+    //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
+    public static CameraManager Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
 
 
     public GameObject target; // 카메라가 따라갈 대상
@@ -50,7 +77,7 @@ public class CameraManager : MonoBehaviour
         {
             if (isCheckEnd == false)
             {
-                targetPosition.Set(target.transform.position.x, this.transform.position.y, this.transform.position.z);
+                targetPosition.Set(target.transform.position.x, this.transform.position.y, -500);
                 this.transform.position = Vector3.Lerp(this.transform.position, targetPosition, moveSpeed * Time.deltaTime);
             }
 
