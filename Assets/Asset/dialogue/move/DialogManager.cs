@@ -182,7 +182,8 @@ public class DialogManager : MonoBehaviour
     }
 
     public void SkipStopON()
-    {   
+    {
+
         TextAnimatorPlayer.waitForNormalChars = 0.03f;
         TextAnimatorPlayer.waitLong = 0.03f;
         TextAnimatorPlayer.waitMiddle = 0.03f;
@@ -194,6 +195,7 @@ public class DialogManager : MonoBehaviour
 
     IEnumerator SkipNomalize()
     {
+
         yield return new WaitForSeconds(0.5f);
         ShowChoice = false;
         SkipButton.SetActive(true);
@@ -528,23 +530,22 @@ public class DialogManager : MonoBehaviour
                         //연출매니저.연출끝();
                         break;
                     }
+                    if (t_ReplaceText[i + 1] == '⑥')
+                    {
+                        DataBaseManager.FailTwoKeyword = true;
+                        t_ignore = true;
+                        //연출매니저.연출끝();
+                        break;
+                    }
                     break;
 
                 case '☆':  // 별에 선택지 출현.
                     t_ignore = true;
                     if (t_ReplaceText[i + 1] == '①')
                     {
-                        if(DataBaseManager.isJudge == false)
-                        {
-                            End_Look.Instance.Active();
-                            End_Look_Judge.Instance.Inactive();
-                   
-                        }
-                        else if(DataBaseManager.isJudge == true)
-                        {
-                            End_Look.Instance.Inactive();
-                            End_Look_Judge.Instance.Active();
-                        }
+                        SkipStopON();
+                        End_Look_Judge.Instance.Active();
+                     
                         break;
                     }
 
@@ -580,11 +581,18 @@ public class DialogManager : MonoBehaviour
                         DataBaseManager.SelectionOn = true;
                         selectionUIManager.Instance.Open_1st_DetectiveOffice_Select1();
                     }
-
+                    if (t_ReplaceText[i + 1] == '②')
+                    {
+                        DataBaseManager.SelectionOn = true;
+                        selectionUIManager.Instance.Open_1st_ClientsOffic_SafeSelect();
+                    }
                     break;
 
-                case '♠'://기능판단오프
-                    //selectionUIManager.엘라심리학선택지끄기();
+                case '♠'://대화중 기능판단 출현
+                    if (t_ReplaceText[i + 1] == '①')
+                    {
+                        DataBaseManager.StrDialogOn = true;
+                    }
                     t_ignore = true;
                     break;
                 // 최초 심리학 기능판정 선택지 출력창.
@@ -649,17 +657,17 @@ public class DialogManager : MonoBehaviour
                 case '5': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
                 case '6': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
                 //case '0': if (t_ReplaceText[i + 1] == '§') { t_ignore = true; } if (t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '①': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '②': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
+                case '①': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
+                case '②': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
                 case '③': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
                 case '④': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '⑤': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '⑥': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '⑦': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '⑧': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '⑨': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '⑩': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i + 2] == '§') { t_ignore = true; } break;
-                case '⑫': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i + 2] == '§') { t_ignore = true; } break;
+                case '⑤': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑥': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑦': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑧': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑨': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑩': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑫': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
 
 
             }

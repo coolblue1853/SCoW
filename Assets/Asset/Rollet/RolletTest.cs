@@ -10,6 +10,18 @@ public class RolletTest : MonoBehaviour
 
     private void Awake()
     {
+        DataBaseManager.psychotherapyPoint = 200;
+        //DataBaseManager.nowPlace = "DetectiveOffice";
+        DataBaseManager.Intel_Aiden1 = true;
+        DataBaseManager.Intel_Cane1 = true;
+        DataBaseManager.Intel_Meiv1 = true;
+        DataBaseManager.Intel_Newspaper1 = true;
+        DataBaseManager.Intel_Ella1 = true;
+        DataBaseManager.Intel_Safe1 = true;
+        DataBaseManager.Intel_Nightmare1 = true;
+        DataBaseManager.Intel_PlanetarySequence1 = true;
+        DataBaseManager.Intel_Hospital1 = true;
+
         DataBaseManager.nowPlace = "Client'sHouse";
         DataBaseManager.TimeCount = 1;
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
@@ -49,7 +61,7 @@ public class RolletTest : MonoBehaviour
         {
 
             Three();
-            //DataBaseManager.Condition = "Best";
+            DataBaseManager.Condition = "Best";
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {

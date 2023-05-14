@@ -7,6 +7,14 @@ public class DirectingManager : MonoBehaviour
 {
     Vector2 player_OutsideTo1st = new Vector3(-1217.79f, 2.13f);
     Vector3 Cam_OutsideTo1st = new Vector3(-1198, 1.5f, -15);
+
+    Vector2 player_1stTo2st = new Vector3(-1380.6f, 7f);
+    Vector3 Cam_1stTo2st = new Vector3(-1368.6f, 1.5f, -15);
+
+    Vector2 player_RoomTo2st = new Vector3(-1365.4f, 7f);
+    Vector3 Cam_RoomTo2st = new Vector3(-1368.6f, 1.5f, -15);
+
+
     private static DirectingManager instance = null;
     public GameObject player;
     public GameObject Camera;
@@ -85,11 +93,25 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.fst_Detective_EndSelect = false;
             fst_DetectiveOffice_FadeOut("EndSelect_Directing");
         }
-
+        // 의뢰자의 집
+        if(DataBaseManager.StrDialogOn == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.StrDialogOn = false;
+            Rollet.Instance.setRollet("Aiden : TakeAway", "Str", DataBaseManager.str, "dialog");
+        }
+        if (DataBaseManager.FailTwoKeyword == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.FailTwoKeyword = false;
+            DataBaseManager.isDirecting = true;
+            DataBaseManager.isActiveDialog1 = true;
+            DataBaseManager.AidenKeywordCount = 2;
+            fst_DetectiveOffice_FadeIn("Go2stForce");
+        }
     }
     // 1일차 낮 의뢰자의 집 연출
     public void DoorNocking()
     {
+        DataBaseManager.isDirecting = true;
         FadingBackGround.Instance.FadeInOut();
         Invoke("moveInside",2f);
        // DataBaseManager.isDirecting = true;
@@ -107,6 +129,49 @@ public class DirectingManager : MonoBehaviour
         InteractionController.Instance.Start_1st_ClientsHouse("NockDoor");
         
     }
+    public void FirstUpsair()
+    {
+        DataBaseManager.isDirecting = true;
+        FadingBackGround.Instance.FadeInOut();
+        Invoke("MoveUpsair", 2f);
+        // DataBaseManager.isDirecting = true;
+    }
+    void MoveUpsair()
+    {
+
+        CameraManager.Instance.isCheckEnd = true;
+        player.transform.localPosition = player_1stTo2st;
+        Camera.transform.localPosition = Cam_1stTo2st;
+        Invoke("UpstairDialog", 2f);
+    }
+    void UpstairDialog()
+    {
+        DataBaseManager.isDirecting = false;
+        InteractionController.Instance.Start_1st_ClientsHouse("Ella_FirstUpstair");
+
+    }
+    void FirstRoomDialog()
+    {
+        DataBaseManager.isDirecting = false;
+        InteractionController.Instance.Start_1st_ClientsHouse("Ella_FirstUpstair");
+
+    }
+    void Go2stForce()
+    {
+        CameraManager.Instance.isCheckEnd = true;
+        player.transform.localPosition = player_RoomTo2st;
+        Camera.transform.localPosition = Cam_RoomTo2st;
+        DataBaseManager.isActiveDialog1 = false;
+        Invoke("ForceRoom", 2f);
+    }
+    void ForceRoom()
+    {
+        DataBaseManager.isDirecting = false;
+        InteractionController.Instance.Start_1st_ClientsHouse("Aiden_key_FailForce");
+
+    }
+
+
 
 
     // 1일차 오전 탐정사무소 연출

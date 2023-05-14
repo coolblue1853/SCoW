@@ -1,19 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using DG.Tweening;
 public class End_Look_Judge : MonoBehaviour
 {
 
 
     public GameObject Checker;
-    public GameObject End_Back;
-    public GameObject Look_Back;
-    public GameObject Judge_Back;
+
+
+    public GameObject End_BackOb;
+    public GameObject Look_BackOb;
+    public GameObject Judge_BackOb;
+    public GameObject Keyword_BackOb;
+
+    public Image End_Back;
+    public Image Look_Back;
+    public Image Judge_Back;
+    public Image Keyword_Back;
 
     public GameObject End;
     public GameObject Look;
     public GameObject Judge;
+    public GameObject Keyword;
 
     private bool previousState;
 
@@ -22,11 +32,37 @@ public class End_Look_Judge : MonoBehaviour
         DataBaseManager.isSelect = false;
         End.SetActive(true);
         Look.SetActive(true);
-        Judge.SetActive(true);
+        if (DataBaseManager.isJudge)
+        {
+            Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+            Judge.SetActive(true);
+            Judge_BackOb.SetActive(true);
+        }
+        else
+        {
+            Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+            Judge.SetActive(false);
+            Judge_BackOb.SetActive(false);
+        }
+        if (DataBaseManager.isKeyword)
+        {
+            Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
+            Keyword.SetActive(true);
+            Keyword_BackOb.SetActive(true);
+        }
+        else
+        {
+            Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
+            Keyword.SetActive(false);
+            Keyword_BackOb.SetActive(false);
+        }
+
         //DataBaseManager.NowSelecter = "End";
-        End_Back.SetActive(true);
-        Look_Back.SetActive(false);
-        Judge_Back.SetActive(false);
+        End_Back.DOFade(1,0.00001f).SetAutoKill();
+        Look_Back.DOFade(0, 0.00001f).SetAutoKill();
+
+
+
     }
 
 
@@ -46,67 +82,158 @@ public class End_Look_Judge : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.D))
             {
-                if (End_Back.activeSelf == true)
+                if (End_Back.color.a > 0 )
                 {
                     DataBaseManager.NowSelecter = "Look";
-                    End_Back.SetActive(false);
-                    Look_Back.SetActive(true);
-                    Judge_Back.SetActive(false);
+                    End_Back.DOFade(0, 0.00001f).SetAutoKill();
+                    Look_Back.DOFade(1, 0.00001f).SetAutoKill();
+                    Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+                    Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
 
                 }
-                else if (Look_Back.activeSelf == true)
+                else if (Look_Back.color.a > 0)
                 {
-                    DataBaseManager.NowSelecter = "Judge";
-                    End_Back.SetActive(false);
-                    Look_Back.SetActive(false);
-                    Judge_Back.SetActive(true);
+                    if(DataBaseManager.isJudge == true)
+                    {
+                        DataBaseManager.NowSelecter = "Judge";
+                        End_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Look_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Judge_Back.DOFade(1, 0.00001f).SetAutoKill();
+                        Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
+                    }
+                    else if(DataBaseManager.isKeyword == true)
+                    {
+                        DataBaseManager.NowSelecter = "Keyword";
+                        End_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Look_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Keyword_Back.DOFade(1, 0.00001f).SetAutoKill();
+                    }
+                    else
+                    {
+                        DataBaseManager.NowSelecter = "End";
+                        End_Back.DOFade(1, 0.00001f).SetAutoKill();
+                        Look_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
+                    }
+
 
                 }
-                else if (Judge_Back.activeSelf == true)
+                else if (Judge_Back.color.a > 0)
+                {
+                   if (DataBaseManager.isKeyword == true)
+                    {
+                        DataBaseManager.NowSelecter = "Keyword";
+                        End_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Look_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Keyword_Back.DOFade(1, 0.00001f).SetAutoKill();
+                    }
+                    else
+                    {
+                        DataBaseManager.NowSelecter = "End";
+                        End_Back.DOFade(1, 0.00001f).SetAutoKill();
+                        Look_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
+                    }
+
+                }
+                else if (Keyword_Back.color.a > 0)
                 {
                     DataBaseManager.NowSelecter = "End";
-                    End_Back.SetActive(true);
-                    Look_Back.SetActive(false);
-                    Judge_Back.SetActive(false);
+                    End_Back.DOFade(1, 0.00001f).SetAutoKill();
+                    Look_Back.DOFade(0, 0.00001f).SetAutoKill();
+                    Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+                    Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
 
                 }
             }
             if (Input.GetKeyDown(KeyCode.A))
             {
-                if (End_Back.activeSelf == true)
+                if (End_Back.color.a > 0)
                 {
-                    DataBaseManager.NowSelecter = "Judge";
-                    End_Back.SetActive(false);
-                    Look_Back.SetActive(false);
-                    Judge_Back.SetActive(true);
+                    if (DataBaseManager.isKeyword == true)
+                    {
+                        DataBaseManager.NowSelecter = "Keyword";
+                        End_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Look_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Keyword_Back.DOFade(1, 0.00001f).SetAutoKill();
+                    }
+                   else if (DataBaseManager.isJudge == true)
+                    {
+                        DataBaseManager.NowSelecter = "Judge";
+                        End_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Look_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Judge_Back.DOFade(1, 0.00001f).SetAutoKill();
+                        Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
+                    }
+                    else
+                    {
+                        DataBaseManager.NowSelecter = "Look";
+                        End_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Look_Back.DOFade(1, 0.00001f).SetAutoKill();
+                        Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
+                    }
+
 
                 }
-                else if (Look_Back.activeSelf == true)
+                else if (Look_Back.color.a > 0)
                 {
                     DataBaseManager.NowSelecter = "End";
-                    End_Back.SetActive(true);
-                    Look_Back.SetActive(false);
-                    Judge_Back.SetActive(false);
+                    End_Back.DOFade(1, 0.00001f).SetAutoKill();
+                    Look_Back.DOFade(0, 0.00001f).SetAutoKill();
+                    Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+                    Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
+
 
                 }
-                else if (Judge_Back.activeSelf == true)
+                else if (Judge_Back.color.a > 0)
                 {
                     DataBaseManager.NowSelecter = "Look";
-                    End_Back.SetActive(false);
-                    Look_Back.SetActive(true);
-                    Judge_Back.SetActive(false);
+                    End_Back.DOFade(0, 0.00001f).SetAutoKill();
+                    Look_Back.DOFade(1, 0.00001f).SetAutoKill();
+                    Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+                    Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
+
+                }
+                else if (Keyword_Back.color.a > 0)
+                {
+
+                    if (DataBaseManager.isJudge == true)
+                    {
+                        DataBaseManager.NowSelecter = "Judge";
+                        End_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Look_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Judge_Back.DOFade(1, 0.00001f).SetAutoKill();
+                        Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
+                    }
+                    else
+                    {
+                        DataBaseManager.NowSelecter = "Look";
+                        End_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Look_Back.DOFade(1, 0.00001f).SetAutoKill();
+                        Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+                        Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
+                    }
 
                 }
             }
         }
         else if(DataBaseManager.isSelect == true)
         {
-            End_Back.SetActive(false);
-            Look_Back.SetActive(false);
-            Judge_Back.SetActive(false);
+            End_Back.DOFade(0, 0.00001f).SetAutoKill();
+            Look_Back.DOFade(0, 0.00001f).SetAutoKill();
+            Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+            Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
+
             End.SetActive(false);
             Look.SetActive(false);
             Judge.SetActive(false);
+            Keyword.SetActive(false);
         }
     }
 

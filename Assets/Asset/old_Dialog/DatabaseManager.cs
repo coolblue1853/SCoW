@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    //Judge
+
+
     // Map
     public static string nowPlace = "DetectiveOffice";
     public static string PotalPlace = "";
@@ -18,7 +21,18 @@ public class DataBaseManager : MonoBehaviour
     public static bool isDirecting = false;
 
     //1일차 의뢰자의 집
+    public static bool Aiden_FirstDialog = false;
+    public static bool Aiden_Observation = false;
+    public static bool Aiden_medicine = false;
+    public static bool Aiden_psychotherapy = false;
+    public static bool Ella_EndDialog = false;
     public static bool isFirstDoor = false;
+    public static bool isFirst2st = false;
+    public static bool isFirstRoom = false;
+    public static bool getSafe = false;
+    public static bool StrDialogOn = false;
+    public static int AidenKeywordCount = 0;
+    public static bool FailTwoKeyword = false;
 
     //1일차 오전 탐정사무소
     public static bool fst_Detective_EndFirstDialog;
@@ -37,6 +51,7 @@ public class DataBaseManager : MonoBehaviour
 
 
 
+
     //Map
     public static int TimeCount = 1;
     public static int fst_Detectiv_TimeOn = 0;
@@ -50,6 +65,7 @@ public class DataBaseManager : MonoBehaviour
     public static string Select_Object;
     public static bool isSelect;
     public static bool CancelJudge;
+    public static bool isKeyword;
     public static bool isJudge;
     public static string LookObject = "";
     public static string NowSelecter = "End"; // End_Look_Judge 존재
@@ -87,7 +103,7 @@ public class DataBaseManager : MonoBehaviour
     public static int martialArtsPoint = 25;
     public static int gunShotPoint = 15;
     public static int swordPoint = 20;
-    public static int listeningPoint = 20;
+    public static int ObservationPoint = 20;
     public static int swimingPoint = 10;
 
     //skill -int

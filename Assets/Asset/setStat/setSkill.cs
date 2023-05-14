@@ -21,13 +21,13 @@ public class setSkill : MonoBehaviour
     public Text martialArtsPoint_t;
     public Text gunShotPoint_t;
     public Text swordPoint_t;
-    public Text listeningPoint_t;
+    public Text ObservationPoint_t;
     public Text swimingPoint_t;
 
     public Image martialArtsPoint_g;
     public Image gunShotPoint_g;
     public Image swordPoint_g;
-    public Image listeningPoint_g;
+    public Image ObservationPoint_g;
     public Image swimingPoint_g;
 
     //skill - int
@@ -81,8 +81,8 @@ public class setSkill : MonoBehaviour
         gunShotPoint_g.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
         swordPoint_t.text = DataBaseManager.swordPoint.ToString();
         swordPoint_g.fillAmount = (float)DataBaseManager.swordPoint / 100;
-        listeningPoint_t.text = DataBaseManager.listeningPoint.ToString();
-        listeningPoint_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
+        ObservationPoint_t.text = DataBaseManager.ObservationPoint.ToString();
+        ObservationPoint_g.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
         swimingPoint_t.text = DataBaseManager.swimingPoint.ToString();
         swimingPoint_g.fillAmount = (float)DataBaseManager.swimingPoint / 100;
 
@@ -154,13 +154,13 @@ public class setSkill : MonoBehaviour
                     }
                     break;
                 case 4:
-                    if (DataBaseManager.listeningPoint < 90 && DataBaseManager.strSkillPoint >= 5)
+                    if (DataBaseManager.ObservationPoint < 90 && DataBaseManager.strSkillPoint >= 5)
                     {
                         DataBaseManager.strSkillPoint -= 5;
-                        DataBaseManager.listeningPoint += 5;
-                        listeningPoint_t.text = DataBaseManager.listeningPoint.ToString();
+                        DataBaseManager.ObservationPoint += 5;
+                        ObservationPoint_t.text = DataBaseManager.ObservationPoint.ToString();
                         strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-                        listeningPoint_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
+                        ObservationPoint_g.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
                     }
                     break;
                 case 5:
@@ -187,9 +187,9 @@ public class setSkill : MonoBehaviour
         DataBaseManager.swordPoint = 20;
         swordPoint_t.text = DataBaseManager.swordPoint.ToString();
         swordPoint_g.fillAmount = (float)DataBaseManager.swordPoint / 100;
-        DataBaseManager.listeningPoint = 20;
-        listeningPoint_t.text = DataBaseManager.listeningPoint.ToString();
-        listeningPoint_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
+        DataBaseManager.ObservationPoint = 20;
+        ObservationPoint_t.text = DataBaseManager.ObservationPoint.ToString();
+        ObservationPoint_g.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
         DataBaseManager.swimingPoint = 10;
         swimingPoint_t.text = DataBaseManager.swimingPoint.ToString();
         swimingPoint_g.fillAmount = (float)DataBaseManager.swimingPoint / 100;
@@ -240,17 +240,17 @@ public class setSkill : MonoBehaviour
                 minClickTime = 0.1f;
                 swordDown();
             }
-            if (nowSkill == "listeningUP")
+            if (nowSkill == "ObservationUP")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                listeningUP();
+                ObservationUP();
             }
-            if (nowSkill == "listeningDown")
+            if (nowSkill == "ObservationDown")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                listeningDown();
+                ObservationDown();
             }
             if (nowSkill == "swimingUP")
             {
@@ -468,30 +468,30 @@ public class setSkill : MonoBehaviour
             nowSkill = "swordDown";
         }
     }
-    public void listeningUP()
+    public void ObservationUP()
     {
-        if (DataBaseManager.listeningPoint < 90 && DataBaseManager.strSkillPoint >= 5)
+        if (DataBaseManager.ObservationPoint < 90 && DataBaseManager.strSkillPoint >= 5)
         {
             isClick = true;
             DataBaseManager.strSkillPoint -= 5;
-            DataBaseManager.listeningPoint += 5;
-            listeningPoint_t.text = DataBaseManager.listeningPoint.ToString();
+            DataBaseManager.ObservationPoint += 5;
+            ObservationPoint_t.text = DataBaseManager.ObservationPoint.ToString();
             strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-            listeningPoint_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
-            nowSkill = "listeningUP";
+            ObservationPoint_g.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+            nowSkill = "ObservationUP";
         }
     }
-    public void listeningDown()
+    public void ObservationDown()
     {
-        if (DataBaseManager.listeningPoint > 20)
+        if (DataBaseManager.ObservationPoint > 20)
         {
             isClick = true;
             DataBaseManager.strSkillPoint += 5;
-            DataBaseManager.listeningPoint -= 5;
-            listeningPoint_t.text = DataBaseManager.listeningPoint.ToString();
+            DataBaseManager.ObservationPoint -= 5;
+            ObservationPoint_t.text = DataBaseManager.ObservationPoint.ToString();
             strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-            listeningPoint_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
-            nowSkill = "listeningDown";
+            ObservationPoint_g.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+            nowSkill = "ObservationDown";
         }
     }
     public void swimingUP()
@@ -979,9 +979,9 @@ public class setSkill : MonoBehaviour
         DataBaseManager.swordPoint = 20;
         swordPoint_t.text = DataBaseManager.swordPoint.ToString();
         swordPoint_g.fillAmount = (float)DataBaseManager.swordPoint / 100;
-        DataBaseManager.listeningPoint = 20;
-        listeningPoint_t.text = DataBaseManager.listeningPoint.ToString();
-        listeningPoint_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
+        DataBaseManager.ObservationPoint = 20;
+        ObservationPoint_t.text = DataBaseManager.ObservationPoint.ToString();
+        ObservationPoint_g.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
         DataBaseManager.swimingPoint = 10;
         swimingPoint_t.text = DataBaseManager.swimingPoint.ToString();
         swimingPoint_g.fillAmount = (float)DataBaseManager.swimingPoint / 100;

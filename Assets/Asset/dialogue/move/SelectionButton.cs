@@ -6,7 +6,7 @@ public class SelectionButton : MonoBehaviour
 {
     public void ClickButton()
     {
-        Debug.Log(this.transform.name);
+
         selectionUIManager.Instance.ReciveRequest_SelectionButton(this.transform.name);
         Invoke("Destroy", 1);   
     }

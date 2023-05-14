@@ -727,7 +727,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: listeningUP
+          m_MethodName: ObservationUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -12117,12 +12117,12 @@ MonoBehaviour:
   martialArtsPoint_t: {fileID: 432871118}
   gunShotPoint_t: {fileID: 1271081079}
   swordPoint_t: {fileID: 2065393713}
-  listeningPoint_t: {fileID: 1449523609}
+  ObservationPoint_t: {fileID: 1449523609}
   swimingPoint_t: {fileID: 2078980494}
   martialArtsPoint_g: {fileID: 923712201}
   gunShotPoint_g: {fileID: 1563614285}
   swordPoint_g: {fileID: 1366560496}
-  listeningPoint_g: {fileID: 772756075}
+  ObservationPoint_g: {fileID: 772756075}
   swimingPoint_g: {fileID: 1795384465}
   medicine_t: {fileID: 1447039943}
   analysis_t: {fileID: 272952081}
@@ -15310,7 +15310,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB4E3\uAE30"
+  m_Text: "\uAD00\uCC30\uB825"
 --- !u!222 &1176210080
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15499,7 +15499,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: listeningDown
+          m_MethodName: ObservationDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -16791,7 +16791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1260464757}
   m_Layer: 5
-  m_Name: Listening
+  m_Name: Observation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

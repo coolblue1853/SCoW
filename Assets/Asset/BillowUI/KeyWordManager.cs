@@ -85,17 +85,13 @@ public class KeyWordManager : MonoBehaviour
 
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if(nowEventUpperKeywordNum != 0)
+                nowEventUpperKeywordNum += 1;
+                if (upperEventKeywordCount < nowEventUpperKeywordNum)
                 {
-                    nowEventUpperKeywordNum += 1;
-                    if (upperEventKeywordCount < nowEventUpperKeywordNum)
-                    {
-                        nowEventUpperKeywordNum = 0;
-                    }
-
-
-                    DataBaseManager.keyword_upper = upperEventKeywordList[nowEventUpperKeywordNum];
+                    nowEventUpperKeywordNum = 0;
                 }
+
+                DataBaseManager.keyword_upper = upperEventKeywordList[nowEventUpperKeywordNum];
 
 
             }
@@ -141,21 +137,14 @@ public class KeyWordManager : MonoBehaviour
     {
         if (DataBaseManager.keyword_main == "Event")
         {
-            if(nowEventUpperKeywordNum != 0)
+            nowEventUpperKeywordNum -= 1;
+            if (0 > nowEventUpperKeywordNum)
             {
-                if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
-                {
-                    nowEventUpperKeywordNum -= 1;
-                    if (0 > nowEventUpperKeywordNum)
-                    {
-                        nowEventUpperKeywordNum = upperEventKeywordCount;
-                    }
-
-
-                    DataBaseManager.keyword_upper = upperEventKeywordList[nowEventUpperKeywordNum];
-
-                }
+                nowEventUpperKeywordNum = upperEventKeywordCount;
             }
+
+
+            DataBaseManager.keyword_upper = upperEventKeywordList[nowEventUpperKeywordNum];
 
 
 
@@ -336,6 +325,20 @@ public class KeyWordManager : MonoBehaviour
                 }
             }
         }
+        if (DataBaseManager.keyword_upper == "Safe")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (SafeKeywordCount <= SafeKeywordNum)
+                {
+                    SafeKeywordNum = 0;
+                }
+                else
+                {
+                    SafeKeywordNum += 1;
+                }
+            }
+        }
     }
     public void DownerLeft()
     {
@@ -471,6 +474,21 @@ public class KeyWordManager : MonoBehaviour
 
             }
         }
+        if (DataBaseManager.keyword_upper == "Safe")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (SafeKeywordNum <= 0)
+                {
+                    SafeKeywordNum = SafeKeywordCount;
+                }
+                else
+                {
+                    SafeKeywordNum -= 1;
+                }
+
+            }
+        }
     }
 
 
@@ -497,7 +515,6 @@ public class KeyWordManager : MonoBehaviour
     bool isRiverWaterQualityAddList = false;
     bool isCreepyEyesAddList = false;
     bool isSuddenChangeAddList = false;
-
     bool isSafeAddList = false;
     bool isSewerWorkerAddList = false;
     //장소
@@ -616,15 +633,18 @@ public class KeyWordManager : MonoBehaviour
                 upperEventKeywordList.Add("SuddenChange");
             }
         }
-        /*
+
         if (isSafeAddList == false)
         {
-            if (DataBaseManager.하수도노동자정보1 == true || DataBaseManager.하수도노동자정보2 == true || DataBaseManager.하수도노동자정보3 == true || DataBaseManager.하수도노동자정보4 == true || DataBaseManager.하수도노동자정보5 == true || DataBaseManager.하수도노동자정보6 == true)
+            if (DataBaseManager.Intel_Safe1 == true || DataBaseManager.Intel_Safe2 == true || DataBaseManager.Intel_Safe3 == true || DataBaseManager.Intel_Safe4 == true || DataBaseManager.Intel_Safe5 == true || DataBaseManager.Intel_Safe6 == true)
             {
+      
                 isSafeAddList = true;
                 upperEventKeywordList.Add("Safe");
+                Debug.Log(upperEventKeywordList);
             }
         }
+        /*
         if (isSewerWorkerAddList == false)
         {
             if (DataBaseManager.하수도노동자정보1 == true || DataBaseManager.하수도노동자정보2 == true || DataBaseManager.하수도노동자정보3 == true || DataBaseManager.하수도노동자정보4 == true || DataBaseManager.하수도노동자정보5 == true || DataBaseManager.하수도노동자정보6 == true)
@@ -777,6 +797,10 @@ public class KeyWordManager : MonoBehaviour
     List<string> SuddenChangeList = new List<string>();//string들어가야하고
     int SuddenChangeKeywordCount = 0;
     int SuddenChangeKeywordNum = 0;
+
+    List<string> SafeList = new List<string>();//string들어가야하고
+    int SafeKeywordCount = 0;
+    int SafeKeywordNum = 0;
     //사건
     bool isPlanetarySequence1Add = false;
     bool isNightmare1Add = false;
@@ -793,6 +817,7 @@ public class KeyWordManager : MonoBehaviour
     bool isRiverWaterQuality1Add = false;
     bool isCreepyEyes1Add = false;
     bool isSuddenChange1Add = false;
+    bool isSafe1Add = false;
     // ------------------------------- 인물하위
     List<string> AidenList = new List<string>();//string들어가야하고
     int AidenKeywordCount = 0;
@@ -871,6 +896,7 @@ public class KeyWordManager : MonoBehaviour
         RiverWaterQualityKeywordCount = RiverWaterQualityList.Count - 1;
         CreepyEyesKeywordCount = CreepyEyesList.Count - 1;
         SuddenChangeKeywordCount = SuddenChangeList.Count - 1;
+        SafeKeywordCount = SafeList.Count - 1;
 
         EllaKeywordCount = EllaList.Count - 1;
         AidenKeywordCount = AidenList.Count - 1;
@@ -902,7 +928,7 @@ public class KeyWordManager : MonoBehaviour
 
 
         // 악몽
-        else if (DataBaseManager.keyword_upper == "악몽" && NightmareKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "Nightmare" && NightmareKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = NightmareList[NightmareKeywordNum];
         }
@@ -1035,6 +1061,17 @@ public class KeyWordManager : MonoBehaviour
             isSuddenChange1Add = true;
             SuddenChangeList.Add("하수도노동자의 부당해고");
         }
+        // 금고
+        else if (DataBaseManager.keyword_upper == "Safe" && SafeKeywordCount >= 0)
+        {
+            DataBaseManager.keyword_downer = SafeList[SafeKeywordNum];
+        }
+
+        if (DataBaseManager.Intel_Safe1 == true && isSafe1Add == false)
+        {
+            isSafe1Add = true;
+            SafeList.Add("Aiden's Safe");
+        }
         // 인물
 
         // 에이든
@@ -1045,7 +1082,7 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_Aiden1 == true && isAiden1Add == false)
         {
             isAiden1Add = true;
-            AidenList.Add("에이든 트리스");
+            AidenList.Add("Aiden Triss");
         }
         if (DataBaseManager.Intel_Aiden2 == true && isAiden2Add == false)
         {

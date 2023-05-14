@@ -7,6 +7,8 @@ public class selectionUIManager : MonoBehaviour
     public GameObject Select_1st_DetectiveOiffce_1;
     public GameObject Select_1st_DetectiveOiffce_2;
 
+
+    public GameObject Select_1st_ClientsOffice_Safe;
     private static selectionUIManager instance = null;
     void Awake()
     {
@@ -44,7 +46,11 @@ public class selectionUIManager : MonoBehaviour
         DataBaseManager.isActiveDialog1 = true;
         Select_1st_DetectiveOiffce_1.SetActive(true);
     }
-
+    public void Open_1st_ClientsOffic_SafeSelect()
+    {
+        DataBaseManager.isActiveDialog1 = true;
+        Select_1st_ClientsOffice_Safe.SetActive(true);
+    }
 
     public void ReciveRequest_SelectionButton(string SelectButton)
     {
@@ -84,6 +90,26 @@ public class selectionUIManager : MonoBehaviour
             DialogManager.Instance.ChoiceEx_NextPage_t();
             Select_1st_DetectiveOiffce_2.SetActive(false);
             InteractionController.Instance.Start_1st_DetectiveOffice("Reject_Request");
+        }
+
+        //의뢰자의 집
+        if (SelectButton == "Select_Str")
+        {
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_1st_ClientsOffice_Safe.SetActive(false);
+            InteractionController.Instance.Start_1st_ClientsHouse("Aiden_key_Safe_Str");
+        }
+        if (SelectButton == "Select_Rhetoric")
+        {
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_1st_ClientsOffice_Safe.SetActive(false);
+            Rollet.Instance.setRollet("에이든 : 설득", "언변술", DataBaseManager.rhetoricPoint, "dialog");
+        }
+        if (SelectButton == "Select_End")
+        {
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_1st_ClientsOffice_Safe.SetActive(false);
+            InteractionController.Instance.Start_1st_ClientsHouse("Aiden_key_Safe_Nothing");
         }
     }
 }

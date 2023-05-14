@@ -39,17 +39,30 @@ public class PotalPoint : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F) && DataBaseManager.isDirecting == false && DataBaseManager.isActiveDialog1 == false)
             {
 
-                if(DataBaseManager.nowPlace == "Client'sHouse" && DataBaseManager.isFirstDoor == true)
+                if(DataBaseManager.nowPlace == "Client'sHouse" && (DataBaseManager.isFirstDoor == true && DataBaseManager.isFirst2st == true))
                 {
-                    DataBaseManager.isDirecting = true;
-                    FadingBackGround.Instance.FadeInOut();
-                    Invoke("MovePlayer", 2);
+                    if (this.name == "2sttoRoom" && DataBaseManager.AidenKeywordCount < 2)
+                    {
+                        DataBaseManager.isDirecting = true;
+                        FadingBackGround.Instance.FadeInOut();
+                        Invoke("MovePlayer", 2);
+                    }
+                    else
+                    {
+
+                    }
                 }
                 else if(DataBaseManager.nowPlace == "Client'sHouse" && DataBaseManager.isFirstDoor == false)
                 {
                     DataBaseManager.isDirecting = true;
                     DataBaseManager.isFirstDoor = true;
                     DirectingManager.Instance.DoorNocking();
+                }
+                else if (DataBaseManager.nowPlace == "Client'sHouse" && DataBaseManager.isFirst2st == false)
+                {
+                    DataBaseManager.isDirecting = true;
+                    DataBaseManager.isFirst2st = true;
+                    DirectingManager.Instance.FirstUpsair();
                 }
                 else
                 {
@@ -89,9 +102,12 @@ public class PotalPoint : MonoBehaviour
         }
         if (this.name == "2stto1st")
         {
-            CameraManager.Instance.isCheckEnd = false;
-            player.transform.localPosition = player_2stTo1st;
-            camera.transform.localPosition = Cam_2stTo1st;
+     
+                CameraManager.Instance.isCheckEnd = false;
+                player.transform.localPosition = player_2stTo1st;
+                camera.transform.localPosition = Cam_2stTo1st;
+           
+
 
         }
         if (this.name == "Roomto2st")
@@ -103,14 +119,34 @@ public class PotalPoint : MonoBehaviour
         }
         if (this.name == "2sttoRoom")
         {
-            CameraManager.Instance.isCheckEnd = true;
-            player.transform.localPosition = player_2stToRoom;
-            camera.transform.localPosition = Cam_2stTo2Room;
+            if (DataBaseManager.isFirstRoom == true)
+            {
+                CameraManager.Instance.isCheckEnd = true;
+                player.transform.localPosition = player_2stToRoom;
+                camera.transform.localPosition = Cam_2stTo2Room;
+            }
+            else
+            {
+                DataBaseManager.isFirstRoom = true;
+                CameraManager.Instance.isCheckEnd = true;
+                player.transform.localPosition = player_2stToRoom;
+                camera.transform.localPosition = Cam_2stTo2Room;
+                Invoke("Ex_toRoom", 2f);
+            }
 
         }
         Invoke("ablePotal", 3);
     }
 
+
+    public void Force_2st()
+    {
+        InteractionController.Instance.Start_1st_ClientsHouse("Aiden_key_FailForce");
+    }
+    public void Ex_toRoom()
+    {
+        InteractionController.Instance.Start_1st_ClientsHouse("into_FirstRoom");
+    }
     public void Ex_Outto1st()
     {
         CameraManager.Instance.isCheckEnd = true;

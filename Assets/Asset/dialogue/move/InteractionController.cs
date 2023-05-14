@@ -36,7 +36,42 @@ public class InteractionController : MonoBehaviour
     // 1st Clinet'sOffice
     public GameObject FirstArrive;
     public GameObject NockDoor;
-
+    public GameObject Ella_fistDialog;
+    public GameObject Ella_Dialog1;
+    public GameObject Ella_Dialog2;
+    public GameObject Ella_key_Aiden;
+    public GameObject Ella_key_disable;
+    public GameObject Ella_FirstUpstair;
+    public GameObject into_FirstRoom;
+    public GameObject Aiden_Active;
+    public GameObject Aiden_Look;
+    public GameObject Aiden_LookJudge;
+    public GameObject Aiden_FirstDialog;
+    public GameObject Aiden_Dialog1;
+    public GameObject Aiden_Dialog2;
+    public GameObject Aiden_key_Nightmare1;
+    public GameObject Aiden_key_EllaTriss1;
+    public GameObject Aiden_key_Safe1;
+    public GameObject Aiden_key_Safe_Str;
+    public GameObject Aiden_key_Safe_Str_Sucsses;
+    public GameObject Aiden_key_Safe_Str_Fail;
+    public GameObject Aiden_key_Safe_rhetoric_sucsses;
+    public GameObject Aiden_key_Safe_rhetoric_Fail;
+    public GameObject Aiden_key_Safe_Nothing;
+    public GameObject Aiden_key_Fail1;
+    public GameObject Aiden_key_Fail2;
+    public GameObject Aiden_Judge_medicine_Sucsses;
+    public GameObject Aiden_Judge_medicine_Fail;
+    public GameObject Aiden_Judge_Observation_Sucsses;
+    public GameObject Aiden_Judge_Observation_Fail;
+    public GameObject Aiden_Judge_psychotherapy_Sucsses;
+    public GameObject Aiden_Judge_psychotherapy_Sucsses_Safe;
+    public GameObject Aiden_Judge_psychotherapy_Sucsses_NoSafe;
+    public GameObject Aiden_Judge_psychotherapy_Sucsses_End;
+    public GameObject Aiden_Judge_psychotherapy_Fail;
+    public GameObject Aiden_key_FailForce;
+    public GameObject EllaEnd_NoSafe;
+    public GameObject EllaEnd_GetSafe;
     // Update is called once per frame
 
 
@@ -136,7 +171,212 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(NockDoor.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+        if (setDialog == "Ella_fistDialog")
+        {
+            theDM.ShowDialog(Ella_fistDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Ella_Dialog1")
+        {
+            if(DataBaseManager.Ella_EndDialog == false && DataBaseManager.Aiden_FirstDialog == true){
+                DataBaseManager.Ella_EndDialog = true;
 
+                if(DataBaseManager.getSafe == false)
+                {
+                    theDM.ShowDialog(EllaEnd_NoSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(EllaEnd_GetSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+            }
+            else
+            {
+                theDM.ShowDialog(Ella_Dialog1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+      
+        }
+        if (setDialog == "Ella_Dialog2")
+        {
+            theDM.ShowDialog(Ella_Dialog2.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Ella_FirstUpstair")
+        {
+            theDM.ShowDialog(Ella_FirstUpstair.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+        //
+        if (setDialog == "into_FirstRoom")
+        {
+            theDM.ShowDialog(into_FirstRoom.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        
+        if (setDialog == "Aiden_FirstDialog")
+        {
+            DataBaseManager.Aiden_FirstDialog = true;
+            theDM.ShowDialog(Aiden_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_Active")
+        {
+            theDM.ShowDialog(Aiden_Active.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_Look")
+        {
+            theDM.ShowDialog(Aiden_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_LookJudge")
+        {
+            theDM.ShowDialog(Aiden_LookJudge.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_Dialog1")
+        {
+            theDM.ShowDialog(Aiden_Dialog1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_Dialog2")
+        {
+            theDM.ShowDialog(Aiden_Dialog2.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_key_Nightmare1")
+        {
+            theDM.ShowDialog(Aiden_key_Nightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_key_EllaTriss1")
+        {
+            theDM.ShowDialog(Aiden_key_EllaTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_key_Safe1")
+        {
+            theDM.ShowDialog(Aiden_key_Safe1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_key_Safe_Str")
+        {
+            theDM.ShowDialog(Aiden_key_Safe_Str.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_key_Safe_Str_Sucsses")
+        {
+            theDM.ShowDialog(Aiden_key_Safe_Str_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_key_Safe_Str_Fail")
+        {
+            theDM.ShowDialog(Ella_FirstUpstair.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_key_Safe_rhetoric_sucsses")
+        {
+            theDM.ShowDialog(Aiden_key_Safe_rhetoric_sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_key_Safe_rhetoric_Fail")
+        {
+            theDM.ShowDialog(Aiden_key_Safe_rhetoric_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_key_Safe_Nothing")
+        {
+            theDM.ShowDialog(Aiden_key_Safe_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_key_Fail1")
+        {
+            theDM.ShowDialog(Aiden_key_Fail1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_key_Fail2")
+        {
+            theDM.ShowDialog(Aiden_key_Fail2.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_Judge_medicine_Sucsses")
+        {
+            theDM.ShowDialog(Aiden_Judge_medicine_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_Judge_medicine_Fail")
+        {
+            theDM.ShowDialog(Aiden_Judge_medicine_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_Judge_psychotherapy_Sucsses")
+        {
+            theDM.ShowDialog(Aiden_Judge_psychotherapy_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_Judge_psychotherapy_Sucsses_Safe")
+        {
+            theDM.ShowDialog(Aiden_Judge_psychotherapy_Sucsses_Safe.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_Judge_psychotherapy_Sucsses_NoSafe")
+        {
+            theDM.ShowDialog(Aiden_Judge_psychotherapy_Sucsses_NoSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_Judge_psychotherapy_Sucsses_End")
+        {
+            theDM.ShowDialog(Aiden_Judge_psychotherapy_Sucsses_End.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_Judge_psychotherapy_Fail")
+        {
+            theDM.ShowDialog(Aiden_Judge_psychotherapy_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_Judge_Observation_Sucsses")
+        {
+            theDM.ShowDialog(Aiden_Judge_Observation_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_Judge_Observation_Fail")
+        {
+            theDM.ShowDialog(Aiden_Judge_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Aiden_key_FailForce")
+        {
+            theDM.ShowDialog(Aiden_key_FailForce.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "EllaEnd_NoSafe")
+        {
+            theDM.ShowDialog(EllaEnd_NoSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "EllaEnd_GetSafe")
+        {
+            theDM.ShowDialog(EllaEnd_GetSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+}
+
+public void KeywordDialog(string setDialog)
+    {
+        if (setDialog  == "Ella Triss")
+        {
+            if (DataBaseManager.keyword_downer == "Aiden Triss" && DataBaseManager.Intel_SewerGhostStory1 == false)
+            {
+                theDM.ShowDialog(Ella_key_Aiden.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+
+                theDM.ShowDialog(Ella_key_disable.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (setDialog == "AidenTriss")
+        {
+            if (DataBaseManager.keyword_downer == "에이든의 악몽")
+            {
+                theDM.ShowDialog(Aiden_key_Nightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "엘라 트리스")
+            {
+                theDM.ShowDialog(Aiden_key_EllaTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Aiden's Safe")
+            {
+                if(DataBaseManager.getSafe == false)
+                    theDM.ShowDialog(Aiden_key_Safe1.transform.GetComponent<interactionEvent>().GetDialogs());
+                else
+                {
+                    theDM.ShowDialog(Aiden_Judge_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+            }
+            else 
+            {
+                if(DataBaseManager.AidenKeywordCount == 0)
+                {
+                    DataBaseManager.AidenKeywordCount += 1;
+                    theDM.ShowDialog(Aiden_key_Fail1.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Aiden_key_Fail2.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+      
+            }
+        }
     }
 
     void OnEnable()
@@ -201,6 +441,88 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(Stove_Judge_False.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
+        if (Sub_Dialog == "에이든 : 진단")
+        {
+            DataBaseManager.Aiden_medicine = true;
+            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            {
+
+               theDM.ShowDialog(Aiden_Judge_medicine_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
+            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            {
+                theDM.ShowDialog(Aiden_Judge_medicine_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (Sub_Dialog == "에이든 : 살펴보기")
+        {
+            DataBaseManager.Aiden_Observation = true;
+            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            {
+
+               theDM.ShowDialog(Aiden_Judge_Observation_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
+            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            {
+                theDM.ShowDialog(Aiden_Judge_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (Sub_Dialog == "에이든 : 안정")
+        {
+            DataBaseManager.Aiden_psychotherapy = true;
+
+            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            {
+                if(DataBaseManager.getSafe == false)
+                {
+                    theDM.ShowDialog(Aiden_Judge_psychotherapy_Sucsses_NoSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+                    DataBaseManager.getSafe = true;
+                }
+                else
+                {
+                    theDM.ShowDialog(Aiden_Judge_psychotherapy_Sucsses_Safe.transform.GetComponent<interactionEvent>().GetDialogs());
+                    DataBaseManager.getSafe = true;
+                }
+
+            }
+            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            {
+                theDM.ShowDialog(Aiden_Judge_medicine_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (Sub_Dialog == "에이든 : 설득")
+        {
+
+            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            {
+                DataBaseManager.getSafe = true;
+                theDM.ShowDialog(Aiden_key_Safe_rhetoric_sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
+            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            {
+                theDM.ShowDialog(Aiden_key_Safe_rhetoric_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (Sub_Dialog == "Aiden : TakeAway")
+        {
+
+            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            {
+                DataBaseManager.getSafe = true;
+                theDM.ShowDialog(Aiden_key_Safe_Str_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
+            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            {
+                BillowUIManager.Instance.HP_down(5);
+                theDM.ShowDialog(Aiden_key_Safe_Str_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+    
+
     }
 
 
