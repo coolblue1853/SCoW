@@ -10,6 +10,7 @@ public class RolletTest : MonoBehaviour
 
     private void Awake()
     {
+        DataBaseManager.nowPlace = "Client'sHouse";
         DataBaseManager.TimeCount = 1;
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         DataBaseManager.intl = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;

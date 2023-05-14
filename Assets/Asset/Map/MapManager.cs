@@ -16,10 +16,10 @@ public class MapManager : MonoBehaviour
     public GameObject MapChainingUI;
     public GameObject MapUI;
 
-    Vector2 player_RiverSide = new Vector3(-298.34f, 1.77f);
-    Vector2 Cam_RiverSide = new Vector3(-313.2f, 1.5f,-16);
-    Vector2 player_Univercity = new Vector3(-48.07f, 3.45f);
-    Vector2 Cam_Univercity = new Vector3(-38.3f, 1.5f,-16);
+    Vector3 player_RiverSide = new Vector3(-298.34f, 1.77f);
+    Vector3 Cam_RiverSide = new Vector3(-313.2f, 1.5f,-16);
+    Vector3 player_Univercity = new Vector3(-48.07f, 15);
+    Vector3 Cam_Univercity = new Vector3(-38.3f, 1.5f,-15);
     private static MapManager instance = null;
     private void Awake()
     {

@@ -6,6 +6,8 @@ public class DataBaseManager : MonoBehaviour
 {
     // Map
     public static string nowPlace = "DetectiveOffice";
+    public static string PotalPlace = "";
+
 
     //keyword
     public static string keyword_main;
@@ -15,6 +17,10 @@ public class DataBaseManager : MonoBehaviour
     //Directing
     public static bool isDirecting = false;
 
+    //1일차 의뢰자의 집
+    public static bool isFirstDoor = false;
+
+    //1일차 오전 탐정사무소
     public static bool fst_Detective_EndFirstDialog;
     public static bool fst_Detective_NockDialog;
     public static bool fst_Detective_AfterSelect;

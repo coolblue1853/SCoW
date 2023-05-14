@@ -11,6 +11,10 @@ public class DialogDatabaseManager : MonoBehaviour
         {
             csv_FileName = "1st_DetectiveOffice";
         }
+        if (DataBaseManager.nowPlace == "Client'sHouse")
+        {
+            csv_FileName = "1st_Client'sHouse";
+        }
     }
     public string csv_FileName;
     Dictionary<int, Dialog> dialogDic = new Dictionary<int, Dialog>();
@@ -22,6 +26,10 @@ public class DialogDatabaseManager : MonoBehaviour
         if (DataBaseManager.nowPlace == "DetectiveOffice")
         {
             csv_FileName = "1st_DetectiveOffice";
+        }
+        if (DataBaseManager.nowPlace == "Client'sHouse")
+        {
+            csv_FileName = "1st_Client'sHouse";
         }
         if (instance == null)
         {

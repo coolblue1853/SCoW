@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class DirectingManager : MonoBehaviour
 {
+    Vector2 player_OutsideTo1st = new Vector3(-1217.79f, 2.13f);
+    Vector3 Cam_OutsideTo1st = new Vector3(-1198, 1.5f, -15);
     private static DirectingManager instance = null;
     public GameObject player;
     public GameObject Camera;
@@ -39,7 +41,9 @@ public class DirectingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InteractionController.Instance.Start_1st_DetectiveOffice("start"); 
+        InteractionController.Instance.Start_1st_ClientsHouse("FirstArrive");
+        //원래라면 활성화 해 주어야 함.
+        //InteractionController.Instance.Start_1st_DetectiveOffice("start"); 
     }
 
     // Update is called once per frame
@@ -55,7 +59,6 @@ public class DirectingManager : MonoBehaviour
                 Invoke("After_NockSound", 1);
             }
         }
-
         if(DataBaseManager.fst_Detective_EndFirstDialog == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.fst_Detective_EndFirstDialog = false;
@@ -77,16 +80,36 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.fst_Detective_AfterSelectNo = false;
             fst_DetectiveOffice_Fade("Accept_AfterSelectNo");
         }
-
         if (DataBaseManager.fst_Detective_EndSelect == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.fst_Detective_EndSelect = false;
             fst_DetectiveOffice_FadeOut("EndSelect_Directing");
         }
+
+    }
+    // 1일차 낮 의뢰자의 집 연출
+    public void DoorNocking()
+    {
+        FadingBackGround.Instance.FadeInOut();
+        Invoke("moveInside",2f);
+       // DataBaseManager.isDirecting = true;
+    }
+    void moveInside()
+    {
+        CameraManager.Instance.isCheckEnd = true;
+        player.transform.localPosition = player_OutsideTo1st;
+        Camera.transform.localPosition = Cam_OutsideTo1st;
+        Invoke("InsiedDialog", 2f);
+    }
+    void InsiedDialog()
+    {
+        DataBaseManager.isDirecting = false;
+        InteractionController.Instance.Start_1st_ClientsHouse("NockDoor");
         
     }
 
 
+    // 1일차 오전 탐정사무소 연출
     void After_NockSound()
     {
         InteractionController.Instance.Start_1st_DetectiveOffice("Directing_Nock");

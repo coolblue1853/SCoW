@@ -77,7 +77,7 @@ public class CameraManager : MonoBehaviour
         {
             if (isCheckEnd == false)
             {
-                targetPosition.Set(target.transform.position.x, this.transform.position.y, -500);
+                targetPosition.Set(target.transform.position.x, this.transform.position.y, -15);
                 this.transform.position = Vector3.Lerp(this.transform.position, targetPosition, moveSpeed * Time.deltaTime);
             }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public class InteractionController : MonoBehaviour
@@ -8,7 +9,7 @@ public class InteractionController : MonoBehaviour
     public DialogManager theDM;
 
 
-    // 1st Detective Office
+
     public GameObject Start_1st_Detective;
     public GameObject NewsPaper;
     public GameObject NewsPaper_Look;
@@ -30,6 +31,11 @@ public class InteractionController : MonoBehaviour
     public GameObject Accept_AfterSelectYes;
     public GameObject Reject_Request;
     public GameObject Accept_AfterSelectNo;
+
+
+    // 1st Clinet'sOffice
+    public GameObject FirstArrive;
+    public GameObject NockDoor;
 
     // Update is called once per frame
 
@@ -120,7 +126,18 @@ public class InteractionController : MonoBehaviour
         }
     }
 
+    public void Start_1st_ClientsHouse(string setDialog)
+    {
+        if (setDialog == "FirstArrive")
+        {
+            theDM.ShowDialog(FirstArrive.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "NockDoor")
+        {
+            theDM.ShowDialog(NockDoor.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
 
+    }
 
     void OnEnable()
     {
@@ -216,4 +233,7 @@ public class InteractionController : MonoBehaviour
             return instance;
         }
     }
+
+
 }
+
