@@ -39,7 +39,7 @@ public class PotalPoint : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F) && DataBaseManager.isDirecting == false && DataBaseManager.isActiveDialog1 == false)
             {
 
-                if(DataBaseManager.nowPlace == "Client'sHouse" && (DataBaseManager.isFirstDoor == true && DataBaseManager.isFirst2st == true))
+                if(DataBaseManager.nowPlace == "Client'shouse" && (DataBaseManager.isFirstDoor == true && DataBaseManager.isFirst2st == true))
                 {
                     if (this.name == "2sttoRoom" && DataBaseManager.AidenKeywordCount < 2)
                     {
@@ -52,13 +52,13 @@ public class PotalPoint : MonoBehaviour
 
                     }
                 }
-                else if(DataBaseManager.nowPlace == "Client'sHouse" && DataBaseManager.isFirstDoor == false)
+                else if(DataBaseManager.nowPlace == "Client'shouse" && DataBaseManager.isFirstDoor == false)
                 {
                     DataBaseManager.isDirecting = true;
                     DataBaseManager.isFirstDoor = true;
                     DirectingManager.Instance.DoorNocking();
                 }
-                else if (DataBaseManager.nowPlace == "Client'sHouse" && DataBaseManager.isFirst2st == false)
+                else if (DataBaseManager.nowPlace == "Client'shouse" && DataBaseManager.isFirst2st == false)
                 {
                     DataBaseManager.isDirecting = true;
                     DataBaseManager.isFirst2st = true;

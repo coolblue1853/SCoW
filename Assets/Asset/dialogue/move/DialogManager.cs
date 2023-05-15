@@ -390,9 +390,85 @@ public class DialogManager : MonoBehaviour
                                 if (t_ReplaceText[i + 4] == '행')
                                 {
                                     if (DataBaseManager.Intel_PlanetarySequence1 == false)
-                                        IntelManager.Instance.AddIntelFloating("Event", "행성대직렬 - 조간신문 기사");
+                                        IntelManager.Instance.AddIntelFloating("Event", "PlanetarySequence - Contents of a Newspaper");
                                     DataBaseManager.Intel_PlanetarySequence1 = true;
      
+
+                                }
+                                if (t_ReplaceText[i + 4] == '불')
+                                {
+                                    if (DataBaseManager.Intel_Insomnia1 == false)
+                                        DataBaseManager.Intel_Insomnia1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "Insomnia - Newspaper Article");
+                                }
+                                if (t_ReplaceText[i + 4] == '악')
+                                {
+                                    if (DataBaseManager.Intel_Nightmare2 == false)
+                                        DataBaseManager.Intel_Nightmare2 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "Nightmare - Aiden's Nightmare");
+                                }
+                                if (t_ReplaceText[i + 4] == '편')
+                                {
+                                    if (DataBaseManager.Intel_Paranoia1 == false)
+                                        DataBaseManager.Intel_Paranoia1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "Paranoia - Husband's Condition");
+                                }
+                                if (t_ReplaceText[i + 4] == '금')
+                                {
+                                    if (DataBaseManager.Intel_Safe1 == false)
+                                        DataBaseManager.Intel_Safe1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "Safe - Aiden's Safe");
+                                }
+                                if (t_ReplaceText[i + 4] == '하') // 하수도 괴담
+                                {
+                                    if (DataBaseManager.Intel_SewerGhostStory1 == false)
+                                        DataBaseManager.Intel_SewerGhostStory1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "SewerGhostStory - Aiden's investigative");
+                                }
+                            }
+                            if (t_ReplaceText[i + 3] == '2')
+                            {
+                                if (t_ReplaceText[i + 4] == '행')
+                                {
+                                    if (DataBaseManager.Intel_PlanetarySequence1 == false)
+                                        IntelManager.Instance.AddIntelFloating("Event", "행성대직렬 - 조간신문 기사");
+                                    DataBaseManager.Intel_PlanetarySequence1 = true;
+
+
+                                }
+                                if (t_ReplaceText[i + 4] == '불')
+                                {
+                                    if (DataBaseManager.Intel_Insomnia1 == false)
+                                        DataBaseManager.Intel_Insomnia1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "불면증 - 조간신문 기사");
+                                }
+                                if (t_ReplaceText[i + 4] == '악')
+                                {
+                                    if (DataBaseManager.Intel_Nightmare2 == false)
+                                        DataBaseManager.Intel_Nightmare2 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "Nightmare - Content of a Nightmare");
+                                }
+                                if (t_ReplaceText[i + 4] == '편')
+                                {
+                                    if (DataBaseManager.Intel_Paranoia1 == false)
+                                        DataBaseManager.Intel_Paranoia1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "편집증 - 남편의 상태");
+                                }
+                                if (t_ReplaceText[i + 4] == '금')
+                                {
+                                    if (DataBaseManager.Intel_Safe1 == false)
+                                        DataBaseManager.Intel_Safe1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "Safe - Aiden's Safe");
+                                }
+                            }
+                            if (t_ReplaceText[i + 3] == '3')
+                            {
+                                if (t_ReplaceText[i + 4] == '행')
+                                {
+                                    if (DataBaseManager.Intel_PlanetarySequence1 == false)
+                                        IntelManager.Instance.AddIntelFloating("Event", "행성대직렬 - 조간신문 기사");
+                                    DataBaseManager.Intel_PlanetarySequence1 = true;
+
 
                                 }
                                 if (t_ReplaceText[i + 4] == '불')
@@ -405,7 +481,7 @@ public class DialogManager : MonoBehaviour
                                 {
                                     if (DataBaseManager.Intel_Nightmare1 == false)
                                         DataBaseManager.Intel_Nightmare1 = true;
-                                    IntelManager.Instance.AddIntelFloating("Event", "악몽 - 남편의 상태");
+                                    IntelManager.Instance.AddIntelFloating("Event", "Nightmare - Aiden's Detail");
                                 }
                                 if (t_ReplaceText[i + 4] == '편')
                                 {
@@ -413,8 +489,13 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Paranoia1 = true;
                                     IntelManager.Instance.AddIntelFloating("Event", "편집증 - 남편의 상태");
                                 }
+                                if (t_ReplaceText[i + 4] == '금')
+                                {
+                                    if (DataBaseManager.Intel_Safe1 == false)
+                                        DataBaseManager.Intel_Safe1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "Safe - Aiden's Safe");
+                                }
                             }
-
                         }
                     }
                     break;
@@ -430,25 +511,25 @@ public class DialogManager : MonoBehaviour
                                 {
                                     if (DataBaseManager.Intel_Wharf1 == false)
                                         DataBaseManager.Intel_Wharf1 = true;
-                                    IntelManager.Instance.AddIntelFloating("Place", "부두 - 일거리");
+                                    IntelManager.Instance.AddIntelFloating("Place", "Wharf - Work");
                                 }
                                 if (t_ReplaceText[i + 4] == '병')
                                 {
                                     if (DataBaseManager.Intel_Hospital1 == false)
                                         DataBaseManager.Intel_Hospital1 = true;
-                                    IntelManager.Instance.AddIntelFloating("Place", "병원 - 혼잡 상태");
+                                    IntelManager.Instance.AddIntelFloating("Place", "Hospital - state of congestion");
                                 }
                                 if (t_ReplaceText[i + 4] == '서')
                                 {
                                     if (DataBaseManager.Intel_QuestHouse1 == false)
                                         DataBaseManager.Intel_QuestHouse1 = true;
-                                    IntelManager.Instance.AddIntelFloating("Place", "의뢰자의 집 - 집 주소");
+                                    IntelManager.Instance.AddIntelFloating("Place", "Client'shouse - Adress");
                                 }
                                 if (t_ReplaceText[i + 4] == '데')
                                 {
                                     if (DataBaseManager.Intel_Newspaper1 == false)
                                         DataBaseManager.Intel_Newspaper1 = true;
-                                    IntelManager.Instance.AddIntelFloating("Place", "데일리뉴스 신문사 - 직장");
+                                    IntelManager.Instance.AddIntelFloating("Place", "DailyNews - Husband's job");
                                 }
                             }
 
@@ -467,26 +548,26 @@ public class DialogManager : MonoBehaviour
                                 {
                                     if (DataBaseManager.Intel_Albert1 == false)
                                         DataBaseManager.Intel_Albert1 = true;
-                                    IntelManager.Instance.AddIntelFloating("Character", "알버트 브래들리 - 친구");
+                                    IntelManager.Instance.AddIntelFloating("Character", "Albert Bradley - Friend");
                                 }
 
                                 if (t_ReplaceText[i + 4] == '메')
                                 {
                                     if (DataBaseManager.Intel_Meiv1 == false)
                                         DataBaseManager.Intel_Meiv1 = true;
-                                    IntelManager.Instance.AddIntelFloating("Character", "메이브 A 로시 - 친구");
+                                    IntelManager.Instance.AddIntelFloating("Character", "Maeve A Rossi - Friend");
                                 }
                                 if (t_ReplaceText[i + 4] == '엘')
                                 {
                                     if (DataBaseManager.Intel_Ella1 == false)
                                         DataBaseManager.Intel_Ella1 = true;
-                                    IntelManager.Instance.AddIntelFloating("Character", "엘라 트리스 - 의뢰자");
+                                    IntelManager.Instance.AddIntelFloating("Character", "Ella Triss - Client");
                                 }
                                 if (t_ReplaceText[i + 4] == '에')
                                 {
                                     if (DataBaseManager.Intel_Aiden1 == false)
                                         DataBaseManager.Intel_Aiden1 = true;
-                                    IntelManager.Instance.AddIntelFloating("Character", "에이든 트리스 - 의뢰 대상");
+                                    IntelManager.Instance.AddIntelFloating("Character", "Aiden Triss - Subject to request");
                                 }
                             }
                                 

@@ -334,7 +334,7 @@ public void KeywordDialog(string setDialog)
     {
         if (setDialog  == "Ella Triss")
         {
-            if (DataBaseManager.keyword_downer == "Aiden Triss" && DataBaseManager.Intel_SewerGhostStory1 == false)
+            if (DataBaseManager.keyword_downer == "Subject to request" && DataBaseManager.Intel_SewerGhostStory1 == false)
             {
                 theDM.ShowDialog(Ella_key_Aiden.transform.GetComponent<interactionEvent>().GetDialogs());
             }
@@ -344,13 +344,13 @@ public void KeywordDialog(string setDialog)
                 theDM.ShowDialog(Ella_key_disable.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
-        if (setDialog == "AidenTriss")
+        if (setDialog == "Aiden Triss")
         {
-            if (DataBaseManager.keyword_downer == "에이든의 악몽")
+            if (DataBaseManager.keyword_downer == "Aiden's Nightmare")
             {
                 theDM.ShowDialog(Aiden_key_Nightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
-            else if (DataBaseManager.keyword_downer == "엘라 트리스")
+            else if (DataBaseManager.keyword_downer == "Client")
             {
                 theDM.ShowDialog(Aiden_key_EllaTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
             }

@@ -10,19 +10,17 @@ public class RolletTest : MonoBehaviour
 
     private void Awake()
     {
-        DataBaseManager.psychotherapyPoint = 200;
+        //DataBaseManager.psychotherapyPoint = 200;
         //DataBaseManager.nowPlace = "DetectiveOffice";
-        DataBaseManager.Intel_Aiden1 = true;
-        DataBaseManager.Intel_Cane1 = true;
-        DataBaseManager.Intel_Meiv1 = true;
-        DataBaseManager.Intel_Newspaper1 = true;
-        DataBaseManager.Intel_Ella1 = true;
-        DataBaseManager.Intel_Safe1 = true;
-        DataBaseManager.Intel_Nightmare1 = true;
-        DataBaseManager.Intel_PlanetarySequence1 = true;
-        DataBaseManager.Intel_Hospital1 = true;
+       // DataBaseManager.nowPlace = "Client'shouse";
 
-        DataBaseManager.nowPlace = "Client'sHouse";
+       // DataBaseManager.firstClientsHouse = true; 
+        //DataBaseManager.Intel_Ella1 = true;
+        //DataBaseManager.Intel_Aiden1 = true;
+        //DataBaseManager.Intel_Nightmare1 = true;
+        //DataBaseManager.Intel_Hospital1 = true;
+
+
         DataBaseManager.TimeCount = 1;
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         DataBaseManager.intl = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;

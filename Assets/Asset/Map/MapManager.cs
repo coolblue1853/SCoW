@@ -20,6 +20,10 @@ public class MapManager : MonoBehaviour
     Vector3 Cam_RiverSide = new Vector3(-313.2f, 1.5f,-16);
     Vector3 player_Univercity = new Vector3(-48.07f, 15);
     Vector3 Cam_Univercity = new Vector3(-38.3f, 1.5f,-15);
+
+    Vector3 player_ClientsHouse = new Vector3(-990.2f, 2.86f);
+    Vector3 Cam_ClientsHouse = new Vector3(-993.87f, 1.5f, -15);
+
     private static MapManager instance = null;
     private void Awake()
     {
@@ -131,7 +135,7 @@ public class MapManager : MonoBehaviour
 
     public void MoveChar()
     {
-        CameraManager.Instance.isCheckEnd = false;
+        CameraManager.Instance.isCheckEnd = true;
         DataBaseManager.TimeCount += 1;
         if (DataBaseManager.nowPlace == "RiverSide")
         {
@@ -139,6 +143,7 @@ public class MapManager : MonoBehaviour
             camera.transform.localPosition = Cam_RiverSide;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
+            DialogDatabaseManager.instance.Check = true;
         }
         if (DataBaseManager.nowPlace == "Univercity")
         {
@@ -146,6 +151,21 @@ public class MapManager : MonoBehaviour
             camera.transform.localPosition = Cam_Univercity;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
+            DialogDatabaseManager.instance.Check = true;
         }
+        if (DataBaseManager.nowPlace == "Client'shouse")
+        {
+            player.transform.localPosition = player_ClientsHouse;
+            camera.transform.localPosition = Cam_ClientsHouse;
+            MapChainingUI.SetActive(false);
+            MapUI.SetActive(false);
+            Invoke("FirstClientsHouseArrive", 2);
+            DialogDatabaseManager.instance.Check = true;
+        }
+    }
+
+    void FirstClientsHouseArrive()
+    {
+        DataBaseManager.firstClientsHouse = true;
     }
 }

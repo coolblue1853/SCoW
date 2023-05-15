@@ -91,8 +91,8 @@ public class BillowUIManager : MonoBehaviour
 
     void HPIntMagaer()
     {
-        hpText.text = "체력 : " + DataBaseManager.nowHP;
-        SanText.text = "정신력 : " + DataBaseManager.nowSan;
+        hpText.text = "HP : " + DataBaseManager.nowHP;
+        SanText.text = "San : " + DataBaseManager.nowSan;
     }
 
     private static BillowUIManager instance = null;

@@ -19,6 +19,7 @@ public class DataBaseManager : MonoBehaviour
 
     //Directing
     public static bool isDirecting = false;
+    public static bool firstClientsHouse = false;
 
     //1일차 의뢰자의 집
     public static bool Aiden_FirstDialog = false;

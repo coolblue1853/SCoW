@@ -49,7 +49,7 @@ public class DirectingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InteractionController.Instance.Start_1st_ClientsHouse("FirstArrive");
+        
         //원래라면 활성화 해 주어야 함.
         //InteractionController.Instance.Start_1st_DetectiveOffice("start"); 
     }
@@ -94,6 +94,11 @@ public class DirectingManager : MonoBehaviour
             fst_DetectiveOffice_FadeOut("EndSelect_Directing");
         }
         // 의뢰자의 집
+        if (DataBaseManager.firstClientsHouse == true)
+        {
+            DataBaseManager.firstClientsHouse = false;
+            InteractionController.Instance.Start_1st_ClientsHouse("FirstArrive");
+        }
         if(DataBaseManager.StrDialogOn == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.StrDialogOn = false;
@@ -114,7 +119,7 @@ public class DirectingManager : MonoBehaviour
         DataBaseManager.isDirecting = true;
         FadingBackGround.Instance.FadeInOut();
         Invoke("moveInside",2f);
-       // DataBaseManager.isDirecting = true;
+
     }
     void moveInside()
     {
@@ -177,6 +182,7 @@ public class DirectingManager : MonoBehaviour
     // 1일차 오전 탐정사무소 연출
     void After_NockSound()
     {
+        DataBaseManager.isDirecting = false;
         InteractionController.Instance.Start_1st_DetectiveOffice("Directing_Nock");
     }
 

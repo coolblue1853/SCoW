@@ -325,6 +325,48 @@ public class KeyWordManager : MonoBehaviour
                 }
             }
         }
+        if (DataBaseManager.keyword_upper == "DailyNews")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (NewspaperKeywordCount <= NewspaperKeywordNum)
+                {
+                    NewspaperKeywordNum = 0;
+                }
+                else
+                {
+                    NewspaperKeywordNum += 1;
+                }
+            }
+        }
+        if (DataBaseManager.keyword_upper == "Client'shouse")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (QuestHouseKeywordCount <= QuestHouseKeywordNum)
+                {
+                    QuestHouseKeywordNum = 0;
+                }
+                else
+                {
+                    QuestHouseKeywordNum += 1;
+                }
+            }
+        }
+        if (DataBaseManager.keyword_upper == "DailyNews")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (NewspaperKeywordCount <= NewspaperKeywordNum)
+                {
+                    NewspaperKeywordNum = 0;
+                }
+                else
+                {
+                    NewspaperKeywordNum += 1;
+                }
+            }
+        }
         if (DataBaseManager.keyword_upper == "Safe")
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
@@ -470,6 +512,36 @@ public class KeyWordManager : MonoBehaviour
                 else
                 {
                     WharfKeywordNum -= 1;
+                }
+
+            }
+        }
+        if (DataBaseManager.keyword_upper == "DailyNews")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (NewspaperKeywordNum <= 0)
+                {
+                    NewspaperKeywordNum = NewspaperKeywordCount;
+                }
+                else
+                {
+                    NewspaperKeywordNum -= 1;
+                }
+
+            }
+        }
+        if (DataBaseManager.keyword_upper == "Client'shouse")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (QuestHouseKeywordNum <= 0)
+                {
+                    QuestHouseKeywordNum = QuestHouseKeywordCount;
+                }
+                else
+                {
+                    QuestHouseKeywordNum -= 1;
                 }
 
             }
@@ -668,7 +740,7 @@ public class KeyWordManager : MonoBehaviour
             if (DataBaseManager.Intel_QuestHouse1 == true || DataBaseManager.Intel_QuestHouse2 == true || DataBaseManager.Intel_QuestHouse3 == true || DataBaseManager.Intel_QuestHouse4 == true || DataBaseManager.Intel_QuestHouse5 == true || DataBaseManager.Intel_QuestHouse6 == true)
             {
                 isQuestHouseAddList = true;
-                upperPlaceKeywordList.Add("QuestHouse");
+                upperPlaceKeywordList.Add("Client'shouse");
             }
         }
         if (isNewspaperAddList == false)
@@ -676,7 +748,7 @@ public class KeyWordManager : MonoBehaviour
             if (DataBaseManager.Intel_Newspaper1 == true || DataBaseManager.Intel_Newspaper2 == true || DataBaseManager.Intel_Newspaper3 == true || DataBaseManager.Intel_Newspaper4 == true || DataBaseManager.Intel_Newspaper5 == true || DataBaseManager.Intel_Newspaper6 == true)
             {
                 isNewspaperAddList = true;
-                upperPlaceKeywordList.Add("Newspaper");
+                upperPlaceKeywordList.Add("DailyNews");
             }
         }
         if (isRiversideAddList == false)
@@ -805,6 +877,7 @@ public class KeyWordManager : MonoBehaviour
     bool isPlanetarySequence1Add = false;
     bool isNightmare1Add = false;
     bool isNightmare2Add = false;
+    bool isNightmare3Add = false;
     bool isInsomnia1Add = false;
     bool isInsomnia2Add = false;
     bool isInsomnia3Add = false;
@@ -923,7 +996,7 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_PlanetarySequence1 == true&&isPlanetarySequence1Add == false)
         {
             isPlanetarySequence1Add = true;
-            PlanetarySequenceList.Add("행성대직렬 신문기사");
+            PlanetarySequenceList.Add("Contents of a Newspaper");
         }
 
 
@@ -936,18 +1009,22 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_Nightmare1 == true && isNightmare1Add == false)
         {
             isNightmare1Add = true;
-            NightmareList.Add("에이든의 악몽");
+            NightmareList.Add("Aiden's Nightmare");
         }
 
         if (DataBaseManager.Intel_Nightmare2 == true && isNightmare2Add == false)
         {
             isNightmare2Add = true;
-            NightmareList.Add("악몽의 내용");
+            NightmareList.Add("Content of a Nightmare");
+        }
+        if (DataBaseManager.Intel_Nightmare3 == true && isNightmare3Add == false)
+        {
+            isNightmare3Add = true;
+            NightmareList.Add("Aiden's Detail");
         }
 
-
         // 불면증
-        else if (DataBaseManager.keyword_upper == "불면증" && InsomniaKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "Insomnia" && InsomniaKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = InsomniaList[InsomniaKeywordNum];
         }
@@ -955,20 +1032,20 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_Insomnia1 == true && isInsomnia1Add == false)
         {
             isInsomnia1Add = true;
-            InsomniaList.Add("불면증 유행");
+            InsomniaList.Add("Newspaper Article");
         }
         if (DataBaseManager.Intel_Insomnia2 == true && isInsomnia2Add == false)
         {
             isInsomnia2Add = true;
-            InsomniaList.Add("병원의 불면증 환자");
+           // InsomniaList.Add("Words of an Insomniac");
         }
         if (DataBaseManager.Intel_Insomnia3 == true && isInsomnia3Add == false)
         {
             isInsomnia3Add = true;
-            InsomniaList.Add("불면증의 원인");
+           // InsomniaList.Add("Cause of Insomnia");
         }
         // 편집증
-        else if (DataBaseManager.keyword_upper == "편집증" && ParanoiaKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "Paranoia" && ParanoiaKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = ParanoiaList[ParanoiaKeywordNum];
         }
@@ -976,15 +1053,15 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_Paranoia1 == true && isParanoia1Add == false)
         {
             isParanoia1Add = true;
-            ParanoiaList.Add("편집증 유행");
+            ParanoiaList.Add("Husband's Condition");
         }
         if (DataBaseManager.Intel_Paranoia2 == true && isParanoia2Add == false)
         {
             isParanoia2Add = true;
-            ParanoiaList.Add("편집증의 원인");
+            ParanoiaList.Add("Cause of Paranoia");
         }
         // 실종사건
-        else if (DataBaseManager.keyword_upper == "실종 사건" && MissingPeopleKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "Missing People" && MissingPeopleKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = MissingPeopleList[MissingPeopleKeywordNum];
         }
@@ -992,18 +1069,18 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_MissingPeople1 == true && isMissingPeople1Add == false)
         {
             isMissingPeople1Add = true;
-            MissingPeopleList.Add("연속 실종 사건");
+            MissingPeopleList.Add("Albert's Information");
         }
 
         if (DataBaseManager.Intel_MissingPeople2 == true && isMissingPeople2Add == false)
         {
             isMissingPeople2Add = true;
-            MissingPeopleList.Add("취재 - 연속 실종");
+            MissingPeopleList.Add("Reporting by Swain");
         }
 
 
         // 하수도괴담.
-        else if (DataBaseManager.keyword_upper == "하수도의 괴담" && SewerGhostStoryKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "SewerGhostStory" && SewerGhostStoryKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = SewerGhostStoryList[SewerGhostStoryKeywordNum];
         }
@@ -1011,11 +1088,11 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_SewerGhostStory1 == true && isSewerGhostStory1Add == false)
         {
             isSewerGhostStory1Add = true;
-            SewerGhostStoryList.Add("에이든이 취재하던 것");
+            SewerGhostStoryList.Add("Aiden's investigative");
         }
 
         // 비릿한냄새
-        else if (DataBaseManager.keyword_upper == "비릿한 냄새" && FishySmellKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "FishySmell" && FishySmellKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = FishySmellList[FishySmellKeywordNum];
         }
@@ -1023,11 +1100,11 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_FishySmell1 == true && isFishySmell1Add == false)
         {
             isFishySmell1Add = true;
-            FishySmellList.Add("비릿한 냄새 소문");
+            FishySmellList.Add("Rumor");
         }
 
         // 강의수질
-        else if (DataBaseManager.keyword_upper == "미스캐토닉 강의 수질" && RiverWaterQualityKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "RiverWaterQuality" && RiverWaterQualityKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = RiverWaterQualityList[RiverWaterQualityKeywordNum];
         }
@@ -1035,11 +1112,11 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_RiverWaterQuality1 == true && isRiverWaterQuality1Add == false)
         {
             isRiverWaterQuality1Add = true;
-            RiverWaterQualityList.Add("강의 특이점");
+            RiverWaterQualityList.Add("Strange Point");
         }
 
         // 섬뜩한눈
-        else if (DataBaseManager.keyword_upper == "하수도의 섬뜩한 눈" && CreepyEyesKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "CreepyEyes" && CreepyEyesKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = CreepyEyesList[CreepyEyesKeywordNum];
         }
@@ -1047,11 +1124,11 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_CreepyEyes1 == true && isCreepyEyes1Add == false)
         {
             isCreepyEyes1Add = true;
-            CreepyEyesList.Add("하수도의 섬뜩한 눈");
+            CreepyEyesList.Add("Saw in the sewer");
         }
 
         // 부당해고
-        else if (DataBaseManager.keyword_upper == "하수도 노동자" && SuddenChangeKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "SuddenChange" && SuddenChangeKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = SuddenChangeList[SuddenChangeKeywordNum];
         }
@@ -1059,7 +1136,7 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_SuddenChange1 == true && isSuddenChange1Add == false)
         {
             isSuddenChange1Add = true;
-            SuddenChangeList.Add("하수도노동자의 부당해고");
+            SuddenChangeList.Add("Unfair Dismissal");
         }
         // 금고
         else if (DataBaseManager.keyword_upper == "Safe" && SafeKeywordCount >= 0)
@@ -1082,17 +1159,17 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_Aiden1 == true && isAiden1Add == false)
         {
             isAiden1Add = true;
-            AidenList.Add("Aiden Triss");
+            AidenList.Add("Subject to request");
         }
         if (DataBaseManager.Intel_Aiden2 == true && isAiden2Add == false)
         {
             isAiden2Add = true;
-            AidenList.Add("에이든의 상태");
+            AidenList.Add("Aiden's Condition");
         }
         if (DataBaseManager.Intel_Aiden3 == true && isAiden3Add == false)
         {
             isAiden3Add = true;
-            AidenList.Add("에이든의 발언");
+            AidenList.Add("Aiden's Remarks");
         }
         // 엘라
         if (DataBaseManager.keyword_upper == "Ella Triss" && EllaKeywordCount >= 0)
@@ -1102,7 +1179,7 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_Ella1 == true && isElla1Add == false)
         {
             isElla1Add = true;
-            EllaList.Add("엘라 트리스");
+            EllaList.Add("Client");
         }
 
         // 스탠리
@@ -1134,7 +1211,7 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_Meiv1 == true && isMeiv1Add == false)
         {
             isMeiv1Add = true;
-            MeivList.Add("Maeve - Friend");
+            MeivList.Add("Friend");
         }
         // 알버트
         if (DataBaseManager.keyword_upper == "Albert Bradley" && AlbertKeywordCount >= 0)
@@ -1144,7 +1221,7 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_Albert1 == true && isAlbert1Add == false)
         {
             isAlbert1Add = true;
-            AlbertList.Add("Albert Bradley");
+            AlbertList.Add("Friend");
         }
 
 
@@ -1159,33 +1236,33 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_Hospital1 == true && isHospital1Add == false)
         {
             isHospital1Add = true;
-            HospitalList.Add("병원과 의뢰자");
+            HospitalList.Add("State of congestion");
         }
 
 
 
         // 신문사
-        if (DataBaseManager.keyword_upper == "데일리뉴스 신문사" && NewspaperKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "DailyNews" && NewspaperKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = NewspaperList[NewspaperKeywordNum];
         }
         if (DataBaseManager.Intel_Newspaper1 == true && isNewspaper1Add == false)
         {
             isNewspaper1Add = true;
-            NewspaperList.Add("남편의 직장");
+            NewspaperList.Add("Husband's job");
         }
 
 
 
-        // 의뢰자의 집
-        if (DataBaseManager.keyword_upper == "의뢰자의 집" && QuestHouseKeywordCount >= 0)
+        // Client'shouse
+        if (DataBaseManager.keyword_upper == "Client'shouse" && QuestHouseKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = QuestHouseList[QuestHouseKeywordNum];
         }
         if (DataBaseManager.Intel_QuestHouse1 == true && isQuestHouse1Add == false)
         {
             isQuestHouse1Add = true;
-            QuestHouseList.Add("의뢰자의 집");
+            QuestHouseList.Add("Adress");
         }
 
         // 강가
@@ -1217,7 +1294,7 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_Wharf1 == true && isWharf1Add == false)
         {
             isWharf1Add = true;
-            WharfList.Add("Wharf - 일거리");
+            WharfList.Add("Work");
         }
     }
 

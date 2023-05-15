@@ -373,11 +373,11 @@ public class BattleRollet : MonoBehaviour
         {
             result_End.text = "판정 : 대실패";
         }
-        else if (result_int < skillPoint / 3f)
+        else if (result_int <= skillPoint / 3f)
         {
             result_End.text = "판정 : 대성공";
         }
-        else if (result_int < skillPoint)
+        else if (result_int <= skillPoint)
         {
             result_End.text = "판정 : 성공";
         }
@@ -390,11 +390,11 @@ public class BattleRollet : MonoBehaviour
         {
             E_result_End.text = "판정 : 대실패";
         }
-        else if (E_result_int < E_skillPoint / 3f)
+        else if (E_result_int <= E_skillPoint / 3f)
         {
             E_result_End.text = "판정 : 대성공";
         }
-        else if (E_result_int < E_skillPoint)
+        else if (E_result_int <= E_skillPoint)
         {
             E_result_End.text = "판정 : 성공";
         }

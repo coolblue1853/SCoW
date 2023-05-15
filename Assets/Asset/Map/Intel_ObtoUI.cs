@@ -25,7 +25,7 @@ public class Intel_ObtoUI : MonoBehaviour
     public void Update()
     {
 
-        if(this.name == "AidenTriss")
+        if(this.name == "Aiden Triss")
         {
             Set_Aiden();
 
@@ -105,7 +105,7 @@ public class Intel_ObtoUI : MonoBehaviour
                         {
                             InteractionController.Instance.Start_1st_DetectiveOffice(Look_Dilaog);
                         }
-                        if (DataBaseManager.nowPlace == "Client'sHouse")
+                        if (DataBaseManager.nowPlace == "Client'shouse")
                         {
                             InteractionController.Instance.Start_1st_ClientsHouse(Look_Dilaog);
                         }
@@ -123,7 +123,7 @@ public class Intel_ObtoUI : MonoBehaviour
                         {
                             InteractionController.Instance.Start_1st_DetectiveOffice(Active_Dilaog);
                         }
-                        if (DataBaseManager.nowPlace == "Client'sHouse")
+                        if (DataBaseManager.nowPlace == "Client'shouse")
                         {
                             InteractionController.Instance.Start_1st_ClientsHouse(Active_Dilaog);
                         }

@@ -358,11 +358,11 @@ public class Rollet : MonoBehaviour
         {
             result_End.text = "판정 : 대실패";
         }
-        else if(result_int < skillPoint / 3f)
+        else if(result_int <= skillPoint / 3f)
         {
             result_End.text = "판정 : 대성공";
         }
-        else if (result_int < skillPoint)
+        else if (result_int <= skillPoint)
         {
             result_End.text = "판정 : 성공";
         }
