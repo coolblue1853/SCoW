@@ -43,7 +43,7 @@ public class Intel_ObtoUI : MonoBehaviour
         }
         previousState = DataBaseManager.NowSelecter;
 
-        if (Input.GetKeyDown(KeyCode.E) && DataBaseManager.isActiveDialog2 == false )
+        if (Input.GetKeyDown(KeyCode.E) && DataBaseManager.isActiveDialog2 == false && DataBaseManager.isDirecting == false)
         {
 
             if (this.transform.name == DataBaseManager.Select_Object)
@@ -117,7 +117,14 @@ public class Intel_ObtoUI : MonoBehaviour
                         {
                             InteractionController.Instance.Start_1st_University(Look_Dilaog);
                         }
-
+                        if (DataBaseManager.nowPlace == "Riverside")
+                        {
+                            InteractionController.Instance.Start_1st_Riverside(Look_Dilaog);
+                        }
+                        if (DataBaseManager.nowPlace == "Hospital")
+                        {
+                            InteractionController.Instance.Start_1st_Hospital(Look_Dilaog);
+                        }
                     }
                     else if (DataBaseManager.NowSelecter == "Judge")
                     {
@@ -142,6 +149,14 @@ public class Intel_ObtoUI : MonoBehaviour
                         if (DataBaseManager.nowPlace == "University")
                         {
                             InteractionController.Instance.Start_1st_University(Active_Dilaog);
+                        }
+                        if (DataBaseManager.nowPlace == "Riverside")
+                        {
+                            InteractionController.Instance.Start_1st_Riverside(Active_Dilaog);
+                        }
+                        if (DataBaseManager.nowPlace == "Hospital")
+                        {
+                            InteractionController.Instance.Start_1st_Hospital(Active_Dilaog);
                         }
                     }
                 }

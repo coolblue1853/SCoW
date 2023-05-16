@@ -8,6 +8,19 @@ public class PotalPoint : MonoBehaviour
     public GameObject camera;
 
     bool PlayerInTrigger;
+    //강가
+    Vector2 player_RtoL = new Vector3(-289.31f, 1.56f);
+    Vector3 Cam_RtoL = new Vector3(-309.79f, 1.5f, -15);
+
+    Vector2 player_LtoR  = new Vector3(-196.4f, 1.56f);
+    Vector3 Cam_LtoR = new Vector3(-173.9f, 1.5f, -15);
+
+    Vector2 player_UtoD = new Vector3(-463.1f, 8.9f);
+    Vector3 Cam_UtoD = new Vector3(-468.6f, 1.5f, -15);
+
+    Vector2 player_DtoU = new Vector3(-335.7f, 1.56f);
+    Vector3 Cam_DtoU = new Vector3(-328.1f, 1.5f, -15);
+
     //Client's Houst
     Vector2 player_OutsideTo1st = new Vector3(-1217.79f, 2.13f);
     Vector3 Cam_OutsideTo1st = new Vector3(-1198, 1.5f, -15);
@@ -77,7 +90,36 @@ public class PotalPoint : MonoBehaviour
 
     void MovePlayer()
     {
+        //강가
+        if (this.name == "RtoL")
+        {
 
+            CameraManager.Instance.isCheckEnd = true;
+            player.transform.localPosition = player_RtoL;
+            camera.transform.localPosition = Cam_RtoL;
+        }
+        if (this.name == "LtoR")
+        {
+
+            CameraManager.Instance.isCheckEnd = true;
+            player.transform.localPosition = player_LtoR;
+            camera.transform.localPosition = Cam_LtoR ;
+        }
+        if (this.name == "UtoD")
+        {
+
+            CameraManager.Instance.isCheckEnd = true;
+            player.transform.localPosition = player_UtoD;
+            camera.transform.localPosition = Cam_UtoD;
+        }
+        if (this.name == "DtoU")
+        {
+
+            CameraManager.Instance.isCheckEnd = true;
+            player.transform.localPosition = player_DtoU;
+            camera.transform.localPosition = Cam_DtoU;
+        }
+        //집
         if (this.name == "to1st")
         {
 

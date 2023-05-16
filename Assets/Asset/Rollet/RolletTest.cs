@@ -13,8 +13,9 @@ public class RolletTest : MonoBehaviour
         //DataBaseManager.psychotherapyPoint = 200;
         //DataBaseManager.nowPlace = "DetectiveOffice";
         //DataBaseManager.nowPlace = "Client'shouse";
-        DataBaseManager.nowPlace = "University";
-       // DataBaseManager.ObservationPoint = 80;
+        DataBaseManager.nowPlace = "Hospital";
+        //DataBaseManager.nowPlace = "University";
+        DataBaseManager.ObservationPoint = 80;
         // DataBaseManager.firstClientsHouse = true; 
        // DataBaseManager.Intel_Ella1 = true;
         //DataBaseManager.Intel_Aiden1 = true;

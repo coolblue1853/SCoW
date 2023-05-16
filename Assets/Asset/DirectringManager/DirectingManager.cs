@@ -18,6 +18,8 @@ public class DirectingManager : MonoBehaviour
     private static DirectingManager instance = null;
     public GameObject player;
     public GameObject Camera;
+    //병원
+    public GameObject Kate_noon;
     //탐정사무소
     public GameObject sit_player;
     public GameObject sit_NoNewsPaperPlayer;
@@ -112,7 +114,39 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.AidenKeywordCount = 2;
             fst_DetectiveOffice_FadeIn("Go2stForce");
         }
+        //강가
+        if (DataBaseManager.Sewer_Observation == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.Sewer_Observation = false;
+            Rollet.Instance.setRollet("Sewer : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+        }
+        if (DataBaseManager.Sewer_San == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.Sewer_San = false;
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.san, "dialog");
+        }
+        //병원
+        if (DataBaseManager.Kate_Disapear == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.Kate_Disapear = false;
+            Kate_Disapear();
+        }
     }
+    //병원 연출
+    public void Kate_Disapear()
+    {
+        DataBaseManager.isDirecting = true;
+        FadingBackGround.Instance.FadeInOut();
+        Invoke("Kate", 2f);
+    }
+    public void Kate()
+    {
+        Kate_noon.SetActive(false);
+        DataBaseManager.isDirecting = false;
+    }
+
+
+
     // 1일차 낮 의뢰자의 집 연출
     public void DoorNocking()
     {

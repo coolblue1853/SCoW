@@ -443,6 +443,12 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_RiverWaterQuality1 = true;
                                     IntelManager.Instance.AddIntelFloating("Event", "RiverWaterQuality - Strange Point");
                                 }
+                                if (t_ReplaceText[i + 4] == '눈') // 강의 수질
+                                {
+                                    if (DataBaseManager.Intel_CreepyEyes1 == false)
+                                        DataBaseManager.Intel_CreepyEyes1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "CreepyEyes - Saw in the sewer");
+                                }
                             }
                             if (t_ReplaceText[i + 3] == '2')
                             {
@@ -642,6 +648,13 @@ public class DialogManager : MonoBehaviour
                         //연출매니저.연출끝();
                         break;
                     }
+                    if (t_ReplaceText[i + 1] == '⑦')
+                    {
+                        DataBaseManager.Kate_Disapear = true;
+                        t_ignore = true;
+                        //연출매니저.연출끝();
+                        break;
+                    }
                     break;
 
                 case '☆':  // 별에 선택지 출현.
@@ -697,6 +710,17 @@ public class DialogManager : MonoBehaviour
                     if (t_ReplaceText[i + 1] == '①')
                     {
                         DataBaseManager.StrDialogOn = true;
+                    }
+                    if (t_ReplaceText[i + 1] == '②')
+                    {
+                        if (DataBaseManager.Sewer_ObservationEnd == false)
+                            DataBaseManager.Sewer_ObservationEnd = true;
+                            DataBaseManager.Sewer_Observation = true;
+                    }
+                    if (t_ReplaceText[i + 1] == '③')
+                    {
+
+                        DataBaseManager.Sewer_San = true;
                     }
                     t_ignore = true;
                     break;
@@ -763,8 +787,8 @@ public class DialogManager : MonoBehaviour
                 case '6': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
                 //case '0': if (t_ReplaceText[i + 1] == '§') { t_ignore = true; } if (t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
                 case '①': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '②': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '③': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
+                case '②': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
+                case '③': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' || t_ReplaceText[i - 1] == '♠') { t_ignore = true; } break;
                 case '④': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
                 case '⑤': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
                 case '⑥': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;

@@ -96,6 +96,27 @@ public class InteractionController : MonoBehaviour
     public GameObject Univ_Key_Insomnia1;
     public GameObject Univ_Key_Nothing;
 
+    // 1st Riverside
+    public GameObject Kane_FirstDialog; //
+    public GameObject Kane_Dialog; //
+    public GameObject Kane_Look;
+    public GameObject Kane_Nothing;
+    public GameObject Sewer_FirstDialog; //
+    public GameObject Sewer_Dialog; //
+    public GameObject Sewer_Look;
+    public GameObject Sewer_Observation_Sucsses;
+    public GameObject Sewer_Observation_SucssesAfter;
+    public GameObject Sewer_Observation_Fail;
+    public GameObject Sewer_Observation_SucssesAfterSanSuc;
+
+
+    // 1st Riverside
+    public GameObject Hospital_NoonFirst; //
+    public GameObject Kate_FirstDialog; //
+    public GameObject Alan_FirstDialog; //
+    public GameObject Alan_Dialog; //
+
+
     // Update is called once per frame
 
 
@@ -450,6 +471,99 @@ public class InteractionController : MonoBehaviour
 
 
 }
+    public void Start_1st_Riverside(string setDialog)
+    {
+
+        if (setDialog == "Kane_FirstDialog")
+        {
+            if (DataBaseManager.Kane_FirstDialog == false)
+            {
+                DataBaseManager.Kane_FirstDialog = true;
+                theDM.ShowDialog(Kane_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Kane_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+
+        if (setDialog == "Kane_Look")
+        {
+            theDM.ShowDialog(Kane_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Kane_Nothing")
+        {
+            theDM.ShowDialog(Kane_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Sewer_FirstDialog")
+        {
+            if (DataBaseManager.Sewer_FirstDialog == false)
+            {
+                DataBaseManager.Sewer_FirstDialog = true;
+                theDM.ShowDialog(Sewer_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Sewer_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+
+        if (setDialog == "Sewer_Look")
+        {
+            if(DataBaseManager.Sewer_ObservationEnd == false)
+            {
+                theDM.ShowDialog(Sewer_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Sewer_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+
+        }
+        if (setDialog == "Sewer_Observation_SucssesAfter")
+        {
+            theDM.ShowDialog(Sewer_Observation_SucssesAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Sewer_Observation_Sucsses")
+        {
+            theDM.ShowDialog(Sewer_Observation_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Sewer_Observation_Fail")
+        {
+            theDM.ShowDialog(Sewer_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Sewer_Observation_SucssesAfterSanSuc")
+        {
+            theDM.ShowDialog(Sewer_Observation_SucssesAfterSanSuc.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        
+}
+
+    public void Start_1st_Hospital(string setDialog)
+    {
+        if (setDialog == "Hospital_NoonFirst")
+        {
+            theDM.ShowDialog(Hospital_NoonFirst.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Kate_FirstDialog")
+        {
+            theDM.ShowDialog(Kate_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Alan_FirstDialog")
+        {
+            if(DataBaseManager.Alan_FirstDialog == false)
+            {
+                DataBaseManager.Alan_FirstDialog = true;
+                theDM.ShowDialog(Alan_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Alan_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+
+        }
+
+}
 
 
     public void KeywordDialog(string setDialog)
@@ -550,6 +664,19 @@ public class InteractionController : MonoBehaviour
             {
 
                 theDM.ShowDialog(Univ_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (setDialog == "Kane")
+        {
+            if (DataBaseManager.keyword_downer == "")
+            {
+                //theDM.ShowDialog(Univ_Key_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+
+            else
+            {
+
+                theDM.ShowDialog(Kane_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
     }
@@ -711,10 +838,38 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(Swain_LookJudge_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
-    
 
+        // 강가 Sewer : Look
+        if (Sub_Dialog == "Sewer : Look")
+        {
 
+            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            {
 
+                theDM.ShowDialog(Sewer_Observation_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
+            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            {
+
+                theDM.ShowDialog(Sewer_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (Sub_Dialog == "SAN : Check")
+        {
+
+            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            {
+
+                theDM.ShowDialog(Sewer_Observation_SucssesAfterSanSuc.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
+            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            {
+                BillowUIManager.Instance.San_Down(10);
+                theDM.ShowDialog(Sewer_Observation_SucssesAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
     }
 
 
