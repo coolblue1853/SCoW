@@ -403,8 +403,8 @@ public class DialogManager : MonoBehaviour
                                 }
                                 if (t_ReplaceText[i + 4] == '악')
                                 {
-                                    if (DataBaseManager.Intel_Nightmare2 == false)
-                                        DataBaseManager.Intel_Nightmare2 = true;
+                                    if (DataBaseManager.Intel_Nightmare1 == false)
+                                        DataBaseManager.Intel_Nightmare1 = true;
                                     IntelManager.Instance.AddIntelFloating("Event", "Nightmare - Aiden's Nightmare");
                                 }
                                 if (t_ReplaceText[i + 4] == '편')
@@ -424,6 +424,24 @@ public class DialogManager : MonoBehaviour
                                     if (DataBaseManager.Intel_SewerGhostStory1 == false)
                                         DataBaseManager.Intel_SewerGhostStory1 = true;
                                     IntelManager.Instance.AddIntelFloating("Event", "SewerGhostStory - Aiden's investigative");
+                                }
+                                if (t_ReplaceText[i + 4] == '비') // 비릿한 냄새
+                                {
+                                    if (DataBaseManager.Intel_FishySmell1 == false)
+                                        DataBaseManager.Intel_FishySmell1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "FishySmell - Rumor");
+                                }
+                                if (t_ReplaceText[i + 4] == '연') // 연속실종사건
+                                {
+                                    if (DataBaseManager.Intel_MissingPeople2 == false)
+                                        DataBaseManager.Intel_MissingPeople2 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "MissingPeople - Reporting by Swain");
+                                }
+                                if (t_ReplaceText[i + 4] == '강') // 강의 수질
+                                {
+                                    if (DataBaseManager.Intel_RiverWaterQuality1 == false)
+                                        DataBaseManager.Intel_RiverWaterQuality1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "RiverWaterQuality - Strange Point");
                                 }
                             }
                             if (t_ReplaceText[i + 3] == '2')
@@ -530,6 +548,12 @@ public class DialogManager : MonoBehaviour
                                     if (DataBaseManager.Intel_Newspaper1 == false)
                                         DataBaseManager.Intel_Newspaper1 = true;
                                     IntelManager.Instance.AddIntelFloating("Place", "DailyNews - Husband's job");
+                                }
+                                if (t_ReplaceText[i + 4] == '미' || t_ReplaceText[i + 4] == '우')
+                                {
+                                    if (DataBaseManager.Intel_University1 == false)
+                                        DataBaseManager.Intel_University1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Place", "Univ of Miscatonic - Astronomical show");
                                 }
                             }
 

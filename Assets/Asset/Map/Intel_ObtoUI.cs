@@ -109,6 +109,14 @@ public class Intel_ObtoUI : MonoBehaviour
                         {
                             InteractionController.Instance.Start_1st_ClientsHouse(Look_Dilaog);
                         }
+                        if (DataBaseManager.nowPlace == "DailyNews")
+                        {
+                            InteractionController.Instance.Start_1st_DailyNews(Look_Dilaog);
+                        }
+                        if (DataBaseManager.nowPlace == "University")
+                        {
+                            InteractionController.Instance.Start_1st_University(Look_Dilaog);
+                        }
 
                     }
                     else if (DataBaseManager.NowSelecter == "Judge")
@@ -127,7 +135,14 @@ public class Intel_ObtoUI : MonoBehaviour
                         {
                             InteractionController.Instance.Start_1st_ClientsHouse(Active_Dilaog);
                         }
-
+                        if (DataBaseManager.nowPlace == "DailyNews")
+                        {
+                            InteractionController.Instance.Start_1st_DailyNews(Active_Dilaog);
+                        }
+                        if (DataBaseManager.nowPlace == "University")
+                        {
+                            InteractionController.Instance.Start_1st_University(Active_Dilaog);
+                        }
                     }
                 }
 
@@ -169,7 +184,12 @@ public class Intel_ObtoUI : MonoBehaviour
                 AidenJudge = "psychotherapy";
                 Rollet.Instance.setRollet("에이든 : 안정", "정신치료 / 2" , (DataBaseManager.psychotherapyPoint / 2), "dialog");
             }
-
+        }
+        if (DataBaseManager.Select_Object == "Berkeley Swain")
+        {
+            CanJudge = false;
+            isJudge = true;
+            Rollet.Instance.setRollet("Swain : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
         }
     }
 

@@ -20,6 +20,19 @@ public class DialogDatabaseManager : MonoBehaviour
             csv_FileName = "1st_Client'sHouse";
             setDialog();
         }
+        else if (DataBaseManager.nowPlace == "DailyNews" && Check == true)
+        {
+            Check = false;
+            csv_FileName = "1st_DailyNews";
+            setDialog();
+        }
+        else if (DataBaseManager.nowPlace == "University" && Check == true)
+        {
+            Check = false;
+            csv_FileName = "1st_University";
+            setDialog();
+        }
+
     }
     Dialog[] dialogs;
     void setDialog()
@@ -52,6 +65,15 @@ public class DialogDatabaseManager : MonoBehaviour
         {
             csv_FileName = "1st_Client'sHouse";
         }
+        if (DataBaseManager.nowPlace == "DailyNews")
+        {
+            csv_FileName = "1st_DailyNews";
+        }
+        if (DataBaseManager.nowPlace == "University")
+        {
+            csv_FileName = "1st_University";
+        }
+
         if (instance == null)
         {
             instance = this;

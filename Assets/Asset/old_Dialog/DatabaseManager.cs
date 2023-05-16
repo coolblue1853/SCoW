@@ -21,6 +21,10 @@ public class DataBaseManager : MonoBehaviour
     public static bool isDirecting = false;
     public static bool firstClientsHouse = false;
 
+    //1일차 대학
+    public static bool Univ_FirstDialog = false;
+    //1일차 신문사
+    public static bool Swain_FirstDialog = false;
     //1일차 의뢰자의 집
     public static bool Aiden_FirstDialog = false;
     public static bool Aiden_Observation = false;

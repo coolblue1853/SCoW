@@ -72,6 +72,30 @@ public class InteractionController : MonoBehaviour
     public GameObject Aiden_key_FailForce;
     public GameObject EllaEnd_NoSafe;
     public GameObject EllaEnd_GetSafe;
+
+    // 1st Clinet'sOffice
+    public GameObject Swain_FirstDialog; //
+    public GameObject Swain_Dialog; //
+    public GameObject Swain_Look; //
+    public GameObject Swain_LookJudge_Sucsses; //
+    public GameObject Swain_LookJudge_Fail; //
+    public GameObject Swain_Key_PlanetarySequence1;//
+    public GameObject Swain_Key_Insomnia1;
+    public GameObject Swain_Key_Nightmare2;
+    public GameObject Swain_Key_Paranoia1;
+    public GameObject Swain_Key_EllaTriss1;
+    public GameObject Swain_Key_AidenTriss1;
+    public GameObject Swain_Key_DailyNews1;
+    public GameObject Swain_Key_Nothing;
+
+    // 1st University
+    public GameObject Univ_FirstDialog; //
+    public GameObject Univ_Dialog; //
+    public GameObject Univ_Look; //
+    public GameObject Univ_Key_PlanetarySequence1;//
+    public GameObject Univ_Key_Insomnia1;
+    public GameObject Univ_Key_Nothing;
+
     // Update is called once per frame
 
 
@@ -330,7 +354,105 @@ public class InteractionController : MonoBehaviour
 
 }
 
-public void KeywordDialog(string setDialog)
+    public void Start_1st_DailyNews(string setDialog)
+    {
+    
+        if (setDialog == "Swain_FirstDialog")
+        {
+            if(DataBaseManager.Aiden_FirstDialog == false)
+            {
+                DataBaseManager.Aiden_FirstDialog = true;
+                theDM.ShowDialog(Swain_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Swain_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+
+        if (setDialog == "Swain_Look")
+        {
+            theDM.ShowDialog(Swain_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+
+        if (setDialog == "Swain_LookJudge_Sucsses")
+        {
+            theDM.ShowDialog(Swain_LookJudge_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Swain_LookJudge_Fail")
+        {
+            theDM.ShowDialog(Swain_LookJudge_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Swain_Key_PlanetarySequence1")
+        {
+            theDM.ShowDialog(Swain_Key_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Swain_Key_Insomnia1")
+        {
+            theDM.ShowDialog(Swain_Key_Insomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Swain_Key_Nightmare2")
+        {
+            theDM.ShowDialog(Swain_Key_Nightmare2.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Swain_Key_Paranoia1")
+        {
+            theDM.ShowDialog(Swain_Key_Paranoia1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Swain_Key_EllaTriss1")
+        {
+            theDM.ShowDialog(Swain_Key_EllaTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Swain_Key_AidenTriss1")
+        {
+            theDM.ShowDialog(Swain_Key_AidenTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Swain_Key_DailyNews1")
+        {
+            theDM.ShowDialog(Swain_Key_DailyNews1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Swain_Key_Nothing")
+        {
+            theDM.ShowDialog(Swain_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+    }
+    public void Start_1st_University(string setDialog)
+    {
+
+        if (setDialog == "Univ_FirstDialog")
+        {
+            if (DataBaseManager.Univ_FirstDialog == false)
+            {
+                DataBaseManager.Univ_FirstDialog = true;
+                theDM.ShowDialog(Univ_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Univ_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+
+        if (setDialog == "Univ_Look")
+        {
+            theDM.ShowDialog(Univ_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Univ_Key_PlanetarySequence1")
+        {
+            theDM.ShowDialog(Univ_Key_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Univ_Key_Insomnia1")
+        {
+            theDM.ShowDialog(Univ_Key_Insomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+
+
+}
+
+
+    public void KeywordDialog(string setDialog)
     {
         if (setDialog  == "Ella Triss")
         {
@@ -375,6 +497,59 @@ public void KeywordDialog(string setDialog)
                     theDM.ShowDialog(Aiden_key_Fail2.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
       
+            }
+        }
+        if (setDialog == "Berkeley Swain")
+        {
+            if (DataBaseManager.keyword_downer == "Contents of a Newspaper")
+            {
+                theDM.ShowDialog(Swain_Key_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Newspaper Article")
+            {
+                theDM.ShowDialog(Swain_Key_Insomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Aiden's Nightmare")
+            {
+                theDM.ShowDialog(Swain_Key_Nightmare2.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Husband's Condition")
+            {
+                theDM.ShowDialog(Swain_Key_Paranoia1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Client")
+            {
+                theDM.ShowDialog(Swain_Key_EllaTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Subject to request")
+            {
+                theDM.ShowDialog(Swain_Key_AidenTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Husband's job")
+            {
+                theDM.ShowDialog(Swain_Key_DailyNews1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+
+                theDM.ShowDialog(Swain_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (setDialog == "University student")
+        {
+            if (DataBaseManager.keyword_downer == "Contents of a Newspaper")
+            {
+                theDM.ShowDialog(Univ_Key_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Newspaper Article")
+            {
+                theDM.ShowDialog(Univ_Key_Insomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+
+            else
+            {
+
+                theDM.ShowDialog(Univ_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
     }
@@ -521,7 +696,24 @@ public void KeywordDialog(string setDialog)
                 theDM.ShowDialog(Aiden_key_Safe_Str_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
+        if (Sub_Dialog == "Swain : Look")
+        {
+
+            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            {
+
+                theDM.ShowDialog(Swain_LookJudge_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
+            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            {
+
+                theDM.ShowDialog(Swain_LookJudge_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
     
+
+
 
     }
 

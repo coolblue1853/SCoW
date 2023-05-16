@@ -353,6 +353,20 @@ public class KeyWordManager : MonoBehaviour
                 }
             }
         }
+        if (DataBaseManager.keyword_upper == "Univ of Miscatonic")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (UniversityKeywordCount<= UniversityKeywordNum)
+                {
+                    UniversityKeywordNum = 0;
+                }
+                else
+                {
+                    UniversityKeywordNum += 1;
+                }
+            }
+        }
         if (DataBaseManager.keyword_upper == "DailyNews")
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
@@ -546,6 +560,22 @@ public class KeyWordManager : MonoBehaviour
 
             }
         }
+        if (DataBaseManager.keyword_upper == "Univ of Miscatonic")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (UniversityKeywordNum <= 0)
+                {
+                    UniversityKeywordNum = UniversityKeywordCount;
+                }
+                else
+                {
+                    UniversityKeywordNum -= 1;
+                }
+
+            }
+        }
+        
         if (DataBaseManager.keyword_upper == "Safe")
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
@@ -596,7 +626,7 @@ public class KeyWordManager : MonoBehaviour
     bool isRiversideAddList = false;
     bool isSewageMaintenanceOfficeAddList = false;
     bool isWharfAddList = false;
-
+    bool isUniversityAddList = false;
     //인물
     bool isAidenAddList = false;
     bool isEllaAddList = false;
@@ -775,7 +805,14 @@ public class KeyWordManager : MonoBehaviour
                 upperPlaceKeywordList.Add("Wharf");
             }
         }
-
+        if (isUniversityAddList == false)
+        {
+            if (DataBaseManager.Intel_University1 == true || DataBaseManager.Intel_University2 == true || DataBaseManager.Intel_University3 == true || DataBaseManager.Intel_University4 == true || DataBaseManager.Intel_University5 == true || DataBaseManager.Intel_University6 == true)
+            {
+                isUniversityAddList = true;
+                upperPlaceKeywordList.Add("Univ of Miscatonic");
+            }
+        }
 
         //인물
         if (isAidenAddList == false)
@@ -949,6 +986,10 @@ public class KeyWordManager : MonoBehaviour
     List<string> WharfList = new List<string>();//string들어가야하고
     int WharfKeywordCount = 0;
     int WharfKeywordNum = 0;
+
+    List<string> UniversityList = new List<string>();//string들어가야하고
+    int UniversityKeywordCount = 0;
+    int UniversityKeywordNum = 0;
     //사건
     bool isHospital1Add = false;
     bool isNewspaper1Add = false;
@@ -956,6 +997,7 @@ public class KeyWordManager : MonoBehaviour
     bool isRiverside1Add = false;
     bool isSewageMaintenanceOffice1Add = false;
     bool isWharf1Add = false;
+    bool isUniversity1Add = false;
     public void downerKeywrodUpdater()
     {        
 
@@ -984,6 +1026,7 @@ public class KeyWordManager : MonoBehaviour
         RiversideKeywordCount = RiversideList.Count - 1;
         SewageMaintenanceOfficeKeywordCount = SewageMaintenanceOfficeList.Count - 1;
         WharfKeywordCount = WharfList.Count - 1;
+        UniversityKeywordCount = UniversityList.Count - 1;
 
         // 사건 
 
@@ -1061,11 +1104,10 @@ public class KeyWordManager : MonoBehaviour
             ParanoiaList.Add("Cause of Paranoia");
         }
         // 실종사건
-        else if (DataBaseManager.keyword_upper == "Missing People" && MissingPeopleKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "MissingPeople" && MissingPeopleKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = MissingPeopleList[MissingPeopleKeywordNum];
         }
-
         if (DataBaseManager.Intel_MissingPeople1 == true && isMissingPeople1Add == false)
         {
             isMissingPeople1Add = true;
@@ -1295,6 +1337,17 @@ public class KeyWordManager : MonoBehaviour
         {
             isWharf1Add = true;
             WharfList.Add("Work");
+        }
+
+        // 대학
+        if (DataBaseManager.keyword_upper == "Univ of Miscatonic" && UniversityKeywordCount >= 0)
+        {
+            DataBaseManager.keyword_downer = UniversityList[UniversityKeywordNum];
+        }
+        if (DataBaseManager.Intel_University1 == true && isUniversity1Add == false)
+        {
+            isUniversity1Add = true;
+            UniversityList.Add("Astronomical show");
         }
     }
 
