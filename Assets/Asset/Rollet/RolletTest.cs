@@ -10,10 +10,13 @@ public class RolletTest : MonoBehaviour
 
     private void Awake()
     {
+         DataBaseManager.Intel_Meiv1 = true; 
+        DataBaseManager.Intel_Insomnia1 = true; 
+        DataBaseManager.Intel_PlanetarySequence1 = true; 
         //DataBaseManager.psychotherapyPoint = 200;
         //DataBaseManager.nowPlace = "DetectiveOffice";
         //DataBaseManager.nowPlace = "Client'shouse";
-        DataBaseManager.nowPlace = "Hospital";
+        DataBaseManager.nowPlace = "Slum";
         //DataBaseManager.nowPlace = "University";
         DataBaseManager.ObservationPoint = 80;
         // DataBaseManager.firstClientsHouse = true; 
@@ -47,7 +50,6 @@ public class RolletTest : MonoBehaviour
     }
     private void Update()
     {
-
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {

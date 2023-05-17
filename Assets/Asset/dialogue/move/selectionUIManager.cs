@@ -9,6 +9,12 @@ public class selectionUIManager : MonoBehaviour
 
 
     public GameObject Select_1st_ClientsOffice_Safe;
+
+    //빈민가
+    private List<System.Action> functionList = new List<System.Action>();
+
+    public GameObject Select_1st_Slum;
+
     private static selectionUIManager instance = null;
     void Awake()
     {
@@ -21,6 +27,15 @@ public class selectionUIManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        functionList.Add(Function1);
+        functionList.Add(Function2);
+        functionList.Add(Function3);
+        functionList.Add(Function4);
+        functionList.Add(Function5);
+        functionList.Add(Function6);
+        functionList.Add(Function7);
+        functionList.Add(Function8);
     }
 
 
@@ -51,7 +66,12 @@ public class selectionUIManager : MonoBehaviour
         DataBaseManager.isActiveDialog1 = true;
         Select_1st_ClientsOffice_Safe.SetActive(true);
     }
-
+    //빈민가
+    public void Open_1st_Slum_Dave()
+    {
+        DataBaseManager.isActiveDialog1 = true;
+        Select_1st_Slum.SetActive(true);
+    }
     public void ReciveRequest_SelectionButton(string SelectButton)
     {
         DataBaseManager.SelectionOn = false;
@@ -111,5 +131,104 @@ public class selectionUIManager : MonoBehaviour
             Select_1st_ClientsOffice_Safe.SetActive(false);
             InteractionController.Instance.Start_1st_ClientsHouse("Aiden_key_Safe_Nothing");
         }
+
+        //빈민가
+        if (SelectButton == "GiveMoney")
+        {
+            if(DataBaseManager.weal >= 2)
+            {
+
+                DialogManager.Instance.ChoiceEx_NextPage_t();
+                Select_1st_Slum.SetActive(false);
+                ActivateRandomFunction();
+            }
+            else
+            {
+                DialogManager.Instance.ChoiceEx_NextPage_t();
+                Select_1st_Slum.SetActive(false);
+                InteractionController.Instance.Start_1st_Slum("Dave_NoMoney");
+            }
+ 
+
+        }
+        if (SelectButton == "Reject")
+        {
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_1st_Slum.SetActive(false);
+
+        }
+    }
+    private void ActivateRandomFunction()
+    {
+        if (functionList.Count > 0)
+        {
+            // 함수 리스트에서 무작위로 함수 선택
+            int randomIndex = Random.Range(0, functionList.Count);
+            System.Action selectedFunction = functionList[randomIndex];
+
+            // 선택된 함수 실행
+            selectedFunction();
+
+            // 실행된 함수는 리스트에서 제거
+            functionList.RemoveAt(randomIndex);
+        }
+        else
+        {
+            FunctionEx();
+        }
+    }
+
+    private void Function1()
+    {
+
+        DataBaseManager.weal -= 2;
+        InteractionController.Instance.Start_1st_Slum("Dave_Ran1");
+    }
+
+    private void Function2()
+    {
+        DataBaseManager.weal -= 2;
+        InteractionController.Instance.Start_1st_Slum("Dave_Ran2");
+    }
+
+    private void Function3()
+    {
+        DataBaseManager.weal -= 2;
+        InteractionController.Instance.Start_1st_Slum("Dave_Ran3");
+    }
+
+    private void Function4()
+    {
+        DataBaseManager.weal -= 2;
+        InteractionController.Instance.Start_1st_Slum("Dave_Ran4");
+    }
+
+    private void Function5()
+    {
+        DataBaseManager.weal -= 2;
+        InteractionController.Instance.Start_1st_Slum("Dave_Ran5");
+    }
+
+    private void Function6()
+    {
+        DataBaseManager.weal -= 2;
+        InteractionController.Instance.Start_1st_Slum("Dave_Ran6");
+    }
+
+    private void Function7()
+    {
+        DataBaseManager.weal -= 2;
+        InteractionController.Instance.Start_1st_Slum("Dave_Ran7");
+    }
+
+    private void Function8()
+    {
+        DataBaseManager.weal -= 2;
+        InteractionController.Instance.Start_1st_Slum("Dave_Ran8");
+    }
+
+    private void FunctionEx()
+    {
+        InteractionController.Instance.Start_1st_Slum("Dave_RanEnd");
     }
 }

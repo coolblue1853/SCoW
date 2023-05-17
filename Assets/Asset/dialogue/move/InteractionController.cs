@@ -116,7 +116,34 @@ public class InteractionController : MonoBehaviour
     public GameObject Alan_FirstDialog; //
     public GameObject Alan_Dialog; //
 
+    // 1st PoliceOffice
+    public GameObject A_FirstDialog; 
+    public GameObject A_Dialog;
+    public GameObject B_FirstDialog; 
+    public GameObject B_Dialog; 
+    public GameObject Albert_FirstDialog; 
+    public GameObject Albert_Dialog; 
+    public GameObject Albert_Key_PlanetarySequence1;
+    public GameObject Albert_Key_Insomnia1;
+    public GameObject Albert_Key_Meiv1;
+    public GameObject Albert_Key_Nothing;
+    public GameObject A_Look;
+    public GameObject B_Look;
+    public GameObject Albert_Look;
 
+    // 1st Slum
+    public GameObject Dave_FirstDialog;
+    public GameObject Dave_Dialog;
+    public GameObject Dave_Ran1;
+    public GameObject Dave_Ran2;
+    public GameObject Dave_Ran3;
+    public GameObject Dave_Ran4;
+    public GameObject Dave_Ran5;
+    public GameObject Dave_Ran6;
+    public GameObject Dave_Ran7;
+    public GameObject Dave_Ran8;
+    public GameObject Dave_NoMoney;
+    public GameObject Dave_RanEnd;
     // Update is called once per frame
 
 
@@ -565,6 +592,117 @@ public class InteractionController : MonoBehaviour
 
 }
 
+    public void Start_1st_Policeoffice(string setDialog)
+    {
+
+        if (setDialog == "A_FirstDialog")
+        {
+            if (DataBaseManager.A_FirstDialog == false)
+            {
+                DataBaseManager.A_FirstDialog = true;
+                theDM.ShowDialog(A_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(A_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (setDialog == "B_FirstDialog")
+        {
+            if (DataBaseManager.B_FirstDialog == false)
+            {
+                DataBaseManager.B_FirstDialog = true;
+                theDM.ShowDialog(B_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(B_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (setDialog == "Albert_FirstDialog")
+        {
+            if (DataBaseManager.Albert_FirstDialog == false)
+            {
+                DataBaseManager.Albert_FirstDialog = true;
+                theDM.ShowDialog(Albert_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Albert_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (setDialog == "A_Look")
+        {
+            theDM.ShowDialog(A_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "B_Look")
+        {
+            theDM.ShowDialog(B_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Albert_Look")
+        {
+            theDM.ShowDialog(Albert_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+}
+    public void Start_1st_Slum(string setDialog)
+    {
+
+        if (setDialog == "Dave_FirstDialog")
+        {
+            if (DataBaseManager.Dave_FirstDialog == false)
+            {
+                DataBaseManager.Dave_FirstDialog = true;
+                theDM.ShowDialog(Dave_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Dave_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+
+        if (setDialog == "Dave_Ran1")
+        {
+            theDM.ShowDialog(Dave_Ran1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Dave_Ran2")
+        {
+            theDM.ShowDialog(Dave_Ran2.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Dave_Ran3")
+        {
+            theDM.ShowDialog(Dave_Ran3.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Dave_Ran4")
+        {
+            theDM.ShowDialog(Dave_Ran4.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Dave_Ran5")
+        {
+            theDM.ShowDialog(Dave_Ran5.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Dave_Ran6")
+        {
+            theDM.ShowDialog(Dave_Ran6.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Dave_Ran7")
+        {
+            theDM.ShowDialog(Dave_Ran7.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Dave_Ran8")
+        {
+            theDM.ShowDialog(Dave_Ran8.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Dave_NoMoney")
+        {
+            theDM.ShowDialog(Dave_NoMoney.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Dave_RanEnd")
+        {
+            theDM.ShowDialog(Dave_RanEnd.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        
+    }
 
     public void KeywordDialog(string setDialog)
     {
@@ -679,7 +817,30 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(Kane_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
+        if (setDialog == "Albert Bradley")
+        {
+            if (DataBaseManager.keyword_downer == "Contents of a Newspaper")
+            {
+                theDM.ShowDialog(Albert_Key_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Newspaper Article")
+            {
+                theDM.ShowDialog(Albert_Key_Insomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Mafia friend")
+            {
+                theDM.ShowDialog(Albert_Key_Meiv1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+
+                theDM.ShowDialog(Albert_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+
     }
+
+
 
     void OnEnable()
     {

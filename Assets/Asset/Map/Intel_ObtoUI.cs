@@ -37,13 +37,13 @@ public class Intel_ObtoUI : MonoBehaviour
         }
 
         
-        if (DataBaseManager.isActiveDialog2 == true && previousState != DataBaseManager.NowSelecter)
+        if (DataBaseManager.isActiveDialog2 == true && previousState != DataBaseManager.NowSelecter )
         {
             Res();
         }
         previousState = DataBaseManager.NowSelecter;
 
-        if (Input.GetKeyDown(KeyCode.E) && DataBaseManager.isActiveDialog2 == false && DataBaseManager.isDirecting == false)
+        if (Input.GetKeyDown(KeyCode.E) && DataBaseManager.isActiveDialog2 == false && DataBaseManager.isDirecting == false&& DataBaseManager.isOpenUi == false)
         {
 
             if (this.transform.name == DataBaseManager.Select_Object)
@@ -125,7 +125,16 @@ public class Intel_ObtoUI : MonoBehaviour
                         {
                             InteractionController.Instance.Start_1st_Hospital(Look_Dilaog);
                         }
+                        if (DataBaseManager.nowPlace == "Policeoffice")
+                        {
+                            InteractionController.Instance.Start_1st_Policeoffice(Look_Dilaog);
+                        }
+                        if (DataBaseManager.nowPlace == "Slum")
+                        {
+                            InteractionController.Instance.Start_1st_Slum(Look_Dilaog);
+                        }
                     }
+                    
                     else if (DataBaseManager.NowSelecter == "Judge")
                     {
                         DialogManager.Instance.EndDialog();
@@ -157,6 +166,14 @@ public class Intel_ObtoUI : MonoBehaviour
                         if (DataBaseManager.nowPlace == "Hospital")
                         {
                             InteractionController.Instance.Start_1st_Hospital(Active_Dilaog);
+                        }
+                        if (DataBaseManager.nowPlace == "Policeoffice")
+                        {
+                            InteractionController.Instance.Start_1st_Policeoffice(Active_Dilaog);
+                        }
+                        if (DataBaseManager.nowPlace == "Slum")
+                        {
+                            InteractionController.Instance.Start_1st_Slum(Active_Dilaog);
                         }
                     }
                 }

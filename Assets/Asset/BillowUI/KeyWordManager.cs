@@ -923,6 +923,7 @@ public class KeyWordManager : MonoBehaviour
     bool isMissingPeople1Add = false;
     bool isMissingPeople2Add = false;
     bool isSewerGhostStory1Add = false;
+    bool isSewerGhostStory2Add = false;
     bool isFishySmell1Add = false;
     bool isRiverWaterQuality1Add = false;
     bool isCreepyEyes1Add = false;
@@ -1130,9 +1131,13 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_SewerGhostStory1 == true && isSewerGhostStory1Add == false)
         {
             isSewerGhostStory1Add = true;
-            SewerGhostStoryList.Add("Aiden's investigative");
+            SewerGhostStoryList.Add("Contents of a GhostStory");
         }
-
+        if (DataBaseManager.Intel_SewerGhostStory2 == true && isSewerGhostStory2Add == false)
+        {
+            isSewerGhostStory2Add = true;
+           // SewerGhostStoryList.Add("From Dave");
+        }
         // 비릿한냄새
         else if (DataBaseManager.keyword_upper == "FishySmell" && FishySmellKeywordCount >= 0)
         {
@@ -1253,7 +1258,7 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_Meiv1 == true && isMeiv1Add == false)
         {
             isMeiv1Add = true;
-            MeivList.Add("Friend");
+            MeivList.Add("Mafia friend");
         }
         // 알버트
         if (DataBaseManager.keyword_upper == "Albert Bradley" && AlbertKeywordCount >= 0)
@@ -1263,7 +1268,7 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_Albert1 == true && isAlbert1Add == false)
         {
             isAlbert1Add = true;
-            AlbertList.Add("Friend");
+            AlbertList.Add("Police friend");
         }
 
 

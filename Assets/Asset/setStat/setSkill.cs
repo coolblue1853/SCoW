@@ -33,13 +33,13 @@ public class setSkill : MonoBehaviour
     //skill - int
     public Text medicine_t;
     public Text analysis_t;
-    public Text psychology_t;
+    public Text listening_t;
     public Text psychotherapy_t;
     public Text occult_t;
 
     public Image medicine_g;
     public Image analysis_g;
-    public Image psychology_g;
+    public Image listening_g;
     public Image psychotherapy_g;
     public Image occult_g;
 
@@ -94,8 +94,8 @@ public class setSkill : MonoBehaviour
         analysis_g.fillAmount = (float)DataBaseManager.analysisPoint / 100;
         occult_t.text = DataBaseManager.occultPoint.ToString();
         occult_g.fillAmount = (float)DataBaseManager.occultPoint / 100;
-        psychology_t.text = DataBaseManager.psychologyPoint.ToString();
-        psychology_g.fillAmount = (float)DataBaseManager.psychologyPoint / 100;
+        listening_t.text = DataBaseManager.listeningPoint.ToString();
+        listening_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
         psychotherapy_t.text = DataBaseManager.psychotherapyPoint.ToString();
         psychotherapy_g.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
 
@@ -301,17 +301,17 @@ public class setSkill : MonoBehaviour
                 minClickTime = 0.1f;
                 occultDown();
             }
-            if (nowSkill == "psychologyUP")
+            if (nowSkill == "listeningUP")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                psychologyUP();
+                listeningUP();
             }
-            if (nowSkill == "psychologyDown")
+            if (nowSkill == "listeningDown")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                psychologyDown();
+                listeningDown();
             }
             if (nowSkill == "psychotherapyUP")
             {
@@ -560,13 +560,13 @@ public class setSkill : MonoBehaviour
                         occult_g.fillAmount = (float)DataBaseManager.occultPoint / 100;                    }
                     break;
                 case 4:
-                    if (DataBaseManager.psychologyPoint < 90 && DataBaseManager.intSkillPoint >= 5)
+                    if (DataBaseManager.listeningPoint < 90 && DataBaseManager.intSkillPoint >= 5)
                     {
                         DataBaseManager.intSkillPoint -= 5;
-                        DataBaseManager.psychologyPoint += 5;
-                        psychology_t.text = DataBaseManager.psychologyPoint.ToString();
+                        DataBaseManager.listeningPoint += 5;
+                        listening_t.text = DataBaseManager.listeningPoint.ToString();
                         intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-                        psychology_g.fillAmount = (float)DataBaseManager.psychologyPoint / 100;
+                        listening_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
                     }
                     break;
                 case 5:
@@ -590,9 +590,9 @@ public class setSkill : MonoBehaviour
         DataBaseManager.analysisPoint = 30;
         analysis_t.text = DataBaseManager.analysisPoint.ToString();
         analysis_g.fillAmount = (float)DataBaseManager.analysisPoint / 100;
-        DataBaseManager.psychologyPoint = 5;
-        psychology_t.text = DataBaseManager.psychologyPoint.ToString();
-        psychology_g.fillAmount = (float)DataBaseManager.psychologyPoint / 100;
+        DataBaseManager.listeningPoint = 30;
+        listening_t.text = DataBaseManager.listeningPoint.ToString();
+        listening_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
         DataBaseManager.psychotherapyPoint = 5;
         psychotherapy_t.text = DataBaseManager.psychotherapyPoint.ToString();
         psychotherapy_g.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
@@ -684,31 +684,31 @@ public class setSkill : MonoBehaviour
             nowSkill = "occultDown";
         }
     }
-    public void psychologyUP()
+    public void listeningUP()
     {
-        if (DataBaseManager.psychologyPoint < 90 && DataBaseManager.intSkillPoint >= 5)
+        if (DataBaseManager.listeningPoint < 90 && DataBaseManager.intSkillPoint >= 5)
         {
             isClick = true;
 
             DataBaseManager.intSkillPoint -= 5;
-            DataBaseManager.psychologyPoint += 5;
-            psychology_t.text = DataBaseManager.psychologyPoint.ToString();
+            DataBaseManager.listeningPoint += 5;
+            listening_t.text = DataBaseManager.listeningPoint.ToString();
             intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-            psychology_g.fillAmount = (float)DataBaseManager.psychologyPoint / 100;
-            nowSkill = "psychologyUP";
+            listening_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
+            nowSkill = "listeningUP";
         }
     }
-    public void psychologyDown()
+    public void listeningDown()
     {
-        if (DataBaseManager.psychologyPoint > 5)
+        if (DataBaseManager.listeningPoint > 5)
         {
             isClick = true;
             DataBaseManager.intSkillPoint += 5;
-            DataBaseManager.psychologyPoint -= 5;
-            psychology_t.text = DataBaseManager.psychologyPoint.ToString();
+            DataBaseManager.listeningPoint -= 5;
+            listening_t.text = DataBaseManager.listeningPoint.ToString();
             intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-            psychology_g.fillAmount = (float)DataBaseManager.psychologyPoint / 100;
-            nowSkill = "psychologyDown";
+            listening_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
+            nowSkill = "listeningDown";
         }
     }
     public void psychotherapyUP()
@@ -992,9 +992,9 @@ public class setSkill : MonoBehaviour
         DataBaseManager.analysisPoint = 30;
         analysis_t.text = DataBaseManager.analysisPoint.ToString();
         analysis_g.fillAmount = (float)DataBaseManager.analysisPoint / 100;
-        DataBaseManager.psychologyPoint = 5;
-        psychology_t.text = DataBaseManager.psychologyPoint.ToString();
-        psychology_g.fillAmount = (float)DataBaseManager.psychologyPoint / 100;
+        DataBaseManager.listeningPoint = 30;
+        listening_t.text = DataBaseManager.listeningPoint.ToString();
+        listening_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
         DataBaseManager.psychotherapyPoint = 5;
         psychotherapy_t.text = DataBaseManager.psychotherapyPoint.ToString();
         psychotherapy_g.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;

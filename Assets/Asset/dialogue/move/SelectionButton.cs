@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class SelectionButton : MonoBehaviour
 {
+    public bool DontDestroy = false;
     public void ClickButton()
     {
 
         selectionUIManager.Instance.ReciveRequest_SelectionButton(this.transform.name);
-        Invoke("Destroy", 1);   
+        if(DontDestroy != true)
+        {
+            Invoke("Destroy", 1);
+        }
+
     }
 
     void Destroy()

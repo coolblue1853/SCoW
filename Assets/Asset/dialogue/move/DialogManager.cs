@@ -423,7 +423,7 @@ public class DialogManager : MonoBehaviour
                                 {
                                     if (DataBaseManager.Intel_SewerGhostStory1 == false)
                                         DataBaseManager.Intel_SewerGhostStory1 = true;
-                                    IntelManager.Instance.AddIntelFloating("Event", "SewerGhostStory - Aiden's investigative");
+                                    IntelManager.Instance.AddIntelFloating("Event", "SewerGhostStory - Contents of a GhostStory");
                                 }
                                 if (t_ReplaceText[i + 4] == '비') // 비릿한 냄새
                                 {
@@ -483,6 +483,12 @@ public class DialogManager : MonoBehaviour
                                     if (DataBaseManager.Intel_Safe1 == false)
                                         DataBaseManager.Intel_Safe1 = true;
                                     IntelManager.Instance.AddIntelFloating("Event", "Safe - Aiden's Safe");
+                                }
+                                if (t_ReplaceText[i + 4] == '연') // 연속실종사건
+                                {
+                                    if (DataBaseManager.Intel_MissingPeople1 == false)
+                                        DataBaseManager.Intel_MissingPeople1 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "MissingPeople - Albert's Information");
                                 }
                             }
                             if (t_ReplaceText[i + 3] == '3')
@@ -578,14 +584,14 @@ public class DialogManager : MonoBehaviour
                                 {
                                     if (DataBaseManager.Intel_Albert1 == false)
                                         DataBaseManager.Intel_Albert1 = true;
-                                    IntelManager.Instance.AddIntelFloating("Character", "Albert Bradley - Friend");
+                                    IntelManager.Instance.AddIntelFloating("Character", "Albert Bradley - Police friend");
                                 }
 
                                 if (t_ReplaceText[i + 4] == '메')
                                 {
                                     if (DataBaseManager.Intel_Meiv1 == false)
                                         DataBaseManager.Intel_Meiv1 = true;
-                                    IntelManager.Instance.AddIntelFloating("Character", "Maeve A Rossi - Friend");
+                                    IntelManager.Instance.AddIntelFloating("Character", "Maeve A Rossi - Mafia friend");
                                 }
                                 if (t_ReplaceText[i + 4] == '엘')
                                 {
@@ -704,6 +710,11 @@ public class DialogManager : MonoBehaviour
                         DataBaseManager.SelectionOn = true;
                         selectionUIManager.Instance.Open_1st_ClientsOffic_SafeSelect();
                     }
+                    if (t_ReplaceText[i + 1] == '③')
+                    {
+                        DataBaseManager.SelectionOn = true;
+                        selectionUIManager.Instance.Open_1st_Slum_Dave();
+                    }
                     break;
 
                 case '♠'://대화중 기능판단 출현
@@ -721,6 +732,11 @@ public class DialogManager : MonoBehaviour
                     {
 
                         DataBaseManager.Sewer_San = true;
+                    }
+                    if (t_ReplaceText[i + 1] == '④')
+                    {
+
+
                     }
                     t_ignore = true;
                     break;
@@ -788,7 +804,7 @@ public class DialogManager : MonoBehaviour
                 //case '0': if (t_ReplaceText[i + 1] == '§') { t_ignore = true; } if (t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
                 case '①': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
                 case '②': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '③': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' || t_ReplaceText[i - 1] == '♠') { t_ignore = true; } break;
+                case '③': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' || t_ReplaceText[i - 1] == '♠') { t_ignore = true; } break;
                 case '④': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
                 case '⑤': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
                 case '⑥': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;

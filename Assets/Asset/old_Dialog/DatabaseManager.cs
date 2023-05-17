@@ -20,6 +20,13 @@ public class DataBaseManager : MonoBehaviour
     //Directing
     public static bool isDirecting = false;
     public static bool firstClientsHouse = false;
+    //1ÀÏÂ÷ ºó¹Î°¡
+    public static bool Dave_FirstDialog = false;
+
+    //1ÀÏÂ÷ °æÂû¼­
+    public static bool A_FirstDialog = false;
+    public static bool B_FirstDialog = false;
+    public static bool Albert_FirstDialog = false;
     //1ÀÏÂ÷ º´¿ø
     public static bool Alan_FirstDialog = false;
     public static bool Kate_Disapear = false;
@@ -63,7 +70,7 @@ public class DataBaseManager : MonoBehaviour
     //Battle
 
 
-
+    public static bool isOpenUi = false;
 
     //Map
     public static int TimeCount = 1;
@@ -123,7 +130,7 @@ public class DataBaseManager : MonoBehaviour
     public static int intSkillPoint = 0;
     public static int medicinePoint = 10;
     public static int analysisPoint = 30;
-    public static int psychologyPoint = 5;
+    public static int listeningPoint = 5;
     public static int psychotherapyPoint = 5;
     public static int occultPoint = 5;
 

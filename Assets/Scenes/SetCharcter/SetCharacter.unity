@@ -1888,7 +1888,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: psychologyUP
+          m_MethodName: listeningUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6730,7 +6730,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: psychologyDown
+          m_MethodName: listeningDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -12126,12 +12126,12 @@ MonoBehaviour:
   swimingPoint_g: {fileID: 1795384465}
   medicine_t: {fileID: 1447039943}
   analysis_t: {fileID: 272952081}
-  psychology_t: {fileID: 264453683}
+  listening_t: {fileID: 264453683}
   psychotherapy_t: {fileID: 2131065823}
   occult_t: {fileID: 1748597092}
   medicine_g: {fileID: 1913281155}
   analysis_g: {fileID: 647597997}
-  psychology_g: {fileID: 2141241240}
+  listening_g: {fileID: 2141241240}
   psychotherapy_g: {fileID: 1376873031}
   occult_g: {fileID: 1504583398}
   evasion_t: {fileID: 1747253200}
@@ -16388,7 +16388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1220377152}
   m_Layer: 5
-  m_Name: psychology
+  m_Name: listening
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21771,7 +21771,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC2EC\uB9AC\uD310\uB2E8"
+  m_Text: "\uB4E3   \uAE30"
 --- !u!222 &1610016498
 CanvasRenderer:
   m_ObjectHideFlags: 0
