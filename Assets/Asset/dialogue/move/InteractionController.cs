@@ -127,7 +127,26 @@ public class InteractionController : MonoBehaviour
     public GameObject Kate_FirstDialog; //
     public GameObject Alan_FirstDialog; //
     public GameObject Alan_Dialog; //
-
+    //오후
+    public GameObject Kate_NoonFirstDialog;
+    public GameObject Kate_NoonDialog;
+    public GameObject Kate_NoonLook;
+    public GameObject Kate_NoonInsomnia1;
+    public GameObject Kate_NoonNightmare1;
+    public GameObject Kate_NoonParanoia1;
+    public GameObject Kate_NoonHospital1;
+    public GameObject Kate_NoonFishySmell1;
+    public GameObject Kate_NoonNothing;
+    public GameObject Alan_NoonFirstDialog;
+    public GameObject Alan_NoonDialog;
+    public GameObject Alan_NoonLook;
+    public GameObject Alan_NoonNightmare1;
+    public GameObject Alan_NoonNightmare2;
+    public GameObject Alan_NoonNightmare3;
+    public GameObject Alan_NoonInsomnia1;
+    public GameObject Alan_NoonParanoia1;
+    public GameObject Alan_NoonAiden1;
+    public GameObject Alan_NoonNothing;
     // 1st PoliceOffice
     public GameObject A_FirstDialog; 
     public GameObject A_Dialog;
@@ -580,29 +599,66 @@ public class InteractionController : MonoBehaviour
 
     public void Start_1st_Hospital(string setDialog)
     {
+        if (setDialog == "Kate_NoonLook")
+        {
+            theDM.ShowDialog(Kate_NoonLook.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Alan_NoonLook")
+        {
+            theDM.ShowDialog(Alan_NoonLook.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
         if (setDialog == "Hospital_NoonFirst")
         {
             theDM.ShowDialog(Hospital_NoonFirst.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Kate_FirstDialog")
         {
-            theDM.ShowDialog(Kate_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Alan_FirstDialog")
-        {
-            if(DataBaseManager.Alan_FirstDialog == false)
+            if ((DataBaseManager.TimeCount % 4) == 2)
             {
-                DataBaseManager.Alan_FirstDialog = true;
-                theDM.ShowDialog(Alan_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(Kate_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Alan_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                if (DataBaseManager.Kate_NoonFirstDialog == false)
+                {
+                    DataBaseManager.Kate_NoonFirstDialog = true;
+                    theDM.ShowDialog(Kate_NoonFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Kate_NoonDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
             }
 
         }
-
-}
+        if (setDialog == "Alan_FirstDialog")
+        {
+            if ((DataBaseManager.TimeCount % 4) == 2)
+            {
+                if (DataBaseManager.Alan_FirstDialog == false)
+                {
+                    DataBaseManager.Alan_FirstDialog = true;
+                    theDM.ShowDialog(Alan_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Alan_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+            }
+            else
+            {
+                if (DataBaseManager.Alan_NoonFirstDialog == false)
+                {
+                    DataBaseManager.Alan_NoonFirstDialog = true;
+                    theDM.ShowDialog(Alan_NoonFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Alan_NoonDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+            }
+        }
+    }
 
     public void Start_1st_Policeoffice(string setDialog)
     {
@@ -910,9 +966,67 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(Albert_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
+        if (setDialog == "Kate Lizzie")
+        {
+            if (DataBaseManager.keyword_downer == "Newspaper Article")
+            {
+                theDM.ShowDialog(Kate_NoonInsomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Aiden's Nightmare")
+            {
+                theDM.ShowDialog(Kate_NoonNightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Husband's Condition")
+            {
+                theDM.ShowDialog(Kate_NoonParanoia1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "State of congestion")
+            {
+                theDM.ShowDialog(Kate_NoonHospital1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Rumor")
+            {
+                theDM.ShowDialog(Kate_NoonFishySmell1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
 
-    }
+            else
+            {
 
+                theDM.ShowDialog(Kate_NoonNothing.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (setDialog == "Alan Parks")
+        {
+            if (DataBaseManager.keyword_downer == "Aiden's Nightmare")
+            {
+                theDM.ShowDialog(Alan_NoonNightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Content of a Nightmare")
+            {
+                theDM.ShowDialog(Alan_NoonNightmare2.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Aiden's Detail")
+            {
+                theDM.ShowDialog(Alan_NoonNightmare3.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Newspaper Article")
+            {
+                theDM.ShowDialog(Alan_NoonInsomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Husband's Condition")
+            {
+                theDM.ShowDialog(Alan_NoonParanoia1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Subject to request")
+            {
+                theDM.ShowDialog(Alan_NoonAiden1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Alan_NoonNothing.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+}
 
 
     void OnEnable()

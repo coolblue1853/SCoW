@@ -30,6 +30,8 @@ public class DataBaseManager : MonoBehaviour
     //1일차 병원
     public static bool Alan_FirstDialog = false;
     public static bool Kate_Disapear = false;
+    public static bool Kate_NoonFirstDialog = false;
+    public static bool Alan_NoonFirstDialog = false;
     //1일차 강가
     public static bool Kane_FirstDialog = false;
     public static bool Sewer_FirstDialog = false;

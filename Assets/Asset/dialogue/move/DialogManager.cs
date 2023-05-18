@@ -592,7 +592,7 @@ public class DialogManager : MonoBehaviour
                                     if (DataBaseManager.Intel_Hospital1 == false)
                                     {
                                         DataBaseManager.Intel_Hospital1 = true;
-                                        IntelManager.Instance.AddIntelFloating("Place", "Hospital - state of congestion");
+                                        IntelManager.Instance.AddIntelFloating("Place", "Hospital - State of congestion");
                                     }
                             
                                 }
