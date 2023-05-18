@@ -325,17 +325,17 @@ public class KeyWordManager : MonoBehaviour
                 }
             }
         }
-        if (DataBaseManager.keyword_upper == "DailyNews")
+        if (DataBaseManager.keyword_upper == "SewageTreatmentOffice")
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (NewspaperKeywordCount <= NewspaperKeywordNum)
+                if (SewageMaintenanceOfficeKeywordCount <= SewageMaintenanceOfficeKeywordNum)
                 {
-                    NewspaperKeywordNum = 0;
+                    SewageMaintenanceOfficeKeywordNum = 0;
                 }
                 else
                 {
-                    NewspaperKeywordNum += 1;
+                    SewageMaintenanceOfficeKeywordNum += 1;
                 }
             }
         }
@@ -392,6 +392,34 @@ public class KeyWordManager : MonoBehaviour
                 else
                 {
                     SafeKeywordNum += 1;
+                }
+            }
+        }
+        if (DataBaseManager.keyword_upper == "RiverWaterQuality")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (RiverWaterQualityKeywordCount <= RiverWaterQualityKeywordNum)
+                {
+                    RiverWaterQualityKeywordNum = 0;
+                }
+                else
+                {
+                    RiverWaterQualityKeywordNum += 1;
+                }
+            }
+        }
+        if (DataBaseManager.keyword_upper == "FishySmell")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (FishySmellKeywordCount <= FishySmellKeywordNum)
+                {
+                    FishySmellKeywordNum = 0;
+                }
+                else
+                {
+                    FishySmellKeywordNum += 1;
                 }
             }
         }
@@ -587,6 +615,51 @@ public class KeyWordManager : MonoBehaviour
                 else
                 {
                     SafeKeywordNum -= 1;
+                }
+
+            }
+        }
+        if (DataBaseManager.keyword_upper == "SewageTreatmentOffice")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (SewageMaintenanceOfficeKeywordNum <= 0)
+                {
+                    SewageMaintenanceOfficeKeywordNum = SewageMaintenanceOfficeKeywordCount;
+                }
+                else
+                {
+                    SewageMaintenanceOfficeKeywordNum -= 1;
+                }
+
+            }
+        }
+        if (DataBaseManager.keyword_upper == "RiverWaterQuality")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (RiverWaterQualityKeywordNum <= 0)
+                {
+                    RiverWaterQualityKeywordNum = RiverWaterQualityKeywordCount;
+                }
+                else
+                {
+                    RiverWaterQualityKeywordNum -= 1;
+                }
+
+            }
+        }
+        if (DataBaseManager.keyword_upper == "FishySmell")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (FishySmellKeywordNum <= 0)
+                {
+                    FishySmellKeywordNum = FishySmellKeywordCount;
+                }
+                else
+                {
+                    FishySmellKeywordNum -= 1;
                 }
 
             }
@@ -794,7 +867,7 @@ public class KeyWordManager : MonoBehaviour
             if (DataBaseManager.Intel_SewageMaintenanceOffice1 == true || DataBaseManager.Intel_SewageMaintenanceOffice2 == true || DataBaseManager.Intel_SewageMaintenanceOffice3 == true || DataBaseManager.Intel_SewageMaintenanceOffice4 == true || DataBaseManager.Intel_SewageMaintenanceOffice5 == true || DataBaseManager.Intel_SewageMaintenanceOffice6 == true)
             {
                 isSewageMaintenanceOfficeAddList = true;
-                upperPlaceKeywordList.Add("SewageMaintenanceOffice");
+                upperPlaceKeywordList.Add("SewageTreatmentOffice");
             }
         }
         if (isWharfAddList == false)
@@ -925,7 +998,10 @@ public class KeyWordManager : MonoBehaviour
     bool isSewerGhostStory1Add = false;
     bool isSewerGhostStory2Add = false;
     bool isFishySmell1Add = false;
+    bool isFishySmell2Add = false;
+    bool isFishySmell3Add = false;
     bool isRiverWaterQuality1Add = false;
+    bool isRiverWaterQuality2Add = false;
     bool isCreepyEyes1Add = false;
     bool isSuddenChange1Add = false;
     bool isSafe1Add = false;
@@ -1149,7 +1225,16 @@ public class KeyWordManager : MonoBehaviour
             isFishySmell1Add = true;
             FishySmellList.Add("Rumor");
         }
-
+        if (DataBaseManager.Intel_FishySmell2 == true && isFishySmell2Add == false)
+        {
+            isFishySmell2Add = true;
+            FishySmellList.Add("Source of the smell?");
+        }
+        if (DataBaseManager.Intel_FishySmell3 == true && isFishySmell3Add == false)
+        {
+            isFishySmell3Add = true;
+            FishySmellList.Add("Source speculation");
+        }
         // 강의수질
         else if (DataBaseManager.keyword_upper == "RiverWaterQuality" && RiverWaterQualityKeywordCount >= 0)
         {
@@ -1160,6 +1245,11 @@ public class KeyWordManager : MonoBehaviour
         {
             isRiverWaterQuality1Add = true;
             RiverWaterQualityList.Add("Strange Point");
+        }
+        if (DataBaseManager.Intel_RiverWaterQuality2 == true && isRiverWaterQuality2Add == false)
+        {
+            isRiverWaterQuality2Add = true;
+            RiverWaterQualityList.Add("Details");
         }
 
         // 섬뜩한눈
@@ -1323,14 +1413,14 @@ public class KeyWordManager : MonoBehaviour
             RiversideList.Add("강과 교수");
         }
         // 하수정비사무소
-        if (DataBaseManager.keyword_upper == "하수정비사무소" && SewageMaintenanceOfficeKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "SewageTreatmentOffice" && SewageMaintenanceOfficeKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = SewageMaintenanceOfficeList[SewageMaintenanceOfficeKeywordNum];
         }
         if (DataBaseManager.Intel_SewageMaintenanceOffice1 == true && isSewageMaintenanceOffice1Add == false)
         {
             isSewageMaintenanceOffice1Add = true;
-            SewageMaintenanceOfficeList.Add("하수정비사무소의 위치");
+            SewageMaintenanceOfficeList.Add("Location");
         }
 
         // 부두

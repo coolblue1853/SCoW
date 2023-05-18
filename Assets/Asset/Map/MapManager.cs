@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
+using UnityEngine.Animations;
 public class MapManager : MonoBehaviour
 {
+    public TextMeshProUGUI text;
+    public Animator ChaingUiAnim;
     public GameObject Upper;
     public GameObject Downer;
 
 
     public GameObject ChaingUi;
-    public Animator ChaingUiAnim;
     public GameObject Ring1;
     public GameObject Ring2;
     public GameObject Ring3;
@@ -19,6 +22,9 @@ public class MapManager : MonoBehaviour
     public GameObject camera;
     public GameObject MapChainingUI;
     public GameObject MapUI;
+
+    //¥Î«–±≥
+    public GameObject Student;
 
     Vector3 player_DetectiveOffice = new Vector3(-774.2f, 2.6f);
     Vector3 Cam_DetectiveOffice = new Vector3(-784.6f, 1.690001f, -15);
@@ -34,8 +40,8 @@ public class MapManager : MonoBehaviour
 
 
 
-    Vector3 player_Univercity = new Vector3(-48.07f, 15);
-    Vector3 Cam_Univercity = new Vector3(-38.3f, 1.5f,-15);
+    Vector3 player_Univercity = new Vector3(-277f, -81.4f);
+    Vector3 Cam_Univercity = new Vector3(-287.6f, -81.61f, -15);
 
     Vector3 player_RiverSide = new Vector3(-298.34f, 1.77f);
     Vector3 Cam_RiverSide = new Vector3(-313.2f, 1.5f, -16);
@@ -50,6 +56,84 @@ public class MapManager : MonoBehaviour
 
     Vector3 player_Bar = new Vector3(-666.8f, 2.6f);
     Vector3 Cam_Bar = new Vector3(-650.4f, 1.690001f, -15);
+
+    public GameObject DetectiveOfficeButton;
+    public GameObject ClientsHouseButton;
+    public GameObject DailyNewsButton;
+    public GameObject PoliceofficeButton;
+    public GameObject UnivercityButton;
+    public GameObject RiverSideButton;
+    public GameObject HospitalButton;
+    public GameObject SlumButton;
+    public GameObject BarButton;
+    private void buttonChecker() 
+    {
+        if (DataBaseManager.nowPlace == "DetectiveOffice")
+        {
+            DetectiveOfficeButton.SetActive(false);
+        }
+        else
+        {
+            DetectiveOfficeButton.SetActive(true);
+        }
+        if (DataBaseManager.nowPlace == "Client'shouse")
+        {
+            ClientsHouseButton.SetActive(false);
+        }
+        else
+        {
+            ClientsHouseButton.SetActive(true);
+        }
+        if (DataBaseManager.nowPlace == "DailyNews")
+        {
+            DailyNewsButton.SetActive(false);
+        }
+        else
+        {
+            DailyNewsButton.SetActive(true);
+        }
+        if (DataBaseManager.nowPlace == "Univercity")
+        {
+            UnivercityButton.SetActive(false);
+        }
+        else
+        {
+            UnivercityButton.SetActive(true);
+        }
+        if (DataBaseManager.nowPlace == "Riverside")
+        {
+            RiverSideButton.SetActive(false);
+        }
+        else
+        {
+            RiverSideButton.SetActive(true);
+        }
+        if (DataBaseManager.nowPlace == "Hospital")
+        {
+            HospitalButton.SetActive(false);
+        }
+        else
+        {
+            HospitalButton.SetActive(true);
+        }
+        if (DataBaseManager.nowPlace == "Policeoffice")
+        {
+            PoliceofficeButton.SetActive(false);
+        }
+        else
+        {
+            PoliceofficeButton.SetActive(true);
+        }
+        if (DataBaseManager.nowPlace == "Slum")
+        {
+            SlumButton.SetActive(false);
+        }
+        else
+        {
+            SlumButton.SetActive(true);
+        }
+    }
+
     public void OpenUpperMap()
     {
         Upper.SetActive(true);
@@ -108,7 +192,7 @@ public class MapManager : MonoBehaviour
     }
     private void Update()
     {
-
+        buttonChecker();
 
         if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isDirecting == false)
         {
@@ -182,10 +266,55 @@ public class MapManager : MonoBehaviour
     public void ChainingDate()
     {
         ChaingUiAnim.SetBool("Change", true);
+        Invoke("ChainingDate2", 1f);
+        Invoke("EndEvent", 2f);
+    }
+    public void ChainingDate2()
+    {
+        if (DataBaseManager.TimeCount == 1)
+        {
+            text.text = "11 / 7 / 1921 - Noon";
+        }
+        else if (DataBaseManager.TimeCount == 2)
+        {
+            text.text = "11 / 7 / 1921 - Afternoon";
+        }
+        else if (DataBaseManager.TimeCount == 3)
+        {
+            text.text = "11 / 7 / 1921 - Night";
+        }
+        else if (DataBaseManager.TimeCount == 4)
+        {
+            text.text = "11 / 7 / 1921 - Morning";
+        }
+        else if (DataBaseManager.TimeCount == 5)
+        {
+            text.text = "11 / 7 / 1921 - Noon";
+        }
+        else if (DataBaseManager.TimeCount == 6)
+        {
+            text.text = "11 / 7 / 1921 - Afternoon";
+        }
+        else if (DataBaseManager.TimeCount == 7)
+        {
+            text.text = "11 / 7 / 1921 - Night";
+        }
+    }
+    public void EndEvent()
+    {
+        Invoke("WaitFade", 2f);
+    }
+
+    void WaitFade()
+    {
+        FadingBackGround.Instance.FadeInOut();
+        Invoke("MoveChar", 2f);
     }
 
     public void MoveChar()
     {
+
+        DataBaseManager.isOpenUi = false;
         CameraManager.Instance.isCheckEnd = true;
         DataBaseManager.TimeCount += 1;
         if (DataBaseManager.nowPlace == "DetectiveOffice")
@@ -196,7 +325,7 @@ public class MapManager : MonoBehaviour
             MapUI.SetActive(false);
             DialogDatabaseManager.instance.Check = true;
         }
-        if (DataBaseManager.nowPlace == "Client'shouse")
+        else if (DataBaseManager.nowPlace == "Client'shouse")
         {
             player.transform.localPosition = player_ClientsHouse;
             camera.transform.localPosition = Cam_ClientsHouse;
@@ -205,7 +334,7 @@ public class MapManager : MonoBehaviour
             Invoke("FirstClientsHouseArrive", 2);
             DialogDatabaseManager.instance.Check = true;
         }
-        if (DataBaseManager.nowPlace == "DailyNews")
+        else if (DataBaseManager.nowPlace == "DailyNews")
         {
             player.transform.localPosition = player_DailyNews;
             camera.transform.localPosition = Cam_DailyNews;
@@ -213,15 +342,24 @@ public class MapManager : MonoBehaviour
             MapUI.SetActive(false);
             DialogDatabaseManager.instance.Check = true;
         }
-        if (DataBaseManager.nowPlace == "Univercity")
+        else if (DataBaseManager.nowPlace == "University")
         {
             player.transform.localPosition = player_Univercity;
             camera.transform.localPosition = Cam_Univercity;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
             DialogDatabaseManager.instance.Check = true;
+
+            if((DataBaseManager.TimeCount % 4) == 3)
+            {
+                Student.SetActive(false);
+            }
+            else
+            {
+                Student.SetActive(true);
+            }
         }
-        if (DataBaseManager.nowPlace == "Riverside")
+        else if (DataBaseManager.nowPlace == "Riverside")
         {
             player.transform.localPosition = player_RiverSide;
             camera.transform.localPosition = Cam_RiverSide;
@@ -229,7 +367,7 @@ public class MapManager : MonoBehaviour
             MapUI.SetActive(false);
             DialogDatabaseManager.instance.Check = true;
         }
-        if (DataBaseManager.nowPlace == "Hospital")
+        else if (DataBaseManager.nowPlace == "Hospital")
         {
             player.transform.localPosition = player_Hospital;
             camera.transform.localPosition = Cam_Hospital;
@@ -237,7 +375,7 @@ public class MapManager : MonoBehaviour
             MapUI.SetActive(false);
             DialogDatabaseManager.instance.Check = true;
         }
-        if (DataBaseManager.nowPlace == "Policeoffice")
+        else if (DataBaseManager.nowPlace == "Policeoffice")
         {
             player.transform.localPosition = player_Policeoffice;
             camera.transform.localPosition = Cam_Policeoffice;
@@ -245,7 +383,7 @@ public class MapManager : MonoBehaviour
             MapUI.SetActive(false);
             DialogDatabaseManager.instance.Check = true;
         }
-        if (DataBaseManager.nowPlace == "Slum")
+        else if (DataBaseManager.nowPlace == "Slum")
         {
             player.transform.localPosition = player_Slum;
             camera.transform.localPosition = Cam_Slum;

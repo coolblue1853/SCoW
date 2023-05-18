@@ -72,8 +72,12 @@ public class InteractionController : MonoBehaviour
     public GameObject Aiden_key_FailForce;
     public GameObject EllaEnd_NoSafe;
     public GameObject EllaEnd_GetSafe;
+    //오후 추가
+    public GameObject Aiden_key_CreepyEye1;
+    public GameObject Ella_Key_FishySmell1_noGhosty1;
+    public GameObject Ella_Key_FishySmell1_yesGhosty1;
 
-    // 1st Clinet'sOffice
+    // 1st DailyNews
     public GameObject Swain_FirstDialog; //
     public GameObject Swain_Dialog; //
     public GameObject Swain_Look; //
@@ -87,6 +91,12 @@ public class InteractionController : MonoBehaviour
     public GameObject Swain_Key_AidenTriss1;
     public GameObject Swain_Key_DailyNews1;
     public GameObject Swain_Key_Nothing;
+    //오후추가
+    public GameObject Swain_Key_MissingPeople1;
+    public GameObject Swain_Key_FishySmell2;
+    public GameObject Swain_Key_GhostStory1;
+    public GameObject Swain_Key_CreepyEye1;
+
 
     // 1st University
     public GameObject Univ_FirstDialog; //
@@ -101,6 +111,9 @@ public class InteractionController : MonoBehaviour
     public GameObject Kane_Dialog; //
     public GameObject Kane_Look;
     public GameObject Kane_Nothing;
+    public GameObject Kane_key_waterQuality1_noFishySmell;
+    public GameObject Kane_key_waterQuality1_yesFishySmell;
+
     public GameObject Sewer_FirstDialog; //
     public GameObject Sewer_Dialog; //
     public GameObject Sewer_Look;
@@ -109,8 +122,7 @@ public class InteractionController : MonoBehaviour
     public GameObject Sewer_Observation_Fail;
     public GameObject Sewer_Observation_SucssesAfterSanSuc;
 
-
-    // 1st Riverside
+    // 1st Hospital
     public GameObject Hospital_NoonFirst; //
     public GameObject Kate_FirstDialog; //
     public GameObject Alan_FirstDialog; //
@@ -712,6 +724,18 @@ public class InteractionController : MonoBehaviour
             {
                 theDM.ShowDialog(Ella_key_Aiden.transform.GetComponent<interactionEvent>().GetDialogs());
             }
+            else if (DataBaseManager.keyword_downer == "Rumor")
+            {
+                if(DataBaseManager.Intel_SewerGhostStory1 == true)
+                {
+                    theDM.ShowDialog(Ella_Key_FishySmell1_yesGhosty1.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Ella_Key_FishySmell1_noGhosty1.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                
+            }
             else
             {
 
@@ -728,6 +752,12 @@ public class InteractionController : MonoBehaviour
             {
                 theDM.ShowDialog(Aiden_key_EllaTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
+            else if (DataBaseManager.keyword_downer == "Saw in the sewer")
+            {
+                theDM.ShowDialog(Aiden_key_CreepyEye1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            
+
             else if (DataBaseManager.keyword_downer == "Aiden's Safe")
             {
                 if(DataBaseManager.getSafe == false)
@@ -779,14 +809,49 @@ public class InteractionController : MonoBehaviour
             }
             else if (DataBaseManager.keyword_downer == "Husband's job")
             {
-                theDM.ShowDialog(Swain_Key_DailyNews1.transform.GetComponent<interactionEvent>().GetDialogs());
+                if(DataBaseManager.Intel_MissingPeople1 == false || DataBaseManager.Swain_isTalkMissingpeople == false)
+                {
+                    DataBaseManager.Swain_isTalkMissingpeople = true;
+                    theDM.ShowDialog(Swain_Key_DailyNews1.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Swain_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+
+            }
+            else if (DataBaseManager.keyword_downer == "Albert's Information")
+            {
+                if (DataBaseManager.Intel_MissingPeople2 == false &&DataBaseManager.Swain_isTalkMissingpeople == false)
+                {
+                    DataBaseManager.Swain_isTalkMissingpeople = true;
+                    theDM.ShowDialog(Swain_Key_MissingPeople1.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Swain_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+
+
+            }
+            else if (DataBaseManager.keyword_downer == "Source of the smell?")
+            {
+                theDM.ShowDialog(Swain_Key_FishySmell2.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Contents of a GhostStory")
+            {
+                theDM.ShowDialog(Swain_Key_GhostStory1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Saw in the sewer")
+            {
+                theDM.ShowDialog(Swain_Key_CreepyEye1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
 
                 theDM.ShowDialog(Swain_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-        }
+            }  
+}
         if (setDialog == "University student")
         {
             if (DataBaseManager.keyword_downer == "Contents of a Newspaper")
@@ -806,9 +871,17 @@ public class InteractionController : MonoBehaviour
         }
         if (setDialog == "Kane")
         {
-            if (DataBaseManager.keyword_downer == "")
+
+            if (DataBaseManager.keyword_downer == "Strange Point")
             {
-                //theDM.ShowDialog(Univ_Key_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+                if(DataBaseManager.Intel_FishySmell1 == true)
+                {
+                    theDM.ShowDialog(Kane_key_waterQuality1_yesFishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Kane_key_waterQuality1_noFishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
             }
 
             else

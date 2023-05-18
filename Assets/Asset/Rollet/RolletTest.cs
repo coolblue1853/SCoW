@@ -10,13 +10,17 @@ public class RolletTest : MonoBehaviour
 
     private void Awake()
     {
-         DataBaseManager.Intel_Meiv1 = true; 
-        DataBaseManager.Intel_Insomnia1 = true; 
-        DataBaseManager.Intel_PlanetarySequence1 = true; 
+       // DataBaseManager.Intel_SewerGhostStory1 = true;
+         DataBaseManager.Intel_RiverWaterQuality1 = true;
+        DataBaseManager.Intel_Newspaper1 = true;
+        DataBaseManager.Intel_Insomnia1 = true;
+        DataBaseManager.Intel_FishySmell1 = true;
+        DataBaseManager.Intel_CreepyEyes1 = true;
+        DataBaseManager.Intel_SewerGhostStory1 = true;
         //DataBaseManager.psychotherapyPoint = 200;
         //DataBaseManager.nowPlace = "DetectiveOffice";
-        //DataBaseManager.nowPlace = "Client'shouse";
-        DataBaseManager.nowPlace = "Slum";
+        DataBaseManager.nowPlace = "Riverside";
+     //   DataBaseManager.nowPlace = "Slum";
         //DataBaseManager.nowPlace = "University";
         DataBaseManager.ObservationPoint = 80;
         // DataBaseManager.firstClientsHouse = true; 

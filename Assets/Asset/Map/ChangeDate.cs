@@ -13,6 +13,7 @@ public class ChangeDate : MonoBehaviour
     {
 
     }
+    /*
     public void ChainingDate()
     {
         if(DataBaseManager.TimeCount == 1)
@@ -61,4 +62,5 @@ public class ChangeDate : MonoBehaviour
 
         MapManager.Instance.MoveChar();
     }
+    */
 }

@@ -18,13 +18,6 @@ public class ChangeMapButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (DataBaseManager.nowPlace == this.name)
-        {
-            this.gameObject.SetActive(false);
-        }
-        else
-        {
-            this.gameObject.SetActive(true);
-        }
+
     }
 }
