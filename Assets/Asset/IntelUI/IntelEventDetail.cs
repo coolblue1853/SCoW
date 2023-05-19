@@ -176,24 +176,7 @@ public class IntelEventDetail : MonoBehaviour
     public GameObject NextButton_CreepyEyes;
     public GameObject PrevButton_CreepyEyes;
 
-    GameObject Detail_SewerWorker1;
-    GameObject Detail_SewerWorker2;
-    GameObject Detail_SewerWorker3;
-    GameObject Detail_SewerWorker4;
-    GameObject Detail_SewerWorker5;
-    GameObject Detail_SewerWorker6;
-    bool ON_SewerWorker1;
-    bool ON_SewerWorker2;
-    bool ON_SewerWorker3;
-    bool ON_SewerWorker4;
-    bool ON_SewerWorker5;
-    bool ON_SewerWorker6;
-    int Count_SewerWorker = 0;
-    public GameObject SewerWorkerContents;
-    public GameObject SewerWorker_Detail;
-    public static int SewerWorkerIntelInt;
-    public GameObject NextButton_SewerWorker;
-    public GameObject PrevButton_SewerWorker;
+   
 
     GameObject Detail_Safe1;
     GameObject Detail_Safe2;
@@ -302,12 +285,6 @@ public class IntelEventDetail : MonoBehaviour
         Detail_CreepyEyes5 = CreepyEyesContents.transform.GetChild(4).gameObject;
         Detail_CreepyEyes6 = CreepyEyesContents.transform.GetChild(5).gameObject;
 
-        Detail_SewerWorker1 = SewerWorkerContents.transform.GetChild(0).gameObject;
-        Detail_SewerWorker2 = SewerWorkerContents.transform.GetChild(1).gameObject;
-        Detail_SewerWorker3 = SewerWorkerContents.transform.GetChild(2).gameObject;
-        Detail_SewerWorker4 = SewerWorkerContents.transform.GetChild(3).gameObject;
-        Detail_SewerWorker5 = SewerWorkerContents.transform.GetChild(4).gameObject;
-        Detail_SewerWorker6 = SewerWorkerContents.transform.GetChild(5).gameObject;
 
         Detail_Safe1 = SafeContents.transform.GetChild(0).gameObject;
         Detail_Safe2 = SafeContents.transform.GetChild(1).gameObject;
@@ -341,7 +318,7 @@ public class IntelEventDetail : MonoBehaviour
         FishySmellDetail();
         RiverWaterQualityDetail();
         CreepyEyesDetail();
-        SewerWorkerDetail();
+
         SafeDetail();
         SuddenChangeDetail();
         if (PlanetarySequence_Detail.activeSelf == true)
@@ -380,10 +357,7 @@ public class IntelEventDetail : MonoBehaviour
         {
             NowPage = "CreepyEyes";
         }
-        if (SewerWorker_Detail.activeSelf == true)
-        {
-            NowPage = "SewerWorker";
-        }
+
         if (Safe_Detail.activeSelf == true)
         {
             NowPage = "Safe";
@@ -1040,77 +1014,7 @@ public class IntelEventDetail : MonoBehaviour
             PrevButton_CreepyEyes.SetActive(false);
         }
     }
-    void SewerWorkerDetail()
-    {
-        if (ON_SewerWorker1 == false && DataBaseManager.Intel_SewerWorker1 == true)
-        {
-            ON_SewerWorker1 = true;
-            Detail_SewerWorker1.SetActive(true);
-            Detail_SewerWorker1.transform.SetAsLastSibling();
-            Count_SewerWorker += 1;
-        }
-        if (ON_SewerWorker2 == false && DataBaseManager.Intel_SewerWorker2 == true)
-        {
-            ON_SewerWorker2 = true;
-            Detail_SewerWorker2.SetActive(true);
-            Detail_SewerWorker2.transform.SetAsLastSibling();
-            Count_SewerWorker += 1;
-        }
-        if (ON_SewerWorker3 == false && DataBaseManager.Intel_SewerWorker3 == true)
-        {
-            ON_SewerWorker3 = true;
-            Detail_SewerWorker3.SetActive(true);
-            Detail_SewerWorker3.transform.SetAsLastSibling();
-            Count_SewerWorker += 1;
-        }
-        if (ON_SewerWorker4 == false && DataBaseManager.Intel_SewerWorker4 == true)
-        {
-            ON_SewerWorker4 = true;
-            Detail_SewerWorker4.SetActive(true);
-            Detail_SewerWorker4.transform.SetAsLastSibling();
-            Count_SewerWorker += 1;
-        }
-        if (ON_SewerWorker5 == false && DataBaseManager.Intel_SewerWorker5 == true)
-        {
-            ON_SewerWorker5 = true;
-            Detail_SewerWorker5.SetActive(true);
-            Detail_SewerWorker5.transform.SetAsLastSibling();
-            Count_SewerWorker += 1;
-        }
-        if (ON_SewerWorker6 == false && DataBaseManager.Intel_SewerWorker6 == true)
-        {
-            ON_SewerWorker6 = true;
-            Detail_SewerWorker6.SetActive(true);
-            Detail_SewerWorker6.transform.SetAsLastSibling();
-            Count_SewerWorker += 1;
-        }
 
-        if (Count_SewerWorker > 2 && DataBaseManager.NowPage_SewerWorker == 1)
-        {
-            NextButton_SewerWorker.SetActive(true);
-        }
-        else if (Count_SewerWorker > 4 && DataBaseManager.NowPage_SewerWorker == 2)
-        {
-            NextButton_SewerWorker.SetActive(true);
-        }
-        else
-        {
-            NextButton_SewerWorker.SetActive(false);
-        }
-
-        if (DataBaseManager.NowPage_SewerWorker == 2)
-        {
-            PrevButton_SewerWorker.SetActive(true);
-        }
-        else if (DataBaseManager.NowPage_SewerWorker == 3)
-        {
-            PrevButton_SewerWorker.SetActive(true);
-        }
-        else
-        {
-            PrevButton_SewerWorker.SetActive(false);
-        }
-    }
     void SafeDetail()
     {
         if (ON_Safe1 == false && DataBaseManager.Intel_Safe1 == true)
@@ -1662,51 +1566,7 @@ public class IntelEventDetail : MonoBehaviour
                 DataBaseManager.NowPage_CreepyEyes = 3;
             }
         }
-        if (NowPage == "SewerWorker")
-        {
-            if (DataBaseManager.NowPage_SewerWorker == 1)
-            {
-                if (Count_SewerWorker >= 6)
-                {
-                    Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
-                }
-                else if (Count_SewerWorker >= 5)
-                {
-                    Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
-                }
-                else if (Count_SewerWorker >= 4)
-                {
-                    Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
-                }
-                else if (Count_SewerWorker >= 3)
-                {
-                    Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
-                }
-                DataBaseManager.NowPage_SewerWorker = 2;
-            }
-            else if (DataBaseManager.NowPage_SewerWorker == 2)
-            {
-                if (Count_SewerWorker >= 6)
-                {
-                    Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
-                }
-                else if (Count_SewerWorker >= 5)
-                {
-                    Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
-                }
-                DataBaseManager.NowPage_SewerWorker = 3;
-            }
-        }
+
         if (NowPage == "Safe")
         {
             if (DataBaseManager.NowPage_Safe == 1)
@@ -2232,54 +2092,7 @@ public class IntelEventDetail : MonoBehaviour
                 DataBaseManager.NowPage_CreepyEyes = 2;
             }
         }
-        if (NowPage == "SewerWorker")
-        {
-            if (DataBaseManager.NowPage_SewerWorker == 2)
-            {
-                if (Count_SewerWorker >= 6)
-                {
-                    Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(0).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(1).gameObject.SetActive(true);
-                }
-                else if (Count_SewerWorker >= 5)
-                {
-                    Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(1).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
-                }
-                else if (Count_SewerWorker >= 4)
-                {
-                    Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
-                }
-                else if (Count_SewerWorker >= 3)
-                {
-                    Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
-                }
 
-                DataBaseManager.NowPage_SewerWorker = 1;
-            }
-            else if (DataBaseManager.NowPage_SewerWorker == 3)
-            {
-                if (Count_SewerWorker >= 6)
-                {
-                    Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
-                }
-                else if (Count_SewerWorker >= 5)
-                {
-                    Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
-                }
-                DataBaseManager.NowPage_SewerWorker = 2;
-            }
-        }
         if (NowPage == "Safe")
         {
             if (DataBaseManager.NowPage_Safe == 2)
@@ -2459,15 +2272,7 @@ public class IntelEventDetail : MonoBehaviour
         CreepyEyesContents.transform.GetChild(4).gameObject.SetActive(false);
         CreepyEyesContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_SewerWorker()
-    {
-        SewerWorkerContents.transform.GetChild(0).gameObject.SetActive(false);
-        SewerWorkerContents.transform.GetChild(1).gameObject.SetActive(false);
-        SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(false);
-        SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(false);
-        SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(false);
-        SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(false);
-    }
+
     void Reset_Safe()
     {
         SafeContents.transform.GetChild(0).gameObject.SetActive(false);
@@ -2532,11 +2337,7 @@ public class IntelEventDetail : MonoBehaviour
         CloseAllContents();
         CreepyEyes_Detail.SetActive(true);
     }
-    public void Open_SewerWorker()
-    {
-        CloseAllContents();
-        SewerWorker_Detail.SetActive(true);
-    }
+
     public void Open_Safe()
     {
         CloseAllContents();
@@ -2560,7 +2361,7 @@ public class IntelEventDetail : MonoBehaviour
         FishySmell_Detail.SetActive(false);
         RiverWaterQuality_Detail.SetActive(false);
         CreepyEyes_Detail.SetActive(false);
-        SewerWorker_Detail.SetActive(false);
+
         Safe_Detail.SetActive(false);
         SuddenChange_Detail.SetActive(false);
     }

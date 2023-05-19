@@ -39,7 +39,7 @@ public class EventButtonManage : MonoBehaviour
 
     public GameObject Button_RiverWaterQuality;
     public GameObject Button_CreepyEyes;
-    public GameObject Button_SewerWorker;
+
     public GameObject Button_Safe;
     public GameObject Button_SuddenChange;
 
@@ -55,7 +55,7 @@ public class EventButtonManage : MonoBehaviour
 
     bool ButtonRize_RiverWaterQuality = false;
     bool ButtonRize_CreepyEyes = false;
-    bool ButtonRize_SewerWorker = false;
+
     bool ButtonRize_Safe = false;
     bool ButtonRize_SuddenChange = false;
 
@@ -118,12 +118,7 @@ public class EventButtonManage : MonoBehaviour
             DataBaseManager.ButtonCount_CreepyEyes = DataBaseManager.GainEventInt;
             DataBaseManager.GainEventInt += 1;
         }
-        if ((DataBaseManager.Intel_SewerWorker1 == true || DataBaseManager.Intel_SewerWorker2 == true || DataBaseManager.Intel_SewerWorker3 == true || DataBaseManager.Intel_SewerWorker4 == true || DataBaseManager.Intel_SewerWorker5 == true || DataBaseManager.Intel_SewerWorker6 == true) && ButtonRize_SewerWorker == false)
-        {
-            ButtonRize_SewerWorker = true;
-            DataBaseManager.ButtonCount_SewerWorker = DataBaseManager.GainEventInt;
-            DataBaseManager.GainEventInt += 1;
-        }
+
         if ((DataBaseManager.Intel_Safe1 == true || DataBaseManager.Intel_Safe2 == true || DataBaseManager.Intel_Safe3 == true || DataBaseManager.Intel_Safe4 == true || DataBaseManager.Intel_Safe5 == true || DataBaseManager.Intel_Safe6 == true) && ButtonRize_Safe == false)
         {
             ButtonRize_Safe = true;
@@ -194,11 +189,7 @@ public class EventButtonManage : MonoBehaviour
             Button_CreepyEyes.SetActive(true);
             Button_CreepyEyes.transform.SetSiblingIndex(DataBaseManager.ButtonCount_CreepyEyes);
         }
-        if (DataBaseManager.ButtonCount_SewerWorker != -1)
-        {
-            Button_SewerWorker.SetActive(true);
-            Button_SewerWorker.transform.SetSiblingIndex(DataBaseManager.ButtonCount_SewerWorker);
-        }
+ 
         if (DataBaseManager.ButtonCount_SuddenChange != -1)
         {
             Button_Safe.SetActive(true);

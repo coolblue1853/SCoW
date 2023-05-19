@@ -37,7 +37,7 @@ public class CharacterButtonManage : MonoBehaviour
     public GameObject Button_Albert;
     public GameObject Button_BlackWell;
     public GameObject Button_Swain;
-
+    public GameObject Button_SewerWorker;
 
 
     bool ButtonRize_Ella = false;
@@ -47,7 +47,7 @@ public class CharacterButtonManage : MonoBehaviour
     bool ButtonRize_Meiv = false;
     bool ButtonRize_BlackWell = false;
     bool ButtonRize_Swain = false;
-
+    bool ButtonRize_SewerWorker = false;
 
     void ButtonUpdate()
     {
@@ -96,7 +96,12 @@ public class CharacterButtonManage : MonoBehaviour
             DataBaseManager.ButtonCount_BlackWell = DataBaseManager.GainCharacterInt;
             DataBaseManager.GainCharacterInt += 1;
         }
-
+        if ((DataBaseManager.Intel_SewerWorker1 == true || DataBaseManager.Intel_SewerWorker2 == true || DataBaseManager.Intel_SewerWorker3 == true || DataBaseManager.Intel_SewerWorker4 == true || DataBaseManager.Intel_SewerWorker5 == true || DataBaseManager.Intel_SewerWorker6 == true) && ButtonRize_SewerWorker == false)
+        {
+            ButtonRize_SewerWorker = true;
+            DataBaseManager.ButtonCount_SewerWorker = DataBaseManager.GainEventInt;
+            DataBaseManager.GainEventInt += 1;
+        }
 
 
 
@@ -148,6 +153,11 @@ public class CharacterButtonManage : MonoBehaviour
         if (DataBaseManager.GainCharacterInt > 6)
         {
             DownButton.SetActive(true);
+        }
+        if (DataBaseManager.ButtonCount_SewerWorker != -1)
+        {
+            Button_SewerWorker.SetActive(true);
+            Button_SewerWorker.transform.SetSiblingIndex(DataBaseManager.ButtonCount_SewerWorker);
         }
     }
 

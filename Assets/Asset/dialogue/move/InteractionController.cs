@@ -161,7 +161,11 @@ public class InteractionController : MonoBehaviour
     public GameObject A_Look;
     public GameObject B_Look;
     public GameObject Albert_Look;
-
+    //오후
+    public GameObject Albert_Key_SewerGhostStory1;
+    public GameObject Albert_Key_CreepyEye1;
+    public GameObject Albert_Key_FishySmell1;
+    public GameObject Albert_Key_MissingPeople2;
     // 1st Slum
     public GameObject Dave_FirstDialog;
     public GameObject Dave_Dialog;
@@ -175,6 +179,26 @@ public class InteractionController : MonoBehaviour
     public GameObject Dave_Ran8;
     public GameObject Dave_NoMoney;
     public GameObject Dave_RanEnd;
+
+    // 1st Slum
+    public GameObject Maeve_FirstDialog_JobO;
+    public GameObject Maeve_FirstDialog_JobX;
+    public GameObject Maeve_Dialog;
+    public GameObject Maeve_Look;
+    public GameObject Maeve_Key_Intel_PlanetarySequence1;
+    public GameObject Maeve_Key_Insomnia1;
+    public GameObject Maeve_Key_Albert1;
+    public GameObject Maeve_Key_MissingPeople;
+    public GameObject Maeve_Key_CreepyEye;
+    public GameObject Maeve_Key_FishySmell1;
+    public GameObject Maeve_Key_FishySmell2;
+    public GameObject Maeve_Key_Aiden1;
+    public GameObject Maeve_Key_Nothing;
+    public GameObject Worker_FirstDialog;
+    public GameObject Worker_Dialog;
+    public GameObject Worker_Look_O;
+    public GameObject Worker_Look_X;
+
     // Update is called once per frame
 
 
@@ -771,7 +795,62 @@ public class InteractionController : MonoBehaviour
         }
         
     }
+    public void Start_1st_Bar(string setDialog)
+    {
 
+        if (setDialog == "Maeve_FirstDialog")
+        {
+            if (DataBaseManager.Maeve_FirstDialog == false)
+            {
+                DataBaseManager.Maeve_FirstDialog = true;
+                if(DataBaseManager.Intel_QuestHouse1 == true)
+                {
+                    theDM.ShowDialog(Maeve_FirstDialog_JobO.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Maeve_FirstDialog_JobX.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+
+            }
+            else
+            {
+                theDM.ShowDialog(Maeve_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+
+        if (setDialog == "Maeve_Look")
+        {
+            theDM.ShowDialog(Maeve_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+        if (setDialog == "Worker_FirstDialog")
+        {
+            if (DataBaseManager.Worker_FirstDialog == false)
+            {
+                DataBaseManager.Worker_FirstDialog = true;
+                theDM.ShowDialog(Worker_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
+            else
+            {
+                theDM.ShowDialog(Worker_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+
+        if (setDialog == "Worker_Look")
+        {
+            if (DataBaseManager.Intel_FishySmell1 == true || DataBaseManager.Intel_FishySmell2 == true|| DataBaseManager.Intel_FishySmell3 == true|| DataBaseManager.Intel_FishySmell4 == true)
+            {
+                theDM.ShowDialog(Worker_Look_O.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Worker_Look_X.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+            
+}
     public void KeywordDialog(string setDialog)
     {
         if (setDialog  == "Ella Triss")
@@ -960,6 +1039,22 @@ public class InteractionController : MonoBehaviour
             {
                 theDM.ShowDialog(Albert_Key_Meiv1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
+            else if (DataBaseManager.keyword_downer == "Contents of a GhostStory")
+            {
+                theDM.ShowDialog(Albert_Key_SewerGhostStory1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Rumor")
+            {
+                theDM.ShowDialog(Albert_Key_FishySmell1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Saw in the sewer")
+            {
+                theDM.ShowDialog(Albert_Key_CreepyEye1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Reporting by Swain")
+            {
+                theDM.ShowDialog(Albert_Key_MissingPeople2.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
             else
             {
 
@@ -1026,6 +1121,47 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(Alan_NoonNothing.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
+
+        if (setDialog == "Maeve")
+        {
+            if (DataBaseManager.keyword_downer == "Contents of a Newspaper" || DataBaseManager.keyword_downer == "Astronomical show")
+            {
+                theDM.ShowDialog(Maeve_Key_Intel_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Newspaper Article")
+            {
+                theDM.ShowDialog(Maeve_Key_Insomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Police friend")
+            {
+                theDM.ShowDialog(Maeve_Key_Albert1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Reporting by Swain" || DataBaseManager.keyword_downer == "Albert's Information")
+            {
+                theDM.ShowDialog(Maeve_Key_MissingPeople.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Saw in the sewer")
+            {
+                theDM.ShowDialog(Maeve_Key_CreepyEye.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Rumor")
+            {
+                theDM.ShowDialog(Maeve_Key_FishySmell1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Source of the smell?")
+            {
+                theDM.ShowDialog(Maeve_Key_FishySmell2.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Subject to request")
+            {
+                theDM.ShowDialog(Maeve_Key_Aiden1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Maeve_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+         
 }
 
 

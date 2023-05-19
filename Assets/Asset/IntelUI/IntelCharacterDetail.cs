@@ -61,6 +61,12 @@ public class IntelCharacterDetail : MonoBehaviour
         Detail_BlackWell5 = BlackWellContents.transform.GetChild(4).gameObject;
         Detail_BlackWell6 = BlackWellContents.transform.GetChild(5).gameObject;
 
+        Detail_SewerWorker1 = SewerWorkerContents.transform.GetChild(0).gameObject;
+        Detail_SewerWorker2 = SewerWorkerContents.transform.GetChild(1).gameObject;
+        Detail_SewerWorker3 = SewerWorkerContents.transform.GetChild(2).gameObject;
+        Detail_SewerWorker4 = SewerWorkerContents.transform.GetChild(3).gameObject;
+        Detail_SewerWorker5 = SewerWorkerContents.transform.GetChild(4).gameObject;
+        Detail_SewerWorker6 = SewerWorkerContents.transform.GetChild(5).gameObject;
     }
 
 
@@ -73,6 +79,7 @@ public class IntelCharacterDetail : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SewerWorkerDetail();
         EllaDetail();
         AidenDetail();
         SwainDetail();
@@ -108,7 +115,10 @@ public class IntelCharacterDetail : MonoBehaviour
         {
             NowPage = "BlackWell";
         }
-
+        if (SewerWorker_Detail.activeSelf == true)
+        {
+            NowPage = "SewerWorker";
+        }
     }
 
      string NowPage;
@@ -251,6 +261,26 @@ public class IntelCharacterDetail : MonoBehaviour
     public static int BlackWellIntelInt;
     public GameObject NextButton_BlackWell;
     public GameObject PrevButton_BlackWell;
+
+    //하수도 노동자
+    GameObject Detail_SewerWorker1;
+    GameObject Detail_SewerWorker2;
+    GameObject Detail_SewerWorker3;
+    GameObject Detail_SewerWorker4;
+    GameObject Detail_SewerWorker5;
+    GameObject Detail_SewerWorker6;
+    bool ON_SewerWorker1;
+    bool ON_SewerWorker2;
+    bool ON_SewerWorker3;
+    bool ON_SewerWorker4;
+    bool ON_SewerWorker5;
+    bool ON_SewerWorker6;
+    int Count_SewerWorker = 0;
+    public GameObject SewerWorkerContents;
+    public GameObject SewerWorker_Detail;
+    public static int SewerWorkerIntelInt;
+    public GameObject NextButton_SewerWorker;
+    public GameObject PrevButton_SewerWorker;
     void AidenDetail()
     {
         if (ON_Aiden1 == false && DataBaseManager.Intel_Aiden1 == true)
@@ -748,6 +778,77 @@ public class IntelCharacterDetail : MonoBehaviour
             PrevButton_BlackWell.SetActive(false);
         }
     }
+    void SewerWorkerDetail()
+    {
+        if (ON_SewerWorker1 == false && DataBaseManager.Intel_SewerWorker1 == true)
+        {
+            ON_SewerWorker1 = true;
+            Detail_SewerWorker1.SetActive(true);
+            Detail_SewerWorker1.transform.SetAsLastSibling();
+            Count_SewerWorker += 1;
+        }
+        if (ON_SewerWorker2 == false && DataBaseManager.Intel_SewerWorker2 == true)
+        {
+            ON_SewerWorker2 = true;
+            Detail_SewerWorker2.SetActive(true);
+            Detail_SewerWorker2.transform.SetAsLastSibling();
+            Count_SewerWorker += 1;
+        }
+        if (ON_SewerWorker3 == false && DataBaseManager.Intel_SewerWorker3 == true)
+        {
+            ON_SewerWorker3 = true;
+            Detail_SewerWorker3.SetActive(true);
+            Detail_SewerWorker3.transform.SetAsLastSibling();
+            Count_SewerWorker += 1;
+        }
+        if (ON_SewerWorker4 == false && DataBaseManager.Intel_SewerWorker4 == true)
+        {
+            ON_SewerWorker4 = true;
+            Detail_SewerWorker4.SetActive(true);
+            Detail_SewerWorker4.transform.SetAsLastSibling();
+            Count_SewerWorker += 1;
+        }
+        if (ON_SewerWorker5 == false && DataBaseManager.Intel_SewerWorker5 == true)
+        {
+            ON_SewerWorker5 = true;
+            Detail_SewerWorker5.SetActive(true);
+            Detail_SewerWorker5.transform.SetAsLastSibling();
+            Count_SewerWorker += 1;
+        }
+        if (ON_SewerWorker6 == false && DataBaseManager.Intel_SewerWorker6 == true)
+        {
+            ON_SewerWorker6 = true;
+            Detail_SewerWorker6.SetActive(true);
+            Detail_SewerWorker6.transform.SetAsLastSibling();
+            Count_SewerWorker += 1;
+        }
+
+        if (Count_SewerWorker > 2 && DataBaseManager.NowPage_SewerWorker == 1)
+        {
+            NextButton_SewerWorker.SetActive(true);
+        }
+        else if (Count_SewerWorker > 4 && DataBaseManager.NowPage_SewerWorker == 2)
+        {
+            NextButton_SewerWorker.SetActive(true);
+        }
+        else
+        {
+            NextButton_SewerWorker.SetActive(false);
+        }
+
+        if (DataBaseManager.NowPage_SewerWorker == 2)
+        {
+            PrevButton_SewerWorker.SetActive(true);
+        }
+        else if (DataBaseManager.NowPage_SewerWorker == 3)
+        {
+            PrevButton_SewerWorker.SetActive(true);
+        }
+        else
+        {
+            PrevButton_SewerWorker.SetActive(false);
+        }
+    }
     public void NextPage()
     {
         if(NowPage == "Ella")
@@ -1063,6 +1164,51 @@ public class IntelCharacterDetail : MonoBehaviour
                     BlackWellContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_BlackWell = 3;
+            }
+        }
+        if (NowPage == "SewerWorker")
+        {
+            if (DataBaseManager.NowPage_SewerWorker == 1)
+            {
+                if (Count_SewerWorker >= 6)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 5)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 4)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 3)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_SewerWorker = 2;
+            }
+            else if (DataBaseManager.NowPage_SewerWorker == 2)
+            {
+                if (Count_SewerWorker >= 6)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 5)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_SewerWorker = 3;
             }
         }
     }
@@ -1405,6 +1551,54 @@ public class IntelCharacterDetail : MonoBehaviour
                 DataBaseManager.NowPage_BlackWell = 2;
             }
         }
+        if (NowPage == "SewerWorker")
+        {
+            if (DataBaseManager.NowPage_SewerWorker == 2)
+            {
+                if (Count_SewerWorker >= 6)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(0).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 5)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(1).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 4)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 3)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+
+                DataBaseManager.NowPage_SewerWorker = 1;
+            }
+            else if (DataBaseManager.NowPage_SewerWorker == 3)
+            {
+                if (Count_SewerWorker >= 6)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_SewerWorker >= 5)
+                {
+                    Reset_SewerWorker();
+                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_SewerWorker = 2;
+            }
+        }
     }
 
 
@@ -1476,7 +1670,15 @@ public class IntelCharacterDetail : MonoBehaviour
         BlackWellContents.transform.GetChild(5).gameObject.SetActive(false);
     }
 
-
+    void Reset_SewerWorker()
+    {
+        SewerWorkerContents.transform.GetChild(0).gameObject.SetActive(false);
+        SewerWorkerContents.transform.GetChild(1).gameObject.SetActive(false);
+        SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(false);
+        SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(false);
+        SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(false);
+        SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(false);
+    }
     public void Open_Ella()
     {
         CloseAllContents();
@@ -1513,7 +1715,11 @@ public class IntelCharacterDetail : MonoBehaviour
         BlackWell_Detail.SetActive(true);
     }
 
-
+    public void Open_SewerWorker()
+    {
+        CloseAllContents();
+        SewerWorker_Detail.SetActive(true);
+    }
     void CloseAllContents()
     {
         Ella_Detail.SetActive(false);
@@ -1523,6 +1729,7 @@ public class IntelCharacterDetail : MonoBehaviour
         Albert_Detail.SetActive(false);
         Meiv_Detail.SetActive(false);
         BlackWell_Detail.SetActive(false);
+        SewerWorker_Detail.SetActive(false);
     }
 
 }

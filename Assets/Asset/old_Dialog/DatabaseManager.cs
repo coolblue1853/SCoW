@@ -20,6 +20,9 @@ public class DataBaseManager : MonoBehaviour
     //Directing
     public static bool isDirecting = false;
     public static bool firstClientsHouse = false;
+    //1ÀÏÂ÷ ¼úÁı
+    public static bool Maeve_FirstDialog = false;
+    public static bool Worker_FirstDialog = false;
     //1ÀÏÂ÷ ºó¹Î°¡
     public static bool Dave_FirstDialog = false;
 

@@ -490,9 +490,9 @@ public class DialogManager : MonoBehaviour
                                 }
                                 if (t_ReplaceText[i + 4] == '불')
                                 {
-                                    if (DataBaseManager.Intel_Insomnia1 == false)
-                                        DataBaseManager.Intel_Insomnia1 = true;
-                                    IntelManager.Instance.AddIntelFloating("Event", "불면증 - 조간신문 기사");
+                                    if (DataBaseManager.Intel_Insomnia2 == false)
+                                        DataBaseManager.Intel_Insomnia2 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "Insomnia - Doctor's opinion");
                                 }
                                 if (t_ReplaceText[i + 4] == '악')
                                 {
@@ -502,10 +502,10 @@ public class DialogManager : MonoBehaviour
                                 }
                                 if (t_ReplaceText[i + 4] == '편')
                                 {
-                                    if (DataBaseManager.Intel_Paranoia1 == false)
+                                    if (DataBaseManager.Intel_Paranoia2 == false)
                                     {
-                                        DataBaseManager.Intel_Paranoia1 = true;
-                                        IntelManager.Instance.AddIntelFloating("Event", "편집증 - 남편의 상태");
+                                        DataBaseManager.Intel_Paranoia2 = true;
+                                        IntelManager.Instance.AddIntelFloating("Event", "Paranoia - Cause of Paranoia");
                                     }
             
                                 }
@@ -545,6 +545,15 @@ public class DialogManager : MonoBehaviour
                                     }
 
                                 }
+                                if (t_ReplaceText[i + 4] == '거') // 하수도 괴담
+                                {
+                                    if (DataBaseManager.Intel_SewerGhostStory2 == false)
+                                    {
+                                        DataBaseManager.Intel_SewerGhostStory2 = true;
+                                        IntelManager.Instance.AddIntelFloating("Event", "SewerGhostStory - Truth of a rumor");
+                                    }
+
+                                }
                             }
                             if (t_ReplaceText[i + 3] == '3')
                             {
@@ -566,6 +575,19 @@ public class DialogManager : MonoBehaviour
                                     }
 
                                 }
+                            }
+                            if (t_ReplaceText[i + 3] == '4')
+                            {
+
+                                if (t_ReplaceText[i + 4] == '악')
+                                {
+                                    if (DataBaseManager.Intel_Nightmare4 == false)
+                                        DataBaseManager.Intel_Nightmare4 = true;
+                                    IntelManager.Instance.AddIntelFloating("Event", "Nightmare - Water and Nightmare");
+                                }
+
+
+                             
                             }
                         }
                     }
@@ -653,7 +675,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Albert1 = true;
                                         IntelManager.Instance.AddIntelFloating("Character", "Albert Bradley - Police friend");
                                     }
-                                        
+
                                 }
 
                                 if (t_ReplaceText[i + 4] == '메')
@@ -663,7 +685,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Meiv1 = true;
                                         IntelManager.Instance.AddIntelFloating("Character", "Maeve A Rossi - Mafia friend");
                                     }
-                               
+
                                 }
                                 if (t_ReplaceText[i + 4] == '엘')
                                 {
@@ -672,7 +694,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Ella1 = true;
                                         IntelManager.Instance.AddIntelFloating("Character", "Ella Triss - Client");
                                     }
-                                 
+
                                 }
                                 if (t_ReplaceText[i + 4] == '에')
                                 {
@@ -681,10 +703,60 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Aiden1 = true;
                                         IntelManager.Instance.AddIntelFloating("Character", "Aiden Triss - Subject to request");
                                     }
-                         
+
+                                }
+                                if (t_ReplaceText[i + 4] == '하')
+                                {
+                                    if (DataBaseManager.Intel_SewerWorker1 == false)
+                                    {
+                                        DataBaseManager.Intel_SewerWorker1 = true;
+                                        IntelManager.Instance.AddIntelFloating("Character", "SewerWorker - Owner of Eye?");
+                                    }
+
                                 }
                             }
-                                
+                            if (t_ReplaceText[i + 3] == '2')
+                            {
+
+                                if (t_ReplaceText[i + 4] == '에')
+                                {
+                                    if (DataBaseManager.Intel_Aiden2 == false)
+                                    {
+                                        DataBaseManager.Intel_Aiden2 = true;
+                                        IntelManager.Instance.AddIntelFloating("Character", "Aiden Triss - Aiden and Pandemic");
+                                    }
+                                }
+                                if (t_ReplaceText[i + 4] == '하')
+                                {
+                                    if (DataBaseManager.Intel_SewerWorker2 == false)
+                                    {
+                                        DataBaseManager.Intel_SewerWorker2 = true;
+                                        IntelManager.Instance.AddIntelFloating("Character", "SewerWorker - Unfair dismissal");
+                                    }
+                                }
+                                if (t_ReplaceText[i + 4] == '약')
+                                {
+                                    if (DataBaseManager.Intel_Meiv1 == false)
+                                    {
+                                        DataBaseManager.Intel_Meiv1 = true;
+                                        IntelManager.Instance.AddIntelFloating("Character", "Maeve A Rossi - Promise");
+                                    }
+
+                                }
+                            }
+                            if (t_ReplaceText[i + 3] == '3')
+                            {
+
+                                if (t_ReplaceText[i + 4] == '하' || t_ReplaceText[i + 4] == '비')
+                                {
+                                    if (DataBaseManager.Intel_SewerWorker3 == false)
+                                    {
+                                        DataBaseManager.Intel_SewerWorker3 = true;
+                                        IntelManager.Instance.AddIntelFloating("Character", "SewerWorker - Cause of Fishy smell");
+                                    }
+
+                                }
+                            }
                         }
                     }
                     break;

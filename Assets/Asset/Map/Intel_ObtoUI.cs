@@ -133,6 +133,10 @@ public class Intel_ObtoUI : MonoBehaviour
                         {
                             InteractionController.Instance.Start_1st_Slum(Look_Dilaog);
                         }
+                        if (DataBaseManager.nowPlace == "Bar")
+                        {
+                            InteractionController.Instance.Start_1st_Bar(Look_Dilaog);
+                        }
                     }
                     
                     else if (DataBaseManager.NowSelecter == "Judge")
@@ -174,6 +178,10 @@ public class Intel_ObtoUI : MonoBehaviour
                         if (DataBaseManager.nowPlace == "Slum")
                         {
                             InteractionController.Instance.Start_1st_Slum(Active_Dilaog);
+                        }
+                        if (DataBaseManager.nowPlace == "Bar")
+                        {
+                            InteractionController.Instance.Start_1st_Bar(Active_Dilaog);
                         }
                     }
                 }
@@ -377,6 +385,6 @@ public class Intel_ObtoUI : MonoBehaviour
     }
     private void Awake()
     {
-        KeywordCounter = 3;
+
     }
 }
