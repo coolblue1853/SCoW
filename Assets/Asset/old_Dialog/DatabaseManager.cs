@@ -60,7 +60,11 @@ public class DataBaseManager : MonoBehaviour
     public static int AidenKeywordCount = 0;
     public static bool FailTwoKeyword = false;
 
+
     //1일차 오전 탐정사무소
+    public static bool EndDemo = false;
+    public static bool EndDay = false;
+    public static bool ConnectKey = false;
     public static bool fst_Detective_EndFirstDialog;
     public static bool fst_Detective_NockDialog;
     public static bool fst_Detective_AfterSelect;

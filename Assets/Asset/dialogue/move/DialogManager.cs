@@ -736,9 +736,9 @@ public class DialogManager : MonoBehaviour
                                 }
                                 if (t_ReplaceText[i + 4] == '약')
                                 {
-                                    if (DataBaseManager.Intel_Meiv1 == false)
+                                    if (DataBaseManager.Intel_Meiv2 == false)
                                     {
-                                        DataBaseManager.Intel_Meiv1 = true;
+                                        DataBaseManager.Intel_Meiv2 = true;
                                         IntelManager.Instance.AddIntelFloating("Character", "Maeve A Rossi - Promise");
                                     }
 
@@ -885,7 +885,12 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '④')
                     {
+                        DataBaseManager.ConnectKey = true;
 
+                    }
+                    if (t_ReplaceText[i + 1] == '⑤')
+                    {
+                        DataBaseManager.EndDemo = true;
 
                     }
                     t_ignore = true;
@@ -955,8 +960,8 @@ public class DialogManager : MonoBehaviour
                 case '①': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
                 case '②': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
                 case '③': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' || t_ReplaceText[i - 1] == '♠') { t_ignore = true; } break;
-                case '④': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '⑤': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '④': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
+                case '⑤': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
                 case '⑥': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
                 case '⑦': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
                 case '⑧': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;

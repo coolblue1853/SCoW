@@ -27,7 +27,7 @@ public class MapManager : MonoBehaviour
     public GameObject Student;
 
     Vector3 player_DetectiveOffice = new Vector3(-774.2f, 2.6f);
-    Vector3 Cam_DetectiveOffice = new Vector3(-784.6f, 1.690001f, -15);
+    Vector3 Cam_DetectiveOffice = new Vector3(-797.2f, 1.690001f, -15);
 
     Vector3 player_ClientsHouse = new Vector3(-990.2f, 2.86f);
     Vector3 Cam_ClientsHouse = new Vector3(-993.87f, 1.5f, -15);
@@ -68,70 +68,147 @@ public class MapManager : MonoBehaviour
     public GameObject BarButton;
     private void buttonChecker() 
     {
-        if (DataBaseManager.nowPlace == "DetectiveOffice")
+        if ((DataBaseManager.TimeCount % 4) == 1)
+        {
+            DetectiveOfficeButton.SetActive(false);
+            BarButton.SetActive(false);
+            if (DataBaseManager.nowPlace == "Client'shouse")
+            {
+                ClientsHouseButton.SetActive(false);
+            }
+            else
+            {
+                ClientsHouseButton.SetActive(true);
+            }
+            if (DataBaseManager.nowPlace == "DailyNews")
+            {
+                DailyNewsButton.SetActive(false);
+            }
+            else
+            {
+                DailyNewsButton.SetActive(true);
+            }
+            if (DataBaseManager.nowPlace == "Univercity")
+            {
+                UnivercityButton.SetActive(false);
+            }
+            else
+            {
+                UnivercityButton.SetActive(true);
+            }
+            if (DataBaseManager.nowPlace == "Riverside")
+            {
+                RiverSideButton.SetActive(false);
+            }
+            else
+            {
+                RiverSideButton.SetActive(true);
+            }
+            if (DataBaseManager.nowPlace == "Hospital")
+            {
+                HospitalButton.SetActive(false);
+            }
+            else
+            {
+                HospitalButton.SetActive(true);
+            }
+            if (DataBaseManager.nowPlace == "Policeoffice")
+            {
+                PoliceofficeButton.SetActive(false);
+            }
+            else
+            {
+                PoliceofficeButton.SetActive(true);
+            }
+            if (DataBaseManager.nowPlace == "Slum")
+            {
+                SlumButton.SetActive(false);
+            }
+            else
+            {
+                SlumButton.SetActive(true);
+            }
+        }
+        if ((DataBaseManager.TimeCount % 4) == 2)
+        {
+            DetectiveOfficeButton.SetActive(false);
+            BarButton.SetActive(false);
+            if (DataBaseManager.nowPlace == "Client'shouse")
+            {
+                ClientsHouseButton.SetActive(false);
+            }
+            else
+            {
+                ClientsHouseButton.SetActive(true);
+            }
+            if (DataBaseManager.nowPlace == "DailyNews")
+            {
+                DailyNewsButton.SetActive(false);
+            }
+            else
+            {
+                DailyNewsButton.SetActive(true);
+            }
+            if (DataBaseManager.nowPlace == "Univercity")
+            {
+                UnivercityButton.SetActive(false);
+            }
+            else
+            {
+                UnivercityButton.SetActive(true);
+            }
+            if (DataBaseManager.nowPlace == "Riverside")
+            {
+                RiverSideButton.SetActive(false);
+            }
+            else
+            {
+                RiverSideButton.SetActive(true);
+            }
+            if (DataBaseManager.nowPlace == "Hospital")
+            {
+                HospitalButton.SetActive(false);
+            }
+            else
+            {
+                HospitalButton.SetActive(true);
+            }
+            if (DataBaseManager.nowPlace == "Policeoffice")
+            {
+                PoliceofficeButton.SetActive(false);
+            }
+            else
+            {
+                PoliceofficeButton.SetActive(true);
+            }
+            if (DataBaseManager.nowPlace == "Slum")
+            {
+                SlumButton.SetActive(false);
+            }
+            else
+            {
+                SlumButton.SetActive(true);
+            }
+        }
+        if ((DataBaseManager.TimeCount % 4) == 3)
+        {
+            DetectiveOfficeButton.SetActive(true);
+            BarButton.SetActive(true);
+            ClientsHouseButton.SetActive(false);
+            DailyNewsButton.SetActive(false);
+            UnivercityButton.SetActive(false);
+            RiverSideButton.SetActive(false);
+            HospitalButton.SetActive(false);
+            PoliceofficeButton.SetActive(false);
+            SlumButton.SetActive(false);
+
+        }
+        if ((DataBaseManager.TimeCount % 4) == 0)
         {
             DetectiveOfficeButton.SetActive(false);
         }
-        else
-        {
-            DetectiveOfficeButton.SetActive(true);
-        }
-        if (DataBaseManager.nowPlace == "Client'shouse")
-        {
-            ClientsHouseButton.SetActive(false);
-        }
-        else
-        {
-            ClientsHouseButton.SetActive(true);
-        }
-        if (DataBaseManager.nowPlace == "DailyNews")
-        {
-            DailyNewsButton.SetActive(false);
-        }
-        else
-        {
-            DailyNewsButton.SetActive(true);
-        }
-        if (DataBaseManager.nowPlace == "Univercity")
-        {
-            UnivercityButton.SetActive(false);
-        }
-        else
-        {
-            UnivercityButton.SetActive(true);
-        }
-        if (DataBaseManager.nowPlace == "Riverside")
-        {
-            RiverSideButton.SetActive(false);
-        }
-        else
-        {
-            RiverSideButton.SetActive(true);
-        }
-        if (DataBaseManager.nowPlace == "Hospital")
-        {
-            HospitalButton.SetActive(false);
-        }
-        else
-        {
-            HospitalButton.SetActive(true);
-        }
-        if (DataBaseManager.nowPlace == "Policeoffice")
-        {
-            PoliceofficeButton.SetActive(false);
-        }
-        else
-        {
-            PoliceofficeButton.SetActive(true);
-        }
-        if (DataBaseManager.nowPlace == "Slum")
-        {
-            SlumButton.SetActive(false);
-        }
-        else
-        {
-            SlumButton.SetActive(true);
-        }
+
+
     }
 
     public void OpenUpperMap()

@@ -1105,6 +1105,7 @@ public class KeyWordManager : MonoBehaviour
     bool isSwain1Add = false;
     bool isCane1Add = false;
     bool isMeiv1Add = false;
+    bool isMeiv2Add = false;
     bool isAlbert1Add = false;
     bool isSewerWorker1Add = false;
     bool isSewerWorker2Add = false;
@@ -1349,7 +1350,7 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_SuddenChange1 == true && isSuddenChange1Add == false)
         {
             isSuddenChange1Add = true;
-            SuddenChangeList.Add("Unfair Dismissal");
+           // SuddenChangeList.Add("Unfair Dismissal");
         }
         // 금고
         else if (DataBaseManager.keyword_upper == "Safe" && SafeKeywordCount >= 0)
@@ -1425,6 +1426,11 @@ public class KeyWordManager : MonoBehaviour
         {
             isMeiv1Add = true;
             MeivList.Add("Mafia friend");
+        }
+        if (DataBaseManager.Intel_Meiv2 == true && isMeiv2Add == false)
+        {
+            isMeiv2Add = true;
+            MeivList.Add("Promise");
         }
         // 알버트
         if (DataBaseManager.keyword_upper == "Albert Bradley" && AlbertKeywordCount >= 0)

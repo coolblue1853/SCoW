@@ -38,6 +38,7 @@ public class DirectingManager : MonoBehaviour
     }
     void Awake()
     {
+
         if (null == instance)
         {
             instance = this;
@@ -131,7 +132,42 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.Kate_Disapear = false;
             Kate_Disapear();
         }
+        if (DataBaseManager.ConnectKey == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.ConnectKey = false;
+            Invoke("KeyConnect",0.5f);
+        }
+        if (DataBaseManager.EndDay == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.EndDay = false;
+            FadingBackGround.Instance.FadeIn();
+            Invoke("EndDay", 2f);
+        }
+
+        if (DataBaseManager.EndDemo == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.EndDemo = false;
+            FadingBackGround.Instance.DemoEnd_FadeIn();
+        }
+         if((DataBaseManager.TimeCount % 4) == 0 && once == false)
+        {
+            once = true;
+            player.SetActive(false);
+            Invoke("KeyConnect", 5f);
+        }
     }
+    bool once = false;
+
+
+    public void KeyConnect()
+    {
+        OrganizeKeywordFunc();
+    }
+    public void EndDay()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_EndDay");
+    }
+
     //병원 연출
     public void Kate_Disapear()
     {
@@ -272,4 +308,187 @@ public class DirectingManager : MonoBehaviour
         sit_Ella.SetActive(false);
         DataBaseManager.isDirecting = false;
     }
+
+    private List<System.Action> functionList = new List<System.Action>();
+    public void OrganizeKeyword()
+    {
+        functionList.Add(Fab_FirstDialog);
+        if(DataBaseManager.Intel_Aiden1 == true)
+        {
+            functionList.Add(Fab_Aiden1);
+        }
+        if (DataBaseManager.Intel_Safe1 == true)
+        {
+            functionList.Add(Fab_Safe1);
+        }
+        if (DataBaseManager.Intel_Nightmare1 == true)
+        {
+            functionList.Add(Fab_Nightmare1);
+        }
+        if (DataBaseManager.Intel_Nightmare2 == true)
+        {
+            functionList.Add(Fab_Nightmare2);
+        }
+        if (DataBaseManager.Intel_Nightmare3 == true)
+        {
+            functionList.Add(Fab_Nightmare3);
+        }
+        if (DataBaseManager.Intel_Nightmare4 == true)
+        {
+            functionList.Add(Fab_Nightmare4);
+        }
+        if (DataBaseManager.Intel_Insomnia1 == true)
+        {
+            functionList.Add(Fab_Insomnia1);
+        }
+        if (DataBaseManager.Intel_Insomnia2 == true)
+        {
+            functionList.Add(Fab_Insomnia2);
+        }
+        if (DataBaseManager.Intel_PlanetarySequence1 == true)
+        {
+            functionList.Add(Fab_PlanetarySequence1);
+        }
+        if (DataBaseManager.Intel_University1 == true)
+        {
+            functionList.Add(Fab_Univ1);
+        }
+        if (DataBaseManager.Intel_Meiv1 == true)
+        {
+            functionList.Add(Fab_Meiv2);
+        }
+        if (DataBaseManager.Intel_MissingPeople1 == true)
+        {
+            functionList.Add(Fab_MissingPeople);
+        }
+        if (DataBaseManager.Intel_SewerGhostStory1 == true)
+        {
+            functionList.Add(Fab_GhostStory1);
+        }
+        if (DataBaseManager.Intel_SewerGhostStory2 == true)
+        {
+            functionList.Add(Fab_GhostStory2);
+        }
+        if (DataBaseManager.Intel_CreepyEyes1 == true)
+        {
+            functionList.Add(Fab_CreepyEye);
+        }
+        if (DataBaseManager.Intel_SewerWorker1 == true)
+        {
+            functionList.Add(Fab_Worker1);
+        }
+        if (DataBaseManager.Intel_FishySmell1 == true)
+        {
+            functionList.Add(Fab_FishySmell1);
+        }
+        if (DataBaseManager.Intel_FishySmell2 == true)
+        {
+            functionList.Add(Fab_FishySmell2);
+        }
+        if (DataBaseManager.Intel_FishySmell3 == true)
+        {
+            functionList.Add(Fab_FishySmell3);
+        }
+    }
+    public void OrganizeKeywordFunc()
+    {
+        if(functionList.Count > 0)
+        {
+            int randomIndex = 0;
+            System.Action selectedFunction = functionList[randomIndex];
+            // 선택된 함수 실행
+            selectedFunction();
+            // 실행된 함수는 리스트에서 제거
+            functionList.RemoveAt(randomIndex);
+        }
+        else
+        {
+            DataBaseManager.EndDay = true;
+
+        }
+        // 함수 리스트에서 무작위로 함수 선택
+
+    }
+    private void Fab_FirstDialog()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_FirstDialog");
+    }
+    private void Fab_Aiden1()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_Aiden1");
+    }
+    private void Fab_Safe1()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_Safe1");
+    }
+    private void Fab_Nightmare1()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_Nightmare1");
+    }
+    private void Fab_Nightmare2()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_Nightmare2");
+    }
+    private void Fab_Nightmare3()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_Nightmare3");
+    }
+    private void Fab_Nightmare4()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_Nightmare4");
+    }
+    private void Fab_Insomnia1()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_Insomnia1");
+    }
+    private void Fab_Insomnia2()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_Insomnia2");
+    }
+    private void Fab_PlanetarySequence1()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_PlanetarySequence1");
+    }
+    private void Fab_Univ1()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_Univ1");
+    }
+    private void Fab_Meiv2()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_Meiv2");
+    }
+    private void Fab_MissingPeople()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_MissingPeople");
+    }
+    private void Fab_GhostStory1()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_GhostStory1");
+    }
+    private void Fab_GhostStory2()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_GhostStory2");
+    }
+    private void Fab_CreepyEye()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_CreepyEye");
+    }
+    private void Fab_Worker1()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_Worker1");
+    }
+    private void Fab_FishySmell1()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_FishySmell1");
+    }
+    private void Fab_FishySmell2()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_FishySmell2");
+    }
+    private void Fab_FishySmell3()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_FishySmell3");
+    }
+
+
 }

@@ -7,6 +7,18 @@ public class FadingBackGround : MonoBehaviour
 {
     public GameObject Back;
    public Image BackGround;
+
+
+    public GameObject DemoEnd_Back;
+    public Image DemoEnd_BackGround;
+    public void DemoEnd_FadeIn()
+    {
+        DemoEnd_Back.SetActive(true);
+        mySequence = DOTween.Sequence()
+        .Append(DemoEnd_BackGround.DOFade(1, 1.5f).SetAutoKill());
+
+    }
+
     Sequence mySequence;
     Sequence mySequence2;
     // Start is called before the first frame update

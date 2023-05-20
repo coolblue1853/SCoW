@@ -9,7 +9,7 @@ public class InteractionController : MonoBehaviour
     public DialogManager theDM;
 
 
-
+    //의뢰자의 집
     public GameObject Start_1st_Detective;
     public GameObject NewsPaper;
     public GameObject NewsPaper_Look;
@@ -31,8 +31,29 @@ public class InteractionController : MonoBehaviour
     public GameObject Accept_AfterSelectYes;
     public GameObject Reject_Request;
     public GameObject Accept_AfterSelectNo;
-
-
+    //밤
+    public GameObject Fab_FirstDialog;
+    public GameObject Fab_Aiden1;
+    public GameObject Fab_Safe1;
+    public GameObject Fab_Nightmare1;
+    public GameObject Fab_Nightmare2;
+    public GameObject Fab_Nightmare3;
+    public GameObject Fab_Nightmare4;
+    public GameObject Fab_Insomnia1;
+    public GameObject Fab_Insomnia2;
+    public GameObject Fab_PlanetarySequence1;
+    public GameObject Fab_Univ1;
+    public GameObject Fab_Meiv2;
+    public GameObject Fab_MissingPeople;
+    public GameObject Fab_GhostStory1;
+    public GameObject Fab_GhostStory2;
+    public GameObject Fab_CreepyEye;
+    public GameObject Fab_Worker1;
+    public GameObject Fab_FishySmell1;
+    public GameObject Fab_FishySmell2;
+    public GameObject Fab_FishySmell3;
+    public GameObject Fab_EndDay;
+    public GameObject Fab_Connect;
     // 1st Clinet'sOffice
     public GameObject FirstArrive;
     public GameObject NockDoor;
@@ -286,7 +307,125 @@ public class InteractionController : MonoBehaviour
 
             theDM.ShowDialog(Accept_AfterSelectNo.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+        else if (setDialog == "Fab_FirstDialog")
+        {
+
+            theDM.ShowDialog(Fab_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Aiden1")
+        {
+
+            theDM.ShowDialog(Fab_Aiden1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Safe1")
+        {
+
+            theDM.ShowDialog(Fab_Safe1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Nightmare1")
+        {
+
+            theDM.ShowDialog(Fab_Nightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Nightmare2")
+        {
+
+            theDM.ShowDialog(Fab_Nightmare2.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Nightmare3")
+        {
+
+            theDM.ShowDialog(Fab_Nightmare3.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Nightmare4")
+        {
+
+            theDM.ShowDialog(Fab_Nightmare4.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Insomnia1")
+        {
+
+            theDM.ShowDialog(Fab_Insomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Insomnia2")
+        {
+
+            theDM.ShowDialog(Fab_Insomnia2.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_PlanetarySequence1")
+        {
+
+            theDM.ShowDialog(Fab_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Univ1")
+        {
+
+            theDM.ShowDialog(Fab_Univ1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Meiv2")
+        {
+
+            theDM.ShowDialog(Fab_Meiv2.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_MissingPeople")
+        {
+
+            theDM.ShowDialog(Fab_MissingPeople.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        
+        else if (setDialog == "Fab_GhostStory1")
+        {
+
+            theDM.ShowDialog(Fab_GhostStory1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_GhostStory2")
+        {
+
+            theDM.ShowDialog(Fab_GhostStory2.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_CreepyEye")
+        {
+
+            theDM.ShowDialog(Fab_CreepyEye.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Worker1")
+        {
+
+            theDM.ShowDialog(Fab_Worker1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_FishySmell1")
+        {
+
+            theDM.ShowDialog(Fab_FishySmell1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+        else if (setDialog == "Fab_FishySmell1")
+        {
+
+            theDM.ShowDialog(Fab_FishySmell1.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_FishySmell2")
+        {
+
+            theDM.ShowDialog(Fab_FishySmell2.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_FishySmell3")
+        {
+
+            theDM.ShowDialog(Fab_FishySmell3.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_EndDay")
+        {
+
+            theDM.ShowDialog(Fab_EndDay.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Connect")
+        {
+
+            theDM.ShowDialog(Fab_Connect.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
     }
+    
 
     public void Start_1st_ClientsHouse(string setDialog)
     {
