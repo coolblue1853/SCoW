@@ -1,27 +1,27 @@
 ID,캐릭터이름,대사,
-1,파비안,@안녕^ 이 학교의 학생이니?@,대학생 최초 대화
-2,대학생,@보면 모르나요. 네^ 뭐 맞는데요.@,
-3,파비안,’세상 까칠한걸’,
-4,파비안,@꽤 피곤해 보이는데 혹시 무슨 일 있었다거나.@,
-5,대학생,@그렇게 보이면 그냥 가던길 가주셨으면 좋겠는데 말이죠.@,
-6,대학생,@괜히 피곤해 보이는사람 건드리지 말고.@,
-7,파비안,@하하^ 그럴수만도 없는 노릇이어서 말이야. 질문 좀 몇 개 할께.@,
-8,파비안,(내가 그냥은 지나치지 않을걸 알았는지 체념한듯 내쪽을 바라봤다.),
-9,대학생,@어휴 이 주변엔 왜 자기 말만 하는사람들만 있는지 몰라.@,
-10,대학생,@뭐^ 맘대로 하세요…@☆①,
-11,대학생,@더이상 물어볼게 없으면 이제 그만 가줄레요.@☆①,대학생 반복대사
-12,파비안,@ⓡ(행성대직렬)ⓦ에 대해서는 뭐 들어본거 없니?@,키워드 사용 - 행성대직렬
-13,대학생,@글쎄요^ 제가 천문학과는 아니어서. 뭐 당일날이 되면 ⓑ(●1우리 대학)ⓦ에서도 관측 쇼 같은걸 하겠죠?@,
-14,파비안,@그럼 널 괴롭힌다는 교수님은 뭘 연구중이시니?@,
-15,대학생,@최근 미스캐토닉ⓡ(●1강의 수질)ⓦ이 어떻다나요^ 제 눈에는 평소랑 똑같던데.@,
-16,대학생,@그렇게 궁금하면 ⓑ(강가)ⓦ쪽으로 가보시던가요 밤 시간대 이외에는요즘에는 거의 그쪽에 있으니까.@,
-17,대학생,@대충 ⓖ(케인 교수님)ⓦ 이라고 부르면 자기 학생인줄 알걸요.@,
-18,파비안,@그렇구나^ 고마워.@,
-19,파비안,시간 날 때 한번 들러보는 것도 나쁘진 않겠군’,
-20,파비안,@최근 원인불명의 ⓡ(불면증)ⓦ이 유행중이라고 하는데 들어 본 적 있니?@,키워드 - 불면증
-21,대학생,@글쎄요.. 저는 이미 물리적으로 ⓡ(불면증)ⓦ이 진행중이라.@,
-22,대학생,@잘 모르겠는데요.@,
-23,파비안,(상당히 피곤해 보이는 학생이다.),살펴보기
+1,Fabian,@Hello. Are you a student at this university?@,College students 최초 대화
+2,College students,@Yes^ Right. why?@,
+3,Fabian,'That's cynical.',
+4,Fabian,@You look pretty tired^ did something happened?@,
+5,College students,@If it looks like that^ I hope you'll just go on your way.@,
+6,College students,@Don't bother anyone who looks tired.@,
+7,Fabian,@Haha^ I'm sorry but I can't do that^ so let me ask you a few questions.@,
+8,Fabian,(He looked in my direction^ dejectedly^ as if he knew I wasn't going to walk away.),
+9,College students,@Ugh^ I don't know why there are people around here who only talk about themselves.@,
+10,College students,@Well^ whatever...@☆①,
+11,College students,@If you don't have any more questions^ could you please leave now?@☆①,College students 반복대사
+12,Fabian,@Have you heard anything about ⓡ(planetary parade)ⓦ?@,키워드 사용 - 행성대직렬
+13,College students,@I don't know^ I'm not an astronomy major. But ⓑ(●1ⓤuniversity)ⓦ will have an observation show or something on that day.@,
+14,Fabian,@So what's the professor working on that's bothering you?@,
+15,College students,@I've heard that the ⓡ(●1ⓡwater quality)ⓦ of the Miskatonic River has been weird lately^ but to me^ it's always been the same.@,
+16,College students,@If you're that curious^ you can go to the ⓑ(riverside)ⓦ^ except at night^ because that's pretty much where He is these days.@,
+17,College students,@If you call him ⓖ(Professor Kane)ⓦ^ he'll think you're his student.@,
+18,Fabian,@Okay^ thanks.@,
+19,Fabian,'It wouldn't be a bad idea to stop by when i have time.’,
+20,Fabian,@Have you heard of the recent epidemic of unexplained ⓡ(insomnia?)ⓦ@,키워드 - 불면증
+21,College students,@Well... I already have ongoing 'physical' insomnia.@,
+22,College students,@I'm not sure.@,
+23,Fabian,(This is a very tired looking student.),살펴보기
 24,,,
 25,,,
 26,,,(

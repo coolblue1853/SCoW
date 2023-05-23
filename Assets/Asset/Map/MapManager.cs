@@ -10,6 +10,7 @@ public class MapManager : MonoBehaviour
     public Animator ChaingUiAnim;
     public GameObject Upper;
     public GameObject Downer;
+    float ChInRommSize = 2.383215f; // -이면 왼쪽 +면 오른쪽
 
 
     public GameObject ChaingUi;
@@ -78,7 +79,14 @@ public class MapManager : MonoBehaviour
             }
             else
             {
-                ClientsHouseButton.SetActive(true);
+                if (DataBaseManager.Intel_QuestHouse1 == true)
+                {
+                    ClientsHouseButton.SetActive(true);
+                }
+                else
+                {
+                    ClientsHouseButton.SetActive(false);
+                }
             }
             if (DataBaseManager.nowPlace == "DailyNews")
             {
@@ -139,7 +147,14 @@ public class MapManager : MonoBehaviour
             }
             else
             {
-                ClientsHouseButton.SetActive(true);
+                if(DataBaseManager.Intel_QuestHouse1 == true)
+                {
+                    ClientsHouseButton.SetActive(true);
+                }
+                else
+                {
+                    ClientsHouseButton.SetActive(false);
+                }
             }
             if (DataBaseManager.nowPlace == "DailyNews")
             {
@@ -205,7 +220,19 @@ public class MapManager : MonoBehaviour
         }
         if ((DataBaseManager.TimeCount % 4) == 0)
         {
-            DetectiveOfficeButton.SetActive(false);
+            if(DataBaseManager.nowPlace == "Bar")
+            {
+                DetectiveOfficeButton.SetActive(true);
+                BarButton.SetActive(false);
+                ClientsHouseButton.SetActive(false);
+                DailyNewsButton.SetActive(false);
+                UnivercityButton.SetActive(false);
+                RiverSideButton.SetActive(false);
+                HospitalButton.SetActive(false);
+                PoliceofficeButton.SetActive(false);
+                SlumButton.SetActive(false);
+            }
+
         }
 
 
@@ -298,10 +325,18 @@ public class MapManager : MonoBehaviour
    
     public void MapOn()
     {
-        FadingBackGround.Instance.FadeInOut();
-        Invoke("OpenSpinUi", 2f);
-        Invoke("SpinRing", 5f);
-
+        if ((DataBaseManager.TimeCount % 4) != 0)
+        {
+            FadingBackGround.Instance.FadeInOut();
+            Invoke("OpenSpinUi", 2f);
+            Invoke("SpinRing", 5f);
+        }
+        else if ((DataBaseManager.TimeCount % 4) == 0)
+        {
+            FadingBackGround.Instance.FadeInOut();
+            Invoke("OpenSpinUi", 2f);
+            Invoke("WaitFade", 7f);
+        }
     }
     public void OpenSpinUi()
     {
@@ -396,6 +431,8 @@ public class MapManager : MonoBehaviour
         DataBaseManager.TimeCount += 1;
         if (DataBaseManager.nowPlace == "DetectiveOffice")
         {
+     
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             player.transform.localPosition = player_DetectiveOffice;
             camera.transform.localPosition = Cam_DetectiveOffice;
             MapChainingUI.SetActive(false);
@@ -404,6 +441,7 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.nowPlace == "Client'shouse")
         {
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             player.transform.localPosition = player_ClientsHouse;
             camera.transform.localPosition = Cam_ClientsHouse;
             MapChainingUI.SetActive(false);
@@ -413,6 +451,7 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.nowPlace == "DailyNews")
         {
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             player.transform.localPosition = player_DailyNews;
             camera.transform.localPosition = Cam_DailyNews;
             MapChainingUI.SetActive(false);
@@ -421,6 +460,7 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.nowPlace == "University")
         {
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             player.transform.localPosition = player_Univercity;
             camera.transform.localPosition = Cam_Univercity;
             MapChainingUI.SetActive(false);
@@ -438,6 +478,7 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.nowPlace == "Riverside")
         {
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             player.transform.localPosition = player_RiverSide;
             camera.transform.localPosition = Cam_RiverSide;
             MapChainingUI.SetActive(false);
@@ -446,6 +487,7 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.nowPlace == "Hospital")
         {
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             player.transform.localPosition = player_Hospital;
             camera.transform.localPosition = Cam_Hospital;
             MapChainingUI.SetActive(false);
@@ -454,6 +496,7 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.nowPlace == "Policeoffice")
         {
+            player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
             player.transform.localPosition = player_Policeoffice;
             camera.transform.localPosition = Cam_Policeoffice;
             MapChainingUI.SetActive(false);
@@ -462,13 +505,23 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.nowPlace == "Slum")
         {
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             player.transform.localPosition = player_Slum;
             camera.transform.localPosition = Cam_Slum;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
             DialogDatabaseManager.instance.Check = true;
         }
-
+        else if (DataBaseManager.nowPlace == "Bar")
+        {
+            DataBaseManager.isBar = true;
+            player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
+            player.transform.localPosition = player_Bar;
+            camera.transform.localPosition = Cam_Bar;
+            MapChainingUI.SetActive(false);
+            MapUI.SetActive(false);
+            DialogDatabaseManager.instance.Check = true;
+        }
     }
 
     void FirstClientsHouseArrive()

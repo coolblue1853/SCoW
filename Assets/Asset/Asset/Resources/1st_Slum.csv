@@ -1,36 +1,36 @@
 ID,캐릭터이름,대사,
-1,파비안,@데이브 잘 있었어요?.@,최초대사
-2,데이브,@나야 뭐 항상 똑같지.@,
-3,파비안,@특별한 소식은 뭐 없나요?@,
-4,데이브,@음… 작은거 두 장이면 기억이 날법도 한데…@★③,
-5,데이브,@그러고 보니 최근 밀주 단속이 심해진다더구만…@,랜덤 / 1
-6,파비안,@그것 뿐인가요?@,
-7,데이브,@ 더 듣고싶으면 두 장 더^ 알지않나.@★③,
-8,데이브,@최근 들어서 빈민가에 새로운 얼굴이 많이 보여.@,랜덤 / 2
-9,파비안,@새로운 얼굴이요?@,
-10,데이브,@덕분에 자리를 배치해주는데 골머리를 앓고 있다네.@★③,
-11,데이브,@그러고 보니 돌아다니면서 이상한 ⓡ(●1비릿한 냄새)ⓦ를 맡은적 있는것 같아.@,랜덤 / 3
-12,파비안,@ⓡ(비릿한 냄새)ⓦ요?@,
-13,파비안,(내가 이런곳에서는 당연한것 아니냐는 얼굴로 보자 머쓱하며 대답했다.),
-14,데이브,@이상하게 그런 냄새가 나지 않을 곳에서도 나더라고…@★③,
-15,데이브,@곧 북 베이커가 쪽에서 벼룩시장이 열린다고 하던데.@,랜덤 /4
-16,파비안,@그렇군요…@★③,
-17,데이브,@최근 부두에 선박이 많더군. 밤이 아니라면 언제든 일을 할 수 있을거야^@,랜덤 /5
-18,파비안,@그렇군요^ 돈은 얼마정도 준다던가요?@,
-19,데이브,@적어도 3달러는 준다더군. 그 돈에 맞게 녹초로 만들어 주긴 하더만은.@★③,
-20,데이브,@돌아가는 상황을 보아하니 다음달 무렵 부터 식자재 가격이 오를 것 같더군.@,랜덤 /6
-21,파비안,@사둘게 있으면 미리 사둬야 겠군요.@★③,
-22,데이브,@으음… 잠깐 기다려봐.@,랜덤 /7
-23,데이브,@두 장 정도 더 주면 생각이 더 날지도.@★③,
-24,데이브,@으흠… 그러고보니 최근 ⓡ(●1하수도에서 악어)ⓦ가 산다는 괴담에 돈다네@,랜덤 /8
-25,파비안,@하수도에 악어가요?@,
-26,데이브,@어디까지나 괴담이지만 말이야. 뭐^ 밀수해와서 키우던 악어를 들킬까봐 변깃물에 내렸는데.@,
-27,데이브,@그 악어가 살아 남아서 하수도에 산다더라고… 얼토당토 않은 이야기지.@,
-28,파비안,@그렇군요…@,
-29,데이브,@실제로 목격했다는 사람도 있긴하던데 나는 본적 없어.@★③,
-30,데이브,@작은거 두 장이야.@★③,데이브 반복
-31,데이브,@돈이 부족한데.@,데이브 돈없음
-32,데이브,@더 알려줄수 있는게 없어.@,데이브 소재 x
+1,Fabian,@Dave How are you?@,최초대사
+2,Dave,@It's always the same for me.@,
+3,Fabian,@What's the big news?@,
+4,Dave,@Hmm... Two small ones would be enough to make me remember...@★③,
+5,Dave,@By the way^ I heard that smuggling crackdowns have intensified recently...@,랜덤 / 1
+6,Fabian,@Is that it?@,
+7,Dave,@Two small ones if you want to hear more^ you know.@★③,
+8,Dave,@I've noticed a lot of new faces in the slums lately.@,랜덤 / 2
+9,Fabian,@A new face?@,
+10,Dave,@I'm having a hard time placing them.@★③,
+11,Dave,@Now that I think about it^ I've smelled a strange ⓡ(●1ⓕfishy smell)ⓦ while walking around.@,랜덤 / 3
+12,Fabian,@ⓡ(fishy smell)ⓦ?@,
+13,Fabian,(He shrugged when I looked at him like this was a no-brainer.),
+14,Dave,@Oddly enough^ it smells like that in places where it shouldn't...@★③,
+15,Dave,@I hear there's a flea market coming up next to the north baker street.@,랜덤 /4
+16,Fabian,@I see...@★③,
+17,Dave,@There have been many ships at the ⓑ(wharf)ⓦ recently. If it's not nighttime^ we can work anytime.@,랜덤 /5
+18,Fabian,@I see^ How much do they pay for it?@,
+19,Dave,@hey said they would give at least 3 dollars.@★③,
+20,Dave,@The way things are going^ it looks like food prices are going to go up in the next month or so.@,랜덤 /6
+21,Fabian,@I'll have to stock up on something.@★③,
+22,Dave,@Hmm... hold on a second.@,랜덤 /7
+23,Dave,@Give me a couple more and I'll think about it.@★③,
+24,Dave,@Hmmm... Speaking of which^ there's been a lot of talk lately about ⓡ(●1ⓢalligators in the sewers)ⓦ.@,랜덤 /8
+25,Fabian,@Is there an alligator in the sewer?@,
+26,Dave,@It's just an ghost story^ after all. They say a wealthy person released the crocodile they were raising to avoid getting caught.@,
+27,Dave,@And that crocodile survived and now lives in the sewer... It's an incredible story^ isn't it?@,
+28,Fabian,@I see...@,
+29,Dave,@I've never seen it^ although some people have said they've actually seen it.@★③,
+30,Dave,@Two small ones.@★③,Dave 반복
+31,Dave,@You're out of money.@,Dave 돈없음
+32,Dave,@There's nothing more I can tell you.@,Dave 소재 x
 33,,,
 34,,,
 35,,,

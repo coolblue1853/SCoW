@@ -1,216 +1,216 @@
 ID,캐릭터이름,대사,
-1,파비안,(눈앞에 있는 집이 트리스 부부의 집이다.),// 도착즉시
-2,파비안,@안녕하십니까^ 여사님. 남편분을 한번 만나 보는게 좋을 것 같아 찾아왔습니다.@,//문노크 - 진입후
-3,엘라,@어서오세요… 그이라면 2층의 안방에 있어요.@,
-4,파비안,@ 그렇군요. 어떻게… 상태는 그대로 이신가요?@,
-5,엘라,@그새 상황이 더 안좋아진것 같아요..! 이제 말을 걸어도 제대로 대답조차 못하는 지경이에요.@,
-6,파비안,‘젠장^ 하필이면 지금이냐.’,
-7,파비안,‘더 심각해지기전에 이야기를 나눠봐야겠군’,
-8,파비안,@그거 큰일이군요. 당장 올라가봐도 될까요?@,
-9,엘라,@네^ 부탁드릴께요.@,
-10,엘라,@어떻게 하면 좋죠…@☆①,//1층 엘라 반복대화1
-11,엘라,@저도 쓰러져 버릴거 같아요^ 너무 힘드네요…@,//1층 엘라 반복대화2
-12,파비안,@ 힘내세요 부인. 분명 방법이 있을겁니다. …아마도요.@,
-13,엘라,@남편은 이 방 안에 있어요.@,//2층 진입시
-14,파비안,(저기 침대에 앉아 무식하게 생긴 ⓡ(●1금고)ⓦ를 안고 혼잣말을 중얼거리는 남자가 의뢰대상인 ⓖ(에이든)ⓦ으로 보인다.),//방안진입시
-15,파비안,‘한 눈으로 봐도 상태가 말이 아니군. ⓑ(병원)ⓦ에서는 이걸 보고도 별일 아니라고 생각한건가.’,
-16,파비안,(이곳에서 특이해 보이는건 없어. 침대위의 저 남자 빼고는.),//안방 - 관찰력 - 성공
-17,파비안,(어디에서나 볼 수 있는 평범한 침실이군.),//안방 - 관찰력 - 실패
-18,파비안,(건장한 체구와 그에 맞지 않는 행색이 상당히 눈에 띈다.),에이든 -살펴보기
-19,파비안,(얼굴에는 다크서클이 깊게 내려 앉아 있고 눈은 초점없이 흐린 상태.),
-20,파비안,(면도 또한 한동안 못한 것인지 거뭇거뭇하게 수염이 자랐다.),
-21,파비안,(그러면서도 품에 끌어안고 있는 ⓡ(금고)ⓦ는 단단히 끌어안고 있다.),
-22,파비안,‘행색이 말이 아니군’,
-23,파비안,‘저 ⓡ(●1금고)ⓦ는 뭐길래 저렇게 안고 있는거야?’,
-24,파비안,(더 말할 필요도 없이 그의 상태는 최악으로 보인다.),에이든 - 관찰력
-25,파비안,(대화 소재를 선택함에 있어 조심해야 할것 같다.),
-26,파비안,(또한 저 ⓡ(●1금고)ⓦ는 일반적인 방법으로는 건네 받을 수 없어 보인다.),
-27,파비안,@안녕하십니까 ⓖ(에이든 트리스)ⓦ씨 맞으십니까?@,에이든 - 대화하기 - 최초
-28,에이든,@으으….@,
-29,파비안,‘이 양반 중증인데 이거.’,
-30,파비안,@ 저기요 선생님? 괜찮으신가요?@,
-31,에이든,@...허!? 넌 뭐야. 여긴 어떻게 들어온거야!?@,
-32,파비안,@진정하세요. 아내분께서 도움을 청하셔서 찾아왔습니다.@,
-33,파비안,(아내라는 말에 그의 표정이 잠깐 누그러졌다가는 다시 일그러졌다.),
-34,에이든,@너같은건 아무짝에 소용없어! 어차피 난 죽을테니까… 신경끄고 꺼져!@,
-35,파비안,(그렇게 말한 그는 고개를 반대쪽으로 돌려버렸다.),
-36,파비안,@하지만 선생님^ …선생님?@,
-37,파비안,(이제는 내 말에 대답할 생각이 없는지 반응조차 없다.),
-38,파비안,‘이거 쉽지 않겠는걸’,
-39,파비안,(그가 반응할만한 대화 소재를 이야기해보자.)☆①,
-40,에이든,@난 어떻게 되는 거지…@,에이든 - 반복대화 1
-41,파비안,(그냥 말을 걸어서는 반응하지 않을것 같다.)☆①,
-42,에이든,@정말이지 끔찍한 꿈이야. 으으… 오늘일까? 아니면 내일…?@,에이든 - 반복대화 2
-43,파비안,(그는 더이상 내 말이 들리지 않는것 같다.)☆①,
-44,파비안,@최근 이상한 ⓡ(악몽)ⓦ을 꾸고 계시..@,키워드 - 악몽1 - 
-45,파비안,(내 말이 끝나기도 전에 그는 그 퀭한 동공을 내쪽으로 향하며 소리쳤다.),
-46,에이든,@맞아!! 끔찍한 ⓡ(●2악몽)ⓦ이야.@,
-47,에이든,@ 목구멍 속으로 바닷물이 계속해서 쏟아져 들어와 숨이 막혀도 깨지 못하는 절망스러운 꿈.@,
-48,에이든,@ 죽어도 죽어도 깨어나지 못했어. 그래… 아마 난 죽을꺼야. 아니^ 확실해…@,
-49,에이든,@아니.. 아니야 나 뿐만이 아니라 우리 모두 죽을 꺼야. 그래.. 흐흐…@,
-50,파비안,@그 ⓡ(악몽)ⓦ. 그것에 대해서 더 자세히 말씀해 주실 수는 없습니까?@,
-51,에이든,@뭐야..!? 당신은 누구야!@,
-52,파비안,@네? 저는.. 하… 젠장.@,
-53,파비안,(그는 정신이 오락가락해 보인다.),
-54,파비안,‘아무튼 끔찍한 꿈이라 이거군.’,
-55,파비안,@부인 ⓖ(엘라 트리스)ⓦ님께서 의뢰하셨습니다 선생님. 말씀좀 나눌 수 있을까요.@,키워드 - 엘라트리스1 - 
-56,파비안,(자신의 아내 이름이 나오자 그가 격렬하게 반응했다.),
-57,에이든,@맞아^ 엘라! 엘라만은 살아남아야해.@,
-58,에이든,@그래 거기너. 나같은건 상대 하지말고 엘라를 데리고 당장 이 도시에서 떠나!@,
-59,에이든,@그게 너한테도 좋을거야^ 어서!@,
-60,파비안,(그렇게 말하고는 그는 고개를 숙이고는 다시 중얼거리기 시작했다.),
-61,파비안,‘어떻게해야 다른 대답을 끌어낼 수 있으려나..’,
-62,파비안,@선생님이 안고계신 그 ⓡ(금고)ⓦ는 뭡니까?@,키워드 - 금고- 
-63,파비안,(금고라는 말에 반응 했는지 그는 품속의 그것을 더 세게 끌어안았다.),
-64,에이든,@안돼.. 이 ⓡ(금고)ⓦ 만큼은 무슨일이 있어도 지켜야해.@,
-65,파비안,@안에 뭐가 들었길래… 어휴 말을 말아야지.@★②,
-66,파비안,‘어차피 이렇게 된거 해결하려면 평화적인 방법만으로는 해결 불가능이야.’,금고 선택지 1 - 힘
-67,파비안,@ⓖ(에이든)ⓦ씨 미안하지만 그건 받아가야될 것 같습니다..!@♠①,
-68,파비안,(약간의 몸싸움 끝에 그에게서 ⓡ(금고)ⓦ를 빼앗을 수 있었다.),힘판정 성공
-69,파비안,‘후… 이제 뭐라고 변명을.’,
-70,파비안,(그렇게 생각하며 ⓖ(에이든)ⓦ쪽을 다시 보았지만 그는 언제 ⓡ(금고)ⓦ를 뺏기면 안됬냐는 듯 다시 고개를 숙이고 중얼거리고 있다.),
-71,파비안,@저… ⓖ(에이든)ⓦ씨? ⓡ(금고)ⓦ... 어라?@,
-72,파비안,@결과적으로는 해결 됐..나?@,
-73,파비안,’암호는… 뭐 물어봐도 대답은 못 듣겠지..’,
-74,파비안,’내가 직접 해제해 보거나.. ⓑ(빈민가)ⓦ의 ⓖ(거렁뱅이 데이브)ⓦ에게 가져다 주면 해결해 줄꺼야.’,
-75,파비안,‘뭐야 이양반 한동안 잠도 제대로 못잤다더니 왜이리 힘이 쎄?’,힘판정 실패
-76,파비안,(그러던 중 손이 미끌려 뒤로 세게 넘어졌다.),
-77,파비안,@으… 허리야…@,체력 -1
-78,파비안,‘힘으로는 어떻게 안되겠는걸…’,
-79,파비안,(그의 아내 ⓖ(엘라 트리스)ⓦ를 언급해가며 최대한 조심스럽게 설득했다.),금고 선택지 2 - 언변술 성공
-80,에이든,@....@,
-81,파비안,(그러자 그가 말없이ⓡ(금고)ⓦ를 바닥에 내려 놓았다.),
-82,파비안,@협조 감사합니다. 덕분에 일이 수월하게 풀리겠군요.@,
-83,파비안,(이후 암호에 대해서도 물어봤지만 대답을 들을수는 없었다.),
-84,파비안,@ 내가 직접 해제해 보거나.. ⓑ(빈민가)ⓦ의 ⓖ(거렁뱅이 데이브)ⓦ에게 가져다 주면 해결해 주겠지.@,
-85,에이든,@안돼! 너같은 놈에게는 못넘겨줘!@,금고 선택지 2 - 언변술 실패
-86,파비안,(내 말이 믿음직스럽지 못했는지 그는 더욱 강하게 ⓡ(금고)ⓦ를 잡는다.),
-87,파비안,‘뭐하나 쉽게 풀리는 일이 없다니까..’,
-88,파비안,‘괜히 건드렸다가 긁어 부스럼 만드는 것보다는 가만히 두는게 낫겠지.’,<선택지 3. 그냥 가만히 둔다.>
-89,파비안,‘해봐야 돈이나 귀중품 아니겠어.’,
-90,파비안,(이 주제에 대해서는 반응하지 않았다.),//첫번째 키워드 실패
-91,에이든,@뭐야^ 누구야 넌!@,//두번째 키워드 실패
-92,파비안,@저는 아내분께서 고용한…@,
-93,에이든,@당신같은건 필요 없으니까 꺼져!@,
-94,파비안,(그렇게 말하며 내뻗은 팔에 얼굴이 맞았다.),
-95,에이든,@윽…@◎⑥,체력 -1
-96,파비안,(계속해서 나가라고 고함을 지르는 통에 결국 방에서 나올 수 밖에 없었다.),
-97,파비안,(그에 대해서 간단하게 조사해보니 ⓡ(불면증)ⓦ과 스트레스에 의한 ⓡ(편집증)ⓦ에 시달리고 있다는 사실을 알 수 있었다.),<에이든 - 의학지식판정> - 성공
-98,파비안,(아무래도 그의 증상의 원인은 현재 꾸고 있다는 ⓡ(악몽)ⓦ에 기인한 것으로 보인다.),
-99,파비안,(내가 알고 있는한 ⓡ(●3악몽)ⓦ만으로 발생하는 ⓡ(불면증)ⓦ에 대해서는 들어본 바가 없다.),
-100,파비안,(특별하게 알 수 있는 사실은 없었다.),<에이든 - 의학지식판정> - 실패
-101,파비안,,
-102,에이든,,
-103,파비안,,
-104,에이든,,
-105,파비안,,
-106,에이든,,
-107,파비안,,
-108,파비안,,
-109,에이든,,
-110,파비안,,
-111,파비안,,
-112,에이든,,
-113,파비안,,
-114,에이든,,
-115,파비안,,
-116,에이든,,
-117,파비안,,
-118,파비안,,
-119,파비안,,
-120,에이든,,
-121,파비안,,
-122,파비안,,
-123,파비안,,
-124,엘라,@어떻던가요..?@☆①,//밖으로 나온다면 - 금고 O
-125,파비안,@절대 상태가 좋다고는 못하겠지만 그래도 수확이 없는건 아니었습니다.@,
-126,파비안,(그리고는 ⓡ(금고)ⓦ를 보여주었다.),
-127,엘라,@그건 남편의 ⓡ(금고)ⓦ인가요?@,
-128,파비안,@ 네 맞습니다. 혹시 암호를 알고 계시거나 하진 않으신가요?@,
-129,엘라,@아니요.. 그건 남편의 개인 물품이 들어있던거라 저도 잘 모르겠어요^@,
-130,파비안,@그럼 제 쪽에서 한번 해제해 보도록 하겠습니다. 진전이 있거나 더 말씀드릴게 있으면 다시 찾아오겠습니다.@,
-131,엘라,@네 감사해요…@,
-132,엘라,@어떻던가요..?@☆①,//금고가 없다면
-133,파비안,@상태가 좋다고는 못하겠지만 분명 방법이 없진 않을겁니다.@,
-134,파비안,(내 말에 그녀는 조금 실망한 것 처럼 보인다.),
-135,파비안,@진전이 있거나 더 말씀드릴게 있으면 다시 찾아오겠습니다.@,
-136,엘라,@네 감사해요…@,
-137,파비안,(어디에서나 볼 수 있을법한 평범한 집이다. 정황상 이 집에 아직 자녀는 없는 듯하다.),엘라집 1층 관찰력
-138,파비안,@ 그 사이에 남편분에 관해서 새로 기억나신 건 없나요?@,엘라키워드 - 에이든 트리스 
-139,엘라,@ 글쎄요…@,
-140,파비안,@ 뭐 가장 최근에 조사하고 계신 기사라거나 그런거라두요.@,(하수도의 이상한 괴담 미 획득이라면)
-141,엘라,@ 그거라면 아마 ⓡ(●1하수도의 이상한 괴담)ⓦ 이었을거에요.@,
-142,파비안,@하수도의 괴담이요? 무슨 내용이었죠?@,
-143,엘라,@ 저도 전해들은 거여서 잘은 모르지만 누가 악어를 애완동물로 들여와 놓고는 하수도에 버렸다나요.@,
-144,엘라,@ 근데 그 악어가 시궁쥐 같은 것들을 먹고 엄청 커져서는 사람들까지 먹고 끌고 가버린다는 이야기였어요.@,
-145,파비안,@흥미로운 이야기네요. 감사합니다.@,
-146,파비안,‘하수도에서 악어라… ⓖ(알버트)ⓦ에게 물어보면 뭔가 알고있을지도. 경찰이니까 그런 문의도 들어올테지.’,
-147,엘라,@글쎄요.. 그건 잘 모르겠어요.@,(엘라에게 잘 모르는 키워드 사용)
-148,파비안,‘이 남자가 ⓖ(에이든)ⓦ 인가 보군.’☆①,에이든 Active
-149,파비안,(약간이지만 그의 눈에 생기가 돌아왔다. 그의 공포가 약간 누그러진것 같다.),<에이든 - 정신분석 판정 – 매우 어려운> - 성공 - 금고있음
-150,에이든,@으으… 뭡니까 당신은. 어째서 우리집에…@,
-151,파비안,@이제 좀 진정하셨습니까. 저는 아내분께서 고용한 사립탐정입니다. 문제 해결에 도움이 될 수 있을까 하고 찾아왔습니다.@,
-152,에이든,@ⓖ(엘라)ⓦ가요..? 이런… 하지만 소용 없습니다. 이해하지도 못할거구요. 저는 이미 끝났단 말입니다.@,
-153,파비안,@끝났다니요? 그래도 이야기는 들어 볼수 있는것 아니겠습니까.@,
-154,에이든,@그럼 제가 이제 세상이 파멸할 거라고 해도 믿으시겠다는 건가요?@,
-155,파비안,‘뭐? 세상의 파멸? 이 기자라고 하지 않았나^ 왜 소설을 쓰고있지,
-156,파비안,@파멸이요..? 그야 뭐 요즘 사람들이 술 좀 못마시게 했다고 세상이 끝나네 어쩌네 하지만 그럴리가 있겠습니까.@,
-157,에이든,@하하.. 그거 보세요 어차피 말해도 안믿는다니까요. 그게 정신건강에 이롭긴 하겠지만…@,
-158,파비안,(그렇게 말하며 그는 품에 안고 있던 ⓡ(금고)ⓦ를 내게 건냈다.),
-159,파비안,@ 이건?@,
-160,에이든,@제가 조사하던 정보가 여기 들어 있습니다. 이걸 보면 이해하실 수 있을지도요.@,//병합 지점
-161,파비안,@그렇군요. 아주 좋습니다. 그래서… 암호는요?@,
-162,에이든,@어.....잊어버렸습니다.@,
-163,파비안,‘이사람이 지금 나랑 장난하자는건가?’,
-164,파비안,‘꼭 탐정이라그러면 그놈의 홈즈인가 뭔가랑 똑같이 생각하는 사람들이 있다니까.’,
-165,파비안,@잊어버리셨다구요? 하지만 ⓖ(에이든)ⓦ씨의 ⓡ(금고)ⓦ 아닙니까?@,
-166,에이든,@맞아요. 맞는데 기억이 나지 않습니다…@,
-167,파비안,@…알겠습니다. 뭐 제쪽에서 해결 해 보겠습니다.@,
-168,파비안,(그 순간 그의 동공이 무엇인가를 본것처럼 크게 흔들렸고^ 다시 아까 전처럼 혼잣말을 중얼거리기 시작했다.),
-169,파비안,‘그래도 수확은 있었군. 이걸 조사해 보면 뭔가 나오는건 확실하겠어.’,
-170,파비안,(약간이지만 그의 눈에 생기가 돌아왔다. 그의 공포가 약간 누그러진것 같다.),<에이든 - 정신분석 판정 – 매우 어려운> - 성공 - 금고없음
-171,에이든,@으으… 뭡니까 당신은. 어째서 우리집에…@,
-172,파비안,@이제 좀 진정하셨습니까. 저는 아내분께서 고용한 사립탐정입니다. 문제 해결에 도움이 될 수 있을까 하고 찾아왔습니다.@,
-173,에이든,@ⓖ(엘라)ⓦ가요..? 이런… 하지만 소용 없습니다. 이해하지도 못할거구요. 저는 이미 끝났단 말입니다.@,
-174,파비안,@끝났다니요? 그래도 이야기는 들어 볼수 있는것 아니겠습니까.@,
-175,에이든,@그럼 제가 이제 세상이 파멸할 거라고 해도 믿으시겠다는 건가요?@,
-176,파비안,‘뭐? 세상의 파멸? 이 기자라고 하지 않았나^ 왜 소설을 쓰고있지,
-177,파비안,@파멸이요..? 그야 뭐 요즘 사람들이 술 좀 못마시게 했다고 세상이 끝나네 어쩌네 하지만 그럴리가 있겠습니까.@,
-178,에이든,@하하.. 그거 보세요 어차피 말해도 안믿는다니까요. 그게 정신건강에 이롭긴 하겠지만…@,
-179,파비안,(그렇게 말하며 그는 품에 안고 있던 ⓡ(금고)ⓦ를 내게 건냈다.),
-180,파비안,@ 이건?@,
-181,에이든,@제가 조사하던 정보가 여기 들어 있습니다. 이걸 보면 이해하실 수 있을지도요.@,//병합 지점
-182,파비안,@그렇군요. 아주 좋습니다. 그래서… 암호는요?@,
-183,에이든,@어.....잊어버렸습니다.@,
-184,파비안,‘이사람이 지금 나랑 장난하자는건가?’,
-185,파비안,‘꼭 탐정이라그러면 그놈의 홈즈인가 뭔가랑 똑같이 생각하는 사람들이 있다니까.’,
-186,파비안,@잊어버리셨다구요? 하지만 ⓖ(에이든)ⓦ씨의 ⓡ(금고)ⓦ 아닙니까?@,
-187,에이든,@맞아요. 맞는데 기억이 나지 않습니다…@,
-188,파비안,@…알겠습니다. 뭐 제쪽에서 해결 해 보겠습니다.@,
-189,파비안,(그 순간 그의 동공이 무엇인가를 본것처럼 크게 흔들렸고^ 다시 아까 전처럼 혼잣말을 중얼거리기 시작했다.),
-190,파비안,‘그래도 수확은 있었군. 이걸 조사해 보면 뭔가 나오는건 확실하겠어.’,
-191,파비안,@제가 ⓑ(강가)ⓦ의 하수도에서 ⓡ(섬뜩한 눈)ⓦ을 봤는데 말이죠… 혹시 이것에 대해 아시는 것 없습니까?@,//오후 추가 키워드 - 섬뜩한눈
-192,파비안,(그러자 에이든이 충혈된 눈으로 나를 쳐다봤다.),
-193,에이든,@뭐!? 하수도 밑에서? 거길 조사하러 간거야?@,
-194,파비안,@아뇨^ 조사하러 간건 아니고 그냥 우연히…@,
-195,에이든,@그렇다면 다시는 거기에 얼씬도 하지 않는게 좋을꺼야. 나같은 꼴이 되고싶지 않으면 말이야.@,
-196,파비안,‘자기가 이렇게 된 일이 그것과 관련되있다는 건가?’,
-197,파비안,(에이든은 다시 혼잣말을 중얼거리기 시작했다.),
-198,에이든,@으으.. 내가 왜 ⓡ(●1하수도의 이상한 괴담)ⓦ 따위를 조사한다고 했을까…@,
-199,파비안,(이후로 나온 그의 말을 요약해보면^ 하수도에 악어가 산다는 괴담인것 같다.),
-200,파비안,‘내가 본건 분명 악어는 아니었는데.’,
-201,파비안,‘하수도에서 악어라… ⓖ(덴버)ⓦ에게 물어보면 뭔가 알고있을지도. 경찰이니까 그런 문의도 들어올테지.’,
-202,파비안,@최근 길이나 건물에서 이전에는 없었던 ⓡ(비릿한 냄새)ⓦ를 맡아보신적이 있나요?@,엘라 추가 - 비릿한냄새/ 괴담o
-203,엘라,@으음… 저는 맡아본적 없는것 같긴한데^ 아!@,
-204,엘라,@남편 옷에서 한번 그런 ⓡ(●2비릿한 냄새)ⓦ가 났던것 같긴해요. 그도 그럴게 그이가 최근 취재하던게 ⓡ(하수도의 이상한 괴담)ⓦ 이었으니까요.@,
-205,파비안,@최근 길이나 건물에서 이전에는 없었던 ⓡ(비릿한 냄새)ⓦ를 맡아보신적이 있나요?@,엘라 추가 - 비릿한냄새/ 괴담x
-206,엘라,@으음… 저는 맡아본적 없는것 같긴한데^ 아!@,
-207,엘라,@남편 옷에서 한번 그런 ⓡ(●2비릿한 냄새)ⓦ가 났던것 같긴해요. 그도 그럴게 그이가 최근 취재하던게 ⓡ(●1하수도의 이상한 괴담)ⓦ 이었으니까요.@,
-208,파비안,@하수도의 괴담이요? 무슨 내용이었죠?@,
-209,엘라,@저도 전해들은 거여서 잘은 모르지만 누가 악어를 애완동물로 들여와 놓고는 하수도에 버렸다나요.@,
-210,엘라,@ 근데 그 악어가 시궁쥐 같은 것들을 먹고 엄청 커져서는 사람들까지 먹고 끌고 가버린다는 이야기였어요.@,
-211,파비안,@흥미로운 이야기네요. 감사합니다.@,
-212,파비안,‘하수도에서 악어라… ⓖ(덴버)ⓦ에게 물어보면 뭔가 알고있을지도. 경찰이니까 그런 문의도 들어올테지.’,
+1,Fabian,(The house in front of you is the home of Mr. and Mrs. Triss.),// 도착즉시
+2,Fabian,@Good morning^ ma'am. I came here because I thought it would be better to meet your husband.@,//문노크 - 진입후
+3,Ella,@Welcome... He's in the master bedroom on the second floor.@,
+4,Fabian,@Okay^ so how... is your husband's condition still the same?@,
+5,Ella,@I think this new situation is even worse... I can't even talk to him anymore.@,
+6,Fabian,'Damn^ why now',
+7,Fabian,'I need to talk to you before it gets worse.',
+8,Fabian,@That's a big deal. Can I go up there right now?@,
+9,Ella,@Yes^ please.@,
+10,Ella,@How do I...@☆①,//1층 Ella 반복대화1
+11,Ella,@I think I'm going to collapse^ it's so hard...@,//1층 Ella 반복대화2
+12,Fabian,@Cheer up^ ma'am. There must be a way. ...perhaps.@,
+13,Ella,@My husband is in this room.@,//2층 진입시
+14,Fabian,(The man sitting on the bed^ clutching a silly-looking ⓡ(●1ⓐsafe)ⓦ and muttering to himself is Aiden.),//방안진입시
+15,Fabian,'It's evident at a glance that the condition is serious. Did they really think it was nothing at the ⓑ(hospital)ⓦ?',
+16,Fabian,(Everything looks ordinary here. Except for that man on the bed.),//안방 - 관찰력 - 성공
+17,Fabian,(It's an ordinary bedroom that could be found anywhere.),//안방 - 관찰력 - 실패
+18,Fabian,(A robust physique and an appearance that doesn't match it are quite noticeable.),Aiden -살펴보기
+19,Fabian,(Dark circles are deeply set into his face and his eyes are unfocused and cloudy.),
+20,Fabian,(I also hadn't shaved in a while and had grown an awkward beard.),
+21,Fabian,(And yet^ the ⓡ(safe)ⓦ in his arms holds him tightly.),
+22,Fabian,'He look like shit',
+23,Fabian,'What's that ⓡ(●1ⓐsafe)ⓦ and why is he holding it like that?',
+24,Fabian,(Needless to say^ his condition looks terrible.),Aiden - 관찰력
+25,Fabian,(I think I need to be careful about what I choose to talk about.),
+26,Fabian,(Also^ that ⓡ(●1ⓐsafe)ⓦ doesn't look like it can be handed over in the usual way.),
+27,Fabian,@Hello^ is this ⓖ(Mr. Aiden Triss)ⓦ?@,Aiden - 대화하기 - 최초
+28,Aiden,@Ugh...@,
+29,Fabian,'Man^ this is serious.',
+30,Fabian,@Excuse me^ sir? Are you okay?@,
+31,Aiden,@...Huh!? Who are you^ how did you get in here!@,
+32,Fabian,@Calm down. Your wife came to me for help.@,
+33,Fabian,(At the word wife^ his expression softened for a moment^ then snapped back.),
+34,Aiden,@You're useless^ just like anything else! Anyway^ I'm going to die... So just turn off and disappear.@,
+35,Fabian,(With that^ he turned his head the other way.),
+36,Fabian,@But sir^ ...sir?@,
+37,Fabian,(Now he's not even responding to me^ as if he doesn't care what I say).,
+38,Fabian,'This isn't going to be easy.',
+39,Fabian,(Think of something to talk about that he might respond to.)☆①,
+40,Aiden,@What's going on with me...@,Aiden - 반복대화 1
+41,Fabian,(그냥 말을 걸어도 반응하지 않을 것 같아요.)☆①,
+42,Aiden,@What a terrible dream. Ugh... Is it today? Or tomorrow...?@,Aiden - 반복대화 2
+43,Fabian,(He doesn't seem to hear me anymore.)☆①,
+44,Fabian,@Have you been having strange ⓡ(nightmares)ⓦ lat...@,키워드 - 악몽1 - 
+45,Fabian,(Before I could finish my sentence^ he turned those hollow pupils toward me and shouted.),
+46,Aiden,@That's right!! It's a horrable ⓡ(●2ⓝnightmare)ⓦ.@,
+47,Aiden,@A hopeless dream that I can't wake up from^ even when the seawater keeps pouring down my throat^ and choking me.@,
+48,Aiden,@No matter how many times I died^ I couldn't wake up. Yeah... I guess I'm going to die. No^ I'm sure of it…@,
+49,Aiden,@No... No^ it's not just me^ we're all going to die. Yeah... Hehe...@,
+50,Fabian,@That ⓡ(nightmare)ⓦ. Can you tell me more about that?@,
+51,Aiden,@What the...? Who are you!@,
+52,Fabian,@What? I... Ha... shit.@,
+53,Fabian,(He looks distraught).,
+54,Fabian,'Anyway^ it's a terrible dream.',
+55,Fabian,@Your wife has requested this^ sir. May I have a word with you?@,키워드 - Ella트리스1 - 
+56,Fabian,(When his wife's name came up^ he reacted violently.),
+57,Aiden,@That's right^ Ella! Only Ella must survive.@,
+58,Aiden,@Yeah^ you. Don't deal with me^ take Ella and get the hell out of this city!@,
+59,Aiden,@It's good for you^ too^ come on!@,
+60,Fabian,(With that^ he bowed his head and began muttering again.),
+61,Fabian,'How can I elicit a different answer...',
+62,Fabian,@What's that ⓡ(safe)ⓦ you're holding?@,키워드 - 금고- 
+63,Fabian,(When he heard the word 'safe'^ he hugged the thing in his arms harder.),
+64,Aiden,@No... This ⓡ(safe)ⓦ must be protected at all costs.@,
+65,Fabian,@What was inside that... Ugh^ there's no point in saying more.@★②,
+66,Fabian,'There is no peaceful way to resolve this situation.',금고 선택지 1 - 힘
+67,Fabian,@Sorry ⓖ(Mr. Aiden)ⓦ^ but I'm going to have to take that one...!@♠①,
+68,Fabian,(After a bit of a struggle^ I was able to take the ⓡ(safe)ⓦ from him.),힘판정 성공
+69,Fabian,'Whoo... what can I say now.',
+70,Fabian,(With that thought^ I glance back toward ⓖ(Aiden)ⓦ^ but he's got his head down again^ muttering something.),
+71,Fabian,@ⓖ(Mr. Aiden)ⓦ? The ⓡ(safe)ⓦ... Huh?@,
+72,Fabian,@It worked out in the end...for me?@,
+73,Fabian,'The password is... I think^ I won't get an answer even if I ask.',
+74,Fabian,'I can try to unlock it myself^ or... Take it to ⓖ(Dusty Dave)ⓦ^ the ⓑ(slum)ⓦ dude^ and he'll fix it.',
+75,Fabian,'This guy hasn't slept in a while^ why is he so strong?',힘판정 실패
+76,Fabian,(Then my hand slipped and I fell hard backwards).,
+77,Fabian,@Uh... My back...@,체력 -1
+78,Fabian,'I don't see how it can't be done by force...',
+79,Fabian,(I tried to convince him as gently as possible^ mentioning his wife^ ⓖ(Ella Triss)ⓦ.),금고 선택지 2 - 언변술 성공
+80,Aiden,@...@,
+81,Fabian,(Then^ without a word^ he set the ⓡ(safe)ⓦ down on the floor.),
+82,Fabian,@Thank you for your cooperation. This will make things easier for us.@,
+83,Fabian,(I then asked for the password^ but was unable to get an answer.),
+84,Fabian,'I can try to unlock it myself^ or... Take it to ⓖ(Dusty Dave)ⓦ^ the ⓑ(slum)ⓦ dude^ and he'll fix it.',
+85,Aiden,@No! I'm not giving it to you!@,금고 선택지 2 - 언변술 실패
+86,Fabian,(As if he didn't believe me^ he grips the ⓡ(safe)ⓦ even harder.),
+87,Fabian,'Nothing is ever easy...',
+88,Fabian,'It's better to leave it alone rather than touching it unnecessarily and making it worse.',<선택지 3. 그냥 가만히 둔다.>
+89,Fabian,'It's probably got money or valuables in it.',
+90,Fabian,(He did not respond to this topic.),//첫번째 키워드 실패
+91,Aiden,@What the hell^ who are you!@,//두번째 키워드 실패
+92,Fabian,@I was hired by your wife to...@,
+93,Aiden,@I don't need you^ so get lost!@,
+94,Fabian,(As he said this^ I was slapped in the face by an outstretched arm.),
+95,Aiden,@Ugh...@◎⑥,체력 -1
+96,Fabian,(He kept yelling at me to leave^ and I finally had to leave the room.),
+97,Fabian,(I did a little research on him and found out that he suffers from ⓡ(insomnia)ⓦ and stress-induced ⓡ(paranoia)ⓦ.),<Aiden - 의학지식판정> - 성공
+98,Fabian,(Apparently^ the cause of his symptoms was a ⓡ(nightmare)ⓦ he was currently having.),
+99,Fabian,(To my knowledge^ I've never heard of ⓡ(insomnia)ⓦ caused by ⓡ(●3ⓝnightmares)ⓦ alone.),
+100,Fabian,(I didn't notice anything in particular.),<Aiden - 의학지식판정> - 실패
+101,Fabian,,
+102,Aiden,,
+103,Fabian,,
+104,Aiden,,
+105,Fabian,,
+106,Aiden,,
+107,Fabian,,
+108,Fabian,,
+109,Aiden,,
+110,Fabian,,
+111,Fabian,,
+112,Aiden,,
+113,Fabian,,
+114,Aiden,,
+115,Fabian,,
+116,Aiden,,
+117,Fabian,,
+118,Fabian,,
+119,Fabian,,
+120,Aiden,,
+121,Fabian,,
+122,Fabian,,
+123,Fabian,,
+124,Ella,@What do you think...?@☆①,//밖으로 나온다면 - 금고 O
+125,Fabian,@I wouldn't say it was in great shape by any means^ but at least it wasn't harvestless.@,
+126,Fabian,(I then showed her the ⓡ(safe)ⓦ.),
+127,Ella,@Is that my husband's ⓡ(safe)ⓦ?@,
+128,Fabian,@Yes^ that's right^ do you happen to know the password or not?@,
+129,Ella,@No. That was my husband's personal items^ so I don't know.@,
+130,Fabian,@I'll try to unlock it on my end^ and I'll come back to you if I make any progress or have more to say.@,
+131,Ella,@Yes^ thanks...@,
+132,Ella,@What do you think...?@☆①,//금고가 없다면
+133,Fabian,@I'm not sure it's in good shape^ but I'm sure there's way out.@,
+134,Fabian,(She looks a little disappointed when I say that).,
+135,Fabian,@ I'll come back to you if I make any progress or have more to say.@,
+136,Ella,@Yes^ thanks...@,
+137,Fabian,(It's an ordinary house that could be found anywhere. From the looks of it^ there are no children in the house yet.),Ella집 1층 관찰력
+138,Fabian,@In the meantime^ do you remember anything new about your husband?@,Ella키워드 - Aiden 트리스 
+139,Ella,@Well...@,
+140,Fabian,@Maybe the latest article your husband is looking into.@,(하수도의 이상한 괴담 미 획득이라면)
+141,Ella,@I think^ It was probably some weird ⓡ(●1ⓢghost story in the sewer)ⓦ.@,
+142,Fabian,@ⓡ(Sewer ghost story)ⓦ? What was that about?@,
+143,Ella,@I don't know because I've only heard it through the overhear^ but someone got an alligator as a pet and then dumped it down the sewer.@,
+144,Ella,@And the story was that the crocodile would eat things like rats and stuff and get really big and  drag people them away.@,
+145,Fabian,@That's an interesting story^ thank you.@,
+146,Fabian,'Alligators in the sewers... Ask ⓖ(Albert)ⓦ^ he might know something. He's a cop. He's heard of it.',
+147,Ella,@Well^ I'm not sure about that.@,(Ella에게 잘 모르는 키워드 사용)
+148,Fabian,'This guy must be ⓖ(Aiden)ⓦ.',Aiden Active
+149,Fabian,(His eyes came alive^ albeit slightly. His fear seems to have eased a bit.),<Aiden - 정신분석 판정 – 매우 어려운> - 성공 - 금고있음
+150,Aiden,@Well... who are you... why are you in my house...@,
+151,Fabian,@Now that you've calmed down^ I'm a private investigator hired by your wife. @,
+152,Aiden,@ⓖ(Ella)ⓦ... Oh^ But it's no use^ you won't understand^ I'm already done.@,
+153,Fabian,@What do you mean it's over? Tell me anything.@,
+154,Aiden,@So if I told you the world was about to end^ you'd believe me?@,
+155,Fabian,'What? The end of the world? Why is he writing a novel?',
+156,Fabian,@ End of the world^ you say..? People these days may complain that the world is ending just because they can't handle their alcoho...@,
+157,Aiden,@Haha^ look at that^ wouldn't believe you if i told. anyway^ Though that's good for your mental health...@,
+158,Fabian,(As he said this^ he pointed to the ⓡ(safe)ⓦ I had taken.),
+159,Fabian,@Ah... this.@,
+160,Aiden,@Don't worry^ the information I was looking for is in there. Maybe you'll understand when you see it.@,//병합 지점
+161,Fabian,@Okay^ that's great. So... what's the password?@,
+162,Aiden,@Uh..... forgot.@,
+163,Fabian,'Is this guy trying to play a joke on me?',
+164,Fabian,'There are people who^ just because I mention being a detective^ immediately associate it with that Holmes fellow or something.',
+165,Fabian,@You forgot? but isn't it your ⓡ(safe)ⓦ?@,
+166,Aiden,@Yes^ that's right^ but I don't remember...@,
+167,Fabian,@...Okay^ well^ I'll try to fix that on my end.@,
+168,Fabian,(At that moment^ his pupils dilated as if he had seen something^ and he started muttering to himself again^ as he had earlier.),
+169,Fabian,'At least there's a harvest. and I'm sure I'll get something out of this.',
+170,Fabian,(His eyes came alive^ albeit slightly. His fear seems to have eased a bit.),<Aiden - 정신분석 판정 – 매우 어려운> - 성공 - 금고없음
+171,Aiden,@Well... who are you... why are you in my house...@,
+172,Fabian,@Now that you've calmed down^ I'm a private investigator hired by your wife. @,
+173,Aiden,@ⓖ(Ella)ⓦ... Oh^ But it's no use^ you won't understand^ I'm already done.@,
+174,Fabian,@What do you mean it's over? Tell me anything.@,
+175,Aiden,@So if I told you the world was about to end^ you'd believe me?@,
+176,Fabian,'What? The end of the world? Why is he writing a novel?',
+177,Fabian,@ End of the world^ you say..? People these days may complain that the world is ending just because they can't handle their alcoho...@,
+178,Aiden,@Haha^ look at that^ wouldn't believe you if i told. anyway^ Though that's good for your mental health...@,
+179,Fabian,(With that^ he handed me the ⓡ(safe)ⓦ he was holding in his arms.),
+180,Fabian,@Is this?@,
+181,Aiden,@Here's the information I was looking for. Maybe this will help you understand.@,//병합 지점
+182,Fabian,@Okay^ that's great. So... what's the password?@,
+183,Aiden,@Uh..... forgot.@,
+184,Fabian,'Is this guy trying to play a joke on me?',
+185,Fabian,'There are people who^ just because I mention being a detective^ immediately associate it with that Holmes fellow or something.',
+186,Fabian,@You forgot? but isn't it your ⓡ(safe)ⓦ?@,
+187,Aiden,@Yes^ that's right^ but I don't remember...@,
+188,Fabian,@...Okay^ well^ I'll try to fix that on my end.@,
+189,Fabian,(At that moment^ his pupils dilated as if he had seen something^ and he started muttering to himself again^ as he had earlier.),
+190,Fabian,'At least there's a harvest. and I'm sure I'll get something out of this.',
+191,Fabian,@I saw a ⓡ(creepy eye)ⓦ in the sewers by the ⓑ(riverside)ⓦ... do you know anything about this?@,//오후 추가 키워드 - 섬뜩한눈
+192,Fabian,(ⓖ(Aiden)ⓦ then looked at me with bloodshot eyes.),
+193,Aiden,@What!? Under the sewers? You went there to investigate?@,
+194,Fabian,@No^ I didn't go to investigate^ I just happened to...@,
+195,Aiden,@Then you'd better not go near it again^ unless you want to end up like me.@,
+196,Fabian,@Are you saying that what happened to you had something to do with it?@,
+197,Fabian,(ⓖ(Aiden)ⓦstarted muttering to himself again.),
+198,Aiden,@Ugh... Why did I say I was going to investigate some weird ⓡ(●1ⓢsewer ghost story)ⓦ...@,
+199,Fabian,(To summarize his subsequent comments^ it's like the ghost story of the alligator in the sewer.),
+200,Fabian,'What I saw was definitely not an alligator.',
+201,Fabian,'Alligators in the sewers...ask ⓖ(Albert)ⓦ^ he might know something. ',
+202,Fabian,@Have you noticed a ⓡ(fishy smell)ⓦ on the street or in a building lately that wasn't there before?@,Ella 추가 - 비릿한냄새/ 괴담o
+203,Ella,@Hmm... I don't think I've ever done that^ but ah!@,
+204,Ella,@I think my husband's clothes ⓡ(●2ⓕsmelled)ⓦ like that once^ and so did he^ because the latest story he was covering was a weird ⓡ(●1ⓢsewer ghost story)ⓦ.@,
+205,Fabian,@Have you noticed a ⓡ(fishy smell)ⓦ on the street or in a building lately that wasn't there before?@,Ella 추가 - 비릿한냄새/ 괴담x
+206,Ella,@Hmm... I don't think I've ever done that^ but ah!@,
+207,Ella,@I think my husband's clothes ⓡ(●2ⓕsmelled)ⓦ like that once^ and so did he^ because the latest story he was covering was a weird ⓡ(●1ⓢsewer ghost story)ⓦ.@,
+208,Fabian,@ⓡ(sewer ghost story)ⓦ? What was that about?@,
+209,Ella,@I don't know because I've only heard it through the overhear^ but someone got an alligator as a pet and then dumped it down the sewer.@,
+210,Ella,@And the story was that the crocodile would eat things like rats and stuff and get really big and  drag people them away.@,
+211,Fabian,@That's an interesting story^ thank you.@,
+212,Fabian,'Alligators in the sewers... Ask ⓖ(Albert)ⓦ^ he might know something. He's a cop. He's heard of it.',
 213,,,
 214,,,
 215,,,

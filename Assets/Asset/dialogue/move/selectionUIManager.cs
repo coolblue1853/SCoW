@@ -123,7 +123,7 @@ public class selectionUIManager : MonoBehaviour
         {
             DialogManager.Instance.ChoiceEx_NextPage_t();
             Select_1st_ClientsOffice_Safe.SetActive(false);
-            Rollet.Instance.setRollet("에이든 : 설득", "언변술", DataBaseManager.rhetoricPoint, "dialog");
+            Rollet.Instance.setRollet("Aiden : Persuasion", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
         }
         if (SelectButton == "Select_End")
         {

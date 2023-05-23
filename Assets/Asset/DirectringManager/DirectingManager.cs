@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class DirectingManager : MonoBehaviour
 {
+    float ChInRommSize = 2.383215f; // -이면 왼쪽 +면 오른쪽
     Vector2 player_OutsideTo1st = new Vector3(-1217.79f, 2.13f);
     Vector3 Cam_OutsideTo1st = new Vector3(-1198, 1.5f, -15);
 
@@ -52,9 +53,17 @@ public class DirectingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         //원래라면 활성화 해 주어야 함.
-        //InteractionController.Instance.Start_1st_DetectiveOffice("start"); 
+        FadingBackGround.Instance.FadeOut();
+        Invoke("startGame", 2f);
+    }
+
+
+
+    void startGame()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("start");
     }
 
     // Update is called once per frame
@@ -149,11 +158,20 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.EndDemo = false;
             FadingBackGround.Instance.DemoEnd_FadeIn();
         }
-         if((DataBaseManager.TimeCount % 4) == 0 && once == false)
+         if((DataBaseManager.TimeCount % 4) == 0 && DataBaseManager.nowPlace  == "DetectiveOffice" && once == false)
         {
+            DirectingManager.Instance.OrganizeKeyword();
             once = true;
             player.SetActive(false);
-            Invoke("KeyConnect", 5f);
+            sit_NoNewsPaperPlayer.SetActive(true);
+            if (DataBaseManager.isBar == true)
+            {
+                Invoke("KeyConnect", 12f);
+            }
+            else
+            {
+                Invoke("KeyConnect", 3f);
+            }
         }
     }
     bool once = false;
@@ -194,6 +212,7 @@ public class DirectingManager : MonoBehaviour
     void moveInside()
     {
         CameraManager.Instance.isCheckEnd = true;
+        player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
         player.transform.localPosition = player_OutsideTo1st;
         Camera.transform.localPosition = Cam_OutsideTo1st;
         Invoke("InsiedDialog", 2f);
@@ -213,7 +232,7 @@ public class DirectingManager : MonoBehaviour
     }
     void MoveUpsair()
     {
-
+        player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
         CameraManager.Instance.isCheckEnd = true;
         player.transform.localPosition = player_1stTo2st;
         Camera.transform.localPosition = Cam_1stTo2st;
@@ -353,7 +372,7 @@ public class DirectingManager : MonoBehaviour
         {
             functionList.Add(Fab_Univ1);
         }
-        if (DataBaseManager.Intel_Meiv1 == true)
+        if (DataBaseManager.Intel_Meiv2 == true)
         {
             functionList.Add(Fab_Meiv2);
         }

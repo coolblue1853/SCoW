@@ -1,72 +1,72 @@
 ID,캐릭터이름,대사,
-1,경찰관A,@음? 오랜만이군. 무슨일로 찾아왔나.@,//최초대사
-2,노아,@뭐^ 의뢰 때문이죠. ⓖ(알버트)ⓦ는 잘 있나요?@,
-3,경찰관A,@평소랑 똑같지. @,
-4,경찰관A,@...구태여 말하는데^ 괜히 이상한 사건 일으키지 말고 조심히 행동하게. @,
-5,노아,@그럼요. 이번 일도 별거 아닌 의뢰에요.@,
-6,경찰관A,@뭐 더 할말이라도 남았나?@,//반복대사
-7,경찰관B,@음? 요즘 통 안보이더니 오랜만이네.@,//최초대사
-8,노아,@그러게요. 요즘은 일이 별로 없긴했죠.@,
-9,경찰관B,@최근들어 마피아나 양아치 녀석들이 잠잠했으니까 말이야.@,
-10,경찰관B,@......뭐 좋은게 좋은거 아니겠어.@,
-11,경찰관B,@더 물어볼게 있으면 알버트에게 말해봐.@,
-12,경찰관B,@뭐^ 내 일이라도 도와주게?@,
-13,알버트,@오랜만이네 ⓖ(알버트)ⓦ@,알버트 최초대사
-14,파비안,@오^ 파비안. 오랜만인걸?.@,
-15,파비안,@그러게^ 요즘은 통 일이 없긴했지. 설마 주변이 평화로워서 골머리를 썩힐 줄이야.@,
-16,파비안,@넌 편하겠어 요즘엔 현장에 나갈일도 없을거 아냐.@,
-17,알버트,@으음~ 그게말이지…@,
-18,파비안,@왜^ 또 밀주 때문에 말썽이야?@,
-19,알버트,@그것도 있긴 한데 어차피 관리 감독만 해주면 되니까 @,
-20,파비안,@그럼 또 서장한테 찍혔어? 저번에도 서류때문에 한소리 듣더니만@,
-21,알버트,@그것도 아니라고는 못하지만 말이지..~@,
-22,파비안,(그리고는 ⓖ(알버트)ⓦ는 약간 진지해진 얼굴로 주변을 살펴보더니 작게 속삭이기 시작했다.),
-23,알버트,@알지? 어디가서 말하면안된다?@,
-24,파비안,@물론이지^ 언제 내쪽에서 정보가 센적 있어?@,
-25,알버트,@그렇긴하지^ 그래서 말이야. 요 근래에 남자 넷^ 여자 둘이 사라지는 ⓡ(●2연속 실종 사건)ⓦ이 발생했어.@,
-26,파비안,@실종? 그런거야 이 근방에서는 흔한 일 아니었나?@,
-27,알버트,@물론 빈민가 사람들이면 그렇긴한데 이번엔 그렇지 않거든@,
-28,알버트,@다들 중산층에 직업도 건실하게 있는 사람이었고 실종될 징후도 없었거든. 가족들도 의아해 하더라고.@,
-29,알버트,@게다가 실종된 6명은 모두 서로 모르는 남남이었으니까^ 개별 사건이라고 생각하는 사람도 있더라고@,
-30,파비안,@불특정 ⓡ(연쇄 실종 사건)ⓦ이라니 특이하기도 하네.@,
-31,파비안,@그런데 잠깐^ 이런 소식은 전혀 못들어 본것 같은데 실종 사건이면 전단이나 신문에 기사를 내던가 하지 않아?@,
-32,알버트,@그게 이렇게 속닥거리는 이유야. 상부에서 비밀로 부치라는 말이 나왔거든@,
-33,알버트 ,@서내에 출입하는 기자들 뿐만 아니라 피해 가족들에게 까지도.@,
-34,알버트,@우리끼리는 뭐 마피아라도 관련된거 아니냐 하지만 말이야. 이크^ ⓖ(메이브)ⓦ가 들으면 성내겠어.@,
-35,알버트,@아무튼 뭔가 으스스하지 않아? 최근 조용한 가운데 사람은 흔적도 없이 사라지고.@,
-36,알버트,@조심하라고 알려주는거니까 괜히 고개 들이밀지는 말고^ 이거 들키면 징계라구.@,
-37,파비안,@알겠어 알겠어. 걱정하지마@☆①,
-38,알버트,@뭐 물어볼거라도 더 남아있어?@☆①,//반복대사
-39,파비안,@아침에 기사 봤어? 뭐 별이 늘어선다던데.@,키워드 행성대직렬1
-40,알버트,@그거라면 나도 신문에서 봤지 딱히 흥미롭지는 않았지만.@,
-41,알버트,@그러고 보니 우리 서 내에서도 ⓡ(불면증)ⓦ을 호소하는 사람이 많긴 많은데 말이야.@,//불면증1
-42,파비안,@ 그건 그냥 야근에 일이 힘들어서 그런거아냐?@,
-43,알버트,@어라^ 듣고 보니 그렇네.@,
-44,파비안,@최근에 ⓖ(메이브)ⓦ 본적 있어?@,메이브1
-45,알버트,@아니^ 최근 집중 단속기간이거든. 이런 시기에 찾아가면 폐만 끼치겠지. 나중에 얼굴보면 안부 전해줘.@,
-46,파비안,@그래.@,
-47,알버트,@그건 잘 모르겠는걸.@,키워드x
-48,파비안,(깐깐한 경찰관^ ⓖ(알버트)ⓦ를 아끼는지 나를 달갑게 생각하지 않는다.),A살펴보기
-49,파비안,(융통성 있는 경찰관^ 얼마 전에도 도움을 받은 적이 있다.),B살펴보기
-50,파비안,(친구이자 유능한 경찰관인 ⓖ(알버트)ⓦ),알버트 살펴보기
-51,파비안,(여자를 조금 밝히는 것만 빼면 좋은 녀석이다.),
-52,파비안,@젠장^ ⓖ(알버트)ⓦ 내가 오늘 ⓑ(강가)ⓦ의 하수도에서 뭘 본줄 알아?@,알버트 오후 키워드 - 섬뜩한눈 1 
-53,파비안,@엄청나게 큰 생선눈깔을 박아넣은 인간이 돌아다니더라니까!@,
-54,알버트,@하하하… 파비안 그게 아니라구. 그 ⓡ(하수도의 이상한 괴담)ⓦ 이라면 생선눈깔을 박아넣은 인간이 아니라 애완 악어겠지.@,
-55,파비안,@내 두 눈으로 똑똑히 봤대도.@,
-56,알버트,@너…~ 요즘 일이 없다고 대낮부터 술먹고 그러는거 아니지? 걸리면 잡혀간다?@,
-57,알버트,@뭔갈 봤데도 ⓖ(●1하수도 노동자)ⓦ였겠지.@,
-58,파비안,‘이자식 내 말을 쥐꼬리만큼도 안믿고 있잖아?’,
-59,알버트,@그거라면 나도 들어본적 있지. 최근에까지 전화로 진짜 있는거냐고 묻는 전화가 있었거든.@,하수도 괴담1
-60,파비안,@그래서 현실은 어떤데.@,
-61,알버트,@파비안… 그런게 현실에 가능키나 한 일이겠어? 당연히 ⓡ(●2거짓 소문)ⓦ이지.@,
-62,알버트,@반년 전 즈음에 밀주 경로를 확인한다고 하수도 밑을 까 뒤집었는데 거긴 도저히 악어가 살법한 환경이 아니야. 시궁쥐 정도면 모를까.@,
-63,파비안,@최근 도시에서 ⓡ(비릿한 냄새)ⓦ가 난다던데 말이야. 들어본적 있어?@,비릿한냄새 1
-64,알버트,@알다마다 그거때문에 우리쪽에도 어찌나 문의 전화가 오는지.@,
-65,파비안,@원인은 아직 못 찾아냈고?@,
-66,알버트,@글쎄... 이렇다 할만한건 없네.@,
-67,알버트,@소수지만 외부 인원도 알고 있긴 하더라고.@,Reporting by Swain
-68,알버트,@그렇지만 너무 깊게 관여하지 않는게 좋을거야.@,
+1,Police OfficersA,@Hmm? It's been a while^ what brings you here.@,//최초대사
+2,Fabian,@Well^ it's a request. How's ⓖ(Albert)ⓦ?@,
+3,Police OfficersA,@Same as usual.@,
+4,Police OfficersA,@...I'm telling you^ be careful and don't cause any trouble.@,
+5,Fabian,@Sure. This one's no big deal.@,
+6,Police OfficersA,@Anything else?@,//반복대사
+7,Police OfficersB,@Hmm? I haven't seen you around lately.@,//최초대사
+8,Fabian,@Yeah^ I haven't had a lot of work lately.@,
+9,Police OfficersB,@Because the mafia and thugs have been quiet lately.@,
+10,Police OfficersB,@What's good is good.@,
+11,Police OfficersB,@Talk to ⓖ(Albert)ⓦ if you have any more questions.@,
+12,Police OfficersB,@What^ you want to help me do my job?@,
+13,Albert,@It's been a while^ ⓖ(Albert)ⓦ.@,Albert 최초대사
+14,Fabian,@Oh^ Fabian. It's been a while.@,
+15,Fabian,@I haven't had much work these days. To be honest^ I never thought I'd be racking my brain because things are too peaceful around me.@,
+16,Fabian,@It's easy for you^ you're not going out in the field these days.@,
+17,Albert,@Well^ that's...~@,
+18,Fabian,@Why^ are you in trouble for bootlegging again?@,
+19,Albert,@That's there too^ but it doesn't really matter because I'm only going to have to oversee it anyway.@,
+20,Fabian,@So you got caught by the chief again? You got yelled at for your papers last time.@,
+21,Albert,@I'm not saying it's not^ but...~@,
+22,Fabian,(Then ⓖ(Albert)ⓦ turned slightly serious^ looked around^ and began to whisper in a low voice.),
+23,Albert,@You know^ you're not supposed to say it anywhere?@,
+24,Fabian,@Sure. When has information ever leaked out of my end?@,
+25,Albert,@It is... There's been a string of ⓡ(●2ⓜmissing people)ⓦ recently^ four men and two women.@,
+26,Fabian,@Missing people? Isn't that common around here?@,
+27,Albert,@Well^ maybe for slum people^ but not this time.@,
+28,Albert,@They were most middle-class^ solidly employed^ and there was no sign of them going missing. Their families were puzzled.@,
+29,Albert,@And since the six people who went missing were all men who didn't know each other. Some people thought it was an isolated incident.@,
+30,Fabian,@An unspecified series of ⓡ(missing people)ⓦ... that's unusual.@,
+31,Fabian,@But wait^ I don't think I've ever heard of this before. Don't they put up flyers or something in the newspaper when someone goes missing?@,
+32,Albert,@That's why I'm whispering. I've been told by my superiors to keep it a secret.@,
+33,Albert ,@Not just to reporters entering the building^ but to the families of the victims.@,
+34,Albert,@I think there's some sort of mafia connection between that^ but... Oh^ ⓖ(Maeve)ⓦ's gonna be pissed if she hears about it.@,
+35,Albert,@Isn't there something spooky about this? People disappearing without a trace in the middle of a recent quiet?@,
+36,Albert,@I'm just letting you know to be careful^ so don't do anything stupid. If I get caught doing this^ I will be disciplined.@,
+37,Fabian,@Okay^ okay^ don't worry.@☆①,
+38,Albert,@Anything else?@☆①,//반복대사
+39,Fabian,@Did you see the article this morning? It said the stars are aligned.@,키워드 행성대직렬1
+40,Albert,@I saw that in the paper^ too^ but it wasn't particularly interesting.@,
+41,Albert,@That said^ we do have a lot of ⓡ(insomniacs)ⓦ in our office.@,//불면증1
+42,Fabian,@Isn't that just because you work late nights?@,
+43,Albert,@Oh^ I see.@,
+44,Fabian,@Have you seen ⓖ(Maeve)ⓦ lately?@,메이브1
+45,Albert,@No^ we're in the middle of a crackdown. I'm sure she'll be a nuisance. Say hello to her when you see later.@,
+46,Fabian,@Yeah.@,
+47,Albert,@I'm not sure about that.@,키워드x
+48,Fabian,(A stern policeman. He don't like me that much.),A살펴보기
+49,Fabian,(Flexible police officer^ who have helped me before.),B살펴보기
+50,Fabian,(ⓖ(Albert)ⓦ^ a friend and competent police officer.),Albert 살펴보기
+51,Fabian,(He's a good guy^ except he's a little bit of a womanizer.),
+52,Fabian,@Damn it^ ⓖ(Albert)ⓦ^ you know what I saw in the sewers by the ⓑ(river)ⓦ today?@,Albert 오후 키워드 - 섬뜩한눈 1 
+53,Fabian,@There were humans walking around with giant fish eyes!@,
+54,Albert,@Hahaha... Fabian^ no^ that's not it. That sewer ⓡ(ghost story)ⓦ is a pet crocodile^ not a human with fish eyes.@,
+55,Fabian,@I saw it with my own two eyes.@,
+56,Albert,@You...~ You're not drinking in broad daylight because you don't have a request these days^ are you?@,
+57,Albert,@If you saw something^ That must be a ⓖ(●1ⓦsewer worker)ⓦ.@,
+58,Fabian,'He don't believe a word I'm saying.',
+59,Albert,@I've heard of that one. I've gottencalls asking if it's real until recently.@,하수도 괴담1
+60,Fabian,@So what's the reality.@,
+61,Albert,@Fabian... That's not possible in real life. Of course it's a ⓡ(●2ⓢrumor)ⓦ..@,
+62,Albert,@About half a year ago^ we were digging under the sewers to check for smuggling routes^ and it's not a crocodile-friendly environment.@,
+63,Fabian,@There's been a ⓡ(fishy smell)ⓦ in the city lately. Have you heard?@,비릿한냄새 1
+64,Albert,@I can't tell you how many times we've gotten calls about it.@,
+65,Fabian,@Have you found the cause yet?@,
+66,Albert,@Well...@,
+67,Albert,@It's a small number^ but it's something that people on the outside know about.@,Reporting by Swain
+68,Albert,@But it's probably best not to get too deep into it.@,
 69,,,
 70,,,
 71,,,

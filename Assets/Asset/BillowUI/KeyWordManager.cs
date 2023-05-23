@@ -791,7 +791,7 @@ public class KeyWordManager : MonoBehaviour
             if (DataBaseManager.Intel_PlanetarySequence1 == true || DataBaseManager.Intel_PlanetarySequence2 == true || DataBaseManager.Intel_PlanetarySequence3 == true || DataBaseManager.Intel_PlanetarySequence4 == true || DataBaseManager.Intel_PlanetarySequence5 == true || DataBaseManager.Intel_PlanetarySequence6 == true)
             {
                 isPlanetarySequenceAddList = true;
-                upperEventKeywordList.Add("PlanetarySequence");
+                upperEventKeywordList.Add("PlanetaryParade");
             }
         }
         if(isNightmareAddList == false)
@@ -1180,7 +1180,7 @@ public class KeyWordManager : MonoBehaviour
         // 사건 
 
         // 행성대직렬
-        if (DataBaseManager.keyword_upper == "PlanetarySequence" && PlanetarySequenceKeywordCount>=0)
+        if (DataBaseManager.keyword_upper == "PlanetaryParade" && PlanetarySequenceKeywordCount>=0)
         {
             DataBaseManager.keyword_downer = PlanetarySequenceList[PlanetarySequenceKeywordNum];
         }

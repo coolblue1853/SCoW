@@ -1339,66 +1339,66 @@ public class InteractionController : MonoBehaviour
    public void RetrunDialogResult(string Sub_Dialog, string result_End)
     {
         // 1일차 오전 탐정사무소 판정
-        if(Sub_Dialog == "신문 : 살펴보기")
+        if(Sub_Dialog == "Newspaper : Read")
         {
             DataBaseManager.fst_Detectiv_TimeOn += 1;
-            if (result_End == "판정 : 성공"|| result_End == "판정 : 대성공")
+            if (result_End == "Result : Success"|| result_End == "Result : Critical Success")
             {
                 theDM.ShowDialog(NewsPaper_Judege_True.transform.GetComponent<interactionEvent>().GetDialogs());
   
             }
-            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
                 theDM.ShowDialog(NewsPaper_Judege_False.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
-        if (Sub_Dialog == "스토브 : 사용하기")
+        if (Sub_Dialog == "Stove : Making coffee")
         {
             DataBaseManager.fst_Detectiv_TimeOn += 1;
-            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
                 DataBaseManager.Condition = "Good";
                 theDM.ShowDialog(Stove_Judge_True.transform.GetComponent<interactionEvent>().GetDialogs());
 
             }
-            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
                 theDM.ShowDialog(Stove_Judge_False.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
-        if (Sub_Dialog == "에이든 : 진단")
+        if (Sub_Dialog == "Aiden : Diagnosis")
         {
             DataBaseManager.Aiden_medicine = true;
-            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
 
                theDM.ShowDialog(Aiden_Judge_medicine_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
 
             }
-            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
                 theDM.ShowDialog(Aiden_Judge_medicine_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
-        if (Sub_Dialog == "에이든 : 살펴보기")
+        if (Sub_Dialog == "Aiden : Look")
         {
             DataBaseManager.Aiden_Observation = true;
-            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
 
                theDM.ShowDialog(Aiden_Judge_Observation_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
 
             }
-            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
                 theDM.ShowDialog(Aiden_Judge_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
-        if (Sub_Dialog == "에이든 : 안정")
+        if (Sub_Dialog == "Aiden : Calming down")
         {
             DataBaseManager.Aiden_psychotherapy = true;
 
-            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
                 if(DataBaseManager.getSafe == false)
                 {
@@ -1412,21 +1412,21 @@ public class InteractionController : MonoBehaviour
                 }
 
             }
-            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
                 theDM.ShowDialog(Aiden_Judge_medicine_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
-        if (Sub_Dialog == "에이든 : 설득")
+        if (Sub_Dialog == "Aiden : Persuasion")
         {
 
-            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
                 DataBaseManager.getSafe = true;
                 theDM.ShowDialog(Aiden_key_Safe_rhetoric_sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
 
             }
-            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
                 theDM.ShowDialog(Aiden_key_Safe_rhetoric_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
@@ -1434,13 +1434,13 @@ public class InteractionController : MonoBehaviour
         if (Sub_Dialog == "Aiden : TakeAway")
         {
 
-            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
                 DataBaseManager.getSafe = true;
                 theDM.ShowDialog(Aiden_key_Safe_Str_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
 
             }
-            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
                 BillowUIManager.Instance.HP_down(5);
                 theDM.ShowDialog(Aiden_key_Safe_Str_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -1449,13 +1449,13 @@ public class InteractionController : MonoBehaviour
         if (Sub_Dialog == "Swain : Look")
         {
 
-            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
 
                 theDM.ShowDialog(Swain_LookJudge_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
 
             }
-            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
 
                 theDM.ShowDialog(Swain_LookJudge_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -1466,13 +1466,13 @@ public class InteractionController : MonoBehaviour
         if (Sub_Dialog == "Sewer : Look")
         {
 
-            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
 
                 theDM.ShowDialog(Sewer_Observation_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
 
             }
-            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
 
                 theDM.ShowDialog(Sewer_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -1481,13 +1481,13 @@ public class InteractionController : MonoBehaviour
         if (Sub_Dialog == "SAN : Check")
         {
 
-            if (result_End == "판정 : 성공" || result_End == "판정 : 대성공")
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
 
                 theDM.ShowDialog(Sewer_Observation_SucssesAfterSanSuc.transform.GetComponent<interactionEvent>().GetDialogs());
 
             }
-            else if (result_End == "판정 : 실패" || result_End == "판정 : 대실패")
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
                 BillowUIManager.Instance.San_Down(10);
                 theDM.ShowDialog(Sewer_Observation_SucssesAfter.transform.GetComponent<interactionEvent>().GetDialogs());

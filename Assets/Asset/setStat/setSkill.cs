@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+using UnityEngine.SceneManagement;
 public class setSkill : MonoBehaviour
 {
+    Sequence mySequence;
+    public GameObject Back;
+    public Image BackGround;
     public float clickTime;
     float minClickTime = 0.5f;
     bool isClick = false;
@@ -55,6 +60,17 @@ public class setSkill : MonoBehaviour
     public Image rhetoric_g;
     public Image stealth_g;
     public Image Disguise_g;
+    public void FadeIn()
+    {
+        Back.SetActive(true);
+        mySequence = DOTween.Sequence()
+        .Append(BackGround.DOFade(1, 1.5f).SetAutoKill());
+        Invoke("goToGame", 1.8f);
+    }
+    public void goToGame()
+    {
+        SceneManager.LoadScene("Main");
+    }
 
     private void Update()
     {

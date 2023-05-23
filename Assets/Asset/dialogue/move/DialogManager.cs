@@ -378,7 +378,13 @@ public class DialogManager : MonoBehaviour
         {
             switch (t_ReplaceText[i])
             {
-                case 'ⓦ': t_white = true; t_yellow = false; t_red = false; t_green = false; t_blue = false; t_ignore = true; break;
+                case 'ⓦ':
+                    if (t_ReplaceText[i - 1] == ')')
+                    {
+                        t_white = true; t_yellow = false; t_red = false; t_green = false; t_blue = false; t_ignore = true; break;
+                    }
+                    t_ignore = true;
+                    break;
                 case 'ⓨ': t_white = false; t_yellow = true; t_red = false; t_green = false; t_blue = false; t_ignore = true; break;
                 case 'ⓡ': t_white = false; t_yellow = false; t_red = true; t_green = false; t_blue = false; t_ignore = true; 
                     if (t_ReplaceText[i + 1] == '(')
@@ -387,15 +393,15 @@ public class DialogManager : MonoBehaviour
                         {
                             if (t_ReplaceText[i + 3] == '1')
                             {
-                                if (t_ReplaceText[i + 4] == '행')
+                                if (t_ReplaceText[i + 4] == 'ⓟ')
                                 {
                                     if (DataBaseManager.Intel_PlanetarySequence1 == false)
                                     {
-                                        IntelManager.Instance.AddIntelFloating("Event", "PlanetarySequence - Contents of a Newspaper");
+                                        IntelManager.Instance.AddIntelFloating("Event", "PlanetaryParade - Contents of a Newspaper");
                                         DataBaseManager.Intel_PlanetarySequence1 = true;
                                     }
                                 }
-                                if (t_ReplaceText[i + 4] == '불')
+                                if (t_ReplaceText[i + 4] == 'ⓘ')
                                 {
                                     if (DataBaseManager.Intel_Insomnia1 == false)
                                     {
@@ -405,7 +411,7 @@ public class DialogManager : MonoBehaviour
                                     }
                               
                                 }
-                                if (t_ReplaceText[i + 4] == '악')
+                                if (t_ReplaceText[i + 4] == 'ⓝ')
                                 {
                                     if (DataBaseManager.Intel_Nightmare1 == false)
                                     {
@@ -414,7 +420,7 @@ public class DialogManager : MonoBehaviour
                                     }
                                
                                 }
-                                if (t_ReplaceText[i + 4] == '편')
+                                if (t_ReplaceText[i + 4] == 'ⓞ')
                                 {
                                     if (DataBaseManager.Intel_Paranoia1 == false)
                                     {
@@ -423,7 +429,7 @@ public class DialogManager : MonoBehaviour
                                     }
                                        
                                 }
-                                if (t_ReplaceText[i + 4] == '금')
+                                if (t_ReplaceText[i + 4] == 'ⓐ')
                                 {
                                     if (DataBaseManager.Intel_Safe1 == false)
                                     {
@@ -432,7 +438,7 @@ public class DialogManager : MonoBehaviour
                                     }
    
                                 }
-                                if (t_ReplaceText[i + 4] == '하') // 하수도 괴담
+                                if (t_ReplaceText[i + 4] == 'ⓢ') // 하수도 괴담
                                 {
                                     if (DataBaseManager.Intel_SewerGhostStory1 == false)
                                     {
@@ -441,7 +447,7 @@ public class DialogManager : MonoBehaviour
                                     }
                                         
                                 }
-                                if (t_ReplaceText[i + 4] == '비') // 비릿한 냄새
+                                if (t_ReplaceText[i + 4] == 'ⓕ') // 비릿한 냄새
                                 {
                                     if (DataBaseManager.Intel_FishySmell1 == false)
                                     {
@@ -450,7 +456,7 @@ public class DialogManager : MonoBehaviour
                                     }
                     
                                 }
-                                if (t_ReplaceText[i + 4] == '연') // 연속실종사건
+                                if (t_ReplaceText[i + 4] == 'ⓜ') // 연속실종사건
                                 {
                                     if (DataBaseManager.Intel_MissingPeople2 == false) 
                                     {
@@ -459,7 +465,7 @@ public class DialogManager : MonoBehaviour
                                     }
 
                                 }
-                                if (t_ReplaceText[i + 4] == '강') // 강의 수질
+                                if (t_ReplaceText[i + 4] == 'ⓡ') // 강의 수질
                                 {
                                     if (DataBaseManager.Intel_RiverWaterQuality1 == false)
                                     {
@@ -468,7 +474,7 @@ public class DialogManager : MonoBehaviour
                                     }
  
                                 }
-                                if (t_ReplaceText[i + 4] == '눈') // 강의 수질
+                                if (t_ReplaceText[i + 4] == 'ⓒ') // 강의 수질
                                 {
                                     if (DataBaseManager.Intel_CreepyEyes1 == false)
                                     {
@@ -480,27 +486,27 @@ public class DialogManager : MonoBehaviour
                             }
                             if (t_ReplaceText[i + 3] == '2')
                             {
-                                if (t_ReplaceText[i + 4] == '행')
+                                if (t_ReplaceText[i + 4] == 'ⓟ')
                                 {
                                     if (DataBaseManager.Intel_PlanetarySequence1 == false)
-                                        IntelManager.Instance.AddIntelFloating("Event", "행성대직렬 - 조간신문 기사");
+                                        IntelManager.Instance.AddIntelFloating("Event", "planetaryparade - 조간신문 기사");
                                     DataBaseManager.Intel_PlanetarySequence1 = true;
 
 
                                 }
-                                if (t_ReplaceText[i + 4] == '불')
+                                if (t_ReplaceText[i + 4] == 'ⓘ')
                                 {
                                     if (DataBaseManager.Intel_Insomnia2 == false)
                                         DataBaseManager.Intel_Insomnia2 = true;
                                     IntelManager.Instance.AddIntelFloating("Event", "Insomnia - Doctor's opinion");
                                 }
-                                if (t_ReplaceText[i + 4] == '악')
+                                if (t_ReplaceText[i + 4] == 'ⓝ')
                                 {
                                     if (DataBaseManager.Intel_Nightmare2 == false)
                                         DataBaseManager.Intel_Nightmare2 = true;
                                     IntelManager.Instance.AddIntelFloating("Event", "Nightmare - Content of a Nightmare");
                                 }
-                                if (t_ReplaceText[i + 4] == '편')
+                                if (t_ReplaceText[i + 4] == 'ⓞ')
                                 {
                                     if (DataBaseManager.Intel_Paranoia2 == false)
                                     {
@@ -509,7 +515,7 @@ public class DialogManager : MonoBehaviour
                                     }
             
                                 }
-                                if (t_ReplaceText[i + 4] == '금')
+                                if (t_ReplaceText[i + 4] == 'ⓐ')
                                 {
                                     if (DataBaseManager.Intel_Safe1 == false)
                                     {
@@ -518,7 +524,7 @@ public class DialogManager : MonoBehaviour
                                     }
                 
                                 }
-                                if (t_ReplaceText[i + 4] == '연') // 연속실종사건
+                                if (t_ReplaceText[i + 4] == 'ⓜ') // 연속실종사건
                                 {
                                     if (DataBaseManager.Intel_MissingPeople1 == false)
                                     {
@@ -527,7 +533,7 @@ public class DialogManager : MonoBehaviour
                                     }
                             
                                 }
-                                if (t_ReplaceText[i + 4] == '비') // 비릿한 냄새
+                                if (t_ReplaceText[i + 4] == 'ⓕ') // 비릿한 냄새
                                 {
                                     if (DataBaseManager.Intel_FishySmell2 == false)
                                     {
@@ -536,7 +542,7 @@ public class DialogManager : MonoBehaviour
                                     }
    
                                 }
-                                if (t_ReplaceText[i + 4] == '물') // 강의 수질
+                                if (t_ReplaceText[i + 4] == 'ⓡ') // 강의 수질
                                 {
                                     if (DataBaseManager.Intel_RiverWaterQuality2 == false)
                                     {
@@ -545,7 +551,7 @@ public class DialogManager : MonoBehaviour
                                     }
 
                                 }
-                                if (t_ReplaceText[i + 4] == '거') // 하수도 괴담
+                                if (t_ReplaceText[i + 4] == 'ⓢ') // 하수도 괴담
                                 {
                                     if (DataBaseManager.Intel_SewerGhostStory2 == false)
                                     {
@@ -558,7 +564,7 @@ public class DialogManager : MonoBehaviour
                             if (t_ReplaceText[i + 3] == '3')
                             {
 
-                                if (t_ReplaceText[i + 4] == '악')
+                                if (t_ReplaceText[i + 4] == 'ⓝ')
                                 {
                                     if (DataBaseManager.Intel_Nightmare3 == false)
                                         DataBaseManager.Intel_Nightmare3 = true;
@@ -566,7 +572,7 @@ public class DialogManager : MonoBehaviour
                                 }
 
      
-                                if (t_ReplaceText[i + 4] == '비') // 비릿한 냄새
+                                if (t_ReplaceText[i + 4] == 'ⓕ') // 비릿한 냄새
                                 {
                                     if (DataBaseManager.Intel_FishySmell3 == false)
                                     {
@@ -579,7 +585,7 @@ public class DialogManager : MonoBehaviour
                             if (t_ReplaceText[i + 3] == '4')
                             {
 
-                                if (t_ReplaceText[i + 4] == '악')
+                                if (t_ReplaceText[i + 4] == 'ⓝ')
                                 {
                                     if (DataBaseManager.Intel_Nightmare4 == false)
                                         DataBaseManager.Intel_Nightmare4 = true;
@@ -600,7 +606,7 @@ public class DialogManager : MonoBehaviour
                         {
                             if (t_ReplaceText[i + 3] == '1')
                             {
-                                if (t_ReplaceText[i + 4] == '부')
+                                if (t_ReplaceText[i + 4] == 'ⓦ')
                                 {
                                     if (DataBaseManager.Intel_Wharf1 == false)
                                     {
@@ -609,7 +615,7 @@ public class DialogManager : MonoBehaviour
                                     }
                                 
                                 }
-                                if (t_ReplaceText[i + 4] == '병')
+                                if (t_ReplaceText[i + 4] == 'ⓗ')
                                 {
                                     if (DataBaseManager.Intel_Hospital1 == false)
                                     {
@@ -618,7 +624,7 @@ public class DialogManager : MonoBehaviour
                                     }
                             
                                 }
-                                if (t_ReplaceText[i + 4] == '서')
+                                if (t_ReplaceText[i + 4] == 'ⓠ')
                                 {
                                     if (DataBaseManager.Intel_QuestHouse1 == false)
                                     {
@@ -627,7 +633,7 @@ public class DialogManager : MonoBehaviour
                                     }
                                
                                 }
-                                if (t_ReplaceText[i + 4] == '데')
+                                if (t_ReplaceText[i + 4] == 'ⓝ')
                                 {
                                     if (DataBaseManager.Intel_Newspaper1 == false)
                                     {
@@ -636,7 +642,7 @@ public class DialogManager : MonoBehaviour
                                     }
                               
                                 }
-                                if (t_ReplaceText[i + 4] == '하')
+                                if (t_ReplaceText[i + 4] == 'ⓢ')
                                 {
                                     if (DataBaseManager.Intel_SewageMaintenanceOffice1 == false)
                                     {
@@ -645,7 +651,7 @@ public class DialogManager : MonoBehaviour
                                     }
 
                                 }
-                                if (t_ReplaceText[i + 4] == '미' || t_ReplaceText[i + 4] == '우')
+                                if (t_ReplaceText[i + 4] == 'ⓤ' )
                                 {
                                     if (DataBaseManager.Intel_University1 == false)
                                     {
@@ -668,7 +674,7 @@ public class DialogManager : MonoBehaviour
                         {
                             if (t_ReplaceText[i + 3] == '1')
                             {
-                                if (t_ReplaceText[i + 4] == '알')
+                                if (t_ReplaceText[i + 4] == 'ⓛ')
                                 {
                                     if (DataBaseManager.Intel_Albert1 == false)
                                     {
@@ -678,7 +684,7 @@ public class DialogManager : MonoBehaviour
 
                                 }
 
-                                if (t_ReplaceText[i + 4] == '메')
+                                if (t_ReplaceText[i + 4] == 'ⓜ')
                                 {
                                     if (DataBaseManager.Intel_Meiv1 == false)
                                     {
@@ -687,7 +693,7 @@ public class DialogManager : MonoBehaviour
                                     }
 
                                 }
-                                if (t_ReplaceText[i + 4] == '엘')
+                                if (t_ReplaceText[i + 4] == 'ⓔ')
                                 {
                                     if (DataBaseManager.Intel_Ella1 == false)
                                     {
@@ -696,7 +702,7 @@ public class DialogManager : MonoBehaviour
                                     }
 
                                 }
-                                if (t_ReplaceText[i + 4] == '에')
+                                if (t_ReplaceText[i + 4] == 'ⓐ')
                                 {
                                     if (DataBaseManager.Intel_Aiden1 == false)
                                     {
@@ -705,7 +711,7 @@ public class DialogManager : MonoBehaviour
                                     }
 
                                 }
-                                if (t_ReplaceText[i + 4] == '하')
+                                if (t_ReplaceText[i + 4] == 'ⓦ')
                                 {
                                     if (DataBaseManager.Intel_SewerWorker1 == false)
                                     {
@@ -718,7 +724,7 @@ public class DialogManager : MonoBehaviour
                             if (t_ReplaceText[i + 3] == '2')
                             {
 
-                                if (t_ReplaceText[i + 4] == '에')
+                                if (t_ReplaceText[i + 4] == 'ⓐ')
                                 {
                                     if (DataBaseManager.Intel_Aiden2 == false)
                                     {
@@ -726,7 +732,7 @@ public class DialogManager : MonoBehaviour
                                         IntelManager.Instance.AddIntelFloating("Character", "Aiden Triss - Aiden and Pandemic");
                                     }
                                 }
-                                if (t_ReplaceText[i + 4] == '하')
+                                if (t_ReplaceText[i + 4] == 'ⓦ')
                                 {
                                     if (DataBaseManager.Intel_SewerWorker2 == false)
                                     {
@@ -734,7 +740,7 @@ public class DialogManager : MonoBehaviour
                                         IntelManager.Instance.AddIntelFloating("Character", "SewerWorker - Unfair dismissal");
                                     }
                                 }
-                                if (t_ReplaceText[i + 4] == '약')
+                                if (t_ReplaceText[i + 4] == 'ⓜ')
                                 {
                                     if (DataBaseManager.Intel_Meiv2 == false)
                                     {
@@ -747,7 +753,7 @@ public class DialogManager : MonoBehaviour
                             if (t_ReplaceText[i + 3] == '3')
                             {
 
-                                if (t_ReplaceText[i + 4] == '하' || t_ReplaceText[i + 4] == '비')
+                                if (t_ReplaceText[i + 4] == 'ⓦ' || t_ReplaceText[i + 4] == '비')
                                 {
                                     if (DataBaseManager.Intel_SewerWorker3 == false)
                                     {
@@ -968,7 +974,28 @@ public class DialogManager : MonoBehaviour
                 case '⑨': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
                 case '⑩': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
                 case '⑫': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-
+                
+                case 'ⓐ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓒ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓓ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓔ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓕ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓗ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓘ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓙ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓚ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓛ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓜ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓝ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓞ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓟ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓠ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓢ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓣ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓤ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓥ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓩ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
+                case 'ⓧ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
 
             }
 

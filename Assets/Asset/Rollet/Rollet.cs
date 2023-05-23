@@ -132,7 +132,7 @@ public class Rollet : MonoBehaviour
         if (DataBaseManager.Condition == "Nomal")
         {
             ResetRolletDice();
-            Conditon.text = "컨디션 : 보통";
+            Conditon.text = "Condition : Nomal";
 
             SkillPoint_1 = point_int % 10;
             SkillPoint_10 = point_int / 10;
@@ -141,7 +141,7 @@ public class Rollet : MonoBehaviour
         else if (DataBaseManager.Condition == "Good")
         {
             ResetRolletDice();
-            Conditon.text = "컨디션 : 좋음";
+            Conditon.text = "Condition : Good";
             Good_1.SetActive(true);
             Good_1_Rollet.SetActive(true);
             SkillPoint_1 = point_int % 10;
@@ -151,7 +151,7 @@ public class Rollet : MonoBehaviour
         else if(DataBaseManager.Condition == "Best")
         {
             ResetRolletDice();
-            Conditon.text = "컨디션 : 최상";
+            Conditon.text = "Condition : Best";
             Good_10.SetActive(true);
             Good_10_Rollet.SetActive(true);
             SkillPoint_1 = point_int % 10;
@@ -161,7 +161,7 @@ public class Rollet : MonoBehaviour
         else if(DataBaseManager.Condition == "Bad")
         {
             ResetRolletDice();
-            Conditon.text = "컨디션 : 나쁨";
+            Conditon.text = "Condition : Bad";
             Bad_1.SetActive(true);
             Bad_1_Rollet.SetActive(true);
             SkillPoint_1 = point_int % 10;
@@ -171,7 +171,7 @@ public class Rollet : MonoBehaviour
         else if(DataBaseManager.Condition == "Worst")
         {
             ResetRolletDice();
-            Conditon.text = "컨디션 : 최악";
+            Conditon.text = "Condition : Worst";
             Bad_10.SetActive(true);
             Bad_10_Rollet.SetActive(true);
             SkillPoint_1 = point_int % 10;
@@ -181,23 +181,23 @@ public class Rollet : MonoBehaviour
         
         if(SuccesProbability < 0.20)
         {
-            Expect.text = "성공예상 : 매우 어려움";
+            Expect.text = "Probability : Very Hard";
         }
         else if(SuccesProbability < 0.40)
         {
-            Expect.text = "성공예상 : 어려움";
+            Expect.text = "Probability : Hard";
         }
         else if (SuccesProbability < 0.60)
         {
-            Expect.text = "성공예상 : 보통";
+            Expect.text = "Probability : Nomal";
         }
         else if (SuccesProbability < 0.80)
         {
-            Expect.text = "성공예상 : 쉬움";
+            Expect.text = "Probability : Easy";
         }
         else if (SuccesProbability < 1)
         {
-            Expect.text = "성공예상 : 매우 쉬움";
+            Expect.text = "Probability : Very Easy";
         }
         Invoke("waitOneSec", 0.1f);
     }
@@ -263,7 +263,7 @@ public class Rollet : MonoBehaviour
             {
                 result_int = 100;
             }
-            result_string.text = "결과 : "+result_int.ToString();
+            result_string.text = "Dice : " + result_int.ToString();
         }
         else if (DataBaseManager.Condition == "Good")
         {
@@ -274,7 +274,7 @@ public class Rollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
             else
             {
@@ -283,7 +283,7 @@ public class Rollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
         }
         else if (DataBaseManager.Condition == "Best")
@@ -295,7 +295,7 @@ public class Rollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
             else
             {
@@ -304,7 +304,7 @@ public class Rollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
         }
         else if (DataBaseManager.Condition == "Bad")
@@ -316,7 +316,7 @@ public class Rollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
             else
             {
@@ -325,7 +325,7 @@ public class Rollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
         }
         else if (DataBaseManager.Condition == "Worst")
@@ -337,7 +337,7 @@ public class Rollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
             else
             {
@@ -346,7 +346,7 @@ public class Rollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
         }
 
@@ -356,19 +356,19 @@ public class Rollet : MonoBehaviour
     {
         if (result_int >= 95)
         {
-            result_End.text = "판정 : 대실패";
+            result_End.text = "Result : Fumble";
         }
         else if(result_int <= skillPoint / 3f)
         {
-            result_End.text = "판정 : 대성공";
+            result_End.text = "Result : Critical Success";
         }
         else if (result_int <= skillPoint)
         {
-            result_End.text = "판정 : 성공";
+            result_End.text = "Result : Success";
         }
         else
         {
-            result_End.text = "판정 : 실패";
+            result_End.text = "Result : Failure";
         }
         EndButton.SetActive(true);
 
@@ -407,8 +407,8 @@ public class Rollet : MonoBehaviour
         BadRollet_10t.text = "--";
         GoodRollet_1t.text = "-";
         GoodRollet_10t.text = "--";
-        result_string.text ="결과 : --";
-        result_End.text = "판정 : --";
+        result_string.text ="Dice : --";
+        result_End.text = "Result : --";
     }
     private void ResetRolletDice()
     {

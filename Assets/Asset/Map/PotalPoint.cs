@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PotalPoint : MonoBehaviour
 {
+    float ChInRommSize = 2.383215f; // -이면 왼쪽 +면 오른쪽
     public GameObject player;
     public GameObject camera;
 
@@ -43,10 +44,6 @@ public class PotalPoint : MonoBehaviour
 
     public void Update()
     {
-
-
-  
-
         if (PlayerInTrigger == true)
         {
             if (Input.GetKeyDown(KeyCode.F) && DataBaseManager.isDirecting == false && DataBaseManager.isActiveDialog1 == false)
@@ -60,9 +57,15 @@ public class PotalPoint : MonoBehaviour
                         FadingBackGround.Instance.FadeInOut();
                         Invoke("MovePlayer", 2);
                     }
-                    else
+                    else if (this.name == "2sttoRoom" && DataBaseManager.AidenKeywordCount >= 2)
                     {
 
+                    }
+                    else
+                    {
+                        DataBaseManager.isDirecting = true;
+                        FadingBackGround.Instance.FadeInOut();
+                        Invoke("MovePlayer", 2);
                     }
                 }
                 else if(DataBaseManager.nowPlace == "Client'shouse" && DataBaseManager.isFirstDoor == false)
@@ -93,82 +96,87 @@ public class PotalPoint : MonoBehaviour
         //강가
         if (this.name == "RtoL")
         {
-
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_RtoL;
             camera.transform.localPosition = Cam_RtoL;
         }
-        if (this.name == "LtoR")
+        else if (this.name == "LtoR")
         {
-
+            player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_LtoR;
             camera.transform.localPosition = Cam_LtoR ;
         }
-        if (this.name == "UtoD")
+        else if (this.name == "UtoD")
         {
-
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_UtoD;
             camera.transform.localPosition = Cam_UtoD;
         }
-        if (this.name == "DtoU")
+        else if (this.name == "DtoU")
         {
-
+            player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_DtoU;
             camera.transform.localPosition = Cam_DtoU;
         }
         //집
-        if (this.name == "to1st")
+        else if (this.name == "to1st")
         {
-
+            player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_OutsideTo1st;
             camera.transform.localPosition = Cam_OutsideTo1st;
 
         }
-        if (this.name == "toOustside")
+        else if (this.name == "toOustside")
         {
+            player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_1stToOutside;
             camera.transform.localPosition = Cam_1stToOutside;
 
         }
-        if (this.name == "1stto2st")
+        else if (this.name == "1stto2st")
         {
+            player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_1stTo2st;
             camera.transform.localPosition = Cam_1stTo2st;
 
         }
-        if (this.name == "2stto1st")
+        else if (this.name == "2stto1st")
         {
-     
-                CameraManager.Instance.isCheckEnd = false;
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
+            CameraManager.Instance.isCheckEnd = false;
                 player.transform.localPosition = player_2stTo1st;
                 camera.transform.localPosition = Cam_2stTo1st;
            
 
 
         }
-        if (this.name == "Roomto2st")
+        else if (this.name == "Roomto2st")
         {
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_RoomTo2st;
             camera.transform.localPosition = Cam_RoomTo2st;
 
         }
-        if (this.name == "2sttoRoom")
+        else if (this.name == "2sttoRoom")
         {
             if (DataBaseManager.isFirstRoom == true)
             {
+                player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
                 CameraManager.Instance.isCheckEnd = true;
                 player.transform.localPosition = player_2stToRoom;
                 camera.transform.localPosition = Cam_2stTo2Room;
             }
             else
             {
+                player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
                 DataBaseManager.isFirstRoom = true;
                 CameraManager.Instance.isCheckEnd = true;
                 player.transform.localPosition = player_2stToRoom;
@@ -177,6 +185,7 @@ public class PotalPoint : MonoBehaviour
             }
 
         }
+        DataBaseManager.isDirecting = true;
         Invoke("ablePotal", 3);
     }
 
@@ -187,6 +196,7 @@ public class PotalPoint : MonoBehaviour
     }
     public void Ex_toRoom()
     {
+        DataBaseManager.isDirecting = false;
         InteractionController.Instance.Start_1st_ClientsHouse("into_FirstRoom");
     }
     public void Ex_Outto1st()

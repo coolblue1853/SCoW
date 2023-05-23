@@ -199,30 +199,30 @@ public class Intel_ObtoUI : MonoBehaviour
         {
             CanJudge = false;
             isJudge = true;
-            Rollet.Instance.setRollet("신문 : 살펴보기", "자료조사", DataBaseManager.analysisPoint, "dialog");
+            Rollet.Instance.setRollet("Newspaper : Read", "Analysis", DataBaseManager.analysisPoint, "dialog");
         }
         if (DataBaseManager.Select_Object == "Stove_Active")
         {
             CanJudge = false;
             isJudge = true;
-            Rollet.Instance.setRollet("스토브 : 사용하기", "행운", DataBaseManager.luk, "dialog");
+            Rollet.Instance.setRollet("Stove : Making coffee", "Luck", DataBaseManager.luk, "dialog");
         }
-        if (DataBaseManager.Select_Object == "AidenTriss")
+        if (DataBaseManager.Select_Object == "Aiden Triss")
         {
             if (DataBaseManager.Aiden_medicine == false)
             {
                 AidenJudge = "medicine";
-                Rollet.Instance.setRollet("에이든 : 진단", "의학", DataBaseManager.medicinePoint, "dialog");
+                Rollet.Instance.setRollet("Aiden : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
             }
             else if (DataBaseManager.Aiden_Observation == false)
             {
                 AidenJudge = "Observation";
-                Rollet.Instance.setRollet("에이든 : 살펴보기", "관찰력", DataBaseManager.ObservationPoint, "dialog");
+                Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
             }
             else if (DataBaseManager.Aiden_psychotherapy == false)
             {
                 AidenJudge = "psychotherapy";
-                Rollet.Instance.setRollet("에이든 : 안정", "정신치료 / 2" , (DataBaseManager.psychotherapyPoint / 2), "dialog");
+                Rollet.Instance.setRollet("Aiden : Calming down", "Psychotherapy / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
             }
         }
         if (DataBaseManager.Select_Object == "Berkeley Swain")
@@ -262,12 +262,12 @@ public class Intel_ObtoUI : MonoBehaviour
                     if(DataBaseManager.Aiden_Observation == false)
                     {
                         AidenJudge = "Observation";
-                        Rollet.Instance.setRollet("에이든 : 살펴보기", "관찰력", DataBaseManager.ObservationPoint, "dialog");
+                        Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
                     }
                     else if (DataBaseManager.Aiden_psychotherapy == false)
                     {
                         AidenJudge = "psychotherapy";
-                        Rollet.Instance.setRollet("에이든 : 안정", "정신치료 / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
+                        Rollet.Instance.setRollet("Aiden : Calming down", "Psychotherapy / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
                     }
                 }
                 else if (AidenJudge == "Observation")
@@ -275,12 +275,12 @@ public class Intel_ObtoUI : MonoBehaviour
                     if (DataBaseManager.Aiden_psychotherapy == false)
                     {
                         AidenJudge = "psychotherapy";
-                        Rollet.Instance.setRollet("에이든 : 안정", "정신치료 / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
+                        Rollet.Instance.setRollet("Aiden : Calming down", "Psychotherapy / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
                     }
                     else if (DataBaseManager.Aiden_medicine == false)
                     {
                         AidenJudge = "medicine";
-                        Rollet.Instance.setRollet("에이든 : 진단", "의학", DataBaseManager.medicinePoint, "dialog");
+                        Rollet.Instance.setRollet("Aiden : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
                 }
                 else if(AidenJudge == "psychotherapy")
@@ -289,13 +289,13 @@ public class Intel_ObtoUI : MonoBehaviour
                      if (DataBaseManager.Aiden_medicine == false)
                     {
                         AidenJudge = "medicine";
-                        Rollet.Instance.setRollet("에이든 : 진단", "의학", DataBaseManager.medicinePoint, "dialog");
+                        Rollet.Instance.setRollet("Aiden : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
 
                     else if(DataBaseManager.Aiden_Observation == false)
                     {
                         AidenJudge = "Observation";
-                        Rollet.Instance.setRollet("에이든 : 살펴보기", "관찰력", DataBaseManager.ObservationPoint, "dialog");
+                        Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
                     }
                 }
             }
@@ -305,12 +305,12 @@ public class Intel_ObtoUI : MonoBehaviour
                 {              if (DataBaseManager.Aiden_psychotherapy == false)
                     {
                         AidenJudge = "psychotherapy";
-                        Rollet.Instance.setRollet("에이든 : 안정", "정신치료 / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
+                        Rollet.Instance.setRollet("Aiden : Calming down", "Psychotherapy / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
                     }
                     else if (DataBaseManager.Aiden_Observation == false)
                     {
                         AidenJudge = "Observation";
-                        Rollet.Instance.setRollet("에이든 : 살펴보기", "관찰력", DataBaseManager.ObservationPoint, "dialog");
+                        Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
                     }
        
                 }
@@ -318,12 +318,12 @@ public class Intel_ObtoUI : MonoBehaviour
                 {              if (DataBaseManager.Aiden_medicine == false)
                     {
                         AidenJudge = "medicine";
-                        Rollet.Instance.setRollet("에이든 : 진단", "의학", DataBaseManager.medicinePoint, "dialog");
+                        Rollet.Instance.setRollet("Aiden : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
                     else if(DataBaseManager.Aiden_psychotherapy == false)
                     {
                         AidenJudge = "psychotherapy";
-                        Rollet.Instance.setRollet("에이든 : 안정", "정신치료 / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
+                        Rollet.Instance.setRollet("Aiden : Calming down", "Psychotherapy / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
                     }
        
                 }
@@ -332,12 +332,12 @@ public class Intel_ObtoUI : MonoBehaviour
                             if (DataBaseManager.Aiden_Observation == false)
                     {
                         AidenJudge = "Observation";
-                        Rollet.Instance.setRollet("에이든 : 살펴보기", "관찰력", DataBaseManager.ObservationPoint, "dialog");
+                        Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
                     }
                     else if (DataBaseManager.Aiden_medicine == false)
                     {
                         AidenJudge = "medicine";
-                        Rollet.Instance.setRollet("에이든 : 진단", "의학", DataBaseManager.medicinePoint, "dialog");
+                        Rollet.Instance.setRollet("Aiden : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
 
              

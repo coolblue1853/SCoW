@@ -1,73 +1,73 @@
 ID,캐릭터이름,대사,
-1,파비안,@안녕하십니까 어르신^ 지금 뭘하고 계시나요?@,//노인 최초대화 // 노인 획득없을떄
-2,???,@으음? 자네도 ⓑ(미스캐토닉 대학)ⓦ에서 온 내 학생인가?@,
-3,파비안,@네? 아닙니다만.@,
-4,???,@뭐야^ 아니었나? 그럼 뭐^ 됐네.@,
-5,파비안 ,@?@,
-6,파비안,(그렇게 말한 노인은 나와의 대화는 없었던 일인 것처럼 다시 고개를 박고 강을 보고 있다.)☆①,
-7,파비안,(내 말이 전혀 들리지 않는 것 같다.)☆①,//반복대화
-8,파비안,(백발의 노인이 강가를 뚫어져라 쳐다보면서 중얼거리고 있다.),//살펴보기
-9,파비안,(가끔씩 물의 냄새를 맡거나 맛을 보기도 한다),
-10,파비안,’이걸 보니 좀 안심 되는걸. 평소와 같은 아컴이군.’,
-11,파비안,(내 말에 전혀 관심이 없어 보인다.),Nothing
-12,파비안,(어두운 하수도로 강에 연결되어 있는 것으로 보인다.),하수도 최초대사
-13,파비안,‘안이 엄청 어둡군.’☆①,
-14,파비안,(어두운 하수도^ 자물쇠로 잠겨있다.)☆①,하수도 반복
-15,파비안,@으음… 자세히 한번 볼까.@♠②,하수도 살펴보기
-16,파비안,(너무 어두워 아무것도 보이지 않아 고개를 돌리려던 순간.),성공
-17,파비안,’뭐야 저건..?’,
-18,파비안,(아주 미세하게 반짝이는 그것을 향해 시선을 집중시키자 서서히 그 윤곽이 보인다.),
-19,파비안,’사람이잖아? 반짝이는건 눈 이었고.’,
-20,파비안,’아니 그런데 어떻게 ⓡ(●1눈알)ⓦ이 저렇게 클수가…!?’,키워드 획득
-21,파비안,(사람 눈 위치에 박혀있는 그 눈알은 일반인의 것보다 2~3배는 커 보였다.),
-22,파비안,(또^ 마치 생선의 것처럼 뚜렷했고 눈꺼풀이 없었다.),
-23,파비안,(잠깐이나마 눈을 마주했는데도 마치 심해에 들어간 것처럼 몸이 차가워 진다.)♠③,//이성판정
-24,파비안,@젠장 저게 도대체 뭐야!@,
-25,파비안,(정신을 차리고 다시 확인했을때는 아무것도 보이지 않았다.) \n(정신력 감소 - 10),
-26,파비안,( 너무 어두워 제대로 보이는 것은 없다.),하수도 실패
-27,파비안,@젠장 저게 도대체 뭐야!@,//이성판정
-28,파비안,(정신을 차리고 다시 확인했을때는 아무것도 보이지 않았다.) ,
-29,파비안,@안녕십니까 케인 교수님^ 요즘 이곳 수질에 이상이 생겼다면서요?@,케인 // 키워드 강의 수질 비릿 x
-30,파비안,(그제서야 그 노인은 나를 보고는 입을 열었다.),
-31,케인,@으음~? 맞네. 이걸 보게나.@,
-32,파비안,(그는 내쪽으로 작은 시약병 하나를 건냈다.),
-33,파비안,@이건 뭡니까..?@,
-34,케인,@한번 냄새를 맡아보면 알수 있을걸세.@,
-35,파비안,(건낸 병의 냄새를 맡자 옅은 비릿한 향이 올라온다.),
-36,파비안,(일반적인 강물 냄새는 아닌듯 하다.),
-37,파비안,@꽤나 이상한 냄새인데요. 물이 오염된건가요? 공장 폐수라거나.@,
-38,케인,@아니^ 놀랍게도 그 반대라네. 물은 깨끗해졌어. 이전보다도 말이야.@,
-39,파비안,‘도저히 깨끗한 물의 냄새는 아닌데..’,
-40,케인,@이전 미스캐토닉강의 수질은 도저히 정수를 거치치 않고는 마시지 못하는 수준이었다네.@,
-41,파비안,(그렇게 말하며 그는 시약병에 담긴 그 물을 한모금 마셨다.),
-42,케인,@그런데 이제는 이렇게 바로 떠 마셔도 문제 없는 수준이 됬지. 심지어 하수도 근처에서 나오는 ⓡ(●2물)ⓦ인데도 말이야.@,
-43,파비안,@그렇군요…@,
-44,파비안,‘나라면 도저히 저렇게는 못할것 같은데. 대학 교수도 아무나 되는건 아니군.’,
-45,파비안,@그럼 저 하수는 어디에서 흘러나오는 건가요?@,
-46,케인,@당연한걸 묻고 그러나^ 이 근처에 있는 ⓑ(●1하수 처리 사무소)ⓦ겠지.@,
-47,케인,@아무튼 말일세 내가 그래서 연구실로 가서 자세히 조사해 보니 말이야…@,
-48,파비안,(그 이후로 노교수가 하는 말은 대부분 이해할 수 없는 말 뿐이었다.),
-49,파비안,@안녕십니까 케인 교수님^ 요즘 이곳 수질에 이상이 생겼다면서요?@,케인 // 키워드 강의 수질 비릿 o
-50,파비안,(그제서야 그 노인은 나를 보고는 입을 열었다.),
-51,케인,@으음~? 맞네. 이걸 보게나.@,
-52,파비안,(그는 내쪽으로 작은 시약병 하나를 건냈다.),
-53,파비안,@이건 뭡니까..?@,
-54,케인,@한번 냄새를 맡아보면 알수 있을걸세.@,
-55,파비안,(건낸 병의 냄새를 맡자 옅은 비릿한 향이 올라온다.),
-56,파비안,(일반적인 강물 냄새는 아닌듯 하다.),
-57,파비안,@꽤나 이상한 냄새인데요. 물이 오염된건가요? 공장 폐수라거나.@,
-58,케인,@아니^ 놀랍게도 그 반대라네. 물은 깨끗해졌어. 이전보다도 말이야.@,
-59,파비안,‘도저히 깨끗한 물의 냄새는 아닌데..’,
-60,케인,@이전 미스캐토닉강의 수질은 도저히 정수를 거치치 않고는 마시지 못하는 수준이었다네.@,
-61,파비안,(그렇게 말하며 그는 시약병에 담긴 그 물을 한모금 마셨다.),
-62,케인,@그런데 이제는 이렇게 바로 떠 마셔도 문제 없는 수준이 됬지. 심지어 하수도 근처에서 나오는 ⓡ(●2물)ⓦ인데도 말이야.@,
-63,파비안,@그렇군요…@,
-64,파비안,‘나라면 도저히 저렇게는 못할것 같은데. 대학 교수도 아무나 되는건 아니군.’,
-65,파비안,@그럼 저 하수는 어디에서 흘러나오는 건가요?@,
-66,케인,@당연한걸 묻고 그러나^ 이 근처에 있는 ⓑ(●1하수 처리 사무소)ⓦ겠지.@,
-67,케인,@아무튼 말일세 내가 그래서 연구실로 가서 자세히 조사해 보니 말이야…@,
-68,파비안,(그 이후로 노교수가 하는 말은 대부분 이해할 수 없는 말 뿐이었다.),
-69,파비안,‘어쩌면 최근 도시에서 나고 있는 ⓡ(●3비릿한 냄새)ⓦ의 근원지가 이 하수도와 관련 있을지도 모르겠어.’,
+1,Fabian,@Hello sir^ What are you doing now?@,//노인 최초대화 // 노인 획득없을떄
+2,???,@Hmm? Are you also my student from ⓑ(Miskatonic College)ⓦ?,
+3,Fabian,@No^ it's not.@,
+4,???,@It wasn't? Well^ never mind.@,
+5,Fabian ,@?@,
+6,Fabian,(The old man put his head back down and looked at the river as if our conversation had never happened.)☆①,
+7,Fabian,(I don't think he's hearing me at all.)☆①,//반복대화
+8,Fabian,(A gray-haired old man stares off into the river^ muttering to himself.),//살펴보기
+9,Fabian,(Sometimes he even smell or taste the water),
+10,Fabian,'I'm a little relieved to see this. It's Arkham as usual.',
+11,Fabian,(내 말에 전혀 관심이 없어 보인다.),Nothing
+12,Fabian,(The dark sewer appears to be connected to the river.),하수도 최초대사
+13,Fabian,'It's really dark in here.'☆①,
+14,Fabian,(Dark sewers^ locked with padlocks.)☆①,하수도 반복
+15,Fabian,@Hmm... let's take a closer look.@♠②,하수도 살펴보기
+16,Fabian,(The moment I turned my head away because it was too dark to see anything.),성공
+17,Fabian,'What is that...?',
+18,Fabian,(As I focus my gaze on it^ which is shimmering very slightly^ I slowly see its outline.),
+19,Fabian,'It's a person^ it's eyes that sparkle.',
+20,Fabian,'No^ but how can those ⓡ(●1ⓒeyeballs)ⓦ be so big...!',키워드 획득
+21,Fabian,(Those eyeballs^ embedded in the position of a human eye^ looked two to three times larger than a normal human's.),
+22,Fabian,(It was also as distinct as a fish and had no eyelids.),
+23,Fabian,(I feel cold^ as if I'm in the deep end^ even though I've been making eye contact for a moment.)♠③,//이성판정
+24,Fabian,@What the hell is that?@,
+25,Fabian,(When I woke up and checked again^ there was nothing there.),
+26,Fabian,(It's too dark to see anything properly.),하수도 실패
+27,Fabian,@What the hell is that?@,//이성판정
+28,Fabian,(When I woke up and checked again^ there was nothing there.),
+29,Fabian,@Hello^ Professor Kane^ I heard there's been a problem with the water quality here lately.@,Kane // 키워드 강의 수질 비릿 x
+30,Fabian,(Only then did the old man look at me and open his mouth.),
+31,Kane,@Hmm~? That's right. Look at this.@,
+32,Fabian,(He handed me a small vial of reagent.),
+33,Fabian,@What is this...?@,
+34,Kane,@You'll know it when you smell it.@,
+35,Fabian,(When I smell the bottle^ I smell a light fishy scent.),
+36,Fabian,(It doesn't smell like a typical river.),
+37,Fabian,@That's a very strange smell^ is the water contaminated? maybe factory wastewater.@,
+38,Kane,@No^ Surprisingly^ the opposite is true. The water is cleaner than ever before.@,
+39,Fabian,'That doesn't smell like clean water at all.',
+40,Kane,@The quality of the water in the Miskatonic River used to be undrinkable without purification.@,
+41,Fabian,(With that^ he took a sip of that water from the reagent bottle.),
+42,Kane,@But now I've gotten to the point where I don't mind ⓡ(●2ⓡdrinking)ⓦ it right away^ even though it comes from a sewer.@,
+43,Fabian,@Yes^ I see...@,
+44,Fabian,'I don't think I could ever do that. College professors aren't just anyone.',
+45,Fabian,@But where is that sewage coming from?@,
+46,Kane,@You ask the obvious^ but it's the ⓑ(●1ⓢsewage treatment office)ⓦ in this neighborhood.@,
+47,Kane,@Anyway^ so I went to the lab and looked into it...@,
+48,Fabian,(Since then^ most of what the old professor says is unintelligible.),
+49,Fabian,@Hello^ Professor Kane^ I heard there's been a problem with the water quality here lately.@,Kane // 키워드 강의 수질 비릿 o
+50,Fabian,(Only then did the old man look at me and open his mouth.),
+51,Kane,@Hmm~? That's right. Look at this.@,
+52,Fabian,(He handed me a small vial of reagent.),
+53,Fabian,@What is this...?@,
+54,Kane,@You'll know it when you smell it.@,
+55,Fabian,(When I smell the bottle^ I smell a light fishy scent.),
+56,Fabian,(It doesn't smell like a typical river.),
+57,Fabian,@That's a very strange smell^ is the water contaminated? maybe factory wastewater.@,
+58,Kane,@No^ Surprisingly^ the opposite is true. The water is cleaner than ever before.@,
+59,Fabian,'That doesn't smell like clean water at all.',
+60,Kane,@The quality of the water in the Miskatonic River used to be undrinkable without purification.@,
+61,Fabian,(With that^ he took a sip of that water from the reagent bottle.),
+62,Kane,@But now I've gotten to the point where I don't mind ⓡ(●2ⓡdrinking)ⓦ it right away^ even though it comes from a sewer.@,
+63,Fabian,@Yes^ I see...@,
+64,Fabian,'I don't think I could ever do that. College professors aren't just anyone.',
+65,Fabian,@But where is that sewage coming from?@,
+66,Kane,@You ask the obvious^ but it's the ⓑ(●1ⓢsewage treatment office)ⓦ in this neighborhood.@,
+67,Kane,@Anyway^ so I went to the lab and looked into it...@,
+68,Fabian,(Since then^ most of what the old professor says is unintelligible.),
+69,Fabian,'Maybe this sewer is the source of the ⓡ(●3ⓕfishy smell)ⓦ the city has been emitting lately.',
 70,,,
 71,,,
 72,,,

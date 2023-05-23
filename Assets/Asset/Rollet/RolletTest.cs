@@ -9,7 +9,7 @@ public class RolletTest : MonoBehaviour
 
 
     private void Awake()
-    {
+    {   /*
         DataBaseManager.Intel_Aiden1 = true;
         DataBaseManager.Intel_Safe1 = true;
         DataBaseManager.Intel_Nightmare1 = true;
@@ -18,7 +18,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_Nightmare4 = true;
         DataBaseManager.Intel_Insomnia1 = true;
         DataBaseManager.Intel_Insomnia2 =true;
-        /*
+     
         DataBaseManager.Intel_PlanetarySequence1 = true;
         DataBaseManager.Intel_University1 = true;
         DataBaseManager.Intel_Meiv1 = true;
@@ -31,8 +31,8 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_FishySmell2 = true;
         DataBaseManager.Intel_FishySmell3 = true;
         */
-
         DataBaseManager.nowPlace = "DetectiveOffice";
+        //DataBaseManager.nowPlace = "DetectiveOffice";
         //   DataBaseManager.nowPlace = "Slum";
         //DataBaseManager.nowPlace = "University";
 
@@ -43,7 +43,7 @@ public class RolletTest : MonoBehaviour
         //DataBaseManager.Intel_Nightmare1 = true;
         //DataBaseManager.Intel_Paranoia1 = true;
         //DataBaseManager.Intel_Newspaper1 = true;
-        DirectingManager.Instance.OrganizeKeyword();
+
 
         //DataBaseManager.Intel_Hospital1 = true;
 
@@ -70,7 +70,7 @@ public class RolletTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            DirectingManager.Instance.OrganizeKeywordFunc();
+          //  DirectingManager.Instance.OrganizeKeywordFunc();
             //DataBaseManager.카메라왼쪽워킹온오프 = true;
             //One();
             // NewsRollet();

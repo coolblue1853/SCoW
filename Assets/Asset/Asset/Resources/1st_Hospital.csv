@@ -1,89 +1,89 @@
 ID,캐릭터이름,대사,
-1,파비안,(병원이 환자로 가득 차있다.),// 도착 대사
-2,파비안,(대부분의 환자들이 퀭한 눈으로 자신의 차례를 기다리고 있다.),
-3,파비안,(바빠보이는 그녀의 이름표에 ‘케이트 리지’ 라고 적혀있다.),케이트 최초대사
-4,파비안,@안녕하세요^ 바쁘신데 죄송하지만 말씀좀 여쭤도 될까요?@,
-5,케이트,@네! 잠깐이면 괜찮아요. 선생님들한테 농땡이 피우는거 들키면 혼나거든요.@,
-6,파비안,@요즘 사람이 많이 오나보죠?@,
-7,케이트,@맞아요 최근 들어서 ⓡ(불면증)ⓦ이 유행중이라서요. 낮 시간대에는 보시다 싶이 아주 바빠요.@,
-8,파비안,@그렇군요^ ⓡ(불면증)ⓦ의 유행이라니 처음들어보는 일인데 이전에도 이런적이 있나요?@,
-9,케이트,@아뇨^ 환자분들께서 이렇게 많아진건 한달 전즈음? 그정도 부터 인거 같아요.@,
-10,케이트,@저도 자세히는 모르지만요^ 정확한건 선생님들께 여쭤보는게 좋을거에요.@,
-11,케이트,@낮 시간대 까지는 바쁘시니까 아침이나 오후에 오시는게 좋구요.@,
-12,파비안,(그때 안쪽에서 케이트를 부르는 소리가 들려왔다.),
-13,케이트,@네~ 바로 가겠습니다~@,
-14,케이트,@그럼 나중에 뵈요!@◎⑦,케이트 사라짐
-15,파비안,(무척 바빠보이는 의사선생이 차트를 뒤적여 보고 있다.),앨런 최초대사
-16,파비안,(그는 내가 입을 때기도 전에^ 나를 보지도 않고 말했다.),
-17,앨런,@미안합니다만 지금은 바빠서요.@,
-18,앨런,@나중에 다시 와주세요.@,
-19,파비안,(그리고 나서는 여전히 차트를 뒤지고 있다.),
-20,파비안,(바빠서 그런지 얼굴을 찡그릴 뿐 반응이 없다.),반복대사
-21,파비안,@안녕하세요^ 바쁘신데 죄송하지만 말씀좀 여쭤도 될까요?@,//케이트 오후 대사 최초
-22,케이트,@네! 지금 시간에는 괜찮아요. 제 담당일은 거의 끝났거든요.@,
-23,파비안,(그녀가 들고 있는 차트에 빼곡히 이름이 적혀있다.),
-24,파비안,@요즘 사람이 많이 오나보죠?@,
-25,케이트,@맞아요 최근 들어서 ⓡ(불면증)ⓦ이 유행중이라서요. 낮 시간대에는 보시다 싶이 아주 바빠요.@,
-26,파비안,@그렇군요^ ⓡ(불면증)ⓦ의 유행이라니 처음들어보는 일인데 이전에도 이런적이 있나요?@,
-27,케이트,@아뇨^ 환자분들께서 이렇게 많아진건 한달 전즈음? 그정도 부터 인거 같아요.@,
-28,케이트,@저도 자세히는 모르지만요^ 정확한건 선생님들께 여쭤보는게 좋을거에요.@☆①,
-29,케이트,@더 궁금하신게 있으신가요~?@☆①,케이트 반복대사
-30,파비안,(이름표에 ‘케이트 리지’ 라고 적혀있다.),케이트 살펴보기
-31,케이트,@요즘은 그것때문에 골치가 아프다니까요~@,케이트 선택지 - 불면증 기사
-32,파비안,@ⓡ(불면증)ⓦ이라…. 아직 원인은 밝혀지지 않았나요?@,
-33,케이트,@글쎄요^ 아무래도 선생님께 여쭤보는게 좋을것 같은데요? 호호.@,
-34,파비안,@ⓡ(악몽)ⓦ에 관련해서는 뭔가 들으신 바가 없나요?@,에이든의 악몽
-35,케이트,@그거라면 자주 들었어요! 최근 오신 ⓡ(불면증)ⓦ 환자분들중 대다수가 ⓡ(악몽)ⓦ에 대해서 언급하셨더라구요.@,
-36,파비안,@그거 이상하군요. 전염되는 ⓡ(악몽)ⓦ을 가진 ⓡ(불면증)ⓦ이라.@,
-37,케이트,@정말요. 저도 이곳에서 근무하면서 처음 들어보는 일이에요.@,
-38,파비안,@ⓡ(편집증)ⓦ에 대해서는 뭐 특이점이 없을까요?@,편집증 - 남편의 상황
-39,케이트,@으음… 딱히 떠오르지 않네요. 정확한건 선생님들께 여쭤보는게 좋을 거 같아요!@,
-40,파비안,@병원에 특별한 일이 있나요?@,병원 - 신문기사
-41,케이트,@글쎄요.. 낮시간대에 손님이 몰리는것 말고는 평소와 비슷해요.@,
-42,케이트,@맞아^ 요즘은 흔히 ‘위험해’ 보이는 환자분들이 조금 줄긴 했어요.@,
-43,파비안,@최근 도시에서 특징적인 ⓡ(비릿한 냄새)ⓦ를 맡으신적이 있으신가요? 평소에는 맡지 못했던.@,비릿한 냄새 1
-44,케이트,@ⓡ(비릿한 냄새)ⓦ요? 병원에서는 맡은적이 없는것 같은데요?@,
-45,케이트,@으음...~ 그건 잘 모르겠어요.@,케이트 Nothing
-46,파비안,@안녕하십니까^ 잠깐 대화 가능하실까요?@,의사 최초대사
-47,앨런,@물론입니다. 어떤일로 찾아오셨을까요?@☆①,
-48,앨런,@더 궁금하신게 있으십니까.@☆①,반복대사
-49,파비안,(그는 무표정한 얼굴로 담배를 피고 있다.),살펴보기
-50,파비안,(이름표에는 앨런 P 파크스 라고 적혀있다.),
-51,파비안,@ⓡ(악몽)ⓦ의 내용에 관해서는 들으신 바가 없으신가요.@,"""Nightmare - Aiden's Nightmare""  "
-52,앨런,@대다수의 환자분들께서 해당 ⓡ(악몽)ⓦ에 대해서 직접 언급하는 것을 극도로 꺼리고 계십니다.@,
-53,앨런,@그래도 전반적으로 종합해 보면 물 혹은 바다와 관련된 ⓡ(악몽)ⓦ이 대다수로 보입니다.@,
-54,앨런,@어쩌면 공수병의 일종일지도 모르겠습니다. 하지만 이런 병이 보고된 적은 없습니다.@,
-55,앨런,@환자분께서 그렇게 말씀을 하셨다구요? ...이걸로써 또 하나의 예를 찾게 되었군요.@,"""Nightmare - Content of a Nightmare"" "
-56,앨런,@다른 환자분들 께서도 물^ 특히 바다에 관련된 ⓡ(●4악몽)ⓦ을 많이 언급하고 계십니다.@,
-57,앨런,@어째서 이런 현상이 발생하는 지는 의문입니다.@,
-58,앨런,@오호... 의학에도 조예가 있으셨습니까? 복합적인 문제긴 합니다.@,"""Nightmare - Aiden's Detail"""
-59,앨런,@하지만 저도 생각하는 방향은 일치합니다. 아무래도 ⓡ(악몽)ⓦ을 직접적인 원인으로 보고 있죠.@,
-60,파비안,@최근 ⓡ(불면증)ⓦ이 유행하고 있다던데 맞나요?@,"""Insomnia - Newspaper Article""  "
-61,앨런,@네^ 이전에 없을정도로 많이 확인되고 있습니다. 저희도 당혹스럽군요.@,
-62,파비안,@그렇다면 증상 자체는 어떻습니까? 이전과 비교해서.@,
-63,앨런,@확실히 이번 ⓡ(불면증)ⓦ은 유래가 없을정도로 독특합니다.@,
-64,앨런,@우선 아컴시 이외의 지역에서는 발생하지 않았다고 합니다. 마치 풍토병처럼 이곳을 거점으로 발생하고 있죠.@,
-65,앨런,@거기다가 증상또한 독특한데^ 일반적으로 약물 부작용을 제외한다면 ⓡ(불면증)ⓦ은 스트레스나 불안에 의해 발생합니다.@,
-66,앨런,@그런데 현재 아컴시에서 발생하는 ⓡ(불면증)ⓦ의 경우 그 원인이 환자분들께서 수면을 두려워 하는 것에 있습니다.@,
-67,앨런,@사실상 ⓡ(●2불면증)ⓦ이라기 보다는 수면 공포증^ 기피증이라고 부를 수 있겠군요.@,
-68,파비안,@잠을 자는것에 공포를 느낀다구요?@,
-69,앨런,@맞습니다. 그리고 그 공포의 원인으로는 ⓡ(악몽)ⓦ을 강력하게 의심하고 있습니다.@,
-70,앨런,@대부분의 환자들이 호소하고 있는 고통중 하나가 그것이니까요.@,
-71,파비안,@잠을 자는 것을 두려워해서 ⓡ(불면증)ⓦ이 발생했고 그 직접적인 원인이 ⓡ(악몽)ⓦ이라는 거군요.@,
-72,앨런,@그겁니다. 그런 병에 대해서는 들은 바가 없지만…@,
-73,앨런,@어쩌면 아까 말했던 데로 아컴 시의 풍토병일수도 있고^ 일시적인 집단 히스테리 현상일지도 모릅니다.@,
-74,파비안,@그렇군요..@,
-75,파비안,‘생각보다도 심각한 문제인걸? 단순히 열대야나 뭐 그런것인줄 알았는데.’,
-76,파비안,‘지금 들어본 정보에 의하면… 아컴시의 많은 사람들이 ⓖ(에이든)ⓦ과 비슷한 상태라고 볼 수 있겠군.’,
-77,파비안,@ⓡ(편집증)ⓦ에 대해서는 뭐 특이점이 없을까요?@,"""Paranoia - Husband's Condition"" "
-78,앨런,@해당 ⓡ(●2편집증)ⓦ은 극단적 수면부족과 두려움^ 그리고 어쩔수없이 수면을 취했을 때 보게되는 ⓡ(악몽)ⓦ이 원인인 것으로 보입니다.@,
-79,앨런,@즉^ ⓡ(불면증)ⓦ이 해결된다면 나머지 문제들은 자연스럽게 해결되리라 봅니다.@,
-80,파비안,@혹시 ⓖ(에이든 트리스)ⓦ씨에 대해서 기억하십니까? 해당 병원의 환자로 검진을 받은 적이 있다고 들었는데요.@,"""Aiden Triss - Subject to request"" "
-81,앨런,@ⓖ(●2에이든 트리스)ⓦ씨라… 아^ 기억합니다.@,
-82,파비안,@어떻습니까? 다른 분들과 비교해서요.@,
-83,앨런,@환자 개인정보 발설은 금지되어있습니다만… 증상 자체는 지금 아컴 시에서 유행하고 있는 ⓡ(불면증)ⓦ과 흡사합니다.@,
-84,앨런,@이 이상 말씀 드릴 수 있는건 없겠군요.@,
-85,앨런,@글쎄요... 제가 첨언할 것은 없는것 같습니다.@,의사 Nothing
+1,Fabian,(The ⓑ(hospital)ⓦ is full of patients.),// 도착 대사
+2,Fabian,(Most patients are waiting their turn with hollow eyes.),
+3,Fabian,(Her busy-looking name tag reads 'Kate Lizzie'.),Kate 최초대사
+4,Fabian,@Hi^ I know you're busy^ but can I ask you a question?@,
+5,Kate,@Sure! It's fine for a moment. If the doctors catch me slacking off^ I'll get in trouble.@,
+6,Fabian,@Maybe there's a lot of people around these days?@,
+7,Kate,@That's right^ ⓡ(insomnia)ⓦ seems to be prevalent recently. As you can see^ we're very busy during the daytime.@,
+8,Fabian,@Okay. I've never heard of an ⓡ(insomnia)ⓦ epidemic. Has this happened before?@,
+9,Kate,@No^ I think it's been about a month ago that we've gotten so many patients.@,
+10,Kate,@I don't know the details either. It would be best to ask the doctors for accurate information.@,
+11,Kate,@We're busy during the day^ so it's best to come in the morning or afternoon.@,
+12,Fabian,(At that point^ I heard a voice inside calling for Kate.),
+13,Kate,@Yes~ I'll be right there~@,
+14,Kate,@Then I'll see you later!@◎⑦,Kate 사라짐
+15,Fabian,(A very busy-looking doctor is flipping through the chart.),Alan 최초대사
+16,Fabian,(He said^ without even looking at me.),
+17,Alan,@I'm sorry^ but I'm busy right now.@,
+18,Alan,@Come back later.@,
+19,Fabian,(And then he's still looking at the chart.),
+20,Fabian,(He's busy^ just grimaces and doesn't react.),반복대사
+21,Fabian,@Hi^ I know you're busy^ but can I ask you a question?@,//Kate 오후 대사 최초
+22,Kate,@Yeah^ that's fine for now^ I'm pretty much done for the day.@,
+23,Fabian,((The names are scrawled across the chart she's holding.),
+24,Fabian,@Maybe there's a lot of people around these days?@,
+25,Kate,@Yeah^ we've been having a bit of an ⓡ(insomnia)ⓦ epidemic lately^ so we're very busy during the day.@,
+26,Fabian,@I see. I've never heard of an ⓡ(insomnia)ⓦ epidemic before. Has this happened before?@,
+27,Kate,@No^ I think it's been about a month ago or so that we've gotten this many patients.@,
+28,Kate,@I don't know the details either^ but it would be best to ask the doctors for accurate information.@☆①,
+29,Kate,@Do you have any more questions~?@☆①,Kate 반복대사
+30,Fabian,(Her name tag says 'Kate Lizzie.'),Kate 살펴보기
+31,Kate,@It's giving me a headache these days~.@,Kate 선택지 - 불면증 기사
+32,Fabian,@ⓡ(Insomnia)ⓦ.... Do you know the cause yet?@,
+33,Kate,@I'm not sure^ but it seems like it would be best to ask the doctors for advice. @,
+34,Fabian,@Didn't you hear anything about ⓡ(nightmares)ⓦ?@,에이든의 악몽
+35,Kate,@I've heard that a lot lately^ with a lot of ⓡ(insomniacs)ⓦ mentioning ⓡ(nightmares)ⓦ.@,
+36,Fabian,@That's weird^ an ⓡ(insomniac)ⓦ with contagious ⓡ(nightmares)ⓦ.@,
+37,Kate,@Really. It's my first time hearing this while working here.@,
+38,Fabian,@Is there anything special about ⓡ(paranoia)ⓦ?@,편집증 - 남편의 상황
+39,Kate,@Hmm... I can't think of one^ so you'll have to ask the doctors!@,
+40,Fabian,@Is there anything special going on at the ⓑ(hospital)ⓦ?@,병원 - 신문기사
+41,Kate,@It's pretty much business as usual^ except for the influx of patients during the day.@,
+42,Kate,"@Ah^ I've seen a little less of the usual ""dangerous-looking"" patients lately.@",
+43,Fabian,@Have you noticed a characteristic ⓡ(fishy smell)ⓦ in your city lately that you don't normally smell?@,비릿한 냄새 1
+44,Kate,@ⓡ(Fishy smell)ⓦ? I don't think I've ever smelled that in a ⓑ(hospital)ⓦ.@,
+45,Kate,@Hmm...~ I'm not sure about that.@,Kate Nothing
+46,Fabian,@Hello^ can I speak to you for a moment?@,의사 최초대사
+47,Alan,@Of course. What brings you here?@☆①,
+48,Alan,@Do you have any more questions.@☆①,반복대사
+49,Fabian,(He is smoking a cigarette with an expressionless face.),살펴보기
+50,Fabian,(The name tag says Alan P. Parks.),
+51,Fabian,@You haven't heard about the contents of the ⓡ(nightmare)ⓦ?@,"""Nightmare - Aiden's Nightmare""  "
+52,Alan,@The vast majority of patients are extremely reluctant to discuss their ⓡ(nightmares)ⓦ directly.@,
+53,Alan,@Still^ overall^ the majority of ⓡ(nightmares)ⓦ seem to involve water or the ocean.@,
+54,Alan,@Maybe it's a form of rabies^ but it hasn't been reported.@,
+55,Alan,@That's what the patient said? ...and that gives us another example.@,"""Nightmare - Content of a Nightmare"" "
+56,Alan,@Other patients are also mentioning a lot of ⓡ(●4ⓝnightmares)ⓦ involving water^ especially the ocean.@,
+57,Alan,@Why this is happening is a question.@,
+58,Alan,@Ohhh... Were you also trained in medicine? It's a complicated issue.@,"""Nightmare - Aiden's Detail"""
+59,Alan,@But I'm thinking in the same direction. I'm looking at the ⓡ(nightmare)ⓦ as a direct cause.@,
+60,Fabian,@I heard there's an epidemic of ⓡ(insomnia)ⓦ lately^ is that true?@,"""Insomnia - Newspaper Article""  "
+61,Alan,@Yes. We're seeing more than we ever have before. It's baffling to us^ too.@,
+62,Fabian,@So what about the symptoms themselves^ compared to before.@,
+63,Alan,@Clearly^ this ⓡ(insomnia)ⓦ is unprecedented and unique.@,
+64,Alan,@First of all^ it hasn't happened anywhere else outside of Arkham. It's like an endemic disease^ and it's centered here.@,
+65,Alan,@On top of that^ the symptoms are unique. except medication side effects^ ⓡ(insomnia)ⓦ is usually caused by stress or anxiety.@,
+66,Alan,@But in the case of the ⓡ(insomnia)ⓦ we're seeing in Arkham^ it's because patients are afraid to sleep.@,
+67,Alan,@I wouldn't actually call it ⓡ(●2ⓘinsomnia)ⓦ^ more like a sleep phobia or aversion.@,
+68,Fabian,@They are afraid of sleeping?@,
+69,Alan,@Yes^ and I strongly suspect a ⓡ(nightmare)ⓦ as the cause of that fear.@,
+70,Alan,@That's one of the things that most of our patients are complaining about.@,
+71,Fabian,@You're saying that  ⓡ(insomnia)ⓦ is caused by fear of sleeping and that ⓡ(nightmares)ⓦ are a direct cause of that.@,
+72,Alan,@That's right^ I haven't heard of such a disease^ but...@,
+73,Alan,@Maybe it's an Arkham endemic^ like I said^ or maybe it's just mass hysteria.@,
+74,Fabian,@I see...@,
+75,Fabian,'This is more serious than I thought^ I thought it was just a tropical night thing.',
+76,Fabian,'Based on what we're hearing now^ it sounds like a lot of people at Arkham are in a similar situation to ⓖ(Aiden)ⓦ.',
+77,Fabian,@Is there anything special about ⓡ(paranoia)ⓦ?@,"""Paranoia - Husband's Condition"" "
+78,Alan,@This ⓡ(●2ⓞparanoia)ⓦ seems to be driven by extreme sleep deprivation and fear^ and the ⓡ(nightmares)ⓦ that they see when sleep.@,
+79,Alan,@In other words^ if the ⓡ(insomnia)ⓦ is solved^ the rest of the problems will take care of themselves.@,
+80,Fabian,@Do you remember ⓖ(Mr. Aiden Triss)ⓦ^ I heard that he was a patient at your hospital and was examined.@,"""Aiden Triss - Subject to request"" "
+81,Alan,@ⓖ(●2ⓐMr. Aiden Triss)ⓦ... ah^ I remember him.@,
+82,Fabian,@How does it compare to others?@,
+83,Alan,@We're not allowed to disclose patient information... but the symptoms are similar to the ⓡ(insomnia)ⓦ that's going around Arkham right now.@,
+84,Alan,@That's all I can say about that.@,
+85,Alan,@Well... I don't think I have anything to add.@,의사 Nothing
 86,,,
 87,,,
 88,,,
