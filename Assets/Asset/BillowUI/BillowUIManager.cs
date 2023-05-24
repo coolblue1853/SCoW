@@ -92,7 +92,7 @@ public class BillowUIManager : MonoBehaviour
     void HPIntMagaer()
     {
         hpText.text = "HP : " + DataBaseManager.nowHP;
-        SanText.text = "San : " + DataBaseManager.nowSan;
+        SanText.text = "SAN : " + DataBaseManager.nowSan;
     }
 
     private static BillowUIManager instance = null;

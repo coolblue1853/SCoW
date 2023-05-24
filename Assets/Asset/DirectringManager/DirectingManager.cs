@@ -39,7 +39,7 @@ public class DirectingManager : MonoBehaviour
     }
     void Awake()
     {
-
+        DataBaseManager.isDirecting = true;
         if (null == instance)
         {
             instance = this;

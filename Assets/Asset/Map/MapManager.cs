@@ -286,8 +286,12 @@ public class MapManager : MonoBehaviour
 
     public void OpenMap()
     {
-        DataBaseManager.isOpenUi = true;
-        MapChainingUI.SetActive(true);
+        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isDirecting == false)
+        {
+            DataBaseManager.isOpenUi = true;
+            MapChainingUI.SetActive(true);
+        }
+
     }
     public void CloseMap()
     {
@@ -385,31 +389,31 @@ public class MapManager : MonoBehaviour
     {
         if (DataBaseManager.TimeCount == 1)
         {
-            text.text = "11 / 7 / 1921 - Noon";
+            text.text = "11/7/1921-Noon";
         }
         else if (DataBaseManager.TimeCount == 2)
         {
-            text.text = "11 / 7 / 1921 - Afternoon";
+            text.text = "11/7/1921-Afternoon";
         }
         else if (DataBaseManager.TimeCount == 3)
         {
-            text.text = "11 / 7 / 1921 - Night";
+            text.text = "11/7/1921-Night";
         }
         else if (DataBaseManager.TimeCount == 4)
         {
-            text.text = "11 / 7 / 1921 - Morning";
+            text.text = "11/7/1921-Morning";
         }
         else if (DataBaseManager.TimeCount == 5)
         {
-            text.text = "11 / 7 / 1921 - Noon";
+            text.text = "11/7/1921-Noon";
         }
         else if (DataBaseManager.TimeCount == 6)
         {
-            text.text = "11 / 7 / 1921 - Afternoon";
+            text.text = "11/7/1921-Afternoon";
         }
         else if (DataBaseManager.TimeCount == 7)
         {
-            text.text = "11 / 7 / 1921 - Night";
+            text.text = "11/7/1921-Night";
         }
     }
     public void EndEvent()

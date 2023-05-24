@@ -49,6 +49,7 @@ public class FadingBackGround : MonoBehaviour
         .SetDelay(1.5f)
         .Append(BackGround.DOFade(0, 1.5f).SetAutoKill());
         yield return mySequence2.WaitForCompletion();
+        DataBaseManager.isDirecting = false;
         Back.SetActive(false);
     }
     public void FadeIn()
@@ -69,6 +70,7 @@ public class FadingBackGround : MonoBehaviour
         .SetDelay(1.5f)
         .Append(BackGround.DOFade(0, 1.5f).SetAutoKill());
         yield return mySequence2.WaitForCompletion();
+        DataBaseManager.isDirecting = false;
         Back.SetActive(false);
 
     }

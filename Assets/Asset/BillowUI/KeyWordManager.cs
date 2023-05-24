@@ -773,9 +773,9 @@ public class KeyWordManager : MonoBehaviour
     {
 
 
-        mainSetting.text = "< " + DataBaseManager.keyword_main + " >";
-        upperSetting.text = "< " + DataBaseManager.keyword_upper + " >";
-        downerSetting.text = "< " + DataBaseManager.keyword_downer + " >";
+        mainSetting.text =  DataBaseManager.keyword_main ;
+        upperSetting.text =  DataBaseManager.keyword_upper ;
+        downerSetting.text =  DataBaseManager.keyword_downer ;
 
         // 상위키워드 업데이트
 

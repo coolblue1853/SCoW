@@ -23,7 +23,7 @@ public class IntelFloating : MonoBehaviour
         yield return new WaitForSeconds(2f);
         while (페이드카운트 > 0)
         {
-            페이드카운트 -= 0.01f;
+            페이드카운트 -= 0.02f;
             yield return new WaitForSeconds(0.01f);
             페이드이미지.color = new Color(0, 0, 0, 페이드카운트);
             페이드글자.color = new Color(255f, 255f, 255f, 페이드카운트);
@@ -39,7 +39,7 @@ public class IntelFloating : MonoBehaviour
 
         while (페이드카운트 < 1)
         {
-            페이드카운트 += 0.01f;
+            페이드카운트 += 0.02f;
             yield return new WaitForSeconds(0.01f);
            페이드이미지.color = new Color(0, 0, 0, 페이드카운트);
            페이드글자.color = new Color(255f, 255f, 255f, 페이드카운트);
