@@ -10,27 +10,30 @@ public class ManageMain : MonoBehaviour
     public Image BackGround;
     public GameObject tile;
     public GameObject tile2;
+    public GameObject tile3;
     bool on = false;
     bool on2 = false;
+    bool on3 = false;
     Sequence mySequence;
 
     public void FadeIn()
     {
+        SoundManager.Instance.pen_Circle();
         Back.SetActive(true);
-        mySequence = DOTween.Sequence()
-        .Append(BackGround.DOFade(1, 1.5f).SetAutoKill());
-
-        Invoke("Go_SetCharacter", 1.8f);
+        Tween fadeTween = BackGround.DOFade(1, 1.5f);
+        fadeTween.OnComplete(Go_SetCharacter);
     }
 
 
     public void Game_Quit()
     {
+        SoundManager.Instance.pen_Circle();
         Application.Quit();
     }
 
     public void Go_SetCharacter()
     {
+
         SceneManager.LoadScene("SetCharacter");
     }
 
@@ -70,6 +73,26 @@ public class ManageMain : MonoBehaviour
         {
             on2 = false;
             tile2.SetActive(false);
+        }
+    }
+
+    public void Open_tile3()
+    {
+        if (on3 == false)
+        {
+            on3 = true;
+            tile3.SetActive(true);
+        }
+
+    }
+
+
+    public void Close_tile3()
+    {
+        if (on3 == true)
+        {
+            on3 = false;
+            tile3.SetActive(false);
         }
     }
 }

@@ -7,8 +7,14 @@ public class ChangeMapButton : MonoBehaviour
 
     public void ButtonClick()
     {
-        DataBaseManager.nowPlace = this.name;
+        //DataBaseManager.nowPlace = this.name;
         MapManager.Instance.MapOn();
+        DataBaseManager.nowPlace = this.name;
+    }
+
+    void Chage()
+    {
+
     }
     void Start()
     {

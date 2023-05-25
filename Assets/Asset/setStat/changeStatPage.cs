@@ -12,6 +12,7 @@ public class changeStatPage : MonoBehaviour
 
     public void strPageButton()
     {
+        SoundManager.Instance.PaperClip_Play();
         strPage.SetActive(true);
         intPage.SetActive(false);
         dexPage.SetActive(false);
@@ -19,12 +20,14 @@ public class changeStatPage : MonoBehaviour
     }
     public void intPageButton()
     {
+        SoundManager.Instance.PaperClip_Play();
         strPage.SetActive(false);
         intPage.SetActive(true);
         dexPage.SetActive(false);
     }
     public void dexPageButton()
     {
+        SoundManager.Instance.PaperClip_Play();
         strPage.SetActive(false);
         intPage.SetActive(false);
         dexPage.SetActive(true);

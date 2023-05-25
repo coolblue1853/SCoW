@@ -288,6 +288,7 @@ public class MapManager : MonoBehaviour
     {
         if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isDirecting == false)
         {
+            DataBaseManager.workSound = false;
             DataBaseManager.isOpenUi = true;
             MapChainingUI.SetActive(true);
         }
@@ -308,6 +309,7 @@ public class MapManager : MonoBehaviour
             {
                 if(MapChainingUI.activeSelf == false)
                 {
+                    DataBaseManager.workSound = false;
                     DataBaseManager.isOpenUi = true;
                     MapChainingUI.SetActive(true);
                 }

@@ -61,7 +61,10 @@ public class SetCharacter_ : MonoBehaviour
 
     public void FadeOut()
     {
-        StartCoroutine(FadeOut_IEnumerator());
+        Back.SetActive(true);
+        Tween fadeTween2 = BackGround.DOFade(0, 1.5f);
+        fadeTween2.OnComplete(goToGame);
+       //    StartCoroutine(FadeOut_IEnumerator());
     }
     IEnumerator FadeOut_IEnumerator()
     {
@@ -72,5 +75,9 @@ public class SetCharacter_ : MonoBehaviour
         Back.SetActive(false);
 
     }
-    
+
+    public void goToGame()
+    {
+        Back.SetActive(false);
+    }
 }

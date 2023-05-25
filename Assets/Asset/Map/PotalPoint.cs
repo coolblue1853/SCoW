@@ -68,13 +68,13 @@ public class PotalPoint : MonoBehaviour
                         Invoke("MovePlayer", 2);
                     }
                 }
-                else if(DataBaseManager.nowPlace == "Client'shouse" && DataBaseManager.isFirstDoor == false)
+                else if(DataBaseManager.nowPlace == "Client'shouse" && this.name == "to1st" &&DataBaseManager.isFirstDoor == false)
                 {
                     DataBaseManager.isDirecting = true;
                     DataBaseManager.isFirstDoor = true;
                     DirectingManager.Instance.DoorNocking();
                 }
-                else if (DataBaseManager.nowPlace == "Client'shouse" && DataBaseManager.isFirst2st == false)
+                else if (DataBaseManager.nowPlace == "Client'shouse" && this.name == "1stto2st" && DataBaseManager.isFirst2st == false)
                 {
                     DataBaseManager.isDirecting = true;
                     DataBaseManager.isFirst2st = true;

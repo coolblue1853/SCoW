@@ -7,6 +7,10 @@ TagManager:
   - endStage
   - Enemy
   - BackGround
+  - Dir_Kate
+  - Dir_Sofa
+  - Dir_Newspaper
+  - Dir_Ella
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
+	
 	Animator anime;
 
 	float ChInRommSize = 2.383215f;
@@ -62,12 +63,14 @@ public class Player : MonoBehaviour
 
 		if (Input.GetAxisRaw("Horizontal") < 0 && Input.GetKey(KeyCode.Z))
 		{
+			DataBaseManager.workSound = true;
 			moveVelocity = Vector3.left;
 			transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
 			//X값 스케일을 -1로 주어 좌우반전
 		}
 		else if (Input.GetAxisRaw("Horizontal") > 0 && Input.GetKey(KeyCode.Z) )
 		{
+			DataBaseManager.workSound = true;
 			moveVelocity = Vector3.right;
 			transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
 			//X값 스케일을 1로 주어 다시 원위치 
@@ -75,7 +78,7 @@ public class Player : MonoBehaviour
 
 		if (Input.GetAxisRaw("Horizontal") < 0 )
 		{
-
+			DataBaseManager.workSound = true;
 			moveVelocity = Vector3.left;
 
 			transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
@@ -83,10 +86,15 @@ public class Player : MonoBehaviour
 		}
 		else if (Input.GetAxisRaw("Horizontal") > 0)
 		{
+			DataBaseManager.workSound = true;
 			moveVelocity = Vector3.right;
 
 			transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
 			//X값 스케일을 1로 주어 다시 원위치 
+		}
+        else
+        {
+			DataBaseManager.workSound = false;
 		}
 
 

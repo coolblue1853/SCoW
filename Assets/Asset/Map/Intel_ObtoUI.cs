@@ -48,7 +48,8 @@ public class Intel_ObtoUI : MonoBehaviour
 
             if (this.transform.name == DataBaseManager.Select_Object)
             {
-            
+                DataBaseManager.workSound = false;
+
                 if (CanJudge == false)
                 {
                     isJudge = false;

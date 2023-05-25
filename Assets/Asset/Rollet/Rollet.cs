@@ -75,6 +75,7 @@ public class Rollet : MonoBehaviour
 
         if (EndButton.activeSelf == true && Input.GetKeyDown(KeyCode.E))
         {
+
             EndRollet();
         }
         {
@@ -82,6 +83,7 @@ public class Rollet : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E))
                 {
+                    SoundManager.Instance.EndDice();
                     CancelInvoke();
                     isClick = true;
                     isActiveRollet = false;
@@ -121,6 +123,7 @@ public class Rollet : MonoBehaviour
     }
     public void setRollet(string skill, string point_sting, int point_int, string subject)
     {
+        SoundManager.Instance.pen_Line();
         DataBaseManager.isRollet = true;
         Subject = subject;
         Sub_Dialog = skill; // 나중에 다이얼로그 결과 전송시 사용
@@ -211,7 +214,11 @@ public class Rollet : MonoBehaviour
         setUI.SetActive(false);
         activeUI.SetActive(true);
         InvokeRepeating("ChangeRollet", 1, 0.05f);
-
+        Invoke("diceSound", 1);
+    }
+    void diceSound()
+    {
+        SoundManager.Instance.PlayDice();
     }
 
     void ChangeRollet()
@@ -256,6 +263,8 @@ public class Rollet : MonoBehaviour
 
     void GetIntResult()
     {
+
+        SoundManager.Instance.pen_Line();
         if (DataBaseManager.Condition == "Nomal")
         {
             result_int = int.Parse(NomalRollet_10t.text) + int.Parse(NomalRollet_1t.text);
@@ -354,6 +363,7 @@ public class Rollet : MonoBehaviour
     }
     void GetStringResult()
     {
+        SoundManager.Instance.pen_Line();
         if (result_int >= 95)
         {
             result_End.text = "Result : Fumble";

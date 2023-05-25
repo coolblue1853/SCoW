@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+
+    //SoundManager
+
+    public static float sound_Volume =0.5f;
+    public static float sfx_Volume = 0.5f;
+    public static bool workSound = false;
     //Judge
 
 
@@ -520,4 +526,493 @@ public class DataBaseManager : MonoBehaviour
     public static bool Intel_Wharf4 = false;
     public static bool Intel_Wharf5 = false;
     public static bool Intel_Wharf6 = false;
+
+
+
+
+
+
+
+
+
+
+
+    public void ResetData()
+    {
+            //SoundManager
+
+    workSound = false;
+    //Judge
+
+
+    // Map
+nowPlace = "DetectiveOffice";
+PotalPlace = "";
+
+
+
+    //Directing
+    isDirecting = false;
+     firstClientsHouse = false;
+    //1일차 술집
+     isBar = false;
+     Maeve_FirstDialog = false;
+     Worker_FirstDialog = false;
+    //1일차 빈민가
+     Dave_FirstDialog = false;
+
+    //1일차 경찰서
+     A_FirstDialog = false;
+     B_FirstDialog = false;
+     Albert_FirstDialog = false;
+    //1일차 병원
+     Alan_FirstDialog = false;
+     Kate_Disapear = false;
+     Kate_NoonFirstDialog = false;
+     Alan_NoonFirstDialog = false;
+    //1일차 강가
+     Kane_FirstDialog = false;
+     Sewer_FirstDialog = false;
+     Sewer_Observation = false;
+     Sewer_ObservationEnd = false;
+     Sewer_San = false;
+    //1일차 대학
+     Univ_FirstDialog = false;
+    //1일차 신문사
+     Swain_FirstDialog = false;
+     Swain_isTalkMissingpeople = false;
+    //1일차 의뢰자의 집
+     Aiden_FirstDialog = false;
+     Aiden_Observation = false;
+     Aiden_medicine = false;
+     Aiden_psychotherapy = false;
+     Ella_EndDialog = false;
+     isFirstDoor = false;
+     isFirst2st = false;
+     isFirstRoom = false;
+     getSafe = false;
+     StrDialogOn = false;
+     AidenKeywordCount = 0;
+     FailTwoKeyword = false;
+
+
+    //1일차 오전 탐정사무소
+     EndDemo = false;
+     EndDay = false;
+     ConnectKey = false;
+        fst_Detective_EndFirstDialog = false;
+        fst_Detective_NockDialog = false;
+        fst_Detective_AfterSelect = false;
+        fst_Detective_AfterSelectNo = false;
+        fst_Detective_EndSelect = false;
+        //Select
+        SelectionOn = false;
+
+    //Judge
+     fst_Detective_isNewspaper = false;
+
+
+    //Battle
+
+
+     isOpenUi = false;
+
+    //Map
+     TimeCount = 1;
+     fst_Detectiv_TimeOn = 0;
+
+        //Rollet
+        isRollet = false;
+        Condition = "Nomal";
+
+
+        //dialog
+        Select_Object = "";
+        isSelect = false;
+        CancelJudge = false;
+        isKeyword = false;
+        isJudge = false;
+        LookObject = "";
+NowSelecter = "End"; // End_Look_Judge 존재
+        isScene = false;
+        isPresentation = false;
+        isOption = false;
+        endDialogLine = false;
+        skipActive = false;
+        textDelay = 0.07f;
+
+        isActiveDialog1 = false;
+        isActiveDialog2 = false;
+
+
+
+
+
+
+        // stat
+        str = 0;
+     intl = 0;
+     dex = 0;
+     hp =0;
+     mp = 0;
+        san = 0;
+        luk = 0;
+        weal = 0;
+
+        nowHP = 0;
+        nowSan = 0;
+
+
+        //skill -str
+        strSkillPoint = 0;
+     martialArtsPoint = 25;
+     gunShotPoint = 15;
+     swordPoint = 20;
+     ObservationPoint = 20;
+     swimingPoint = 10;
+
+    //skill -int
+     intSkillPoint = 0;
+     medicinePoint = 10;
+     analysisPoint = 30;
+     listeningPoint = 5;
+     psychotherapyPoint = 5;
+     occultPoint = 5;
+
+    //skill -dex
+     dexSkillPoint = 0;
+     evasionPoint = 30;
+     deftnessPoint = 20;
+     rhetoricPoint = 20;
+     stealthPoint = 15;
+     DisguisePoint = 10;
+
+
+
+
+    NowPage_Ella = 1;
+     NowPage_Aiden = 1;
+     NowPage_Cane = 1;
+     NowPage_Albert = 1;
+     NowPage_Meiv = 1;
+     NowPage_BlackWell = 1;
+     NowPage_Swain = 1;
+
+     GainCharacterInt = 0;
+
+     ButtonCount_Ella = -1;
+     ButtonCount_Aiden = -1;
+     ButtonCount_Cane = -1;
+     ButtonCount_Albert = -1;
+     ButtonCount_Meiv = -1;
+     ButtonCount_BlackWell = -1;
+     ButtonCount_Swain = -1;
+
+     Intel_Aiden1 = false;
+     Intel_Aiden2 = false;
+     Intel_Aiden3 = false;
+     Intel_Aiden4 = false;
+     Intel_Aiden5 = false;
+     Intel_Aiden6 = false;
+
+     Intel_Ella1 = false;
+     Intel_Ella2 = false;
+     Intel_Ella3 = false;
+     Intel_Ella4 = false;
+     Intel_Ella5 = false;
+     Intel_Ella6 = false;
+
+     Intel_Swain1 = false;
+     Intel_Swain2 = false;
+     Intel_Swain3 = false;
+     Intel_Swain4 = false;
+     Intel_Swain5 = false;
+     Intel_Swain6 = false;
+
+     Intel_Cane1 = false;
+     Intel_Cane2 = false;
+     Intel_Cane3 = false;
+     Intel_Cane4 = false;
+     Intel_Cane5 = false;
+     Intel_Cane6 = false;
+
+     Intel_Albert1 = false;
+     Intel_Albert2 = false;
+     Intel_Albert3 = false;
+     Intel_Albert4 = false;
+     Intel_Albert5 = false;
+     Intel_Albert6 = false;
+
+     Intel_Meiv1 = false;
+     Intel_Meiv2 = false;
+     Intel_Meiv3 = false;
+     Intel_Meiv4 = false;
+     Intel_Meiv5 = false;
+     Intel_Meiv6 = false;
+
+     Intel_BlackWell1 = false;
+     Intel_BlackWell2 = false;
+     Intel_BlackWell3 = false;
+     Intel_BlackWell4 = false;
+     Intel_BlackWell5 = false;
+     Intel_BlackWell6 = false;
+
+    //사건 정보
+     NowPage_PlanetarySequence = 1;
+     NowPage_Nightmare = 1;
+     NowPage_Paranoia = 1;
+     NowPage_Insomnia = 1;
+     NowPage_SewerGhostStory = 1;
+     NowPage_MissingPeople = 1;
+     NowPage_FishySmell = 1;
+     NowPage_RiverWaterQuality = 1;
+     NowPage_CreepyEyes = 1;
+     NowPage_SewerWorker = 1;
+     NowPage_Safe = 1;
+     NowPage_SuddenChange = 1;
+
+     GainEventInt = 0;
+
+     ButtonCount_PlanetarySequence = -1;
+     ButtonCount_Nightmare = -1;
+     ButtonCount_Paranoia = -1;
+     ButtonCount_Insomnia = -1;
+     ButtonCount_SewerGhostStory = -1;
+     ButtonCount_MissingPeople = -1;
+     ButtonCount_FishySmell = -1;
+     ButtonCount_RiverWaterQuality = -1;
+     ButtonCount_CreepyEyes = -1;
+     ButtonCount_SewerWorker = -1;
+     ButtonCount_Safe = -1;
+     ButtonCount_SuddenChange = -1;
+
+
+
+     Intel_PlanetarySequence1 = false;
+     Intel_PlanetarySequence2 = false;
+     Intel_PlanetarySequence3 = false;
+     Intel_PlanetarySequence4 = false;
+     Intel_PlanetarySequence5 = false;
+     Intel_PlanetarySequence6 = false;
+
+     Intel_Nightmare1 = false;
+     Intel_Nightmare2 = false;
+     Intel_Nightmare3 = false;
+     Intel_Nightmare4 = false;
+     Intel_Nightmare5 = false;
+     Intel_Nightmare6 = false;
+
+     Intel_Paranoia1 = false;
+     Intel_Paranoia2 = false;
+     Intel_Paranoia3 = false;
+     Intel_Paranoia4 = false;
+     Intel_Paranoia5 = false;
+     Intel_Paranoia6 = false;
+
+     Intel_Insomnia1 = false;
+     Intel_Insomnia2 = false;
+     Intel_Insomnia3 = false;
+     Intel_Insomnia4 = false;
+     Intel_Insomnia5 = false;
+     Intel_Insomnia6 = false;
+
+     Intel_SewerGhostStory1 = false;
+     Intel_SewerGhostStory2 = false;
+     Intel_SewerGhostStory3 = false;
+     Intel_SewerGhostStory4 = false;
+     Intel_SewerGhostStory5 = false;
+     Intel_SewerGhostStory6 = false;
+
+
+     Intel_MissingPeople1 = false;
+     Intel_MissingPeople2 = false;
+     Intel_MissingPeople3 = false;
+     Intel_MissingPeople4 = false;
+     Intel_MissingPeople5 = false;
+     Intel_MissingPeople6 = false;
+
+     Intel_FishySmell1 = false;
+     Intel_FishySmell2 = false;
+     Intel_FishySmell3 = false;
+     Intel_FishySmell4 = false;
+     Intel_FishySmell5 = false;
+     Intel_FishySmell6 = false;
+
+
+     Intel_RiverWaterQuality1 = false;
+     Intel_RiverWaterQuality2 = false;
+     Intel_RiverWaterQuality3 = false;
+     Intel_RiverWaterQuality4 = false;
+     Intel_RiverWaterQuality5 = false;
+     Intel_RiverWaterQuality6 = false;
+
+
+     Intel_CreepyEyes1 = false;
+     Intel_CreepyEyes2 = false;
+     Intel_CreepyEyes3 = false;
+     Intel_CreepyEyes4 = false;
+     Intel_CreepyEyes5 = false;
+     Intel_CreepyEyes6 = false;
+
+     Intel_SewerWorker1 = false;
+     Intel_SewerWorker2 = false;
+     Intel_SewerWorker3 = false;
+     Intel_SewerWorker4 = false;
+     Intel_SewerWorker5 = false;
+     Intel_SewerWorker6 = false;
+
+     Intel_Safe1 = false;
+     Intel_Safe2 = false;
+     Intel_Safe3 = false;
+     Intel_Safe4 = false;
+     Intel_Safe5 = false;
+     Intel_Safe6 = false;
+
+     Intel_SuddenChange1 = false;
+     Intel_SuddenChange2 = false;
+     Intel_SuddenChange3 = false;
+     Intel_SuddenChange4 = false;
+     Intel_SuddenChange5 = false;
+     Intel_SuddenChange6 = false;
+
+    //장소정보
+
+     ButtonCount_DetectiveOffice = -1;
+     ButtonCount_Hospital = -1;
+     ButtonCount_Newspaper = -1;
+     ButtonCount_QuestHouse = -1;
+     ButtonCount_Station = -1;
+     ButtonCount_Restaurant = -1;
+     ButtonCount_University = -1;
+     ButtonCount_Riverside = -1;
+     ButtonCount_Bar = -1;
+     ButtonCount_Slum = -1;
+     ButtonCount_PoliceOffice = -1;
+     ButtonCount_Gunsmith = -1;
+     ButtonCount_SewageMaintenanceOffice = -1;
+     ButtonCount_Wharf = -1;
+
+
+
+     GainPlaceInt = 0;
+
+     NowPage_DetectiveOffice = 1;
+     NowPage_Hospital = 1;
+     NowPage_Newspaper = 1;
+     NowPage_QuestHouse = 1;
+     NowPage_Station = 1;
+     NowPage_Restaurant = 1;
+     NowPage_University = 1;
+     NowPage_Riverside = 1;
+     NowPage_Bar = 1;
+     NowPage_Slum = 1;
+     NowPage_PoliceOffice = 1;
+     NowPage_Gunsmith = 1;
+     NowPage_SewageMaintenanceOffice = 1;
+     NowPage_Wharf = 1;
+
+
+     Intel_DetectiveOffice1 = false;
+     Intel_DetectiveOffice2 = false;
+     Intel_DetectiveOffice3 = false;
+     Intel_DetectiveOffice4 = false;
+     Intel_DetectiveOffice5 = false;
+     Intel_DetectiveOffice6 = false;
+
+     Intel_Hospital1 = false;
+     Intel_Hospital2 = false;
+     Intel_Hospital3 = false;
+     Intel_Hospital4 = false;
+     Intel_Hospital5 = false;
+     Intel_Hospital6 = false;
+
+     Intel_Newspaper1 = false;
+     Intel_Newspaper2 = false;
+     Intel_Newspaper3 = false;
+     Intel_Newspaper4 = false;
+     Intel_Newspaper5 = false;
+     Intel_Newspaper6 = false;
+
+     Intel_QuestHouse1 = false;
+     Intel_QuestHouse2 = false;
+     Intel_QuestHouse3 = false;
+     Intel_QuestHouse4 = false;
+     Intel_QuestHouse5 = false;
+     Intel_QuestHouse6 = false;
+
+
+     Intel_Station1 = false;
+     Intel_Station2 = false;
+     Intel_Station3 = false;
+     Intel_Station4 = false;
+     Intel_Station5 = false;
+     Intel_Station6 = false;
+
+
+     Intel_Restaurant1 = false;
+     Intel_Restaurant2 = false;
+     Intel_Restaurant3 = false;
+     Intel_Restaurant4 = false;
+     Intel_Restaurant5 = false;
+     Intel_Restaurant6 = false;
+
+
+     Intel_University1 = false;
+     Intel_University2 = false;
+     Intel_University3 = false;
+     Intel_University4 = false;
+     Intel_University5 = false;
+     Intel_University6 = false;
+
+     Intel_Riverside1 = false;
+     Intel_Riverside2 = false;
+     Intel_Riverside3 = false;
+     Intel_Riverside4 = false;
+     Intel_Riverside5 = false;
+     Intel_Riverside6 = false;
+
+     Intel_Bar1 = false;
+     Intel_Bar2 = false;
+     Intel_Bar3 = false;
+     Intel_Bar4 = false;
+     Intel_Bar5 = false;
+     Intel_Bar6 = false;
+
+
+     Intel_Slum1 = false;
+     Intel_Slum2 = false;
+     Intel_Slum3 = false;
+     Intel_Slum4 = false;
+     Intel_Slum5 = false;
+     Intel_Slum6 = false;
+
+
+     Intel_PoliceOffice1 = false;
+     Intel_PoliceOffice2 = false;
+     Intel_PoliceOffice3 = false;
+     Intel_PoliceOffice4 = false;
+     Intel_PoliceOffice5 = false;
+     Intel_PoliceOffice6 = false;
+
+     Intel_Gunsmith1 = false;
+     Intel_Gunsmith2 = false;
+     Intel_Gunsmith3 = false;
+     Intel_Gunsmith4 = false;
+     Intel_Gunsmith5 = false;
+     Intel_Gunsmith6 = false;
+
+     Intel_SewageMaintenanceOffice1 = false;
+     Intel_SewageMaintenanceOffice2 = false;
+     Intel_SewageMaintenanceOffice3 = false;
+     Intel_SewageMaintenanceOffice4 = false;
+     Intel_SewageMaintenanceOffice5 = false;
+     Intel_SewageMaintenanceOffice6 = false;
+
+     Intel_Wharf1 = false;
+     Intel_Wharf2 = false;
+     Intel_Wharf3 = false;
+     Intel_Wharf4 = false;
+     Intel_Wharf5 = false;
+     Intel_Wharf6 = false;
+}
 }

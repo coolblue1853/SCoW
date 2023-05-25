@@ -39,8 +39,9 @@ public class setStat : MonoBehaviour
     public bool firstSetStat = true;
     public void SetStatButton()
     {
-        if((DataBaseManager.strSkillPoint == DataBaseManager.str && DataBaseManager.intSkillPoint == DataBaseManager.intl && DataBaseManager.dexSkillPoint == DataBaseManager.dex) || firstSetStat == true) 
+        if((DataBaseManager.strSkillPoint == DataBaseManager.str && DataBaseManager.intSkillPoint == DataBaseManager.intl && DataBaseManager.dexSkillPoint == DataBaseManager.dex) || firstSetStat == true)
         {
+            SoundManager.Instance.pen_Circle();
             firstSetStat = false;
             DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
             str_txt.text = DataBaseManager.str.ToString();
@@ -96,6 +97,7 @@ public class setStat : MonoBehaviour
     }
     public void Okay2CheckUI()
     {
+        SoundManager.Instance.pen_Circle();
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         str_txt.text = DataBaseManager.str.ToString();
         str_image.fillAmount = ((float)DataBaseManager.str / 100);
@@ -140,6 +142,7 @@ public class setStat : MonoBehaviour
 
     public void setSkill_B()
     {
+        SoundManager.Instance.PaperClip_Play();
         setStatWindow.SetActive(false);
         setSkillWindow.SetActive(true);
         setStatButton.SetActive(false);
@@ -171,6 +174,7 @@ public class setStat : MonoBehaviour
 
     public void AllRandChar()
     {
+        SoundManager.Instance.pen_Circle();
         SetStatButton();
         setSkill.RandDex();
         setSkill.RandInt();

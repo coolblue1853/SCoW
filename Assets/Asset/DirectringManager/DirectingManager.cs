@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
 public class DirectingManager : MonoBehaviour
 {
+    public GameObject Back;
+    public Image BackGround;
+
     float ChInRommSize = 2.383215f; // -이면 왼쪽 +면 오른쪽
     Vector2 player_OutsideTo1st = new Vector3(-1217.79f, 2.13f);
     Vector3 Cam_OutsideTo1st = new Vector3(-1198, 1.5f, -15);
@@ -15,6 +19,8 @@ public class DirectingManager : MonoBehaviour
     Vector2 player_RoomTo2st = new Vector3(-1365.4f, 7f);
     Vector3 Cam_RoomTo2st = new Vector3(-1368.6f, 1.5f, -15);
 
+    Vector2 player_StartPos = new Vector3(-797.79f, 1.91f);
+    Vector3 Cam_StartPos = new Vector3(-797.5f, 1.5f, -15);
 
     private static DirectingManager instance = null;
     public GameObject player;
@@ -37,13 +43,42 @@ public class DirectingManager : MonoBehaviour
             return instance;
         }
     }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 씬이 호출될 때마다 초기화할 코드를 여기에 작성하세요.
+        if (scene.name == "Main")
+        {
+            Back.SetActive(true);
+            Tween fadeTween2 = BackGround.DOFade(0, 1.5f);
+            player.SetActive(false);
+            player.transform.position = player_StartPos;
+            Camera.transform.position = Cam_StartPos;
+            DataBaseManager.nowPlace = "DetectiveOffice";
+            //원래라면 활성화 해 주어야 함.
+            FadingBackGround.Instance.FadeOut();
+            Invoke("startGame", 2f);
+            DataBaseManager.isDirecting = true;
+        }
+    }
+
     void Awake()
     {
-        DataBaseManager.isDirecting = true;
+
+
         if (null == instance)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -54,12 +89,8 @@ public class DirectingManager : MonoBehaviour
     void Start()
     {
 
-        //원래라면 활성화 해 주어야 함.
-        FadingBackGround.Instance.FadeOut();
-        Invoke("startGame", 2f);
+
     }
-
-
 
     void startGame()
     {
@@ -69,11 +100,14 @@ public class DirectingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(DataBaseManager.fst_Detectiv_TimeOn >= 2)
+
+
+        if (DataBaseManager.fst_Detectiv_TimeOn >= 2)
         {
             DataBaseManager.isDirecting = true;
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
+                SoundManager.Instance.Nock_Sound();
                 // 노크소리 발동
                 DataBaseManager.isActiveDialog2 = true;
                 Invoke("After_NockSound", 1);
@@ -92,11 +126,13 @@ public class DirectingManager : MonoBehaviour
         }
         if (DataBaseManager.fst_Detective_AfterSelect == true && DataBaseManager.isActiveDialog1 == false)
         {
+            SoundManager.Instance.Door_Sound();
             DataBaseManager.fst_Detective_AfterSelect = false;
             fst_DetectiveOffice_Fade("AfterSelect_Directing");
         }
         if (DataBaseManager.fst_Detective_AfterSelectNo == true && DataBaseManager.isActiveDialog1 == false)
         {
+            SoundManager.Instance.Door_Sound();
             DataBaseManager.fst_Detective_AfterSelectNo = false;
             fst_DetectiveOffice_Fade("Accept_AfterSelectNo");
         }
@@ -206,6 +242,7 @@ public class DirectingManager : MonoBehaviour
     {
         DataBaseManager.isDirecting = true;
         FadingBackGround.Instance.FadeInOut();
+        SoundManager.Instance.Door_Sound();
         Invoke("moveInside",2f);
 
     }

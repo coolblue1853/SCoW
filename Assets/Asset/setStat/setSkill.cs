@@ -63,9 +63,8 @@ public class setSkill : MonoBehaviour
     public void FadeIn()
     {
         Back.SetActive(true);
-        mySequence = DOTween.Sequence()
-        .Append(BackGround.DOFade(1, 1.5f).SetAutoKill());
-        Invoke("goToGame", 1.8f);
+        Tween fadeTween2 = BackGround.DOFade(1, 1.5f);
+        fadeTween2.OnComplete(goToGame);
     }
     public void goToGame()
     {
@@ -132,6 +131,7 @@ public class setSkill : MonoBehaviour
     // 힘관련 기술들 
     public void RandStr()
     {
+        SoundManager.Instance.pen_Line();
         while (DataBaseManager.strSkillPoint >= 5)
         {
             int randNum = Random.Range(1, 6);
@@ -194,6 +194,7 @@ public class setSkill : MonoBehaviour
     }
     public void ResetStr()
     {
+        SoundManager.Instance.pen_Line();
         DataBaseManager.martialArtsPoint = 25;
         martialArtsPoint_t.text = DataBaseManager.martialArtsPoint.ToString();
         martialArtsPoint_g.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
@@ -218,7 +219,8 @@ public class setSkill : MonoBehaviour
 
     public void skillUpButton()
     {
-            if (clickTime > minClickTime )
+
+        if (clickTime > minClickTime )
         {
             if(nowSkill == "martialArtsUP")
             {
@@ -407,8 +409,10 @@ public class setSkill : MonoBehaviour
     //str
     public void martialArtsUP()
     {
+
         if (DataBaseManager.martialArtsPoint < 90 && DataBaseManager.strSkillPoint >= 5)
         {
+
             isClick = true;
             DataBaseManager.strSkillPoint -= 5;
             DataBaseManager.martialArtsPoint += 5;
@@ -422,6 +426,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.martialArtsPoint > 25)
         {
+            SoundManager.Instance.pen_Line();
             isClick = true;
             DataBaseManager.strSkillPoint += 5;
             DataBaseManager.martialArtsPoint -= 5;
@@ -435,6 +440,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.gunShotPoint < 90 && DataBaseManager.strSkillPoint >= 5)
         {
+
             isClick = true;
             DataBaseManager.strSkillPoint -= 5;
             DataBaseManager.gunShotPoint += 5;
@@ -448,6 +454,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.gunShotPoint > 15)
         {
+            SoundManager.Instance.pen_Line();
             isClick = true;
 
             DataBaseManager.strSkillPoint += 5;
@@ -462,6 +469,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.swordPoint < 90 && DataBaseManager.strSkillPoint >= 5)
         {
+
             isClick = true;
             DataBaseManager.strSkillPoint -= 5;
             DataBaseManager.swordPoint += 5;
@@ -475,6 +483,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.swordPoint > 20)
         {
+            SoundManager.Instance.pen_Line();
             isClick = true;
             DataBaseManager.strSkillPoint += 5;
             DataBaseManager.swordPoint -= 5;
@@ -488,6 +497,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.ObservationPoint < 90 && DataBaseManager.strSkillPoint >= 5)
         {
+
             isClick = true;
             DataBaseManager.strSkillPoint -= 5;
             DataBaseManager.ObservationPoint += 5;
@@ -501,6 +511,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.ObservationPoint > 20)
         {
+            SoundManager.Instance.pen_Line();
             isClick = true;
             DataBaseManager.strSkillPoint += 5;
             DataBaseManager.ObservationPoint -= 5;
@@ -514,6 +525,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.swimingPoint < 90 && DataBaseManager.strSkillPoint >= 5)
         {
+
             isClick = true;
             DataBaseManager.strSkillPoint -= 5;
             DataBaseManager.swimingPoint += 5;
@@ -527,6 +539,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.swimingPoint > 10)
         {
+            SoundManager.Instance.pen_Line();
             isClick = true;
             DataBaseManager.strSkillPoint += 5;
             DataBaseManager.swimingPoint -= 5;
@@ -541,6 +554,7 @@ public class setSkill : MonoBehaviour
 
     public void RandInt()
     {
+        SoundManager.Instance.pen_Line();
         while (DataBaseManager.intSkillPoint >= 5)
         {
             int randNum = Random.Range(1, 6);
@@ -600,6 +614,7 @@ public class setSkill : MonoBehaviour
     }
     public void ResetInt()
     {
+        SoundManager.Instance.pen_Line();
         DataBaseManager.medicinePoint = 10;
         medicine_t.text = DataBaseManager.medicinePoint.ToString();
         medicine_g.fillAmount = (float)DataBaseManager.medicinePoint / 100;
@@ -624,6 +639,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.medicinePoint < 90 && DataBaseManager.intSkillPoint >= 5)
         {
+
             isClick = true;
             DataBaseManager.intSkillPoint -= 5;
             DataBaseManager.medicinePoint += 5;
@@ -637,6 +653,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.medicinePoint > 10)
         {
+            SoundManager.Instance.pen_Line();
             isClick = true;
 
             DataBaseManager.intSkillPoint += 5;
@@ -651,6 +668,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.analysisPoint < 90 && DataBaseManager.intSkillPoint >= 5)
         {
+
             isClick = true;
             DataBaseManager.intSkillPoint -= 5;
             DataBaseManager.analysisPoint += 5;
@@ -664,6 +682,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.analysisPoint > 30)
         {
+            SoundManager.Instance.pen_Line();
             isClick = true;
 
             DataBaseManager.intSkillPoint += 5;
@@ -678,6 +697,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.occultPoint < 90 && DataBaseManager.intSkillPoint >= 5)
         {
+
             isClick = true;
             DataBaseManager.intSkillPoint -= 5;
             DataBaseManager.occultPoint += 5;
@@ -691,6 +711,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.occultPoint > 5)
         {
+            SoundManager.Instance.pen_Line();
             isClick = true;
             DataBaseManager.intSkillPoint += 5;
             DataBaseManager.occultPoint -= 5;
@@ -704,6 +725,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.listeningPoint < 90 && DataBaseManager.intSkillPoint >= 5)
         {
+
             isClick = true;
 
             DataBaseManager.intSkillPoint -= 5;
@@ -718,6 +740,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.listeningPoint > 5)
         {
+            SoundManager.Instance.pen_Line();
             isClick = true;
             DataBaseManager.intSkillPoint += 5;
             DataBaseManager.listeningPoint -= 5;
@@ -731,6 +754,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.psychotherapyPoint < 90 && DataBaseManager.intSkillPoint >= 5)
         {
+
             isClick = true;
             DataBaseManager.intSkillPoint -= 5;
             DataBaseManager.psychotherapyPoint += 5;
@@ -744,6 +768,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.psychotherapyPoint > 5)
         {
+            SoundManager.Instance.pen_Line();
             isClick = true;
 
             DataBaseManager.intSkillPoint += 5;
@@ -757,6 +782,7 @@ public class setSkill : MonoBehaviour
 
     public void RandDex()
     {
+        SoundManager.Instance.pen_Line();
         while (DataBaseManager.dexSkillPoint >= 5)
         {
             int randNum = Random.Range(1, 6);
@@ -817,6 +843,7 @@ public class setSkill : MonoBehaviour
     }
     public void ResetDex()
     {
+        SoundManager.Instance.pen_Line();
         DataBaseManager.evasionPoint = 30;
         evasion_t.text = DataBaseManager.evasionPoint.ToString();
         evasion_g.fillAmount = (float)DataBaseManager.evasionPoint / 100;
@@ -842,6 +869,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.evasionPoint < 90 && DataBaseManager.dexSkillPoint >= 5)
         {
+
             isClick = true;
             DataBaseManager.dexSkillPoint -= 5;
             DataBaseManager.evasionPoint += 5;
@@ -855,6 +883,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.evasionPoint > 30)
         {
+            SoundManager.Instance.pen_Line();
             isClick = true;
             DataBaseManager.dexSkillPoint += 5;
             DataBaseManager.evasionPoint -= 5;
@@ -868,6 +897,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.deftnessPoint < 90 && DataBaseManager.dexSkillPoint >= 5)
         {
+
             isClick = true;
             DataBaseManager.dexSkillPoint -= 5;
             DataBaseManager.deftnessPoint += 5;
@@ -881,6 +911,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.deftnessPoint > 20)
         {
+            SoundManager.Instance.pen_Line();
             isClick = true;
             DataBaseManager.dexSkillPoint += 5;
             DataBaseManager.deftnessPoint -= 5;
@@ -894,6 +925,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.rhetoricPoint < 90 && DataBaseManager.dexSkillPoint >= 5)
         {
+
             isClick = true;
             DataBaseManager.dexSkillPoint -= 5;
             DataBaseManager.rhetoricPoint += 5;
@@ -907,6 +939,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.rhetoricPoint > 20)
         {
+            SoundManager.Instance.pen_Line();
             isClick = true;
             DataBaseManager.dexSkillPoint += 5;
             DataBaseManager.rhetoricPoint -= 5;
@@ -920,6 +953,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.stealthPoint < 90 && DataBaseManager.dexSkillPoint >= 5)
         {
+
             isClick = true;
             DataBaseManager.dexSkillPoint -= 5;
             DataBaseManager.stealthPoint += 5;
@@ -933,6 +967,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.stealthPoint > 15)
         {
+            SoundManager.Instance.pen_Line();
             isClick = true;
             DataBaseManager.dexSkillPoint += 5;
             DataBaseManager.stealthPoint -= 5;
@@ -946,6 +981,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.DisguisePoint < 90 && DataBaseManager.dexSkillPoint >= 5)
         {
+
             isClick = true;
             DataBaseManager.dexSkillPoint -= 5;
             DataBaseManager.DisguisePoint += 5;
@@ -959,6 +995,7 @@ public class setSkill : MonoBehaviour
     {
         if (DataBaseManager.DisguisePoint > 10)
         {
+            SoundManager.Instance.pen_Line();
             isClick = true;
             DataBaseManager.dexSkillPoint += 5;
             DataBaseManager.DisguisePoint -= 5;
@@ -978,6 +1015,7 @@ public class setSkill : MonoBehaviour
     }
     public void Back2stat()
     {
+        SoundManager.Instance.PaperClip_Play();
         setStatButton.SetActive(true);
         setStatWindow.SetActive(true);
         setSkillWindow.SetActive(false);
@@ -986,6 +1024,7 @@ public class setSkill : MonoBehaviour
 
     public void resetSkillPoint()
     {
+        SoundManager.Instance.pen_Line();
         DataBaseManager.martialArtsPoint = 25;
         martialArtsPoint_t.text = DataBaseManager.martialArtsPoint.ToString();
         martialArtsPoint_g.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;

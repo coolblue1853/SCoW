@@ -3,22 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 public class FadingBackGround : MonoBehaviour
 {
     public GameObject Back;
    public Image BackGround;
 
-
+    public void goToMain()
+    {
+        DataBaseManager.instance.ResetData();
+        SceneManager.LoadScene("Insert");
+    }
     public GameObject DemoEnd_Back;
     public Image DemoEnd_BackGround;
+
+    public GameObject EndMenu;
     public void DemoEnd_FadeIn()
     {
+
         DemoEnd_Back.SetActive(true);
-        mySequence = DOTween.Sequence()
-        .Append(DemoEnd_BackGround.DOFade(1, 1.5f).SetAutoKill());
-
+        Tween fadeTween = DemoEnd_BackGround.DOFade(1, 1.5f);
+        fadeTween.OnComplete(EndDemo);
     }
-
+    private void EndDemo()
+    {
+        EndMenu.SetActive(true);
+    }
     Sequence mySequence;
     Sequence mySequence2;
     // Start is called before the first frame update
