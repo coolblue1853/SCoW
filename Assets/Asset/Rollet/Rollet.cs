@@ -386,6 +386,11 @@ public class Rollet : MonoBehaviour
 
     public void EndRollet()
     {
+        SoundManager.Instance.EndDice();
+
+
+
+        activeCheck = false;
         DataBaseManager.isRollet = false;
         isClick = false;
         RolletSetUi.SetActive(false);

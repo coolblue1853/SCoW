@@ -5,6 +5,16 @@ using UnityEngine.UI;
 
 public class KeyWordManager : MonoBehaviour
 {
+    public void endterKey()
+    {
+        DataBaseManager.ConntectMouse = true;
+    }
+    public void outKey()
+    {
+
+        DataBaseManager.ConntectMouse = false;
+    }
+
 
     public Text mainSetting;
     public Text upperSetting;

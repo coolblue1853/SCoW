@@ -75,7 +75,47 @@ public class End_Look_Judge : MonoBehaviour
         Checker.SetActive(false);
     }
 
+    public void OnEnd()
+    {
+        DataBaseManager.NowSelecter = "End";
 
+    }
+    public void OffEnd()
+    {
+        DataBaseManager.NowSelecter = "End";
+
+    }
+    public void OnLook()
+    {
+        DataBaseManager.NowSelecter = "Look";
+
+    }
+    public void OffLook()
+    {
+        DataBaseManager.NowSelecter = "End";
+
+    }
+    public void OnJudge()
+    {
+        DataBaseManager.NowSelecter = "Judge";
+
+    }
+    public void OffJudge()
+    {
+        DataBaseManager.NowSelecter = "End";
+
+    }
+    public void OnKey()
+    {
+        DataBaseManager.NowSelecter = "Keyword";
+
+    }
+    public void OffKey()
+    {
+        DataBaseManager.ConntectMouse = false;
+
+
+    }
     void DialogSetter()
     {
         if (Checker.gameObject.activeSelf == true && DataBaseManager.isSelect == false)

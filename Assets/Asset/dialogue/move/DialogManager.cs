@@ -98,7 +98,7 @@ public class DialogManager : MonoBehaviour
 
         settingPlayerCon();
         TextCheker();
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || (Input.GetMouseButtonDown(0)))
         {
             if (z_next2 == true)
             {
@@ -115,7 +115,7 @@ public class DialogManager : MonoBehaviour
         {
             if (isNext)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E) || (Input.GetMouseButtonDown(0)))
                 {
                     if (FirstClick == true)
                     {
@@ -311,6 +311,7 @@ public class DialogManager : MonoBehaviour
 
     public void EndDialog()
     {
+
         DataBaseManager.endDialogLine = false;
         DataBaseManager.isActiveDialog1 = false;
         //DeleteChilds(정보플로팅위치);
@@ -824,6 +825,8 @@ public class DialogManager : MonoBehaviour
                     if (t_ReplaceText[i + 1] == '①')
                     {
                         SkipStopON();
+
+     
                         End_Look_Judge.Instance.Active();
                      
                         break;

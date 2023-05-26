@@ -242,7 +242,7 @@ public class DirectingManager : MonoBehaviour
     {
         DataBaseManager.isDirecting = true;
         FadingBackGround.Instance.FadeInOut();
-        SoundManager.Instance.Door_Sound();
+       // SoundManager.Instance.Door_Sound();
         Invoke("moveInside",2f);
 
     }

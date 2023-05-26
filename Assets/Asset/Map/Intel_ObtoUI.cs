@@ -22,6 +22,7 @@ public class Intel_ObtoUI : MonoBehaviour
     public string Active_Dilaog;
     public string Look_Dilaog;
   //  public string Select_Object;
+
     public void Update()
     {
 
@@ -43,9 +44,8 @@ public class Intel_ObtoUI : MonoBehaviour
         }
         previousState = DataBaseManager.NowSelecter;
 
-        if (Input.GetKeyDown(KeyCode.E) && DataBaseManager.isActiveDialog2 == false && DataBaseManager.isDirecting == false&& DataBaseManager.isOpenUi == false)
+        if ((Input.GetKeyDown(KeyCode.E) && DataBaseManager.isActiveDialog2 == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false))
         {
-
             if (this.transform.name == DataBaseManager.Select_Object)
             {
                 DataBaseManager.workSound = false;
@@ -78,7 +78,7 @@ public class Intel_ObtoUI : MonoBehaviour
                     isKeyword = true;
                 }
 
-                if (isKeyword == false || KeywordCounter ==0)
+                if (isKeyword == false || KeywordCounter == 0)
                 {
                     DataBaseManager.isKeyword = false;
                 }
@@ -139,7 +139,7 @@ public class Intel_ObtoUI : MonoBehaviour
                             InteractionController.Instance.Start_1st_Bar(Look_Dilaog);
                         }
                     }
-                    
+
                     else if (DataBaseManager.NowSelecter == "Judge")
                     {
                         DialogManager.Instance.EndDialog();
@@ -187,10 +187,9 @@ public class Intel_ObtoUI : MonoBehaviour
                     }
                 }
 
-
             }
         }
-
+     
     }
 
 

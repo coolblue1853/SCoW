@@ -64,8 +64,9 @@ public class settingManager : MonoBehaviour
     {
         DataBaseManager.isOpenUi = false;
         Setting.SetActive(false);
-
-
+        settingUi.SetActive(true);
+        Tutorial.SetActive(false);
+        keySetting.SetActive(false);
     }
     public void 게임종료버튼()
     {
@@ -235,8 +236,18 @@ public class settingManager : MonoBehaviour
 
     }
 
+    public GameObject settingUi;
+    public GameObject Tutorial;
+    public GameObject keySetting;
+    public void OpenTut()
+    {
+        settingUi.SetActive(false);
+        Tutorial.SetActive(true);
+    }
 
-
-
-   
+    public void OpenKey()
+    {
+        settingUi.SetActive(false);
+        keySetting.SetActive(true);
+    }
 }

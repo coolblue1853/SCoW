@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    public static bool  ConntectMouse = false;
 
     //SoundManager
 
