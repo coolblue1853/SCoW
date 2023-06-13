@@ -56,6 +56,7 @@ public class DirectingManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // 씬이 호출될 때마다 초기화할 코드를 여기에 작성하세요.
+        /* -- 다시 활성화 해 주어야 함         */
         if (scene.name == "Main")
         {
             Back.SetActive(true);
@@ -69,6 +70,7 @@ public class DirectingManager : MonoBehaviour
             Invoke("startGame", 2f);
             DataBaseManager.isDirecting = true;
         }
+   
     }
 
     void Awake()

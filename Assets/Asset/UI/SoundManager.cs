@@ -166,6 +166,7 @@ public class SoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         BGM_Manage();
       효과음관리();
       슬라이드효과관리();
