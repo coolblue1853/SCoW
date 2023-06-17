@@ -396,10 +396,10 @@ public class DialogManager : MonoBehaviour
                             {
                                 if (t_ReplaceText[i + 4] == 'ⓟ')
                                 {
-                                    if (DataBaseManager.Intel_PlanetarySequence1 == false)
+                                    if (DataBaseManager.Intel_PlanetaryParade1 == false)
                                     {
                                         IntelManager.Instance.AddIntelFloating("Event", "PlanetaryParade - Contents of a Newspaper");
-                                        DataBaseManager.Intel_PlanetarySequence1 = true;
+                                        DataBaseManager.Intel_PlanetaryParade1 = true;
                                     }
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓘ')
@@ -489,9 +489,9 @@ public class DialogManager : MonoBehaviour
                             {
                                 if (t_ReplaceText[i + 4] == 'ⓟ')
                                 {
-                                    if (DataBaseManager.Intel_PlanetarySequence1 == false)
+                                    if (DataBaseManager.Intel_PlanetaryParade1 == false)
                                         IntelManager.Instance.AddIntelFloating("Event", "planetaryparade - 조간신문 기사");
-                                    DataBaseManager.Intel_PlanetarySequence1 = true;
+                                    DataBaseManager.Intel_PlanetaryParade1 = true;
 
 
                                 }

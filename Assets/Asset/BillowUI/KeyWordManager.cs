@@ -774,7 +774,7 @@ public class KeyWordManager : MonoBehaviour
      int nowPlaceUpperKeywordNum = 0;
 
     //사건
-    bool isPlanetarySequenceAddList = false;
+    bool isPlanetaryParadeAddList = false;
     bool isNightmareAddList = false;
     bool isInsomniaAddList = false;
     bool isParanoiaAddList = false;
@@ -822,11 +822,11 @@ public class KeyWordManager : MonoBehaviour
 
 
         // 사건
-        if (isPlanetarySequenceAddList == false)
+        if (isPlanetaryParadeAddList == false)
         {
-            if (DataBaseManager.Intel_PlanetarySequence1 == true || DataBaseManager.Intel_PlanetarySequence2 == true || DataBaseManager.Intel_PlanetarySequence3 == true || DataBaseManager.Intel_PlanetarySequence4 == true || DataBaseManager.Intel_PlanetarySequence5 == true || DataBaseManager.Intel_PlanetarySequence6 == true)
+            if (DataBaseManager.Intel_PlanetaryParade1 == true || DataBaseManager.Intel_PlanetaryParade2 == true || DataBaseManager.Intel_PlanetaryParade3 == true || DataBaseManager.Intel_PlanetaryParade4 == true || DataBaseManager.Intel_PlanetaryParade5 == true || DataBaseManager.Intel_PlanetaryParade6 == true)
             {
-                isPlanetarySequenceAddList = true;
+                isPlanetaryParadeAddList = true;
                 upperEventKeywordList.Add("PlanetaryParade");
             }
         }
@@ -1034,9 +1034,9 @@ public class KeyWordManager : MonoBehaviour
         }
     }
     // ------------------------------- 사건하위
-    public List<string> PlanetarySequenceList = new List<string>();//string들어가야하고
-    int PlanetarySequenceKeywordCount = 0;
-    int PlanetarySequenceKeywordNum = 0;
+    public List<string> PlanetaryParadeList = new List<string>();//string들어가야하고
+    int PlanetaryParadeKeywordCount = 0;
+    int PlanetaryParadeKeywordNum = 0;
 
     public List<string> NightmareList = new List<string>();//string들어가야하고
     int NightmareKeywordCount = 0;
@@ -1078,7 +1078,7 @@ public class KeyWordManager : MonoBehaviour
     int SafeKeywordCount = 0;
     int SafeKeywordNum = 0;
     //사건
-    bool isPlanetarySequence1Add = false;
+    bool isPlanetaryParade1Add = false;
     bool isNightmare1Add = false;
     bool isNightmare2Add = false;
     bool isNightmare3Add = false;
@@ -1185,7 +1185,7 @@ public class KeyWordManager : MonoBehaviour
     public void downerKeywrodUpdater()
     {        
 
-        PlanetarySequenceKeywordCount = PlanetarySequenceList.Count-1;
+        PlanetaryParadeKeywordCount = PlanetaryParadeList.Count-1;
         NightmareKeywordCount = NightmareList.Count - 1;
         InsomniaKeywordCount = InsomniaList.Count - 1;
         ParanoiaKeywordCount = ParanoiaList.Count - 1;
@@ -1216,15 +1216,15 @@ public class KeyWordManager : MonoBehaviour
         // 사건 
 
         // 행성대직렬
-        if (DataBaseManager.keyword_upper == "PlanetaryParade" && PlanetarySequenceKeywordCount>=0)
+        if (DataBaseManager.keyword_upper == "PlanetaryParade" && PlanetaryParadeKeywordCount>=0)
         {
-            DataBaseManager.keyword_downer = PlanetarySequenceList[PlanetarySequenceKeywordNum];
+            DataBaseManager.keyword_downer = PlanetaryParadeList[PlanetaryParadeKeywordNum];
         }
  
-        if (DataBaseManager.Intel_PlanetarySequence1 == true&&isPlanetarySequence1Add == false)
+        if (DataBaseManager.Intel_PlanetaryParade1 == true&&isPlanetaryParade1Add == false)
         {
-            isPlanetarySequence1Add = true;
-            PlanetarySequenceList.Add("Contents of a Newspaper");
+            isPlanetaryParade1Add = true;
+            PlanetaryParadeList.Add("Contents of a Newspaper");
         }
 
 

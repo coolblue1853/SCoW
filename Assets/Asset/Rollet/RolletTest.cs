@@ -156,7 +156,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_BlackWell1 = true;
         DataBaseManager.Intel_Swain1 = true;
 
-        DataBaseManager.Intel_PlanetarySequence1 = true;
+        DataBaseManager.Intel_PlanetaryParade1 = true;
         DataBaseManager.Intel_Nightmare1 = true;
         DataBaseManager.Intel_Paranoia1 = true;
         DataBaseManager.Intel_Insomnia1 = true;
@@ -194,7 +194,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_BlackWell2 = true;
         DataBaseManager.Intel_Swain2 = true;
 
-        DataBaseManager.Intel_PlanetarySequence2 = true;
+        DataBaseManager.Intel_PlanetaryParade2 = true;
         DataBaseManager.Intel_Nightmare2 = true;
         DataBaseManager.Intel_Paranoia2 = true;
         DataBaseManager.Intel_Insomnia2 = true;
@@ -234,7 +234,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_BlackWell3 = true;
         DataBaseManager.Intel_Swain3 = true;
 
-        DataBaseManager.Intel_PlanetarySequence3 = true;
+        DataBaseManager.Intel_PlanetaryParade3 = true;
         DataBaseManager.Intel_Nightmare3 = true;
         DataBaseManager.Intel_Paranoia3 = true;
         DataBaseManager.Intel_Insomnia3 = true;
@@ -272,7 +272,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_BlackWell4 = true;
         DataBaseManager.Intel_Swain4 = true;
 
-        DataBaseManager.Intel_PlanetarySequence4 = true;
+        DataBaseManager.Intel_PlanetaryParade4 = true;
         DataBaseManager.Intel_Nightmare4 = true;
         DataBaseManager.Intel_Paranoia4 = true;
         DataBaseManager.Intel_Insomnia4 = true;
@@ -310,7 +310,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_BlackWell5 = true;
         DataBaseManager.Intel_Swain5 = true;
 
-        DataBaseManager.Intel_PlanetarySequence5 = true;
+        DataBaseManager.Intel_PlanetaryParade5 = true;
         DataBaseManager.Intel_Nightmare5 = true;
         DataBaseManager.Intel_Paranoia5 = true;
         DataBaseManager.Intel_Insomnia5 = true;
@@ -349,7 +349,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_BlackWell6 = true;
         DataBaseManager.Intel_Swain6 = true;
 
-        DataBaseManager.Intel_PlanetarySequence6 = true;
+        DataBaseManager.Intel_PlanetaryParade6 = true;
         DataBaseManager.Intel_Nightmare6 = true;
         DataBaseManager.Intel_Paranoia6 = true;
         DataBaseManager.Intel_Insomnia6 = true;

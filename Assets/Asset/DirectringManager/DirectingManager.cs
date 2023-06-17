@@ -403,7 +403,7 @@ public class DirectingManager : MonoBehaviour
         {
             functionList.Add(Fab_Insomnia2);
         }
-        if (DataBaseManager.Intel_PlanetarySequence1 == true)
+        if (DataBaseManager.Intel_PlanetaryParade1 == true)
         {
             functionList.Add(Fab_PlanetarySequence1);
         }

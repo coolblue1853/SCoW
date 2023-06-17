@@ -374,42 +374,42 @@ public class IntelEventDetail : MonoBehaviour
 
     void PlanetarySequenceDetail()
     {
-        if (ON_PlanetarySequence1 == false && DataBaseManager.Intel_PlanetarySequence1 == true)
+        if (ON_PlanetarySequence1 == false && DataBaseManager.Intel_PlanetaryParade1 == true)
         {
             ON_PlanetarySequence1 = true;
             Detail_PlanetarySequence1.SetActive(true);
             Detail_PlanetarySequence1.transform.SetAsLastSibling();
             Count_PlanetarySequence += 1;
         }
-        if (ON_PlanetarySequence2 == false && DataBaseManager.Intel_PlanetarySequence2 == true)
+        if (ON_PlanetarySequence2 == false && DataBaseManager.Intel_PlanetaryParade2 == true)
         {
             ON_PlanetarySequence2 = true;
             Detail_PlanetarySequence2.SetActive(true);
             Detail_PlanetarySequence2.transform.SetAsLastSibling();
             Count_PlanetarySequence += 1;
         }
-        if (ON_PlanetarySequence3 == false && DataBaseManager.Intel_PlanetarySequence3 == true)
+        if (ON_PlanetarySequence3 == false && DataBaseManager.Intel_PlanetaryParade3 == true)
         {
             ON_PlanetarySequence3 = true;
             Detail_PlanetarySequence3.SetActive(true);
             Detail_PlanetarySequence3.transform.SetAsLastSibling();
             Count_PlanetarySequence += 1;
         }
-        if (ON_PlanetarySequence4 == false && DataBaseManager.Intel_PlanetarySequence4 == true)
+        if (ON_PlanetarySequence4 == false && DataBaseManager.Intel_PlanetaryParade4 == true)
         {
             ON_PlanetarySequence4 = true;
             Detail_PlanetarySequence4.SetActive(true);
             Detail_PlanetarySequence4.transform.SetAsLastSibling();
             Count_PlanetarySequence += 1;
         }
-        if (ON_PlanetarySequence5 == false && DataBaseManager.Intel_PlanetarySequence5 == true)
+        if (ON_PlanetarySequence5 == false && DataBaseManager.Intel_PlanetaryParade5 == true)
         {
             ON_PlanetarySequence5 = true;
             Detail_PlanetarySequence5.SetActive(true);
             Detail_PlanetarySequence5.transform.SetAsLastSibling();
             Count_PlanetarySequence += 1;
         }
-        if (ON_PlanetarySequence6 == false && DataBaseManager.Intel_PlanetarySequence6 == true)
+        if (ON_PlanetarySequence6 == false && DataBaseManager.Intel_PlanetaryParade6 == true)
         {
             ON_PlanetarySequence6 = true;
             Detail_PlanetarySequence6.SetActive(true);
@@ -417,11 +417,11 @@ public class IntelEventDetail : MonoBehaviour
             Count_PlanetarySequence += 1;
         }
 
-        if (Count_PlanetarySequence > 2 && DataBaseManager.NowPage_PlanetarySequence == 1)
+        if (Count_PlanetarySequence > 2 && DataBaseManager.NowPage_PlanetaryParade == 1)
         {
             NextButton_PlanetarySequence.SetActive(true);
         }
-        else if (Count_PlanetarySequence > 4 && DataBaseManager.NowPage_PlanetarySequence == 2)
+        else if (Count_PlanetarySequence > 4 && DataBaseManager.NowPage_PlanetaryParade == 2)
         {
             NextButton_PlanetarySequence.SetActive(true);
         }
@@ -430,11 +430,11 @@ public class IntelEventDetail : MonoBehaviour
             NextButton_PlanetarySequence.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_PlanetarySequence == 2)
+        if (DataBaseManager.NowPage_PlanetaryParade == 2)
         {
             PrevButton_PlanetarySequence.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_PlanetarySequence == 3)
+        else if (DataBaseManager.NowPage_PlanetaryParade == 3)
         {
             PrevButton_PlanetarySequence.SetActive(true);
         }
@@ -1163,7 +1163,7 @@ public class IntelEventDetail : MonoBehaviour
     {
         if (NowPage == "PlanetarySequence")
         {
-            if (DataBaseManager.NowPage_PlanetarySequence == 1)
+            if (DataBaseManager.NowPage_PlanetaryParade == 1)
             {
                 if (Count_PlanetarySequence >= 6)
                 {
@@ -1188,9 +1188,9 @@ public class IntelEventDetail : MonoBehaviour
                     Reset_PlanetarySequence();
                     PlanetarySequenceContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_PlanetarySequence = 2;
+                DataBaseManager.NowPage_PlanetaryParade = 2;
             }
-            else if (DataBaseManager.NowPage_PlanetarySequence == 2)
+            else if (DataBaseManager.NowPage_PlanetaryParade == 2)
             {
                 if (Count_PlanetarySequence >= 6)
                 {
@@ -1203,7 +1203,7 @@ public class IntelEventDetail : MonoBehaviour
                     Reset_PlanetarySequence();
                     PlanetarySequenceContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_PlanetarySequence = 3;
+                DataBaseManager.NowPage_PlanetaryParade = 3;
             }
         }
         if (NowPage == "Nightmare")
@@ -1662,7 +1662,7 @@ public class IntelEventDetail : MonoBehaviour
     {
         if (NowPage == "PlanetarySequence")
         {
-            if (DataBaseManager.NowPage_PlanetarySequence == 2)
+            if (DataBaseManager.NowPage_PlanetaryParade == 2)
             {
                 if (Count_PlanetarySequence >= 6)
                 {
@@ -1689,9 +1689,9 @@ public class IntelEventDetail : MonoBehaviour
                     PlanetarySequenceContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_PlanetarySequence = 1;
+                DataBaseManager.NowPage_PlanetaryParade = 1;
             }
-            else if (DataBaseManager.NowPage_PlanetarySequence == 3)
+            else if (DataBaseManager.NowPage_PlanetaryParade == 3)
             {
                 if (Count_PlanetarySequence >= 6)
                 {
@@ -1705,7 +1705,7 @@ public class IntelEventDetail : MonoBehaviour
                     PlanetarySequenceContents.transform.GetChild(3).gameObject.SetActive(true);
                     PlanetarySequenceContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_PlanetarySequence = 2;
+                DataBaseManager.NowPage_PlanetaryParade = 2;
             }
         }
         if (NowPage == "Nightmare")

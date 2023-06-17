@@ -62,10 +62,10 @@ public class EventButtonManage : MonoBehaviour
 
     void ButtonUpdate()
     {
-        if ((DataBaseManager.Intel_PlanetarySequence1 == true || DataBaseManager.Intel_PlanetarySequence2 == true || DataBaseManager.Intel_PlanetarySequence3 == true || DataBaseManager.Intel_PlanetarySequence4 == true || DataBaseManager.Intel_PlanetarySequence5 == true || DataBaseManager.Intel_PlanetarySequence6 == true) && ButtonRize_PlanetarySequence == false)
+        if ((DataBaseManager.Intel_PlanetaryParade1 == true || DataBaseManager.Intel_PlanetaryParade2 == true || DataBaseManager.Intel_PlanetaryParade3 == true || DataBaseManager.Intel_PlanetaryParade4 == true || DataBaseManager.Intel_PlanetaryParade5 == true || DataBaseManager.Intel_PlanetaryParade6 == true) && ButtonRize_PlanetarySequence == false)
         {
             ButtonRize_PlanetarySequence = true;
-            DataBaseManager.ButtonCount_PlanetarySequence = DataBaseManager.GainEventInt;
+            DataBaseManager.ButtonCount_PlanetaryParade = DataBaseManager.GainEventInt;
             DataBaseManager.GainEventInt += 1;
         }
         if ((DataBaseManager.Intel_Nightmare1 == true || DataBaseManager.Intel_Nightmare2 == true || DataBaseManager.Intel_Nightmare3 == true || DataBaseManager.Intel_Nightmare4 == true || DataBaseManager.Intel_Nightmare5 == true || DataBaseManager.Intel_Nightmare6 == true) && ButtonRize_Nightmare == false)
@@ -142,10 +142,10 @@ public class EventButtonManage : MonoBehaviour
     void DetailUpdate()
     {
 
-        if (DataBaseManager.ButtonCount_PlanetarySequence != -1)
+        if (DataBaseManager.ButtonCount_PlanetaryParade != -1)
         {
             Button_PlanetarySequence.SetActive(true);
-            Button_PlanetarySequence.transform.SetSiblingIndex(DataBaseManager.ButtonCount_PlanetarySequence);
+            Button_PlanetarySequence.transform.SetSiblingIndex(DataBaseManager.ButtonCount_PlanetaryParade);
         }
         if (DataBaseManager.ButtonCount_Nightmare != -1)
         {

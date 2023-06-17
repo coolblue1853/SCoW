@@ -271,7 +271,7 @@ public class DataBaseManager : MonoBehaviour
     public static bool Intel_BlackWell6 = false;
 
     //사건 정보
-    public static int NowPage_PlanetarySequence = 1;
+    public static int NowPage_PlanetaryParade = 1;
     public static int NowPage_Nightmare = 1;
     public static int NowPage_Paranoia = 1;
     public static int NowPage_Insomnia = 1;
@@ -286,7 +286,7 @@ public class DataBaseManager : MonoBehaviour
 
     public static int GainEventInt = 0;
 
-    public static int ButtonCount_PlanetarySequence = -1;
+    public static int ButtonCount_PlanetaryParade = -1;
     public static int ButtonCount_Nightmare = -1;
     public static int ButtonCount_Paranoia = -1;
     public static int ButtonCount_Insomnia = -1;
@@ -301,12 +301,12 @@ public class DataBaseManager : MonoBehaviour
 
 
 
-    public static bool Intel_PlanetarySequence1 = false;
-    public static bool Intel_PlanetarySequence2 = false;
-    public static bool Intel_PlanetarySequence3 = false;
-    public static bool Intel_PlanetarySequence4 = false;
-    public static bool Intel_PlanetarySequence5 = false;
-    public static bool Intel_PlanetarySequence6 = false;
+    public static bool Intel_PlanetaryParade1 = false;
+    public static bool Intel_PlanetaryParade2 = false;
+    public static bool Intel_PlanetaryParade3 = false;
+    public static bool Intel_PlanetaryParade4 = false;
+    public static bool Intel_PlanetaryParade5 = false;
+    public static bool Intel_PlanetaryParade6 = false;
 
     public static bool Intel_Nightmare1 = false;
     public static bool Intel_Nightmare2 = false;
@@ -759,7 +759,7 @@ NowSelecter = "End"; // End_Look_Judge 존재
      Intel_BlackWell6 = false;
 
     //사건 정보
-     NowPage_PlanetarySequence = 1;
+     NowPage_PlanetaryParade = 1;
      NowPage_Nightmare = 1;
      NowPage_Paranoia = 1;
      NowPage_Insomnia = 1;
@@ -774,7 +774,7 @@ NowSelecter = "End"; // End_Look_Judge 존재
 
      GainEventInt = 0;
 
-     ButtonCount_PlanetarySequence = -1;
+     ButtonCount_PlanetaryParade = -1;
      ButtonCount_Nightmare = -1;
      ButtonCount_Paranoia = -1;
      ButtonCount_Insomnia = -1;
@@ -789,12 +789,12 @@ NowSelecter = "End"; // End_Look_Judge 존재
 
 
 
-     Intel_PlanetarySequence1 = false;
-     Intel_PlanetarySequence2 = false;
-     Intel_PlanetarySequence3 = false;
-     Intel_PlanetarySequence4 = false;
-     Intel_PlanetarySequence5 = false;
-     Intel_PlanetarySequence6 = false;
+     Intel_PlanetaryParade1 = false;
+     Intel_PlanetaryParade2 = false;
+     Intel_PlanetaryParade3 = false;
+     Intel_PlanetaryParade4 = false;
+     Intel_PlanetaryParade5 = false;
+     Intel_PlanetaryParade6 = false;
 
      Intel_Nightmare1 = false;
      Intel_Nightmare2 = false;
