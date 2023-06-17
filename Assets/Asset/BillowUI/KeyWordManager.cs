@@ -5,6 +5,32 @@ using UnityEngine.UI;
 
 public class KeyWordManager : MonoBehaviour
 {
+    private static KeyWordManager instance = null;
+    public static KeyWordManager Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+    void Awake()
+    {
+
+
+        if (null == instance)
+        {
+            instance = this;
+            //DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
     public void endterKey()
     {
         DataBaseManager.ConntectMouse = true;
@@ -735,15 +761,15 @@ public class KeyWordManager : MonoBehaviour
     }
 
 
-    List<string> upperEventKeywordList = new List<string>();//string들어가야하고
+   public List<string> upperEventKeywordList = new List<string>();//string들어가야하고
      int upperEventKeywordCount = 0;
      int nowEventUpperKeywordNum = 0;
 
-    List<string> upperCharacterKewordList = new List<string>();//string들어가야하고
+    public List<string> upperCharacterKewordList = new List<string>();//string들어가야하고
      int upperCharacterKeywordCount = 0;
      int nowCharacterUpperKeywordNum = 0;
 
-    List<string> upperPlaceKeywordList = new List<string>();//string들어가야하고
+    public List<string> upperPlaceKeywordList = new List<string>();//string들어가야하고
      int upperPlaceKeywordCount = 0;
      int nowPlaceUpperKeywordNum = 0;
 
@@ -1008,47 +1034,47 @@ public class KeyWordManager : MonoBehaviour
         }
     }
     // ------------------------------- 사건하위
-    List<string> PlanetarySequenceList = new List<string>();//string들어가야하고
+    public List<string> PlanetarySequenceList = new List<string>();//string들어가야하고
     int PlanetarySequenceKeywordCount = 0;
     int PlanetarySequenceKeywordNum = 0;
 
-    List<string> NightmareList = new List<string>();//string들어가야하고
+    public List<string> NightmareList = new List<string>();//string들어가야하고
     int NightmareKeywordCount = 0;
     int NightmareKeywordNum = 0;
 
-    List<string> InsomniaList = new List<string>();//string들어가야하고
+    public List<string> InsomniaList = new List<string>();//string들어가야하고
     int InsomniaKeywordCount;
     int InsomniaKeywordNum = 0;
 
-    List<string> ParanoiaList = new List<string>();//string들어가야하고
+    public List<string> ParanoiaList = new List<string>();//string들어가야하고
     int ParanoiaKeywordCount;
     int ParanoiaKeywordNum = 0;
 
-    List<string> MissingPeopleList = new List<string>();//string들어가야하고
+    public List<string> MissingPeopleList = new List<string>();//string들어가야하고
     int MissingPeopleKeywordCount = 0;
     int MissingPeopleKeywordNum = 0;
 
-    List<string> SewerGhostStoryList = new List<string>();//string들어가야하고
+    public List<string> SewerGhostStoryList = new List<string>();//string들어가야하고
     int SewerGhostStoryKeywordCount = 0;
     int SewerGhostStoryKeywordNum = 0;
 
-    List<string> FishySmellList = new List<string>();//string들어가야하고
+    public List<string> FishySmellList = new List<string>();//string들어가야하고
     int FishySmellKeywordCount = 0;
     int FishySmellKeywordNum = 0;
 
-    List<string> RiverWaterQualityList = new List<string>();//string들어가야하고
+    public List<string> RiverWaterQualityList = new List<string>();//string들어가야하고
     int RiverWaterQualityKeywordCount = 0;
     int RiverWaterQualityKeywordNum = 0;
 
-    List<string> CreepyEyesList = new List<string>();//string들어가야하고
+    public List<string> CreepyEyesList = new List<string>();//string들어가야하고
     int CreepyEyesKeywordCount = 0;
     int CreepyEyesKeywordNum = 0;
 
-    List<string> SuddenChangeList = new List<string>();//string들어가야하고
+    public List<string> SuddenChangeList = new List<string>();//string들어가야하고
     int SuddenChangeKeywordCount = 0;
     int SuddenChangeKeywordNum = 0;
 
-    List<string> SafeList = new List<string>();//string들어가야하고
+    public List<string> SafeList = new List<string>();//string들어가야하고
     int SafeKeywordCount = 0;
     int SafeKeywordNum = 0;
     //사건
@@ -1079,31 +1105,31 @@ public class KeyWordManager : MonoBehaviour
     bool isSuddenChange1Add = false;
     bool isSafe1Add = false;
     // ------------------------------- 인물하위
-    List<string> AidenList = new List<string>();//string들어가야하고
+    public List<string> AidenList = new List<string>();//string들어가야하고
     int AidenKeywordCount = 0;
     int AidenKeywordNum = 0;
 
-    List<string> EllaList = new List<string>();//string들어가야하고
+    public List<string> EllaList = new List<string>();//string들어가야하고
     int EllaKeywordCount = 0;
     int EllaKeywordNum = 0;
 
-    List<string> SwainList = new List<string>();//string들어가야하고
+    public List<string> SwainList = new List<string>();//string들어가야하고
     int SwainKeywordCount = 0;
     int SwainKeywordNum = 0;
 
-    List<string> CaneList = new List<string>();//string들어가야하고
+    public List<string> CaneList = new List<string>();//string들어가야하고
     int CaneKeywordCount = 0;
     int CaneKeywordNum = 0;
 
-    List<string> AlbertList = new List<string>();//string들어가야하고
+    public List<string> AlbertList = new List<string>();//string들어가야하고
     int AlbertKeywordCount = 0;
     int AlbertKeywordNum = 0;
 
-    List<string> MeivList = new List<string>();//string들어가야하고
+    public List<string> MeivList = new List<string>();//string들어가야하고
     int MeivKeywordCount = 0;
     int MeivKeywordNum = 0;
 
-    List<string> SewerWorkerList = new List<string>();//string들어가야하고
+    public List<string> SewerWorkerList = new List<string>();//string들어가야하고
     int SewerWorkerKeywordCount = 0;
     int SewerWorkerKeywordNum = 0;
     //사건
@@ -1121,31 +1147,31 @@ public class KeyWordManager : MonoBehaviour
     bool isSewerWorker2Add = false;
     bool isSewerWorker3Add = false;
     // ------------------------------- 장소하위
-    List<string> HospitalList = new List<string>();//string들어가야하고
+    public List<string> HospitalList = new List<string>();//string들어가야하고
     int HospitalKeywordCount = 0;
     int HospitalKeywordNum = 0;
 
-    List<string> NewspaperList = new List<string>();//string들어가야하고
+    public List<string> NewspaperList = new List<string>();//string들어가야하고
     int NewspaperKeywordCount = 0;
     int NewspaperKeywordNum = 0;
 
-    List<string> QuestHouseList = new List<string>();//string들어가야하고
+    public List<string> QuestHouseList = new List<string>();//string들어가야하고
     int QuestHouseKeywordCount = 0;
     int QuestHouseKeywordNum = 0;
 
-    List<string> RiversideList = new List<string>();//string들어가야하고
+    public List<string> RiversideList = new List<string>();//string들어가야하고
     int RiversideKeywordCount = 0;
     int RiversideKeywordNum = 0;
-    
-    List<string> SewageMaintenanceOfficeList = new List<string>();//string들어가야하고
+
+    public List<string> SewageMaintenanceOfficeList = new List<string>();//string들어가야하고
     int SewageMaintenanceOfficeKeywordCount = 0;
     int SewageMaintenanceOfficeKeywordNum = 0;
 
-    List<string> WharfList = new List<string>();//string들어가야하고
+    public List<string> WharfList = new List<string>();//string들어가야하고
     int WharfKeywordCount = 0;
     int WharfKeywordNum = 0;
 
-    List<string> UniversityList = new List<string>();//string들어가야하고
+    public List<string> UniversityList = new List<string>();//string들어가야하고
     int UniversityKeywordCount = 0;
     int UniversityKeywordNum = 0;
     //사건

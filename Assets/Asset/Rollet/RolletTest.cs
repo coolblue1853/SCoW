@@ -9,7 +9,9 @@ public class RolletTest : MonoBehaviour
 
 
     private void Awake()
-    {   /*
+    {
+
+        /*
         DataBaseManager.Intel_Aiden1 = true;
         DataBaseManager.Intel_Safe1 = true;
         DataBaseManager.Intel_Nightmare1 = true;
@@ -70,7 +72,11 @@ public class RolletTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-          //  DirectingManager.Instance.OrganizeKeywordFunc();
+            One();
+            Two();
+            Three();
+            Four();
+            //  DirectingManager.Instance.OrganizeKeywordFunc();
             //DataBaseManager.카메라왼쪽워킹온오프 = true;
             //One();
             // NewsRollet();
