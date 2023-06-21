@@ -22,18 +22,7 @@ public class KeywordButton : MonoBehaviour
             B = parts[1];
         }
 
-
-        if(A == "Wharf")
-        {
-            DataBaseManager.keyword_main = "Place";
-
-            int index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
-            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
-
-            int index_down = FindStringIndex(KeyWordManager.Instance.WharfList, B);
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.WharfList[index_down];
-        }
-
+        // 키워드 - EVENT
         if (A == "PlanetaryParade")
         {
             DataBaseManager.keyword_main = "Event";
@@ -44,8 +33,122 @@ public class KeywordButton : MonoBehaviour
             int index_down = FindStringIndex(KeyWordManager.Instance.PlanetaryParadeList, B);
             DataBaseManager.keyword_downer = KeyWordManager.Instance.PlanetaryParadeList[index_down];
         }
+        if (A == "Paranoia")
+        {
+            DataBaseManager.keyword_main = "Event";
+
+            int index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
+
+            int index_down = FindStringIndex(KeyWordManager.Instance.ParanoiaList, B);
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.ParanoiaList[index_down];
+        }
+        if (A == "Insomnia")
+        {
+            DataBaseManager.keyword_main = "Event";
+
+            int index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
+
+            int index_down = FindStringIndex(KeyWordManager.Instance.InsomniaList, B);
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.InsomniaList[index_down];
+        }
+        if (A == "Nightmare")
+        {
+            DataBaseManager.keyword_main = "Event";
+
+            int index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
+
+            int index_down = FindStringIndex(KeyWordManager.Instance.NightmareList, B);
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.NightmareList[index_down];
+        }
 
 
+        // 키워드 - PLACE
+        if (A == "Wharf")
+        {
+            DataBaseManager.keyword_main = "Place";
+
+            int index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
+
+            int index_down = FindStringIndex(KeyWordManager.Instance.WharfList, B);
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.WharfList[index_down];
+        }
+        if (A == "QuestHouse")
+        {
+            A = "Client'shouse";
+            DataBaseManager.keyword_main = "Place";
+
+            int index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
+
+            int index_down = FindStringIndex(KeyWordManager.Instance.QuestHouseList, B);
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.QuestHouseList[index_down];
+        }
+        if (A == "DailyNews")
+        {
+            DataBaseManager.keyword_main = "Place";
+
+            int index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
+
+            int index_down = FindStringIndex(KeyWordManager.Instance.NewspaperList, B);
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.NewspaperList[index_down];
+        }
+        if (A == "Hospital")
+        {
+            DataBaseManager.keyword_main = "Place";
+
+            int index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
+
+            int index_down = FindStringIndex(KeyWordManager.Instance.HospitalList, B);
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.HospitalList[index_down];
+        }
+
+        // 키워드 - Character
+        if (A == "Ella Triss")
+        {
+            DataBaseManager.keyword_main = "Character";
+
+            int index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
+
+            int index_down = FindStringIndex(KeyWordManager.Instance.EllaList, B);
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.EllaList[index_down];
+        }
+        if (A == "Aiden Triss")
+        {
+            DataBaseManager.keyword_main = "Character";
+
+            int index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
+
+            int index_down = FindStringIndex(KeyWordManager.Instance.AidenList, B);
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.AidenList[index_down];
+        }
+        if (A == "Albert Bradley")
+        {
+            DataBaseManager.keyword_main = "Character";
+
+            int index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
+
+            int index_down = FindStringIndex(KeyWordManager.Instance.AlbertList, B);
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.AlbertList[index_down];
+        }
+        if (A == "Maeve A Rossi")
+        {
+            DataBaseManager.keyword_main = "Character";
+
+            int index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
+
+            int index_down = FindStringIndex(KeyWordManager.Instance.MeivList, B);
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.MeivList[index_down];
+        }
     }
     int FindStringIndex(List<string> list, string target)
     {
