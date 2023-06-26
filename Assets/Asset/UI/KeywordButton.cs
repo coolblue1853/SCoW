@@ -63,7 +63,17 @@ public class KeywordButton : MonoBehaviour
             int index_down = FindStringIndex(KeyWordManager.Instance.NightmareList, B);
             DataBaseManager.keyword_downer = KeyWordManager.Instance.NightmareList[index_down];
         }
+        if (A == "FishySmell")
+        {
+            DataBaseManager.keyword_main = "Event";
 
+            int index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
+
+            int index_down = FindStringIndex(KeyWordManager.Instance.FishySmellList, B);
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.FishySmellList[index_down];
+        }
+        
 
         // Å°¿öµå - PLACE
         if (A == "Wharf")

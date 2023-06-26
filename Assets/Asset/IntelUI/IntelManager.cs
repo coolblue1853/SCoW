@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class IntelManager : MonoBehaviour
 {
+    public GameObject IntelUI;
 
     public GameObject Character_B;
     public GameObject Event_B;
@@ -121,12 +122,36 @@ public class IntelManager : MonoBehaviour
     {
         
     }
+    public void OpenSetting()
+    {
+        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false)
+        {
+            DataBaseManager.isOpenUi = true;
+            IntelUI.SetActive(true);
 
+        }
+
+
+    }
+    public void CloseSetting()
+    {
+        DataBaseManager.isOpenUi = false;
+        IntelUI.SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {
+        if ((Input.GetKeyDown(KeyCode.I)|| Input.GetKeyDown(KeyCode.Escape))  && IntelUI.activeSelf == true)
+        {
+            CloseSetting();
+        }
+        else if (Input.GetKeyDown(KeyCode.I) && IntelUI.activeSelf == false)
+        {
+            OpenSetting();
 
- 
+        }
+
+
     }
 
     private static IntelManager instance = null;
