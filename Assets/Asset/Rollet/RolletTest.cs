@@ -74,8 +74,8 @@ public class RolletTest : MonoBehaviour
         {
             One();
             Two();
-            Three();
-            Four();
+           Three();
+           Four();
             //  DirectingManager.Instance.OrganizeKeywordFunc();
             //DataBaseManager.카메라왼쪽워킹온오프 = true;
             //One();
@@ -167,7 +167,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_CreepyEyes1 = true;
         DataBaseManager.Intel_SewerWorker1 = true;
         DataBaseManager.Intel_Safe1 = true;
-        DataBaseManager.Intel_SuddenChange1 = true;
+
 
         DataBaseManager.Intel_DetectiveOffice1 = true;
         DataBaseManager.Intel_Hospital1 = true;
@@ -205,7 +205,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_CreepyEyes2 = true;
         DataBaseManager.Intel_SewerWorker2 = true;
         DataBaseManager.Intel_Safe2 = true;
-        DataBaseManager.Intel_SuddenChange2 = true;
+
 
         DataBaseManager.Intel_DetectiveOffice2 = true;
         DataBaseManager.Intel_Hospital2 = true;
@@ -245,7 +245,6 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_CreepyEyes3 = true;
         DataBaseManager.Intel_SewerWorker3 = true;
         DataBaseManager.Intel_Safe3 = true;
-        DataBaseManager.Intel_SuddenChange3 = true;
 
         DataBaseManager.Intel_DetectiveOffice3 = true;
         DataBaseManager.Intel_Hospital3 = true;
@@ -283,7 +282,6 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_CreepyEyes4 = true;
         DataBaseManager.Intel_SewerWorker4 = true;
         DataBaseManager.Intel_Safe4 = true;
-        DataBaseManager.Intel_SuddenChange4 = true;
 
         DataBaseManager.Intel_DetectiveOffice4 = true;
         DataBaseManager.Intel_Hospital4 = true;
@@ -321,7 +319,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_CreepyEyes5 = true;
         DataBaseManager.Intel_SewerWorker5 = true;
         DataBaseManager.Intel_Safe5 = true;
-        DataBaseManager.Intel_SuddenChange5 = true;
+
 
         DataBaseManager.Intel_DetectiveOffice5 = true;
         DataBaseManager.Intel_Hospital5 = true;
@@ -360,7 +358,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_CreepyEyes6 = true;
         DataBaseManager.Intel_SewerWorker6 = true;
         DataBaseManager.Intel_Safe6 = true;
-        DataBaseManager.Intel_SuddenChange6 = true;
+
 
         DataBaseManager.Intel_DetectiveOffice6 = true;
         DataBaseManager.Intel_Hospital6 = true;

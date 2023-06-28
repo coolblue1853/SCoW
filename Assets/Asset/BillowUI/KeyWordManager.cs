@@ -389,7 +389,7 @@ public class KeyWordManager : MonoBehaviour
                 }
             }
         }
-        if (DataBaseManager.keyword_upper == "SewageTreatmentOffice")
+        if (DataBaseManager.keyword_upper == "Sewage MA Office")
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
@@ -713,7 +713,7 @@ public class KeyWordManager : MonoBehaviour
 
             }
         }
-        if (DataBaseManager.keyword_upper == "SewageTreatmentOffice")
+        if (DataBaseManager.keyword_upper == "Sewage MA Office")
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
@@ -954,7 +954,7 @@ public class KeyWordManager : MonoBehaviour
             if (DataBaseManager.Intel_SewageMaintenanceOffice1 == true || DataBaseManager.Intel_SewageMaintenanceOffice2 == true || DataBaseManager.Intel_SewageMaintenanceOffice3 == true || DataBaseManager.Intel_SewageMaintenanceOffice4 == true || DataBaseManager.Intel_SewageMaintenanceOffice5 == true || DataBaseManager.Intel_SewageMaintenanceOffice6 == true)
             {
                 isSewageMaintenanceOfficeAddList = true;
-                upperPlaceKeywordList.Add("SewageTreatmentOffice");
+                upperPlaceKeywordList.Add("Sewage MA Office");
             }
         }
         if (isWharfAddList == false)
@@ -1036,47 +1036,47 @@ public class KeyWordManager : MonoBehaviour
     // ------------------------------- 사건하위
     public List<string> PlanetaryParadeList = new List<string>();//string들어가야하고
     int PlanetaryParadeKeywordCount = 0;
-    int PlanetaryParadeKeywordNum = 0;
+    public int PlanetaryParadeKeywordNum = 0;
 
     public List<string> NightmareList = new List<string>();//string들어가야하고
     int NightmareKeywordCount = 0;
-    int NightmareKeywordNum = 0;
+    public int NightmareKeywordNum = 0;
 
     public List<string> InsomniaList = new List<string>();//string들어가야하고
     int InsomniaKeywordCount;
-    int InsomniaKeywordNum = 0;
+    public int InsomniaKeywordNum = 0;
 
     public List<string> ParanoiaList = new List<string>();//string들어가야하고
     int ParanoiaKeywordCount;
-    int ParanoiaKeywordNum = 0;
+    public int ParanoiaKeywordNum = 0;
 
     public List<string> MissingPeopleList = new List<string>();//string들어가야하고
     int MissingPeopleKeywordCount = 0;
-    int MissingPeopleKeywordNum = 0;
+    public int MissingPeopleKeywordNum = 0;
 
     public List<string> SewerGhostStoryList = new List<string>();//string들어가야하고
     int SewerGhostStoryKeywordCount = 0;
-    int SewerGhostStoryKeywordNum = 0;
+    public int SewerGhostStoryKeywordNum = 0;
 
     public List<string> FishySmellList = new List<string>();//string들어가야하고
     int FishySmellKeywordCount = 0;
-    int FishySmellKeywordNum = 0;
+    public int FishySmellKeywordNum = 0;
 
     public List<string> RiverWaterQualityList = new List<string>();//string들어가야하고
     int RiverWaterQualityKeywordCount = 0;
-    int RiverWaterQualityKeywordNum = 0;
+    public int RiverWaterQualityKeywordNum = 0;
 
     public List<string> CreepyEyesList = new List<string>();//string들어가야하고
     int CreepyEyesKeywordCount = 0;
-    int CreepyEyesKeywordNum = 0;
+    public int CreepyEyesKeywordNum = 0;
 
     public List<string> SuddenChangeList = new List<string>();//string들어가야하고
     int SuddenChangeKeywordCount = 0;
-    int SuddenChangeKeywordNum = 0;
+    public int SuddenChangeKeywordNum = 0;
 
     public List<string> SafeList = new List<string>();//string들어가야하고
     int SafeKeywordCount = 0;
-    int SafeKeywordNum = 0;
+    public int SafeKeywordNum = 0;
     //사건
     bool isPlanetaryParade1Add = false;
     bool isNightmare1Add = false;
@@ -1107,31 +1107,31 @@ public class KeyWordManager : MonoBehaviour
     // ------------------------------- 인물하위
     public List<string> AidenList = new List<string>();//string들어가야하고
     int AidenKeywordCount = 0;
-    int AidenKeywordNum = 0;
+    public int AidenKeywordNum = 0;
 
     public List<string> EllaList = new List<string>();//string들어가야하고
     int EllaKeywordCount = 0;
-    int EllaKeywordNum = 0;
+    public int EllaKeywordNum = 0;
 
     public List<string> SwainList = new List<string>();//string들어가야하고
     int SwainKeywordCount = 0;
-    int SwainKeywordNum = 0;
+    public int SwainKeywordNum = 0;
 
     public List<string> CaneList = new List<string>();//string들어가야하고
     int CaneKeywordCount = 0;
-    int CaneKeywordNum = 0;
+    public int CaneKeywordNum = 0;
 
     public List<string> AlbertList = new List<string>();//string들어가야하고
     int AlbertKeywordCount = 0;
-    int AlbertKeywordNum = 0;
+    public int AlbertKeywordNum = 0;
 
     public List<string> MeivList = new List<string>();//string들어가야하고
     int MeivKeywordCount = 0;
-    int MeivKeywordNum = 0;
+    public int MeivKeywordNum = 0;
 
     public List<string> SewerWorkerList = new List<string>();//string들어가야하고
     int SewerWorkerKeywordCount = 0;
-    int SewerWorkerKeywordNum = 0;
+    public int SewerWorkerKeywordNum = 0;
     //사건
     bool isAiden1Add = false;
     bool isAiden2Add = false;
@@ -1149,31 +1149,31 @@ public class KeyWordManager : MonoBehaviour
     // ------------------------------- 장소하위
     public List<string> HospitalList = new List<string>();//string들어가야하고
     int HospitalKeywordCount = 0;
-    int HospitalKeywordNum = 0;
+    public int HospitalKeywordNum = 0;
 
     public List<string> NewspaperList = new List<string>();//string들어가야하고
     int NewspaperKeywordCount = 0;
-    int NewspaperKeywordNum = 0;
+    public int NewspaperKeywordNum = 0;
 
     public List<string> QuestHouseList = new List<string>();//string들어가야하고
     int QuestHouseKeywordCount = 0;
-    int QuestHouseKeywordNum = 0;
+    public int QuestHouseKeywordNum = 0;
 
     public List<string> RiversideList = new List<string>();//string들어가야하고
     int RiversideKeywordCount = 0;
-    int RiversideKeywordNum = 0;
+    public int RiversideKeywordNum = 0;
 
     public List<string> SewageMaintenanceOfficeList = new List<string>();//string들어가야하고
     int SewageMaintenanceOfficeKeywordCount = 0;
-    int SewageMaintenanceOfficeKeywordNum = 0;
+    public int SewageMaintenanceOfficeKeywordNum = 0;
 
     public List<string> WharfList = new List<string>();//string들어가야하고
     int WharfKeywordCount = 0;
-    int WharfKeywordNum = 0;
+    public int WharfKeywordNum = 0;
 
     public List<string> UniversityList = new List<string>();//string들어가야하고
     int UniversityKeywordCount = 0;
-    int UniversityKeywordNum = 0;
+    public int UniversityKeywordNum = 0;
     //사건
     bool isHospital1Add = false;
     bool isNewspaper1Add = false;
@@ -1549,7 +1549,7 @@ public class KeyWordManager : MonoBehaviour
             RiversideList.Add("강과 교수");
         }
         // 하수정비사무소
-        if (DataBaseManager.keyword_upper == "SewageTreatmentOffice" && SewageMaintenanceOfficeKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "Sewage MA Office" && SewageMaintenanceOfficeKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = SewageMaintenanceOfficeList[SewageMaintenanceOfficeKeywordNum];
         }
