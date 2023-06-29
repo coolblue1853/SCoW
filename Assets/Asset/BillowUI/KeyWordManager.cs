@@ -1104,6 +1104,7 @@ public class KeyWordManager : MonoBehaviour
     bool isCreepyEyes1Add = false;
     bool isSuddenChange1Add = false;
     bool isSafe1Add = false;
+    bool isSafe2Add = false;
     // ------------------------------- 인물하위
     public List<string> AidenList = new List<string>();//string들어가야하고
     int AidenKeywordCount = 0;
@@ -1393,12 +1394,17 @@ public class KeyWordManager : MonoBehaviour
         {
             DataBaseManager.keyword_downer = SafeList[SafeKeywordNum];
         }
-
         if (DataBaseManager.Intel_Safe1 == true && isSafe1Add == false)
         {
             isSafe1Add = true;
             SafeList.Add("Aiden's Safe");
         }
+        if (DataBaseManager.Intel_Safe2 == true && isSafe2Add == false)
+        {
+            isSafe2Add = true;
+            SafeList.Add("Acquiring a Safe");
+        }
+
         // 인물
 
         // 에이든

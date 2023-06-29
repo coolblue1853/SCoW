@@ -92,6 +92,28 @@ public class KeywordButton : MonoBehaviour
             KeyWordManager.Instance.MissingPeopleKeywordNum = index_down;
             DataBaseManager.keyword_downer = KeyWordManager.Instance.MissingPeopleList[index_down];
         }
+        if (A == "SewerGhostStory")
+        {
+            DataBaseManager.keyword_main = "Event";
+
+            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
+
+            index_down = FindStringIndex(KeyWordManager.Instance.SewerGhostStoryList, B);
+            KeyWordManager.Instance.SewerGhostStoryKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.SewerGhostStoryList[index_down];
+        }
+        if (A == "Safe")
+        {
+            DataBaseManager.keyword_main = "Event";
+
+            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
+
+            index_down = FindStringIndex(KeyWordManager.Instance.SafeList, B);
+            KeyWordManager.Instance.SafeKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.SafeList[index_down];
+        }
 
 
         // Å°¿öµå - PLACE
@@ -197,6 +219,18 @@ public class KeywordButton : MonoBehaviour
              index_down = FindStringIndex(KeyWordManager.Instance.MeivList, B);
             KeyWordManager.Instance.MeivKeywordNum = index_down;
             DataBaseManager.keyword_downer = KeyWordManager.Instance.MeivList[index_down];
+        }
+
+        if (A == "SewerWorker")
+        {
+            DataBaseManager.keyword_main = "Character";
+
+            index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
+
+            index_down = FindStringIndex(KeyWordManager.Instance.SewerWorkerList, B);
+            KeyWordManager.Instance.SewerWorkerKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.SewerWorkerList[index_down];
         }
     }
     int FindStringIndex(List<string> list, string target)

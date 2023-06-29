@@ -518,10 +518,10 @@ public class DialogManager : MonoBehaviour
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓐ')
                                 {
-                                    if (DataBaseManager.Intel_Safe1 == false)
+                                    if (DataBaseManager.Intel_Safe2 == false)
                                     {
-                                        DataBaseManager.Intel_Safe1 = true;
-                                        IntelManager.Instance.AddIntelFloating("Event", "Safe - Aiden's Safe");
+                                        DataBaseManager.Intel_Safe2 = true;
+                                        IntelManager.Instance.AddIntelFloating("Event", "Safe - Acquiring a Safe");
                                     }
                 
                                 }
@@ -1008,7 +1008,7 @@ public class DialogManager : MonoBehaviour
             string t_letter = t_ReplaceText[i].ToString();
 
             if (!t_ignore)
-            {
+            {//<color=#000000>
                 if (t_white) { t_letter = "<color=#FFFFFF>" + t_letter + "</color>"; }
                 else if (t_yellow) { t_letter = "<color=#FFFF00>" + t_letter + "</color>"; }
                 else if (t_red) { t_letter = "<color=#B30000>" + t_letter + "</color>"; }
