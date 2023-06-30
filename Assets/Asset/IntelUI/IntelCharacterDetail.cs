@@ -87,6 +87,24 @@ public class IntelCharacterDetail : MonoBehaviour
         AlbertDetail();
         MeivDetail();
         BlackWellDetail();
+
+
+        if (NextButton_Aiden.activeSelf == true || NextButton_Albert.activeSelf == true || NextButton_BlackWell.activeSelf == true || NextButton_Cane.activeSelf == true || NextButton_Ella.activeSelf == true || NextButton_Meiv.activeSelf == true || NextButton_SewerWorker.activeSelf == true || NextButton_Swain.activeSelf == true)    {
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                NextPage();
+            }
+        }
+
+        if (PrevButton_Aiden.activeSelf == true || PrevButton_Albert.activeSelf == true || PrevButton_BlackWell.activeSelf == true || PrevButton_Cane.activeSelf == true || PrevButton_Ella.activeSelf == true || PrevButton_Meiv.activeSelf == true || PrevButton_SewerWorker.activeSelf == true || PrevButton_Swain.activeSelf == true)
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                PrevPage();
+            }
+        }
+
+
         if (Ella_Detail.activeSelf == true)
         {
             NowPage = "Ella";

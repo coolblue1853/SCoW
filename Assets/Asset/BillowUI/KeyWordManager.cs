@@ -1348,7 +1348,11 @@ public class KeyWordManager : MonoBehaviour
             isFishySmell3Add = true;
             FishySmellList.Add("Source speculation");
         }
- 
+        if (DataBaseManager.Intel_FishySmell4 == true && isFishySmell4Add == false)
+        {
+            isFishySmell4Add = true;
+            FishySmellList.Add("Sewer & FishySmell");
+        }
         // 강의수질
         else if (DataBaseManager.keyword_upper == "RiverWaterQuality" && RiverWaterQualityKeywordCount >= 0)
         {
@@ -1420,7 +1424,7 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_Aiden2 == true && isAiden2Add == false)
         {
             isAiden2Add = true;
-            AidenList.Add("Aiden and Pandemic");
+            AidenList.Add("Aiden & Pandemic");
         }
         if (DataBaseManager.Intel_Aiden3 == true && isAiden3Add == false)
         {
@@ -1595,7 +1599,7 @@ public class KeyWordManager : MonoBehaviour
 
         DataBaseManager.keyword_main = "Character";
         DataBaseManager.keyword_upper = "Maeve A Rossi";
-        DataBaseManager.keyword_downer = "Maeve - Friend";
+        DataBaseManager.keyword_downer = "Mafia friend";
 
 
     }

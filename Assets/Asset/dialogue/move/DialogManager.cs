@@ -592,9 +592,17 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Nightmare4 = true;
                                     IntelManager.Instance.AddIntelFloating("Event", "Nightmare - Water and Nightmare");
                                 }
+                                if (t_ReplaceText[i + 4] == 'ⓕ') // 비릿한 냄새
+                                {
+                                    if (DataBaseManager.Intel_FishySmell4 == false)
+                                    {
+                                        DataBaseManager.Intel_FishySmell4 = true;
+                                        IntelManager.Instance.AddIntelFloating("Event", "FishySmell - Sewer & FishySmell");
+                                    }
+
+                                }
 
 
-                             
                             }
                         }
                     }

@@ -76,6 +76,8 @@ public class RolletTest : MonoBehaviour
             Two();
            Three();
            Four();
+            Five();
+            Six();
             //  DirectingManager.Instance.OrganizeKeywordFunc();
             //DataBaseManager.카메라왼쪽워킹온오프 = true;
             //One();

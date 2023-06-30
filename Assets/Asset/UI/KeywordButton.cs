@@ -114,6 +114,28 @@ public class KeywordButton : MonoBehaviour
             KeyWordManager.Instance.SafeKeywordNum = index_down;
             DataBaseManager.keyword_downer = KeyWordManager.Instance.SafeList[index_down];
         }
+        if (A == "CreepyEyes")
+        {
+            DataBaseManager.keyword_main = "Event";
+
+            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
+
+            index_down = FindStringIndex(KeyWordManager.Instance.CreepyEyesList, B);
+            KeyWordManager.Instance.CreepyEyesKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.CreepyEyesList[index_down];
+        }
+        if (A == "RiverWaterQuality")
+        {
+            DataBaseManager.keyword_main = "Event";
+
+            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
+
+            index_down = FindStringIndex(KeyWordManager.Instance.RiverWaterQualityList, B);
+            KeyWordManager.Instance.RiverWaterQualityKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.RiverWaterQualityList[index_down];
+        }
 
 
         // Å°¿öµå - PLACE
@@ -172,6 +194,17 @@ public class KeywordButton : MonoBehaviour
              index_down = FindStringIndex(KeyWordManager.Instance.UniversityList, B);
             KeyWordManager.Instance.UniversityKeywordNum = index_down;
             DataBaseManager.keyword_downer = KeyWordManager.Instance.UniversityList[index_down];
+        }
+        if (A == "Sewage MA Office")
+        {
+            DataBaseManager.keyword_main = "Place";
+
+            index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
+
+            index_down = FindStringIndex(KeyWordManager.Instance.SewageMaintenanceOfficeList, B);
+            KeyWordManager.Instance.SewageMaintenanceOfficeKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.SewageMaintenanceOfficeList[index_down];
         }
 
 

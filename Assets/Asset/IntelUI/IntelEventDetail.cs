@@ -321,6 +321,24 @@ public class IntelEventDetail : MonoBehaviour
 
         SafeDetail();
         SuddenChangeDetail();
+
+        if (NextButton_CreepyEyes.activeSelf == true || NextButton_FishySmell.activeSelf == true || NextButton_Insomnia.activeSelf == true || NextButton_MissingPeople.activeSelf == true || NextButton_Nightmare.activeSelf == true || NextButton_Paranoia.activeSelf == true || NextButton_PlanetarySequence.activeSelf == true || NextButton_RiverWaterQuality.activeSelf == true || NextButton_Safe.activeSelf == true || NextButton_SewerGhostStory.activeSelf == true || NextButton_SuddenChange.activeSelf == true)
+        {
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                NextPage();
+            }
+        }
+        if (PrevButton_CreepyEyes.activeSelf == true || PrevButton_FishySmell.activeSelf == true || PrevButton_Insomnia.activeSelf == true || PrevButton_MissingPeople.activeSelf == true || PrevButton_Nightmare.activeSelf == true || PrevButton_Paranoia.activeSelf == true || PrevButton_PlanetarySequence.activeSelf == true || PrevButton_RiverWaterQuality.activeSelf == true || PrevButton_Safe.activeSelf == true || PrevButton_SewerGhostStory.activeSelf == true || PrevButton_SuddenChange.activeSelf == true)
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                PrevPage();
+            }
+        }
+
+
+
         if (PlanetarySequence_Detail.activeSelf == true)
         {
             NowPage = "PlanetarySequence";

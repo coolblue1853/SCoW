@@ -23,6 +23,25 @@ public class EventButtonManage : MonoBehaviour
             DetailUpdate();
         }
 
+
+         if (UpButton.activeSelf == true)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                ClickUpButton();
+            }
+        }
+
+
+ 
+
+         if (DownButton.activeSelf == true)
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                ClickDownButton();
+            }
+        }
     }
 
     public GameObject UpButton;

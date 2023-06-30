@@ -384,6 +384,21 @@ public class IntelPlaceDetail : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(NextButton_Bar.activeSelf == true || NextButton_DetectiveOffice.activeSelf == true || NextButton_Gunsmith.activeSelf == true || NextButton_Hospital.activeSelf == true || NextButton_Newspaper.activeSelf == true || NextButton_PoliceOffice.activeSelf == true || NextButton_QuestHouse.activeSelf == true || NextButton_Restaurant.activeSelf == true || NextButton_Riverside.activeSelf == true || NextButton_SewageMaintenanceOffice.activeSelf == true || NextButton_Slum.activeSelf == true || NextButton_Station.activeSelf == true || NextButton_University.activeSelf == true || NextButton_Wharf.activeSelf == true )
+        {
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                NextPage();
+            }
+        }
+        if (PrevButton_Bar.activeSelf == true || PrevButton_DetectiveOffice.activeSelf == true || PrevButton_Gunsmith.activeSelf == true || PrevButton_Hospital.activeSelf == true || PrevButton_Newspaper.activeSelf == true || PrevButton_PoliceOffice.activeSelf == true || PrevButton_QuestHouse.activeSelf == true || PrevButton_Restaurant.activeSelf == true || PrevButton_Riverside.activeSelf == true || PrevButton_SewageMaintenanceOffice.activeSelf == true || PrevButton_Slum.activeSelf == true || PrevButton_Station.activeSelf == true || PrevButton_University.activeSelf == true || PrevButton_Wharf.activeSelf == true )
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                PrevPage();
+            }
+        }
+
         DetectiveOfficeDetail();
         HospitalDetail();
         NewspaperDetail();

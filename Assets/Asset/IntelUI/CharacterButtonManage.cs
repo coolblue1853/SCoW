@@ -21,7 +21,22 @@ public class CharacterButtonManage : MonoBehaviour
             ButtonManage();
         }
 
+        if (UpButton.activeSelf == true)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                ClickUPButton();
+            }
+        }
 
+
+        else if (DownButton.activeSelf == true)
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                ClickDownButton();
+            }
+        }
 
     }
 

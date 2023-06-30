@@ -21,6 +21,38 @@ public class PlaceButtonManage : MonoBehaviour
             ButtonDetail();
         }
 
+        if (Upbutton2.activeSelf == true)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                ClickUpButton2();
+            }
+        }
+
+        else if (UPButton.activeSelf == true)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                ClickUpButton();
+            }
+        }
+
+
+        if (DownButton2.activeSelf == true)
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                ClickDownButton_2();
+            }
+        }
+
+        else if (DownButton.activeSelf == true)
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                ClickDownButton_();
+            }
+        }
     }
 
     public GameObject UPButton;
