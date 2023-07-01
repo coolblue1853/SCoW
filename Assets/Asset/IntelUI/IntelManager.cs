@@ -109,7 +109,7 @@ public class IntelManager : MonoBehaviour
     }
     public void OpenPlace()
     {
-        CharacterWindow_ON.SetActive(false);
+        CharacterWindow_ON.SetActive(false);        
         EventWindow_ON.SetActive(false);
         PlaceWindow_ON.SetActive(true);
 
@@ -141,11 +141,11 @@ public class IntelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.I)|| Input.GetKeyDown(KeyCode.Escape))  && IntelUI.activeSelf == true)
+        if ((Input.GetKeyDown(KeyCode.Alpha1)|| Input.GetKeyDown(KeyCode.Escape))  && IntelUI.activeSelf == true)
         {
             CloseSetting();
         }
-        else if (Input.GetKeyDown(KeyCode.I) && IntelUI.activeSelf == false)
+        else if (Input.GetKeyDown(KeyCode.Alpha1) && IntelUI.activeSelf == false)
         {
             OpenSetting();
 

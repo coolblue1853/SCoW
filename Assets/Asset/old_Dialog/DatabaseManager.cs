@@ -192,8 +192,6 @@ public class DataBaseManager : MonoBehaviour
     public bool[] switches;
 
 
-
-
     // Intel Database
 
     //Event

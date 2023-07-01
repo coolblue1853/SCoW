@@ -32,7 +32,7 @@ public class PotalPoint : MonoBehaviour
     Vector2 player_1stTo2st = new Vector3(-1380.6f, 7f);
     Vector3 Cam_1stTo2st = new Vector3(-1368.6f, 1.5f, -15);
 
-    Vector2 player_2stTo1st = new Vector3(-1195.8f, 3.45f);
+    Vector2 player_2stTo1st = new Vector3(-1195.8f, 1.25088f);
     Vector3 Cam_2stTo1st = new Vector3(-1192.4f, 1.5f, -15);
 
     Vector2 player_RoomTo2st = new Vector3(-1365.4f, 7f);

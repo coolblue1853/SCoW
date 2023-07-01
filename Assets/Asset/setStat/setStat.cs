@@ -80,7 +80,7 @@ public class setStat : MonoBehaviour
             weal_image.fillAmount = ((float)DataBaseManager.weal / 25);
 
             DataBaseManager.nowHP = DataBaseManager.hp;
-            DataBaseManager.nowHP = DataBaseManager.mp;
+            DataBaseManager.nowSan = DataBaseManager.san;
             setSkill.resetSkillPoint();
 
         }

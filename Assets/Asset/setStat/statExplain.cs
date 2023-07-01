@@ -39,7 +39,7 @@ public class statExplain : MonoBehaviour
     public void san_expl()
     {
         nameEX.text = "< Sanity >";
-        mainEX.text = "This stat represents the mental health of the player. The higher this stat is, the more mental trauma the player can take. When this number reaches zero, the player dies.";
+        mainEX.text = "This stat represents the mental health of the player. The higher this stat is, the more mental trauma the player can take. When this number reaches zero, the player s dead.";
 
     }
     public void luck_expl()

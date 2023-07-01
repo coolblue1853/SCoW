@@ -286,7 +286,7 @@ public class MapManager : MonoBehaviour
 
     public void OpenMap()
     {
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isDirecting == false)
+        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false)
         {
             DataBaseManager.workSound = false;
             DataBaseManager.isOpenUi = true;
@@ -305,18 +305,16 @@ public class MapManager : MonoBehaviour
 
         if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isDirecting == false)
         {
-            if (Input.GetKeyDown(KeyCode.M))
+            if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 if(MapChainingUI.activeSelf == false)
                 {
                     DataBaseManager.workSound = false;
-                    DataBaseManager.isOpenUi = true;
-                    MapChainingUI.SetActive(true);
+                    OpenMap();
                 }
                 else if (MapChainingUI.activeSelf == true)
                 {
-                    DataBaseManager.isOpenUi = false;
-                    MapChainingUI.SetActive(false);
+                    CloseMap();
                 }
 
             }
