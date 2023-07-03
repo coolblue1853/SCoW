@@ -70,14 +70,24 @@ public class RolletTest : MonoBehaviour
     private void Update()
     {
 
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            DataBaseManager.Bullet += 1;
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            DataBaseManager.Bullet -= 1;
+        }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            One();
-            Two();
-           Three();
-           Four();
-            Five();
-            Six();
+            
+
+           // One();
+           // Two();
+          // Three();
+          // Four();
+           // Five();
+           // Six();
             //  DirectingManager.Instance.OrganizeKeywordFunc();
             //DataBaseManager.카메라왼쪽워킹온오프 = true;
             //One();

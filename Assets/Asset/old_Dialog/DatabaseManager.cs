@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    //Inventory
+    public static string nowItem;
+    public static int Bullet = 0;
+
     public static bool  ConntectMouse = false;
 
     //SoundManager
