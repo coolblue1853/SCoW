@@ -70,13 +70,33 @@ public class RolletTest : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.F10))
         {
-            DataBaseManager.Bullet += 1;
+            BillowUIManager.Instance.HP_down(5);
+            //   DataBaseManager.Shotgun += 1;
+            // DataBaseManager.Rifle += 1;
+            // DataBaseManager.Revolver += 1;
+            // DataBaseManager.SmallPistol += 1;
+
+            // DataBaseManager.PistolAmmo += 1;
+
         }
-        if (Input.GetKeyDown(KeyCode.F2))
+        if (Input.GetKeyDown(KeyCode.F7))
         {
-            DataBaseManager.Bullet -= 1;
+
+            DataBaseManager.Intel_Safe2 = true;
+            //DataBaseManager.Firstaidkit += 1;
+
+        }
+        if (Input.GetKeyDown(KeyCode.F8))
+        {
+            DataBaseManager.Bandages += 1;
+
+        }
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+             DataBaseManager.Painkillers += 1;
+
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -95,66 +115,60 @@ public class RolletTest : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Debug.Log(DataBaseManager.isActiveDialog2);
-            Two();
-            //DataBaseManager.Condition = "Good";
+
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
 
-            Three();
-            DataBaseManager.Condition = "Best";
+
+
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            Four();
-            DataBaseManager.Condition = "Bad";
+
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            Five();
-            DataBaseManager.Condition = "Worst";
+
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            Six();
-            BillowUIManager.Instance.San_Down(5);
+
         }
 
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            DataBaseManager.Intel_DetectiveOffice1 = true;
+
 
         }
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            DataBaseManager.Intel_Hospital1 = true;
+
 
         }
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            DataBaseManager.Intel_Newspaper1 = true;
+
 
         }
         if (Input.GetKeyDown(KeyCode.F4))
         {
-            DataBaseManager.Intel_QuestHouse1 = true;
+
 
         }
         if (Input.GetKeyDown(KeyCode.F5))
         {
-            DataBaseManager.Intel_Station1 = true;
+
 
         }
         if (Input.GetKeyDown(KeyCode.F6))
         {
-            DataBaseManager.Intel_Restaurant1 = true;
+
         }
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            BillowUIManager.Instance.HP_down(10);   
-            DataBaseManager.TimeCount += 1;
+
         }
     }
 

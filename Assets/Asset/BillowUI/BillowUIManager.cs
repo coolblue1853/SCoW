@@ -110,6 +110,18 @@ public class BillowUIManager : MonoBehaviour
         mentalBar.healthSystem.Damage(damage);
     }
 
+    public void HP_up(int healed)
+    {
+        DataBaseManager.nowHP += healed;
+        setHP = (setHP - nomalizedHP * healed);
+        healthBar.healthSystem.Heal(healed);
+    }
+    public void San_up(int damage)
+    {
+        DataBaseManager.nowSan += damage;
+        setSan = setSan - nomalizedSan * damage;
+        mentalBar.healthSystem.Damage(damage);
+    }
     void Awake()
     {
         if (null == instance)

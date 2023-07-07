@@ -7,6 +7,22 @@ public class DataBaseManager : MonoBehaviour
     //Inventory
     public static string nowItem;
     public static int Bullet = 0;
+    public static int Shotgun = 0;
+    public static int Rifle = 0;
+    public static int Revolver = 0;
+    public static int SmallPistol = 0;
+    public static int Bat = 0;
+    public static int Axe = 0;
+    public static int Molotov = 0;
+    public static int Dagger = 0;
+
+    public static int PistolAmmo = 0;
+    public static int RifleAmmo = 0;
+    public static int ShotgunAmmo = 0;
+
+    public static int Firstaidkit = 0;
+    public static int Bandages = 0;
+    public static int Painkillers = 0;
 
     public static bool  ConntectMouse = false;
 

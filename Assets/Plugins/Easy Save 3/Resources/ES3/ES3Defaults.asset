@@ -31,6 +31,7 @@ MonoBehaviour:
     assemblyNames:
     - Assembly-CSharp-firstpass
     - Assembly-CSharp
+    - DamageNumbersPro
     - Cinemachine
     - Febucci.TextAnimator.Runtime
     - V_Animation

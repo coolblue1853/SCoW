@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f0b0c553be8edd4682e9180fdd13e37, type: 3}
+  m_Name: I2Languages
+  m_EditorClassIdentifier: 
+  mSource:
+    UserAgreesToHaveItOnTheScene: 0
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 0
+    mTerms:
+    - Term: Button
+      TermType: 0
+      Description: 
+      Languages:
+      - Button
+      - "\u30DC\u30BF\u30F3"
+      - "\u6309\u94AE"
+      - "\u041A\u043D\u043E\u043F\u043A\u0430"
+      - "Bot\xF3n"
+      - Knop
+      - "Bot\xE3o"
+      - "\uB2E8\uCD94"
+      Flags: 0000000000000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName: 
+    mLanguages:
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Japanese
+      Code: ja
+      Flags: 0
+    - Name: Chinese (Simplified)
+      Code: zh-CN
+      Flags: 0
+    - Name: Russian
+      Code: ru
+      Flags: 0
+    - Name: Spanish
+      Code: es
+      Flags: 0
+    - Name: Dutch (Netherlands)
+      Code: nl-NL
+      Flags: 0
+    - Name: Portuguese (Brazil)
+      Code: pt-BR
+      Flags: 0
+    - Name: Korean
+      Code: ko
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/macros/s/AKfycbzgiVYKH3q1eiSBHUSaSMiO9zB84IoUShnMzUjsSQOkgOmmFL0pJxwmi0Xe2ba5SaISPQ/exec
+    Google_SpreadsheetKey: 1xJxkIfEn_fFazo4wLttO807KjNVHhZ_Qr9V-H95Bn1k
+    Google_SpreadsheetName: I2Loc SCoW Localization
+    Google_LastUpdatedVersion: 
+    Google_Password: change_this
+    GoogleUpdateFrequency: 3
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 0
+    Assets:
+    - {fileID: 11400000, guid: beffc6b3761d7f0449fe48997d30081c, type: 2}
+    Spreadsheet_LocalFileName: 
+    Spreadsheet_LocalCSVSeparator: ','
+    Spreadsheet_LocalCSVEncoding: utf-8
+    Spreadsheet_SpecializationAsRows: 1
+    Spreadsheet_SortRows: 1

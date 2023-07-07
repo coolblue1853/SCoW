@@ -123,6 +123,10 @@ public class Rollet : MonoBehaviour
     }
     public void setRollet(string skill, string point_sting, int point_int, string subject)
     {
+        if(point_int >= 90)
+        {
+            point_int = 90;
+        }
         SoundManager.Instance.pen_Line();
         DataBaseManager.isRollet = true;
         Subject = subject;
@@ -411,7 +415,53 @@ public class Rollet : MonoBehaviour
             // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
             // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 결과값에 따른 문자를 출력하도록 함
         }
+        if (Subject == "Item")
+        {
+            if(DataBaseManager.nowItem == "First aid kit")
+            {
+                DataBaseManager.Firstaidkit -= 1;
+                if (result_End.text == "Result : Success")
+                {
+
+                    BillowUIManager.Instance.HP_up((Random.Range(1, 7)) * 5);
+                }
+                else if (result_End.text == "Result : Critical Success")
+                {
+                    BillowUIManager.Instance.HP_up((Random.Range(1, 7)) * 5);
+                }
+            }
+            if (DataBaseManager.nowItem == "Bandages")
+            {
+                DataBaseManager.Bandages -= 1;
+                if (result_End.text == "Result : Success")
+                {
+
+                    BillowUIManager.Instance.HP_up((Random.Range(1, 4)) * 5);
+                }
+                else if (result_End.text == "Result : Critical Success")
+                {
+                    BillowUIManager.Instance.HP_up((Random.Range(1, 4)) * 5);
+                }
+            }
+            if (DataBaseManager.nowItem == "Painkillers")
+            {
+                DataBaseManager.Painkillers -= 1;
+                if (result_End.text == "Result : Success")
+                {
+
+                    BillowUIManager.Instance.San_up((Random.Range(1, 4)) * 5);
+                }
+                else if (result_End.text == "Result : Critical Success")
+                {
+                    BillowUIManager.Instance.San_up((Random.Range(1, 4)) * 5);
+                }
+            }
+        }
     }
+
+
+
+
 
     // 중요!!!!!!!
     private void ResetString()

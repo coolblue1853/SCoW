@@ -15,6 +15,10 @@ public class SelectedItemBox : MonoBehaviour
     public Sprite Molotov;
     public Sprite Dagger;
     public Sprite None;
+
+    public Sprite PistolAmmo;
+    public Sprite RifleAmmo;
+    public Sprite ShotgunAmmo;
     private void Start()
     {
         imageComponent = this.GetComponent<Image>();
@@ -34,7 +38,7 @@ public class SelectedItemBox : MonoBehaviour
         {
             imageComponent.sprite = Revolver;
         }
-        else if (DataBaseManager.nowItem == "Small Pistol")
+        else if (DataBaseManager.nowItem == "SmallPistol")
         {
             imageComponent.sprite = SmallPistol;
         }
@@ -53,6 +57,18 @@ public class SelectedItemBox : MonoBehaviour
         else if (DataBaseManager.nowItem == "Dagger")
         {
             imageComponent.sprite = Dagger;
+        }
+        else if (DataBaseManager.nowItem == "PistolAmmo")
+        {
+            imageComponent.sprite = PistolAmmo;
+        }
+        else if (DataBaseManager.nowItem == "RifleAmmo")
+        {
+            imageComponent.sprite = RifleAmmo;
+        }
+        else if (DataBaseManager.nowItem == "ShotgunAmmo")
+        {
+            imageComponent.sprite = ShotgunAmmo;
         }
         else
         {
