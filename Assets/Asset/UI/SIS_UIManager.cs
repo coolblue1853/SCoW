@@ -144,18 +144,21 @@ public class SIS_UIManager : MonoBehaviour
             {
                 if (SIS_UI.activeSelf == false)
                 {
+                    DataBaseManager.isItemUI = true;
                     Okay2CheckUI();
                     DataBaseManager.workSound = false;
                     OpenMap();
                 }
                 else if (SIS_UI.activeSelf == true)
                 {
+                    DataBaseManager.isItemUI = false;
                     CloseMap();
                 }
 
             }
             if (Input.GetKeyDown(KeyCode.Escape) && SIS_UI.activeSelf == true)
             {
+                DataBaseManager.isItemUI = false;
                 DataBaseManager.isOpenUi = false;
                 SIS_UI.SetActive(false);
             }

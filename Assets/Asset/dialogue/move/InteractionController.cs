@@ -8,6 +8,8 @@ public class InteractionController : MonoBehaviour
 {
     public DialogManager theDM;
 
+    //Item_Box
+    public GameObject Safe_Look;
 
     //의뢰자의 집
     public GameObject Start_1st_Detective;
@@ -227,6 +229,17 @@ public class InteractionController : MonoBehaviour
     {
         //TestNar();
     }
+
+    public void Start_Safe_Look(string setDialog)
+    {
+        if (setDialog == "Safe_Look")
+        {
+            theDM.ShowDialog(Safe_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+  
+    }
+
+
 
     public void Start_1st_DetectiveOffice(string setDialog)
     {

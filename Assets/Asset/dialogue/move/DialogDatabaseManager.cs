@@ -8,59 +8,73 @@ public class DialogDatabaseManager : MonoBehaviour
     public static DialogDatabaseManager instance;
     private void Update()
     {
-        if (DataBaseManager.nowPlace == "DetectiveOffice" && Check == true)
+     if(DataBaseManager.isItemUI == false)
         {
-            Check = false;
-               csv_FileName = "1st_DetectiveOffice";
-            setDialog();
+            if (DataBaseManager.nowPlace == "DetectiveOffice" && Check == true)
+            {
+                Check = false;
+                csv_FileName = "1st_DetectiveOffice";
+                setDialog();
+            }
+            else if (DataBaseManager.nowPlace == "Client'shouse" && Check == true)
+            {
+                Check = false;
+                csv_FileName = "1st_Client'sHouse";
+                setDialog();
+            }
+            else if (DataBaseManager.nowPlace == "DailyNews" && Check == true)
+            {
+                Check = false;
+                csv_FileName = "1st_DailyNews";
+                setDialog();
+            }
+            else if (DataBaseManager.nowPlace == "University" && Check == true)
+            {
+                Check = false;
+                csv_FileName = "1st_University";
+                setDialog();
+            }
+            else if (DataBaseManager.nowPlace == "Riverside" && Check == true)
+            {
+                Check = false;
+                csv_FileName = "1st_Riverside";
+                setDialog();
+            }
+            else if (DataBaseManager.nowPlace == "Hospital" && Check == true)
+            {
+                Check = false;
+                csv_FileName = "1st_Hospital";
+                setDialog();
+            }
+            else if (DataBaseManager.nowPlace == "Policeoffice" && Check == true)
+            {
+                Check = false;
+                csv_FileName = "1st_PoliceOffice";
+                setDialog();
+            }
+            else if (DataBaseManager.nowPlace == "Slum" && Check == true)
+            {
+                Check = false;
+                csv_FileName = "1st_Slum";
+                setDialog();
+            }
+            else if (DataBaseManager.nowPlace == "Bar" && Check == true)
+            {
+                Check = false;
+                csv_FileName = "1st_Bar";
+                setDialog();
+            }
         }
-        else if (DataBaseManager.nowPlace == "Client'shouse" && Check == true)
+        else
         {
-            Check = false;
-            csv_FileName = "1st_Client'sHouse";
-            setDialog();
-        }
-        else if (DataBaseManager.nowPlace == "DailyNews" && Check == true)
-        {
-            Check = false;
-            csv_FileName = "1st_DailyNews";
-            setDialog();
-        }
-        else if (DataBaseManager.nowPlace == "University" && Check == true)
-        {
-            Check = false;
-            csv_FileName = "1st_University";
-            setDialog();
-        }
-        else if (DataBaseManager.nowPlace == "Riverside" && Check == true)
-        {
-            Check = false;
-            csv_FileName = "1st_Riverside";
-            setDialog();
-        }
-        else if (DataBaseManager.nowPlace == "Hospital" && Check == true)
-        {
-            Check = false;
-            csv_FileName = "1st_Hospital";
-            setDialog();
-        }
-        else if (DataBaseManager.nowPlace == "Policeoffice" && Check == true)
-        {
-            Check = false;
-            csv_FileName = "1st_PoliceOffice";
-            setDialog();
-        }
-        else if (DataBaseManager.nowPlace == "Slum" && Check == true)
-        {
-            Check = false;
-            csv_FileName = "1st_Slum";
-            setDialog();
-        }
-        else if (DataBaseManager.nowPlace == "Bar" && Check == true)
-        {
-            Check = false;
-            csv_FileName = "1st_Bar";
-            setDialog();
+            if(csv_FileName != "1st_Item")
+            {
+                Check = true;
+                csv_FileName = "1st_Item";
+                setDialog();
+
+            }
+
         }
 
     }

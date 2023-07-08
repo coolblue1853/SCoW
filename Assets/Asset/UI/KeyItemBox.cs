@@ -31,7 +31,16 @@ public class KeyItemBox : MonoBehaviour
 
 
     }
-
+public void LookButton()
+    {
+        if (DataBaseManager.nowItem == "Safe")
+        {
+            DataBaseManager.isOpenUi = false;
+          
+            InteractionController.Instance.Start_Safe_Look("Safe_Look");
+            SISUI.SetActive(false);
+        }
+    }
 
     public void OpenUseUI()
     {

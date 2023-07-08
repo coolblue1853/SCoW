@@ -311,7 +311,7 @@ public class DialogManager : MonoBehaviour
 
     public void EndDialog()
     {
-
+        DataBaseManager.isItemUI = false;
         DataBaseManager.endDialogLine = false;
         DataBaseManager.isActiveDialog1 = false;
         //DeleteChilds(정보플로팅위치);
