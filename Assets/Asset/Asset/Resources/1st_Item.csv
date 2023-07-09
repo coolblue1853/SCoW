@@ -1,9 +1,9 @@
 ID,캐릭터이름,대사,
-1,Fabian,@Hello sir^ What are you doing now?@,//노인 최초대화 // 노인 획득없을떄
-2,Fabian,@Hello sir^ What are you doing now?@,
-3,Fabian,@Hello sir^ What are you doing now?@,
-4,Fabian,@Hello sir^ What are you doing now?@,
-5,Fabian,@Hello sir^ What are you doing now?@,
+1,Fabian,(The ⓡ(safe)ⓦ received from ⓖ(Aiden)ⓦ.),금고 살펴보기
+2,Fabian,(It looks pretty sturdy^ so I don't think there's any way to force it open.),
+3,Fabian,(I can open it myself^ or I can take it to ⓖ(Dave)ⓦ in the ⓑ(slum)ⓦ and he can open it.),
+4,Fabian,(I don't think I'll be able to open this safe.),금고 실패
+5,,!Not available in the current version!,금고 성공
 6,,,
 7,,,
 8,,,

@@ -83,7 +83,8 @@ public class RolletTest : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F7))
         {
-
+            DataBaseManager.Shotgun += 1;
+            DataBaseManager.Bandages += 1;
             DataBaseManager.Intel_Safe2 = true;
             //DataBaseManager.Firstaidkit += 1;
 

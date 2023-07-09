@@ -10,7 +10,8 @@ public class InteractionController : MonoBehaviour
 
     //Item_Box
     public GameObject Safe_Look;
-
+    public GameObject Safe_Fail;
+    public GameObject Safe_Succ;
     //의뢰자의 집
     public GameObject Start_1st_Detective;
     public GameObject NewsPaper;
@@ -236,7 +237,10 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(Safe_Look.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-  
+        if (setDialog == "Safe_Fail")
+        {
+            theDM.ShowDialog(Safe_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
     }
 
 
@@ -1506,7 +1510,25 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(Sewer_Observation_SucssesAfter.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
+
+
+        //Item
+        if (Sub_Dialog == "Safe : Open")
+        {
+
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+
+                theDM.ShowDialog(Safe_Succ.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+                theDM.ShowDialog(Safe_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
     }
+
 
 
 

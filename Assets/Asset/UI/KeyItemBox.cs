@@ -11,9 +11,11 @@ public class KeyItemBox : MonoBehaviour
 
     public Sprite None;
 
-    public GameObject UseUI;
+
     public GameObject SISUI;
     public TextMeshProUGUI UseUI_Text;
+
+    public GameObject Use_B;
     private void Start()
     {
         imageComponent = this.GetComponent<Image>();
@@ -21,7 +23,7 @@ public class KeyItemBox : MonoBehaviour
     public void ClickYes()
     {
         DataBaseManager.isOpenUi = false;
-        UseUI.SetActive(false);
+
         SISUI.SetActive(false);
         if (DataBaseManager.nowItem == "First aid kit")
         {
@@ -31,49 +33,48 @@ public class KeyItemBox : MonoBehaviour
 
 
     }
-public void LookButton()
+    public void LookButton()
     {
         if (DataBaseManager.nowItem == "Safe")
         {
             DataBaseManager.isOpenUi = false;
-          
+
             InteractionController.Instance.Start_Safe_Look("Safe_Look");
             SISUI.SetActive(false);
         }
     }
 
-    public void OpenUseUI()
+    public void UseButton()
     {
-
-        if (DataBaseManager.nowItem == "First aid kit")
+        if (DataBaseManager.nowItem == "Safe")
         {
-            UseUI.SetActive(true);
+            DataBaseManager.isOpenUi = false;
 
-            if (DataBaseManager.medicinePoint + 20 >= 90)
+            Rollet.Instance.setRollet("Safe : Open", "Deftness-20", DataBaseManager.deftnessPoint - 20, "Item");
+            SISUI.SetActive(false);
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (DataBaseManager.nowItem == "Safe")
+        {
+            imageComponent.sprite = Safe;
+            if (DataBaseManager.isUseSafe == true)
             {
-                int stat = 90;
-                UseUI_Text.text = "Do you want to use First aid kit ?\n\nUse Skill : Medicine+20(" + (stat) + ")";
+                Use_B.SetActive(false);
             }
             else
             {
-                UseUI_Text.text = "Do you want to use First aid kit ?\n\nUse Skill : Medicine+20(" + (DataBaseManager.medicinePoint + 20) + ")";
+                Use_B.SetActive(true);
             }
 
         }
-      
-
-
-        // Update is called once per frame
-        void Update()
+        else
         {
-            if (DataBaseManager.nowItem == "Safe")
-            {
-                imageComponent.sprite = Safe;
-            }
-            else
-            {
-                imageComponent.sprite = None;
-            }
+            imageComponent.sprite = None;
         }
     }
 }
+

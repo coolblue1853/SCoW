@@ -6,8 +6,9 @@ public class DataBaseManager : MonoBehaviour
 {
     //Inventory
     public static bool isItemUI = false;
+    public static bool isUseSafe = false;
 
-    public static string nowItem;
+    public static string nowItem = "";
     public static int Bullet = 0;
     public static int Shotgun = 0;
     public static int Rifle = 0;

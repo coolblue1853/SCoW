@@ -7,6 +7,12 @@ public class SIS_UIManager : MonoBehaviour
 {
     public GameObject SIS_UI;
 
+    public GameObject Item_use;
+    public GameObject Item_key;
+    public GameObject Item_Eqip;
+
+
+
     public TextMeshProUGUI Name;
     public TextMeshProUGUI Detail;
 
@@ -110,12 +116,33 @@ public class SIS_UIManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
+    public void Open_UseItemUI()
+    {
+
+        DataBaseManager.nowItem = "";
+        Item_use.transform.SetSiblingIndex(-1);
+        //Item_use.SetActive(true);
+        //Item_key.SetActive(false);
+        //ItemBox_Nomal.SetActive(false);
+    }
+    public void Open_KeyItemUI()
+    {
+        DataBaseManager.nowItem = "";
+        Item_key.transform.SetSiblingIndex(-1);
+        // Item_use.SetActive(false);
+        // Item_key.SetActive(true);
+        //ItemBox_Nomal.SetActive(false);
+    }
+    public void Open_NomalItemUI()
+    {
+        Debug.Log("11");
+        DataBaseManager.nowItem = "";
+        Item_Eqip.transform.SetSiblingIndex(-1);
+        // Item_use.SetActive(false);
+        // Item_key.SetActive(false);
+        // ItemBox_Nomal.SetActive(true);
+    }
     // Update is called once per frame
     public void OpenMap()
     {
@@ -419,7 +446,7 @@ public class SIS_UIManager : MonoBehaviour
     {
         if (ItemBox_Nomal.activeSelf == true)
         {
-            if (DataBaseManager.nowItem == null)
+            if (DataBaseManager.nowItem == "")
             {
                 Name.text = "";
                 Detail.text = "";
@@ -486,7 +513,7 @@ public class SIS_UIManager : MonoBehaviour
         }
         if (Use_ItemBox.activeSelf == true)
         {
-            if (DataBaseManager.nowItem == null)
+            if (DataBaseManager.nowItem == "")
             {
                 Use_Name.text = "";
                 Use_Detail.text = "";
@@ -510,7 +537,7 @@ public class SIS_UIManager : MonoBehaviour
         }
         if (Key_ItemBox.activeSelf == true)
         {
-            if (DataBaseManager.nowItem == null)
+            if (DataBaseManager.nowItem == "")
             {
                 Key_Name.text = "";
                 Key_Detail.text = "";
@@ -518,7 +545,7 @@ public class SIS_UIManager : MonoBehaviour
             if (DataBaseManager.nowItem == "Safe" && DataBaseManager.Intel_Safe2 == true)
             {
                 Key_Name.text = "Safe";
-                Key_Detail.text = "Skill :\nDeftness\n\nDetail:\nAiden's safe. It's locked solidly.";
+                Key_Detail.text = "Skill :\nDeftness-20\n\nDetail:\nAiden's safe. It's locked solidly.";
             }
 
 

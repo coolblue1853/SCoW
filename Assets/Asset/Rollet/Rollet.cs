@@ -127,6 +127,10 @@ public class Rollet : MonoBehaviour
         {
             point_int = 90;
         }
+        if (point_int < 0)
+        {
+            point_int = 0;
+        }
         SoundManager.Instance.pen_Line();
         DataBaseManager.isRollet = true;
         Subject = subject;
@@ -455,6 +459,11 @@ public class Rollet : MonoBehaviour
                 {
                     BillowUIManager.Instance.San_up((Random.Range(1, 4)) * 5);
                 }
+            }
+            if (DataBaseManager.nowItem == "Safe")
+            {
+                DataBaseManager.isUseSafe = true;
+                InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
             }
         }
     }
