@@ -46,6 +46,7 @@ public class BattleCameraMove : MonoBehaviour
     }
     bool once = false;
     string nowCam;
+    bool IsSetTurn = false;
 
 
     // Update is called once per frame
@@ -53,14 +54,16 @@ public class BattleCameraMove : MonoBehaviour
     {
         if(BattleManager.Instance != null)
         {
-            if (BattleManager.Instance.BattleState == "setTrun")
+            if (BattleManager.Instance.BattleState == "setTrun" && IsSetTurn == false)
             {
+                IsSetTurn = true;
                 ResetCam();
             }
 
 
             if (BattleManager.Instance.BattleState == "selectEnemy")
             {
+                IsSetTurn = false;
                 if (BattleManager.Instance.onPointerEnemy == "" && once == false)
                 {
                     once = true;

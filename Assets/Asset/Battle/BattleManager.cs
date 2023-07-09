@@ -29,6 +29,8 @@ public class BattleManager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(onPointerEnemy);
+
         EnemyHealthCheck();
         TimeWait();
         StateChecker();

@@ -13,7 +13,7 @@ public class MaterialColorSetter : MonoBehaviour, ColorSetterInterface
 
     public void SetColor(float time)
     {
-        foreach (var material in materials)
-            material.SetColor(colorName, gradient.Evaluate(time));
+     //   foreach (var material in materials)
+   //         material.SetColor(colorName, gradient.Evaluate(time));
     }
 }

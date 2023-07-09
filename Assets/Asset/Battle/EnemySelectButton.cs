@@ -21,17 +21,23 @@ public class EnemySelectButton : MonoBehaviour
 
     }
 
-
+    bool isSetTrun = false;
+    bool isSelectEnemy1 = false;
+    bool isSelectEnemy2= false;
     void Update()
     {
-        if (BattleManager.Instance.BattleState == "setTrun")
+        if (BattleManager.Instance.BattleState == "setTrun" && isSetTrun == false)
         {
+            isSelectEnemy1 = false;
+            isSelectEnemy2 = false;
+            isSetTrun = true;
             spriteRenderer.DOFade(1f, 0.3f).SetAutoKill(true);
 
         }
         if (BattleManager.Instance.BattleState == "selectEnemy")
         {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 마우스 위치 가져오기
+            isSetTrun = false;
+               Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 마우스 위치 가져오기
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero); // 마우스 위치에서 Raycast
 
             if (hit.collider != null)
@@ -41,6 +47,7 @@ public class EnemySelectButton : MonoBehaviour
                     if (hit.collider.CompareTag("Enemy")) // Raycast가 무언가에 닿은 경우, 태그를 확인
                     {
                         BattleManager.Instance.onPointerEnemy = this.transform.name;
+
                         box2d.size = new Vector2(5f, 6.2f);
 
                         if (Input.GetMouseButton(0))
@@ -58,10 +65,38 @@ public class EnemySelectButton : MonoBehaviour
                 box2d.size = new Vector2(3f, 5.2f);
             }
 
-
-
-            if (BattleManager.Instance.onPointerEnemy == "")
+ 
+            if (BattleManager.Instance.onPointerEnemy != "")
             {
+                if (BattleManager.Instance.onPointerEnemy != this.transform.name && isSelectEnemy2 == false)
+                {
+                    box2d.size = new Vector2(3f, 5.2f);
+                    Debug.Log("fadeOut");
+                    isSelectEnemy1 = false;
+                    isSelectEnemy2 = true;
+                    spriteRenderer.DOFade(0.1f, 0.3f).SetAutoKill(true);
+
+                }
+                else if (BattleManager.Instance.onPointerEnemy == this.transform.name && isSelectEnemy1 == false)
+                {
+                    Debug.Log("fadeIn");
+                    isSelectEnemy1 = true;
+                    isSelectEnemy2 = false;
+                    spriteRenderer.DOFade(1f, 0.3f).SetAutoKill(true);
+
+                }
+            }
+
+
+            /*
+             * 
+             * 
+             * 
+            if (BattleManager.Instance.onPointerEnemy == "" && isSelectEnemy1 == false)
+            {
+                isSelectEnemy1 = true;
+                isSelectEnemy2 = false;
+                spriteRenderer.DOFade(1f, 0.3f).SetAutoKill(true);
                 if (this.spriteRenderer.color.a >= 0.1f && this.spriteRenderer.color.a != 1f)
                 {
 
@@ -69,20 +104,23 @@ public class EnemySelectButton : MonoBehaviour
                 }
 
             }
-
-            if (BattleManager.Instance.onPointerEnemy != "")
+            else if (BattleManager.Instance.onPointerEnemy != "" && isSelectEnemy2 == false)
             {
+                isSelectEnemy1 = false;
+                isSelectEnemy2 = true;
                 if (BattleManager.Instance.onPointerEnemy != this.transform.name)
                 {
+                    spriteRenderer.DOFade(0.1f, 0.3f).SetAutoKill(true);
                     if (this.spriteRenderer.color.a <= 1f)
                     {
 
-                        spriteRenderer.DOFade(0.1f, 0.3f).SetAutoKill(true);
+
                     }
 
 
                 }
             }
+            */
         }
       
 

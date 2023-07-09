@@ -7,11 +7,15 @@ public class SIS_UIManager : MonoBehaviour
 {
     public GameObject SIS_UI;
 
+    public GameObject Stat_UI;
+    public GameObject Inventory_UI;
+    public GameObject Skill_UI;
+
+
+
     public GameObject Item_use;
     public GameObject Item_key;
     public GameObject Item_Eqip;
-
-
 
     public TextMeshProUGUI Name;
     public TextMeshProUGUI Detail;
@@ -122,26 +126,38 @@ public class SIS_UIManager : MonoBehaviour
 
         DataBaseManager.nowItem = "";
         Item_use.transform.SetSiblingIndex(-1);
-        //Item_use.SetActive(true);
-        //Item_key.SetActive(false);
-        //ItemBox_Nomal.SetActive(false);
+
     }
     public void Open_KeyItemUI()
     {
         DataBaseManager.nowItem = "";
         Item_key.transform.SetSiblingIndex(-1);
-        // Item_use.SetActive(false);
-        // Item_key.SetActive(true);
-        //ItemBox_Nomal.SetActive(false);
+
     }
     public void Open_NomalItemUI()
     {
         Debug.Log("11");
         DataBaseManager.nowItem = "";
         Item_Eqip.transform.SetSiblingIndex(-1);
-        // Item_use.SetActive(false);
-        // Item_key.SetActive(false);
-        // ItemBox_Nomal.SetActive(true);
+    }
+
+    public void Open_StatUI()
+    {
+        Stat_UI.SetActive(true);
+        Inventory_UI.SetActive(false);
+        Skill_UI.SetActive(false);
+    }
+    public void Open_InventoryUI()
+    {
+        Stat_UI.SetActive(false);
+        Inventory_UI.SetActive(true);
+        Skill_UI.SetActive(false);
+    }
+    public void Open_SkillUI()
+    {
+        Stat_UI.SetActive(false);
+        Inventory_UI.SetActive(false);
+        Skill_UI.SetActive(true);
     }
     // Update is called once per frame
     public void OpenMap()
@@ -164,6 +180,15 @@ public class SIS_UIManager : MonoBehaviour
     {
         ManageItem();
 
+        if (DataBaseManager.nowItem == "")
+        {
+            Name.text = "";
+            Detail.text = "";
+            Use_Name.text = "";
+            Use_Detail.text = "";
+            Key_Name.text = "";
+            Key_Detail.text = "";
+        }
 
         if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isDirecting == false)
         {
@@ -511,6 +536,7 @@ public class SIS_UIManager : MonoBehaviour
             }
 
         }
+
         if (Use_ItemBox.activeSelf == true)
         {
             if (DataBaseManager.nowItem == "")
@@ -535,6 +561,7 @@ public class SIS_UIManager : MonoBehaviour
             }
 
         }
+
         if (Key_ItemBox.activeSelf == true)
         {
             if (DataBaseManager.nowItem == "")
@@ -550,6 +577,8 @@ public class SIS_UIManager : MonoBehaviour
 
 
         }
+
+
 
     }
 
