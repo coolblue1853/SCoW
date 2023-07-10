@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 public class BattleManager : MonoBehaviour
 {
+    public GameObject Cam;
+
     private static BattleManager instance = null;
 
     public string BattleState;
@@ -13,6 +16,16 @@ public class BattleManager : MonoBehaviour
     public TextMeshProUGUI RoundText;
     public GameObject RoundGameObject;
 
+    //플레이어 관련
+    public GameObject player;
+    Vector3 OriginPoint;
+    public SpriteRenderer player_R;
+    public Sprite Stand;
+    public Sprite Punch;
+
+
+
+
     public GameObject PlayerTrunSymbol;
     public GameObject EnemyTrunSymbol_1;
     public GameObject EnemyTrunSymbol_2;
@@ -20,7 +33,12 @@ public class BattleManager : MonoBehaviour
     public GameObject PlayerChoiceUi;
     public GameObject PlayerActionUi;
     EnemyClass.DeepOneHybrid DeepOneHybrid = new EnemyClass.DeepOneHybrid();
+
+    //적 오브젝트 관련
     public GameObject DeepOneHybrid_Object;
+    public SpriteRenderer DeepOneHybrid_Render;
+    public Sprite DeepOneHybrid_Stand;
+    public Sprite DeepOneHybrid_HittedByPunch;
 
 
     public string PlayerAction = "";
@@ -57,6 +75,9 @@ public class BattleManager : MonoBehaviour
     }
     void Awake()
     {
+        player_R = player.GetComponent<SpriteRenderer>();
+        DeepOneHybrid_Render = DeepOneHybrid_Object.GetComponent<SpriteRenderer>();
+        OriginPoint = player.transform.position;
         set_DeepOneHybrid();
         if (null == instance)
         {
@@ -237,9 +258,26 @@ public class BattleManager : MonoBehaviour
             {
                 if (Success == "성공")
                 {
-                    DeepOneHybrid.NowHP -= 10;
-                    Debug.Log(DeepOneHybrid.NowHP);
-                    TurnEnd();
+                    player_R.sprite = Punch;
+                    Cam.transform.DORotate(new Vector3(0,0,5), 0.5f);
+                    // 연출 삽입
+                    Sequence sequence = DOTween.Sequence()
+                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid_Object.transform.position.x - 5.5f, DeepOneHybrid_Object.transform.position.y - 0.2f, -1), 0.5f))
+                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid_Render, DeepOneHybrid_HittedByPunch))
+                    .Append(Cam.transform.DOShakePosition(1, 2, 90))
+                    .Join(DeepOneHybrid_Object.transform.DOShakePosition(1, 2, 90))
+                    .AppendInterval(0.5f) // 2초 대기
+                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                        .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                    .AppendCallback(() => TurnEnd())
+                    .Append(player.transform.DOMove(OriginPoint, 0.5f));
+
+
+                    //DeepOneHybrid.NowHP -= 10;
+                    //Debug.Log(DeepOneHybrid.NowHP);
+                    //TurnEnd();
                 }
                 else
                 {
@@ -251,6 +289,23 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+
+
+
+
+
+
+    void OnSpriteChangeComplete(SpriteRenderer subject, Sprite sprite)
+    {
+        subject.sprite = sprite;
+
+        // 변경된 스프라이트 복원 트윈 애니메이션 실행
+        subject.DOBlendableColor(Color.white, 1);
+    }
+    void CamRotateReset()
+    {
+        Cam.transform.DORotate(new Vector3(0, 0, 0), 0.2f);
+    }
 
 
     void EnemyHealthCheck()

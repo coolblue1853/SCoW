@@ -20,6 +20,7 @@ public class EnemySelectButton : MonoBehaviour
 
 
     }
+    bool isSelectEnemy3 = false;
 
     bool isSetTrun = false;
     bool isSelectEnemy1 = false;
@@ -68,10 +69,11 @@ public class EnemySelectButton : MonoBehaviour
  
             if (BattleManager.Instance.onPointerEnemy != "")
             {
+                isSelectEnemy3 = false;
                 if (BattleManager.Instance.onPointerEnemy != this.transform.name && isSelectEnemy2 == false)
                 {
                     box2d.size = new Vector2(3f, 5.2f);
-                    Debug.Log("fadeOut");
+
                     isSelectEnemy1 = false;
                     isSelectEnemy2 = true;
                     spriteRenderer.DOFade(0.1f, 0.3f).SetAutoKill(true);
@@ -79,12 +81,20 @@ public class EnemySelectButton : MonoBehaviour
                 }
                 else if (BattleManager.Instance.onPointerEnemy == this.transform.name && isSelectEnemy1 == false)
                 {
-                    Debug.Log("fadeIn");
+
                     isSelectEnemy1 = true;
                     isSelectEnemy2 = false;
                     spriteRenderer.DOFade(1f, 0.3f).SetAutoKill(true);
 
                 }
+            }
+            else if(BattleManager.Instance.onPointerEnemy == "" && isSelectEnemy3 == false)
+            {
+
+                isSelectEnemy1 = false;
+                isSelectEnemy2 = false;
+                isSelectEnemy3 = true;
+                spriteRenderer.DOFade(1f, 0.3f).SetAutoKill(true);
             }
 
 

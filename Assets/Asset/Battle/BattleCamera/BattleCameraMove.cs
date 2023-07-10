@@ -121,5 +121,6 @@ public class BattleCameraMove : MonoBehaviour
     {
         camera.DOOrthoSize(14.5216f, 1).SetAutoKill(true);
         Cam.transform.DOMoveY(OriginPoint, 1).SetAutoKill(true);
+        Cam.transform.DORotate(new Vector3(0, 0, 0), 0.5f);
     }
 }
