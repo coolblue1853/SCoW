@@ -48,8 +48,9 @@ public class RolletTest : MonoBehaviour
 
 
         //DataBaseManager.Intel_Hospital1 = true;
-
-        DataBaseManager.Condition = "Best";
+       DataBaseManager.Condition = "Nomal";
+        DataBaseManager.martialArtsPoint = 60;
+       // DataBaseManager.Condition = "Worst";
 
         DataBaseManager.TimeCount = 1;
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;

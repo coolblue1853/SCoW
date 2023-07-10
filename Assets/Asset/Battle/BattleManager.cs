@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
+using DamageNumbersPro;
 public class BattleManager : MonoBehaviour
 {
+    public DamageNumber numberPrefab;
+
+
     public GameObject Cam;
 
     private static BattleManager instance = null;
@@ -22,7 +26,7 @@ public class BattleManager : MonoBehaviour
     public SpriteRenderer player_R;
     public Sprite Stand;
     public Sprite Punch;
-
+    public Sprite Hitted;
 
 
 
@@ -39,7 +43,7 @@ public class BattleManager : MonoBehaviour
     public SpriteRenderer DeepOneHybrid_Render;
     public Sprite DeepOneHybrid_Stand;
     public Sprite DeepOneHybrid_HittedByPunch;
-
+    public Sprite DeepOneHybrid_Punch;
 
     public string PlayerAction = "";
     public string SelectEnemy = "";
@@ -66,6 +70,7 @@ public class BattleManager : MonoBehaviour
     {
         get
         {
+
             if (null == instance)
             {
                 return null;
@@ -109,11 +114,11 @@ public class BattleManager : MonoBehaviour
                 fDestroyTime = fDestroyTime * 0.98f;
                 if (PlayerTrunSymbol.activeSelf == true)
                 {
-                    SymbolUp(PlayerTrunSymbol, 90, "Player");
+                    SymbolUp(PlayerTrunSymbol, 10, "Player");
                 }
                 if (EnemyTrunSymbol_1.activeSelf == true)
                 {
-                    SymbolUp(EnemyTrunSymbol_1, 60, "DeepOneHybrid1");
+                    SymbolUp(EnemyTrunSymbol_1, 99, "DeepOneHybrid1");
                 }
                 if (EnemyTrunSymbol_2.activeSelf == true)
                 {
@@ -200,7 +205,7 @@ public class BattleManager : MonoBehaviour
         {
             PlayerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.setBattleRollet("파비안 : 회피", "회피", 50, "evasion","DeepOneHybrid" , "??? : 격투술", "격투술", DeepOneHybrid.DeepOneHybrid_MatialArts);
+            BattleRollet.Instance.setBattleRollet("파비안 : 회피", "회피", DataBaseManager.martialArtsPoint, "evasion","DeepOneHybrid" , "??? : 격투술", "격투술", DeepOneHybrid.DeepOneHybrid_MatialArts);
         }
     }
     public void PlayerChoiceButton_CounterAttack()
@@ -209,7 +214,7 @@ public class BattleManager : MonoBehaviour
         {
             PlayerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.setBattleRollet("파비안 : 반격", "격투술", 50, "counterattack", "DeepOneHybrid", "??? : 격투술", "격투술", DeepOneHybrid.DeepOneHybrid_MatialArts);
+            BattleRollet.Instance.setBattleRollet("파비안 : 반격", "격투술", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : 격투술", "격투술", DeepOneHybrid.DeepOneHybrid_MatialArts);
         }
     }
 
@@ -221,14 +226,47 @@ public class BattleManager : MonoBehaviour
         {
             if(Enemy == "DeepOneHybrid")
             {
+                Vector3 enemyOrigin = DeepOneHybrid_Object.transform.position;
+                GameObject obj = DeepOneHybrid_Object;
+                SpriteRenderer spR = DeepOneHybrid_Render;
                 if (Success == "성공")
                 {
-                    TurnEnd();
+                    DeepOneHybrid_Render.sprite = DeepOneHybrid_Punch;
+                    Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
+                    // 연출 삽입
+                    Sequence sequence = DOTween.Sequence()
+                    .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
+                    .Append(player.transform.DOMove(new Vector3(player.transform.position.x - 4f, DeepOneHybrid_Object.transform.position.y), 1f))
+                    .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1.5f, player.transform.position.y - 0.2f, -1), 2))
+                     .AppendInterval(0.5f) // 2초 대기
+                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                    .AppendCallback(() => TurnEnd())
+                     .AppendCallback(() => CamRotate(0))
+                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+       
                 }
                 else
                 {
-                    BillowUIManager.Instance.HP_down(10);
-                    TurnEnd();
+                    DeepOneHybrid_Render.sprite = DeepOneHybrid_Punch;
+                    Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
+                    // 연출 삽입
+                    Sequence sequence = DOTween.Sequence()
+                    .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
+                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                    .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                    .Join(player.transform.DOShakePosition(1, 2, 90))
+                    .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
+                    .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
+                    .AppendInterval(0.5f) // 2초 대기
+                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                    .AppendCallback(() => TurnEnd())
+                                         .AppendCallback(() => CamRotate(0))
+                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
             }
 
@@ -237,16 +275,55 @@ public class BattleManager : MonoBehaviour
         {
             if (Enemy == "DeepOneHybrid")
             {
+                Vector3 enemyOrigin = DeepOneHybrid_Object.transform.position;
+                GameObject obj = DeepOneHybrid_Object;
+                SpriteRenderer spR = DeepOneHybrid_Render;
                 if (Success == "성공")
                 {
-                    DeepOneHybrid.NowHP -= 10;
-                    Debug.Log(DeepOneHybrid.NowHP);
-                    TurnEnd();
+                    DeepOneHybrid_Render.sprite = DeepOneHybrid_Punch;
+                    Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
+                    // 연출 삽입
+                    Sequence sequence = DOTween.Sequence()
+                    .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
+                    .Append(player.transform.DOMove(new Vector3(player.transform.position.x - 5f, DeepOneHybrid_Object.transform.position.y), 1f))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Punch))
+                    .Append(player.transform.DOMove(new Vector3(player.transform.position.x -2, player.transform.position.y, -2), 0.2f))
+                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByPunch))
+                    .AppendCallback(() => CamRotate(+5))
+                    .AppendCallback(() => OnDamageObject("DeepOneHybrid", Random.Range(1, 4) * 5))
+                     .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                    .Join(DeepOneHybrid_Object.transform.DOShakePosition(1, 2, 90))
+                    .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 8f, player.transform.position.y), 1.5f))
+                    .Join(player.transform.DOMove(new Vector3(player.transform.position.x +2, player.transform.position.y, -1), 1f))
+
+                    .AppendInterval(0.5f) // 2초 대기
+                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                    .AppendCallback(() => TurnEnd())
+                    .AppendCallback(() => CamRotate(0))
+                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
                 else
                 {
-                    BillowUIManager.Instance.HP_down(10);
-                    TurnEnd();
+                    DeepOneHybrid_Render.sprite = DeepOneHybrid_Punch;
+                    Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
+                    // 연출 삽입
+                    Sequence sequence = DOTween.Sequence()
+                    .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
+                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                    .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                    .Join(player.transform.DOShakePosition(1, 2, 90))
+                    .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
+                    .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
+                    .AppendInterval(0.5f) // 2초 대기
+                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                    .AppendCallback(() => TurnEnd())
+                                         .AppendCallback(() => CamRotate(0))
+                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
             }
 
@@ -256,33 +333,56 @@ public class BattleManager : MonoBehaviour
         {
             if (Enemy == "DeepOneHybrid")
             {
+                Vector3 enemyOrigin = DeepOneHybrid_Object.transform.position;
+                GameObject obj = DeepOneHybrid_Object;
+                SpriteRenderer spR = DeepOneHybrid_Render;
                 if (Success == "성공")
                 {
                     player_R.sprite = Punch;
                     Cam.transform.DORotate(new Vector3(0,0,5), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
-                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid_Object.transform.position.x - 5.5f, DeepOneHybrid_Object.transform.position.y - 0.2f, -1), 0.5f))
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid_Render, DeepOneHybrid_HittedByPunch))
-                    .Append(Cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(DeepOneHybrid_Object.transform.DOShakePosition(1, 2, 90))
+                    .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
+                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByPunch))
+                    .AppendCallback(() => OnDamageObject("DeepOneHybrid", Random.Range(1, 4) * 5))
+                    .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                    .Join(obj.transform.DOShakePosition(1, 2, 90))
+                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
+                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid_Render, DeepOneHybrid_Stand))
-                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
-                                        .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
-                    .Append(player.transform.DOMove(OriginPoint, 0.5f));
+                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
 
-
-                    //DeepOneHybrid.NowHP -= 10;
-                    //Debug.Log(DeepOneHybrid.NowHP);
-                    //TurnEnd();
                 }
                 else
                 {
-                    BillowUIManager.Instance.HP_down(10);
-                    TurnEnd();
+                    player_R.sprite = Punch;
+                    Cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
+                    // 연출 삽입
+                    Sequence sequence = DOTween.Sequence()
+                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid_Object.transform.position.x - 5.5f, DeepOneHybrid_Object.transform.position.y - 0.2f, -1), 0.5f))
+                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid_Object.transform.position.x + 2f, DeepOneHybrid_Object.transform.position.y), 0.5f))
+                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid_Render, DeepOneHybrid_Punch))
+                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid_Object.transform.position.x - 2f, DeepOneHybrid_Object.transform.position.y, -2), 0.2f))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
+                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => CamRotate(-5))
+                    .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                    .Join(DeepOneHybrid_Object.transform.DOShakePosition(1, 2, 90))
+                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
+                   .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x  - 3f, obj.transform.position.y), 1.5f))
+
+                    .AppendInterval(0.5f) // 2초 대기
+                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                    .AppendCallback(() => TurnEnd())
+
+                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+
                 }
             }
 
@@ -294,7 +394,19 @@ public class BattleManager : MonoBehaviour
 
 
 
-
+    void OnDamageObject(string subject, int damage)
+    {
+        if(subject == "DeepOneHybrid")
+        {
+            DeepOneHybrid.NowHP -= damage;
+            DamageNumber damageNumber = numberPrefab.Spawn( DeepOneHybrid_Object.transform.position, damage);
+        }
+        if (subject == "player")
+        {
+            DamageNumber damageNumber = numberPrefab.Spawn(player.transform.position, damage);
+            BillowUIManager.Instance.HP_down(damage);
+        }
+    }
     void OnSpriteChangeComplete(SpriteRenderer subject, Sprite sprite)
     {
         subject.sprite = sprite;
@@ -302,15 +414,15 @@ public class BattleManager : MonoBehaviour
         // 변경된 스프라이트 복원 트윈 애니메이션 실행
         subject.DOBlendableColor(Color.white, 1);
     }
-    void CamRotateReset()
+    void CamRotate(int R)
     {
-        Cam.transform.DORotate(new Vector3(0, 0, 0), 0.2f);
+        Cam.transform.DORotate(new Vector3(0, 0, R), 0.5f);
     }
 
 
     void EnemyHealthCheck()
     {
-        if(DeepOneHybrid.NowHP <= 0)
+        if(DeepOneHybrid.NowHP <= 0 && BattleState == "setTrun")
         {
             DeepOneHybrid_Object.SetActive(false);
         }
@@ -333,6 +445,9 @@ public class BattleManager : MonoBehaviour
         SelectEnemy = "";
         BattleState = "setTrun";
         fDestroyTime = 0.01f;
+
+        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
+        DeepOneHybrid_Object.transform.position = new Vector3(DeepOneHybrid_Object.transform.position.x, DeepOneHybrid_Object.transform.position.y, 0);
     }
     public void SetAciton(string action)
     {
@@ -346,7 +461,7 @@ public class BattleManager : MonoBehaviour
         {
             if (PlayerAction == "martialarts")
             {
-                BattleRollet.Instance.setBattleRollet("파비안 : 격투술", "격투술", 50, "MA_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid.DeepOneHybrid_MatialArts);
+                BattleRollet.Instance.setBattleRollet("파비안 : 격투술", "격투술", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid.DeepOneHybrid_MatialArts);
             }
         }
 
