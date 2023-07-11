@@ -75,9 +75,9 @@ public class setStat : MonoBehaviour
             luk_txt.text = DataBaseManager.luk.ToString();
             luk_image.fillAmount = ((float)DataBaseManager.luk / 100);
 
-            DataBaseManager.weal = (Random.Range(5, 26));
+            DataBaseManager.weal = (Random.Range(5, 36));
             weal_txt.text = DataBaseManager.weal.ToString();
-            weal_image.fillAmount = ((float)DataBaseManager.weal / 25);
+            weal_image.fillAmount = ((float)DataBaseManager.weal / 35);
 
             DataBaseManager.nowHP = DataBaseManager.hp;
             DataBaseManager.nowSan = DataBaseManager.san;
@@ -130,9 +130,9 @@ public class setStat : MonoBehaviour
         luk_txt.text = DataBaseManager.luk.ToString();
         luk_image.fillAmount = ((float)DataBaseManager.luk / 100);
 
-        DataBaseManager.weal = (Random.Range(5, 26));
+        DataBaseManager.weal = (Random.Range(5, 36));
         weal_txt.text = DataBaseManager.weal.ToString();
-        weal_image.fillAmount = ((float)DataBaseManager.weal / 25);
+        weal_image.fillAmount = ((float)DataBaseManager.weal / 35);
 
 
         setSkill.resetSkillPoint();

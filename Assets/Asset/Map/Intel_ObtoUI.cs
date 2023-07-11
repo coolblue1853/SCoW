@@ -86,7 +86,11 @@ public class Intel_ObtoUI : MonoBehaviour
                 {
                     DataBaseManager.isKeyword = true;
                 }
+                if (this.name == "GunshopMan")
+                {
+                    ShopUI.Instance.OpenShopUI();
 
+                }
 
 
                 if (DataBaseManager.isRollet == false)

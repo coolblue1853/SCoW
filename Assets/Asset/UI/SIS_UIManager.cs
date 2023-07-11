@@ -374,16 +374,17 @@ public class SIS_UIManager : MonoBehaviour
         }
         if (DataBaseManager.RifleAmmo > 0)
         {
+
+            ActivateObjectWithName(ItemBox_Nomal, "RifleAmmo");
+        }
+        else
+        {
             if (DataBaseManager.nowItem == "RifleAmmo")
             {
                 DataBaseManager.nowItem = "";
                 Use_Name.text = "";
                 Use_Detail.text = "";
             }
-            ActivateObjectWithName(ItemBox_Nomal, "RifleAmmo");
-        }
-        else
-        {
             DeactivateObjectWithName(ItemBox_Nomal, "RifleAmmo");
         }
         if (DataBaseManager.ShotgunAmmo > 0)

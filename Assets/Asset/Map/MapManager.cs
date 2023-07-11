@@ -58,6 +58,9 @@ public class MapManager : MonoBehaviour
     Vector3 player_Bar = new Vector3(-666.8f, 2.6f);
     Vector3 Cam_Bar = new Vector3(-650.4f, 1.690001f, -15);
 
+    Vector3 player_Gunshop = new Vector3(-1036.56f, -82.12f);
+    Vector3 Cam_Gunshop = new Vector3(-1056.2f, -82f, -15);
+
     public GameObject DetectiveOfficeButton;
     public GameObject ClientsHouseButton;
     public GameObject DailyNewsButton;
@@ -67,6 +70,7 @@ public class MapManager : MonoBehaviour
     public GameObject HospitalButton;
     public GameObject SlumButton;
     public GameObject BarButton;
+    public GameObject GunshopButton;
     private void buttonChecker() 
     {
         if ((DataBaseManager.TimeCount % 4) == 1)
@@ -136,6 +140,14 @@ public class MapManager : MonoBehaviour
             {
                 SlumButton.SetActive(true);
             }
+            if (DataBaseManager.nowPlace == "Gunshop")
+            {
+                GunshopButton.SetActive(false);
+            }
+            else
+            {
+                GunshopButton.SetActive(true);
+            }
         }
         if ((DataBaseManager.TimeCount % 4) == 2)
         {
@@ -204,6 +216,14 @@ public class MapManager : MonoBehaviour
             {
                 SlumButton.SetActive(true);
             }
+            if (DataBaseManager.nowPlace == "Gunshop")
+            {
+                GunshopButton.SetActive(false);
+            }
+            else
+            {
+                GunshopButton.SetActive(true);
+            }
         }
         if ((DataBaseManager.TimeCount % 4) == 3)
         {
@@ -216,6 +236,7 @@ public class MapManager : MonoBehaviour
             HospitalButton.SetActive(false);
             PoliceofficeButton.SetActive(false);
             SlumButton.SetActive(false);
+            GunshopButton.SetActive(false);
 
         }
         if ((DataBaseManager.TimeCount % 4) == 0)
@@ -231,6 +252,7 @@ public class MapManager : MonoBehaviour
                 HospitalButton.SetActive(false);
                 PoliceofficeButton.SetActive(false);
                 SlumButton.SetActive(false);
+                GunshopButton.SetActive(false);
             }
 
         }
@@ -522,6 +544,16 @@ public class MapManager : MonoBehaviour
             player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
             player.transform.localPosition = player_Bar;
             camera.transform.localPosition = Cam_Bar;
+            MapChainingUI.SetActive(false);
+            MapUI.SetActive(false);
+            DialogDatabaseManager.instance.Check = true;
+        }
+        else if (DataBaseManager.nowPlace == "Gunshop")
+        {
+
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
+            player.transform.localPosition = player_Gunshop;
+            camera.transform.localPosition = Cam_Gunshop;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
             DialogDatabaseManager.instance.Check = true;
