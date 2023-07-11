@@ -496,13 +496,13 @@ public class SIS_UIManager : MonoBehaviour
             if (DataBaseManager.nowItem == "Molotov")
             {
                 Name.text = "Molotov";
-                Detail.text = "Skill :\nDeftness\n\nDamage :\n(2D6 + Fire)x5\n\nPcs : "+DataBaseManager.Molotov;
+                Detail.text = "Skill :\nDeftness\n\nDamage :\n(2D6 + 2)x5\n\nPcs : "+DataBaseManager.Molotov;
             }
 
             if (DataBaseManager.nowItem == "Shotgun")
             {
                 Name.text = "Shotgun";
-                Detail.text = "Skill :\nMarkmanship\n\nDamage :\n(6D4)x5\n\nMagazine :\n2 Bullet";
+                Detail.text = "Skill :\nMarkmanship\n\nDamage :\n(5D4)x5\n\nMagazine :\n2 Bullet";
             }
             if (DataBaseManager.nowItem == "Rifle")
             {

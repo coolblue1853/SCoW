@@ -10,24 +10,7 @@ public class RolletTest : MonoBehaviour
 
     private void Awake()
     {
-        DataBaseManager.Intel_Safe2 = true;
-        DataBaseManager.Bullet = 1;
-        DataBaseManager.Shotgun = 1;
-        DataBaseManager.Rifle = 1;
-        DataBaseManager.Revolver = 1;
-        DataBaseManager.SmallPistol = 1;
-        DataBaseManager.Bat = 1;
-        DataBaseManager.Axe = 1;
-        DataBaseManager.Molotov = 1;
-        DataBaseManager.Dagger = 1;
 
-        DataBaseManager.PistolAmmo = 1;
-        DataBaseManager.RifleAmmo = 1;
-        DataBaseManager.ShotgunAmmo = 1;
-
-        DataBaseManager.Firstaidkit = 1;
-        DataBaseManager.Bandages = 1;
-        DataBaseManager.Painkillers = 1;
     /*
     DataBaseManager.Intel_Aiden1 = true;
     DataBaseManager.Intel_Safe1 = true;
