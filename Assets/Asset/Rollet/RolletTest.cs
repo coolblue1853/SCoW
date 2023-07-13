@@ -74,7 +74,8 @@ public class RolletTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F10))
         {
-            BillowUIManager.Instance.HP_down(5);
+            DataBaseManager.weal += 10;
+
             //   DataBaseManager.Shotgun += 1;
             // DataBaseManager.Rifle += 1;
             // DataBaseManager.Revolver += 1;
