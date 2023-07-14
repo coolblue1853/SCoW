@@ -36,6 +36,10 @@ public class BattleManager : MonoBehaviour
 
     public GameObject PlayerChoiceUi;
     public GameObject PlayerActionUi;
+    public GameObject PlayerAttackUi;
+    public GameObject PlayerSwordsUi;
+
+
     EnemyClass.DeepOneHybrid DeepOneHybrid = new EnemyClass.DeepOneHybrid();
 
     //적 오브젝트 관련
@@ -114,15 +118,15 @@ public class BattleManager : MonoBehaviour
                 fDestroyTime = fDestroyTime * 0.98f;
                 if (PlayerTrunSymbol.activeSelf == true)
                 {
-                    SymbolUp(PlayerTrunSymbol, 10, "Player");
+                    SymbolUp(PlayerTrunSymbol, 99, "Player");
                 }
                 if (EnemyTrunSymbol_1.activeSelf == true)
                 {
-                    SymbolUp(EnemyTrunSymbol_1, 99, "DeepOneHybrid1");
+                    SymbolUp(EnemyTrunSymbol_1, 1, "DeepOneHybrid1");
                 }
                 if (EnemyTrunSymbol_2.activeSelf == true)
                 {
-                    SymbolUp(EnemyTrunSymbol_2, 30, "Enemy2");
+                    SymbolUp(EnemyTrunSymbol_2, 1, "Enemy2");
                 }
 
             }
@@ -174,6 +178,7 @@ public class BattleManager : MonoBehaviour
         }
         if (BattleState == "PlayerTrun")
         {
+            BattleItemManager.Instance.ManageItem();
             BattleState = "PlayerChoice";
             Invoke("Player_setAction", 1);
         }
@@ -181,9 +186,23 @@ public class BattleManager : MonoBehaviour
     void Player_setAction()
     {
         RoundGameObject.SetActive(false);
-       // OpenRoundObject("행동을선택하세요");
         PlayerActionUi.SetActive(true);
     }
+
+    public void Player_setAttack()
+    {
+        PlayerActionUi.SetActive(false);
+        BattleState = "PlayerAttack";
+        PlayerAttackUi.SetActive(true);
+    }
+    public void Player_setSwords()
+    {
+        PlayerAttackUi.SetActive(false);
+        BattleState = "PlayerSwords";
+        PlayerSwordsUi.SetActive(true);
+    }
+
+
 
 
 
@@ -203,6 +222,7 @@ public class BattleManager : MonoBehaviour
     {
         if (BattleState == "DeepOneHybrid1Attack")
         {
+            BattleState = "Rollet";
             PlayerChoiceUi.SetActive(false);
             CloseRoundObject();
             BattleRollet.Instance.setBattleRollet("파비안 : 회피", "회피", DataBaseManager.martialArtsPoint, "evasion","DeepOneHybrid" , "??? : 격투술", "격투술", DeepOneHybrid.DeepOneHybrid_MatialArts);
@@ -212,6 +232,7 @@ public class BattleManager : MonoBehaviour
     {
         if (BattleState == "DeepOneHybrid1Attack")
         {
+            BattleState = "Rollet";
             PlayerChoiceUi.SetActive(false);
             CloseRoundObject();
             BattleRollet.Instance.setBattleRollet("파비안 : 반격", "격투술", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : 격투술", "격투술", DeepOneHybrid.DeepOneHybrid_MatialArts);
@@ -231,6 +252,7 @@ public class BattleManager : MonoBehaviour
                 SpriteRenderer spR = DeepOneHybrid_Render;
                 if (Success == "성공")
                 {
+                    BattleCameraMove.Instance.ZoomMidle();
                     DeepOneHybrid_Render.sprite = DeepOneHybrid_Punch;
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
                     // 연출 삽입
@@ -249,6 +271,7 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
+                    BattleCameraMove.Instance.ZoomMidle();
                     DeepOneHybrid_Render.sprite = DeepOneHybrid_Punch;
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
                     // 연출 삽입
@@ -275,6 +298,7 @@ public class BattleManager : MonoBehaviour
         {
             if (Enemy == "DeepOneHybrid")
             {
+                BattleCameraMove.Instance.ZoomMidle();
                 Vector3 enemyOrigin = DeepOneHybrid_Object.transform.position;
                 GameObject obj = DeepOneHybrid_Object;
                 SpriteRenderer spR = DeepOneHybrid_Render;
@@ -306,6 +330,7 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
+                    BattleCameraMove.Instance.ZoomMidle();
                     DeepOneHybrid_Render.sprite = DeepOneHybrid_Punch;
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
                     // 연출 삽입
@@ -445,6 +470,7 @@ public class BattleManager : MonoBehaviour
         SelectEnemy = "";
         BattleState = "setTrun";
         fDestroyTime = 0.01f;
+        BattleCameraMove.Instance.ResetCam();
 
         player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
         DeepOneHybrid_Object.transform.position = new Vector3(DeepOneHybrid_Object.transform.position.x, DeepOneHybrid_Object.transform.position.y, 0);
@@ -461,6 +487,7 @@ public class BattleManager : MonoBehaviour
         {
             if (PlayerAction == "martialarts")
             {
+                BattleState = "Rollet";
                 BattleRollet.Instance.setBattleRollet("파비안 : 격투술", "격투술", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid.DeepOneHybrid_MatialArts);
             }
         }

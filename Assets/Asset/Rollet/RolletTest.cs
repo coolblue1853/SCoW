@@ -10,30 +10,33 @@ public class RolletTest : MonoBehaviour
 
     private void Awake()
     {
+        DataBaseManager.Bat += 1;
+         DataBaseManager.Dagger += 1;
+         DataBaseManager.Axe += 1;
 
-    /*
-    DataBaseManager.Intel_Aiden1 = true;
-    DataBaseManager.Intel_Safe1 = true;
-    DataBaseManager.Intel_Nightmare1 = true;
-    DataBaseManager.Intel_Nightmare2 = true;
-    DataBaseManager.Intel_Nightmare3 = true;
-    DataBaseManager.Intel_Nightmare4 = true;
-    DataBaseManager.Intel_Insomnia1 = true;
-    DataBaseManager.Intel_Insomnia2 =true;
+        /*
+        DataBaseManager.Intel_Aiden1 = true;
+        DataBaseManager.Intel_Safe1 = true;
+        DataBaseManager.Intel_Nightmare1 = true;
+        DataBaseManager.Intel_Nightmare2 = true;
+        DataBaseManager.Intel_Nightmare3 = true;
+        DataBaseManager.Intel_Nightmare4 = true;
+        DataBaseManager.Intel_Insomnia1 = true;
+        DataBaseManager.Intel_Insomnia2 =true;
 
-    DataBaseManager.Intel_PlanetarySequence1 = true;
-    DataBaseManager.Intel_University1 = true;
-    DataBaseManager.Intel_Meiv1 = true;
-    DataBaseManager.Intel_MissingPeople1 = true;
-    DataBaseManager.Intel_SewerGhostStory1 = true;
-    DataBaseManager.Intel_SewerGhostStory2 = true;
-    DataBaseManager.Intel_CreepyEyes1 = true;
-    DataBaseManager.Intel_SewerWorker1 = true;
-    DataBaseManager.Intel_FishySmell1 = true;
-    DataBaseManager.Intel_FishySmell2 = true;
-    DataBaseManager.Intel_FishySmell3 = true;
-    */
-    DataBaseManager.nowPlace = "DetectiveOffice";
+        DataBaseManager.Intel_PlanetarySequence1 = true;
+        DataBaseManager.Intel_University1 = true;
+        DataBaseManager.Intel_Meiv1 = true;
+        DataBaseManager.Intel_MissingPeople1 = true;
+        DataBaseManager.Intel_SewerGhostStory1 = true;
+        DataBaseManager.Intel_SewerGhostStory2 = true;
+        DataBaseManager.Intel_CreepyEyes1 = true;
+        DataBaseManager.Intel_SewerWorker1 = true;
+        DataBaseManager.Intel_FishySmell1 = true;
+        DataBaseManager.Intel_FishySmell2 = true;
+        DataBaseManager.Intel_FishySmell3 = true;
+        */
+        DataBaseManager.nowPlace = "DetectiveOffice";
         //DataBaseManager.nowPlace = "DetectiveOffice";
         //   DataBaseManager.nowPlace = "Slum";
         //DataBaseManager.nowPlace = "University";

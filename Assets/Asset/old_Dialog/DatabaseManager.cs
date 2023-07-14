@@ -109,6 +109,8 @@ public class DataBaseManager : MonoBehaviour
 
 
     //Battle
+    public static string BattleWeapon = "";
+
 
 
     public static bool isOpenUi = false;
