@@ -27,7 +27,8 @@ public class BattleManager : MonoBehaviour
     public Sprite Stand;
     public Sprite Punch;
     public Sprite Hitted;
-
+    public Sprite Dagger_Ready;
+    public Sprite Dagger_Attack;
 
 
     public GameObject PlayerTrunSymbol;
@@ -49,13 +50,15 @@ public class BattleManager : MonoBehaviour
     public Sprite DeepOneHybrid_HittedByPunch;
     public Sprite DeepOneHybrid_Punch;
 
+
+
     public string PlayerAction = "";
     public string SelectEnemy = "";
     public string onPointerEnemy = "";
 
     void Update()
     {
-        Debug.Log(onPointerEnemy);
+
 
         EnemyHealthCheck();
         TimeWait();
@@ -118,11 +121,11 @@ public class BattleManager : MonoBehaviour
                 fDestroyTime = fDestroyTime * 0.98f;
                 if (PlayerTrunSymbol.activeSelf == true)
                 {
-                    SymbolUp(PlayerTrunSymbol, 99, "Player");
+                    SymbolUp(PlayerTrunSymbol, DataBaseManager.dex, "Player");
                 }
                 if (EnemyTrunSymbol_1.activeSelf == true)
                 {
-                    SymbolUp(EnemyTrunSymbol_1, 1, "DeepOneHybrid1");
+                    SymbolUp(EnemyTrunSymbol_1, DeepOneHybrid.dex, "DeepOneHybrid1");
                 }
                 if (EnemyTrunSymbol_2.activeSelf == true)
                 {
@@ -198,7 +201,7 @@ public class BattleManager : MonoBehaviour
     public void Player_setSwords()
     {
         PlayerAttackUi.SetActive(false);
-        BattleState = "PlayerSwords";
+        PlayerAction = "PlayerSwords";
         PlayerSwordsUi.SetActive(true);
     }
 
@@ -225,7 +228,7 @@ public class BattleManager : MonoBehaviour
             BattleState = "Rollet";
             PlayerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.setBattleRollet("파비안 : 회피", "회피", DataBaseManager.martialArtsPoint, "evasion","DeepOneHybrid" , "??? : 격투술", "격투술", DeepOneHybrid.DeepOneHybrid_MatialArts);
+            BattleRollet.Instance.setBattleRollet("파비안 : 회피", "회피", DataBaseManager.evasionPoint, "evasion","DeepOneHybrid" , "??? : 격투술", "격투술", DeepOneHybrid.DeepOneHybrid_MatialArts);
         }
     }
     public void PlayerChoiceButton_CounterAttack()
@@ -242,7 +245,7 @@ public class BattleManager : MonoBehaviour
     public void RetrunRolletResult(string PlayerAction, string Success, string Enemy)
     {
 
-        onPointerEnemy = "";
+
         if (PlayerAction == "evasion")
         {
             if(Enemy == "DeepOneHybrid")
@@ -412,6 +415,75 @@ public class BattleManager : MonoBehaviour
             }
 
         }
+
+        if (PlayerAction == "SS_attack_Counter")
+        {
+            if (Enemy == "DeepOneHybrid")
+            {
+                Vector3 enemyOrigin = DeepOneHybrid_Object.transform.position;
+                GameObject obj = DeepOneHybrid_Object;
+                SpriteRenderer spR = DeepOneHybrid_Render;
+                if (Success == "성공")
+                {
+                    if(DataBaseManager.BattleWeapon == "Dagger")
+                    {
+                        player_R.sprite = Dagger_Ready;
+                    }
+
+
+                    Cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
+                    // 연출 삽입
+                    Sequence sequence = DOTween.Sequence()
+                    .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
+                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByPunch))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Dagger_Attack))
+                    .AppendCallback(() => OnDamageObject("DeepOneHybrid", (Random.Range(1, 5)+2) * 5))//1D4 + 2
+                    .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                    .Join(obj.transform.DOShakePosition(1, 2, 90))
+                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
+                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
+                    .AppendInterval(0.5f) // 2초 대기
+                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                    .AppendCallback(() => TurnEnd())
+                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+
+                }
+                else
+                {
+                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    {
+                        player_R.sprite = Dagger_Ready;
+                    }
+                    Cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
+                    // 연출 삽입
+                    Sequence sequence = DOTween.Sequence()
+                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid_Object.transform.position.x - 3.5f, DeepOneHybrid_Object.transform.position.y - 0.2f, -1), 0.5f))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Dagger_Attack))
+                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid_Object.transform.position.x + 2f, DeepOneHybrid_Object.transform.position.y), 0.5f))
+                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid_Render, DeepOneHybrid_Punch))
+                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid_Object.transform.position.x - 2f, DeepOneHybrid_Object.transform.position.y, -2), 0.2f))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
+                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => CamRotate(-5))
+                    .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                    .Join(DeepOneHybrid_Object.transform.DOShakePosition(1, 2, 90))
+                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
+                   .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
+
+                    .AppendInterval(0.5f) // 2초 대기
+                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                    .AppendCallback(() => TurnEnd())
+
+                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+
+                }
+            }
+
+        }
     }
 
 
@@ -466,13 +538,19 @@ public class BattleManager : MonoBehaviour
     }
     public void TurnEnd()
     {
+        onPointerEnemy = "";
         PlayerAction = "";
         SelectEnemy = "";
         BattleState = "setTrun";
         fDestroyTime = 0.01f;
         BattleCameraMove.Instance.ResetCam();
 
-        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
+              PlayerChoiceUi.SetActive(false);
+      PlayerActionUi.SetActive(false);
+      PlayerAttackUi.SetActive(false);
+      PlayerSwordsUi.SetActive(false);
+
+    player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
         DeepOneHybrid_Object.transform.position = new Vector3(DeepOneHybrid_Object.transform.position.x, DeepOneHybrid_Object.transform.position.y, 0);
     }
     public void SetAciton(string action)
@@ -483,12 +561,22 @@ public class BattleManager : MonoBehaviour
     }
     public void SetEnemy(string enemy)
     {
-        if(enemy == "DeepOneHybrid")
+
+        if (enemy == "DeepOneHybrid")
         {
             if (PlayerAction == "martialarts")
             {
                 BattleState = "Rollet";
-                BattleRollet.Instance.setBattleRollet("파비안 : 격투술", "격투술", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid.DeepOneHybrid_MatialArts);
+                BattleRollet.Instance.setBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid.DeepOneHybrid_MatialArts);
+            }
+            if (PlayerAction == "PlayerSwords")
+            {
+                if (DataBaseManager.BattleWeapon == "Dagger")
+                {
+                    BattleState = "Rollet";
+                    BattleRollet.Instance.setBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid.DeepOneHybrid_MatialArts);
+                }
+               
             }
         }
 

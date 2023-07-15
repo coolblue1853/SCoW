@@ -13,7 +13,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Bat += 1;
          DataBaseManager.Dagger += 1;
          DataBaseManager.Axe += 1;
-
+        DataBaseManager.swordPoint = 50;
         /*
         DataBaseManager.Intel_Aiden1 = true;
         DataBaseManager.Intel_Safe1 = true;

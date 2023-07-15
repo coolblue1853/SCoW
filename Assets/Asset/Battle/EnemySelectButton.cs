@@ -13,6 +13,7 @@ public class EnemySelectButton : MonoBehaviour
     }
     public void ButtonClick()
     {
+
         BattleManager.Instance.SetEnemy(this.transform.name);
     }
     public void ButtonEnter()
@@ -53,15 +54,17 @@ public class EnemySelectButton : MonoBehaviour
 
                         if (Input.GetMouseButton(0))
                         {
-                            BattleManager.Instance.BattleState = "EndSelect";
+
                             ButtonClick();
                         }
                     }
 
                 }
             }
-            if (hit.collider == null)
+            else if (hit.collider == null)
             {
+                Debug.Log(BattleManager.Instance.BattleState);
+                Debug.Log("»Æ¿Œ¡ﬂ");
                 BattleManager.Instance.onPointerEnemy = "";
                 box2d.size = new Vector2(3f, 5.2f);
             }

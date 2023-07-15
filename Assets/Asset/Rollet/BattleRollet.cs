@@ -528,7 +528,52 @@ public class BattleRollet : MonoBehaviour
 
 
         }
+        if (Subject == "SS_attack_Counter")
+        {
+            if (result_End.text == "판정 : 대성공")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
+            else if (result_End.text == "판정 : 성공" && E_result_End.text == "판정 : 성공")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
+            else if (result_End.text == "판정 : 성공" && E_result_End.text == "판정 : 실패")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
+            else if (result_End.text == "판정 : 성공" && E_result_End.text == "판정 : 대실패")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
+            else if (result_End.text == "판정 : 실패" && E_result_End.text == "판정 : 실패")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
+            else if (result_End.text == "판정 : 실패" && E_result_End.text == "판정 : 대실패")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
+            else if (result_End.text == "판정 : 대실패" && E_result_End.text == "판정 : 대실패")
+            {
+                FinalResult = "성공";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
+            else
+            {
+                FinalResult = "실패";
+                FinalResult_t.text = "격투술 : " + FinalResult;
+            }
 
+
+
+        }
         EndButton.SetActive(true);
     }
 
@@ -563,6 +608,14 @@ public class BattleRollet : MonoBehaviour
                 BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
             }
         }
+        if (Subject == "SS_attack_Counter")
+        {
+            if (EnemySubject == "DeepOneHybrid")
+            {
+                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
+            }
+        }
+
         //스트래스 전달
         if (Subject == "stress")
         {
