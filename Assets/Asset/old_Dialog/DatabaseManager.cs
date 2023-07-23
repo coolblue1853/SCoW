@@ -110,7 +110,10 @@ public class DataBaseManager : MonoBehaviour
 
     //Battle
     public static string BattleWeapon = "";
-
+    public static int nowSmallPistol = 0;
+    public static int nowRevolver = 0;
+    public static int nowRifle = 0;
+    public static int nowShotgun = 0;
 
 
     public static bool isOpenUi = false;

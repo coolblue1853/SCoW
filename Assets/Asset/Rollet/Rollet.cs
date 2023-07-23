@@ -50,7 +50,7 @@ public class Rollet : MonoBehaviour
     public TextMeshProUGUI result_string;
     public TextMeshProUGUI result_End;
 
-
+    public string EnemySubject;
     public bool isClick;
     public bool isActiveRollet;
     private static Rollet instance = null;
@@ -121,7 +121,7 @@ public class Rollet : MonoBehaviour
             return instance;
         }
     }
-    public void setRollet(string skill, string point_sting, int point_int, string subject)
+    public void setRollet(string skill, string point_sting, int point_int, string subject, string Enemy = "")
     {
         if(point_int >= 90)
         {
@@ -131,6 +131,7 @@ public class Rollet : MonoBehaviour
         {
             point_int = 0;
         }
+        EnemySubject = Enemy;
         SoundManager.Instance.pen_Line();
         DataBaseManager.isRollet = true;
         Subject = subject;
@@ -466,6 +467,32 @@ public class Rollet : MonoBehaviour
                 InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
             }
         }
+        if (Subject == "MS_attack")
+        {
+            if (EnemySubject == "DeepOneHybrid")
+            {
+                BattleManager.Instance.RetrunRolletResult(Subject, result_End.text, EnemySubject);
+                if(DataBaseManager.BattleWeapon == "SmallPistol")
+                {
+                    DataBaseManager.nowSmallPistol -= 1;
+                }
+                if (DataBaseManager.BattleWeapon == "Rifle")
+                {
+                    DataBaseManager.nowRifle -= 1;
+                }
+                if (DataBaseManager.BattleWeapon == "Shotgun")
+                {
+                    DataBaseManager.nowShotgun -= 1;
+                }
+                if (DataBaseManager.BattleWeapon == "Revolver")
+                {
+                    DataBaseManager.nowRevolver -= 1;
+                }
+
+            }
+        }
+
+
     }
 
 

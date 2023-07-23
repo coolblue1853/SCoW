@@ -10,10 +10,26 @@ public class RolletTest : MonoBehaviour
 
     private void Awake()
     {
-        DataBaseManager.Bat += 1;
-         DataBaseManager.Dagger += 1;
-         DataBaseManager.Axe += 1;
-        DataBaseManager.swordPoint = 50;
+        DataBaseManager.SmallPistol += 1;
+         DataBaseManager.Shotgun += 1;
+         DataBaseManager.Rifle += 1;
+        DataBaseManager.Revolver += 1;
+
+        DataBaseManager.nowShotgun += 1;
+        DataBaseManager.nowSmallPistol += 1;
+        DataBaseManager.nowRifle += 1;
+        DataBaseManager.nowRevolver += 1;
+
+        DataBaseManager.PistolAmmo = 2;
+        DataBaseManager.RifleAmmo += 10;
+        DataBaseManager.ShotgunAmmo += 10;
+
+
+
+        DataBaseManager.dex = 999;
+
+
+        DataBaseManager.gunShotPoint = 50;
         /*
         DataBaseManager.Intel_Aiden1 = true;
         DataBaseManager.Intel_Safe1 = true;

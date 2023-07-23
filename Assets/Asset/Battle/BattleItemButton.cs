@@ -13,6 +13,12 @@ public class BattleItemButton : MonoBehaviour
         DataBaseManager.BattleWeapon = this.name;
       //  SIS_UIManager.Instance.OpenItemDetail(); 비슷한 함수를 만들어서 전투 좌측 UI에 삽입해 주어야함.
     }
+    public void ReloadItem()
+    {
+        BattleManager.Instance.OpenReloadUI(this.name);
+    }
+
+
     private void Start()
     {
         imageComponent = this.GetComponent<Image>(); 

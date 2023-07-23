@@ -31,8 +31,8 @@ public class BattleItemManager : MonoBehaviour
     public GameObject Key_ItemBox;
 
     public GameObject ItemBox_Swords;
-
-
+    public GameObject ItemBox_Markmes;
+    public GameObject ItemBox_Reload;
 
 
 
@@ -120,6 +120,77 @@ public class BattleItemManager : MonoBehaviour
             DeactivateObjectWithName(ItemBox_Swords, "Axe");
         }
 
+        if (DataBaseManager.Shotgun > 0 && DataBaseManager.nowShotgun > 0)
+        {
+            ActivateObjectWithName(ItemBox_Markmes, "Shotgun");
+        }
+        else
+        {
+            DeactivateObjectWithName(ItemBox_Markmes, "Shotgun");
+        }
+        if (DataBaseManager.Rifle > 0 && DataBaseManager.nowRifle > 0)
+        {
+            ActivateObjectWithName(ItemBox_Markmes, "Rifle");
+        }
+        else
+        {
+            DeactivateObjectWithName(ItemBox_Markmes, "Rifle");
+        }
+        if (DataBaseManager.Revolver > 0 && DataBaseManager.nowRevolver > 0)
+        {
+            ActivateObjectWithName(ItemBox_Markmes, "Revolver");
+        }
+        else
+        {
+            DeactivateObjectWithName(ItemBox_Markmes, "Revolver");
+        }
+        if (DataBaseManager.SmallPistol > 0 && DataBaseManager.nowSmallPistol > 0)
+        {
+            ActivateObjectWithName(ItemBox_Markmes, "SmallPistol");
+        }
+        else
+        {
+            DeactivateObjectWithName(ItemBox_Markmes, "SmallPistol");
+        }
+
+
+
+
+        if (DataBaseManager.Shotgun > 0 && DataBaseManager.nowShotgun < 2 && DataBaseManager.ShotgunAmmo > 0)
+        {
+            ActivateObjectWithName(ItemBox_Reload, "Shotgun");
+        }
+        else
+        {
+            DeactivateObjectWithName(ItemBox_Reload, "Shotgun");
+        }
+        if (DataBaseManager.Rifle > 0 && DataBaseManager.nowRifle < 2 && DataBaseManager.RifleAmmo > 0)
+        {
+            ActivateObjectWithName(ItemBox_Reload, "Rifle");
+        }
+        else
+        {
+            DeactivateObjectWithName(ItemBox_Reload, "Rifle");
+        }
+        if (DataBaseManager.Revolver > 0 && DataBaseManager.nowRevolver < 2 && DataBaseManager.PistolAmmo > 0)
+        {
+            ActivateObjectWithName(ItemBox_Reload, "Revolver");
+        }
+        else
+        {
+            DeactivateObjectWithName(ItemBox_Reload, "Revolver");
+        }
+        if (DataBaseManager.SmallPistol > 0 && DataBaseManager.nowSmallPistol < 2 && DataBaseManager.PistolAmmo > 0)
+        {
+            ActivateObjectWithName(ItemBox_Reload, "SmallPistol");
+        }
+        else
+        {
+            DeactivateObjectWithName(ItemBox_Reload, "SmallPistol");
+        }
+
+
+
         /*
         if (DataBaseManager.Molotov > 0)
         {
@@ -130,42 +201,12 @@ public class BattleItemManager : MonoBehaviour
             DeactivateObjectWithName(ItemBox_Swords, "Molotov");
         }
 
-        if (DataBaseManager.Shotgun > 0)
-        {
-            ActivateObjectWithName(ItemBox_Swords, "Shotgun");
-        }
-        else
-        {
-            DeactivateObjectWithName(ItemBox_Swords, "Shotgun");
-        }
-        if (DataBaseManager.Rifle > 0)
-        {
-            ActivateObjectWithName(ItemBox_Swords, "Rifle");
-        }
-        else
-        {
-            DeactivateObjectWithName(ItemBox_Swords, "Rifle");
-        }
-        if (DataBaseManager.Revolver > 0)
-        {
-            ActivateObjectWithName(ItemBox_Swords, "Revolver");
-        }
-        else
-        {
-            DeactivateObjectWithName(ItemBox_Swords, "Revolver");
-        }
-        if (DataBaseManager.SmallPistol > 0)
-        {
-            ActivateObjectWithName(ItemBox_Swords, "SmallPistol");
-        }
-        else
-        {
-            DeactivateObjectWithName(ItemBox_Swords, "SmallPistol");
-        }
+      
 
         */
 
     }
+
 
     public void OpenItemDetail()
     {

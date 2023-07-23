@@ -12,6 +12,7 @@ public class BattleCameraMove : MonoBehaviour
      float DownSide = 119f;
 
     float OriginPoint = 120.1f;
+    float OriginPointx = -774.6f;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -101,7 +102,13 @@ public class BattleCameraMove : MonoBehaviour
 
    
     }
-
+    public void ZoomMe()
+    {
+        camera.DOOrthoSize(11, 1).SetAutoKill(true);
+        //Cam.transform.DOMove(new Vector2(120.7f, -779.2f), 1).SetAutoKill(true);
+        Cam.transform.DOMoveY(120.7f, 1).SetAutoKill(true);
+        Cam.transform.DOMoveX(-779.2f, 1).SetAutoKill(true);
+    }
     public void ZoomDown()
     {
         camera.DOOrthoSize(13, 1).SetAutoKill(true);
@@ -120,6 +127,7 @@ public class BattleCameraMove : MonoBehaviour
     public void ResetCam()
     {
         camera.DOOrthoSize(14.5216f, 1).SetAutoKill(true);
+        Cam.transform.DOMoveX(OriginPointx, 1).SetAutoKill(true);
         Cam.transform.DOMoveY(OriginPoint, 1).SetAutoKill(true);
         Cam.transform.DORotate(new Vector3(0, 0, 0), 0.5f);
     }
