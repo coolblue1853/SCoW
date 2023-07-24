@@ -467,6 +467,7 @@ public class Rollet : MonoBehaviour
                 InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
             }
         }
+        
         if (Subject == "MS_attack")
         {
             if (EnemySubject == "DeepOneHybrid")
@@ -491,7 +492,19 @@ public class Rollet : MonoBehaviour
 
             }
         }
+        if (Subject == "Deftness_attack")
+        {
+            if (EnemySubject == "DeepOneHybrid")
+            {
+                BattleManager.Instance.RetrunRolletResult(Subject, result_End.text, EnemySubject);
+                if (DataBaseManager.BattleWeapon == "Molotov")
+                {
+                    DataBaseManager.Molotov -= 1;
+                }
 
+
+            }
+        }
 
     }
 

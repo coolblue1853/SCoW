@@ -15,6 +15,9 @@ public class BattlePlayer : MonoBehaviour
     public Sprite Revolver_Ready;
     public Sprite Shotgun_Ready;
     public Sprite Rifle_Ready;
+
+    public Sprite Rock_Ready;
+    public Sprite Molotov_Ready;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +29,7 @@ public class BattlePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((BattleManager.Instance.BattleState == "PlayerAttack" || BattleManager.Instance.BattleState == "selectEnemy") && ( BattleManager.Instance.PlayerAction == "PlayerSwords" || BattleManager.Instance.PlayerAction == "PlayerMarkmen"))
+        if((BattleManager.Instance.BattleState == "PlayerAttack" || BattleManager.Instance.BattleState == "selectEnemy") && ( BattleManager.Instance.PlayerAction == "PlayerSwords" || BattleManager.Instance.PlayerAction == "PlayerMarkmen" || BattleManager.Instance.PlayerAction == "PlayerDeftness"))
         {
             if(DataBaseManager.BattleWeapon == "")
             {
@@ -66,6 +69,16 @@ public class BattlePlayer : MonoBehaviour
             {
                 BattleManager.Instance.BattleState = "selectEnemy";
                 player_R.sprite = Shotgun_Ready;
+            }
+            else if (DataBaseManager.BattleWeapon == "Rock" && player_R.sprite != Rock_Ready )
+            {
+                BattleManager.Instance.BattleState = "selectEnemy";
+                player_R.sprite = Rock_Ready;
+            }
+            else if (DataBaseManager.BattleWeapon == "Molotov" && player_R.sprite != Molotov_Ready && DataBaseManager.Molotov > 0)
+            {
+                BattleManager.Instance.BattleState = "selectEnemy";
+                player_R.sprite = Molotov_Ready;
             }
         }
     }

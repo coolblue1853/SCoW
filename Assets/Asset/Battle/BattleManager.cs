@@ -43,6 +43,11 @@ public class BattleManager : MonoBehaviour
     public Sprite Shotgun_Ready;
     public Sprite Shotgun_Attack;
 
+    public Sprite Rock_Ready;
+    public Sprite Molotov_Ready;
+    public Sprite Deftness_Attack;
+
+
     public Sprite SmallPistol_Reload;
     public Sprite Revolver_Reload;
     public Sprite Rifle_Reload;
@@ -59,7 +64,7 @@ public class BattleManager : MonoBehaviour
     public GameObject PlayerMarkmenUi;
     public GameObject PlayerReloadUi;
     public GameObject PlayerReloadCheckUi;
-
+    public GameObject PlayerDeftnessUi;
     EnemyClass.DeepOneHybrid DeepOneHybrid = new EnemyClass.DeepOneHybrid();
 
     //적 오브젝트 관련
@@ -74,6 +79,8 @@ public class BattleManager : MonoBehaviour
     public Sprite DeepOneHybrid_HittedByRevolver;
     public Sprite DeepOneHybrid_HittedByRifle;
     public Sprite DeepOneHybrid_HittedByShotgun;
+    public Sprite DeepOneHybrid_HittedByRock;
+    public Sprite DeepOneHybrid_HittedByMolotov;
     public Sprite DeepOneHybrid_Punch;
 
 
@@ -223,6 +230,7 @@ public class BattleManager : MonoBehaviour
         PlayerAttackUi.SetActive(false);
         BattleState = "PlayerChoice";
         PlayerActionUi.SetActive(true);
+
     }
 
     public void Player_setAttack()
@@ -245,6 +253,7 @@ public class BattleManager : MonoBehaviour
         PlayerSwordsUi.SetActive(false);
         PlayerAction = "PlayerAttack";
         PlayerAttackUi.SetActive(true);
+        player_R.sprite = Stand;
     }
 
     public void Player_setMarkmens()
@@ -258,7 +267,23 @@ public class BattleManager : MonoBehaviour
         PlayerAttackUi.SetActive(true);
         PlayerAction = "PlayerAttack";
         PlayerMarkmenUi.SetActive(false);
+        player_R.sprite = Stand;
     }
+
+    public void Player_setDeftness()
+    {
+        PlayerAttackUi.SetActive(false);
+        PlayerAction = "PlayerDeftness";
+        PlayerDeftnessUi.SetActive(true);
+    }
+    public void Player_BackDeftness()
+    {
+        PlayerAttackUi.SetActive(true);
+        PlayerAction = "PlayerAttack";
+        PlayerDeftnessUi.SetActive(false);
+        player_R.sprite = Stand;
+    }
+
 
     public void Player_setReload()
     {
@@ -271,6 +296,7 @@ public class BattleManager : MonoBehaviour
         PlayerActionUi.SetActive(true);
         PlayerAction = "PlayerChoice";
         PlayerReloadUi.SetActive(false);
+        player_R.sprite = Stand;
     }
     
     public string nowReloadWeapon;
@@ -278,7 +304,7 @@ public class BattleManager : MonoBehaviour
     public void OpenReloadUI(string subject)
     {
         nowReloadWeapon = subject;
-        PlayerReloadUi.SetActive(false);
+        //PlayerReloadUi.SetActive(false);
         PlayerReloadCheckUi.SetActive(true);
     }
     public void ReloadOk()
@@ -362,6 +388,7 @@ public class BattleManager : MonoBehaviour
     {
         PlayerReloadUi.SetActive(true);
         PlayerReloadCheckUi.SetActive(false);
+        nowReloadWeapon = "";
     }
 
 
@@ -924,6 +951,109 @@ public class BattleManager : MonoBehaviour
             }
 
         }
+        if (PlayerAction == "Deftness_attack")
+        {
+            if (Enemy == "DeepOneHybrid")
+            {
+                Vector3 enemyOrigin = DeepOneHybrid_Object.transform.position;
+                GameObject obj = DeepOneHybrid_Object;
+                SpriteRenderer spR = DeepOneHybrid_Render;
+                if (Success == "Result : Success" || Success == "Result : Critical Success")
+                {
+                    if (DataBaseManager.BattleWeapon == "Rock")
+                    {
+                        player_R.sprite = Rock_Ready;
+                    }
+                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    {
+                        player_R.sprite = Molotov_Ready;
+                    }
+         
+
+                    Cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
+
+                    if (DataBaseManager.BattleWeapon == "Rock")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRock))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid", (Random.Range(1, 3)) * 5))//1D6
+                        .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
+                        .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 18f, obj.transform.position.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByMolotov))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2d6+2
+                        .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
+                        .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 18, obj.transform.position.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+
+
+
+                }
+                else
+                {
+                    if (DataBaseManager.BattleWeapon == "Rock")
+                    {
+                        player_R.sprite = Rock_Ready;
+                    }
+                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    {
+                        player_R.sprite = Molotov_Ready;
+                    }
+                    Cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
+                    if (DataBaseManager.BattleWeapon == "Rock")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
+                        .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 18f, obj.transform.position.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
+                        .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 18f, obj.transform.position.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+
+
+                    // 연출 삽입
+
+
+                }
+            }
+
+        }
     }
 
 
@@ -990,15 +1120,29 @@ public class BattleManager : MonoBehaviour
       PlayerActionUi.SetActive(false);
       PlayerAttackUi.SetActive(false);
       PlayerSwordsUi.SetActive(false);
+        PlayerMarkmenUi.SetActive(false); 
+        PlayerReloadUi.SetActive(false); 
+        PlayerReloadCheckUi.SetActive(false);
+        PlayerDeftnessUi.SetActive(false);
 
-    player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
+        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
         DeepOneHybrid_Object.transform.position = new Vector3(DeepOneHybrid_Object.transform.position.x, DeepOneHybrid_Object.transform.position.y, 0);
     }
+
+    public GameObject PlayerMAUI;
     public void SetAciton(string action)
     {
         PlayerActionUi.SetActive(false);
+        PlayerAttackUi.SetActive(false);
+        PlayerMAUI.SetActive(true);
         BattleState = "selectEnemy";
         PlayerAction = action;
+    }
+    public void Back_MA()
+    {
+        PlayerAttackUi.SetActive(true);
+        PlayerMAUI.SetActive(false);
+        BattleState = "PlayerAttack";
     }
     public void SetEnemy(string enemy)
     {
@@ -1052,6 +1196,21 @@ public class BattleManager : MonoBehaviour
                     BattleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.martialArtsPoint, "MS_attack", "DeepOneHybrid");
                 }
+            }
+            if (PlayerAction == "PlayerDeftness")
+            {
+                PlayerDeftnessUi.SetActive(false);
+                if (DataBaseManager.BattleWeapon == "Rock")
+                {
+                    BattleState = "Rollet";
+                    Rollet.Instance.setRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
+                }
+                if (DataBaseManager.BattleWeapon == "Molotov")
+                {
+                    BattleState = "Rollet";
+                    Rollet.Instance.setRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
+                }
+               
             }
         }
 

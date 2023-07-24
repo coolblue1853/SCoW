@@ -10,6 +10,11 @@ public class RolletTest : MonoBehaviour
 
     private void Awake()
     {
+        DataBaseManager.Axe += 1;
+        DataBaseManager.Bat += 1;
+        DataBaseManager.Dagger += 1;
+
+
         DataBaseManager.SmallPistol += 1;
          DataBaseManager.Shotgun += 1;
          DataBaseManager.Rifle += 1;
@@ -24,7 +29,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.RifleAmmo += 10;
         DataBaseManager.ShotgunAmmo += 10;
 
-
+        DataBaseManager.Molotov += 1;
 
         DataBaseManager.dex = 999;
 

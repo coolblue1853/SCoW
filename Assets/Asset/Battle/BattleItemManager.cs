@@ -8,11 +8,6 @@ public class BattleItemManager : MonoBehaviour
 
 
 
-
-
-
-
-
     public GameObject Item_use;
     public GameObject Item_key;
     public GameObject Item_Eqip;
@@ -33,7 +28,7 @@ public class BattleItemManager : MonoBehaviour
     public GameObject ItemBox_Swords;
     public GameObject ItemBox_Markmes;
     public GameObject ItemBox_Reload;
-
+    public GameObject ItemBox_Deftness;
 
 
 
@@ -191,19 +186,17 @@ public class BattleItemManager : MonoBehaviour
 
 
 
-        /*
+
         if (DataBaseManager.Molotov > 0)
         {
-            ActivateObjectWithName(ItemBox_Swords, "Molotov");
+            ActivateObjectWithName(ItemBox_Deftness, "Molotov");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Swords, "Molotov");
+            DeactivateObjectWithName(ItemBox_Deftness, "Molotov");
         }
 
-      
-
-        */
+     
 
     }
 
