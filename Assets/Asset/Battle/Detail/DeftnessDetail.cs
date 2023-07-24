@@ -20,12 +20,12 @@ public class DeftnessDetail : MonoBehaviour
         if (DataBaseManager.BattleWeapon == "Rock")
         {
             Name.text = "Rock";
-            Detail.text = "Damage:(1D3)x5";
+            Detail.text = "Damage:(1D3)x5\nSkillPoint:" + DataBaseManager.deftnessPoint;
         }
         else if (DataBaseManager.BattleWeapon == "Molotov")
         {
             Name.text = "Molotov";
-            Detail.text = "Damage:(2D6+2)x5\nHold:" + DataBaseManager.Molotov;
+            Detail.text = "Damage:(2D6+2)x5\nSkillPoint:" + DataBaseManager.deftnessPoint;
         }
 
         else

@@ -72,7 +72,7 @@ public class BattleCameraMove : MonoBehaviour
                     ResetCam();
 
                 }
-                if (BattleManager.Instance.onPointerEnemy == "DeepOneHybrid" && once == false)
+                if (BattleManager.Instance.onPointerEnemy == "DeepOneHybrid1" && once == false)
                 {
                     once = true;
                     nowCam = BattleManager.Instance.onPointerEnemy;

@@ -20,12 +20,8 @@ public class RolletTest : MonoBehaviour
          DataBaseManager.Rifle += 1;
         DataBaseManager.Revolver += 1;
 
-        DataBaseManager.nowShotgun += 1;
-        DataBaseManager.nowSmallPistol += 1;
-        DataBaseManager.nowRifle += 1;
-        DataBaseManager.nowRevolver += 1;
 
-        DataBaseManager.PistolAmmo = 2;
+        DataBaseManager.PistolAmmo = 20;
         DataBaseManager.RifleAmmo += 10;
         DataBaseManager.ShotgunAmmo += 10;
 

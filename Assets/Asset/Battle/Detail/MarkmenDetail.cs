@@ -20,22 +20,22 @@ public class MarkmenDetail : MonoBehaviour
         if (DataBaseManager.BattleWeapon == "Revolver")
         {
             Name.text = "Revolver";
-            Detail.text = "Damage:(1D10+2)x5\nMagazine:" + DataBaseManager.nowRevolver+"\nAmmo:"+DataBaseManager.PistolAmmo;
+            Detail.text = "Damage:(1D10+2)x5\nMagazine:" + DataBaseManager.nowRevolver+ "\nSkillPoint:" + DataBaseManager.gunShotPoint;
         }
         else if (DataBaseManager.BattleWeapon == "Shotgun")
         {
             Name.text = "Shotgun";
-            Detail.text = "Damage:(5D4)x5\nMagazine:" + DataBaseManager.nowShotgun + "\nAmmo:" + DataBaseManager.ShotgunAmmo;
+            Detail.text = "Damage:(5D4)x5\nMagazine:" + DataBaseManager.nowShotgun + "\nSkillPoint:" + DataBaseManager.gunShotPoint;
         }
         else if (DataBaseManager.BattleWeapon == "Rifle")
         {
             Name.text = "Rifle";
-            Detail.text = "Damage:(2D6+2)x5\nMagazine:" + DataBaseManager.nowRifle + "\nAmmo:" + DataBaseManager.RifleAmmo;
+            Detail.text = "Damage:(2D6+2)x5\nMagazine:" + DataBaseManager.nowRifle + "\nSkillPoint:" + DataBaseManager.gunShotPoint;
         }
         else if (DataBaseManager.BattleWeapon == "SmallPistol")
         {
             Name.text = "Small Pistol";
-            Detail.text = "Damage:(1D6)x5\nMagazine:" + DataBaseManager.nowSmallPistol + "\nAmmo:" + DataBaseManager.PistolAmmo;
+            Detail.text = "Damage:(1D6)x5\nMagazine:" + DataBaseManager.nowSmallPistol + "\nSkillPoint:" + DataBaseManager.gunShotPoint;
         }
         else
         {
