@@ -64,8 +64,22 @@ public class Rollet : MonoBehaviour
         {
             activeCheck = false;
             DataBaseManager.CancelJudge = true;
+   
+             if (BattleManager.Instance.PlayerAction == "PlayerMarkmen")
+            {
+                BattleManager.Instance.EnemySelectUI.SetActive(true);
+                BattleManager.Instance.BattleState = "selectEnemy";
+                BattleManager.Instance.Player_setMarkmens();
+            }
+            else if (BattleManager.Instance.PlayerAction == "PlayerDeftness")
+            {
+                BattleManager.Instance.EnemySelectUI.SetActive(true);
+                BattleManager.Instance.BattleState = "selectEnemy";
+                BattleManager.Instance.Player_setDeftness();
+            }
             RolletSetUi.SetActive(false);
             DataBaseManager.isRollet = false;
+
         }
         if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck== true)
         {
@@ -87,7 +101,7 @@ public class Rollet : MonoBehaviour
                     CancelInvoke();
                     isClick = true;
                     isActiveRollet = false;
-                    Invoke("GetIntResult", 1f);
+                    Invoke("GetIntResult", 0.5f);
                 }
 
 
@@ -100,7 +114,7 @@ public class Rollet : MonoBehaviour
             if (null == instance)
             {
                 instance = this;
-                DontDestroyOnLoad(this.gameObject);
+
             }
             else
             {
@@ -222,7 +236,7 @@ public class Rollet : MonoBehaviour
 
         setUI.SetActive(false);
         activeUI.SetActive(true);
-        InvokeRepeating("ChangeRollet", 1, 0.05f);
+        InvokeRepeating("ChangeRollet", 0.5f, 0.05f);
         Invoke("diceSound", 1);
     }
     void diceSound()
@@ -368,7 +382,7 @@ public class Rollet : MonoBehaviour
             }
         }
 
-        Invoke("GetStringResult", 1f);
+        Invoke("GetStringResult", 0.5f);
     }
     void GetStringResult()
     {

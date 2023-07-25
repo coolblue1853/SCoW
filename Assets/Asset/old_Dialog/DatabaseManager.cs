@@ -40,6 +40,7 @@ public class DataBaseManager : MonoBehaviour
     public static bool Battle_San = false;
     public static bool isBattleBeforeDialog = false;
     public static bool AfterBattle = false;
+    public static bool isBattleRollet = false;
     public static bool EndBattle = false;
     // Map
     public static string nowPlace = "DetectiveOffice";

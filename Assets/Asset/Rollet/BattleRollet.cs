@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 public class BattleRollet : MonoBehaviour
 {
+    bool activeCheck = false;
     string Subject;
     string Sub_Dialog;
     public GameObject RolletSetUi;
@@ -72,20 +73,66 @@ public class BattleRollet : MonoBehaviour
     public TextMeshProUGUI E_result_End;
     private void Update()
     {
-        if (isClick == false && isActiveRollet == true)
+        if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            activeCheck = false;
+            DataBaseManager.CancelJudge = true;
+            if (BattleManager.Instance.PlayerAction == "PlayerSwords")
             {
-                CancelInvoke();
-                isClick = true;
-                isActiveRollet = false;
-                Invoke("GetIntResult", 1f);
+                BattleManager.Instance.EnemySelectUI.SetActive(true);
+                BattleManager.Instance.BattleState = "selectEnemy";
+                BattleManager.Instance.Player_setSwords();
+            }
+            else if (BattleManager.Instance.PlayerAction == "martialarts")
+            {
+                BattleManager.Instance.EnemySelectUI.SetActive(true);
+                BattleManager.Instance.BattleState = "selectEnemy";
+                BattleManager.Instance.SetAciton("martialarts");
+            }
+            else if (BattleManager.Instance.PlayerAction == "evasion")
+            {
+                BattleManager.Instance.PlayerChoiceUi.SetActive(true);
+            }
+            else if (BattleManager.Instance.PlayerAction == "counterattack")
+            {
+                BattleManager.Instance.PlayerChoiceUi.SetActive(true);
+            }
+            RolletSetUi.SetActive(false);
+            DataBaseManager.isRollet = false;
+
+
+        }
+        if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck == true)
+        {
+            activeCheck = false;
+            activeRollet();
+        }
+
+        if (EndButton.activeSelf == true && Input.GetKeyDown(KeyCode.E))
+        {
+
+            EndRollet();
+        }
+        {
+            if (isClick == false && isActiveRollet == true)
+            {
+                if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E))
+                {
+                    SoundManager.Instance.EndDice();
+                    CancelInvoke();
+                    isClick = true;
+                    isActiveRollet = false;
+                    Invoke("GetIntResult", 0.5f);
+                }
+
+
             }
         }
     }
 
     void Awake()
     {
+     
         isClick = false;
         if (null == instance)
         {
@@ -96,8 +143,12 @@ public class BattleRollet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-    }
 
+    }
+    public void waitOneSec()
+    {
+        activeCheck = true;
+    }
     //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
     public static BattleRollet Instance
     {
@@ -112,6 +163,7 @@ public class BattleRollet : MonoBehaviour
     }
     public void setBattleRollet(string skill, string point_sting, int point_int, string subject,string EnemyName , string E_skill, string E_point_string, int E_Point_int)
     {
+        DataBaseManager.isRollet = true;
         Subject = subject;
         Sub_Dialog = skill; // 나중에 다이얼로그 결과 전송시 사용
         ResetString();
@@ -199,13 +251,14 @@ public class BattleRollet : MonoBehaviour
         {
             Expect.text = "성공예상 : 매우 쉬움";
         }
+        Invoke("waitOneSec", 0.1f);
     }
     public void activeRollet()
     {
 
         setUI.SetActive(false);
         activeUI.SetActive(true);
-        InvokeRepeating("ChangeRollet", 1, 0.05f);
+        InvokeRepeating("ChangeRollet", 0.5f, 0.05f);
 
     }
 
@@ -365,7 +418,7 @@ public class BattleRollet : MonoBehaviour
         }
         E_result_string.text = "결과 : " + E_result_int.ToString();
 
-        Invoke("GetStringResult", 1f);
+        Invoke("GetStringResult", 0.5f);
     }
     void GetStringResult()
     {
@@ -403,7 +456,7 @@ public class BattleRollet : MonoBehaviour
             E_result_End.text = "판정 : 실패";
         }
 
-        Invoke("GetFinalResult", 1f);
+        Invoke("GetFinalResult", 0.5f);
     }
 
     public string FinalResult;
@@ -579,6 +632,7 @@ public class BattleRollet : MonoBehaviour
 
     public void EndRollet()
     {
+        activeCheck = false;
         isClick = false;
         RolletSetUi.SetActive(false);
         RolletCheckUI.SetActive(true);

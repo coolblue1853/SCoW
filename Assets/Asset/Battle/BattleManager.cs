@@ -66,6 +66,7 @@ public class BattleManager : MonoBehaviour
     public GameObject PlayerReloadUi;
     public GameObject PlayerReloadCheckUi;
     public GameObject PlayerDeftnessUi;
+    public GameObject EnemySelectUI;
     EnemyClass.DeepOneHybrid DeepOneHybrid1 = new EnemyClass.DeepOneHybrid();
     EnemyClass.DeepOneHybrid DeepOneHybrid2 = new EnemyClass.DeepOneHybrid();
     EnemyClass.DeepOneHybrid DeepOneHybrid3 = new EnemyClass.DeepOneHybrid();
@@ -239,7 +240,7 @@ public class BattleManager : MonoBehaviour
                 symbol.transform.localPosition = new Vector2(symbol.transform.localPosition.x, -130);
                 BattleState = Target+"Trun";
 
-                RoundText.text = Target + "의 차례";
+                RoundText.text = Target + " Trun";
                 RoundGameObject.SetActive(true);
             }
         }
@@ -278,6 +279,7 @@ public class BattleManager : MonoBehaviour
 
     public void Player_BackAction()
     {
+        EnemySelectUI.SetActive(false);
         PlayerAttackUi.SetActive(false);
         BattleState = "PlayerChoice";
         PlayerActionUi.SetActive(true);
@@ -301,6 +303,7 @@ public class BattleManager : MonoBehaviour
 
     public void Player_BackSwords()
     {
+        EnemySelectUI.SetActive(false);
         PlayerSwordsUi.SetActive(false);
         PlayerAction = "PlayerAttack";
         PlayerAttackUi.SetActive(true);
@@ -315,6 +318,7 @@ public class BattleManager : MonoBehaviour
     }
     public void Player_BackMarkmens()
     {
+        EnemySelectUI.SetActive(false);
         PlayerAttackUi.SetActive(true);
         PlayerAction = "PlayerAttack";
         PlayerMarkmenUi.SetActive(false);
@@ -329,6 +333,7 @@ public class BattleManager : MonoBehaviour
     }
     public void Player_BackDeftness()
     {
+        EnemySelectUI.SetActive(false);
         PlayerAttackUi.SetActive(true);
         PlayerAction = "PlayerAttack";
         PlayerDeftnessUi.SetActive(false);
@@ -495,6 +500,7 @@ public class BattleManager : MonoBehaviour
 
     public void PlayerChoiceButton_Evasion()
     {
+        PlayerAction = "evasion";
         if (BattleState == "DeepOneHybrid1Attack")
         {
            // BattleState = "Rollet";
@@ -519,6 +525,7 @@ public class BattleManager : MonoBehaviour
     }
     public void PlayerChoiceButton_CounterAttack()
     {
+        PlayerAction = "counterattack";
         if (BattleState == "DeepOneHybrid1Attack")
         {
           //  BattleState = "Rollet";
@@ -2494,6 +2501,7 @@ public class BattleManager : MonoBehaviour
     public GameObject PlayerMAUI;
     public void SetAciton(string action)
     {
+        BattleManager.Instance.EnemySelectUI.SetActive(true);
         PlayerActionUi.SetActive(false);
         PlayerAttackUi.SetActive(false);
         PlayerMAUI.SetActive(true);
@@ -2502,17 +2510,20 @@ public class BattleManager : MonoBehaviour
     }
     public void Back_MA()
     {
+        EnemySelectUI.SetActive(false);
         PlayerAttackUi.SetActive(true);
         PlayerMAUI.SetActive(false);
         BattleState = "PlayerAttack";
     }
     public void SetEnemy(string enemy)
     {
-
+        EnemySelectUI.SetActive(false);
         if (enemy == "DeepOneHybrid1")
         {
             if (PlayerAction == "martialarts")
             {
+                PlayerMAUI.SetActive(false);
+                BattleManager.Instance.EnemySelectUI.SetActive(false);
                 BattleState = "Rollet";
                 BattleRollet.Instance.setBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid1.DeepOneHybrid_MatialArts);
             }

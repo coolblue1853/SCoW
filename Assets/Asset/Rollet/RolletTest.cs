@@ -10,6 +10,8 @@ public class RolletTest : MonoBehaviour
 
     private void Awake()
     {
+
+
         /*
         DataBaseManager.Axe += 1;
         DataBaseManager.Bat += 1;
@@ -90,9 +92,13 @@ public class RolletTest : MonoBehaviour
         //BattleRollet.Instance.setBattleRollet("파비안 : 회피", "회피", 50, "evasion", "??? : 공격", "근접공격", 40);
         //Rollet.Instance.setRollet("신문 : 살펴보기", "자료조사", 55, "dialog");
     }
+    private void Start()
+    {
+        BattleManager.Instance.StartBattle = true;
+    }
     private void Update()
     {
-        Debug.Log(DataBaseManager.weal);
+
 
         if (Input.GetKeyDown(KeyCode.F10))
         {
