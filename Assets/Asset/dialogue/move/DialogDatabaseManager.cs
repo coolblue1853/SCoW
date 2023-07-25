@@ -64,6 +64,12 @@ public class DialogDatabaseManager : MonoBehaviour
                 csv_FileName = "1st_Bar";
                 setDialog();
             }
+            else if (DataBaseManager.nowPlace == "BattleRoad" && Check == true)
+            {
+                Check = false;
+                csv_FileName = "1st_Battle";
+                setDialog();
+            }
         }
         else
         {

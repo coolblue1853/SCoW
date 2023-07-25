@@ -225,7 +225,12 @@ public class InteractionController : MonoBehaviour
 
     // Update is called once per frame
 
-
+    // 전투
+    public GameObject Battle_StartDialog;
+    public GameObject Battle_SanCheck;
+    public GameObject Battle_SanCheckFail;
+    public GameObject Battle_EndBattle;
+    //public GameObject Sewer_Observation_SucssesAfterSanSuc;
     private void Start()
     {
         //TestNar();
@@ -1320,6 +1325,18 @@ public class InteractionController : MonoBehaviour
          
 }
 
+    //전투
+    public void BattleDialog(string setDialog)
+    {
+        if (setDialog == "start")
+        {
+            theDM.ShowDialog(Battle_StartDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if(setDialog == "End")
+        {
+            theDM.ShowDialog(Battle_EndBattle.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+    }
 
     void OnEnable()
     {
@@ -1480,34 +1497,57 @@ public class InteractionController : MonoBehaviour
         }
 
         // 강가 Sewer : Look
-        if (Sub_Dialog == "Sewer : Look")
+        if(DataBaseManager.nowPlace == "Riverside")
         {
-
-            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            if (Sub_Dialog == "Sewer : Look")
             {
 
-                theDM.ShowDialog(Sewer_Observation_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+                if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+                {
 
+                    theDM.ShowDialog(Sewer_Observation_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+
+                }
+                else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+                {
+
+                    theDM.ShowDialog(Sewer_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
             }
-            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            if (Sub_Dialog == "SAN : Check")
             {
 
-                theDM.ShowDialog(Sewer_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+                {
+
+                    theDM.ShowDialog(Sewer_Observation_SucssesAfterSanSuc.transform.GetComponent<interactionEvent>().GetDialogs());
+
+                }
+                else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+                {
+                    BillowUIManager.Instance.San_Down(10);
+                    theDM.ShowDialog(Sewer_Observation_SucssesAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
             }
         }
-        if (Sub_Dialog == "SAN : Check")
+
+        if (DataBaseManager.nowPlace == "BattleRoad")
         {
-
-            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+       
+            if (Sub_Dialog == "SAN : Check")
             {
 
-                theDM.ShowDialog(Sewer_Observation_SucssesAfterSanSuc.transform.GetComponent<interactionEvent>().GetDialogs());
+                if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+                {
 
-            }
-            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
-            {
-                BillowUIManager.Instance.San_Down(10);
-                theDM.ShowDialog(Sewer_Observation_SucssesAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(Battle_SanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+
+                }
+                else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+                {
+                    BillowUIManager.Instance.San_Down(10);
+                    theDM.ShowDialog(Battle_SanCheckFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
             }
         }
 

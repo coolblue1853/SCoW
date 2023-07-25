@@ -36,7 +36,11 @@ public class DataBaseManager : MonoBehaviour
     public static bool workSound = false;
     //Judge
 
-
+    //Battle
+    public static bool Battle_San = false;
+    public static bool isBattleBeforeDialog = false;
+    public static bool AfterBattle = false;
+    public static bool EndBattle = false;
     // Map
     public static string nowPlace = "DetectiveOffice";
     public static string PotalPlace = "";

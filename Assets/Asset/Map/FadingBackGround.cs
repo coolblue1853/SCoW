@@ -7,8 +7,12 @@ using UnityEngine.SceneManagement;
 public class FadingBackGround : MonoBehaviour
 {
     public GameObject Back;
-   public Image BackGround;
+    public Image BackGround;
 
+    public GameObject CastIn;
+    public Image CastInBackground;
+    public GameObject CastOut;
+    public Image CastOutBackground;
     public void goToMain()
     {
         DataBaseManager.instance.ResetData();
@@ -41,8 +45,30 @@ public class FadingBackGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+    public void CastInOut()
+    {
+        StartCoroutine(CastInOut_IEnumerator());
+    }
+    IEnumerator CastInOut_IEnumerator()
+    {
+        CastIn.SetActive(true);
+        mySequence = DOTween.Sequence()
+        .Append(CastInBackground.DOFillAmount(1, 0.7f).SetAutoKill());
+        yield return mySequence.WaitForCompletion();
+        CastIn.SetActive(false);
+        CastOut.SetActive(true);
+        mySequence2 = DOTween.Sequence()
+        .SetDelay(0.1f)
+        .Append(CastOutBackground.DOFillAmount(0, 0.7f).SetAutoKill());
+        yield return mySequence2.WaitForCompletion();
+        DataBaseManager.isDirecting = false;
+        CastOut.SetActive(false);
+        CastInBackground.fillAmount = 0;
+        CastOutBackground.fillAmount = 1;
+    }
+
 
     public void FadeInOut()
     {
@@ -52,12 +78,12 @@ public class FadingBackGround : MonoBehaviour
     {
         Back.SetActive(true);
         mySequence = DOTween.Sequence()
-        .Append(BackGround.DOFade(1, 1.5f).SetAutoKill());
+        .Append(BackGround.DOFade(1, 1f).SetAutoKill());
         yield return mySequence.WaitForCompletion();
         mySequence2 = DOTween.Sequence()
 
-        .SetDelay(1.5f)
-        .Append(BackGround.DOFade(0, 1.5f).SetAutoKill());
+        .SetDelay(1f)
+        .Append(BackGround.DOFade(0, 1f).SetAutoKill());
         yield return mySequence2.WaitForCompletion();
         DataBaseManager.isDirecting = false;
         Back.SetActive(false);
@@ -66,7 +92,7 @@ public class FadingBackGround : MonoBehaviour
     {
         Back.SetActive(true);
         mySequence = DOTween.Sequence()
-        .Append(BackGround.DOFade(1, 1.5f).SetAutoKill());
+        .Append(BackGround.DOFade(1, 1f).SetAutoKill());
      
     }
 
@@ -78,7 +104,7 @@ public class FadingBackGround : MonoBehaviour
     {
         mySequence2 = DOTween.Sequence()
         .SetDelay(1.5f)
-        .Append(BackGround.DOFade(0, 1.5f).SetAutoKill());
+        .Append(BackGround.DOFade(0, 1f).SetAutoKill());
         yield return mySequence2.WaitForCompletion();
         DataBaseManager.isDirecting = false;
         Back.SetActive(false);

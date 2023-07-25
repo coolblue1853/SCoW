@@ -8,7 +8,7 @@ public class BattleManager : MonoBehaviour
 {
     public DamageNumber numberPrefab;
 
-
+    public bool StartBattle = false;
     public GameObject Cam;
 
     private static BattleManager instance = null;
@@ -100,19 +100,36 @@ public class BattleManager : MonoBehaviour
     void Update()
     {
 
-
-        EnemyHealthCheck();
-        TimeWait();
-        StateChecker();
-        
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(StartBattle == true &&(EnemyTrunSymbol_1.activeSelf == true || EnemyTrunSymbol_2.activeSelf == true || EnemyTrunSymbol_3.activeSelf == true))
         {
-            fDestroyTime = 0.01f;
-            RoundGameObject.SetActive(false);
-            BattleState = "setTrun";
+            EnemyHealthCheck();
+            TimeWait();
+            StateChecker();
+
         }
 
+        if(DataBaseManager.nowPlace == "BattleRoad")
+        {
+            if (EnemyTrunSymbol_1.activeSelf == false && EnemyTrunSymbol_2.activeSelf == false && EnemyTrunSymbol_3.activeSelf == false)
+            {
+                FadingBackGround.Instance.FadeIn();
+                Invoke("EndRoadBattle", 1f);
+                
 
+              
+            }
+        }
+        /*
+        if (Input.GetKeyDown(KeyCode.K)){
+            FadingBackGround.Instance.FadeIn();
+            Invoke("EndRoadBattle", 1f);
+        }
+                  */
+    }
+
+    void EndRoadBattle()
+    {
+        InteractionController.Instance.BattleDialog("End");
     }
     public static BattleManager Instance
     {
@@ -2524,22 +2541,22 @@ public class BattleManager : MonoBehaviour
                 if (DataBaseManager.BattleWeapon == "SmallPistol")
                 {
                    BattleState = "Rollet";
-                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.martialArtsPoint, "MS_attack", "DeepOneHybrid");
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
                 if (DataBaseManager.BattleWeapon == "Rifle")
                 {
                     BattleState = "Rollet";
-                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.martialArtsPoint, "MS_attack", "DeepOneHybrid");
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
                 if (DataBaseManager.BattleWeapon == "Revolver")
                 {
                     BattleState = "Rollet";
-                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.martialArtsPoint, "MS_attack", "DeepOneHybrid");
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
                 if (DataBaseManager.BattleWeapon == "Shotgun")
                 {
                     BattleState = "Rollet";
-                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.martialArtsPoint, "MS_attack", "DeepOneHybrid");
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
             }
             if (PlayerAction == "PlayerDeftness")
@@ -2590,22 +2607,22 @@ public class BattleManager : MonoBehaviour
                 if (DataBaseManager.BattleWeapon == "SmallPistol")
                 {
                     BattleState = "Rollet";
-                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.martialArtsPoint, "MS_attack", "DeepOneHybrid");
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
                 if (DataBaseManager.BattleWeapon == "Rifle")
                 {
                     BattleState = "Rollet";
-                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.martialArtsPoint, "MS_attack", "DeepOneHybrid");
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
                 if (DataBaseManager.BattleWeapon == "Revolver")
                 {
                     BattleState = "Rollet";
-                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.martialArtsPoint, "MS_attack", "DeepOneHybrid");
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
                 if (DataBaseManager.BattleWeapon == "Shotgun")
                 {
                     BattleState = "Rollet";
-                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.martialArtsPoint, "MS_attack", "DeepOneHybrid");
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
             }
             if (PlayerAction == "PlayerDeftness")
@@ -2656,22 +2673,22 @@ public class BattleManager : MonoBehaviour
                 if (DataBaseManager.BattleWeapon == "SmallPistol")
                 {
                     BattleState = "Rollet";
-                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.martialArtsPoint, "MS_attack", "DeepOneHybrid");
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
                 if (DataBaseManager.BattleWeapon == "Rifle")
                 {
                     BattleState = "Rollet";
-                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.martialArtsPoint, "MS_attack", "DeepOneHybrid");
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
                 if (DataBaseManager.BattleWeapon == "Revolver")
                 {
                     BattleState = "Rollet";
-                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.martialArtsPoint, "MS_attack", "DeepOneHybrid");
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
                 if (DataBaseManager.BattleWeapon == "Shotgun")
                 {
                     BattleState = "Rollet";
-                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.martialArtsPoint, "MS_attack", "DeepOneHybrid");
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
             }
             if (PlayerAction == "PlayerDeftness")

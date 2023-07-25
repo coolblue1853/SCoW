@@ -6,6 +6,10 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class DirectingManager : MonoBehaviour
 {
+    public GameObject BattleM;
+    public CameraManager cameraManager;
+    public GameObject DialogManager;
+
     public GameObject Back;
     public Image BackGround;
 
@@ -21,6 +25,9 @@ public class DirectingManager : MonoBehaviour
 
     Vector2 player_StartPos = new Vector3(-797.79f, 1.91f);
     Vector3 Cam_StartPos = new Vector3(-797.5f, 1.5f, -15);
+
+
+    Vector3 Cam_BattlePos = new Vector3(-774.6f, 120.1f, -15);
 
     private static DirectingManager instance = null;
     public GameObject player;
@@ -206,14 +213,88 @@ public class DirectingManager : MonoBehaviour
             {
                 Invoke("KeyConnect", 12f);
             }
+            else if (DataBaseManager.AfterBattle == true)
+            {
+                Invoke("KeyConnect", 8f);
+            }
             else
             {
                 Invoke("KeyConnect", 3f);
             }
         }
+
+
+
+
+
+
+
+        //전투
+        if (DataBaseManager.Battle_San == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.Battle_San = false;
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.san, "dialog");
+        }
+        if(DataBaseManager.isBattleBeforeDialog == true &&DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.isBattleBeforeDialog = false;
+            FadingBackGround.Instance.CastInOut();
+            Invoke("GotoBattle",0.8f);
+        }
+
+        if (DataBaseManager.EndBattle == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.AfterBattle = true;
+            DialogDatabaseManager.instance.Check = true;
+            DataBaseManager.EndBattle = false;
+            DirectingManager.Instance.EndBattle();
+            DataBaseManager.nowPlace = "DetectiveOffice";
+            MapManager.Instance.MapOn();
+        }
     }
     bool once = false;
 
+
+    public void BeforeBattle()
+    {
+        player.SetActive(false);
+        Camera.transform.position = Cam_BattlePos;
+        Invoke("BattleDialog", 2f);
+    }
+
+
+    void BattleDialog()
+    {
+
+        InteractionController.Instance.BattleDialog("start");
+    }
+    //전투 
+    public void GotoBattle()
+    {
+        //DialogManager.SetActive(false);
+        cameraManager.enabled = false;
+        Camera.transform.position = Cam_BattlePos;
+        Invoke("setBattle", 3);
+        BattleM.SetActive(true);
+    }
+    public void EndBattle()
+    {
+        Invoke("EndBattleInvoke", 1f);
+    }
+    public void EndBattleInvoke()
+    {
+        DialogManager.SetActive(true);
+        cameraManager.enabled = true;
+        BattleM.SetActive(false);
+    }
+
+
+    public void setBattle()
+    {
+         BattleManager.Instance.StartBattle = true;
+
+
+    }
 
     public void KeyConnect()
     {
@@ -239,13 +320,16 @@ public class DirectingManager : MonoBehaviour
 
 
 
+
+
+
     // 1일차 낮 의뢰자의 집 연출
     public void DoorNocking()
     {
         DataBaseManager.isDirecting = true;
         FadingBackGround.Instance.FadeInOut();
        // SoundManager.Instance.Door_Sound();
-        Invoke("moveInside",2f);
+        Invoke("moveInside",1f);
 
     }
     void moveInside()
@@ -254,7 +338,7 @@ public class DirectingManager : MonoBehaviour
         player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
         player.transform.localPosition = player_OutsideTo1st;
         Camera.transform.localPosition = Cam_OutsideTo1st;
-        Invoke("InsiedDialog", 2f);
+        Invoke("InsiedDialog", 1f);
     }
     void InsiedDialog()
     {
@@ -266,7 +350,7 @@ public class DirectingManager : MonoBehaviour
     {
         DataBaseManager.isDirecting = true;
         FadingBackGround.Instance.FadeInOut();
-        Invoke("MoveUpsair", 2f);
+        Invoke("MoveUpsair", 1f);
         // DataBaseManager.isDirecting = true;
     }
     void MoveUpsair()
@@ -275,7 +359,7 @@ public class DirectingManager : MonoBehaviour
         CameraManager.Instance.isCheckEnd = true;
         player.transform.localPosition = player_1stTo2st;
         Camera.transform.localPosition = Cam_1stTo2st;
-        Invoke("UpstairDialog", 2f);
+        Invoke("UpstairDialog", 1f);
     }
     void UpstairDialog()
     {
@@ -295,7 +379,7 @@ public class DirectingManager : MonoBehaviour
         player.transform.localPosition = player_RoomTo2st;
         Camera.transform.localPosition = Cam_RoomTo2st;
         DataBaseManager.isActiveDialog1 = false;
-        Invoke("ForceRoom", 2f);
+        Invoke("ForceRoom", 1f);
     }
     void ForceRoom()
     {
@@ -317,17 +401,17 @@ public class DirectingManager : MonoBehaviour
     public void fst_DetectiveOffice_Fade(string Connect)
     {
         FadingBackGround.Instance.FadeIn();
-        Invoke(Connect, 1.5f);
+        Invoke(Connect, 1f);
     }
     public void fst_DetectiveOffice_FadeOut(string Connect)
     {
         FadingBackGround.Instance.FadeOut();
-        Invoke(Connect, 1.5f);
+        Invoke(Connect, 1f);
     }
     public void fst_DetectiveOffice_FadeIn(string Connect)
     {
         FadingBackGround.Instance.FadeInOut();
-        Invoke(Connect, 2.5f);
+        Invoke(Connect, 1.5f);
     }
 
     public void End_Directing()
@@ -343,9 +427,11 @@ public class DirectingManager : MonoBehaviour
         player.SetActive(false);
         sit_NoNewsPaperPlayer.SetActive(true);
         sit_Ella.SetActive(true);
-        Invoke("AfterNock_Directing", 1.5f);
+        Invoke("AfterNock_Directing", 1f);
 
     }
+
+
     void AfterNock_Directing()
     {
         InteractionController.Instance.Start_1st_DetectiveOffice("Directing_AfterDoor");

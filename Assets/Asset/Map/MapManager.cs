@@ -61,6 +61,8 @@ public class MapManager : MonoBehaviour
     Vector3 player_Gunshop = new Vector3(-1036.56f, -82.12f);
     Vector3 Cam_Gunshop = new Vector3(-1056.2f, -82f, -15);
 
+
+
     public GameObject DetectiveOfficeButton;
     public GameObject ClientsHouseButton;
     public GameObject DailyNewsButton;
@@ -100,7 +102,7 @@ public class MapManager : MonoBehaviour
             {
                 DailyNewsButton.SetActive(true);
             }
-            if (DataBaseManager.nowPlace == "Univercity")
+            if (DataBaseManager.nowPlace == "University")
             {
                 UnivercityButton.SetActive(false);
             }
@@ -176,7 +178,7 @@ public class MapManager : MonoBehaviour
             {
                 DailyNewsButton.SetActive(true);
             }
-            if (DataBaseManager.nowPlace == "Univercity")
+            if (DataBaseManager.nowPlace == "University")
             {
                 UnivercityButton.SetActive(false);
             }
@@ -348,22 +350,42 @@ public class MapManager : MonoBehaviour
         }
     }
 
-   
+    void BattleDialog()
+    {
+        DirectingManager.Instance.BeforeBattle();
+    }
+
     public void MapOn()
     {
-        if ((DataBaseManager.TimeCount % 4) != 0)
+        if (DataBaseManager.isBar == true)
         {
+            DataBaseManager.isBar = false;
+            DataBaseManager.nowPlace = "BattleRoad";
+            DialogDatabaseManager.instance.Check = true;
+            CloseMap();
+            //DirectingManager.Instance.GotoBattle();
+
             FadingBackGround.Instance.FadeInOut();
-            Invoke("OpenSpinUi", 2f);
-            Invoke("SpinRing", 5f);
+            Invoke("BattleDialog", 1f);
         }
-        else if ((DataBaseManager.TimeCount % 4) == 0)
+        else
         {
-            FadingBackGround.Instance.FadeInOut();
-            Invoke("OpenSpinUi", 2f);
-            Invoke("WaitFade", 7f);
+            if ((DataBaseManager.TimeCount % 4) != 0)
+            {
+                FadingBackGround.Instance.FadeInOut();
+                Invoke("OpenSpinUi", 1f);
+                Invoke("SpinRing", 3f);
+            }
+            else if ((DataBaseManager.TimeCount % 4) == 0)
+            {
+                FadingBackGround.Instance.FadeInOut();
+                Invoke("OpenSpinUi", 1f);
+                Invoke("WaitFade", 4f);
+            }
         }
     }
+
+
     public void OpenSpinUi()
     {
         ChaingUi.SetActive(true);
@@ -372,40 +394,40 @@ public class MapManager : MonoBehaviour
     {
         if ((DataBaseManager.TimeCount % 4) == 1)
         {
-            Ring1.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 2f).SetAutoKill();
-            Ring2.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 3.5f).SetAutoKill();
-            Ring3.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 2.5f).SetAutoKill();
-            Ring4.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 3f).SetAutoKill();
+            Ring1.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 1f).SetAutoKill();
+            Ring2.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 2.5f).SetAutoKill();
+            Ring3.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 1.5f).SetAutoKill();
+            Ring4.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 2f).SetAutoKill();
         }
         if ((DataBaseManager.TimeCount % 4) == 2)
         {
-            Ring1.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 2f).SetAutoKill();
-            Ring2.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 3.5f).SetAutoKill();
-            Ring3.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 2.5f).SetAutoKill();
-            Ring4.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 3f).SetAutoKill();
+            Ring1.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 1f).SetAutoKill();
+            Ring2.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 2.5f).SetAutoKill();
+            Ring3.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 1.5f).SetAutoKill();
+            Ring4.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 2f).SetAutoKill();
         }
         if ((DataBaseManager.TimeCount % 4) == 3)
         {
-            Ring1.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 2f).SetAutoKill();
-            Ring2.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 3.5f).SetAutoKill();
-            Ring3.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 2.5f).SetAutoKill();
-            Ring4.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 3f).SetAutoKill();
+            Ring1.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 1f).SetAutoKill();
+            Ring2.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 2.5f).SetAutoKill();
+            Ring3.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 1.5f).SetAutoKill();
+            Ring4.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 2f).SetAutoKill();
         }
         if ((DataBaseManager.TimeCount % 4) == 0)
         {
-            Ring1.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 2f).SetAutoKill();
-            Ring2.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 3.5f).SetAutoKill();
-            Ring3.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 2.5f).SetAutoKill();
-            Ring4.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 3f).SetAutoKill();
+            Ring1.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 1f).SetAutoKill();
+            Ring2.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 2.5f).SetAutoKill();
+            Ring3.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 1.5f).SetAutoKill();
+            Ring4.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 2f).SetAutoKill();
         }
-        Invoke("ChainingDate", 2.5f);
+        Invoke("ChainingDate", 1.5f);
     }
 
     public void ChainingDate()
     {
         ChaingUiAnim.SetBool("Change", true);
         Invoke("ChainingDate2", 1f);
-        Invoke("EndEvent", 2f);
+        Invoke("EndEvent", 1f);
     }
     public void ChainingDate2()
     {
@@ -446,7 +468,7 @@ public class MapManager : MonoBehaviour
     void WaitFade()
     {
         FadingBackGround.Instance.FadeInOut();
-        Invoke("MoveChar", 2f);
+        Invoke("MoveChar", 1f);
     }
 
     public void MoveChar()
@@ -457,13 +479,14 @@ public class MapManager : MonoBehaviour
         DataBaseManager.TimeCount += 1;
         if (DataBaseManager.nowPlace == "DetectiveOffice")
         {
-     
-            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
-            player.transform.localPosition = player_DetectiveOffice;
-            camera.transform.localPosition = Cam_DetectiveOffice;
-            MapChainingUI.SetActive(false);
-            MapUI.SetActive(false);
-            DialogDatabaseManager.instance.Check = true;
+
+                player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
+                player.transform.localPosition = player_DetectiveOffice;
+                camera.transform.localPosition = Cam_DetectiveOffice;
+                MapChainingUI.SetActive(false);
+                MapUI.SetActive(false);
+                DialogDatabaseManager.instance.Check = true;
+
         }
         else if (DataBaseManager.nowPlace == "Client'shouse")
         {

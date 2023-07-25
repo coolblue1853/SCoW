@@ -10,6 +10,7 @@ public class RolletTest : MonoBehaviour
 
     private void Awake()
     {
+        /*
         DataBaseManager.Axe += 1;
         DataBaseManager.Bat += 1;
         DataBaseManager.Dagger += 1;
@@ -29,7 +30,7 @@ public class RolletTest : MonoBehaviour
 
         DataBaseManager.dex = 999;
 
-
+        */
         DataBaseManager.gunShotPoint = 50;
         /*
         DataBaseManager.Intel_Aiden1 = true;
@@ -69,7 +70,7 @@ public class RolletTest : MonoBehaviour
 
         //DataBaseManager.Intel_Hospital1 = true;
        DataBaseManager.Condition = "Nomal";
-        DataBaseManager.martialArtsPoint = 60;
+       // DataBaseManager.martialArtsPoint = 60;
        // DataBaseManager.Condition = "Worst";
 
         DataBaseManager.TimeCount = 1;
@@ -91,6 +92,7 @@ public class RolletTest : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(DataBaseManager.weal);
 
         if (Input.GetKeyDown(KeyCode.F10))
         {
