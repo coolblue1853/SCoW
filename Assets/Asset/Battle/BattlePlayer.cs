@@ -37,6 +37,7 @@ public class BattlePlayer : MonoBehaviour
             }
             else if (DataBaseManager.BattleWeapon == "Dagger" && player_R.sprite != Dagger_Ready)
             {
+                SoundManager.Instance.Battle_Sound("Dagger_Reddy");
                 BattleManager.Instance.EnemySelectUI.SetActive(true);
                 BattleManager.Instance.BattleState = "selectEnemy";
                 player_R.sprite = Dagger_Ready;
@@ -49,30 +50,35 @@ public class BattlePlayer : MonoBehaviour
             }
             else if (DataBaseManager.BattleWeapon == "Axe" && player_R.sprite != Axe_Ready)
             {
+                SoundManager.Instance.Battle_Sound("Axe_Reddy");
                 BattleManager.Instance.EnemySelectUI.SetActive(true);
                 BattleManager.Instance.BattleState = "selectEnemy";
                player_R.sprite = Axe_Ready;
             }
             else if (DataBaseManager.BattleWeapon == "SmallPistol" && player_R.sprite != SmallPistol_Ready && DataBaseManager.nowSmallPistol >0)
             {
+                SoundManager.Instance.Battle_Sound("SmallPisol_Reddy");
                 BattleManager.Instance.EnemySelectUI.SetActive(true);
                 BattleManager.Instance.BattleState = "selectEnemy";
                 player_R.sprite = SmallPistol_Ready;
             }
             else if (DataBaseManager.BattleWeapon == "Revolver" && player_R.sprite != Revolver_Ready && DataBaseManager.nowRevolver > 0)
             {
+                SoundManager.Instance.Battle_Sound("Revolver_Reddy");
                 BattleManager.Instance.EnemySelectUI.SetActive(true);
                 BattleManager.Instance.BattleState = "selectEnemy";
                 player_R.sprite = Revolver_Ready;
             }
             else if (DataBaseManager.BattleWeapon == "Rifle" && player_R.sprite != Rifle_Ready && DataBaseManager.nowRifle > 0)
             {
+                SoundManager.Instance.Battle_Sound("Rifle_Reddy");
                 BattleManager.Instance.EnemySelectUI.SetActive(true);
                 BattleManager.Instance.BattleState = "selectEnemy";
                 player_R.sprite = Rifle_Ready;
             }
             else if (DataBaseManager.BattleWeapon == "Shotgun" && player_R.sprite != Shotgun_Ready && DataBaseManager.nowShotgun > 0)
             {
+                SoundManager.Instance.Battle_Sound("Shotgun_Reddy");
                 BattleManager.Instance.EnemySelectUI.SetActive(true);
                 BattleManager.Instance.BattleState = "selectEnemy";
                 player_R.sprite = Shotgun_Ready;

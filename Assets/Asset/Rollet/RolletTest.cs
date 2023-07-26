@@ -12,7 +12,6 @@ public class RolletTest : MonoBehaviour
     {
 
 
-        /*
         DataBaseManager.Axe += 1;
         DataBaseManager.Bat += 1;
         DataBaseManager.Dagger += 1;
@@ -32,7 +31,7 @@ public class RolletTest : MonoBehaviour
 
         DataBaseManager.dex = 999;
 
-        */
+   
         DataBaseManager.gunShotPoint = 50;
         /*
         DataBaseManager.Intel_Aiden1 = true;

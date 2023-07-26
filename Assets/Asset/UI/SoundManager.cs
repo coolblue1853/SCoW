@@ -8,6 +8,139 @@ public class SoundManager : MonoBehaviour
 {
 
     //Bgm 
+    public AudioClip CounterAttack;
+    public AudioClip Evaision;
+    public AudioClip MartialArts;
+
+    public AudioClip Bat_Reddy;
+    public AudioClip Dagger_Reddy;
+    public AudioClip Axe_Reddy;
+    public AudioClip SmallPisol_Reddy;
+    public AudioClip Revolver_Reddy;
+    public AudioClip Rifle_Reddy;
+    public AudioClip Shotgun_Reddy;
+
+    public AudioClip Bat_Attack;
+    public AudioClip Dagger_Attack;
+    public AudioClip Axe_Attack;
+    public AudioClip SmallPisol_Attack;
+    public AudioClip Revolver_Attack;
+    public AudioClip Rifle_Attack;
+    public AudioClip Shotgun_Attack;
+
+    public AudioClip SmallPisol_Hit;
+    public AudioClip Revolver_Hit;
+    public AudioClip Rifle_Hit;
+    public AudioClip Shotgun_Hit;
+
+    public AudioClip SmallPisol_Reload;
+    public AudioClip Revolver_Reload;
+    public AudioClip Rifle_Reload;
+    public AudioClip Shotgun_Reload;
+
+    public void Battle_Sound(string sound)
+    {
+
+         if (sound == "Evaision")
+        {
+            SFX_Secend.PlayOneShot(Evaision);
+        }
+        else if (sound == "MartialArts")
+        {
+            SFX_Secend.PlayOneShot(MartialArts);
+        }
+        else if (sound == "Bat_Reddy")
+        {
+            SFX_Secend.PlayOneShot(Bat_Reddy);
+        }
+        else if (sound == "Dagger_Reddy")
+        {
+            SFX_Secend.PlayOneShot(Dagger_Reddy);
+        }
+        else if (sound == "Axe_Reddy")
+        {
+            SFX_Secend.PlayOneShot(Axe_Reddy);
+        }
+        else if (sound == "SmallPisol_Reddy")
+        {
+            SFX_Secend.PlayOneShot(SmallPisol_Reddy);
+        }
+        else if (sound == "Revolver_Reddy")
+        {
+            SFX_Secend.PlayOneShot(Revolver_Reddy);
+        }
+        else if (sound == "Rifle_Reddy")
+        {
+            SFX_Secend.PlayOneShot(Rifle_Reddy);
+        }
+        else if (sound == "Shotgun_Reddy")
+        {
+            SFX_Secend.PlayOneShot(Shotgun_Reddy);
+        }
+        else if (sound == "Bat_Attack")
+        {
+            SFX_Secend.PlayOneShot(Bat_Attack);
+        }
+        else if (sound == "Dagger_Attack")
+        {
+            SFX_Secend.PlayOneShot(Dagger_Attack);
+        }
+        else if (sound == "Axe_Attack")
+        {
+            SFX_Secend.PlayOneShot(Axe_Attack);
+        }
+        else if (sound == "SmallPisol_Attack")
+        {
+            SFX_Secend.PlayOneShot(SmallPisol_Attack);
+        }
+        else if (sound == "Revolver_Attack")
+        {
+            SFX_Secend.PlayOneShot(Revolver_Attack);
+        }
+        else if (sound == "Rifle_Attack")
+        {
+            SFX_Secend.PlayOneShot(Rifle_Attack);
+        }
+        else if (sound == "Shotgun_Attack")
+        {
+            SFX_Secend.PlayOneShot(Shotgun_Attack);
+        }
+
+        else if (sound == "SmallPisol_Hit")
+        {
+            SFX_Secend.PlayOneShot(SmallPisol_Hit);
+        }
+        else if (sound == "Revolver_Hit")
+        {
+            SFX_Secend.PlayOneShot(Revolver_Hit);
+        }
+        else if (sound == "Rifle_Hit")
+        {
+            SFX_Secend.PlayOneShot(Rifle_Hit);
+        }
+        else if (sound == "Shotgun_Hit")
+        {
+            SFX_Secend.PlayOneShot(Shotgun_Hit);
+        }
+
+        else if (sound == "SmallPisol_Reload")
+        {
+            SFX_Secend.PlayOneShot(SmallPisol_Reload);
+        }
+        else if (sound == "Revolver_Reload")
+        {
+            SFX_Secend.PlayOneShot(Revolver_Reload);
+        }
+        else if (sound == "Rifle_Reload")
+        {
+            SFX_Secend.PlayOneShot(Rifle_Reload);
+        }
+        else if (sound == "Shotgun_Reload")
+        {
+            SFX_Secend.PlayOneShot(Shotgun_Reload);
+        }
+    }
+
 
     private static SoundManager instance = null;
     public static SoundManager Instance
@@ -34,18 +167,17 @@ public class SoundManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    public Animator 주인공움직임;
-    public Slider bgm볼륨;
-    public AudioSource mainBgm;
+    public Animator PlayerMove;
+    public Slider BGMVolum;
 
-
-    public AudioClip 찰칵소리효과음;
+    public AudioSource MainBgmSource;
+    public AudioClip SetSfxClip;
     public Slider sfx볼륨;
     public AudioSource effectBgm;
 
     public AudioClip 달리기효과음;
     public AudioSource 효과음창;
-    public AudioSource 효과음창_sec;
+    public AudioSource SFX_Secend;
 
     public AudioSource 오디오소스_기어;
     public void PlayDice()
@@ -74,35 +206,35 @@ public class SoundManager : MonoBehaviour
     public AudioClip PaperClip;
     public void pen_Line()
     {
-        효과음창_sec.Stop();
-        효과음창_sec.PlayOneShot(PenLineClip);
+        SFX_Secend.Stop();
+        SFX_Secend.PlayOneShot(PenLineClip);
     }
     public void pen_Circle()
     {
-        효과음창_sec.Stop();
-        효과음창_sec.PlayOneShot(PenCircleClip);
+        SFX_Secend.Stop();
+        SFX_Secend.PlayOneShot(PenCircleClip);
     }
     public void PaperClip_Play()
     {
-        효과음창_sec.Stop();
-        효과음창_sec.PlayOneShot(PaperClip);
+        SFX_Secend.Stop();
+        SFX_Secend.PlayOneShot(PaperClip);
     }
     public void Door_Sound()
     {
         //효과음창.Play();
 
-        효과음창_sec.PlayOneShot(문열고닫기효과음);
+        SFX_Secend.PlayOneShot(문열고닫기효과음);
     }
     public void Nock_Sound()
     {
         //효과음창.Play();
 
-        효과음창_sec.PlayOneShot(놑크효과음);
+        SFX_Secend.PlayOneShot(놑크효과음);
     }
 
     public void 찰칵효과음함수()
     {
-        효과음창_sec.PlayOneShot(찰칵소리효과음);
+        SFX_Secend.PlayOneShot(SetSfxClip);
 
     }
     void 효과음관리()
@@ -138,14 +270,14 @@ public class SoundManager : MonoBehaviour
 
     void bgm소리설정()
     {
-        mainBgm.volume = DataBaseManager.sound_Volume;
+        MainBgmSource.volume = DataBaseManager.sound_Volume;
          effectBgm.volume = DataBaseManager.sfx_Volume;
       //  오디오소스_기어.volume = DataBaseManager.sfx_Volume;
     }
 
     public void 슬라이드bgm관리()
     {
-        DataBaseManager.sound_Volume = bgm볼륨.value;
+        DataBaseManager.sound_Volume = BGMVolum.value;
 
 
     }
@@ -159,7 +291,7 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bgm볼륨.value = DataBaseManager.sound_Volume;
+        BGMVolum.value = DataBaseManager.sound_Volume;
         sfx볼륨.value = DataBaseManager.sfx_Volume;
     }
 
@@ -189,78 +321,78 @@ public class SoundManager : MonoBehaviour
     public AudioClip Bar_Bgm;   
     void BGM_Manage()
     {
-        if (SceneManager.GetActiveScene().name == "Insert" && mainBgm.clip != Main_Bgm)
+        if (SceneManager.GetActiveScene().name == "Insert" && MainBgmSource.clip != Main_Bgm)
         {
 
-            mainBgm.clip = Main_Bgm;
-            mainBgm.Play();
+            MainBgmSource.clip = Main_Bgm;
+            MainBgmSource.Play();
 
         }
        
-        if (SceneManager.GetActiveScene().name == "SetCharacter" && mainBgm.clip != SetChar_Bgm)
+        if (SceneManager.GetActiveScene().name == "SetCharacter" && MainBgmSource.clip != SetChar_Bgm)
         {
 
-            mainBgm.clip = SetChar_Bgm;
-            mainBgm.Play();
+            MainBgmSource.clip = SetChar_Bgm;
+            MainBgmSource.Play();
 
         }
 
 
         if (SceneManager.GetActiveScene().name == "Main")
         {
-            if(DataBaseManager.nowPlace == "DetectiveOffice" && mainBgm.clip != Detective_Bgm)
+            if(DataBaseManager.nowPlace == "DetectiveOffice" && MainBgmSource.clip != Detective_Bgm)
             {
-                if(mainBgm.clip == SetChar_Bgm)
+                if(MainBgmSource.clip == SetChar_Bgm)
                 {
-                    mainBgm.clip = Detective_Bgm;
+                    MainBgmSource.clip = Detective_Bgm;
                     Invoke("PlayBgm", 2);
                 }
                 else
                 {
-                    mainBgm.clip = Detective_Bgm;
+                    MainBgmSource.clip = Detective_Bgm;
                     Invoke("PlayBgm", 9);
                 }
 
             }
-            else if (DataBaseManager.nowPlace == "Client'shouse" && mainBgm.clip != ClientHouse_Bgm)
+            else if (DataBaseManager.nowPlace == "Client'shouse" && MainBgmSource.clip != ClientHouse_Bgm)
             {
-                mainBgm.clip = ClientHouse_Bgm;
+                MainBgmSource.clip = ClientHouse_Bgm;
                 Invoke("PlayBgm", 9);
             }
-            else if (DataBaseManager.nowPlace == "DailyNews" && mainBgm.clip != Newspaper_Bgm)
+            else if (DataBaseManager.nowPlace == "DailyNews" && MainBgmSource.clip != Newspaper_Bgm)
             {
-                mainBgm.clip = Newspaper_Bgm;
+                MainBgmSource.clip = Newspaper_Bgm;
                 Invoke("PlayBgm", 9);
 
             }
-            else if (DataBaseManager.nowPlace == "University" && mainBgm.clip != University_Bgm)
+            else if (DataBaseManager.nowPlace == "University" && MainBgmSource.clip != University_Bgm)
             {
-                mainBgm.clip = University_Bgm;
+                MainBgmSource.clip = University_Bgm;
                 Invoke("PlayBgm", 9);
             }
-            else if (DataBaseManager.nowPlace == "Riverside" && mainBgm.clip != River_Bgm)
+            else if (DataBaseManager.nowPlace == "Riverside" && MainBgmSource.clip != River_Bgm)
             {
-                mainBgm.clip = River_Bgm;
+                MainBgmSource.clip = River_Bgm;
                 Invoke("PlayBgm", 9);
             }
-            else if (DataBaseManager.nowPlace == "Hospital" && mainBgm.clip != Hospital_Bgm)
+            else if (DataBaseManager.nowPlace == "Hospital" && MainBgmSource.clip != Hospital_Bgm)
             {
-                mainBgm.clip = Hospital_Bgm;
+                MainBgmSource.clip = Hospital_Bgm;
                 Invoke("PlayBgm", 9);
             }
-            else if (DataBaseManager.nowPlace == "Policeoffice" && mainBgm.clip != PoliceOffice_Bgm)
+            else if (DataBaseManager.nowPlace == "Policeoffice" && MainBgmSource.clip != PoliceOffice_Bgm)
             {
-                mainBgm.clip = PoliceOffice_Bgm;
+                MainBgmSource.clip = PoliceOffice_Bgm;
                 Invoke("PlayBgm", 9);
             }
-            else if (DataBaseManager.nowPlace == "Slum" && mainBgm.clip != Slum_Bgm)
+            else if (DataBaseManager.nowPlace == "Slum" && MainBgmSource.clip != Slum_Bgm)
             {
-                mainBgm.clip = Slum_Bgm;
+                MainBgmSource.clip = Slum_Bgm;
                 Invoke("PlayBgm", 9);
             }
-            else if (DataBaseManager.nowPlace == "Bar" && mainBgm.clip != Bar_Bgm)
+            else if (DataBaseManager.nowPlace == "Bar" && MainBgmSource.clip != Bar_Bgm)
             {
-                mainBgm.clip = Bar_Bgm;
+                MainBgmSource.clip = Bar_Bgm;
                 Invoke("PlayBgm", 9);
             }
 
@@ -271,6 +403,6 @@ public class SoundManager : MonoBehaviour
     void PlayBgm()
     {
    
-        mainBgm.Play();
+        MainBgmSource.Play();
     }
 }

@@ -159,7 +159,7 @@ public class BattleItemManager : MonoBehaviour
         {
             DeactivateObjectWithName(ItemBox_Reload, "Shotgun");
         }
-        if (DataBaseManager.Rifle > 0 && DataBaseManager.nowRifle < 2 && DataBaseManager.RifleAmmo > 0)
+        if (DataBaseManager.Rifle > 0 && DataBaseManager.nowRifle < 5 && DataBaseManager.RifleAmmo > 0)
         {
             ActivateObjectWithName(ItemBox_Reload, "Rifle");
         }
@@ -167,7 +167,7 @@ public class BattleItemManager : MonoBehaviour
         {
             DeactivateObjectWithName(ItemBox_Reload, "Rifle");
         }
-        if (DataBaseManager.Revolver > 0 && DataBaseManager.nowRevolver < 2 && DataBaseManager.PistolAmmo > 0)
+        if (DataBaseManager.Revolver > 0 && DataBaseManager.nowRevolver < 6 && DataBaseManager.PistolAmmo > 0)
         {
             ActivateObjectWithName(ItemBox_Reload, "Revolver");
         }
