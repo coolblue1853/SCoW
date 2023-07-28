@@ -6,7 +6,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class SoundManager : MonoBehaviour
 {
-
+    public AudioClip Battle_Bgm;
+    public AudioClip ClickSound;
+    public AudioClip SetTrunSound;
     //Bgm 
     public AudioClip CounterAttack;
     public AudioClip Evaision;
@@ -20,6 +22,9 @@ public class SoundManager : MonoBehaviour
     public AudioClip Rifle_Reddy;
     public AudioClip Shotgun_Reddy;
 
+    public AudioClip Rock_Reddy;
+    public AudioClip Molotov_Reddy;
+
     public AudioClip Bat_Attack;
     public AudioClip Dagger_Attack;
     public AudioClip Axe_Attack;
@@ -27,6 +32,12 @@ public class SoundManager : MonoBehaviour
     public AudioClip Revolver_Attack;
     public AudioClip Rifle_Attack;
     public AudioClip Shotgun_Attack;
+
+
+    public AudioClip Rock_Attack;
+    public AudioClip Molotov_Attack;
+
+    public AudioClip DeftNess_Miss;
 
     public AudioClip SmallPisol_Hit;
     public AudioClip Revolver_Hit;
@@ -139,6 +150,27 @@ public class SoundManager : MonoBehaviour
         {
             SFX_Secend.PlayOneShot(Shotgun_Reload);
         }
+
+        else if (sound == "Rock_Reddy")
+        {
+            SFX_Secend.PlayOneShot(Rock_Reddy);
+        }
+        else if (sound == "Molotov_Reddy")
+        {
+            SFX_Secend.PlayOneShot(Molotov_Reddy);
+        }
+        else if (sound == "Rock_Attack")
+        {
+            SFX_Secend.PlayOneShot(Rock_Attack);
+        }
+        else if (sound == "Molotov_Attack")
+        {
+            SFX_Secend.PlayOneShot(Molotov_Attack);
+        }
+        else if (sound == "DeftNess_Miss")
+        {
+            SFX_Secend.PlayOneShot(DeftNess_Miss);
+        }
     }
 
 
@@ -237,7 +269,18 @@ public class SoundManager : MonoBehaviour
         SFX_Secend.PlayOneShot(SetSfxClip);
 
     }
-    void 효과음관리()
+    public void ClickSound_Play()
+    {
+        SFX_Secend.PlayOneShot(ClickSound);
+    }
+    public void SetTrunSound_Play()
+    {
+        SFX_Secend.PlayOneShot(SetTrunSound);
+    }
+    
+
+
+        void 효과음관리()
     {
 
         if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false)
@@ -395,8 +438,17 @@ public class SoundManager : MonoBehaviour
                 MainBgmSource.clip = Bar_Bgm;
                 Invoke("PlayBgm", 9);
             }
+           else  if ((DataBaseManager.nowPlace == "BattleRoad" && MainBgmSource.clip != Battle_Bgm))
+           {
 
+                MainBgmSource.clip = Battle_Bgm;
+             Invoke("PlayBgm", 0.5f);
+
+                //MainBgmSource.Play();
+
+            }
         }
+
 
     }
 

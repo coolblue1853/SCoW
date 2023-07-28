@@ -146,7 +146,7 @@ public class Rollet : MonoBehaviour
             point_int = 0;
         }
         EnemySubject = Enemy;
-        SoundManager.Instance.pen_Line();
+        SoundManager.Instance.PaperClip_Play();
         DataBaseManager.isRollet = true;
         Subject = subject;
         Sub_Dialog = skill; // 나중에 다이얼로그 결과 전송시 사용
@@ -237,7 +237,7 @@ public class Rollet : MonoBehaviour
         setUI.SetActive(false);
         activeUI.SetActive(true);
         InvokeRepeating("ChangeRollet", 0.5f, 0.05f);
-        Invoke("diceSound", 1);
+        Invoke("diceSound", 0.5f);
     }
     void diceSound()
     {
@@ -386,7 +386,7 @@ public class Rollet : MonoBehaviour
     }
     void GetStringResult()
     {
-        SoundManager.Instance.pen_Line();
+        SoundManager.Instance.pen_Circle();
         if (result_int >= 95)
         {
             result_End.text = "Result : Fumble";

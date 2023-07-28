@@ -163,6 +163,7 @@ public class BattleRollet : MonoBehaviour
     }
     public void setBattleRollet(string skill, string point_sting, int point_int, string subject,string EnemyName , string E_skill, string E_point_string, int E_Point_int)
     {
+        SoundManager.Instance.PaperClip_Play();
         DataBaseManager.isRollet = true;
         Subject = subject;
         Sub_Dialog = skill; // 나중에 다이얼로그 결과 전송시 사용
@@ -259,9 +260,12 @@ public class BattleRollet : MonoBehaviour
         setUI.SetActive(false);
         activeUI.SetActive(true);
         InvokeRepeating("ChangeRollet", 0.5f, 0.05f);
-
+        Invoke("diceSound", 0.5f);
     }
-
+    void diceSound()
+    {
+        SoundManager.Instance.PlayDice();
+    }
     void ChangeRollet()
     {
         isActiveRollet = true;
@@ -316,6 +320,7 @@ public class BattleRollet : MonoBehaviour
 
     void GetIntResult()
     {
+        SoundManager.Instance.pen_Line();
         if (DataBaseManager.Condition == "Nomal")
         {
             result_int = int.Parse(NomalRollet_10t.text) + int.Parse(NomalRollet_1t.text);
@@ -422,6 +427,7 @@ public class BattleRollet : MonoBehaviour
     }
     void GetStringResult()
     {
+        SoundManager.Instance.pen_Circle();
         if (result_int >= 95)
         {
             result_End.text = "판정 : 대실패";

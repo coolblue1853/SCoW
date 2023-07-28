@@ -63,7 +63,7 @@ public class EnemySelectButton : MonoBehaviour
             }
             else if (hit.collider == null)
             {
-                Debug.Log(BattleManager.Instance.BattleState);
+                Debug.Log(DataBaseManager.nowPlace);
                 Debug.Log("»Æ¿Œ¡ﬂ");
                 BattleManager.Instance.onPointerEnemy = "";
                 box2d.size = new Vector2(3f, 5.2f);

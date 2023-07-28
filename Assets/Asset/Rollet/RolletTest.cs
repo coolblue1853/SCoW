@@ -12,6 +12,7 @@ public class RolletTest : MonoBehaviour
     {
 
 
+
         DataBaseManager.Axe += 1;
         DataBaseManager.Bat += 1;
         DataBaseManager.Dagger += 1;
@@ -93,6 +94,11 @@ public class RolletTest : MonoBehaviour
     }
     private void Start()
     {
+        DataBaseManager.nowPlace = "BattleRoad";
+        DataBaseManager.deftnessPoint =90;
+        DataBaseManager.swordPoint = 90;
+        DataBaseManager.martialArtsPoint = 90;
+        DataBaseManager.gunShotPoint = 90;
         BattleManager.Instance.StartBattle = true;
     }
     private void Update()
