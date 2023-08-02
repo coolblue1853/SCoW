@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    //Sanity
+    public static int Debuff = 0;
+
+
     //Inventory
     public static bool isItemUI = false;
     public static bool isUseSafe = false;
@@ -42,6 +46,8 @@ public class DataBaseManager : MonoBehaviour
     public static bool AfterBattle = false;
     public static bool isBattleRollet = false;
     public static bool EndBattle = false;
+
+    public static bool RoadBattleEnd = false;
     // Map
     public static string nowPlace = "DetectiveOffice";
     public static string PotalPlace = "";
@@ -571,7 +577,37 @@ public class DataBaseManager : MonoBehaviour
 
     public void ResetData()
     {
-            //SoundManager
+        //battle
+           isItemUI = false;
+      isUseSafe = false;
+
+      nowItem = "";
+      Bullet = 0;
+      Shotgun = 0;
+      Rifle = 0;
+      Revolver = 0;
+      SmallPistol = 0;
+      Bat = 0;
+      Axe = 0;
+      Molotov = 0;
+      Dagger = 0;
+
+      PistolAmmo = 0;
+      RifleAmmo = 0;
+      ShotgunAmmo = 0;
+
+      Firstaidkit = 0;
+      Bandages = 0;
+      Painkillers = 0;
+
+      ConntectMouse = false;
+
+      Battle_San = false;
+      isBattleBeforeDialog = false;
+      AfterBattle = false;
+      isBattleRollet = false;
+      EndBattle = false;
+    //SoundManager
 
     workSound = false;
     //Judge

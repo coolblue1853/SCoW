@@ -3630,6 +3630,134 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 6
+--- !u!1 &542126451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 542126452}
+  - component: {fileID: 542126453}
+  m_Layer: 0
+  m_Name: Dice
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &542126452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542126451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1977403490923021518}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &542126453
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542126451}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 51b5eb447f1e046439b584209e74994c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &568314405
 GameObject:
   m_ObjectHideFlags: 0
@@ -5763,7 +5891,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1977403490923021518}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &766916942
 AudioSource:
@@ -8385,7 +8513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Note : 1  / Map : 2'
+  m_text: 'Note : 1  / Map : 2 / Status : 3'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: beffc6b3761d7f0449fe48997d30081c, type: 2}
   m_sharedMaterial: {fileID: 981039749092094601, guid: beffc6b3761d7f0449fe48997d30081c,
@@ -8413,8 +8541,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -17515,7 +17643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -57, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1927651619
@@ -20240,6 +20368,7 @@ Transform:
   - {fileID: 1977403491772583055}
   - {fileID: 1977403492252482547}
   - {fileID: 8831394069159241514}
+  - {fileID: 542126452}
   - {fileID: 766916943}
   m_Father: {fileID: 8831394067221339529}
   m_RootOrder: 0
@@ -20414,7 +20543,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e2c542d7d0b363c42a0eb2d717a61fc7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 97cd6402491df584cafd8af5a2c5608f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -23798,7 +23927,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &8831394067221339535
 MonoBehaviour:
@@ -23852,26 +23981,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20adc2b0cf92094e95196e2ff273d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "\uC8FC\uC778\uACF5\uC6C0\uC9C1\uC784": {fileID: 0}
-  "bgm\uBCFC\uB968": {fileID: 8831394068077037324}
-  mainBgm: {fileID: 1977403491772583054}
-  "\uCC30\uCE75\uC18C\uB9AC\uD6A8\uACFC\uC74C": {fileID: 0}
+  Battle_Bgm: {fileID: 8300000, guid: c8d5a5a057f8f7f43afc2abebdfb35f7, type: 3}
+  ClickSound: {fileID: 8300000, guid: 60eb65a96e0c29641a7970c2b9803b6d, type: 3}
+  SetTrunSound: {fileID: 8300000, guid: d13efc9fd0da0b64f99a500a616dfb54, type: 3}
+  CounterAttack: {fileID: 8300000, guid: ff9bfe9cb85d87e4ea8c638610a5d8c1, type: 3}
+  Evaision: {fileID: 8300000, guid: d03d2e1d7a89bd54cbf0700f8b1d3b57, type: 3}
+  MartialArts: {fileID: 8300000, guid: 7081297317826bf44897ca38513b7677, type: 3}
+  Bat_Reddy: {fileID: 8300000, guid: 463fd18e674ed064798576c4a38fe349, type: 3}
+  Dagger_Reddy: {fileID: 8300000, guid: 4682e2fe593b7374ea90a1508114e44e, type: 3}
+  Axe_Reddy: {fileID: 8300000, guid: 6e46979281e65ac4297276f4be065846, type: 3}
+  SmallPisol_Reddy: {fileID: 8300000, guid: 15ab93f55156d794fa2c5cceb25cd1c4, type: 3}
+  Revolver_Reddy: {fileID: 8300000, guid: 5bd503356614c3449892cc1c461a6259, type: 3}
+  Rifle_Reddy: {fileID: 8300000, guid: 4cc8e71dbf9eeb2428e9ab281ae54868, type: 3}
+  Shotgun_Reddy: {fileID: 8300000, guid: bbbdae1a0f562ad43abccb484fb60ba4, type: 3}
+  Rock_Reddy: {fileID: 8300000, guid: d447056ccb8299c43b3158224cde5d6d, type: 3}
+  Molotov_Reddy: {fileID: 8300000, guid: dec890ba74381d645899ff2dc6aa8790, type: 3}
+  Bat_Attack: {fileID: 8300000, guid: 771c0793673aafb42a930932a000f478, type: 3}
+  Dagger_Attack: {fileID: 8300000, guid: ffe1b180fce856549b099aaa7d59a8cc, type: 3}
+  Axe_Attack: {fileID: 8300000, guid: de146e44cffc95a4aa4cd82b6429fe8f, type: 3}
+  SmallPisol_Attack: {fileID: 8300000, guid: da04bd00e5192114dad3ce442fad3ce4, type: 3}
+  Revolver_Attack: {fileID: 8300000, guid: 503e73e91d006224ea797aa7c82a8c21, type: 3}
+  Rifle_Attack: {fileID: 8300000, guid: 55fa20138acfcb84db39c00e2be7d063, type: 3}
+  Shotgun_Attack: {fileID: 8300000, guid: 4b3f4a75f19b28f43aea4ee0dc7f7123, type: 3}
+  Rock_Attack: {fileID: 8300000, guid: 670fbb707e9115f4f95ecc7b9ac4314b, type: 3}
+  Molotov_Attack: {fileID: 8300000, guid: 2eae7be180ad82c46bb2a026f587f018, type: 3}
+  DeftNess_Miss: {fileID: 8300000, guid: be993e818a8bc6543b39f2ab84733f76, type: 3}
+  SmallPisol_Hit: {fileID: 8300000, guid: b51e6f77ccc071944ad504969a4132f0, type: 3}
+  Revolver_Hit: {fileID: 8300000, guid: fb634e6ae3025144e914a184acfc9219, type: 3}
+  Rifle_Hit: {fileID: 8300000, guid: 62cdf482d805b70488a9d23c66c2d570, type: 3}
+  Shotgun_Hit: {fileID: 8300000, guid: 037f87fe120d26340a5dd89b3fc79cdd, type: 3}
+  SmallPisol_Reload: {fileID: 8300000, guid: f343c58c577214a4a856ee42d2b5344f, type: 3}
+  Revolver_Reload: {fileID: 8300000, guid: 26e1bb7a69891e7419cb0e7aea4367bc, type: 3}
+  Rifle_Reload: {fileID: 8300000, guid: cf752cfa5b0c15843a9e4d36b25dadf9, type: 3}
+  Shotgun_Reload: {fileID: 8300000, guid: 4cf29382287944846909e32fe4344e72, type: 3}
+  PlayerMove: {fileID: 0}
+  BGMVolum: {fileID: 8831394068077037324}
+  MainBgmSource: {fileID: 1977403491772583054}
+  SetSfxClip: {fileID: 8300000, guid: 8032cb7c0e2d5fe40b155e5c5856f962, type: 3}
   "sfx\uBCFC\uB968": {fileID: 8831394068935406709}
   effectBgm: {fileID: 1977403492252482546}
   "\uB2EC\uB9AC\uAE30\uD6A8\uACFC\uC74C": {fileID: 8300000, guid: 97cd6402491df584cafd8af5a2c5608f,
     type: 3}
   "\uD6A8\uACFC\uC74C\uCC3D": {fileID: 1977403492252482546}
-  "\uD6A8\uACFC\uC74C\uCC3D_sec": {fileID: 8831394069159241515}
-  "\uC624\uB514\uC624\uC18C\uC2A4_\uAE30\uC5B4": {fileID: 766916942}
-  "\uBB38\uC5F4\uACE0\uB2EB\uAE30\uD6A8\uACFC\uC74C": {fileID: 8300000, guid: f8d922a1c160308408c0ed3f34de5afc,
+  SFX_Secend: {fileID: 8831394069159241515}
+  "\uC624\uB514\uC624\uC18C\uC2A4_\uAE30\uC5B4": {fileID: 542126453}
+  "\uBB38\uC5F4\uACE0\uB2EB\uAE30\uD6A8\uACFC\uC74C": {fileID: 8300000, guid: d7e0ba9bc08cc324880313d0bb5e3970,
     type: 3}
-  "\uB191\uD06C\uD6A8\uACFC\uC74C": {fileID: 8300000, guid: 5b838d478e5d99b408fd3c2c4859ddfc,
+  "\uB191\uD06C\uD6A8\uACFC\uC74C": {fileID: 8300000, guid: 1056a7a9f82768e4aa4b8095e6c6498a,
     type: 3}
   "\uAE30\uACC4\uB3CC\uC544\uAC00\uB294\uC18C\uB9AC\uD6A8\uACFC\uC74C": {fileID: 8300000,
     guid: 51b5eb447f1e046439b584209e74994c, type: 3}
-  PenLineClip: {fileID: 8300000, guid: 3475eddab8cd4f04dabbe3361c137574, type: 3}
-  PenCircleClip: {fileID: 8300000, guid: db6d1e2ac90b4a74a82290b8808549b9, type: 3}
-  PaperClip: {fileID: 8300000, guid: 400a603dc7b0fb640a774c7004f2dd2e, type: 3}
+  PenLineClip: {fileID: 8300000, guid: 5a5a23ac7b092ee4c82176495b84609a, type: 3}
+  PenCircleClip: {fileID: 8300000, guid: 7e30eda0e4c30c04f8b75ab7ba055274, type: 3}
+  PaperClip: {fileID: 8300000, guid: e2c649e4b4b3ca54294d4eabf765cf5d, type: 3}
   Main_Bgm: {fileID: 8300000, guid: 83eabfb79c40edd4eb5e863bcf42d41d, type: 3}
   SetChar_Bgm: {fileID: 8300000, guid: 26e7a115df614144eae6d2eea78a53c4, type: 3}
   Detective_Bgm: {fileID: 8300000, guid: 8c09686d2a087e241809e3464af73293, type: 3}
@@ -25200,8 +25362,8 @@ RectTransform:
   m_Father: {fileID: 8831394067634166289}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.498, y: 0}
-  m_AnchorMax: {x: 0.498, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.000061035156, y: 0}
   m_SizeDelta: {x: 45.2552, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26530,7 +26692,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.498, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26605,8 +26767,8 @@ RectTransform:
   m_Father: {fileID: 8831394067879139222}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.498, y: 0}
-  m_AnchorMax: {x: 0.498, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.000061035156, y: 0}
   m_SizeDelta: {x: 45.2552, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26976,7 +27138,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.498, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

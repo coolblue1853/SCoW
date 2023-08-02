@@ -36,8 +36,15 @@ public class UseItemBox : MonoBehaviour
         }
         else if (DataBaseManager.nowItem == "Painkillers")
         {
-
-            Rollet.Instance.setRollet("Fabian : Psychotherapy", "Psychotherapy+20", DataBaseManager.medicinePoint + 20, "Item");
+            Debug.Log('1');
+            int Heal = Random.Range(1, 4) * 5;
+            if((DataBaseManager.san - DataBaseManager.nowSan) < Heal)
+            {
+                Heal = DataBaseManager.san - DataBaseManager.nowSan;
+            }
+            BillowUIManager.Instance.San_up(Heal);
+            DataBaseManager.Painkillers -= 1;
+            //Rollet.Instance.setRollet("Fabian : Psychotherapy", "Psychotherapy+20", DataBaseManager.medicinePoint + 20, "Item");
         }
 
     }

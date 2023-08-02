@@ -558,7 +558,7 @@ public class SIS_UIManager : MonoBehaviour
             if (DataBaseManager.nowItem == "Painkillers" && DataBaseManager.Painkillers > 0)
             {
                 Use_Name.text = "Painkillers";
-                Use_Detail.text = "Skill :\nPsychotherapy+20\n\nEffects:\nSuccessful Function checks restore(1D3)x5 SAN points.\n\nPcs : " + DataBaseManager.Painkillers;
+                Use_Detail.text = "Skill :\nNoSkill\n\nEffects:\nSuccessful Function checks restore(1D3)x5 SAN points.\n\nPcs : " + DataBaseManager.Painkillers;
             }
 
         }

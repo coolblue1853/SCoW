@@ -65,6 +65,7 @@ public class BattleManager : MonoBehaviour
     public GameObject PlayerSwordsUi;
     public GameObject PlayerMarkmenUi;
     public GameObject PlayerReloadUi;
+    public GameObject PlayerReloadItemUI;
     public GameObject PlayerReloadCheckUi;
     public GameObject PlayerDeftnessUi;
     public GameObject EnemySelectUI;
@@ -99,6 +100,8 @@ public class BattleManager : MonoBehaviour
     public string SelectEnemy = "";
     public string onPointerEnemy = "";
 
+
+
     void Update()
     {
 
@@ -112,13 +115,13 @@ public class BattleManager : MonoBehaviour
 
         if(DataBaseManager.nowPlace == "BattleRoad")
         {
-            if (EnemyTrunSymbol_1.activeSelf == false && EnemyTrunSymbol_2.activeSelf == false && EnemyTrunSymbol_3.activeSelf == false)
+            if (EnemyTrunSymbol_1.activeSelf == false && EnemyTrunSymbol_2.activeSelf == false && EnemyTrunSymbol_3.activeSelf == false && DataBaseManager.RoadBattleEnd == false)
             {
+                DataBaseManager.RoadBattleEnd = true;
                 FadingBackGround.Instance.FadeIn();
                 Invoke("EndRoadBattle", 1f);
-                
 
-              
+
             }
         }
         /*
@@ -147,7 +150,7 @@ public class BattleManager : MonoBehaviour
     }
     void Awake()
     {
-        startReload();
+
         player_R = player.GetComponent<SpriteRenderer>();
         DeepOneHybrid1_Render = DeepOneHybrid1_Object.GetComponent<SpriteRenderer>();
         DeepOneHybrid2_Render = DeepOneHybrid2_Object.GetComponent<SpriteRenderer>();
@@ -193,7 +196,7 @@ public class BattleManager : MonoBehaviour
                 fDestroyTime = fDestroyTime * 0.98f;
                 if (PlayerTrunSymbol.activeSelf == true)
                 {
-                    SymbolUp(PlayerTrunSymbol, 9999, "Player");
+                    SymbolUp(PlayerTrunSymbol, DataBaseManager.dex  , "Player");
                 }
                 if (EnemyTrunSymbol_1.activeSelf == true)
                 {
@@ -358,6 +361,7 @@ public class BattleManager : MonoBehaviour
         PlayerActionUi.SetActive(false);
         PlayerAction = "PlayerReload";
         PlayerReloadUi.SetActive(true);
+        PlayerReloadItemUI.SetActive(true);
     }
     public void Player_BackReload()
     {
@@ -373,18 +377,20 @@ public class BattleManager : MonoBehaviour
     public void OpenReloadUI(string subject)
     {
         nowReloadWeapon = subject;
-        //PlayerReloadUi.SetActive(false);
+        PlayerReloadItemUI.SetActive(false);
         PlayerReloadCheckUi.SetActive(true);
     }
 
     public void startReload()
     {
+        Debug.Log("11");
         while (DataBaseManager.PistolAmmo > 0)
         {
             if (DataBaseManager.nowSmallPistol == 2)
             {
                 break;
             }
+            Debug.Log("22");
             DataBaseManager.nowSmallPistol += 1;
             DataBaseManager.PistolAmmo -= 1;
         }
@@ -394,6 +400,7 @@ public class BattleManager : MonoBehaviour
             {
                 break;
             }
+            Debug.Log("3");
             DataBaseManager.nowRevolver += 1;
             DataBaseManager.PistolAmmo -= 1;
         }
@@ -403,6 +410,7 @@ public class BattleManager : MonoBehaviour
             {
                 break;
             }
+            Debug.Log("4");
             DataBaseManager.nowRifle += 1;
             DataBaseManager.RifleAmmo -= 1;
         }
@@ -410,6 +418,7 @@ public class BattleManager : MonoBehaviour
         {
             if (DataBaseManager.nowShotgun == 2)
             {
+                Debug.Log("5");
                 break;
             }
             DataBaseManager.nowShotgun += 1;
@@ -499,7 +508,7 @@ public class BattleManager : MonoBehaviour
     }
     public void ReloadClose()
     {
-        PlayerReloadUi.SetActive(true);
+        PlayerReloadItemUI.SetActive(true);
         PlayerReloadCheckUi.SetActive(false);
         nowReloadWeapon = "";
     }
@@ -510,7 +519,7 @@ public class BattleManager : MonoBehaviour
     {
         // 추후 이곳에 적의 행동 요령을 통해 어떤식으로 작동하는지 써둬야 할듯
         RoundGameObject.SetActive(false);
-        OpenRoundObject("적이 당신을 근접전으로 공격하려 합니다.");
+        OpenRoundObject("An enemy tries to attack you with a MartialArt.");
         PlayerChoiceUi.SetActive(true);
     }
 
@@ -523,21 +532,21 @@ public class BattleManager : MonoBehaviour
            // BattleState = "Rollet";
             PlayerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.setBattleRollet("파비안 : 회피", "회피", DataBaseManager.evasionPoint, "evasion","DeepOneHybrid" , "??? : 격투술", "격투술", DeepOneHybrid1.DeepOneHybrid_MatialArts);
+            BattleRollet.Instance.setBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion","DeepOneHybrid" , "??? : MartialArt", "MartialArt", DeepOneHybrid1.DeepOneHybrid_MatialArts);
         }
         if (BattleState == "DeepOneHybrid2Attack")
         {
            // BattleState = "Rollet";
             PlayerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.setBattleRollet("파비안 : 회피", "회피", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : 격투술", "격투술", DeepOneHybrid2.DeepOneHybrid_MatialArts);
+            BattleRollet.Instance.setBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", DeepOneHybrid2.DeepOneHybrid_MatialArts);
         }
         if (BattleState == "DeepOneHybrid3Attack")
         {
            // BattleState = "Rollet";
             PlayerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.setBattleRollet("파비안 : 회피", "회피", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : 격투술", "격투술", DeepOneHybrid3.DeepOneHybrid_MatialArts);
+            BattleRollet.Instance.setBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", DeepOneHybrid3.DeepOneHybrid_MatialArts);
         }
     }
     public void PlayerChoiceButton_CounterAttack()
@@ -548,21 +557,21 @@ public class BattleManager : MonoBehaviour
           //  BattleState = "Rollet";
             PlayerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.setBattleRollet("파비안 : 반격", "격투술", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : 격투술", "격투술", DeepOneHybrid1.DeepOneHybrid_MatialArts);
+            BattleRollet.Instance.setBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", DeepOneHybrid1.DeepOneHybrid_MatialArts);
         }
         if (BattleState == "DeepOneHybrid2Attack")
         {
           //  BattleState = "Rollet";
             PlayerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.setBattleRollet("파비안 : 반격", "격투술", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : 격투술", "격투술", DeepOneHybrid2.DeepOneHybrid_MatialArts);
+            BattleRollet.Instance.setBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", DeepOneHybrid2.DeepOneHybrid_MatialArts);
         }
         if (BattleState == "DeepOneHybrid3Attack")
         {
           //  BattleState = "Rollet";
             PlayerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.setBattleRollet("파비안 : 반격", "격투술", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : 격투술", "격투술", DeepOneHybrid3.DeepOneHybrid_MatialArts);
+            BattleRollet.Instance.setBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", DeepOneHybrid3.DeepOneHybrid_MatialArts);
         }
     }
 
@@ -577,7 +586,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 enemyOrigin = DeepOneHybrid1_Object.transform.position;
                 GameObject obj = DeepOneHybrid1_Object;
                 SpriteRenderer spR = DeepOneHybrid1_Render;
-                if (Success == "성공")
+                if (Success == "Success")
                 {
                     BattleCameraMove.Instance.ZoomMidle();
                     DeepOneHybrid1_Render.sprite = DeepOneHybrid_Punch;
@@ -628,7 +637,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 enemyOrigin = DeepOneHybrid2_Object.transform.position;
                 GameObject obj = DeepOneHybrid2_Object;
                 SpriteRenderer spR = DeepOneHybrid2_Render;
-                if (Success == "성공")
+                if (Success == "Success")
                 {
                     BattleCameraMove.Instance.ZoomDown();
                     DeepOneHybrid2_Render.sprite = DeepOneHybrid_Punch;
@@ -679,7 +688,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 enemyOrigin = DeepOneHybrid3_Object.transform.position;
                 GameObject obj = DeepOneHybrid3_Object;
                 SpriteRenderer spR = DeepOneHybrid3_Render;
-                if (Success == "성공")
+                if (Success == "Success")
                 {
                     BattleCameraMove.Instance.ZoomUp();
                     DeepOneHybrid3_Render.sprite = DeepOneHybrid_Punch;
@@ -733,7 +742,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 enemyOrigin = DeepOneHybrid1_Object.transform.position;
                 GameObject obj = DeepOneHybrid1_Object;
                 SpriteRenderer spR = DeepOneHybrid1_Render;
-                if (Success == "성공")
+                if (Success == "Success")
                 {
                     DeepOneHybrid1_Render.sprite = DeepOneHybrid_Punch;
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
@@ -794,7 +803,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 enemyOrigin = DeepOneHybrid2_Object.transform.position;
                 GameObject obj = DeepOneHybrid2_Object;
                 SpriteRenderer spR = DeepOneHybrid2_Render;
-                if (Success == "성공")
+                if (Success == "Success")
                 {
                     DeepOneHybrid2_Render.sprite = DeepOneHybrid_Punch;
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
@@ -855,7 +864,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 enemyOrigin = DeepOneHybrid3_Object.transform.position;
                 GameObject obj = DeepOneHybrid3_Object;
                 SpriteRenderer spR = DeepOneHybrid3_Render;
-                if (Success == "성공")
+                if (Success == "Success")
                 {
                     DeepOneHybrid3_Render.sprite = DeepOneHybrid_Punch;
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
@@ -919,7 +928,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 enemyOrigin = DeepOneHybrid1_Object.transform.position;
                 GameObject obj = DeepOneHybrid1_Object;
                 SpriteRenderer spR = DeepOneHybrid1_Render;
-                if (Success == "성공")
+                if (Success == "Success")
                 {
                     player_R.sprite = Punch;
                     Cam.transform.DORotate(new Vector3(0,0,5), 0.5f);
@@ -978,7 +987,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 enemyOrigin = DeepOneHybrid2_Object.transform.position;
                 GameObject obj = DeepOneHybrid2_Object;
                 SpriteRenderer spR = DeepOneHybrid2_Render;
-                if (Success == "성공")
+                if (Success == "Success")
                 {
                     player_R.sprite = Punch;
                     Cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
@@ -1037,7 +1046,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 enemyOrigin = DeepOneHybrid3_Object.transform.position;
                 GameObject obj = DeepOneHybrid3_Object;
                 SpriteRenderer spR = DeepOneHybrid3_Render;
-                if (Success == "성공")
+                if (Success == "Success")
                 {
                     player_R.sprite = Punch;
                     Cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
@@ -1099,7 +1108,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 enemyOrigin = DeepOneHybrid1_Object.transform.position;
                 GameObject obj = DeepOneHybrid1_Object;
                 SpriteRenderer spR = DeepOneHybrid1_Render;
-                if (Success == "성공")
+                if (Success == "Success")
                 {
                     if(DataBaseManager.BattleWeapon == "Dagger")
                     {
@@ -1278,7 +1287,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 enemyOrigin = DeepOneHybrid2_Object.transform.position;
                 GameObject obj = DeepOneHybrid2_Object;
                 SpriteRenderer spR = DeepOneHybrid2_Render;
-                if (Success == "성공")
+                if (Success == "Success")
                 {
                     if (DataBaseManager.BattleWeapon == "Dagger")
                     {
@@ -1457,7 +1466,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 enemyOrigin = DeepOneHybrid3_Object.transform.position;
                 GameObject obj = DeepOneHybrid3_Object;
                 SpriteRenderer spR = DeepOneHybrid3_Render;
-                if (Success == "성공")
+                if (Success == "Success")
                 {
                     if (DataBaseManager.BattleWeapon == "Dagger")
                     {
@@ -2650,7 +2659,7 @@ public class BattleManager : MonoBehaviour
                 PlayerMAUI.SetActive(false);
                 BattleManager.Instance.EnemySelectUI.SetActive(false);
                 BattleState = "Rollet";
-                BattleRollet.Instance.setBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid1.DeepOneHybrid_MatialArts);
+                BattleRollet.Instance.setBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid1.DeepOneHybrid_MatialArts);
             }
             if (PlayerAction == "PlayerSwords")
             {
@@ -2658,17 +2667,17 @@ public class BattleManager : MonoBehaviour
                 if (DataBaseManager.BattleWeapon == "Dagger")
                 {
                     BattleState = "Rollet";
-                    BattleRollet.Instance.setBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid1.DeepOneHybrid_MatialArts);
+                    BattleRollet.Instance.setBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid1.DeepOneHybrid_MatialArts);
                 }
                 if (DataBaseManager.BattleWeapon == "Bat")
                 {
                    BattleState = "Rollet";
-                    BattleRollet.Instance.setBattleRollet("Fabian : Hit", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid1.DeepOneHybrid_MatialArts);
+                    BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid1.DeepOneHybrid_MatialArts);
                 }
                 if (DataBaseManager.BattleWeapon == "Axe")
                 {
                    BattleState = "Rollet";
-                    BattleRollet.Instance.setBattleRollet("Fabian : Hit", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid1.DeepOneHybrid_MatialArts);
+                    BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid1.DeepOneHybrid_MatialArts);
                 }
             }
             if (PlayerAction == "PlayerMarkmen")
@@ -2716,7 +2725,7 @@ public class BattleManager : MonoBehaviour
             if (PlayerAction == "martialarts")
             {
                 BattleState = "Rollet";
-                BattleRollet.Instance.setBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid2.DeepOneHybrid_MatialArts);
+                BattleRollet.Instance.setBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid2.DeepOneHybrid_MatialArts);
             }
             if (PlayerAction == "PlayerSwords")
             {
@@ -2724,17 +2733,17 @@ public class BattleManager : MonoBehaviour
                 if (DataBaseManager.BattleWeapon == "Dagger")
                 {
                     BattleState = "Rollet";
-                    BattleRollet.Instance.setBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid2.DeepOneHybrid_MatialArts);
+                    BattleRollet.Instance.setBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid2.DeepOneHybrid_MatialArts);
                 }
                 if (DataBaseManager.BattleWeapon == "Bat")
                 {
                     BattleState = "Rollet";
-                    BattleRollet.Instance.setBattleRollet("Fabian : Hit", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid2.DeepOneHybrid_MatialArts);
+                    BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid2.DeepOneHybrid_MatialArts);
                 }
                 if (DataBaseManager.BattleWeapon == "Axe")
                 {
                     BattleState = "Rollet";
-                    BattleRollet.Instance.setBattleRollet("Fabian : Hit", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid2.DeepOneHybrid_MatialArts);
+                    BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid2.DeepOneHybrid_MatialArts);
                 }
             }
             if (PlayerAction == "PlayerMarkmen")
@@ -2782,7 +2791,7 @@ public class BattleManager : MonoBehaviour
             if (PlayerAction == "martialarts")
             {
                 BattleState = "Rollet";
-                BattleRollet.Instance.setBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid3.DeepOneHybrid_MatialArts);
+                BattleRollet.Instance.setBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid3.DeepOneHybrid_MatialArts);
             }
             if (PlayerAction == "PlayerSwords")
             {
@@ -2790,17 +2799,17 @@ public class BattleManager : MonoBehaviour
                 if (DataBaseManager.BattleWeapon == "Dagger")
                 {
                     BattleState = "Rollet";
-                    BattleRollet.Instance.setBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid3.DeepOneHybrid_MatialArts);
+                    BattleRollet.Instance.setBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid3.DeepOneHybrid_MatialArts);
                 }
                 if (DataBaseManager.BattleWeapon == "Bat")
                 {
                     BattleState = "Rollet";
-                    BattleRollet.Instance.setBattleRollet("Fabian : Hit", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid3.DeepOneHybrid_MatialArts);
+                    BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid3.DeepOneHybrid_MatialArts);
                 }
                 if (DataBaseManager.BattleWeapon == "Axe")
                 {
                     BattleState = "Rollet";
-                    BattleRollet.Instance.setBattleRollet("Fabian : Hit", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : 반격", "반격", DeepOneHybrid3.DeepOneHybrid_MatialArts);
+                    BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid3.DeepOneHybrid_MatialArts);
                 }
             }
             if (PlayerAction == "PlayerMarkmen")

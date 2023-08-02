@@ -283,7 +283,7 @@ public class SoundManager : MonoBehaviour
         void 효과음관리()
     {
 
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false)
+        if (DataBaseManager.isActiveDialog1 == true || DataBaseManager.isRollet == true || DataBaseManager.isDirecting == true || DataBaseManager.isOpenUi == true)
         {
             효과음창.Stop();
         }

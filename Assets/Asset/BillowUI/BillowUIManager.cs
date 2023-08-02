@@ -120,7 +120,7 @@ public class BillowUIManager : MonoBehaviour
     {
         DataBaseManager.nowSan += damage;
         setSan = setSan - nomalizedSan * damage;
-        mentalBar.healthSystem.Damage(damage);
+        mentalBar.healthSystem.Heal(damage);
     }
     void Awake()
     {

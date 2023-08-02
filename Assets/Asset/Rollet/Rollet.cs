@@ -6,7 +6,7 @@ using TMPro;
 public class Rollet : MonoBehaviour
 {
     bool activeCheck = false;
-
+    bool activeCheck2 = false;
     string Subject;
     string Sub_Dialog;
     public GameObject RolletSetUi;
@@ -57,6 +57,7 @@ public class Rollet : MonoBehaviour
 
     public GameObject EndButton;
 
+    string  String;
 
     private void Update()
     {
@@ -65,6 +66,7 @@ public class Rollet : MonoBehaviour
             activeCheck = false;
             DataBaseManager.CancelJudge = true;
    
+
              if (BattleManager.Instance.PlayerAction == "PlayerMarkmen")
             {
                 BattleManager.Instance.EnemySelectUI.SetActive(true);
@@ -106,6 +108,19 @@ public class Rollet : MonoBehaviour
 
 
             }
+        }
+
+
+
+        if (SanRollet.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck2 == true)
+        {
+            activeCheck2 = false;
+            activeSanRollet();
+        }
+        if (EndButton2.activeSelf == true && Input.GetKeyDown(KeyCode.E))
+        {
+
+            EndSanRollet();
         }
     }
     void Awake()
@@ -155,6 +170,7 @@ public class Rollet : MonoBehaviour
         Skill.text = skill;
         Point.text = point_sting + " : " + point_int;
         skillPoint = point_int;
+        String = point_sting;
         if (DataBaseManager.Condition == "Nomal")
         {
             ResetRolletDice();
@@ -403,7 +419,19 @@ public class Rollet : MonoBehaviour
         {
             result_End.text = "Result : Failure";
         }
-        EndButton.SetActive(true);
+
+
+
+        if(String == "Sanity")
+        {
+            Invoke("OpenSanRollet", 1f);
+
+        }
+        else
+        {
+            EndButton.SetActive(true);
+        }
+
 
     }
 
@@ -522,12 +550,289 @@ public class Rollet : MonoBehaviour
 
     }
 
+    public GameObject EndButton2;
+
+    public TextMeshProUGUI SanName;
+    public TextMeshProUGUI Slot1_name;
+    public TextMeshProUGUI Slot1_percent;
+    public TextMeshProUGUI Slot2_name;
+    public TextMeshProUGUI Slot2_percent;
+    public TextMeshProUGUI Slot3_name;
+    public TextMeshProUGUI Slot3_percent;
+    public TextMeshProUGUI SanRolletText;
+    public GameObject SanRollet;
+
+    int slot1_int;
+    int slot2_int;
+    int slot3_int;
+
+    public GameObject SanM10;
+    public GameObject SanM5;
+
+    //Level - 1 Debuff
+    public GameObject ThinWallets;
+    public GameObject Carelessness;
+    public GameObject Debilitation;
+    public GameObject Dizziness;
+    public GameObject Sprains;
+    public GameObject Unlucky;
+    public GameObject MusclePain;
+    public GameObject Migraines;
+    public GameObject EyeDisease;
+
+    public void OpenSanRollet()
+    {
+        SanRollet.SetActive(true);
+        Invoke("waitOneSec2", 0.1f);
+        if (result_End.text == "Result : Fumble" || result_End.text == "Result : Failure")
+        {
+            if(DataBaseManager.Debuff == 0)
+            {
+                if(DataBaseManager.Condition != "Worst")
+                {
+                    SanName.text = "!Sanity check failed!";
+                    Slot1_name.text = "Sanity Decline";
+                    Slot1_percent.text = "50%";
+                    slot1_int = 50;
+                    Slot2_name.text = "Manifest Insanity";
+                    Slot2_percent.text = "30%";
+                    slot2_int = slot1_int + 30;
+                    Slot3_name.text = "Deconditioning";
+                    Slot3_percent.text = "20%";
+                    slot3_int = slot2_int + 20;
+                }
+                else
+                {
+                    SanName.text = "!Sanity check failed!";
+                    Slot1_name.text = "Sanity Decline";
+                    Slot1_percent.text = "50%";
+                    slot1_int = 50;
+                    Slot2_name.text = "Manifest Insanity";
+                    Slot2_percent.text = "50%";
+                    slot2_int = slot1_int + 50;
+                    Slot3_name.text = "Deconditioning";
+                    Slot3_percent.text = "---";
+                    slot3_int = slot2_int + 999;
+                }
+
+            }
+
+        }
+        else
+        {
+            SanName.text = "Sanity check Success";
+            Slot1_name.text = "No change";
+            Slot1_percent.text = "33%";
+            Slot2_name.text = "Rise sanity";
+            Slot2_percent.text = "33%";
+            Slot3_name.text = "Raise Condition";
+            Slot3_percent.text = "33%";
+        }
+
+    }
+    public void activeSanRollet()
+    {
+        ChangeSanRollet();
+    }
+    public void waitOneSec2()
+    {
+        activeCheck2 = true;
+    }
+    void ChangeSanRollet()
+    {
+        if(SanName.text == "!Sanity check failed!")
+        {
+            int SanRollet = (Random.Range(1, 101));
+            Debug.Log(SanRollet);
+            if(SanRollet <= slot1_int && SanRollet <= slot2_int && SanRollet <= slot3_int)
+            {
+                SanRolletText.text = "Sanity Decline";
+            }
+            else if (SanRollet >= slot1_int && SanRollet <= slot2_int && SanRollet <= slot3_int)
+            {
+                SanRolletText.text = "Manifest Insanity";
+            }
+            else if (SanRollet >= slot1_int && SanRollet >= slot2_int && SanRollet <= slot3_int)
+
+            {
+                SanRolletText.text = "Deconditioning";
+            }
+
+        }
+
+        Invoke("ResultRollet",1);
+    }
+
+    void ResultRollet()
+    {
+        if (SanRolletText.text == "Sanity Decline")
+        {
+            int SanRollet = (Random.Range(1, 2));
+            if(SanRollet == 1)
+            {
+
+                DataBaseManager.nowSan -= 10;
+                SanM10.SetActive(true);
+            }
+            else
+            {
+
+                DataBaseManager.nowSan -= 5;
+                SanM5.SetActive(true);
+            }
+        }
+        else if (SanRolletText.text == "Manifest Insanity")
+        {
+            if (DataBaseManager.Debuff == 0)
+            {
+                int DebuffRollet = (Random.Range(1, 9));
+                switch (DebuffRollet)
+                {
+                    case 1:
+                        ThinWallets.SetActive(true);
+                        DataBaseManager.weal -= 5;
+                        break;
+                    case 2:
+                        Carelessness.SetActive(true);
+                        DataBaseManager.hp -= 5;
+                        DataBaseManager.nowHP -= 5;
+                        break;
+                    case 3:
+                        Debilitation.SetActive(true);
+                        DataBaseManager.str -= 5;
+                        break;
+                    case 4:
+                        Dizziness.SetActive(true);
+                        DataBaseManager.intl -= 5;
+                        break;
+                    case 5:
+                        Sprains.SetActive(true);
+                        DataBaseManager.dex -= 5;
+                        break;
+                    case 6:
+                        Unlucky.SetActive(true);
+                        DataBaseManager.luk -= 5;
+                        break;
+                    case 7:
+                        MusclePain.SetActive(true);
+                        DataBaseManager.gunShotPoint -= 10;
+                        DataBaseManager.martialArtsPoint -= 10;
+                        DataBaseManager.swimingPoint -= 10;
+                        DataBaseManager.swordPoint -= 10;
+                        DataBaseManager.ObservationPoint -= 10;
+                        break;
+                    case 8:
+                        Migraines.SetActive(true);
+                        DataBaseManager.medicinePoint -= 10;
+                        DataBaseManager.analysisPoint -= 10;
+                        DataBaseManager.listeningPoint -= 10;
+                        DataBaseManager.psychotherapyPoint -= 10;
+                        DataBaseManager.occultPoint -= 10;
+                        break;
+                    case 9:
+                        EyeDisease.SetActive(true);
+                        DataBaseManager.evasionPoint -= 10;
+                        DataBaseManager.deftnessPoint -= 10;
+                        DataBaseManager.rhetoricPoint -= 10;
+                        DataBaseManager.stealthPoint -= 10;
+                        DataBaseManager.DisguisePoint -= 10;
+                        break;
+                }
+                    
+            }
+        }
+        else if (SanRolletText.text == "Deconditioning")
+        {
+            if (DataBaseManager.Condition == "Best")
+            {
+                DataBaseManager.Condition = "Good";
+            }
+            else if (DataBaseManager.Condition == "Good")
+            {
+                DataBaseManager.Condition = "Nomal";
+            }
+            else if(DataBaseManager.Condition == "Nomal")
+            {
+                DataBaseManager.Condition = "Bad";
+            }
+            else if(DataBaseManager.Condition == "Bad")
+            {
+                DataBaseManager.Condition = "Worst";
+            }
+            else if(DataBaseManager.Condition == "Worst")
+            {
+
+            }
+            
+        }
+
+        EndButton2.SetActive(true);
+    }
+
+    public void EndSanRollet()
+    {
+        SoundManager.Instance.EndDice();
 
 
 
+        RolletSetUi.SetActive(false);
+        RolletCheckUI.SetActive(true);
+        RolletRollUI.SetActive(false);
 
-    // 중요!!!!!!!
-    private void ResetString()
+
+        activeCheck = false;
+        DataBaseManager.isRollet = false;
+        isClick = false;
+        SanRollet.SetActive(false);
+        EndButton2.SetActive(false);
+        resetSanRollet();
+        // 결과값을 전달하는 함수 필요
+
+        if (Subject == "dialog")
+        {
+            //InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
+            // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
+            // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 결과값에 따른 문자를 출력하도록 함
+        }
+
+
+    }
+
+    void resetSanRollet()
+    {
+        EndButton2.SetActive(false);
+
+        SanName.text = "";
+        Slot1_name.text = "";
+        Slot1_percent.text = "";
+        Slot2_name.text = "";
+        Slot2_percent.text = "";
+        Slot3_name.text = "";
+        Slot3_percent.text = "";
+        SanRolletText.text = "";
+
+        slot1_int = 0;
+        slot2_int = 0;
+        slot3_int = 0;
+
+        SanM10.SetActive(false);
+        SanM5.SetActive(false);
+
+        //Level - 1 Debuff
+        ThinWallets.SetActive(false);
+        Carelessness.SetActive(false);
+        Debilitation.SetActive(false);
+        Dizziness.SetActive(false);
+        Sprains.SetActive(false);
+        Unlucky.SetActive(false);
+        MusclePain.SetActive(false);
+        Migraines.SetActive(false);
+        EyeDisease.SetActive(false);
+
+    }
+
+// 중요!!!!!!!
+private void ResetString()
     {
         NomalRollet_1t.text = "-";
         NomalRollet_10t.text = "--";

@@ -166,7 +166,7 @@ public class BattleRollet : MonoBehaviour
         SoundManager.Instance.PaperClip_Play();
         DataBaseManager.isRollet = true;
         Subject = subject;
-        Sub_Dialog = skill; // 나중에 다이얼로그 결과 전송시 사용
+        Sub_Dialog = skill; // 나중에 다이얼로그 Result 전송시 사용
         ResetString();
         RolletSetUi.SetActive(true);
         //플레이어
@@ -182,7 +182,7 @@ public class BattleRollet : MonoBehaviour
         if (DataBaseManager.Condition == "Nomal")
         {
             ResetRolletDice();
-            Conditon.text = "컨디션 : 보통";
+            Conditon.text = "Condition: Nomal";
 
             SkillPoint_1 = point_int % 10;
             SkillPoint_10 = point_int / 10;
@@ -191,7 +191,7 @@ public class BattleRollet : MonoBehaviour
         else if (DataBaseManager.Condition == "Good")
         {
             ResetRolletDice();
-            Conditon.text = "컨디션 : 좋음";
+            Conditon.text = "Condition: Good";
             Good_1.SetActive(true);
             Good_1_Rollet.SetActive(true);
             SkillPoint_1 = point_int % 10;
@@ -201,7 +201,7 @@ public class BattleRollet : MonoBehaviour
         else if (DataBaseManager.Condition == "Best")
         {
             ResetRolletDice();
-            Conditon.text = "컨디션 : 최상";
+            Conditon.text = "Condition: Best";
             Good_10.SetActive(true);
             Good_10_Rollet.SetActive(true);
             SkillPoint_1 = point_int % 10;
@@ -211,7 +211,7 @@ public class BattleRollet : MonoBehaviour
         else if (DataBaseManager.Condition == "Bad")
         {
             ResetRolletDice();
-            Conditon.text = "컨디션 : 나쁨";
+            Conditon.text = "Condition: Bad";
             Bad_1.SetActive(true);
             Bad_1_Rollet.SetActive(true);
             SkillPoint_1 = point_int % 10;
@@ -221,7 +221,7 @@ public class BattleRollet : MonoBehaviour
         else if (DataBaseManager.Condition == "Worst")
         {
             ResetRolletDice();
-            Conditon.text = "컨디션 : 최악";
+            Conditon.text = "Condition: Worst";
             Bad_10.SetActive(true);
             Bad_10_Rollet.SetActive(true);
             SkillPoint_1 = point_int % 10;
@@ -230,27 +230,27 @@ public class BattleRollet : MonoBehaviour
         }
 
         // 적 확률 계산.
-        E_Expect.text = "성공예상 : 예상불가";
+        E_Expect.text = "Probability : ???";
 
         if (SuccesProbability < 0.20)
         {
-            Expect.text = "성공예상 : 매우 어려움";
+            Expect.text = "Probability : Very Hard";
         }
         else if (SuccesProbability < 0.40)
         {
-            Expect.text = "성공예상 : 어려움";
+            Expect.text = "Probability : Hard";
         }
         else if (SuccesProbability < 0.60)
         {
-            Expect.text = "성공예상 : 보통";
+            Expect.text = "Probability : Nomal";
         }
         else if (SuccesProbability < 0.80)
         {
-            Expect.text = "성공예상 : 쉬움";
+            Expect.text = "Probability : Easy";
         }
         else if (SuccesProbability < 1)
         {
-            Expect.text = "성공예상 : 매우 쉬움";
+            Expect.text = "Probability : Very Easy";
         }
         Invoke("waitOneSec", 0.1f);
     }
@@ -328,7 +328,7 @@ public class BattleRollet : MonoBehaviour
             {
                 result_int = 100;
             }
-            result_string.text = "결과 : " + result_int.ToString();
+            result_string.text = "Dice : " + result_int.ToString();
         }
         else if (DataBaseManager.Condition == "Good")
         {
@@ -339,7 +339,7 @@ public class BattleRollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
             else
             {
@@ -348,7 +348,7 @@ public class BattleRollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
         }
         else if (DataBaseManager.Condition == "Best")
@@ -360,7 +360,7 @@ public class BattleRollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
             else
             {
@@ -369,7 +369,7 @@ public class BattleRollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
         }
         else if (DataBaseManager.Condition == "Bad")
@@ -381,7 +381,7 @@ public class BattleRollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
             else
             {
@@ -390,7 +390,7 @@ public class BattleRollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
         }
         else if (DataBaseManager.Condition == "Worst")
@@ -402,7 +402,7 @@ public class BattleRollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
             else
             {
@@ -411,7 +411,7 @@ public class BattleRollet : MonoBehaviour
                 {
                     result_int = 100;
                 }
-                result_string.text = "결과 : " + result_int.ToString();
+                result_string.text = "Dice : " + result_int.ToString();
             }
         }
 
@@ -421,7 +421,7 @@ public class BattleRollet : MonoBehaviour
         {
             E_result_int = 100;
         }
-        E_result_string.text = "결과 : " + E_result_int.ToString();
+        E_result_string.text = "Dice : " + E_result_int.ToString();
 
         Invoke("GetStringResult", 0.5f);
     }
@@ -430,36 +430,36 @@ public class BattleRollet : MonoBehaviour
         SoundManager.Instance.pen_Circle();
         if (result_int >= 95)
         {
-            result_End.text = "판정 : 대실패";
+            result_End.text = "Result : Fumble";
         }
         else if (result_int <= skillPoint / 3f)
         {
-            result_End.text = "판정 : 대성공";
+            result_End.text = "Result : Critical Success";
         }
         else if (result_int <= skillPoint)
         {
-            result_End.text = "판정 : 성공";
+            result_End.text = "Result : Success";
         }
         else
         {
-            result_End.text = "판정 : 실패";
+            result_End.text = "Result : Failure";
         }
 
         if (E_result_int >= 95)
         {
-            E_result_End.text = "판정 : 대실패";
+            E_result_End.text = "Result : Fumble";
         }
         else if (E_result_int <= E_skillPoint / 3f)
         {
-            E_result_End.text = "판정 : 대성공";
+            E_result_End.text = "Result : Critical Success";
         }
         else if (E_result_int <= E_skillPoint)
         {
-            E_result_End.text = "판정 : 성공";
+            E_result_End.text = "Result : Success";
         }
         else
         {
-            E_result_End.text = "판정 : 실패";
+            E_result_End.text = "Result : Failure";
         }
 
         Invoke("GetFinalResult", 0.5f);
@@ -471,117 +471,117 @@ public class BattleRollet : MonoBehaviour
     {
         if (Subject == "evasion")
         {
-            if (result_End.text == "판정 : 대성공")
+            if (result_End.text == "Result : Critical Success")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "회피 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "Evasion : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 성공" && E_result_End.text == "판정 : 성공")
+            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Success")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "회피 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "Evasion : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 성공" && E_result_End.text == "판정 : 실패")
+            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Failure")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "회피 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "Evasion : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 성공" && E_result_End.text == "판정 : 대실패")
+            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Fumble")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "회피 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "Evasion : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 실패" && E_result_End.text == "판정 : 실패")
+            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Failure")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "회피 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "Evasion : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 실패" && E_result_End.text == "판정 : 대실패")
+            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Fumble")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "회피 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "Evasion : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 대실패" && E_result_End.text == "판정 : 대실패")
+            else if (result_End.text == "Result : Fumble" && E_result_End.text == "Result : Fumble")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "회피 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "Evasion : " + FinalResult;
             }
             else
             {
-                FinalResult = "실패";
-                FinalResult_t.text = "회피 : " + FinalResult;
+                FinalResult = "Failure";
+                FinalResult_t.text = "Evasion : " + FinalResult;
             }
 
             
-        } // 유리판정 예제
+        } // 유리Result 예제
         if (Subject == "counterattack")
         {
-            if (result_End.text == "판정 : 대성공" && E_result_End.text != "판정 : 대성공")
+            if (result_End.text == "Result : Critical Success" && E_result_End.text != "Result : Critical Success")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "반격 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "CounterAttack : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 성공" && E_result_End.text != "판정 : 대성공" && E_result_End.text != "판정 : 성공")
+            else if (result_End.text == "Result : Success" && E_result_End.text != "Result : Critical Success" && E_result_End.text != "Result : Success")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "반격 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "CounterAttack : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 실패" && E_result_End.text != "판정 : 대성공" && E_result_End.text != "판정 : 성공" && E_result_End.text != "판정 : 실패")
+            else if (result_End.text == "Result : Failure" && E_result_End.text != "Result : Critical Success" && E_result_End.text != "Result : Success" && E_result_End.text != "Result : Failure")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "반격 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "CounterAttack : " + FinalResult;
             }
             else
             {
-                FinalResult = "실패";
-                FinalResult_t.text = "반격 : " + FinalResult;
+                FinalResult = "Failure";
+                FinalResult_t.text = "CounterAttack : " + FinalResult;
             }
 
 
-        } //불리판정 예제
+        } //불리Result 예제
 
         // 플레이어행동
         if (Subject == "MA_attack_Counter")
         {
-            if (result_End.text == "판정 : 대성공")
+            if (result_End.text == "Result : Critical Success")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "MartialArt : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 성공" && E_result_End.text == "판정 : 성공")
+            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Success")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "MartialArt : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 성공" && E_result_End.text == "판정 : 실패")
+            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Failure")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "MartialArt : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 성공" && E_result_End.text == "판정 : 대실패")
+            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Fumble")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "MartialArt : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 실패" && E_result_End.text == "판정 : 실패")
+            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Failure")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "MartialArt : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 실패" && E_result_End.text == "판정 : 대실패")
+            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Fumble")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "MartialArt : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 대실패" && E_result_End.text == "판정 : 대실패")
+            else if (result_End.text == "Result : Fumble" && E_result_End.text == "Result : Fumble")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "MartialArt : " + FinalResult;
             }
             else
             {
-                FinalResult = "실패";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Failure";
+                FinalResult_t.text = "MartialArt : " + FinalResult;
             }
 
 
@@ -589,45 +589,45 @@ public class BattleRollet : MonoBehaviour
         }
         if (Subject == "SS_attack_Counter")
         {
-            if (result_End.text == "판정 : 대성공")
+            if (result_End.text == "Result : Critical Success")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "Swordsmanship : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 성공" && E_result_End.text == "판정 : 성공")
+            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Success")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "Swordsmanship : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 성공" && E_result_End.text == "판정 : 실패")
+            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Failure")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "Swordsmanship : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 성공" && E_result_End.text == "판정 : 대실패")
+            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Fumble")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "Swordsmanship : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 실패" && E_result_End.text == "판정 : 실패")
+            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Failure")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "Swordsmanship : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 실패" && E_result_End.text == "판정 : 대실패")
+            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Fumble")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "Swordsmanship : " + FinalResult;
             }
-            else if (result_End.text == "판정 : 대실패" && E_result_End.text == "판정 : 대실패")
+            else if (result_End.text == "Result : Fumble" && E_result_End.text == "Result : Fumble")
             {
-                FinalResult = "성공";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Success";
+                FinalResult_t.text = "Swordsmanship : " + FinalResult;
             }
             else
             {
-                FinalResult = "실패";
-                FinalResult_t.text = "격투술 : " + FinalResult;
+                FinalResult = "Failure";
+                FinalResult_t.text = "Swordsmanship : " + FinalResult;
             }
 
 
@@ -685,7 +685,7 @@ public class BattleRollet : MonoBehaviour
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
             // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
-            // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 결과값에 따른 문자를 출력하도록 함
+            // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 Result값에 따른 문자를 출력하도록 함
         }
     }
 
@@ -700,10 +700,10 @@ public class BattleRollet : MonoBehaviour
         BadRollet_10t.text = "--";
         GoodRollet_1t.text = "-";
         GoodRollet_10t.text = "--";
-        result_string.text ="결과 : --";
-        result_End.text = "판정 : --";
-        E_result_string.text = "결과 : --";
-        E_result_End.text = "판정 : --";
+        result_string.text ="Dice : --";
+        result_End.text = "Result : --";
+        E_result_string.text = "Dice : --";
+        E_result_End.text = "Result : --";
         FinalResult_t.text = "---";
     }
     private void ResetRolletDice()

@@ -251,6 +251,13 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.nowPlace = "DetectiveOffice";
             MapManager.Instance.MapOn();
         }
+
+
+        if(DataBaseManager.nowHP <= 0 && DataBaseManager.TimeCount >1)  
+        {
+
+            DataBaseManager.EndDemo = true;
+        }
     }
     bool once = false;
 
@@ -261,8 +268,8 @@ public class DirectingManager : MonoBehaviour
         Camera.transform.position = Cam_BattlePos;
         Invoke("BattleDialog", 2f);
     }
-
-
+    public GameObject battleUI;
+    public BattleCameraMove cameraMove;
     void BattleDialog()
     {
 
@@ -271,6 +278,10 @@ public class DirectingManager : MonoBehaviour
     //¿¸≈ı 
     public void GotoBattle()
     {
+
+        BattleManager.Instance.startReload();
+        battleUI.SetActive(true);
+        cameraMove.enabled = true;
         //DialogManager.SetActive(false);
         cameraManager.enabled = false;
         Camera.transform.position = Cam_BattlePos;
@@ -283,6 +294,9 @@ public class DirectingManager : MonoBehaviour
     }
     public void EndBattleInvoke()
     {
+
+        battleUI.SetActive(false);
+        cameraMove.enabled = false;
         DialogManager.SetActive(true);
         cameraManager.enabled = true;
         BattleM.SetActive(false);

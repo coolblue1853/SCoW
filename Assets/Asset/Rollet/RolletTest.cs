@@ -12,50 +12,50 @@ public class RolletTest : MonoBehaviour
     {
 
 
-
-        DataBaseManager.Axe += 1;
-        DataBaseManager.Bat += 1;
-        DataBaseManager.Dagger += 1;
-
-
-        DataBaseManager.SmallPistol += 1;
-         DataBaseManager.Shotgun += 1;
-         DataBaseManager.Rifle += 1;
-        DataBaseManager.Revolver += 1;
-
-
-        DataBaseManager.PistolAmmo = 20;
-        DataBaseManager.RifleAmmo += 10;
-        DataBaseManager.ShotgunAmmo += 10;
-
-        DataBaseManager.Molotov += 1;
-
-        DataBaseManager.dex = 999;
-
-   
-        DataBaseManager.gunShotPoint = 50;
         /*
-        DataBaseManager.Intel_Aiden1 = true;
-        DataBaseManager.Intel_Safe1 = true;
-        DataBaseManager.Intel_Nightmare1 = true;
-        DataBaseManager.Intel_Nightmare2 = true;
-        DataBaseManager.Intel_Nightmare3 = true;
-        DataBaseManager.Intel_Nightmare4 = true;
-        DataBaseManager.Intel_Insomnia1 = true;
-        DataBaseManager.Intel_Insomnia2 =true;
+DataBaseManager.Axe += 1;
+DataBaseManager.Bat += 1;
+DataBaseManager.Dagger += 1;
 
-        DataBaseManager.Intel_PlanetarySequence1 = true;
-        DataBaseManager.Intel_University1 = true;
-        DataBaseManager.Intel_Meiv1 = true;
-        DataBaseManager.Intel_MissingPeople1 = true;
-        DataBaseManager.Intel_SewerGhostStory1 = true;
-        DataBaseManager.Intel_SewerGhostStory2 = true;
-        DataBaseManager.Intel_CreepyEyes1 = true;
-        DataBaseManager.Intel_SewerWorker1 = true;
-        DataBaseManager.Intel_FishySmell1 = true;
-        DataBaseManager.Intel_FishySmell2 = true;
-        DataBaseManager.Intel_FishySmell3 = true;
-        */
+
+DataBaseManager.SmallPistol += 1;
+ DataBaseManager.Shotgun += 1;
+ DataBaseManager.Rifle += 1;
+DataBaseManager.Revolver += 1;
+
+
+DataBaseManager.PistolAmmo = 20;
+DataBaseManager.RifleAmmo += 10;
+DataBaseManager.ShotgunAmmo += 10;
+
+DataBaseManager.Molotov += 1;
+
+DataBaseManager.dex = 999;
+
+
+DataBaseManager.gunShotPoint = 50;
+
+DataBaseManager.Intel_Aiden1 = true;
+DataBaseManager.Intel_Safe1 = true;
+DataBaseManager.Intel_Nightmare1 = true;
+DataBaseManager.Intel_Nightmare2 = true;
+DataBaseManager.Intel_Nightmare3 = true;
+DataBaseManager.Intel_Nightmare4 = true;
+DataBaseManager.Intel_Insomnia1 = true;
+DataBaseManager.Intel_Insomnia2 =true;
+
+DataBaseManager.Intel_PlanetarySequence1 = true;
+DataBaseManager.Intel_University1 = true;
+DataBaseManager.Intel_Meiv1 = true;
+DataBaseManager.Intel_MissingPeople1 = true;
+DataBaseManager.Intel_SewerGhostStory1 = true;
+DataBaseManager.Intel_SewerGhostStory2 = true;
+DataBaseManager.Intel_CreepyEyes1 = true;
+DataBaseManager.Intel_SewerWorker1 = true;
+DataBaseManager.Intel_FishySmell1 = true;
+DataBaseManager.Intel_FishySmell2 = true;
+DataBaseManager.Intel_FishySmell3 = true;
+
         DataBaseManager.nowPlace = "DetectiveOffice";
         //DataBaseManager.nowPlace = "DetectiveOffice";
         //   DataBaseManager.nowPlace = "Slum";
@@ -86,6 +86,8 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.weal = (Random.Range(5, 26));
         DataBaseManager.nowHP = DataBaseManager.hp;
         DataBaseManager.nowSan = DataBaseManager.san;
+        */
+
     }
     public void NewsRollet()
     {
@@ -94,12 +96,13 @@ public class RolletTest : MonoBehaviour
     }
     private void Start()
     {
-        DataBaseManager.nowPlace = "BattleRoad";
-        DataBaseManager.deftnessPoint =90;
-        DataBaseManager.swordPoint = 90;
-        DataBaseManager.martialArtsPoint = 90;
-        DataBaseManager.gunShotPoint = 90;
-        BattleManager.Instance.StartBattle = true;
+      //  DataBaseManager.weal = 99999;
+    //    DataBaseManager.nowPlace = "BattleRoad";
+      //  DataBaseManager.deftnessPoint =90;
+     //   DataBaseManager.swordPoint = 90;
+     //   DataBaseManager.martialArtsPoint = 90;
+      //  DataBaseManager.gunShotPoint = 90;
+      //  BattleManager.Instance.StartBattle = true;
     }
     private void Update()
     {
@@ -107,7 +110,7 @@ public class RolletTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F10))
         {
-            DataBaseManager.weal += 10;
+            DataBaseManager.Sewer_San = true;
 
             //   DataBaseManager.Shotgun += 1;
             // DataBaseManager.Rifle += 1;
@@ -119,15 +122,15 @@ public class RolletTest : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F7))
         {
-            DataBaseManager.Shotgun += 1;
-            DataBaseManager.Bandages += 1;
-            DataBaseManager.Intel_Safe2 = true;
+            DataBaseManager.Painkillers += 1;
+          //  DataBaseManager.Bandages += 1;
+           // DataBaseManager.Intel_Safe2 = true;
             //DataBaseManager.Firstaidkit += 1;
 
         }
         if (Input.GetKeyDown(KeyCode.F8))
         {
-            DataBaseManager.Bandages += 1;
+            BillowUIManager.Instance.San_Down(5);
 
         }
         if (Input.GetKeyDown(KeyCode.F9))
