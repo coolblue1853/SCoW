@@ -580,6 +580,28 @@ public class Rollet : MonoBehaviour
     public GameObject Migraines;
     public GameObject EyeDisease;
 
+    //Level - 2 Debuff
+    public GameObject Masochism;
+    public GameObject Careless;
+    public GameObject MentalWeakness;
+    public GameObject Helplessness  ;
+    public GameObject Extravagant;
+    public GameObject PanicAttack;
+    public GameObject Medicaldistrust;
+    public GameObject Hallucinations;
+    public GameObject Tightwad;
+
+    //Level - 3 Debuff
+    public GameObject NightPhobia;
+    public GameObject Deafness;
+    public GameObject VisionLoss;
+    public GameObject ShortTempered;
+    public GameObject Dyslexia;
+    public GameObject DrugPhobia;
+    public GameObject CognitiveDisorder;
+    public GameObject CognitiveBreakdown;
+    public GameObject HomicidalImpulse;
+    public GameObject Perfectionism;
     public void OpenSanRollet()
     {
         SanRollet.SetActive(true);
@@ -616,7 +638,95 @@ public class Rollet : MonoBehaviour
                 }
 
             }
+            else if (DataBaseManager.Debuff == 1)
+            {
+                if (DataBaseManager.Condition != "Worst")
+                {
+                    SanName.text = "!Sanity check failed!";
+                    Slot1_name.text = "Sanity Decline";
+                    Slot1_percent.text = "30%";
+                    slot1_int = 30;
+                    Slot2_name.text = "Manifest Insanity";
+                    Slot2_percent.text = "50%";
+                    slot2_int = slot1_int + 50;
+                    Slot3_name.text = "Deconditioning";
+                    Slot3_percent.text = "20%";
+                    slot3_int = slot2_int + 20;
+                }
+                else
+                {
+                    SanName.text = "!Sanity check failed!";
+                    Slot1_name.text = "Sanity Decline";
+                    Slot1_percent.text = "30%";
+                    slot1_int = 30;
+                    Slot2_name.text = "Manifest Insanity";
+                    Slot2_percent.text = "70%";
+                    slot2_int = slot1_int + 70;
+                    Slot3_name.text = "Deconditioning";
+                    Slot3_percent.text = "---";
+                    slot3_int = slot2_int + 999;
+                }
 
+            }
+            else if (DataBaseManager.Debuff == 2)
+            {
+                if (DataBaseManager.Condition != "Worst")
+                {
+                    SanName.text = "!Sanity check failed!";
+                    Slot1_name.text = "Sanity Decline";
+                    Slot1_percent.text = "20%";
+                    slot1_int = 20;
+                    Slot2_name.text = "Manifest Insanity";
+                    Slot2_percent.text = "60%";
+                    slot2_int = slot1_int + 60;
+                    Slot3_name.text = "Deconditioning";
+                    Slot3_percent.text = "20%";
+                    slot3_int = slot2_int + 20;
+                }
+                else
+                {
+                    SanName.text = "!Sanity check failed!";
+                    Slot1_name.text = "Sanity Decline";
+                    Slot1_percent.text = "20%";
+                    slot1_int = 20;
+                    Slot2_name.text = "Manifest Insanity";
+                    Slot2_percent.text = "80%";
+                    slot2_int = slot1_int + 80;
+                    Slot3_name.text = "Deconditioning";
+                    Slot3_percent.text = "---";
+                    slot3_int = slot2_int + 999;
+                }
+
+            }
+            else if (DataBaseManager.Debuff == 3)
+            {
+                if (DataBaseManager.Condition != "Worst")
+                {
+                    SanName.text = "!Sanity check failed!";
+                    Slot1_name.text = "Sanity Decline";
+                    Slot1_percent.text = "40%";
+                    slot1_int = 40;
+                    Slot2_name.text = "Manifest Insanity";
+                    Slot2_percent.text = "---";
+                    Slot3_name.text = "Deconditioning";
+                    Slot3_percent.text = "60%";
+                    slot3_int = slot2_int + 60;
+                }
+                else
+                {
+                    SanName.text = "!Sanity check failed!";
+                    Slot1_name.text = "Sanity Decline";
+                    Slot1_percent.text = "100%";
+                    slot1_int = 100;
+                    Slot2_name.text = "Manifest Insanity";
+                    Slot2_percent.text = "---%";
+                    slot2_int = slot1_int + 999;
+                    Slot3_name.text = "Deconditioning";
+                    Slot3_percent.text = "---";
+                    slot3_int = slot2_int + 999;
+                }
+
+            }
         }
         else
         {
@@ -644,18 +754,34 @@ public class Rollet : MonoBehaviour
         {
             int SanRollet = (Random.Range(1, 101));
             Debug.Log(SanRollet);
-            if(SanRollet <= slot1_int && SanRollet <= slot2_int && SanRollet <= slot3_int)
-            {
-                SanRolletText.text = "Sanity Decline";
-            }
-            else if (SanRollet >= slot1_int && SanRollet <= slot2_int && SanRollet <= slot3_int)
-            {
-                SanRolletText.text = "Manifest Insanity";
-            }
-            else if (SanRollet >= slot1_int && SanRollet >= slot2_int && SanRollet <= slot3_int)
 
+            if(DataBaseManager.Debuff == 3)
             {
-                SanRolletText.text = "Deconditioning";
+                if (SanRollet <= slot1_int &&  SanRollet <= slot3_int)
+                {
+                    SanRolletText.text = "Sanity Decline";
+                }
+                else
+
+                {
+                    SanRolletText.text = "Deconditioning";
+                }
+            }
+            else
+            {
+                if (SanRollet <= slot1_int && SanRollet <= slot2_int && SanRollet <= slot3_int)
+                {
+                    SanRolletText.text = "Sanity Decline";
+                }
+                else if (SanRollet >= slot1_int && SanRollet <= slot2_int && SanRollet <= slot3_int)
+                {
+                    SanRolletText.text = "Manifest Insanity";
+                }
+                else if (SanRollet >= slot1_int && SanRollet >= slot2_int && SanRollet <= slot3_int)
+
+                {
+                    SanRolletText.text = "Deconditioning";
+                }
             }
 
         }
@@ -685,7 +811,8 @@ public class Rollet : MonoBehaviour
         {
             if (DataBaseManager.Debuff == 0)
             {
-                int DebuffRollet = (Random.Range(1, 9));
+                DataBaseManager.Debuff += 1;
+                int DebuffRollet = (Random.Range(1, 10));
                 switch (DebuffRollet)
                 {
                     case 1:
@@ -739,6 +866,100 @@ public class Rollet : MonoBehaviour
                         break;
                 }
                     
+            }
+            else if (DataBaseManager.Debuff == 1)
+            {
+                DataBaseManager.Debuff += 1;
+                int DebuffRollet = (Random.Range(1, 10));
+                switch (DebuffRollet)
+                {
+                    case 1:
+                        Masochism.SetActive(true);
+                        DataBaseManager.Masochism = true;
+                        break;
+                    case 2:
+                        Careless.SetActive(true);
+                        SIS_UIManager.Instance.CareLessActive();
+                        break;
+                    case 3:
+                        MentalWeakness.SetActive(true);
+
+                        break;
+                    case 4:
+                        Helplessness.SetActive(true);
+
+                        break;
+                    case 5:
+                        Extravagant.SetActive(true);
+
+                        break;
+                    case 6:
+                        PanicAttack.SetActive(true);
+
+                        break;
+                    case 7:
+                        Medicaldistrust.SetActive(true);
+
+                        break;
+                    case 8:
+                        Hallucinations.SetActive(true);
+
+                        break;
+                    case 9:
+                        Tightwad.SetActive(true);
+
+                        break;
+                }
+
+            }
+            else if (DataBaseManager.Debuff == 2)
+            {
+                DataBaseManager.Debuff += 1;
+                int DebuffRollet = (Random.Range(1, 11));
+                switch (DebuffRollet)
+                {
+                    case 1:
+                        NightPhobia.SetActive(true);
+
+                        break;
+                    case 2:
+                        Deafness.SetActive(true);
+
+                        break;
+                    case 3:
+                        VisionLoss.SetActive(true);
+
+                        break;
+                    case 4:
+                        ShortTempered.SetActive(true);
+
+                        break;
+                    case 5:
+                        Dyslexia.SetActive(true);
+
+                        break;
+                    case 6:
+                        DrugPhobia.SetActive(true);
+
+                        break;
+                    case 7:
+                        CognitiveDisorder.SetActive(true);
+
+                        break;
+                    case 8:
+                        CognitiveBreakdown.SetActive(true);
+
+                        break;
+                    case 9:
+                        HomicidalImpulse.SetActive(true);
+
+                        break;
+                    case 10:
+                        Perfectionism.SetActive(true);
+
+                        break;
+                }
+
             }
         }
         else if (SanRolletText.text == "Deconditioning")
@@ -828,6 +1049,28 @@ public class Rollet : MonoBehaviour
         MusclePain.SetActive(false);
         Migraines.SetActive(false);
         EyeDisease.SetActive(false);
+
+             Masochism.SetActive(false);
+        Careless.SetActive(false);
+        MentalWeakness.SetActive(false);
+        Helplessness.SetActive(false);
+        Extravagant.SetActive(false);
+        PanicAttack.SetActive(false);
+        Medicaldistrust.SetActive(false);
+        Hallucinations.SetActive(false);
+        Tightwad.SetActive(false);
+
+        //Level - 3 Debuff
+        NightPhobia.SetActive(false);
+        Deafness.SetActive(false);
+        VisionLoss.SetActive(false);
+        ShortTempered.SetActive(false);
+        Dyslexia.SetActive(false);
+        DrugPhobia.SetActive(false);
+        CognitiveDisorder.SetActive(false);
+        CognitiveBreakdown.SetActive(false);
+        HomicidalImpulse.SetActive(false);
+        Perfectionism.SetActive(false);
 
     }
 

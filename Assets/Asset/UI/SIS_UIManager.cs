@@ -622,5 +622,197 @@ public class SIS_UIManager : MonoBehaviour
         Debug.LogError("Object with name " + objectName + " not found in children.");
     }
 
+     string inputString; // 사용자가 입력한 문자열
+     string[] resultArray; // 문자열을 저장할 배열
+    int arrayInt=0;
+    public void CareLessActive()
+    {
+        // 배열 초기화
+        int maxWeapons = 13; // 무기와 아이템의 총 개수
+        resultArray = new string[maxWeapons];
+
+        if (DataBaseManager.Shotgun > 0 )
+        {
+            resultArray[arrayInt] = "Shotgun";
+            arrayInt += 1;
+
+
+        }
+        if (DataBaseManager.Rifle > 0)
+        {
+            resultArray[arrayInt] = "Rifle";
+            arrayInt += 1;
+
+
+        }
+        if (DataBaseManager.Revolver > 0)
+        {
+            resultArray[arrayInt] = "Revolver";
+            arrayInt += 1;
+
+        }
+        if (DataBaseManager.SmallPistol > 0)
+        {
+            resultArray[arrayInt] = "SmallPistol";
+            arrayInt += 1;
+
+        }
+        if (DataBaseManager.Bat > 0)
+        {
+            resultArray[arrayInt] = "Bat";
+            arrayInt += 1;
+
+        }
+        if (DataBaseManager.Axe > 0)
+        {
+            resultArray[arrayInt] = "Axe";
+            arrayInt += 1;
+
+        }
+        if (DataBaseManager.Dagger > 0)
+        {
+            resultArray[arrayInt] = "Dagger";
+            arrayInt += 1;
+
+        }
+
+        if (DataBaseManager.Molotov > 0)
+        {
+            resultArray[arrayInt] = "Molotov";
+            arrayInt += 1;
+
+        }
+        if (DataBaseManager.PistolAmmo > 0)
+        {
+            resultArray[arrayInt] = "PistolAmmo";
+            arrayInt += 1;
+
+        }
+        if (DataBaseManager.RifleAmmo > 0)
+        {
+            resultArray[arrayInt] = "RifleAmmo";
+            arrayInt += 1;
+
+        }
+        if (DataBaseManager.ShotgunAmmo > 0)
+        {
+            resultArray[arrayInt] = "ShotgunAmmo";
+            arrayInt += 1;
+
+        }
+        if (DataBaseManager.Firstaidkit > 0)
+        {
+            resultArray[arrayInt] = "Firstaidkit";
+            arrayInt += 1;
+
+        }
+        if (DataBaseManager.Bandages > 0)
+        {
+            resultArray[arrayInt] = "Bandages";
+            arrayInt += 1;
+
+        }
+        if (DataBaseManager.Painkillers > 0)
+        {
+            resultArray[arrayInt] = "Painkillers";
+            arrayInt += 1;
+
+        }
+
+        int i = Random.Range(0, arrayInt);
+        Debug.Log(resultArray[i]);
+
+        if (resultArray[i] == "Shotgun")
+        {
+            DataBaseManager.Shotgun -= 1;
+
+
+        }
+        else if (resultArray[i] == "Rifle")
+        {
+            DataBaseManager.Rifle -= 1;
+
+
+        }
+        else if (resultArray[i] == "Revolver")
+        {
+            DataBaseManager.Revolver -= 1;
+
+
+        }
+        else if (resultArray[i] == "SmallPistol")
+        {
+            DataBaseManager.SmallPistol -= 1;
+
+
+        }
+        else if (resultArray[i] == "Bat")
+        {
+            DataBaseManager.Bat -= 1;
+
+
+        }
+        else if (resultArray[i] == "Axe")
+        {
+            DataBaseManager.Axe -= 1;
+
+
+        }
+        else if (resultArray[i] == "Dagger")
+        {
+            DataBaseManager.Dagger -= 1;
+
+
+        }
+        else if (resultArray[i] == "Molotov")
+        {
+            DataBaseManager.Molotov -= 1;
+
+
+        }
+        else if (resultArray[i] == "PistolAmmo")
+        {
+            DataBaseManager.PistolAmmo -= 1;
+
+
+        }
+        else if (resultArray[i] == "RifleAmmo")
+        {
+            DataBaseManager.RifleAmmo -= 1;
+
+
+        }
+        else if (resultArray[i] == "ShotgunAmmo")
+        {
+            DataBaseManager.ShotgunAmmo -= 1;
+
+
+        }
+        else if (resultArray[i] == "ShotgunAmmo")
+        {
+            DataBaseManager.ShotgunAmmo -= 1;
+
+
+        }
+        else if (resultArray[i] == "Firstaidkit")
+        {
+            DataBaseManager.Firstaidkit -= 1;
+
+
+        }
+        else if (resultArray[i] == "Bandages")
+        {
+            DataBaseManager.Bandages -= 1;
+        }
+        else if (resultArray[i] == "Painkillers")
+        {
+            DataBaseManager.Painkillers -= 1;
+        }
+
+  
+    }
+
+
+    // 배열에서 랜덤 변수를 선택하는 함수
 
 }

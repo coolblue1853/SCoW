@@ -96,13 +96,21 @@ DataBaseManager.Intel_FishySmell3 = true;
     }
     private void Start()
     {
-      //  DataBaseManager.weal = 99999;
-    //    DataBaseManager.nowPlace = "BattleRoad";
-      //  DataBaseManager.deftnessPoint =90;
-     //   DataBaseManager.swordPoint = 90;
-     //   DataBaseManager.martialArtsPoint = 90;
-      //  DataBaseManager.gunShotPoint = 90;
-      //  BattleManager.Instance.StartBattle = true;
+        DataBaseManager.Axe += 1;
+        DataBaseManager.Bat += 1;
+        DataBaseManager.Dagger += 1;
+
+
+        DataBaseManager.SmallPistol += 1;
+        DataBaseManager.Shotgun += 1;
+
+        //  DataBaseManager.weal = 99999;
+        //    DataBaseManager.nowPlace = "BattleRoad";
+        //  DataBaseManager.deftnessPoint =90;
+        //   DataBaseManager.swordPoint = 90;
+        //   DataBaseManager.martialArtsPoint = 90;
+        //  DataBaseManager.gunShotPoint = 90;
+        //  BattleManager.Instance.StartBattle = true;
     }
     private void Update()
     {
@@ -130,7 +138,7 @@ DataBaseManager.Intel_FishySmell3 = true;
         }
         if (Input.GetKeyDown(KeyCode.F8))
         {
-            BillowUIManager.Instance.San_Down(5);
+
 
         }
         if (Input.GetKeyDown(KeyCode.F9))

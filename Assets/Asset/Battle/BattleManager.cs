@@ -2557,8 +2557,17 @@ public class BattleManager : MonoBehaviour
         }
         if (subject == "player")
         {
-            DamageNumber damageNumber = numberPrefab.Spawn(player.transform.position, damage);
-            BillowUIManager.Instance.HP_down(damage);
+            if(DataBaseManager.Masochism == true)
+            {
+                DamageNumber damageNumber = numberPrefab.Spawn(player.transform.position, damage+5);
+                BillowUIManager.Instance.HP_down(damage);
+            }
+            else
+            {
+                DamageNumber damageNumber = numberPrefab.Spawn(player.transform.position, damage);
+                BillowUIManager.Instance.HP_down(damage);
+            }
+
         }
     }
     void OnSpriteChangeComplete(SpriteRenderer subject, Sprite sprite)

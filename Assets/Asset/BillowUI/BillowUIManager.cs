@@ -99,9 +99,20 @@ public class BillowUIManager : MonoBehaviour
 
     public void HP_down(int damage)
     {
-        DataBaseManager.nowHP -= damage;
-        setHP = (setHP - nomalizedHP * damage);
-        healthBar.healthSystem.Damage(damage);
+        if(DataBaseManager.Masochism == true)
+        {
+            damage += 5;
+            DataBaseManager.nowHP -= damage;
+            setHP = (setHP - nomalizedHP * damage);
+            healthBar.healthSystem.Damage(damage);
+        }
+        else
+        {
+            DataBaseManager.nowHP -= damage;
+            setHP = (setHP - nomalizedHP * damage);
+            healthBar.healthSystem.Damage(damage);
+        }
+
     }
     public void San_Down(int damage)
     {

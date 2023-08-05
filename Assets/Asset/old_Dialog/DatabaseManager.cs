@@ -6,8 +6,14 @@ public class DataBaseManager : MonoBehaviour
 {
     //Sanity
     public static int Debuff = 0;
-
-
+    public static bool Masochism = false;
+    public static bool MentalWeakness = false;
+    public static bool Helplessness = false;
+    public static bool Extravagant = false;
+    public static bool PanicAttack = false;
+    public static bool Medicaldistrust = false;
+    public static bool Hallucinations = false;
+    public static bool Tightwad = false;
     //Inventory
     public static bool isItemUI = false;
     public static bool isUseSafe = false;
@@ -577,8 +583,18 @@ public class DataBaseManager : MonoBehaviour
 
     public void ResetData()
     {
+
+        Debuff = 0;
+        Masochism = false;
+        MentalWeakness = false;
+        Helplessness = false;
+        Extravagant = false;
+        PanicAttack = false;
+        Medicaldistrust = false;
+        Hallucinations = false;
+        Tightwad = false;
         //battle
-           isItemUI = false;
+        isItemUI = false;
       isUseSafe = false;
 
       nowItem = "";
