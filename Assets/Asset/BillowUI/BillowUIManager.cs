@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DamageNumbersPro;
 public class BillowUIManager : MonoBehaviour
-{    
-    
+{
+    public DamageNumber numberPrefab;
+    public GameObject BattlePlayer;
+    public GameObject Player;
+
     public float setHP;
     public float  FullHP;
     public float  nomalizedHP;
@@ -99,15 +103,39 @@ public class BillowUIManager : MonoBehaviour
 
     public void HP_down(int damage)
     {
-        if(DataBaseManager.Masochism == true)
+        CameraManager.Instance.ShakeCam();
+        if (DataBaseManager.Masochism == true)
         {
-            damage += 5;
+            int updamage = damage + 5;
+            DamageNumber damageNumber = numberPrefab.Spawn(Player.transform.position, updamage);
+            DamageNumber damageNumber2 = numberPrefab.Spawn(Player.transform.position, 5);
+            DataBaseManager.nowHP -= updamage;
+            setHP = (setHP - nomalizedHP * updamage);
+            healthBar.healthSystem.Damage(updamage);
+        }
+        else
+        {
+            DamageNumber damageNumber = numberPrefab.Spawn(Player.transform.position, damage);
             DataBaseManager.nowHP -= damage;
             setHP = (setHP - nomalizedHP * damage);
             healthBar.healthSystem.Damage(damage);
         }
+
+    }
+    public void HP_Battledown(int damage)
+    {
+        if (DataBaseManager.Masochism == true)
+        {
+            int updamage = damage + 5;
+            DamageNumber damageNumber = numberPrefab.Spawn(BattlePlayer.transform.position, updamage);
+            DamageNumber damageNumber2 = numberPrefab.Spawn(BattlePlayer.transform.position, 5);
+            DataBaseManager.nowHP -= updamage;
+            setHP = (setHP - nomalizedHP * updamage);
+            healthBar.healthSystem.Damage(updamage);
+        }
         else
         {
+            DamageNumber damageNumber = numberPrefab.Spawn(BattlePlayer.transform.position, damage);
             DataBaseManager.nowHP -= damage;
             setHP = (setHP - nomalizedHP * damage);
             healthBar.healthSystem.Damage(damage);
@@ -116,22 +144,57 @@ public class BillowUIManager : MonoBehaviour
     }
     public void San_Down(int damage)
     {
-        DataBaseManager.nowSan -= damage;
-        setSan = setSan - nomalizedSan * damage;
-        mentalBar.healthSystem.Damage(damage);
+        CameraManager.Instance.ShakeCam();
+        if (DataBaseManager.MentalWeakness == true)
+        {
+            damage += 5;
+            DataBaseManager.nowSan -= damage;
+            setSan = setSan - nomalizedSan * damage;
+            mentalBar.healthSystem.Damage(damage);
+        }
+        else
+        {
+            DataBaseManager.nowSan -= damage;
+            setSan = setSan - nomalizedSan * damage;
+            mentalBar.healthSystem.Damage(damage);
+        }
+
     }
 
     public void HP_up(int healed)
     {
-        DataBaseManager.nowHP += healed;
-        setHP = (setHP - nomalizedHP * healed);
-        healthBar.healthSystem.Heal(healed);
+        if (healed > DataBaseManager.hp - DataBaseManager.nowHP)
+        {
+            healed = DataBaseManager.hp - DataBaseManager.nowHP;
+            DataBaseManager.nowHP += healed;
+            setHP = (setHP - nomalizedHP * healed);
+            healthBar.healthSystem.Heal(healed);
+        }
+        else
+        {
+            DataBaseManager.nowHP += healed;
+            setHP = (setHP - nomalizedHP * healed);
+            healthBar.healthSystem.Heal(healed);
+        }
+
     }
     public void San_up(int damage)
     {
-        DataBaseManager.nowSan += damage;
-        setSan = setSan - nomalizedSan * damage;
-        mentalBar.healthSystem.Heal(damage);
+
+        if(damage > DataBaseManager.san - DataBaseManager.nowSan)
+        {
+            damage = DataBaseManager.san - DataBaseManager.nowSan;
+            DataBaseManager.nowSan += damage;
+            setSan = setSan - nomalizedSan * damage;
+            mentalBar.healthSystem.Heal(damage);
+        }
+        else
+        {
+            DataBaseManager.nowSan += damage;
+            setSan = setSan - nomalizedSan * damage;
+            mentalBar.healthSystem.Heal(damage);
+        }
+
     }
     void Awake()
     {

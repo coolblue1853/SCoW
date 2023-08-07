@@ -6,6 +6,8 @@ using DG.Tweening;
 using DamageNumbersPro;
 public class BattleManager : MonoBehaviour
 {
+    public GameObject UIButton;
+
     public BattleResetUI battleResetUI;
     public DamageNumber numberPrefab;
 
@@ -132,8 +134,13 @@ public class BattleManager : MonoBehaviour
                   */
     }
 
+    public void CloseButtonUI()
+    {
+        UIButton.SetActive(false);
+    }
     void EndRoadBattle()
     {
+        UIButton.SetActive(true);
         InteractionController.Instance.BattleDialog("End");
     }
     public static BattleManager Instance
@@ -2559,13 +2566,14 @@ public class BattleManager : MonoBehaviour
         {
             if(DataBaseManager.Masochism == true)
             {
-                DamageNumber damageNumber = numberPrefab.Spawn(player.transform.position, damage+5);
-                BillowUIManager.Instance.HP_down(damage);
+              //  DamageNumber damageNumber = numberPrefab.Spawn(player.transform.position, damage);
+               // DamageNumber damageNumber2 = numberPrefab.Spawn(player.transform.position, 5);
+                BillowUIManager.Instance.HP_Battledown(damage);
             }
             else
             {
-                DamageNumber damageNumber = numberPrefab.Spawn(player.transform.position, damage);
-                BillowUIManager.Instance.HP_down(damage);
+               // DamageNumber damageNumber = numberPrefab.Spawn(player.transform.position, damage);
+                BillowUIManager.Instance.HP_Battledown(damage);
             }
 
         }

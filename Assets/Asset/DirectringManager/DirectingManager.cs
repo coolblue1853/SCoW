@@ -178,7 +178,7 @@ public class DirectingManager : MonoBehaviour
         if (DataBaseManager.Sewer_San == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.Sewer_San = false;
-            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.san, "dialog");
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "dialog");
         }
         //병원
         if (DataBaseManager.Kate_Disapear == true && DataBaseManager.isActiveDialog1 == false)
@@ -232,14 +232,16 @@ public class DirectingManager : MonoBehaviour
         //전투
         if (DataBaseManager.Battle_San == true && DataBaseManager.isActiveDialog1 == false)
         {
+ 
             DataBaseManager.Battle_San = false;
-            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.san, "dialog");
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "dialog");
         }
         if(DataBaseManager.isBattleBeforeDialog == true &&DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.isBattleBeforeDialog = false;
             FadingBackGround.Instance.CastInOut();
             Invoke("GotoBattle",0.8f);
+            BattleManager.Instance.CloseButtonUI();
         }
 
         if (DataBaseManager.EndBattle == true && DataBaseManager.isActiveDialog1 == false)
@@ -305,7 +307,8 @@ public class DirectingManager : MonoBehaviour
 
     public void setBattle()
     {
-         BattleManager.Instance.StartBattle = true;
+        DataBaseManager.isDirecting = false;
+        BattleManager.Instance.StartBattle = true;
 
 
     }

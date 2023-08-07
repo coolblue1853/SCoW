@@ -218,14 +218,20 @@ public class MapManager : MonoBehaviour
             {
                 SlumButton.SetActive(true);
             }
-            if (DataBaseManager.nowPlace == "Gunshop")
+
+
+            if(DataBaseManager.Tightwad == false)
             {
-                GunshopButton.SetActive(false);
+                if (DataBaseManager.nowPlace == "Gunshop")
+                {
+                    GunshopButton.SetActive(false);
+                }
+                else
+                {
+                    GunshopButton.SetActive(true);
+                }
             }
-            else
-            {
-                GunshopButton.SetActive(true);
-            }
+  
         }
         if ((DataBaseManager.TimeCount % 4) == 3)
         {
@@ -359,6 +365,7 @@ public class MapManager : MonoBehaviour
     {
         if (DataBaseManager.isBar == true)
         {
+            DataBaseManager.isDirecting = true;
             DataBaseManager.isBar = false;
             DataBaseManager.nowPlace = "BattleRoad";
             DialogDatabaseManager.instance.Check = true;
@@ -581,8 +588,27 @@ public class MapManager : MonoBehaviour
             MapUI.SetActive(false);
             DialogDatabaseManager.instance.Check = true;
         }
+
+
+        if(DataBaseManager.PanicAttack == true)
+        {
+            Debug.Log("Panic!");
+            int panic = Random.Range(0, 2);
+            if(panic == 1)
+            {
+                Invoke("PanicAttack", 2f);
+            }
+            else
+            {
+
+            }
+        }
     }
 
+    void PanicAttack()
+    {
+        BillowUIManager.Instance.HP_down(5);
+    }
     void FirstClientsHouseArrive()
     {
         DataBaseManager.firstClientsHouse = true;

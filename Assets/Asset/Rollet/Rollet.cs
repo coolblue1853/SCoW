@@ -420,8 +420,7 @@ public class Rollet : MonoBehaviour
             result_End.text = "Result : Failure";
         }
 
-
-
+   
         if(String == "Sanity")
         {
             Invoke("OpenSanRollet", 1f);
@@ -431,7 +430,7 @@ public class Rollet : MonoBehaviour
         {
             EndButton.SetActive(true);
         }
-
+ 
 
     }
 
@@ -732,11 +731,14 @@ public class Rollet : MonoBehaviour
         {
             SanName.text = "Sanity check Success";
             Slot1_name.text = "No change";
-            Slot1_percent.text = "33%";
+            Slot1_percent.text = "80%";
+            slot1_int = 80;
             Slot2_name.text = "Rise sanity";
-            Slot2_percent.text = "33%";
+            Slot2_percent.text = "15%";
+            slot2_int  = 95;
             Slot3_name.text = "Raise Condition";
-            Slot3_percent.text = "33%";
+            Slot3_percent.text = "5%";
+            slot3_int = 100;
         }
 
     }
@@ -785,7 +787,27 @@ public class Rollet : MonoBehaviour
             }
 
         }
+        else if (SanName.text == "Sanity check Success")
+        {
+            int SanRollet = (Random.Range(1, 101));
+            Debug.Log(SanRollet);
+            if (SanRollet <= slot1_int)
+            {
+                Debug.Log("1");
+                SanRolletText.text = "No change";
+            }
+            else if (SanRollet <= slot2_int)
+            {
+                Debug.Log("2");
+                SanRolletText.text = "Rise sanity";
+            }
+            else
 
+            {
+                Debug.Log("3");
+                SanRolletText.text = "Raise Condition";
+            }
+        }
         Invoke("ResultRollet",1);
     }
 
@@ -793,17 +815,17 @@ public class Rollet : MonoBehaviour
     {
         if (SanRolletText.text == "Sanity Decline")
         {
-            int SanRollet = (Random.Range(1, 2));
+            int SanRollet = (Random.Range(0, 3));
             if(SanRollet == 1)
             {
 
-                DataBaseManager.nowSan -= 10;
+                BillowUIManager.Instance.San_Down(10);
                 SanM10.SetActive(true);
             }
             else
             {
 
-                DataBaseManager.nowSan -= 5;
+                BillowUIManager.Instance.San_Down(5);
                 SanM5.SetActive(true);
             }
         }
@@ -870,7 +892,7 @@ public class Rollet : MonoBehaviour
             else if (DataBaseManager.Debuff == 1)
             {
                 DataBaseManager.Debuff += 1;
-                int DebuffRollet = (Random.Range(1, 10));
+                int DebuffRollet = (Random.Range(1, 8));
                 switch (DebuffRollet)
                 {
                     case 1:
@@ -883,30 +905,32 @@ public class Rollet : MonoBehaviour
                         break;
                     case 3:
                         MentalWeakness.SetActive(true);
-
+                        DataBaseManager.MentalWeakness = true;
                         break;
                     case 4:
                         Helplessness.SetActive(true);
-
+                        DataBaseManager.Helplessness = true;
                         break;
                     case 5:
                         Extravagant.SetActive(true);
-
+                        ShopUI.Instance.ExtravoltON();
+                        DataBaseManager.Extravagant = true;
                         break;
                     case 6:
                         PanicAttack.SetActive(true);
-
+                        DataBaseManager.PanicAttack = true;
                         break;
                     case 7:
-                        Medicaldistrust.SetActive(true);
-
+                        Tightwad.SetActive(true);
+                        DataBaseManager.Tightwad = true;
                         break;
                     case 8:
-                        Hallucinations.SetActive(true);
+                        Hallucinations.SetActive(true);      // 나중에 연출로 해서 넣기~~~~~~~~~~~~
 
                         break;
                     case 9:
-                        Tightwad.SetActive(true);
+                        Medicaldistrust.SetActive(true);   // 나중에 상점 추가된 뒤에 해서 넣기~~~~~~~~~~~~
+
 
                         break;
                 }
@@ -986,7 +1010,49 @@ public class Rollet : MonoBehaviour
             }
             
         }
+        else if (SanRolletText.text == "Rise sanity")
+        {
+            int SanRollet = (Random.Range(0, 2));
+            if (SanRollet == 1)
+            {
 
+                BillowUIManager.Instance.San_up(10);
+                SanM10.SetActive(true);
+            }
+            else
+            {
+
+                BillowUIManager.Instance.San_up(5);
+                SanM5.SetActive(true);
+            }
+        }
+        else if (SanRolletText.text == "Raise Condition")
+        {
+            if (DataBaseManager.Condition == "Best")
+            {
+   
+            }
+            else if (DataBaseManager.Condition == "Good")
+            {
+                DataBaseManager.Condition = "Best";
+            }
+            else if (DataBaseManager.Condition == "Nomal")
+            {
+                DataBaseManager.Condition = "Good";
+            }
+            else if (DataBaseManager.Condition == "Bad")
+            {
+                DataBaseManager.Condition = "Nomal";
+            }
+            else if (DataBaseManager.Condition == "Worst")
+            {
+                DataBaseManager.Condition = "Bad";
+            }
+        }
+        else if (SanRolletText.text == "No change")
+        {
+            
+        }
         EndButton2.SetActive(true);
     }
 
@@ -1011,7 +1077,7 @@ public class Rollet : MonoBehaviour
 
         if (Subject == "dialog")
         {
-            //InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
             // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
             // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 결과값에 따른 문자를 출력하도록 함
         }

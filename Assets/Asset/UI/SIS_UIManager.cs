@@ -162,8 +162,9 @@ public class SIS_UIManager : MonoBehaviour
     // Update is called once per frame
     public void OpenMap()
     {
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false)
+        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad")
         {
+            DataBaseManager.isItemUI = true;
             OpenItemDetail();
             DataBaseManager.workSound = false;
             DataBaseManager.isOpenUi = true;
@@ -173,6 +174,7 @@ public class SIS_UIManager : MonoBehaviour
     }
     public void CloseMap()
     {
+        DataBaseManager.isItemUI = false;
         DataBaseManager.isOpenUi = false;
         SIS_UI.SetActive(false);
     }
@@ -190,29 +192,27 @@ public class SIS_UIManager : MonoBehaviour
             Key_Detail.text = "";
         }
 
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isDirecting == false)
+        if (DataBaseManager.isActiveDialog1 == false)
         {
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 if (SIS_UI.activeSelf == false)
                 {
-                    DataBaseManager.isItemUI = true;
+
                     Okay2CheckUI();
                     DataBaseManager.workSound = false;
                     OpenMap();
                 }
                 else if (SIS_UI.activeSelf == true)
                 {
-                    DataBaseManager.isItemUI = false;
+
                     CloseMap();
                 }
 
             }
             if (Input.GetKeyDown(KeyCode.Escape) && SIS_UI.activeSelf == true)
             {
-                DataBaseManager.isItemUI = false;
-                DataBaseManager.isOpenUi = false;
-                SIS_UI.SetActive(false);
+                CloseMap();
             }
         }
     }

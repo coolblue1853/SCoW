@@ -93,6 +93,7 @@ public class setStat : MonoBehaviour
 
     public void CloseCheckUI()
     {
+        isAll = false;
         checkUI.SetActive(false);
     }
     public void Okay2CheckUI()
@@ -133,10 +134,20 @@ public class setStat : MonoBehaviour
         DataBaseManager.weal = (Random.Range(5, 36));
         weal_txt.text = DataBaseManager.weal.ToString();
         weal_image.fillAmount = ((float)DataBaseManager.weal / 35);
-
+        DataBaseManager.nowHP = DataBaseManager.hp;
+        DataBaseManager.nowSan = DataBaseManager.san;
 
         setSkill.resetSkillPoint();
         checkUI.SetActive(false);
+
+        if(isAll == true)
+        {
+            setSkill.RandDex();
+            setSkill.RandInt();
+            setSkill.RandStr();
+            isAll = false;
+        }
+
     }
 
 
@@ -172,8 +183,11 @@ public class setStat : MonoBehaviour
         }
     }
 
+    bool isAll;
     public void AllRandChar()
     {
+        isAll = true;
+
         SoundManager.Instance.pen_Circle();
         SetStatButton();
         setSkill.RandDex();

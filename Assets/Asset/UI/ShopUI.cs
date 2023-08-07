@@ -31,6 +31,26 @@ public class ShopUI : MonoBehaviour
     public Text AidKitText;
     public Text PainkillerText;
 
+    public Text SmallPistolPrice;
+    public Text RevolverPrice;
+    public Text ShotgunPrice;
+    public Text RiflePrice;
+    public Text DaggerPrice;
+    public Text AxePrice;
+    public Text BatPrice;
+    public Text PistolAmmoPrice;
+    public Text RifleAmmoPrice;
+    public Text ShotgunAmmoPrice;
+    public Text MolotovPrice;
+    public Text BandagePrice;
+    public Text AidKitPrice;
+    public Text PainkillerPrice;
+
+
+
+
+
+
     private static ShopUI instance = null;
     public static ShopUI Instance
     {
@@ -85,131 +105,329 @@ public class ShopUI : MonoBehaviour
             PainkillerText.text = "Hold:" + DataBaseManager.Painkillers + "Pcs";
         }
 
+     
+
+    }
+
+    public void ExtravoltON()
+    {
+        SmallPistolPrice.text = "Price : 12$";
+        RevolverPrice.text = "Price : 14$";
+        ShotgunPrice.text = "Price : 20$";
+        RiflePrice.text = "Price : 22$";
+        DaggerPrice.text = "Price : 10$";
+        AxePrice.text = "Price : 12$";
+        BatPrice.text = "Price : 7$";
+        PistolAmmoPrice.text = "Price : 3$";
+        RifleAmmoPrice.text = "Price : 3$";
+        ShotgunAmmoPrice.text = "Price : 5$";
+        MolotovPrice.text = "Price : 4$";
+        BandagePrice.text = "Price : 3$";
+        AidKitPrice.text = "Price : 6$";
+        PainkillerPrice.text = "Price : 4$";
     }
 
     //총기류 구매 버튼
     public void BuySmallPistol()
     {
-        if(DataBaseManager.weal >= 10 && DataBaseManager.SmallPistol == 0)
+        if (DataBaseManager.Extravagant == true)
         {
-            DataBaseManager.weal -= 10;
-            DataBaseManager.SmallPistol = 1;
-            SO_SmallPistol.SetActive(true);
+            if (DataBaseManager.weal >= 12 && DataBaseManager.SmallPistol == 0)
+            {
+                DataBaseManager.weal -= 12;
+                DataBaseManager.SmallPistol = 1;
+                SO_SmallPistol.SetActive(true);
+            }
         }
+        else
+        {
+            if (DataBaseManager.weal >= 10 && DataBaseManager.SmallPistol == 0)
+            {
+                DataBaseManager.weal -= 10;
+                DataBaseManager.SmallPistol = 1;
+                SO_SmallPistol.SetActive(true);
+            }
+        }
+
+
     }
     public void BuyRevolver()
     {
-        if (DataBaseManager.weal >= 12 && DataBaseManager.Revolver == 0)
+        if (DataBaseManager.Extravagant == true)
         {
-            DataBaseManager.weal -= 12;
-            DataBaseManager.Revolver = 1;
-            SO_Revolver.SetActive(true);
+            if (DataBaseManager.weal >= 14 && DataBaseManager.Revolver == 0)
+            {
+                DataBaseManager.weal -= 14;
+                DataBaseManager.Revolver = 1;
+                SO_Revolver.SetActive(true);
+            }
         }
+        else
+        {
+            if (DataBaseManager.weal >= 12 && DataBaseManager.Revolver == 0)
+            {
+                DataBaseManager.weal -= 12;
+                DataBaseManager.Revolver = 1;
+                SO_Revolver.SetActive(true);
+            }
+        }
+        
     }
     public void BuyRifle()
     {
-        if (DataBaseManager.weal >= 20 && DataBaseManager.Rifle == 0)
+        if (DataBaseManager.Extravagant == true)
         {
-            DataBaseManager.weal -= 20;
-            DataBaseManager.Rifle = 1;
-            SO_Rifle.SetActive(true);
+            if (DataBaseManager.weal >= 22 && DataBaseManager.Rifle == 0)
+            {
+                DataBaseManager.weal -= 22;
+                DataBaseManager.Rifle = 1;
+                SO_Rifle.SetActive(true);
+            }
         }
+        else
+        {
+            if (DataBaseManager.weal >= 20 && DataBaseManager.Rifle == 0)
+            {
+                DataBaseManager.weal -= 20;
+                DataBaseManager.Rifle = 1;
+                SO_Rifle.SetActive(true);
+            }
+        }
+        
     }
     public void BuyShotgun()
     {
-        if (DataBaseManager.weal >= 18 && DataBaseManager.Shotgun == 0)
+        if (DataBaseManager.Extravagant == true)
         {
-            DataBaseManager.weal -= 18;
-            DataBaseManager.Shotgun = 1;
-            SO_Shotgun.SetActive(true);
+            if (DataBaseManager.weal >= 20 && DataBaseManager.Shotgun == 0)
+            {
+                DataBaseManager.weal -= 20;
+                DataBaseManager.Shotgun = 1;
+                SO_Shotgun.SetActive(true);
+            }
         }
+        else
+        {
+            if (DataBaseManager.weal >= 18 && DataBaseManager.Shotgun == 0)
+            {
+                DataBaseManager.weal -= 18;
+                DataBaseManager.Shotgun = 1;
+                SO_Shotgun.SetActive(true);
+            }
+        }
+
+       
     }
 
     public void BuyPistolAmmo()
     {
-        if (DataBaseManager.weal >= 2)
+        if (DataBaseManager.Extravagant == true)
         {
-            DataBaseManager.weal -= 2;
-            DataBaseManager.PistolAmmo += 12;
+            if (DataBaseManager.weal >= 3)
+            {
+                DataBaseManager.weal -= 3;
+                DataBaseManager.PistolAmmo += 12;
+            }
         }
+        else
+        {
+            if (DataBaseManager.weal >= 2)
+            {
+                DataBaseManager.weal -= 2;
+                DataBaseManager.PistolAmmo += 12;
+            }
+        }
+          
     }
     public void BuyRifleAmmo()
     {
-        if (DataBaseManager.weal >= 2)
+        if (DataBaseManager.Extravagant == true)
         {
-            DataBaseManager.weal -= 2;
-            DataBaseManager.RifleAmmo += 5;
+             if (DataBaseManager.weal >= 3)
+            {
+                DataBaseManager.weal -= 3;
+                DataBaseManager.RifleAmmo += 5;
+            }
         }
+        else
+        {
+            if (DataBaseManager.weal >= 2)
+            {
+                DataBaseManager.weal -= 2;
+                DataBaseManager.RifleAmmo += 5;
+            }
+        }
+           
     }
     public void BuyShotgunAmmo()
     {
-        if (DataBaseManager.weal >= 4)
+        if (DataBaseManager.Extravagant == true)
         {
-            DataBaseManager.weal -= 4;
-            DataBaseManager.ShotgunAmmo += 8;
+            if (DataBaseManager.weal >= 5)
+            {
+                DataBaseManager.weal -= 5;
+                DataBaseManager.ShotgunAmmo += 8;
+            }
         }
+        else
+        {
+
+            if (DataBaseManager.weal >= 4)
+            {
+                DataBaseManager.weal -= 4;
+                DataBaseManager.ShotgunAmmo += 8;
+            }
+        }
+       
     }
 
     public void BuyBat()
     {
-        if (DataBaseManager.weal >= 5 && DataBaseManager.Bat == 0)
+        if (DataBaseManager.Extravagant == true)
         {
-            DataBaseManager.weal -= 5;
-            DataBaseManager.Bat = 1;
-            SO_Bat.SetActive(true);
+            if (DataBaseManager.weal >= 7 && DataBaseManager.Bat == 0)
+            {
+                DataBaseManager.weal -= 7;
+                DataBaseManager.Bat = 1;
+                SO_Bat.SetActive(true);
+            }
         }
+        else
+        {
+            if (DataBaseManager.weal >= 5 && DataBaseManager.Bat == 0)
+            {
+                DataBaseManager.weal -= 5;
+                DataBaseManager.Bat = 1;
+                SO_Bat.SetActive(true);
+            }
+        }
+     
     }
     public void BuyDagger()
     {
-        if (DataBaseManager.weal >= 8 && DataBaseManager.Dagger == 0)
+        if (DataBaseManager.Extravagant == true)
         {
-            DataBaseManager.weal -= 8;
-            DataBaseManager.Dagger = 1;
-            SO_Dagger.SetActive(true);
+            if (DataBaseManager.weal >= 10 && DataBaseManager.Dagger == 0)
+            {
+                DataBaseManager.weal -= 10;
+                DataBaseManager.Dagger = 1;
+                SO_Dagger.SetActive(true);
+            }
         }
+        else
+        {
+            if (DataBaseManager.weal >= 8 && DataBaseManager.Dagger == 0)
+            {
+                DataBaseManager.weal -= 8;
+                DataBaseManager.Dagger = 1;
+                SO_Dagger.SetActive(true);
+            }
+        }
+     
     }
     public void BuyAxe()
     {
-        if (DataBaseManager.weal >= 10 && DataBaseManager.Axe == 0)
+        if (DataBaseManager.Extravagant == true)
         {
-            DataBaseManager.weal -= 10;
-            DataBaseManager.Axe = 1;
-            SO_Axe.SetActive(true);
+            if (DataBaseManager.weal >= 12 && DataBaseManager.Axe == 0)
+            {
+                DataBaseManager.weal -= 12;
+                DataBaseManager.Axe = 1;
+                SO_Axe.SetActive(true);
+            }
         }
+        else
+        {
+            if (DataBaseManager.weal >= 10 && DataBaseManager.Axe == 0)
+            {
+                DataBaseManager.weal -= 10;
+                DataBaseManager.Axe = 1;
+                SO_Axe.SetActive(true);
+            }
+        }
+ 
     }
 
     public void BuyMolotov()
     {
-        if (DataBaseManager.weal >= 2)
+        if (DataBaseManager.Extravagant == true)
         {
-            DataBaseManager.weal -= 2;
-            DataBaseManager.Molotov += 1;
+            if (DataBaseManager.weal >= 4)
+            {
+                DataBaseManager.weal -= 4;
+                DataBaseManager.Molotov += 1;
+            }
         }
+        else
+        {
+            if (DataBaseManager.weal >= 2)
+            {
+                DataBaseManager.weal -= 2;
+                DataBaseManager.Molotov += 1;
+            }
+        }
+       
     }
 
     public void BuyBandage()
     {
-        if (DataBaseManager.weal >= 2)
+        if (DataBaseManager.Extravagant == true)
         {
-            DataBaseManager.weal -= 2;
-            DataBaseManager.Bandages += 1;
+            if (DataBaseManager.weal >= 3)
+            {
+                DataBaseManager.weal -= 3;
+                DataBaseManager.Bandages += 1;
+            }
         }
+        else
+        {
+            if (DataBaseManager.weal >= 2)
+            {
+                DataBaseManager.weal -= 2;
+                DataBaseManager.Bandages += 1;
+            }
+        }
+       
     }
     public void BuyAidkit()
     {
-        if (DataBaseManager.weal >= 5)
+        if (DataBaseManager.Extravagant == true)
         {
-            DataBaseManager.weal -= 5;
-            DataBaseManager.Firstaidkit += 1;
+            if (DataBaseManager.weal >= 6)
+            {
+                DataBaseManager.weal -= 6;
+                DataBaseManager.Firstaidkit += 1;
+            }
         }
+        else
+        {
+            if (DataBaseManager.weal >= 5)
+            {
+                DataBaseManager.weal -= 5;
+                DataBaseManager.Firstaidkit += 1;
+            }
+        }
+        
     }
     public void BuyPainkiller()
     {
-        if (DataBaseManager.weal >= 3)
+        if (DataBaseManager.Extravagant == true)
         {
-            DataBaseManager.weal -= 3;
-            DataBaseManager.Painkillers += 1;
+            if (DataBaseManager.weal >= 4)
+            {
+                DataBaseManager.weal -= 4;
+                DataBaseManager.Painkillers += 1;
+            }
         }
+        else
+        {
+            if (DataBaseManager.weal >= 3)
+            {
+                DataBaseManager.weal -= 3;
+                DataBaseManager.Painkillers += 1;
+            }
+        }
+     
     }
 
 

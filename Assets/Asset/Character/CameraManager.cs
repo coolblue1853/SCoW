@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class CameraManager : MonoBehaviour
 {
     private static CameraManager instance = null;
@@ -68,6 +68,10 @@ public class CameraManager : MonoBehaviour
 
     }
 
+    public void ShakeCam()
+    {
+        this.transform.DOShakePosition(1, 2, 90);
+    }
 
 
     // Update is called once per frame

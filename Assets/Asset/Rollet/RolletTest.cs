@@ -96,13 +96,7 @@ DataBaseManager.Intel_FishySmell3 = true;
     }
     private void Start()
     {
-        DataBaseManager.Axe += 1;
-        DataBaseManager.Bat += 1;
-        DataBaseManager.Dagger += 1;
 
-
-        DataBaseManager.SmallPistol += 1;
-        DataBaseManager.Shotgun += 1;
 
         //  DataBaseManager.weal = 99999;
         //    DataBaseManager.nowPlace = "BattleRoad";
@@ -114,9 +108,11 @@ DataBaseManager.Intel_FishySmell3 = true;
     }
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.F10))
+        {
+        }
 
-
-        if (Input.GetKeyDown(KeyCode.F10))
+            if (Input.GetKeyDown(KeyCode.F10))
         {
             DataBaseManager.Sewer_San = true;
 
@@ -130,7 +126,8 @@ DataBaseManager.Intel_FishySmell3 = true;
         }
         if (Input.GetKeyDown(KeyCode.F7))
         {
-            DataBaseManager.Painkillers += 1;
+            DataBaseManager.Masochism = true;
+      
           //  DataBaseManager.Bandages += 1;
            // DataBaseManager.Intel_Safe2 = true;
             //DataBaseManager.Firstaidkit += 1;
@@ -138,7 +135,8 @@ DataBaseManager.Intel_FishySmell3 = true;
         }
         if (Input.GetKeyDown(KeyCode.F8))
         {
-
+            //BillowUIManager.Instance.HP_Battledown(5);
+            BillowUIManager.Instance.HP_down(5);
 
         }
         if (Input.GetKeyDown(KeyCode.F9))
@@ -186,23 +184,23 @@ DataBaseManager.Intel_FishySmell3 = true;
 
         if (Input.GetKeyDown(KeyCode.F1))
         {
-
+            BillowUIManager.Instance.HP_down(5);
 
         }
         if (Input.GetKeyDown(KeyCode.F2))
         {
 
-
+            BillowUIManager.Instance.HP_up(10);
         }
         if (Input.GetKeyDown(KeyCode.F3))
         {
-
+            BillowUIManager.Instance.San_Down(5);
 
         }
         if (Input.GetKeyDown(KeyCode.F4))
         {
 
-
+            BillowUIManager.Instance.San_up(10);
         }
         if (Input.GetKeyDown(KeyCode.F5))
         {

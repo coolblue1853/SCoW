@@ -41,6 +41,12 @@ public class Player : MonoBehaviour
         {
 			anime.SetBool("Dialog", true);
 		}
+
+
+		if(DataBaseManager.Helplessness == true && runPower == 6f)
+        {
+			runPower = 4f;
+        }
 	}
 
 
