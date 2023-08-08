@@ -193,7 +193,7 @@ public class DataBaseManager : MonoBehaviour
     public static int intSkillPoint = 0;
     public static int medicinePoint = 10;
     public static int analysisPoint = 30;
-    public static int listeningPoint = 5;
+    public static int listeningPoint = 30;
     public static int psychotherapyPoint = 5;
     public static int occultPoint = 5;
 
@@ -759,7 +759,7 @@ NowSelecter = "End"; // End_Look_Judge Á¸Àç
      intSkillPoint = 0;
      medicinePoint = 10;
      analysisPoint = 30;
-     listeningPoint = 5;
+     listeningPoint = 30;
      psychotherapyPoint = 5;
      occultPoint = 5;
 

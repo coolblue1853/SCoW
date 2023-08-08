@@ -601,6 +601,15 @@ public class Rollet : MonoBehaviour
     public GameObject CognitiveBreakdown;
     public GameObject HomicidalImpulse;
     public GameObject Perfectionism;
+
+    //condition
+    public GameObject Best;
+    public GameObject Good;
+    public GameObject Nomal;
+    public GameObject Bad;
+    public GameObject Worst;
+
+    public TextMeshProUGUI Detail_San;
     public void OpenSanRollet()
     {
         SanRollet.SetActive(true);
@@ -793,18 +802,14 @@ public class Rollet : MonoBehaviour
             Debug.Log(SanRollet);
             if (SanRollet <= slot1_int)
             {
-                Debug.Log("1");
                 SanRolletText.text = "No change";
             }
             else if (SanRollet <= slot2_int)
             {
-                Debug.Log("2");
                 SanRolletText.text = "Rise sanity";
             }
             else
-
             {
-                Debug.Log("3");
                 SanRolletText.text = "Raise Condition";
             }
         }
@@ -818,12 +823,13 @@ public class Rollet : MonoBehaviour
             int SanRollet = (Random.Range(0, 3));
             if(SanRollet == 1)
             {
-
+                Detail_San.text = "Sanity Decline : 10\n\nThe current sanity reduced by 10 Point.";
                 BillowUIManager.Instance.San_Down(10);
                 SanM10.SetActive(true);
             }
             else
             {
+                Detail_San.text = "Sanity Decline : 5\n\nThe current sanity reduced by 5 Point.";
 
                 BillowUIManager.Instance.San_Down(5);
                 SanM5.SetActive(true);
@@ -838,29 +844,42 @@ public class Rollet : MonoBehaviour
                 switch (DebuffRollet)
                 {
                     case 1:
+                        Detail_San.text = "Level 1 : ThinWallets\n\nYou lose 5 of your wealth Point.";
                         ThinWallets.SetActive(true);
-                        DataBaseManager.weal -= 5;
+                        if(DataBaseManager.weal > 5)
+                        {
+                            DataBaseManager.weal -= 5;
+                        }
+                        else
+                        {
+                            DataBaseManager.weal = 0;
+                        }
                         break;
                     case 2:
                         Carelessness.SetActive(true);
                         DataBaseManager.hp -= 5;
-                        DataBaseManager.nowHP -= 5;
+                        BillowUIManager.Instance.HP_down(5);
+                        Detail_San.text = "Level 1 : Carelessness\n\nYou lose 5 HP and max HP Point.";
                         break;
                     case 3:
                         Debilitation.SetActive(true);
-                        DataBaseManager.str -= 5;
+                        DataBaseManager.str -= 10;
+                        Detail_San.text = "Level 1 : Debilitation\n\nYou lose 10 Str Point";
                         break;
                     case 4:
                         Dizziness.SetActive(true);
-                        DataBaseManager.intl -= 5;
+                        DataBaseManager.intl -= 10;
+                        Detail_San.text = "Level 1 : Dizziness\n\nYou lose 10 Int Point";
                         break;
                     case 5:
                         Sprains.SetActive(true);
-                        DataBaseManager.dex -= 5;
+                        DataBaseManager.dex -= 10;
+                        Detail_San.text = "Level 1 : Sprains\n\nYou lose 10 Dex Point";
                         break;
                     case 6:
                         Unlucky.SetActive(true);
-                        DataBaseManager.luk -= 5;
+                        DataBaseManager.luk -= 10;
+                        Detail_San.text = "Level 1 : Unlucky\n\nYou lose 10 Luk Point";
                         break;
                     case 7:
                         MusclePain.SetActive(true);
@@ -869,14 +888,31 @@ public class Rollet : MonoBehaviour
                         DataBaseManager.swimingPoint -= 10;
                         DataBaseManager.swordPoint -= 10;
                         DataBaseManager.ObservationPoint -= 10;
+                        Detail_San.text = "Level 1 : MusclePain\n\nAll skills based on Str are reduced by 10 Point.";
                         break;
                     case 8:
                         Migraines.SetActive(true);
                         DataBaseManager.medicinePoint -= 10;
                         DataBaseManager.analysisPoint -= 10;
                         DataBaseManager.listeningPoint -= 10;
-                        DataBaseManager.psychotherapyPoint -= 10;
-                        DataBaseManager.occultPoint -= 10;
+                        if(DataBaseManager.psychotherapyPoint> 10)
+                        {
+                            DataBaseManager.psychotherapyPoint -= 10;
+                        }
+                        else
+                        {
+                            DataBaseManager.psychotherapyPoint = 0;
+                        }
+
+                        if (DataBaseManager.occultPoint > 10)
+                        {
+                            DataBaseManager.occultPoint -= 10;
+                        }
+                        else
+                        {
+                            DataBaseManager.occultPoint = 0;
+                        }
+                        Detail_San.text = "Level 1 : Migraines\n\nAll skills based on Int are reduced by 10 Point.";
                         break;
                     case 9:
                         EyeDisease.SetActive(true);
@@ -885,6 +921,7 @@ public class Rollet : MonoBehaviour
                         DataBaseManager.rhetoricPoint -= 10;
                         DataBaseManager.stealthPoint -= 10;
                         DataBaseManager.DisguisePoint -= 10;
+                        Detail_San.text = "Level 1 : EyeDisease\n\nAll skills based on Dex are reduced by 10 Point."; 
                         break;
                 }
                     
@@ -896,6 +933,7 @@ public class Rollet : MonoBehaviour
                 switch (DebuffRollet)
                 {
                     case 1:
+                        Detail_San.text = "LV : 1 : Masochism\n\nThe player takes an additional 5 damage when hit.(100%)";
                         Masochism.SetActive(true);
                         DataBaseManager.Masochism = true;
                         break;
@@ -990,18 +1028,28 @@ public class Rollet : MonoBehaviour
         {
             if (DataBaseManager.Condition == "Best")
             {
+
+                Good.SetActive(true);
+                Detail_San.text = "Deconditioning : Good\n\nCondition has dropped to (Good).";
+
                 DataBaseManager.Condition = "Good";
             }
             else if (DataBaseManager.Condition == "Good")
             {
+                Nomal.SetActive(true);
+                Detail_San.text = "Deconditioning : Nomal\n\nCondition has dropped to (Nomal).";
                 DataBaseManager.Condition = "Nomal";
             }
             else if(DataBaseManager.Condition == "Nomal")
             {
+                Bad.SetActive(true);
+                Detail_San.text = "Deconditioning : Bad\n\nCondition has dropped to (Bad).";
                 DataBaseManager.Condition = "Bad";
             }
             else if(DataBaseManager.Condition == "Bad")
             {
+                Worst.SetActive(true);
+                Detail_San.text = "Deconditioning : Worst\n\nCondition has dropped to (Worst).";
                 DataBaseManager.Condition = "Worst";
             }
             else if(DataBaseManager.Condition == "Worst")
@@ -1034,18 +1082,22 @@ public class Rollet : MonoBehaviour
             }
             else if (DataBaseManager.Condition == "Good")
             {
+                Best.SetActive(true);
                 DataBaseManager.Condition = "Best";
             }
             else if (DataBaseManager.Condition == "Nomal")
             {
+                Good.SetActive(true);
                 DataBaseManager.Condition = "Good";
             }
             else if (DataBaseManager.Condition == "Bad")
             {
+                Nomal.SetActive(true);
                 DataBaseManager.Condition = "Nomal";
             }
             else if (DataBaseManager.Condition == "Worst")
             {
+                Bad.SetActive(true);
                 DataBaseManager.Condition = "Bad";
             }
         }
@@ -1088,7 +1140,7 @@ public class Rollet : MonoBehaviour
     void resetSanRollet()
     {
         EndButton2.SetActive(false);
-
+        Detail_San.text = "";
         SanName.text = "";
         Slot1_name.text = "";
         Slot1_percent.text = "";
@@ -1137,7 +1189,11 @@ public class Rollet : MonoBehaviour
         CognitiveBreakdown.SetActive(false);
         HomicidalImpulse.SetActive(false);
         Perfectionism.SetActive(false);
-
+        Best.SetActive(false);
+        Good.SetActive(false);
+        Nomal.SetActive(false);
+        Bad.SetActive(false);
+        Worst.SetActive(false);
     }
 
 // Áß¿ä!!!!!!!
