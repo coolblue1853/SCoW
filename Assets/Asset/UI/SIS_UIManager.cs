@@ -5,6 +5,10 @@ using UnityEngine.UI;
 using TMPro;
 public class SIS_UIManager : MonoBehaviour
 {
+    
+
+    public GameObject debuffDetail;
+
     public GameObject SIS_UI;
 
     public GameObject Stat_UI;
@@ -89,6 +93,7 @@ public class SIS_UIManager : MonoBehaviour
     public Image Disguise_g;
 
 
+    public Image imageComponent_Eqip;
     public Image imageComponent_Use;
     public Image imageComponent_Key;
     public Sprite None;
@@ -136,7 +141,6 @@ public class SIS_UIManager : MonoBehaviour
     }
     public void Open_NomalItemUI()
     {
-        Debug.Log("11");
         DataBaseManager.nowItem = "";
         Item_Eqip.transform.SetSiblingIndex(-1);
     }
@@ -172,15 +176,36 @@ public class SIS_UIManager : MonoBehaviour
         }
 
     }
+    public void ResetDetail()
+    {
+        imageComponent_Eqip.sprite = None;
+        imageComponent_Use.sprite = None;
+        imageComponent_Key.sprite = None;
+        Key_Name.text = "";
+        Key_Detail.text = "";
+        Name.text = "";
+        Detail.text = "";
+        Use_Name.text = "";
+        Use_Detail.text = "";
+    }
+
     public void CloseMap()
     {
+        ResetDetail();
+        debuffDetail.SetActive(false);
         DataBaseManager.isItemUI = false;
         DataBaseManager.isOpenUi = false;
         SIS_UI.SetActive(false);
     }
+
+
+
     private void Update()
     {
         ManageItem();
+
+       
+
 
         if (DataBaseManager.nowItem == "")
         {
@@ -213,6 +238,20 @@ public class SIS_UIManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape) && SIS_UI.activeSelf == true)
             {
                 CloseMap();
+            }
+
+
+            if(SIS_UI.activeSelf == false && Key_Name.text != "" && Name.text != "" && Use_Name.text != "")
+            {
+                imageComponent_Eqip.sprite = None;
+                imageComponent_Use.sprite = None;
+                imageComponent_Key.sprite = None;
+                Key_Name.text = "";
+                Key_Detail.text = "";
+                Name.text = "";
+                Detail.text = "";
+                Use_Name.text = "";
+                Use_Detail.text = "";
             }
         }
     }
@@ -563,7 +602,7 @@ public class SIS_UIManager : MonoBehaviour
 
         }
 
-        if (Key_ItemBox.activeSelf == true)
+        if (Key_ItemBox.activeSelf == true )
         {
             if (DataBaseManager.nowItem == "")
             {
@@ -812,6 +851,151 @@ public class SIS_UIManager : MonoBehaviour
   
     }
 
+
+    public GameObject ThinWallets;
+    public void ThinWallets_Open()
+    {
+        ThinWallets.SetActive(true);
+    }
+    public GameObject Carelessness;
+    public void Carelessness_Open()
+    {
+        Carelessness.SetActive(true);
+    }
+    public GameObject Debilitation;
+    public void Debilitation_Open()
+    {
+        Debilitation.SetActive(true);
+    }
+    public GameObject Dizziness;
+    public void Dizziness_Open()
+    {
+        Dizziness.SetActive(true);
+    }
+    public GameObject Sprains;
+    public void Sprains_Open()
+    {
+        Sprains.SetActive(true);
+    }
+    public GameObject Unlucky;
+    public void Unlucky_Open()
+    {
+        Unlucky.SetActive(true);
+    }
+    public GameObject MusclePain;
+    public void MusclePain_Open()
+    {
+        MusclePain.SetActive(true);
+    }
+    public GameObject Migraines;
+    public void Migraines_Open()
+    {
+        Migraines.SetActive(true);
+    }
+    public GameObject EyeDisease;
+    public void EyeDisease_Open()
+    {
+        EyeDisease.SetActive(true);
+    }
+
+    //Level - 2 Debuff
+    public GameObject Masochism;
+    public void Masochism_Open()
+    {
+        Masochism.SetActive(true);
+    }
+    public GameObject Careless;
+    public void Careless_Open()
+    {
+        Careless.SetActive(true);
+    }
+    public GameObject MentalWeakness;
+    public void MentalWeakness_Open()
+    {
+        MentalWeakness.SetActive(true);
+    }
+    public GameObject Helplessness;
+    public void Helplessness_Open()
+    {
+        Helplessness.SetActive(true);
+    }
+    public GameObject Extravagant;
+    public void Extravagant_Open()
+    {
+        Extravagant.SetActive(true);
+    }
+    public GameObject PanicAttack;
+    public void PanicAttack_Open()
+    {
+        PanicAttack.SetActive(true);
+    }
+    public GameObject Medicaldistrust;
+    public void Medicaldistrust_Open()
+    {
+        Medicaldistrust.SetActive(true);
+    }
+    public GameObject Hallucinations;
+    public void Hallucinations_Open()
+    {
+        Hallucinations.SetActive(true);
+    }
+    public GameObject Tightwad;
+    public void Tightwad_Open()
+    {
+        Tightwad.SetActive(true);
+    }
+
+    //Level - 3 Debuff
+    public GameObject NightPhobia;
+    public void NightPhobia_Open()
+    {
+        NightPhobia.SetActive(true);
+    }
+    public GameObject Deafness;
+    public void Deafness_Open()
+    {
+        Deafness.SetActive(true);
+    }
+    public GameObject VisionLoss;
+    public void VisionLoss_Open()
+    {
+        Carelessness.SetActive(true);
+    }
+    public GameObject ShortTempered;
+    public void ShortTempered_Open()
+    {
+        ShortTempered.SetActive(true);
+    }
+    public GameObject Dyslexia;
+    public void Dyslexia_Open()
+    {
+        Dyslexia.SetActive(true);
+    }
+    public GameObject DrugPhobia;
+    public void DrugPhobia_Open()
+    {
+        DrugPhobia.SetActive(true);
+    }
+    public GameObject CognitiveDisorder;
+    public void CognitiveDisorder_Open()
+    {
+        CognitiveDisorder.SetActive(true);
+    }
+    public GameObject CognitiveBreakdown;
+    public void CognitiveBreakdown_Open()
+    {
+        CognitiveBreakdown.SetActive(true);
+    }
+    public GameObject HomicidalImpulse;
+    public void HomicidalImpulse_Open()
+    {
+        HomicidalImpulse.SetActive(true);
+    }
+    public GameObject Perfectionism;
+    public void Perfectionism_Open()
+    {
+        Perfectionism.SetActive(true);
+    }
 
     // 배열에서 랜덤 변수를 선택하는 함수
 

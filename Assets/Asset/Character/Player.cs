@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
 	float ChInRommSize = 2.383215f;
 
-	public float runPower = 6f;
+	 float runPower = 14f;
 	Rigidbody2D rigid;
 	Transform trans;
 
@@ -43,9 +43,9 @@ public class Player : MonoBehaviour
 		}
 
 
-		if(DataBaseManager.Helplessness == true && runPower == 6f)
+		if(DataBaseManager.Helplessness == true && runPower == 14f)
         {
-			runPower = 4f;
+			runPower = 9.8f;
         }
 	}
 

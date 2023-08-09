@@ -1525,7 +1525,7 @@ public class InteractionController : MonoBehaviour
                 }
                 else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
                 {
-                    BillowUIManager.Instance.San_Down(10);
+                    //BillowUIManager.Instance.San_Down(10);
                     theDM.ShowDialog(Sewer_Observation_SucssesAfter.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
@@ -1545,7 +1545,7 @@ public class InteractionController : MonoBehaviour
                 }
                 else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
                 {
-                    BillowUIManager.Instance.San_Down(10);
+                    //BillowUIManager.Instance.San_Down(10);
                     theDM.ShowDialog(Battle_SanCheckFail.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }

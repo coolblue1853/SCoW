@@ -184,17 +184,17 @@ DataBaseManager.Intel_FishySmell3 = true;
 
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            BillowUIManager.Instance.HP_down(5);
+            DataBaseManager.Condition = "Worst";
 
         }
         if (Input.GetKeyDown(KeyCode.F2))
         {
-
-            BillowUIManager.Instance.HP_up(10);
+            DataBaseManager.Tightwad = true;
+           // BillowUIManager.Instance.HP_down(5);
         }
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            BillowUIManager.Instance.San_Down(5);
+            BillowUIManager.Instance.HP_up(5);
 
         }
         if (Input.GetKeyDown(KeyCode.F4))

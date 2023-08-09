@@ -65,8 +65,11 @@ public class BillowUIManager : MonoBehaviour
 
 
 
+public void resetHP()
+    {
+        healthBar.resetHP();
 
-
+    }
 
 
     //체력바 관련

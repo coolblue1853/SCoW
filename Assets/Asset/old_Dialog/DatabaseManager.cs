@@ -6,7 +6,19 @@ public class DataBaseManager : MonoBehaviour
 {
     //Sanity
     public static int Debuff = 0;
+
+    public static bool ThinWallets = false;
+    public static bool Carelessness = false;
+    public static bool Debilitation = false;
+    public static bool Dizziness = false;
+    public static bool Sprains = false;
+    public static bool Unlucky = false;
+    public static bool MusclePain = false;
+    public static bool Migraines = false;
+    public static bool EyeDisease = false;
+    
     public static bool Masochism = false;
+    public static bool Careless = false;
     public static bool MentalWeakness = false;
     public static bool Helplessness = false;
     public static bool Extravagant = false;
@@ -14,6 +26,17 @@ public class DataBaseManager : MonoBehaviour
     public static bool Medicaldistrust = false;
     public static bool Hallucinations = false;
     public static bool Tightwad = false;
+
+    public static bool NightPhobia = false;
+    public static bool Deafness = false;
+    public static bool VisionLoss = false;
+    public static bool Short_Tempered = false;
+    public static bool Dyslexia = false;
+    public static bool DrugPhobia = false;
+    public static bool CognitiveDisorder = false;
+    public static bool CognitiveBreakdown = false;
+    public static bool HomicidalImpulse = false;
+    public static bool Perfectionism = false;
     //Inventory
     public static bool isItemUI = false;
     public static bool isUseSafe = false;

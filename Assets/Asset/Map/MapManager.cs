@@ -142,7 +142,11 @@ public class MapManager : MonoBehaviour
             {
                 SlumButton.SetActive(true);
             }
-            if (DataBaseManager.nowPlace == "Gunshop")
+            if (DataBaseManager.Tightwad == true)
+            {
+                GunshopButton.SetActive(false);
+            }
+            else if (DataBaseManager.nowPlace == "Gunshop")
             {
                 GunshopButton.SetActive(false);
             }
@@ -218,20 +222,20 @@ public class MapManager : MonoBehaviour
             {
                 SlumButton.SetActive(true);
             }
+    
 
-
-            if(DataBaseManager.Tightwad == false)
+            if (DataBaseManager.Tightwad == true)
             {
-                if (DataBaseManager.nowPlace == "Gunshop")
-                {
-                    GunshopButton.SetActive(false);
-                }
-                else
-                {
-                    GunshopButton.SetActive(true);
-                }
+                GunshopButton.SetActive(false);
             }
-  
+            else if (DataBaseManager.nowPlace == "Gunshop")
+            {
+                GunshopButton.SetActive(false);
+            }
+            else
+            {
+                GunshopButton.SetActive(true);
+            }
         }
         if ((DataBaseManager.TimeCount % 4) == 3)
         {
