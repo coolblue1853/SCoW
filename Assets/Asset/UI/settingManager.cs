@@ -53,6 +53,7 @@ public class settingManager : MonoBehaviour
     {
         if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false)
         {
+            SoundManager.Instance.PaperClip_Play();
             DataBaseManager.isOpenUi = true;
             Setting.SetActive(true);
 
@@ -62,6 +63,7 @@ public class settingManager : MonoBehaviour
     }
     public void CloseSetting()
     {
+        SoundManager.Instance.ClickSound_Play();
         DataBaseManager.isOpenUi = false;
         Setting.SetActive(false);
         settingUi.SetActive(true);
@@ -81,14 +83,17 @@ public class settingManager : MonoBehaviour
 
     public void 전체화면온()
     {
+        SoundManager.Instance.ClickSound_Play();
         전체화면 = true;
     }
     public void 전체화면오프()
     {
+        SoundManager.Instance.ClickSound_Play();
         전체화면 = false;
     }
     public void 화면체인저엔터()
     {
+        SoundManager.Instance.ClickSound_Play();
         if (화면체인지인트값 == 0 && 전체화면 == false)
         {
             Screen.SetResolution(2560, 1440, false);
@@ -149,11 +154,13 @@ public class settingManager : MonoBehaviour
 
     public void 인트더하기()
     {
+        SoundManager.Instance.ClickSound_Play();
         화면체인지인트값++;
     }
 
     public void 빼기()
     {
+        SoundManager.Instance.ClickSound_Play();
         화면체인지인트값--;
     }
 
@@ -241,12 +248,14 @@ public class settingManager : MonoBehaviour
     public GameObject keySetting;
     public void OpenTut()
     {
+        SoundManager.Instance.ClickSound_Play();
         settingUi.SetActive(false);
         Tutorial.SetActive(true);
     }
 
     public void OpenKey()
     {
+        SoundManager.Instance.ClickSound_Play();
         settingUi.SetActive(false);
         keySetting.SetActive(true);
     }

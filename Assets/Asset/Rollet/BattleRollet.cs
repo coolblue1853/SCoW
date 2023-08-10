@@ -633,6 +633,49 @@ public class BattleRollet : MonoBehaviour
 
 
         }
+        if(Subject == "RunAway")
+        {
+            if (result_End.text == "Result : Critical Success")
+            {
+                FinalResult = "Success";
+                FinalResult_t.text = "Runaway : " + FinalResult;
+            }
+            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Success")
+            {
+                FinalResult = "Success";
+                FinalResult_t.text = "Runaway : " + FinalResult;
+            }
+            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Failure")
+            {
+                FinalResult = "Success";
+                FinalResult_t.text = "Runaway : " + FinalResult;
+            }
+            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Fumble")
+            {
+                FinalResult = "Success";
+                FinalResult_t.text = "Runaway : " + FinalResult;
+            }
+            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Failure")
+            {
+                FinalResult = "Success";
+                FinalResult_t.text = "Runaway : " + FinalResult;
+            }
+            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Fumble")
+            {
+                FinalResult = "Success";
+                FinalResult_t.text = "Runaway : " + FinalResult;
+            }
+            else if (result_End.text == "Result : Fumble" && E_result_End.text == "Result : Fumble")
+            {
+                FinalResult = "Success";
+                FinalResult_t.text = "Runaway : " + FinalResult;
+            }
+            else
+            {
+                FinalResult = "Failure";
+                FinalResult_t.text = "Runaway : " + FinalResult;
+            }
+        }
         EndButton.SetActive(true);
     }
 
@@ -684,6 +727,20 @@ public class BattleRollet : MonoBehaviour
         if (Subject == "dialog")
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
+            // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
+            // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 Result값에 따른 문자를 출력하도록 함
+        }
+        if (Subject == "RunAway")
+        {
+            if (FinalResult == "Success")
+            {
+                BattleManager.Instance.Ex_BattleEnd();
+            }
+            else
+            {
+               BattleManager.Instance.TurnEnd();
+            }
+
             // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
             // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 Result값에 따른 문자를 출력하도록 함
         }

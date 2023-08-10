@@ -155,6 +155,13 @@ public class BattleManager : MonoBehaviour
             return instance;
         }
     }
+
+    public void Ex_BattleEnd()
+    {
+        DataBaseManager.RoadBattleEnd = true;
+        FadingBackGround.Instance.FadeIn();
+        Invoke("EndRoadBattle", 1f);
+    }
     void Awake()
     {
 
@@ -519,7 +526,41 @@ public class BattleManager : MonoBehaviour
         PlayerReloadCheckUi.SetActive(false);
         nowReloadWeapon = "";
     }
+    int EnemyCount = 0;
+    public GameObject RunAwayObject;
+    public TextMeshProUGUI RunAwayText;
+    public void RunAway()
+    {
+        SoundManager.Instance.ClickSound_Play();
+        EnemyCount = 0;
+        RunAwayObject.SetActive(true);
+        if (EnemyTrunSymbol_1.activeSelf == true)
+        {
+            EnemyCount += 1;
+        }
+        if( EnemyTrunSymbol_2.activeSelf == true) 
+        {
+            EnemyCount += 1;
+        }
+        if(EnemyTrunSymbol_3.activeSelf == true)
+        {
+            EnemyCount += 1;
+        }
 
+        RunAwayText.text = "Attempt to Runaway. You are penalized by the number of enemies.\n\nDex(" + DataBaseManager.dex+") / "+EnemyCount+" = "+DataBaseManager.dex/EnemyCount;
+    }
+
+    public void RunYes()
+    {
+        SoundManager.Instance.ClickSound_Play();
+        BattleRollet.Instance.setBattleRollet("Fabian : Runaway", "DEX / "+ EnemyCount, DataBaseManager.dex / EnemyCount, "RunAway", "DeepOneHybrid", "??? : Hold", "Dex", DeepOneHybrid1.dex);
+        RunAwayObject.SetActive(false);
+    }
+    public void RunNo()
+    {
+        SoundManager.Instance.ClickSound_Play();
+        RunAwayObject.SetActive(false);
+    }
 
 
     void Enemy_setAction()

@@ -10,11 +10,13 @@ public class BattleItemButton : MonoBehaviour
     public Sprite Guided;
     public void ClickItem()
     {
+        SoundManager.Instance.ClickSound_Play();
         DataBaseManager.BattleWeapon = this.name;
       //  SIS_UIManager.Instance.OpenItemDetail(); 비슷한 함수를 만들어서 전투 좌측 UI에 삽입해 주어야함.
     }
     public void ReloadItem()
     {
+        SoundManager.Instance.ClickSound_Play();
         BattleManager.Instance.OpenReloadUI(this.name);
     }
 

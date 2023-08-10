@@ -10,6 +10,7 @@ public class ItemButton : MonoBehaviour
     public Sprite Guided;
     public void ClickItem()
     {
+        SoundManager.Instance.ClickSound_Play();
         DataBaseManager.nowItem = this.name;
         SIS_UIManager.Instance.OpenItemDetail();
     }

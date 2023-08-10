@@ -77,6 +77,7 @@ public class IntelManager : MonoBehaviour
     }
     public void QuitIntelWindow()
     {
+        SoundManager.Instance.ClickSound_Play();
         //DataBaseManager.옵션창여부 = false;
         IntelWindow.SetActive(false);
     }
@@ -88,6 +89,7 @@ public class IntelManager : MonoBehaviour
 
     public void Open_Character()
     {
+        SoundManager.Instance.ClickSound_Play();
         CharacterWindow_ON.SetActive(true);
         EventWindow_ON.SetActive(false);
         PlaceWindow_ON.SetActive(false);
@@ -99,6 +101,7 @@ public class IntelManager : MonoBehaviour
 
     public void Open_Event()
     {
+        SoundManager.Instance.ClickSound_Play();
         CharacterWindow_ON.SetActive(false);
         EventWindow_ON.SetActive(true);
         PlaceWindow_ON.SetActive(false);
@@ -109,6 +112,7 @@ public class IntelManager : MonoBehaviour
     }
     public void OpenPlace()
     {
+        SoundManager.Instance.ClickSound_Play();
         CharacterWindow_ON.SetActive(false);        
         EventWindow_ON.SetActive(false);
         PlaceWindow_ON.SetActive(true);
@@ -126,6 +130,7 @@ public class IntelManager : MonoBehaviour
     {
         if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false)
         {
+            SoundManager.Instance.PaperClip_Play();
             DataBaseManager.isOpenUi = true;
             IntelUI.SetActive(true);
 

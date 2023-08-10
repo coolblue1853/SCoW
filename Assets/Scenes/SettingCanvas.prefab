@@ -24034,6 +24034,7 @@ MonoBehaviour:
   PenLineClip: {fileID: 8300000, guid: 5a5a23ac7b092ee4c82176495b84609a, type: 3}
   PenCircleClip: {fileID: 8300000, guid: 7e30eda0e4c30c04f8b75ab7ba055274, type: 3}
   PaperClip: {fileID: 8300000, guid: e2c649e4b4b3ca54294d4eabf765cf5d, type: 3}
+  DialogClip: {fileID: 8300000, guid: 45d735236e9f74b4dbe7f4a218c79766, type: 3}
   Main_Bgm: {fileID: 8300000, guid: 83eabfb79c40edd4eb5e863bcf42d41d, type: 3}
   SetChar_Bgm: {fileID: 8300000, guid: 26e7a115df614144eae6d2eea78a53c4, type: 3}
   Detective_Bgm: {fileID: 8300000, guid: 8c09686d2a087e241809e3464af73293, type: 3}

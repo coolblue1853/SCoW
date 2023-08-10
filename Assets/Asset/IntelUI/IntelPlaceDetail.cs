@@ -2910,71 +2910,85 @@ public class IntelPlaceDetail : MonoBehaviour
 
     public void Open_DetectiveOffice()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         DetectiveOffice_Detail.SetActive(true);
     }
     public void Open_Hospital()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Hospital_Detail.SetActive(true);
     }
     public void Open_Newspaper()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Newspaper_Detail.SetActive(true);
     }
     public void Open_QuestHouse()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         QuestHouse_Detail.SetActive(true);
     }
     public void Open_Station()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Station_Detail.SetActive(true);
     }
     public void Open_Restaurant()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Restaurant_Detail.SetActive(true);
     }
     public void Open_University()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         University_Detail.SetActive(true);
     }
     public void Open_Riverside()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Riverside_Detail.SetActive(true);
     }
     public void Open_Bar()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Bar_Detail.SetActive(true);
     }
     public void Open_Slum()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Slum_Detail.SetActive(true);
     }
     public void Open_PoliceOffice()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         PoliceOffice_Detail.SetActive(true);
     }
     public void Open_Gunsmith()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Gunsmith_Detail.SetActive(true);
     }
     public void Open_SewageMaintenanceOffice()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         SewageMaintenanceOffice_Detail.SetActive(true);
     }
     public void Open_Wharf()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Wharf_Detail.SetActive(true);
     }

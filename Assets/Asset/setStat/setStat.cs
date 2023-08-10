@@ -41,7 +41,8 @@ public class setStat : MonoBehaviour
     {
         if((DataBaseManager.strSkillPoint == DataBaseManager.str && DataBaseManager.intSkillPoint == DataBaseManager.intl && DataBaseManager.dexSkillPoint == DataBaseManager.dex) || firstSetStat == true)
         {
-            SoundManager.Instance.pen_Circle();
+            SoundManager.Instance.ClickSound_Play();
+
             firstSetStat = false;
             DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
             str_txt.text = DataBaseManager.str.ToString();
@@ -86,6 +87,7 @@ public class setStat : MonoBehaviour
         }
         else
         {
+            SoundManager.Instance.ClickSound_Play();
             checkUI.SetActive(true);
         }
 
@@ -93,12 +95,13 @@ public class setStat : MonoBehaviour
 
     public void CloseCheckUI()
     {
+        SoundManager.Instance.ClickSound_Play();
         isAll = false;
         checkUI.SetActive(false);
     }
     public void Okay2CheckUI()
     {
-        SoundManager.Instance.pen_Circle();
+       SoundManager.Instance.ClickSound_Play();
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         str_txt.text = DataBaseManager.str.ToString();
         str_image.fillAmount = ((float)DataBaseManager.str / 100);
@@ -142,9 +145,8 @@ public class setStat : MonoBehaviour
 
         if(isAll == true)
         {
-            setSkill.RandDex();
-            setSkill.RandInt();
-            setSkill.RandStr();
+            setSkill.AllRand();
+
             isAll = false;
         }
 
@@ -188,11 +190,9 @@ public class setStat : MonoBehaviour
     {
         isAll = true;
 
-        SoundManager.Instance.pen_Circle();
         SetStatButton();
-        setSkill.RandDex();
-        setSkill.RandInt();
-        setSkill.RandStr();
+        setSkill.AllRand();
+
     }
 
 }

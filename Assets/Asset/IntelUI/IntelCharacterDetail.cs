@@ -1699,42 +1699,50 @@ public class IntelCharacterDetail : MonoBehaviour
     }
     public void Open_Ella()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Ella_Detail.SetActive(true);
     }
     public void Open_Swain()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Swain_Detail.SetActive(true);
     }
     public void Open_Aiden()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Aiden_Detail.SetActive(true);
     }
     public void Open_Cane()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Cane_Detail.SetActive(true);
     }
     public void Open_Albert()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Albert_Detail.SetActive(true);
     }
     public void Open_Meiv()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Meiv_Detail.SetActive(true);
     }
     public void Open_BlackWell()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         BlackWell_Detail.SetActive(true);
     }
 
     public void Open_SewerWorker()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         SewerWorker_Detail.SetActive(true);
     }

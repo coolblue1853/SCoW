@@ -2312,57 +2312,68 @@ public class IntelEventDetail : MonoBehaviour
 
     public void Open_PlanetarySequence()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         PlanetarySequence_Detail.SetActive(true);
     }
     public void Open_Nightmare()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Nightmare_Detail.SetActive(true);
     }
     public void Open_Paranoia()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Paranoia_Detail.SetActive(true);
     }
     public void Open_Insomnia()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Insomnia_Detail.SetActive(true);
     }
     public void Open_SewerGhostStory()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         SewerGhostStory_Detail.SetActive(true);
     }
     public void Open_MissingPeople()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         MissingPeople_Detail.SetActive(true);
     }
     public void Open_FishySmell()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         FishySmell_Detail.SetActive(true);
     }
     public void Open_RiverWaterQuality()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         RiverWaterQuality_Detail.SetActive(true);
     }
     public void Open_CreepyEyes()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         CreepyEyes_Detail.SetActive(true);
     }
 
     public void Open_Safe()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         Safe_Detail.SetActive(true);
     }
     public void Open_SuddenChange()
     {
+        SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         SuddenChange_Detail.SetActive(true);
     }

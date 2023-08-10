@@ -231,6 +231,7 @@ public class EventButtonManage : MonoBehaviour
     bool PushDownButton = false;
     public void ClickUpButton()
     {
+        SoundManager.Instance.ClickSound_Play();
         PushDownButton = false;
         UpButton.SetActive(false);
         DownButton.SetActive(true);
@@ -238,6 +239,7 @@ public class EventButtonManage : MonoBehaviour
 
     public void ClickDownButton()
     {
+        SoundManager.Instance.ClickSound_Play();
         UpButton.SetActive(true);
         DownButton.SetActive(false);
         PushDownButton = true;

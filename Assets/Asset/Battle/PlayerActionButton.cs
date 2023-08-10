@@ -6,6 +6,7 @@ public class PlayerActionButton : MonoBehaviour
 {
     public void ClickButton()
     {
+        SoundManager.Instance.ClickSound_Play();
         BattleManager.Instance.SetAciton(this.transform.name);
     }
 

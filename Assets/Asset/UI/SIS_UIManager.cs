@@ -128,37 +128,42 @@ public class SIS_UIManager : MonoBehaviour
 
     public void Open_UseItemUI()
     {
-
+        SoundManager.Instance.ClickSound_Play();
         DataBaseManager.nowItem = "";
         Item_use.transform.SetSiblingIndex(-1);
 
     }
     public void Open_KeyItemUI()
     {
+        SoundManager.Instance.ClickSound_Play();
         DataBaseManager.nowItem = "";
         Item_key.transform.SetSiblingIndex(-1);
 
     }
     public void Open_NomalItemUI()
     {
+        SoundManager.Instance.ClickSound_Play();
         DataBaseManager.nowItem = "";
         Item_Eqip.transform.SetSiblingIndex(-1);
     }
 
     public void Open_StatUI()
     {
+        SoundManager.Instance.PaperClip_Play();
         Stat_UI.SetActive(true);
         Inventory_UI.SetActive(false);
         Skill_UI.SetActive(false);
     }
     public void Open_InventoryUI()
     {
+        SoundManager.Instance.PaperClip_Play();
         Stat_UI.SetActive(false);
         Inventory_UI.SetActive(true);
         Skill_UI.SetActive(false);
     }
     public void Open_SkillUI()
     {
+        SoundManager.Instance.PaperClip_Play();
         Stat_UI.SetActive(false);
         Inventory_UI.SetActive(false);
         Skill_UI.SetActive(true);
@@ -168,6 +173,7 @@ public class SIS_UIManager : MonoBehaviour
     {
         if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad")
         {
+            SoundManager.Instance.PaperClip_Play();
             DataBaseManager.isItemUI = true;
             OpenItemDetail();
             DataBaseManager.workSound = false;
@@ -191,6 +197,7 @@ public class SIS_UIManager : MonoBehaviour
 
     public void CloseMap()
     {
+        SoundManager.Instance.ClickSound_Play();
         ResetDetail();
         debuffDetail.SetActive(false);
         DataBaseManager.isItemUI = false;
@@ -622,6 +629,10 @@ public class SIS_UIManager : MonoBehaviour
 
     }
 
+    public void openSetting()
+    {
+        settingManager.Instance.OpenSetting();
+    }
 
     public void ActivateObjectWithName(GameObject subject ,string objectName)
     {

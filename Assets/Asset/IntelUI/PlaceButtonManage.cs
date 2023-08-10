@@ -268,12 +268,14 @@ public class PlaceButtonManage : MonoBehaviour
     public GameObject DownButton2;
     public void ClickUpButton()
     {
+        SoundManager.Instance.ClickSound_Play();
         ClickDownButton = false;
         UPButton.SetActive(false);
         DownButton.SetActive(true);
     }
     public void ClickUpButton2()
     {
+        SoundManager.Instance.ClickSound_Play();
         UPButton.SetActive(true);
         Upbutton2.SetActive(false);
         DownButton.SetActive(true);
@@ -295,6 +297,7 @@ public class PlaceButtonManage : MonoBehaviour
 
     public void ClickDownButton_()
     {
+        SoundManager.Instance.ClickSound_Play();
         UPButton.SetActive(true);
         DownButton.SetActive(false);
         ClickDownButton = true;
@@ -378,6 +381,7 @@ public class PlaceButtonManage : MonoBehaviour
 
     public void ClickDownButton_2()
     {
+        SoundManager.Instance.ClickSound_Play();
         UPButton.SetActive(false);
         Upbutton2.SetActive(true);
         DownButton.SetActive(false);

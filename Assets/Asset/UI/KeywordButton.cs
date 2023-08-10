@@ -12,7 +12,7 @@ public class KeywordButton : MonoBehaviour
     int index_down;
     public void SeparateString()
     {
-
+        SoundManager.Instance.ClickSound_Play();
         input = this.transform.name;
 
 

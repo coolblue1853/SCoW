@@ -236,6 +236,12 @@ public class SoundManager : MonoBehaviour
     public AudioClip PenLineClip;
     public AudioClip PenCircleClip;
     public AudioClip PaperClip;
+    public AudioClip DialogClip;
+    public void DalogSound()
+    {
+        SFX_Secend.Stop();
+        SFX_Secend.PlayOneShot(DialogClip);
+    }
     public void pen_Line()
     {
         SFX_Secend.Stop();
@@ -315,7 +321,11 @@ public class SoundManager : MonoBehaviour
     {
         MainBgmSource.volume = DataBaseManager.sound_Volume;
          effectBgm.volume = DataBaseManager.sfx_Volume;
-      //  오디오소스_기어.volume = DataBaseManager.sfx_Volume;
+             효과음창.volume = DataBaseManager.sfx_Volume;
+        SFX_Secend.volume = DataBaseManager.sfx_Volume;
+
+        오디오소스_기어.volume = DataBaseManager.sfx_Volume;
+        //  오디오소스_기어.volume = DataBaseManager.sfx_Volume;
     }
 
     public void 슬라이드bgm관리()

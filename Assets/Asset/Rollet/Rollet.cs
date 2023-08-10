@@ -613,6 +613,7 @@ public class Rollet : MonoBehaviour
     public TextMeshProUGUI Detail_San;
     public void OpenSanRollet()
     {
+        SoundManager.Instance.PaperClip_Play();
         SanRollet.SetActive(true);
         Invoke("waitOneSec2", 0.1f);
         if (result_End.text == "Result : Fumble" || result_End.text == "Result : Failure")
@@ -762,7 +763,8 @@ public class Rollet : MonoBehaviour
     }
     void ChangeSanRollet()
     {
-        if(SanName.text == "!Sanity check failed!")
+        SoundManager.Instance.pen_Line();
+        if (SanName.text == "!Sanity check failed!")
         {
             int SanRollet = (Random.Range(1, 101));
             Debug.Log(SanRollet);
@@ -819,6 +821,7 @@ public class Rollet : MonoBehaviour
 
     void ResultRollet()
     {
+        SoundManager.Instance.pen_Circle();
         if (SanRolletText.text == "Sanity Decline")
         {
             int SanRollet = (Random.Range(0, 3));

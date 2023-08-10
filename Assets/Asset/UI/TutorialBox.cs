@@ -21,6 +21,7 @@ public class TutorialBox : MonoBehaviour
 
     public void OnButtonClick()
     {
+        SoundManager.Instance.ClickSound_Play();
         // 현재 자식 오브젝트를 비활성화합니다.
         childObjects[currentIndex].SetActive(false);
 
@@ -33,6 +34,7 @@ public class TutorialBox : MonoBehaviour
 
     public void OnBackButtonClick()
     {
+        SoundManager.Instance.ClickSound_Play();
         // 현재 자식 오브젝트를 비활성화합니다.
         childObjects[currentIndex].SetActive(false);
 

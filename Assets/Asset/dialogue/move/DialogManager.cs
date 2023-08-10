@@ -13,6 +13,11 @@ public class DialogManager : MonoBehaviour
 {
 
 
+    public void TypeSound()
+    {
+        SoundManager.Instance.DalogSound();
+    }
+
     private static DialogManager instance = null;
     private void Awake()
     {

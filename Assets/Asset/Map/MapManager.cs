@@ -274,11 +274,13 @@ public class MapManager : MonoBehaviour
 
     public void OpenUpperMap()
     {
+        SoundManager.Instance.ClickSound_Play();
         Upper.SetActive(true);
         Downer.SetActive(false);
     }
     public void OpenDownMap()
     {
+        SoundManager.Instance.ClickSound_Play();
         Upper.SetActive(false);
         Downer.SetActive(true);
     }
@@ -322,6 +324,7 @@ public class MapManager : MonoBehaviour
     {
         if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad")
         {
+            SoundManager.Instance.PaperClip_Play();
             DataBaseManager.workSound = false;
             DataBaseManager.isOpenUi = true;
             MapChainingUI.SetActive(true);
@@ -330,6 +333,7 @@ public class MapManager : MonoBehaviour
     }
     public void CloseMap()
     {
+        SoundManager.Instance.ClickSound_Play();
         DataBaseManager.isOpenUi = false;
         MapChainingUI.SetActive(false);
     }
