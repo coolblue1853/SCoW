@@ -149,21 +149,21 @@ public class SIS_UIManager : MonoBehaviour
 
     public void Open_StatUI()
     {
-        SoundManager.Instance.PaperClip_Play();
+        SoundManager.Instance.ClickSound_Play();
         Stat_UI.SetActive(true);
         Inventory_UI.SetActive(false);
         Skill_UI.SetActive(false);
     }
     public void Open_InventoryUI()
     {
-        SoundManager.Instance.PaperClip_Play();
+        SoundManager.Instance.ClickSound_Play();
         Stat_UI.SetActive(false);
         Inventory_UI.SetActive(true);
         Skill_UI.SetActive(false);
     }
     public void Open_SkillUI()
     {
-        SoundManager.Instance.PaperClip_Play();
+        SoundManager.Instance.ClickSound_Play();
         Stat_UI.SetActive(false);
         Inventory_UI.SetActive(false);
         Skill_UI.SetActive(true);

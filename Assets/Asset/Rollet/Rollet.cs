@@ -81,7 +81,9 @@ public class Rollet : MonoBehaviour
             }
             RolletSetUi.SetActive(false);
             DataBaseManager.isRollet = false;
-
+            DataBaseManager.isActiveDialog1 = false;
+            DataBaseManager.isDirecting = false;
+            DataBaseManager.isOpenUi = false;
         }
         if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck== true)
         {
