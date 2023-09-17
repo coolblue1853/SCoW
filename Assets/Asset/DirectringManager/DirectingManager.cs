@@ -36,6 +36,7 @@ public class DirectingManager : MonoBehaviour
     public GameObject Kate_noon;
     //탐정사무소
     public GameObject sit_player;
+    public GameObject sit_player2;
     public GameObject sit_NoNewsPaperPlayer;
     public GameObject sit_Ella;
     public SpriteRenderer Newspaper;
@@ -230,8 +231,22 @@ public class DirectingManager : MonoBehaviour
 
 
 
+        //  << 2일차 이후 >>
 
+        if (DataBaseManager.TimeCount == 5 && DataBaseManager.SecondDayDialog == false && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.SecondDayDialog = true;
+            Invoke("ScendDayStartDialog", 3f);
+        }
 
+ 
+        if (DataBaseManager.AfterSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.secondisDirecting = false;
+            DataBaseManager.AfterSanCheck = false;
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "dialog");
+        }
+      
 
         //전투
         if (DataBaseManager.Battle_San == true && DataBaseManager.isActiveDialog1 == false)
@@ -267,6 +282,28 @@ public class DirectingManager : MonoBehaviour
         }
     }
     bool once = false;
+
+
+
+
+
+    //2일차
+
+    public void ScendDayStartDialog()
+    {
+        InteractionController.Instance.Start_2nd_DetectiveOffice("Fab_StartDialog");
+    }
+
+
+
+
+
+
+
+
+
+
+    // 1일차
 
 
     public void BeforeBattle()
@@ -321,6 +358,7 @@ public class DirectingManager : MonoBehaviour
 
     public void KeyConnect()
     {
+
         OrganizeKeywordFunc();
     }
     public void EndDay()
@@ -440,8 +478,16 @@ public class DirectingManager : MonoBehaviour
     public void End_Directing()
     {
         sit_player.SetActive(false);
+        sit_player2.SetActive(false);
+        player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
+        player.transform.localPosition = new Vector3(-797.556f, 2.183268f);
         player.SetActive(true);
-        Newspaper.DOFade(1, 0.1f);
+        
+        if(DataBaseManager.TimeCount == 1)
+        {
+            Newspaper.DOFade(1, 0.1f);
+        }
+   
     }
     public void Nock_Directing()
     {
@@ -570,6 +616,7 @@ public class DirectingManager : MonoBehaviour
         }
         else
         {
+
             DataBaseManager.EndDay = true;
 
         }

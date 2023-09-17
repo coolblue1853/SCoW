@@ -782,7 +782,7 @@ public class DialogManager : MonoBehaviour
                     break;
 
                 case '◎':  // 연출관련
-                    t_ignore = true; // 의뢰자 들어오는연출
+                    t_ignore = true; // 
                     if (t_ReplaceText[i + 1] == '①')
                     {
                         t_ignore = true;
@@ -928,6 +928,43 @@ public class DialogManager : MonoBehaviour
                     }
                     t_ignore = true;
                     break;
+                case '♣'://대화중 이성판정 2일차 이후
+                    if (t_ReplaceText[i + 1] == '①')
+                    {
+   
+                        DataBaseManager.AfterSanCheck = true;
+                    }
+                    if (t_ReplaceText[i + 1] == '②')
+                    {
+
+                    }
+                    if (t_ReplaceText[i + 1] == '③')
+                    {
+
+                    }
+                    if (t_ReplaceText[i + 1] == '④')
+                    {
+
+
+                    }
+                    if (t_ReplaceText[i + 1] == '⑤')
+                    {
+
+                    }
+                    if (t_ReplaceText[i + 1] == '⑥')
+                    {
+
+                    }
+                    if (t_ReplaceText[i + 1] == '⑦')
+                    {
+
+                    }
+                    if (t_ReplaceText[i + 1] == '⑧')
+                    {
+
+                    }
+                    t_ignore = true;
+                    break;
                 // 최초 심리학 기능판정 선택지 출력창.
                 case '※'://기능판단온
                     if(DataBaseManager.skipActive == false)
@@ -990,17 +1027,17 @@ public class DialogManager : MonoBehaviour
                 case '5': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
                 case '6': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
                 //case '0': if (t_ReplaceText[i + 1] == '§') { t_ignore = true; } if (t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '①': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '②': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '③': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' || t_ReplaceText[i - 1] == '♠') { t_ignore = true; } break;
-                case '④': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '⑤': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '⑥': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '⑦': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '⑧': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '⑨': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '⑩': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '⑫': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '①': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
+                case '②': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
+                case '③': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' || t_ReplaceText[i - 1] == '♠') { t_ignore = true; } break;
+                case '④': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
+                case '⑤': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑥': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑦': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑧': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑨': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑩': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑫': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
                 
                 case 'ⓐ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
                 case 'ⓒ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;

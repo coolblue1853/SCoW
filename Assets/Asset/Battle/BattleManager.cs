@@ -119,6 +119,9 @@ public class BattleManager : MonoBehaviour
         {
             if (EnemyTrunSymbol_1.activeSelf == false && EnemyTrunSymbol_2.activeSelf == false && EnemyTrunSymbol_3.activeSelf == false && DataBaseManager.RoadBattleEnd == false)
             {
+
+                DataBaseManager.isDirecting = true;
+
                 DataBaseManager.RoadBattleEnd = true;
                 FadingBackGround.Instance.FadeIn();
                 Invoke("EndRoadBattle", 1f);

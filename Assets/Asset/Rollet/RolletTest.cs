@@ -108,7 +108,7 @@ DataBaseManager.Intel_FishySmell3 = true;
     }
     private void Update()
     {
-
+        Debug.Log(DataBaseManager.isDirecting);
         if(Input.GetKeyDown(KeyCode.F10))
         {
         }

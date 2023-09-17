@@ -322,7 +322,7 @@ public class MapManager : MonoBehaviour
 
     public void OpenMap()
     {
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad")
+        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad" && DataBaseManager.isOpenMap == false)
         {
             SoundManager.Instance.PaperClip_Play();
             DataBaseManager.workSound = false;
@@ -341,7 +341,7 @@ public class MapManager : MonoBehaviour
     {
         buttonChecker();
 
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isDirecting == false)
+        if (DataBaseManager.isActiveDialog1 == false)
         {
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
@@ -371,6 +371,7 @@ public class MapManager : MonoBehaviour
 
     public void MapOn()
     {
+        DataBaseManager.isOpenMap = true;
         if (DataBaseManager.isBar == true)
         {
             DataBaseManager.isDirecting = true;
@@ -493,7 +494,12 @@ public class MapManager : MonoBehaviour
 
     public void MoveChar()
     {
+        if(DataBaseManager.TimeCount >=5 && DataBaseManager.TimeCount % 4 == 1)
+        {
+            DataBaseManager.secondisDirecting = true;
+        }
 
+        DataBaseManager.isOpenMap = false;
         DataBaseManager.isOpenUi = false;
         CameraManager.Instance.isCheckEnd = true;
 
@@ -506,6 +512,11 @@ public class MapManager : MonoBehaviour
                 MapChainingUI.SetActive(false);
                 MapUI.SetActive(false);
                 DialogDatabaseManager.instance.Check = true;
+
+            if (DataBaseManager.TimeCount == 4)
+            {
+                DataBaseManager.secondisDirecting = true;
+            }
 
         }
         else if (DataBaseManager.nowPlace == "Client'shouse")
@@ -611,6 +622,7 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.nowPlace == "BattleRoad")
         {
+            DataBaseManager.secondisDirecting = true;
             DataBaseManager.nowPlace = "DetectiveOffice";
             player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             player.transform.localPosition = player_DetectiveOffice;

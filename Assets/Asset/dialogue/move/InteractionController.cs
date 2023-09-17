@@ -231,9 +231,31 @@ public class InteractionController : MonoBehaviour
     public GameObject Battle_SanCheckFail;
     public GameObject Battle_EndBattle;
     //public GameObject Sewer_Observation_SucssesAfterSanSuc;
+
+    //2st 탐정사무소
+    public GameObject Fab_StartDialog;
+    public GameObject Fab_AfterSanCheck;
+
     private void Start()
     {
         //TestNar();
+    }
+
+
+
+    //2nd
+
+    public void Start_2nd_DetectiveOffice(string setDialog)
+    {
+        if (setDialog == "Fab_StartDialog")
+        {
+            theDM.ShowDialog(Fab_StartDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_AfterSanCheck")
+        {
+            theDM.ShowDialog(Fab_AfterSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
     }
 
     public void Start_Safe_Look(string setDialog)
@@ -247,8 +269,7 @@ public class InteractionController : MonoBehaviour
             theDM.ShowDialog(Safe_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
-
-
+    // 1st
 
     public void Start_1st_DetectiveOffice(string setDialog)
     {
@@ -1549,6 +1570,28 @@ public class InteractionController : MonoBehaviour
                     theDM.ShowDialog(Battle_SanCheckFail.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
+        }
+        if (DataBaseManager.nowPlace == "DetectiveOffice")
+        {
+            if(DataBaseManager.TimeCount == 5)
+            {
+                if (Sub_Dialog == "SAN : Check")
+                {
+
+                    if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+                    {
+
+                        theDM.ShowDialog(Fab_AfterSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+
+                    }
+                    else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+                    {
+                        //BillowUIManager.Instance.San_Down(10);
+                        theDM.ShowDialog(Fab_AfterSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+                    }
+                }
+            }
+        
         }
 
 
