@@ -75,7 +75,9 @@ DataBaseManager.Intel_FishySmell3 = true;
        // DataBaseManager.martialArtsPoint = 60;
        // DataBaseManager.Condition = "Worst";
 
-        DataBaseManager.TimeCount = 1;
+
+        */
+        //DataBaseManager.TimeCount = 1;
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         DataBaseManager.intl = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         DataBaseManager.dex = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
@@ -86,8 +88,6 @@ DataBaseManager.Intel_FishySmell3 = true;
         DataBaseManager.weal = (Random.Range(5, 26));
         DataBaseManager.nowHP = DataBaseManager.hp;
         DataBaseManager.nowSan = DataBaseManager.san;
-        */
-
     }
     public void NewsRollet()
     {
@@ -108,6 +108,7 @@ DataBaseManager.Intel_FishySmell3 = true;
     }
     private void Update()
     {
+
         if(Input.GetKeyDown(KeyCode.F10))
         {
         }

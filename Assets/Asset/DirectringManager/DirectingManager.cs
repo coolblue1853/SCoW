@@ -105,11 +105,11 @@ public class DirectingManager : MonoBehaviour
     {
         InteractionController.Instance.Start_1st_DetectiveOffice("start");
     }
-
+    bool isGo1stBattle;
     // Update is called once per frame
     void Update()
     {
-
+  
 
         if (DataBaseManager.fst_Detectiv_TimeOn >= 2)
         {
@@ -195,14 +195,18 @@ public class DirectingManager : MonoBehaviour
         {
             DataBaseManager.EndDay = false;
             FadingBackGround.Instance.FadeIn();
+
             Invoke("EndDay", 2f);
         }
 
+        
         if (DataBaseManager.EndDemo == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.EndDemo = false;
-            FadingBackGround.Instance.DemoEnd_FadeIn();
+            // FadingBackGround.Instance.DemoEnd_FadeIn();
+            MapManager.Instance.MapOn();
         }
+        
          if((DataBaseManager.TimeCount % 4) == 0 && DataBaseManager.nowPlace  == "DetectiveOffice" && once == false)
         {
             DirectingManager.Instance.OrganizeKeyword();
@@ -215,7 +219,7 @@ public class DirectingManager : MonoBehaviour
             }
             else if (DataBaseManager.AfterBattle == true)
             {
-                Invoke("KeyConnect", 8f);
+                Invoke("KeyConnect", 3f);
             }
             else
             {
@@ -249,8 +253,9 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.AfterBattle = true;
             DialogDatabaseManager.instance.Check = true;
             DataBaseManager.EndBattle = false;
+            isGo1stBattle = true;
             DirectingManager.Instance.EndBattle();
-            DataBaseManager.nowPlace = "DetectiveOffice";
+           // DataBaseManager.nowPlace = "DetectiveOffice";
             MapManager.Instance.MapOn();
         }
 
@@ -281,6 +286,7 @@ public class DirectingManager : MonoBehaviour
     public void GotoBattle()
     {
 
+        DataBaseManager.nowPlace = "BattleRoad";
         BattleManager.Instance.startReload();
         battleUI.SetActive(true);
         cameraMove.enabled = true;

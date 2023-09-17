@@ -2691,6 +2691,7 @@ public class BattleManager : MonoBehaviour
     public GameObject PlayerMAUI;
     public void SetAciton(string action)
     {
+        MABackButton.SetActive(true);
         SoundManager.Instance.ClickSound_Play();
         BattleManager.Instance.EnemySelectUI.SetActive(true);
         PlayerActionUi.SetActive(false);
@@ -2699,8 +2700,11 @@ public class BattleManager : MonoBehaviour
         BattleState = "selectEnemy";
         PlayerAction = action;
     }
+    public GameObject MABackButton;
     public void Back_MA()
     {
+
+        MABackButton.SetActive(false);
         SoundManager.Instance.ClickSound_Play();
         EnemySelectUI.SetActive(false);
         PlayerAttackUi.SetActive(true);
@@ -2714,6 +2718,8 @@ public class BattleManager : MonoBehaviour
         {
             if (PlayerAction == "martialarts")
             {
+
+                MABackButton.SetActive(false);
                 PlayerMAUI.SetActive(false);
                 BattleManager.Instance.EnemySelectUI.SetActive(false);
                 BattleState = "Rollet";
