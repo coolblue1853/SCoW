@@ -550,6 +550,10 @@ public class Rollet : MonoBehaviour
             }
         }
 
+        if (Subject == "Case2IntCheck") // 이성판정 광련
+        {
+            InteractionController.Instance.RetrunDialogResult("Case2IntCheck", result_End.text);
+        }
     }
 
     public GameObject EndButton2;
@@ -1177,7 +1181,7 @@ public class Rollet : MonoBehaviour
         resetSanRollet();
         // 결과값을 전달하는 함수 필요
 
-        if (Subject == "dialog")
+        if (Subject == "Fab_Case1")
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
             // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);

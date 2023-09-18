@@ -926,12 +926,15 @@ public class DialogManager : MonoBehaviour
                     {
                         DataBaseManager.EndBattle = true;
                     }
+                    if (t_ReplaceText[i + 1] == '⑨')
+                    {
+                        DataBaseManager.Case2IntCheck = true;
+                    }
                     t_ignore = true;
                     break;
                 case '♣'://대화중 이성판정 2일차 이후
                     if (t_ReplaceText[i + 1] == '①')
                     {
-   
                         DataBaseManager.AfterSanCheck = true;
                     }
                     if (t_ReplaceText[i + 1] == '②')

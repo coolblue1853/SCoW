@@ -233,8 +233,13 @@ public class InteractionController : MonoBehaviour
     //public GameObject Sewer_Observation_SucssesAfterSanSuc;
 
     //2st 탐정사무소
-    public GameObject Fab_StartDialog;
-    public GameObject Fab_AfterSanCheck;
+    public GameObject Fab_Case1;
+    public GameObject Fab_Case1After;
+    public GameObject Fab_Case2;
+    public GameObject Fab_Case2Succ;
+    public GameObject Fab_Case2SuccAfter;
+    public GameObject Fab_Case2Fail;
+    public GameObject Fab_Case3;
 
     private void Start()
     {
@@ -247,15 +252,34 @@ public class InteractionController : MonoBehaviour
 
     public void Start_2nd_DetectiveOffice(string setDialog)
     {
-        if (setDialog == "Fab_StartDialog")
+        if (setDialog == "Fab_Case1")
         {
-            theDM.ShowDialog(Fab_StartDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(Fab_Case1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-        else if (setDialog == "Fab_AfterSanCheck")
+        else if (setDialog == "Fab_Case1After")
         {
-            theDM.ShowDialog(Fab_AfterSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(Fab_Case1After.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-
+        else if (setDialog == "Fab_Case2")
+        {
+            theDM.ShowDialog(Fab_Case2.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Case2Succ")
+        {
+            theDM.ShowDialog(Fab_Case2Succ.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Case2SuccAfter")
+        {
+            theDM.ShowDialog(Fab_Case2SuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Case2Fail")
+        {
+            theDM.ShowDialog(Fab_Case2Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Case3")
+        {
+            theDM.ShowDialog(Fab_Case3.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
     }
 
     public void Start_Safe_Look(string setDialog)
@@ -1577,18 +1601,7 @@ public class InteractionController : MonoBehaviour
             {
                 if (Sub_Dialog == "SAN : Check")
                 {
-
-                    if (result_End == "Result : Success" || result_End == "Result : Critical Success")
-                    {
-
-                        theDM.ShowDialog(Fab_AfterSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
-
-                    }
-                    else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
-                    {
-                        //BillowUIManager.Instance.San_Down(10);
-                        theDM.ShowDialog(Fab_AfterSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
-                    }
+                    theDM.ShowDialog(Fab_Case1After.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
         
@@ -1609,6 +1622,25 @@ public class InteractionController : MonoBehaviour
             {
                 theDM.ShowDialog(Safe_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
+        }
+
+
+        // 이성판정
+      
+        if (Sub_Dialog == "Case2IntCheck")
+        {
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+
+                theDM.ShowDialog(Fab_Case2Succ.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+
+                theDM.ShowDialog(Fab_Case2Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+
         }
     }
 

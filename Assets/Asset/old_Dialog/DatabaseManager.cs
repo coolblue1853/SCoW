@@ -5,12 +5,16 @@ using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
     public static bool isOpenMap = false;
+    public static bool secondisDirecting = false;
 
     //2ÀÏÂ÷
     public static bool SecondDayDialog = false;
-   // public static bool D_SanCheck = false;
+   
     public static bool AfterSanCheck = false;
-    public static bool secondisDirecting = false;
+    public static bool Case2IntCheck = false;
+    public static bool Case2SanCheck = false;
+
+
 
     //Sanity
     public static int Debuff = 0;

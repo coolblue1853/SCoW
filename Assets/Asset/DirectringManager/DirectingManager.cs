@@ -242,11 +242,20 @@ public class DirectingManager : MonoBehaviour
  
         if (DataBaseManager.AfterSanCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.secondisDirecting = false;
             DataBaseManager.AfterSanCheck = false;
-            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "dialog");
+            DataBaseManager.secondisDirecting = false;
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "Fab_Case1");
+            Debug.Log("11!!11");
         }
-      
+        if (DataBaseManager.Case2IntCheck == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.Case2IntCheck = false;
+            Rollet.Instance.setRollet("INT : Check", "Association", DataBaseManager.intl, "Case2IntCheck");
+        }
+
+
+
+        
 
         //¿¸≈ı
         if (DataBaseManager.Battle_San == true && DataBaseManager.isActiveDialog1 == false)
@@ -291,7 +300,19 @@ public class DirectingManager : MonoBehaviour
 
     public void ScendDayStartDialog()
     {
-        InteractionController.Instance.Start_2nd_DetectiveOffice("Fab_StartDialog");
+        if(DataBaseManager.Intel_Nightmare3 == true || DataBaseManager.Intel_Nightmare3 == true)
+        {
+            InteractionController.Instance.Start_2nd_DetectiveOffice("Fab_Case1");
+        }
+        else if (DataBaseManager.Intel_Aiden1)
+        {
+            InteractionController.Instance.Start_2nd_DetectiveOffice("Fab_Case2");
+        }
+        else
+        {
+            InteractionController.Instance.Start_2nd_DetectiveOffice("Fab_Case3");
+        }
+            
     }
 
 
