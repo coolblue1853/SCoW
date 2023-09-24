@@ -26,6 +26,12 @@ public class Intel_ObtoUI : MonoBehaviour
     public void Update()
     {
 
+        if(DataBaseManager.TimeCount == 5 && ResetCheck_1 == false)
+        {
+            ResetCheck_1 = true;
+            ResetKeyCount();
+        }
+
         if(this.name == "Aiden Triss")
         {
             Set_Aiden();
@@ -387,6 +393,57 @@ public class Intel_ObtoUI : MonoBehaviour
             CanJudge = true;
         }
     }
+
+    bool ResetCheck_1 = false;
+
+    public void ResetKeyCount()
+    {
+        if(this.name == "Ella Triss")
+        {
+            KeywordCounter = 3;
+        }
+        else if (this.name == "Aiden Triss")
+        {
+            KeywordCounter = 3;
+        }
+
+        else if (this.name == "Berkeley Swain")
+        {
+            KeywordCounter = 4;
+        }
+
+        else if (this.name == "University student")
+        {
+            KeywordCounter = 3;
+        }
+
+        else if (this.name == "Kane")
+        {
+            KeywordCounter = 3;
+        }
+
+        else if (this.name == "Maeve")
+        {
+            KeywordCounter = 5;
+        }
+
+        else if (this.name == "Kate Lizzie")
+        {
+            KeywordCounter = 4;
+        }
+
+        else if (this.name == "Alan Parks")
+        {
+            KeywordCounter = 4;
+        }
+
+        else if (this.name == "Albert Bradley")
+        {
+            KeywordCounter = 4;
+        }
+
+    }
+
     private void Awake()
     {
 

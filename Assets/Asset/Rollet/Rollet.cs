@@ -1181,6 +1181,13 @@ public class Rollet : MonoBehaviour
         resetSanRollet();
         // 결과값을 전달하는 함수 필요
 
+        if (Subject == "RoadBattle1")
+        {
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
+            // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
+            // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 결과값에 따른 문자를 출력하도록 함
+        }
+
         if (Subject == "Fab_Case1")
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);

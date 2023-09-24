@@ -403,6 +403,20 @@ public class KeyWordManager : MonoBehaviour
                 }
             }
         }
+        if (DataBaseManager.keyword_upper == "Sewer")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (SewerKeywordCount <= SewerKeywordNum)
+                {
+                    SewerKeywordNum = 0;
+                }
+                else
+                {
+                    SewerKeywordNum += 1;
+                }
+            }
+        }
         if (DataBaseManager.keyword_upper == "Client'shouse")
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
@@ -728,6 +742,21 @@ public class KeyWordManager : MonoBehaviour
 
             }
         }
+        if (DataBaseManager.keyword_upper == "Sewer")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (SewerKeywordNum <= 0)
+                {
+                    SewerKeywordNum = SewerKeywordCount;
+                }
+                else
+                {
+                    SewerKeywordNum -= 1;
+                }
+
+            }
+        }
         if (DataBaseManager.keyword_upper == "RiverWaterQuality")
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
@@ -792,6 +821,7 @@ public class KeyWordManager : MonoBehaviour
     bool isNewspaperAddList = false;
     bool isRiversideAddList = false;
     bool isSewageMaintenanceOfficeAddList = false;
+    bool isSewerAddList = false;
     bool isWharfAddList = false;
     bool isUniversityAddList = false;
     //인물
@@ -957,6 +987,14 @@ public class KeyWordManager : MonoBehaviour
                 upperPlaceKeywordList.Add("Sewage MA Office");
             }
         }
+        if (isSewerAddList == false)
+        {
+            if (DataBaseManager.Intel_Sewer1 == true || DataBaseManager.Intel_Sewer2 == true || DataBaseManager.Intel_Sewer3 == true || DataBaseManager.Intel_Sewer4 == true || DataBaseManager.Intel_Sewer5 == true || DataBaseManager.Intel_Sewer6 == true)
+            {
+                isSewerAddList = true;
+                upperPlaceKeywordList.Add("Sewer");
+            }
+        }
         if (isWharfAddList == false)
         {
             if (DataBaseManager.Intel_Wharf1 == true || DataBaseManager.Intel_Wharf2 == true || DataBaseManager.Intel_Wharf3 == true || DataBaseManager.Intel_Wharf4 == true || DataBaseManager.Intel_Wharf5 == true || DataBaseManager.Intel_Wharf6 == true)
@@ -1092,6 +1130,7 @@ public class KeyWordManager : MonoBehaviour
     bool isParanoia3Add = false;
     bool isMissingPeople1Add = false;
     bool isMissingPeople2Add = false;
+    bool isMissingPeople3Add = false;
     bool isSewerGhostStory1Add = false;
     bool isSewerGhostStory2Add = false;
     bool isSewerGhostStory3Add = false;
@@ -1168,6 +1207,11 @@ public class KeyWordManager : MonoBehaviour
     int SewageMaintenanceOfficeKeywordCount = 0;
     public int SewageMaintenanceOfficeKeywordNum = 0;
 
+    public List<string> SewerList = new List<string>();//string들어가야하고
+    int SewerKeywordCount = 0;
+    public int SewerKeywordNum = 0;
+
+
     public List<string> WharfList = new List<string>();//string들어가야하고
     int WharfKeywordCount = 0;
     public int WharfKeywordNum = 0;
@@ -1176,6 +1220,9 @@ public class KeyWordManager : MonoBehaviour
     int UniversityKeywordCount = 0;
     public int UniversityKeywordNum = 0;
     //사건
+    bool isSewer1Add = false;
+    bool isSewer2Add = false;
+    bool isSewer3Add = false;
     bool isHospital1Add = false;
     bool isNewspaper1Add = false;
     bool isQuestHouse1Add = false;
@@ -1211,6 +1258,7 @@ public class KeyWordManager : MonoBehaviour
         NewspaperKeywordCount = NewspaperList.Count - 1;
         RiversideKeywordCount = RiversideList.Count - 1;
         SewageMaintenanceOfficeKeywordCount = SewageMaintenanceOfficeList.Count - 1;
+        SewerKeywordCount = SewerList.Count - 1;
         WharfKeywordCount = WharfList.Count - 1;
         UniversityKeywordCount = UniversityList.Count - 1;
 
@@ -1303,13 +1351,16 @@ public class KeyWordManager : MonoBehaviour
             isMissingPeople1Add = true;
             MissingPeopleList.Add("Albert's Information");
         }
-
         if (DataBaseManager.Intel_MissingPeople2 == true && isMissingPeople2Add == false)
         {
             isMissingPeople2Add = true;
             MissingPeopleList.Add("Reporting by Swain");
         }
-
+        if (DataBaseManager.Intel_MissingPeople3 == true && isMissingPeople3Add == false)
+        {
+            isMissingPeople3Add = true;
+            MissingPeopleList.Add("Kidnap");
+        }
 
         // 하수도괴담.
         else if (DataBaseManager.keyword_upper == "SewerGhostStory" && SewerGhostStoryKeywordCount >= 0)
@@ -1568,6 +1619,28 @@ public class KeyWordManager : MonoBehaviour
             isSewageMaintenanceOffice1Add = true;
             SewageMaintenanceOfficeList.Add("Location");
         }
+        // 하수도
+        if (DataBaseManager.keyword_upper == "Sewer" && SewerKeywordCount >= 0)
+        {
+            DataBaseManager.keyword_downer = SewerList[SewerKeywordNum];
+        }
+        if (DataBaseManager.Intel_Sewer1 == true && isSewer1Add == false)
+        {
+            isSewer1Add = true;
+            SewerList.Add("Aiden's warning");
+        }
+        if (DataBaseManager.Intel_Sewer2 == true && isSewer2Add == false)
+        {
+            isSewer2Add = true;
+            SewerList.Add("Root of problem");
+        }
+        if (DataBaseManager.Intel_Sewer3 == true && isSewer3Add == false)
+        {
+            isSewer3Add = true;
+            SewerList.Add("Manhole");
+        }
+
+
 
         // 부두
         if (DataBaseManager.keyword_upper == "Wharf" && WharfKeywordCount >= 0)
@@ -1590,6 +1663,10 @@ public class KeyWordManager : MonoBehaviour
             isUniversity1Add = true;
             UniversityList.Add("Astronomical show");
         }
+
+
+
+
     }
 
     // Start is called before the first frame update

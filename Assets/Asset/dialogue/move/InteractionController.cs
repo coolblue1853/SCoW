@@ -241,6 +241,21 @@ public class InteractionController : MonoBehaviour
     public GameObject Fab_Case2Fail;
     public GameObject Fab_Case3;
 
+    //2st 의뢰자
+    public GameObject Ella_key_ContentsofaNewspaper;
+    public GameObject Ella_key_ContentofaNightmare;
+    public GameObject Ella_key_AidensDetail;
+    public GameObject Ella_key_WaterandNightmare;
+    public GameObject Ella_key_Doctorsopinion;
+    public GameObject Ella_key_AidensSafe;
+    public GameObject Ella_key_AcquiringaSafe;
+    public GameObject Ella_key_AidenandPandemic;
+
+    public GameObject Aiden_key_Missing;
+    public GameObject Aiden_key_FishySmellOrigin;
+    public GameObject Aiden_key_ContentsofaGhostStory;
+    public GameObject Aiden_key_OwnerofEye;
+
     private void Start()
     {
         //TestNar();
@@ -1057,6 +1072,19 @@ public class InteractionController : MonoBehaviour
         }
             
 }
+
+
+    public void Start_2nd_ClientHouse(string setDialog)
+    {
+        if (setDialog == "Ella_key_ContentsofaNewspaper")
+        {
+
+        }
+
+
+    }
+
+
     public void KeywordDialog(string setDialog)
     {
         if (setDialog  == "Ella Triss")
@@ -1077,6 +1105,40 @@ public class InteractionController : MonoBehaviour
                 }
                 
             }
+            else if (DataBaseManager.keyword_downer == "Contents of a Newspaper")
+            {
+                theDM.ShowDialog(Ella_key_ContentsofaNewspaper.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Content of a Nightmare")
+            {
+                theDM.ShowDialog(Ella_key_ContentofaNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Aiden's Detail")
+            {
+                theDM.ShowDialog(Ella_key_AidensDetail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Water and Nightmare")
+            {
+                theDM.ShowDialog(Ella_key_WaterandNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Doctor's opinion")
+            {
+                theDM.ShowDialog(Ella_key_Doctorsopinion.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Aiden's Safe")
+            {
+                theDM.ShowDialog(Ella_key_AidensSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Acquiring a Safe")
+            {
+                theDM.ShowDialog(Ella_key_AcquiringaSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Aiden & Pandemic")
+            {
+
+                theDM.ShowDialog(Ella_key_AidenandPandemic.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+
             else
             {
 
@@ -1097,7 +1159,26 @@ public class InteractionController : MonoBehaviour
             {
                 theDM.ShowDialog(Aiden_key_CreepyEye1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
-            
+
+
+            else if (DataBaseManager.keyword_downer == "Albert's Information" || DataBaseManager.keyword_downer == "Reporting by Swain")
+            {
+                theDM.ShowDialog(Aiden_key_Missing.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Contents of a GhostStory")
+            {
+                theDM.ShowDialog(Aiden_key_FishySmellOrigin.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Source speculation" || DataBaseManager.keyword_downer == "Sewer & FishySmell" || DataBaseManager.keyword_downer == "Cause of Fishy smell")
+            {
+                theDM.ShowDialog(Aiden_key_ContentsofaGhostStory.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Owner of Eye?")
+            {
+                theDM.ShowDialog(Aiden_key_OwnerofEye.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+
+
 
             else if (DataBaseManager.keyword_downer == "Aiden's Safe")
             {

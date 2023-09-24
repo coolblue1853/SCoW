@@ -480,7 +480,7 @@ public class DialogManager : MonoBehaviour
                                     }
  
                                 }
-                                if (t_ReplaceText[i + 4] == 'ⓒ') // 강의 수질
+                                if (t_ReplaceText[i + 4] == 'ⓒ') // 섬뜩한 눈
                                 {
                                     if (DataBaseManager.Intel_CreepyEyes1 == false)
                                     {
@@ -576,8 +576,16 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Nightmare3 = true;
                                     IntelManager.Instance.AddIntelFloating("Event", "Nightmare - Aiden's Detail");
                                 }
+                                if (t_ReplaceText[i + 4] == 'ⓜ') // 연속실종사건
+                                {
+                                    if (DataBaseManager.Intel_MissingPeople3 == false)
+                                    {
+                                        DataBaseManager.Intel_MissingPeople3 = true;
+                                        IntelManager.Instance.AddIntelFloating("Event", "MissingPeople - Kidnap");
+                                    }
 
-     
+                                }
+
                                 if (t_ReplaceText[i + 4] == 'ⓕ') // 비릿한 냄새
                                 {
                                     if (DataBaseManager.Intel_FishySmell3 == false)
@@ -620,6 +628,15 @@ public class DialogManager : MonoBehaviour
                         {
                             if (t_ReplaceText[i + 3] == '1')
                             {
+                                if (t_ReplaceText[i + 4] == 'ⓧ')
+                                {
+                                    if (DataBaseManager.Intel_Sewer1 == false)
+                                    {
+                                        DataBaseManager.Intel_Sewer1 = true;
+                                        IntelManager.Instance.AddIntelFloating("Place", "Sewer - Aiden's warning");
+                                    }
+
+                                }
                                 if (t_ReplaceText[i + 4] == 'ⓦ')
                                 {
                                     if (DataBaseManager.Intel_Wharf1 == false)
@@ -677,6 +694,34 @@ public class DialogManager : MonoBehaviour
 
                             }
 
+                            if (t_ReplaceText[i + 3] == '2')
+                            {
+                                if (t_ReplaceText[i + 4] == 'ⓧ')
+                                {
+                                    if (DataBaseManager.Intel_Sewer2 == false)
+                                    {
+                                        DataBaseManager.Intel_Sewer2 = true;
+                                        IntelManager.Instance.AddIntelFloating("Place", "Sewer - Root of problem");
+                                    }
+
+                                }
+                             
+
+                            }
+                            if (t_ReplaceText[i + 3] == '3')
+                            {
+                                if (t_ReplaceText[i + 4] == 'ⓧ')
+                                {
+                                    if (DataBaseManager.Intel_Sewer3 == false)
+                                    {
+                                        DataBaseManager.Intel_Sewer3 = true;
+                                        IntelManager.Instance.AddIntelFloating("Place", "Sewer - Manhole");
+                                    }
+
+                                }
+
+
+                            }
                         }
                     }
                     break;

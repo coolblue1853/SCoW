@@ -473,7 +473,7 @@ public class DataBaseManager : MonoBehaviour
     public static int ButtonCount_Newspaper = -1;
     public static int ButtonCount_QuestHouse = -1;
     public static int ButtonCount_Station = -1;
-    public static int ButtonCount_Restaurant = -1;
+    public static int ButtonCount_Sewer = -1;
     public static int ButtonCount_University = -1;
     public static int ButtonCount_Riverside = -1;
     public static int ButtonCount_Bar = -1;
@@ -492,7 +492,7 @@ public class DataBaseManager : MonoBehaviour
     public static int NowPage_Newspaper = 1;
     public static int NowPage_QuestHouse = 1;
     public static int NowPage_Station = 1;
-    public static int NowPage_Restaurant = 1;
+    public static int NowPage_Sewer = 1;
     public static int NowPage_University = 1;
     public static int NowPage_Riverside = 1;
     public static int NowPage_Bar = 1;
@@ -540,12 +540,12 @@ public class DataBaseManager : MonoBehaviour
     public static bool Intel_Station6 = false;
 
 
-    public static bool Intel_Restaurant1 = false;
-    public static bool Intel_Restaurant2 = false;
-    public static bool Intel_Restaurant3 = false;
-    public static bool Intel_Restaurant4 = false;
-    public static bool Intel_Restaurant5 = false;
-    public static bool Intel_Restaurant6 = false;
+    public static bool Intel_Sewer1 = false;
+    public static bool Intel_Sewer2 = false;
+    public static bool Intel_Sewer3 = false;
+    public static bool Intel_Sewer4 = false;
+    public static bool Intel_Sewer5 = false;
+    public static bool Intel_Sewer6 = false;
 
 
     public static bool Intel_University1 = false;
@@ -1001,7 +1001,7 @@ NowSelecter = "End"; // End_Look_Judge 존재
      ButtonCount_Newspaper = -1;
      ButtonCount_QuestHouse = -1;
      ButtonCount_Station = -1;
-     ButtonCount_Restaurant = -1;
+     ButtonCount_Sewer = -1;
      ButtonCount_University = -1;
      ButtonCount_Riverside = -1;
      ButtonCount_Bar = -1;
@@ -1020,7 +1020,7 @@ NowSelecter = "End"; // End_Look_Judge 존재
      NowPage_Newspaper = 1;
      NowPage_QuestHouse = 1;
      NowPage_Station = 1;
-     NowPage_Restaurant = 1;
+     NowPage_Sewer = 1;
      NowPage_University = 1;
      NowPage_Riverside = 1;
      NowPage_Bar = 1;
@@ -1068,12 +1068,12 @@ NowSelecter = "End"; // End_Look_Judge 존재
      Intel_Station6 = false;
 
 
-     Intel_Restaurant1 = false;
-     Intel_Restaurant2 = false;
-     Intel_Restaurant3 = false;
-     Intel_Restaurant4 = false;
-     Intel_Restaurant5 = false;
-     Intel_Restaurant6 = false;
+     Intel_Sewer1 = false;
+     Intel_Sewer2 = false;
+     Intel_Sewer3 = false;
+     Intel_Sewer4 = false;
+     Intel_Sewer5 = false;
+     Intel_Sewer6 = false;
 
 
      Intel_University1 = false;

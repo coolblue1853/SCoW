@@ -100,24 +100,24 @@ public class IntelPlaceDetail : MonoBehaviour
     public GameObject NextButton_Station;
     public GameObject PrevButton_Station;
 
-    GameObject Detail_Restaurant1;
-    GameObject Detail_Restaurant2;
-    GameObject Detail_Restaurant3;
-    GameObject Detail_Restaurant4;
-    GameObject Detail_Restaurant5;
-    GameObject Detail_Restaurant6;
-    bool ON_Restaurant1;
-    bool ON_Restaurant2;
-    bool ON_Restaurant3;
-    bool ON_Restaurant4;
-    bool ON_Restaurant5;
-    bool ON_Restaurant6;
-    int Count_Restaurant = 0;
-    public GameObject RestaurantContents;
-    public GameObject Restaurant_Detail;
-    public static int RestaurantIntelInt;
-    public GameObject NextButton_Restaurant;
-    public GameObject PrevButton_Restaurant;
+    GameObject Detail_Sewer1;
+    GameObject Detail_Sewer2;
+    GameObject Detail_Sewer3;
+    GameObject Detail_Sewer4;
+    GameObject Detail_Sewer5;
+    GameObject Detail_Sewer6;
+    bool ON_Sewer1;
+    bool ON_Sewer2;
+    bool ON_Sewer3;
+    bool ON_Sewer4;
+    bool ON_Sewer5;
+    bool ON_Sewer6;
+    int Count_Sewer = 0;
+    public GameObject SewerContents;
+    public GameObject Sewer_Detail;
+    public static int SewerIntelInt;
+    public GameObject NextButton_Sewer;
+    public GameObject PrevButton_Sewer;
 
     GameObject Detail_University1;
     GameObject Detail_University2;
@@ -312,12 +312,12 @@ public class IntelPlaceDetail : MonoBehaviour
         Detail_Station5 = StationContents.transform.GetChild(4).gameObject;
         Detail_Station6 = StationContents.transform.GetChild(5).gameObject;
 
-        Detail_Restaurant1 = RestaurantContents.transform.GetChild(0).gameObject;
-        Detail_Restaurant2 = RestaurantContents.transform.GetChild(1).gameObject;
-        Detail_Restaurant3 = RestaurantContents.transform.GetChild(2).gameObject;
-        Detail_Restaurant4 = RestaurantContents.transform.GetChild(3).gameObject;
-        Detail_Restaurant5 = RestaurantContents.transform.GetChild(4).gameObject;
-        Detail_Restaurant6 = RestaurantContents.transform.GetChild(5).gameObject;
+        Detail_Sewer1 = SewerContents.transform.GetChild(0).gameObject;
+        Detail_Sewer2 = SewerContents.transform.GetChild(1).gameObject;
+        Detail_Sewer3 = SewerContents.transform.GetChild(2).gameObject;
+        Detail_Sewer4 = SewerContents.transform.GetChild(3).gameObject;
+        Detail_Sewer5 = SewerContents.transform.GetChild(4).gameObject;
+        Detail_Sewer6 = SewerContents.transform.GetChild(5).gameObject;
 
         Detail_University1 = UniversityContents.transform.GetChild(0).gameObject;
         Detail_University2 = UniversityContents.transform.GetChild(1).gameObject;
@@ -384,14 +384,14 @@ public class IntelPlaceDetail : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(NextButton_Bar.activeSelf == true || NextButton_DetectiveOffice.activeSelf == true || NextButton_Gunsmith.activeSelf == true || NextButton_Hospital.activeSelf == true || NextButton_Newspaper.activeSelf == true || NextButton_PoliceOffice.activeSelf == true || NextButton_QuestHouse.activeSelf == true || NextButton_Restaurant.activeSelf == true || NextButton_Riverside.activeSelf == true || NextButton_SewageMaintenanceOffice.activeSelf == true || NextButton_Slum.activeSelf == true || NextButton_Station.activeSelf == true || NextButton_University.activeSelf == true || NextButton_Wharf.activeSelf == true )
+        if(NextButton_Bar.activeSelf == true || NextButton_DetectiveOffice.activeSelf == true || NextButton_Gunsmith.activeSelf == true || NextButton_Hospital.activeSelf == true || NextButton_Newspaper.activeSelf == true || NextButton_PoliceOffice.activeSelf == true || NextButton_QuestHouse.activeSelf == true || NextButton_Sewer.activeSelf == true || NextButton_Riverside.activeSelf == true || NextButton_SewageMaintenanceOffice.activeSelf == true || NextButton_Slum.activeSelf == true || NextButton_Station.activeSelf == true || NextButton_University.activeSelf == true || NextButton_Wharf.activeSelf == true )
         {
             if (Input.GetKeyDown(KeyCode.D))
             {
                 NextPage();
             }
         }
-        if (PrevButton_Bar.activeSelf == true || PrevButton_DetectiveOffice.activeSelf == true || PrevButton_Gunsmith.activeSelf == true || PrevButton_Hospital.activeSelf == true || PrevButton_Newspaper.activeSelf == true || PrevButton_PoliceOffice.activeSelf == true || PrevButton_QuestHouse.activeSelf == true || PrevButton_Restaurant.activeSelf == true || PrevButton_Riverside.activeSelf == true || PrevButton_SewageMaintenanceOffice.activeSelf == true || PrevButton_Slum.activeSelf == true || PrevButton_Station.activeSelf == true || PrevButton_University.activeSelf == true || PrevButton_Wharf.activeSelf == true )
+        if (PrevButton_Bar.activeSelf == true || PrevButton_DetectiveOffice.activeSelf == true || PrevButton_Gunsmith.activeSelf == true || PrevButton_Hospital.activeSelf == true || PrevButton_Newspaper.activeSelf == true || PrevButton_PoliceOffice.activeSelf == true || PrevButton_QuestHouse.activeSelf == true || PrevButton_Sewer.activeSelf == true || PrevButton_Riverside.activeSelf == true || PrevButton_SewageMaintenanceOffice.activeSelf == true || PrevButton_Slum.activeSelf == true || PrevButton_Station.activeSelf == true || PrevButton_University.activeSelf == true || PrevButton_Wharf.activeSelf == true )
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -404,7 +404,7 @@ public class IntelPlaceDetail : MonoBehaviour
         NewspaperDetail();
         QuestHouseDetail();
         StationDetail();
-        RestaurantDetail();
+        SewerDetail();
         UniversityDetail();
         RiversideDetail();
         BarDetail();
@@ -433,9 +433,9 @@ public class IntelPlaceDetail : MonoBehaviour
         {
             NowPage = "Station";
         }
-        if (Restaurant_Detail.activeSelf == true)
+        if (Sewer_Detail.activeSelf == true)
         {
-            NowPage = "Restaurant";
+            NowPage = "Sewer";
         }
         if (University_Detail.activeSelf == true)
         {
@@ -829,76 +829,76 @@ public class IntelPlaceDetail : MonoBehaviour
             PrevButton_Station.SetActive(false);
         }
     }
-    void RestaurantDetail()
+    void SewerDetail()
     {
-        if (ON_Restaurant1 == false && DataBaseManager.Intel_Restaurant1 == true)
+        if (ON_Sewer1 == false && DataBaseManager.Intel_Sewer1 == true)
         {
-            ON_Restaurant1 = true;
-            Detail_Restaurant1.SetActive(true);
-            Detail_Restaurant1.transform.SetAsLastSibling();
-            Count_Restaurant += 1;
+            ON_Sewer1 = true;
+            Detail_Sewer1.SetActive(true);
+            Detail_Sewer1.transform.SetAsLastSibling();
+            Count_Sewer += 1;
         }
-        if (ON_Restaurant2 == false && DataBaseManager.Intel_Restaurant2 == true)
+        if (ON_Sewer2 == false && DataBaseManager.Intel_Sewer2 == true)
         {
-            ON_Restaurant2 = true;
-            Detail_Restaurant2.SetActive(true);
-            Detail_Restaurant2.transform.SetAsLastSibling();
-            Count_Restaurant += 1;
+            ON_Sewer2 = true;
+            Detail_Sewer2.SetActive(true);
+            Detail_Sewer2.transform.SetAsLastSibling();
+            Count_Sewer += 1;
         }
-        if (ON_Restaurant3 == false && DataBaseManager.Intel_Restaurant3 == true)
+        if (ON_Sewer3 == false && DataBaseManager.Intel_Sewer3 == true)
         {
-            ON_Restaurant3 = true;
-            Detail_Restaurant3.SetActive(true);
-            Detail_Restaurant3.transform.SetAsLastSibling();
-            Count_Restaurant += 1;
+            ON_Sewer3 = true;
+            Detail_Sewer3.SetActive(true);
+            Detail_Sewer3.transform.SetAsLastSibling();
+            Count_Sewer += 1;
         }
-        if (ON_Restaurant4 == false && DataBaseManager.Intel_Restaurant4 == true)
+        if (ON_Sewer4 == false && DataBaseManager.Intel_Sewer4 == true)
         {
-            ON_Restaurant4 = true;
-            Detail_Restaurant4.SetActive(true);
-            Detail_Restaurant4.transform.SetAsLastSibling();
-            Count_Restaurant += 1;
+            ON_Sewer4 = true;
+            Detail_Sewer4.SetActive(true);
+            Detail_Sewer4.transform.SetAsLastSibling();
+            Count_Sewer += 1;
         }
-        if (ON_Restaurant5 == false && DataBaseManager.Intel_Restaurant5 == true)
+        if (ON_Sewer5 == false && DataBaseManager.Intel_Sewer5 == true)
         {
-            ON_Restaurant5 = true;
-            Detail_Restaurant5.SetActive(true);
-            Detail_Restaurant5.transform.SetAsLastSibling();
-            Count_Restaurant += 1;
+            ON_Sewer5 = true;
+            Detail_Sewer5.SetActive(true);
+            Detail_Sewer5.transform.SetAsLastSibling();
+            Count_Sewer += 1;
         }
-        if (ON_Restaurant6 == false && DataBaseManager.Intel_Restaurant6 == true)
+        if (ON_Sewer6 == false && DataBaseManager.Intel_Sewer6 == true)
         {
-            ON_Restaurant6 = true;
-            Detail_Restaurant6.SetActive(true);
-            Detail_Restaurant6.transform.SetAsLastSibling();
-            Count_Restaurant += 1;
+            ON_Sewer6 = true;
+            Detail_Sewer6.SetActive(true);
+            Detail_Sewer6.transform.SetAsLastSibling();
+            Count_Sewer += 1;
         }
 
-        if (Count_Restaurant > 2 && DataBaseManager.NowPage_Restaurant == 1)
+        if (Count_Sewer > 2 && DataBaseManager.NowPage_Sewer == 1)
         {
-            NextButton_Restaurant.SetActive(true);
+            NextButton_Sewer.SetActive(true);
         }
-        else if (Count_Restaurant > 4 && DataBaseManager.NowPage_Restaurant == 2)
+        else if (Count_Sewer > 4 && DataBaseManager.NowPage_Sewer == 2)
         {
-            NextButton_Restaurant.SetActive(true);
+            NextButton_Sewer.SetActive(true);
         }
         else
         {
-            NextButton_Restaurant.SetActive(false);
+            NextButton_Sewer.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_Restaurant == 2)
+        if (DataBaseManager.NowPage_Sewer == 2)
         {
-            PrevButton_Restaurant.SetActive(true);
+            PrevButton_Sewer.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_Restaurant
+        else if (DataBaseManager.NowPage_Sewer
             == 3)
         {
-            PrevButton_Restaurant.SetActive(true);
+            PrevButton_Sewer.SetActive(true);
         }
         else
         {
-            PrevButton_Restaurant.SetActive(false);
+            PrevButton_Sewer.SetActive(false);
         }
     }
     void UniversityDetail()
@@ -1698,49 +1698,49 @@ public class IntelPlaceDetail : MonoBehaviour
                 DataBaseManager.NowPage_Station = 3;
             }
         }
-        if (NowPage == "Restaurant")
+        if (NowPage == "Sewer")
         {
-            if (DataBaseManager.NowPage_Restaurant == 1)
+            if (DataBaseManager.NowPage_Sewer == 1)
             {
-                if (Count_Restaurant >= 6)
+                if (Count_Sewer >= 6)
                 {
-                    Reset_Restaurant();
-                    RestaurantContents.transform.GetChild(2).gameObject.SetActive(true);
-                    RestaurantContents.transform.GetChild(3).gameObject.SetActive(true);
+                    Reset_Sewer();
+                    SewerContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SewerContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Restaurant >= 5)
+                else if (Count_Sewer >= 5)
                 {
-                    Reset_Restaurant();
-                    RestaurantContents.transform.GetChild(3).gameObject.SetActive(true);
-                    RestaurantContents.transform.GetChild(4).gameObject.SetActive(true);
+                    Reset_Sewer();
+                    SewerContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SewerContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                else if (Count_Restaurant >= 4)
+                else if (Count_Sewer >= 4)
                 {
-                    Reset_Restaurant();
-                    RestaurantContents.transform.GetChild(4).gameObject.SetActive(true);
-                    RestaurantContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_Sewer();
+                    SewerContents.transform.GetChild(4).gameObject.SetActive(true);
+                    SewerContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Restaurant >= 3)
+                else if (Count_Sewer >= 3)
                 {
-                    Reset_Restaurant();
-                    RestaurantContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_Sewer();
+                    SewerContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Restaurant = 2;
+                DataBaseManager.NowPage_Sewer = 2;
             }
-            else if (DataBaseManager.NowPage_Restaurant == 2)
+            else if (DataBaseManager.NowPage_Sewer == 2)
             {
-                if (Count_Restaurant >= 6)
+                if (Count_Sewer >= 6)
                 {
-                    Reset_Restaurant();
-                    RestaurantContents.transform.GetChild(4).gameObject.SetActive(true);
-                    RestaurantContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_Sewer();
+                    SewerContents.transform.GetChild(4).gameObject.SetActive(true);
+                    SewerContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Restaurant >= 5)
+                else if (Count_Sewer >= 5)
                 {
-                    Reset_Restaurant();
-                    RestaurantContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_Sewer();
+                    SewerContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Restaurant = 3;
+                DataBaseManager.NowPage_Sewer = 3;
             }
         }
         if (NowPage == "University")
@@ -2346,52 +2346,52 @@ public class IntelPlaceDetail : MonoBehaviour
                 DataBaseManager.NowPage_Station = 2;
             }
         }
-        if (NowPage == "Restaurant")
+        if (NowPage == "Sewer")
         {
-            if (DataBaseManager.NowPage_Restaurant == 2)
+            if (DataBaseManager.NowPage_Sewer == 2)
             {
-                if (Count_Restaurant >= 6)
+                if (Count_Sewer >= 6)
                 {
-                    Reset_Restaurant();
-                    RestaurantContents.transform.GetChild(0).gameObject.SetActive(true);
-                    RestaurantContents.transform.GetChild(1).gameObject.SetActive(true);
+                    Reset_Sewer();
+                    SewerContents.transform.GetChild(0).gameObject.SetActive(true);
+                    SewerContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
-                else if (Count_Restaurant >= 5)
+                else if (Count_Sewer >= 5)
                 {
-                    Reset_Restaurant();
-                    RestaurantContents.transform.GetChild(1).gameObject.SetActive(true);
-                    RestaurantContents.transform.GetChild(2).gameObject.SetActive(true);
+                    Reset_Sewer();
+                    SewerContents.transform.GetChild(1).gameObject.SetActive(true);
+                    SewerContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
-                else if (Count_Restaurant >= 4)
+                else if (Count_Sewer >= 4)
                 {
-                    Reset_Restaurant();
-                    RestaurantContents.transform.GetChild(2).gameObject.SetActive(true);
-                    RestaurantContents.transform.GetChild(3).gameObject.SetActive(true);
+                    Reset_Sewer();
+                    SewerContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SewerContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Restaurant >= 3)
+                else if (Count_Sewer >= 3)
                 {
-                    Reset_Restaurant();
-                    RestaurantContents.transform.GetChild(3).gameObject.SetActive(true);
-                    RestaurantContents.transform.GetChild(4).gameObject.SetActive(true);
+                    Reset_Sewer();
+                    SewerContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SewerContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_Restaurant = 1;
+                DataBaseManager.NowPage_Sewer = 1;
             }
-            else if (DataBaseManager.NowPage_Restaurant == 3)
+            else if (DataBaseManager.NowPage_Sewer == 3)
             {
-                if (Count_Restaurant >= 6)
+                if (Count_Sewer >= 6)
                 {
-                    Reset_Restaurant();
-                    RestaurantContents.transform.GetChild(2).gameObject.SetActive(true);
-                    RestaurantContents.transform.GetChild(3).gameObject.SetActive(true);
+                    Reset_Sewer();
+                    SewerContents.transform.GetChild(2).gameObject.SetActive(true);
+                    SewerContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Restaurant >= 5)
+                else if (Count_Sewer >= 5)
                 {
-                    Reset_Restaurant();
-                    RestaurantContents.transform.GetChild(3).gameObject.SetActive(true);
-                    RestaurantContents.transform.GetChild(4).gameObject.SetActive(true);
+                    Reset_Sewer();
+                    SewerContents.transform.GetChild(3).gameObject.SetActive(true);
+                    SewerContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Restaurant = 2;
+                DataBaseManager.NowPage_Sewer = 2;
             }
         }
         if (NowPage == "University")
@@ -2825,14 +2825,14 @@ public class IntelPlaceDetail : MonoBehaviour
         StationContents.transform.GetChild(4).gameObject.SetActive(false);
         StationContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_Restaurant()
+    void Reset_Sewer()
     {
-        RestaurantContents.transform.GetChild(0).gameObject.SetActive(false);
-        RestaurantContents.transform.GetChild(1).gameObject.SetActive(false);
-        RestaurantContents.transform.GetChild(2).gameObject.SetActive(false);
-        RestaurantContents.transform.GetChild(3).gameObject.SetActive(false);
-        RestaurantContents.transform.GetChild(4).gameObject.SetActive(false);
-        RestaurantContents.transform.GetChild(5).gameObject.SetActive(false);
+        SewerContents.transform.GetChild(0).gameObject.SetActive(false);
+        SewerContents.transform.GetChild(1).gameObject.SetActive(false);
+        SewerContents.transform.GetChild(2).gameObject.SetActive(false);
+        SewerContents.transform.GetChild(3).gameObject.SetActive(false);
+        SewerContents.transform.GetChild(4).gameObject.SetActive(false);
+        SewerContents.transform.GetChild(5).gameObject.SetActive(false);
     }
     void Reset_University()
     {
@@ -2938,11 +2938,11 @@ public class IntelPlaceDetail : MonoBehaviour
         CloseAllContents();
         Station_Detail.SetActive(true);
     }
-    public void Open_Restaurant()
+    public void Open_Sewer()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
-        Restaurant_Detail.SetActive(true);
+        Sewer_Detail.SetActive(true);
     }
     public void Open_University()
     {
@@ -2999,7 +2999,7 @@ public class IntelPlaceDetail : MonoBehaviour
         Hospital_Detail.SetActive(false);
         QuestHouse_Detail.SetActive(false);
         Station_Detail.SetActive(false);
-        Restaurant_Detail.SetActive(false);
+        Sewer_Detail.SetActive(false);
         University_Detail.SetActive(false);
         Riverside_Detail.SetActive(false);
         Bar_Detail.SetActive(false);

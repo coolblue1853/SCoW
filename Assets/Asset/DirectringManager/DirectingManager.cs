@@ -262,7 +262,7 @@ public class DirectingManager : MonoBehaviour
         {
  
             DataBaseManager.Battle_San = false;
-            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "dialog");
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "RoadBattle1");
         }
         if(DataBaseManager.isBattleBeforeDialog == true &&DataBaseManager.isActiveDialog1 == false)
         {

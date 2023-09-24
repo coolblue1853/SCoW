@@ -17,12 +17,6 @@ public class LightColorController : MonoBehaviour
 
     public float timeValue => currentTime;
 
-    public void GetSetters()
-    {
-        setters = GetComponentsInChildren<ColorSetterInterface>();
-        foreach (var setter in setters)
-            setter.Refresh();
-    }
 
     private void OnEnable()
     {
@@ -35,6 +29,13 @@ public class LightColorController : MonoBehaviour
     {
         time = 0;
         UpdateSetters();
+    }
+
+    public void GetSetters()
+    {
+        setters = GetComponentsInChildren<ColorSetterInterface>();
+        foreach (var setter in setters)
+            setter.Refresh();
     }
 
     private void Update()

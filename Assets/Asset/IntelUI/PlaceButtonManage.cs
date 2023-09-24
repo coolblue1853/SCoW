@@ -122,10 +122,10 @@ public class PlaceButtonManage : MonoBehaviour
             DataBaseManager.ButtonCount_Station = DataBaseManager.GainPlaceInt;
             DataBaseManager.GainPlaceInt += 1;
         }
-        if ((DataBaseManager.Intel_Restaurant1 == true || DataBaseManager.Intel_Restaurant2 == true || DataBaseManager.Intel_Restaurant3 == true || DataBaseManager.Intel_Restaurant4 == true || DataBaseManager.Intel_Restaurant5 == true || DataBaseManager.Intel_Restaurant6 == true) && ButtonRize_Restaurant == false)
+        if ((DataBaseManager.Intel_Sewer1 == true || DataBaseManager.Intel_Sewer2 == true || DataBaseManager.Intel_Sewer3 == true || DataBaseManager.Intel_Sewer4 == true || DataBaseManager.Intel_Sewer5 == true || DataBaseManager.Intel_Sewer6 == true) && ButtonRize_Restaurant == false)
         {
             ButtonRize_Restaurant = true;
-            DataBaseManager.ButtonCount_Restaurant = DataBaseManager.GainPlaceInt;
+            DataBaseManager.ButtonCount_Sewer = DataBaseManager.GainPlaceInt;
             DataBaseManager.GainPlaceInt += 1;
         }
         if ((DataBaseManager.Intel_University1 == true || DataBaseManager.Intel_University2 == true || DataBaseManager.Intel_University3 == true || DataBaseManager.Intel_University4 == true || DataBaseManager.Intel_University5 == true || DataBaseManager.Intel_University6 == true) && ButtonRize_University == false)
@@ -208,10 +208,10 @@ public class PlaceButtonManage : MonoBehaviour
             Button_Station.SetActive(true);
             Button_Station.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Station);
         }
-        if (DataBaseManager.ButtonCount_Restaurant != -1)
+        if (DataBaseManager.ButtonCount_Sewer != -1)
         {
             Button_Restaurant.SetActive(true);
-            Button_Restaurant.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Restaurant);
+            Button_Restaurant.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Sewer);
         }
         if (DataBaseManager.ButtonCount_University != -1)
         {
