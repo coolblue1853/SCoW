@@ -91,11 +91,14 @@ DataBaseManager.Intel_FishySmell3 = true;
         DataBaseManager.nowSan = DataBaseManager.san;
         DataBaseManager.Intel_QuestHouse1 = true;
 
-
         DataBaseManager.Intel_MissingPeople1 = true;
-        DataBaseManager.Intel_SewerGhostStory1 = true;
+        DataBaseManager.Intel_MissingPeople2 = true;
+        DataBaseManager.Intel_Nightmare2 = true;
+        DataBaseManager.Intel_Nightmare4 = true;
         DataBaseManager.Intel_FishySmell3 = true;
-        DataBaseManager.Intel_SewerWorker1 = true;
+        DataBaseManager.Intel_RiverWaterQuality2 = true;
+        DataBaseManager.Intel_Aiden2 = true;
+        DataBaseManager.Intel_SewerWorker2 = true;
     }
     public void NewsRollet()
     {

@@ -777,8 +777,16 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_SewerWorker1 = true;
                                         IntelManager.Instance.AddIntelFloating("Character", "SewerWorker - Owner of Eye?");
                                     }
-
                                 }
+                                if (t_ReplaceText[i + 4] == 'ⓧ')
+                                {
+                                    if (DataBaseManager.Intel_Swain1 == false)
+                                    {
+                                        DataBaseManager.Intel_Swain1 = true;
+                                        IntelManager.Instance.AddIntelFloating("Character", "Berkeley Swain - Sewer Survey");
+                                    }
+                                }
+
                             }
                             if (t_ReplaceText[i + 3] == '2')
                             {

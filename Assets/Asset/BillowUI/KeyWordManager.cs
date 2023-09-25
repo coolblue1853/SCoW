@@ -1494,14 +1494,14 @@ public class KeyWordManager : MonoBehaviour
         }
 
         // 스탠리
-        if (DataBaseManager.keyword_upper == "스탠리 큐브릭" && SwainKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "Berkeley Swain" && SwainKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = SwainList[SwainKeywordNum];
         }
         if (DataBaseManager.Intel_Swain1 == true && isSwain1Add == false)
         {
             isSwain1Add = true;
-            SwainList.Add("스탠리 큐브릭");
+            SwainList.Add("Sewer Survey");
         }
 
         // 노교수

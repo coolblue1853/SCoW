@@ -256,6 +256,15 @@ public class InteractionController : MonoBehaviour
     public GameObject Aiden_key_ContentsofaGhostStory;
     public GameObject Aiden_key_OwnerofEye;
 
+    //2st 신문사
+    public GameObject Swain_key_ContentofaNightmare;
+    public GameObject Swain_key_WaterandNightmare;
+    public GameObject Swain_key_FishySmell_Reort;
+    public GameObject Swain_key_FishySmell_None;
+    public GameObject Swain_key_Details;
+    public GameObject Swain_key_AidenandPandemic;
+    public GameObject Swain_key_Unfairdismissal;
+    
     private void Start()
     {
         //TestNar();
@@ -1268,6 +1277,45 @@ public class InteractionController : MonoBehaviour
             {
                 theDM.ShowDialog(Swain_Key_CreepyEye1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
+
+
+
+            else if (DataBaseManager.keyword_downer == "Content of a Nightmare")
+            {
+                theDM.ShowDialog(Swain_key_ContentofaNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Water and Nightmare")
+            {
+                theDM.ShowDialog(Swain_key_WaterandNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Source speculation" || DataBaseManager.keyword_downer == "Sewer & FishySmell" || DataBaseManager.keyword_downer == "Cause of Fishy smell")
+            {
+                if(DataBaseManager.Intel_MissingPeople2 == true)
+                {
+                    theDM.ShowDialog(Swain_key_FishySmell_Reort.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Swain_key_FishySmell_None.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+
+
+            }
+            else if (DataBaseManager.keyword_downer == "Details")
+            {
+                theDM.ShowDialog(Swain_key_Details.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Aiden & Pandemic")
+            {
+                theDM.ShowDialog(Swain_key_AidenandPandemic.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Unfair dismissal")
+            {
+                theDM.ShowDialog(Swain_key_Unfairdismissal.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+
+
+
             else
             {
 
