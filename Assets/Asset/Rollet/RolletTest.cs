@@ -91,14 +91,31 @@ DataBaseManager.Intel_FishySmell3 = true;
         DataBaseManager.nowSan = DataBaseManager.san;
         DataBaseManager.Intel_QuestHouse1 = true;
 
+
+        DataBaseManager.Intel_Hospital1 = true;
+        DataBaseManager.Intel_Aiden1 = true;
+        DataBaseManager.Intel_SewerGhostStory1 = true;
+        DataBaseManager.Intel_SewerGhostStory2 = true;
+        DataBaseManager.Intel_SewerGhostStory3 = true;
+        DataBaseManager.Intel_CreepyEyes1 = true;
         DataBaseManager.Intel_MissingPeople1 = true;
         DataBaseManager.Intel_MissingPeople2 = true;
         DataBaseManager.Intel_Nightmare2 = true;
         DataBaseManager.Intel_Nightmare4 = true;
+        DataBaseManager.Intel_FishySmell1 = true;
+        DataBaseManager.Intel_FishySmell2 = true;
         DataBaseManager.Intel_FishySmell3 = true;
+        DataBaseManager.Intel_FishySmell4 = true;
+        DataBaseManager.Intel_Meiv2 = true;
+        DataBaseManager.Intel_SewerWorker3 = true;
         DataBaseManager.Intel_RiverWaterQuality2 = true;
         DataBaseManager.Intel_Aiden2 = true;
         DataBaseManager.Intel_SewerWorker2 = true;
+      
+
+        // 테스트 진행중 삭제
+        DataBaseManager.TimeCount = 5;
+        DataBaseManager.SecondDayDialog = true;
     }
     public void NewsRollet()
     {
@@ -107,7 +124,7 @@ DataBaseManager.Intel_FishySmell3 = true;
     }
     private void Start()
     {
-
+        
 
         //  DataBaseManager.weal = 99999;
         //    DataBaseManager.nowPlace = "BattleRoad";
@@ -119,7 +136,8 @@ DataBaseManager.Intel_FishySmell3 = true;
     }
     private void Update()
     {
-        //Debug.Log(DataBaseManager.isDirecting);
+        Debug.Log(DataBaseManager.nowPlace);
+        Debug.Log(DataBaseManager.TimeCount);
         if(Input.GetKeyDown(KeyCode.F10))
         {
         }

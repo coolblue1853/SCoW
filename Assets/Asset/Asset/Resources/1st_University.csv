@@ -22,25 +22,25 @@ ID,캐릭터이름,대사,
 21,College students,@Well... I already have ongoing 'physical' insomnia.@,
 22,College students,@I'm not sure.@,
 23,Fabian,(This is a very tired looking student.),살펴보기
-24,,,
-25,,,
-26,,,(
-27,,,
-28,,,
-29,,,
-30,,,
-31,,,
-32,,,
-33,,,
-34,,,
-35,,,
-36,,,
-37,,,
-38,,,
-39,,,
-40,,,
-41,,,
-42,,,
+24,Fabian,@Have you ever had a ⓡ(nightmare)ⓦ involving water or the ocean?@,2일차 추가 Content of a Nightmare
+25,College students,@Not at all...? Because professors are all the rage in my ⓡ(nightmares)ⓦ lately.@,
+26,Fabian,@Anyone around you?@,
+27,College students,@Well... I haven't seen much of my friends lately.@,
+28,Fabian,@ⓑ(Hospitals)ⓦ are reporting an epidemic of water and ocean-related ⓡ(nightmares)ⓦ^ have you heard?@,Water and Nightmare
+29,College students,@ⓡ(Nightmares)ⓦ are in epidemic? And at ⓑ(hospital)ⓦ?@,
+30,College students,@I see... On the one hand^ it seems a little satisfying that I'm not the only one who can't sleep well?@,
+31,Fabian,(He closed his eyes for a moment after making that nonchalant comment.),
+32,Fabian,@Have you heard about the ⓡ(fishy smell)ⓦ going around city lately?@,비릿한냄새 Rumor 
+33,College students,@I don't know^ maybe it's because I rarely get out of the lab these days.@,
+34,College students,@I've never smelled that^ at least not inside the university.@,
+35,Fabian,@Do you know anything about the recent ⓡ(fishy smell)ⓦ that seems to be related to the ⓑ(sewer)?@,비릿한냄새 근원3개
+36,College students,@How would a college student know that... ugh.@,
+37,College students,@My professor's latest research focuses on ⓑ(sewage)ⓦ and ⓡ(●1ⓡriver water quality)ⓦ.@,키워드 획득
+38,College students,@I don't know about that^ anyway.@,
+39,Fabian,@I met and talked to your professor. Something's up.@,Details 
+40,College students,@That's what I'm saying. I got busy thanks to him too.@,
+41,College students,@There's nothing out of the ordinary about it^ other than a bit of ⓡ(●3ⓡfishy slime)ⓦ.@,키워드 획득
+42,College students,@I've also sent samples to nearby universities^ so maybe we'll get some results in a few days.@,
 43,,,
 44,,,
 45,,,

@@ -6,7 +6,7 @@ public class DataBaseManager : MonoBehaviour
 {
     public static bool isOpenMap = false;
     public static bool secondisDirecting = false;
-
+    public static bool StoryDirecting = false;
     //2일차
     public static bool SecondDayDialog = false;
    
@@ -14,7 +14,12 @@ public class DataBaseManager : MonoBehaviour
     public static bool Case2IntCheck = false;
     public static bool Case2SanCheck = false;
 
-
+    //낮 강제 이벤트
+    public static bool NoonMorningMove = false;
+    public static bool snd_Detective_NoonEvent = false;
+    public static bool NoonEvent_MovetoClient = false;
+    public static bool NoonEvent_ClientsFirst = false;
+    public static bool NoonEvent_AccessAuthorization = false;
 
     //Sanity
     public static int Debuff = 0;
@@ -102,6 +107,7 @@ public class DataBaseManager : MonoBehaviour
     //Directing
     public static bool isDirecting = false;
     public static bool firstClientsHouse = false;
+    public static bool firstClientsHouseEnd = false;
     //1일차 술집
     public static bool isBar = false;
     public static bool Maeve_FirstDialog = false;

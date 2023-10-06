@@ -1117,6 +1117,7 @@ public class KeyWordManager : MonoBehaviour
     public int SafeKeywordNum = 0;
     //사건
     bool isPlanetaryParade1Add = false;
+    bool isPlanetaryParade2Add = false;
     bool isNightmare1Add = false;
     bool isNightmare2Add = false;
     bool isNightmare3Add = false;
@@ -1140,6 +1141,7 @@ public class KeyWordManager : MonoBehaviour
     bool isFishySmell4Add = false;
     bool isRiverWaterQuality1Add = false;
     bool isRiverWaterQuality2Add = false;
+    bool isRiverWaterQuality3Add = false;
     bool isCreepyEyes1Add = false;
     bool isSuddenChange1Add = false;
     bool isSafe1Add = false;
@@ -1275,7 +1277,11 @@ public class KeyWordManager : MonoBehaviour
             isPlanetaryParade1Add = true;
             PlanetaryParadeList.Add("Contents of a Newspaper");
         }
-
+        if (DataBaseManager.Intel_PlanetaryParade2 == true && isPlanetaryParade2Add == false)
+        {
+            isPlanetaryParade2Add = true;
+            PlanetaryParadeList.Add("Meetings");
+        }
 
         // 악몽
         else if (DataBaseManager.keyword_upper == "Nightmare" && NightmareKeywordCount >= 0)
@@ -1419,6 +1425,11 @@ public class KeyWordManager : MonoBehaviour
         {
             isRiverWaterQuality2Add = true;
             RiverWaterQualityList.Add("Details");
+        }
+        if (DataBaseManager.Intel_RiverWaterQuality3 == true && isRiverWaterQuality3Add == false)
+        {
+            isRiverWaterQuality3Add = true;
+            RiverWaterQualityList.Add("Fishy Slime");
         }
 
         // 섬뜩한눈

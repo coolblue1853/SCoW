@@ -70,6 +70,12 @@ public class DialogDatabaseManager : MonoBehaviour
                 csv_FileName = "1st_Battle";
                 setDialog();
             }
+            else if (DataBaseManager.nowPlace == "NoonEvent" && Check == true)
+            {
+                Check = false;
+                csv_FileName = "2nd_NoonEvent";
+                setDialog();
+            }
         }
         else
         {

@@ -27,6 +27,9 @@ public class MapManager : MonoBehaviour
     //´ëÇÐ±³
     public GameObject Student;
 
+    Vector3 player_NoonEvent = new Vector3(-818.0412f, 2.183268f);
+    Vector3 Cam_NoonEvent = new Vector3(-814.3779f, 1.5f, -15);
+
     Vector3 player_DetectiveOffice = new Vector3(-774.2f, 2.6f);
     Vector3 Cam_DetectiveOffice = new Vector3(-797.2f, 1.690001f, -15);
 
@@ -322,7 +325,7 @@ public class MapManager : MonoBehaviour
 
     public void OpenMap()
     {
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad" && DataBaseManager.isOpenMap == false)
+        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad" && DataBaseManager.isOpenMap == false)
         {
             SoundManager.Instance.PaperClip_Play();
             DataBaseManager.workSound = false;
@@ -364,46 +367,90 @@ public class MapManager : MonoBehaviour
         }
     }
 
+
+    void NoonEvent()
+    {
+        player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
+        player.transform.localPosition = player_NoonEvent;
+        camera.transform.localPosition = Cam_NoonEvent;
+        MapChainingUI.SetActive(false);
+        MapUI.SetActive(false);
+        DataBaseManager.StoryDirecting = true;
+        DataBaseManager.snd_Detective_NoonEvent = true;
+    }
+
     void BattleDialog()
     {
         DirectingManager.Instance.BeforeBattle();
     }
+    bool isNoonEvent = false;
+    bool MorningMove_2nd = false;
+
+    void TimeMinus()
+    {
+        DataBaseManager.TimeCount -= 1;
+    }
 
     public void MapOn()
     {
-        DataBaseManager.isOpenMap = true;
-        if (DataBaseManager.isBar == true)
-        {
-            DataBaseManager.isDirecting = true;
-            DataBaseManager.isBar = false;
-            DataBaseManager.nowPlace = "BattleRoad";
-            DialogDatabaseManager.instance.Check = true;
-            CloseMap();
-            //DirectingManager.Instance.GotoBattle();
 
+         if(DataBaseManager.TimeCount == 5 && MorningMove_2nd == false)
+        {
+            DataBaseManager.NoonMorningMove = true;
+            DataBaseManager.secondisDirecting = true;
+
+            MorningMove_2nd = true;
+          FadingBackGround.Instance.FadeInOut();
+            CloseMap();
+            Invoke("OpenSpinUi", 1f);
+            Invoke("WaitFade", 4f);
+            Invoke("TimeMinus", 1f);
+        }
+        else if (DataBaseManager.TimeCount == 5 && isNoonEvent == false)
+        {
+            isNoonEvent = true;
+            DataBaseManager.nowPlace = "NoonEvent";
+            DataBaseManager.isDirecting = true;
+            DialogDatabaseManager.instance.Check = true;
             FadingBackGround.Instance.FadeInOut();
-            Invoke("BattleDialog", 1f);
+            CloseMap();
+            Invoke("NoonEvent", 1f);
         }
         else
         {
-
-
-
-            if ((DataBaseManager.TimeCount % 4) == 0 && DataBaseManager.nowPlace == "BattleRoad")
+            DataBaseManager.isOpenMap = true;
+            if (DataBaseManager.isBar == true)
             {
-       
-                FadingBackGround.Instance.FadeInOut();
-                Invoke("OpenSpinUi", 1f);
-                Invoke("WaitFade", 4f);
-            }
-            else 
-            {
-                FadingBackGround.Instance.FadeInOut();
-                Invoke("OpenSpinUi", 1f);
-                Invoke("SpinRing", 3f);
-            }
+                DataBaseManager.isDirecting = true;
+                DataBaseManager.isBar = false;
+                DataBaseManager.nowPlace = "BattleRoad";
+                DialogDatabaseManager.instance.Check = true;
+                CloseMap();
+                //DirectingManager.Instance.GotoBattle();
 
+                FadingBackGround.Instance.FadeInOut();
+                Invoke("BattleDialog", 1f);
+            }
+            else
+            {
+                if ((DataBaseManager.TimeCount % 4) == 0 && DataBaseManager.nowPlace == "BattleRoad")
+                {
+
+                    FadingBackGround.Instance.FadeInOut();
+                    Invoke("OpenSpinUi", 1f);
+                    Invoke("WaitFade", 4f);
+                }
+                else
+                {
+                    FadingBackGround.Instance.FadeInOut();
+                    Invoke("OpenSpinUi", 1f);
+                    Invoke("SpinRing", 3f);
+
+                }
+
+            }
         }
+      
     }
 
 
@@ -466,20 +513,37 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.TimeCount == 4)
         {
-            text.text = "11/7/1921-Morning";
+            text.text = "12/7/1921-Morning";
         }
         else if (DataBaseManager.TimeCount == 5)
         {
-            text.text = "11/7/1921-Noon";
+            text.text = "12/7/1921-Noon";
         }
         else if (DataBaseManager.TimeCount == 6)
         {
-            text.text = "11/7/1921-Afternoon";
+            text.text = "12/7/1921-Afternoon";
         }
         else if (DataBaseManager.TimeCount == 7)
         {
-            text.text = "11/7/1921-Night";
+            text.text = "12/7/1921-Night";
         }
+        else if (DataBaseManager.TimeCount == 8)
+        {
+            text.text = "13/7/1921-Morning";
+        }
+        else if (DataBaseManager.TimeCount == 9)
+        {
+            text.text = "13/7/1921-Noon";
+        }
+        else if (DataBaseManager.TimeCount == 10)
+        {
+            text.text = "13/7/1921-Afternoon";
+        }
+        else if (DataBaseManager.TimeCount == 11)
+        {
+            text.text = "13/7/1921-Night";
+        }
+
     }
     public void EndEvent()
     {
@@ -492,16 +556,23 @@ public class MapManager : MonoBehaviour
         Invoke("MoveChar", 1f);
     }
 
+
+
     public void MoveChar()
     {
-        if(DataBaseManager.TimeCount >=5 && DataBaseManager.TimeCount % 4 == 1)
+        
+
+        if(DataBaseManager.TimeCount >=5 && DataBaseManager.TimeCount % 4 == 1 && DataBaseManager.nowPlace == "DetectiveOffice")
         {
             DataBaseManager.secondisDirecting = true;
         }
 
+
+
         DataBaseManager.isOpenMap = false;
         DataBaseManager.isOpenUi = false;
         CameraManager.Instance.isCheckEnd = true;
+
 
         if (DataBaseManager.nowPlace == "DetectiveOffice")
         {
@@ -521,13 +592,20 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.nowPlace == "Client'shouse")
         {
+         
+
             DataBaseManager.TimeCount += 1;
             player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             player.transform.localPosition = player_ClientsHouse;
             camera.transform.localPosition = Cam_ClientsHouse;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
-            Invoke("FirstClientsHouseArrive", 2);
+            if(DataBaseManager.firstClientsHouseEnd == false && DataBaseManager.TimeCount <6)
+            {
+                DataBaseManager.StoryDirecting = true;
+                Invoke("FirstClientsHouseArrive", 2);
+            }
+
             DialogDatabaseManager.instance.Check = true;
         }
         else if (DataBaseManager.nowPlace == "DailyNews")
@@ -632,7 +710,18 @@ public class MapManager : MonoBehaviour
             DialogDatabaseManager.instance.Check = true;
 
         }
+        else if (DataBaseManager.nowPlace == "NoonEvent")
+        {
+            DataBaseManager.TimeCount += 1;
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
+            player.transform.localPosition = player_ClientsHouse;
+            camera.transform.localPosition = Cam_ClientsHouse;
+            MapChainingUI.SetActive(false);
+            MapUI.SetActive(false);
+            DialogDatabaseManager.instance.Check = true;
 
+        }
+        
         if (DataBaseManager.PanicAttack == true)
         {
             Debug.Log("Panic!");
@@ -646,6 +735,12 @@ public class MapManager : MonoBehaviour
 
             }
         }
+
+        if(DataBaseManager.nowPlace != "DetectiveOffice")
+        {
+            DataBaseManager.secondisDirecting = false;
+        }
+
     }
 
     void PanicAttack()

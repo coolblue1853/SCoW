@@ -7,7 +7,13 @@ public class ChangeMapButton : MonoBehaviour
 
     public void ButtonClick()
     {
-        if(this.name == "DetectiveOffice" && DataBaseManager.isBar == true)
+        if (DataBaseManager.TimeCount == 5 && DataBaseManager.NoonMorningMove == true)
+        {
+            MapManager.Instance.MapOn();
+            DataBaseManager.nowPlace = "NoonEvent";
+        }
+
+        else if(this.name == "DetectiveOffice" && DataBaseManager.isBar == true)
         {
             MapManager.Instance.MapOn();
             DataBaseManager.nowPlace = "BattleRoad";

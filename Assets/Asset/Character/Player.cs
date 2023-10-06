@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
 	{
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false)
+        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false )
 		{
 			anime.SetBool("Dialog", false);
 			runAndWalkChanger();

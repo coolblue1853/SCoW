@@ -152,9 +152,10 @@ public class DirectingManager : MonoBehaviour
             fst_DetectiveOffice_FadeOut("EndSelect_Directing");
         }
         // 의뢰자의 집
-        if (DataBaseManager.firstClientsHouse == true)
+        if (DataBaseManager.firstClientsHouse == true && DataBaseManager.TimeCount <6)
         {
             DataBaseManager.firstClientsHouse = false;
+            DataBaseManager.firstClientsHouseEnd = true;
             InteractionController.Instance.Start_1st_ClientsHouse("FirstArrive");
         }
         if(DataBaseManager.StrDialogOn == true && DataBaseManager.isActiveDialog1 == false)
@@ -283,18 +284,52 @@ public class DirectingManager : MonoBehaviour
             MapManager.Instance.MapOn();
         }
 
+        //2일차 낮 강제 이벤트
 
-        if(DataBaseManager.nowHP <= 0 && DataBaseManager.TimeCount >1)  
+        if (DataBaseManager.snd_Detective_NoonEvent == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            
+            DataBaseManager.snd_Detective_NoonEvent = false;
+            Invoke("NoonEvent_PhoneCall", 1f);
+
+        }
+        if (DataBaseManager.NoonEvent_MovetoClient == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            Invoke("NoonEvent_ClientsFirst", 12f);
+            DataBaseManager.NoonEvent_MovetoClient = false;
+            Invoke("MoveToClient", 0.7f);
+
+        }
+
+        
+
+        if (DataBaseManager.nowHP <= 0 && DataBaseManager.TimeCount >1)  
         {
 
             DataBaseManager.EndDemo = true;
         }
+
+
+        
     }
     bool once = false;
 
+    public void NoonEvent_ClientsFirst()
+    {
+        InteractionController.Instance.Start_2nd_NoonEvent("NoonEvent_ClientHouse");
+        DataBaseManager.StoryDirecting = false;
+    }
+    // 강제 이벤트
+    public void MoveToClient()
+    {
+        MapManager.Instance.MapOn();
+        DataBaseManager.nowPlace = "NoonEvent";
+    }
 
-
-
+    public void NoonEvent_PhoneCall()
+    {
+        InteractionController.Instance.Start_2nd_NoonEvent("NoonEvent_FirstDailog_Detective");
+    }
 
     //2일차
 

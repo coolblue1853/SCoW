@@ -66,7 +66,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField] GameObject go_dialogNameBar;
 
     [SerializeField] TextMeshProUGUI txt_Dialog;
-    [SerializeField] Text txt_name;
+    [SerializeField] TextMeshProUGUI txt_name;
     Dialog[] dialogs;
    // public Mins min;
     bool isDialog = false;
@@ -392,6 +392,10 @@ public class DialogManager : MonoBehaviour
                     t_ignore = true;
                     break;
                 case 'ⓨ': t_white = false; t_yellow = true; t_red = false; t_green = false; t_blue = false; t_ignore = true; break;
+            
+                
+                
+                
                 case 'ⓡ': t_white = false; t_yellow = false; t_red = true; t_green = false; t_blue = false; t_ignore = true; 
                     if (t_ReplaceText[i + 1] == '(')
                     {
@@ -494,9 +498,9 @@ public class DialogManager : MonoBehaviour
                             {
                                 if (t_ReplaceText[i + 4] == 'ⓟ')
                                 {
-                                    if (DataBaseManager.Intel_PlanetaryParade1 == false)
-                                        IntelManager.Instance.AddIntelFloating("Event", "planetaryparade - 조간신문 기사");
-                                    DataBaseManager.Intel_PlanetaryParade1 = true;
+                                    if (DataBaseManager.Intel_PlanetaryParade2 == false)
+                                        IntelManager.Instance.AddIntelFloating("Event", "planetaryparade - Meetings");
+                                    DataBaseManager.Intel_PlanetaryParade2 = true;
 
 
                                 }
@@ -592,6 +596,15 @@ public class DialogManager : MonoBehaviour
                                     {
                                         DataBaseManager.Intel_FishySmell3 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "FishySmell -Source speculation");
+                                    }
+
+                                }
+                                if (t_ReplaceText[i + 4] == 'ⓡ') // 강의 수질
+                                {
+                                    if (DataBaseManager.Intel_RiverWaterQuality3 == false)
+                                    {
+                                        DataBaseManager.Intel_RiverWaterQuality3 = true;
+                                        IntelManager.Instance.AddIntelFloating("Event", "RiverWaterQuality - Fishy Slime");
                                     }
 
                                 }
@@ -834,6 +847,9 @@ public class DialogManager : MonoBehaviour
                     }
                     break;
 
+
+                    
+
                 case '◎':  // 연출관련
                     t_ignore = true; // 
                     if (t_ReplaceText[i + 1] == '①')
@@ -867,21 +883,37 @@ public class DialogManager : MonoBehaviour
                     {
                         DataBaseManager.fst_Detective_AfterSelectNo = true;
                         t_ignore = true;
-                        //연출매니저.연출끝();
+
                         break;
                     }
                     if (t_ReplaceText[i + 1] == '⑥')
                     {
                         DataBaseManager.FailTwoKeyword = true;
                         t_ignore = true;
-                        //연출매니저.연출끝();
+
                         break;
                     }
                     if (t_ReplaceText[i + 1] == '⑦')
                     {
                         DataBaseManager.Kate_Disapear = true;
                         t_ignore = true;
-                        //연출매니저.연출끝();
+
+                        break;
+                    }
+                    if (t_ReplaceText[i + 1] == '⑧')
+                    {
+                        DataBaseManager.NoonEvent_MovetoClient = true;
+
+                        t_ignore = true;
+
+                        break;
+                    }
+                    if (t_ReplaceText[i + 1] == '⑨')
+                    {
+                    
+
+                        t_ignore = true;
+
                         break;
                     }
                     break;
@@ -1022,10 +1054,11 @@ public class DialogManager : MonoBehaviour
                     t_ignore = true;
                     break;
                 // 최초 심리학 기능판정 선택지 출력창.
-                case '※'://기능판단온
-                    if(DataBaseManager.skipActive == false)
+                case '※':// 연출 관련
+
+                    if (t_ReplaceText[i + 1] == '①')
                     {
-                        //if (t_ReplaceText[i + 1] == '㉦') { selectionUIManager.엘라심리학선택지출력(); };
+                        DataBaseManager.StoryDirecting = false;
                     }
                     t_ignore = true;
                     break;
@@ -1083,7 +1116,7 @@ public class DialogManager : MonoBehaviour
                 case '5': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
                 case '6': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
                 //case '0': if (t_ReplaceText[i + 1] == '§') { t_ignore = true; } if (t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '①': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
+                case '①': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
                 case '②': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
                 case '③': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' || t_ReplaceText[i - 1] == '♠') { t_ignore = true; } break;
                 case '④': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
@@ -1094,7 +1127,7 @@ public class DialogManager : MonoBehaviour
                 case '⑨': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
                 case '⑩': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
                 case '⑫': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                
+            
                 case 'ⓐ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
                 case 'ⓒ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
                 case 'ⓓ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;

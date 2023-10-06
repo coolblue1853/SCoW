@@ -48,18 +48,55 @@ public class PotalPoint : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F) && DataBaseManager.isDirecting == false && DataBaseManager.isActiveDialog1 == false)
             {
-
-                if(DataBaseManager.nowPlace == "Client'shouse" && (DataBaseManager.isFirstDoor == true && DataBaseManager.isFirst2st == true))
+                if ((DataBaseManager.nowPlace == "Client'shouse"|| DataBaseManager.nowPlace == "NoonEvent") && DataBaseManager.TimeCount >= 6)
                 {
-                    if (this.name == "2sttoRoom" && DataBaseManager.AidenKeywordCount < 2)
+  
+                    if (DataBaseManager.NoonEvent_AccessAuthorization == true && DataBaseManager.firstClientsHouseEnd == true)
                     {
+                        Debug.Log("22222222222222");
                         DataBaseManager.isDirecting = true;
                         FadingBackGround.Instance.FadeInOut();
                         Invoke("MovePlayer", 2);
                     }
-                    else if (this.name == "2sttoRoom" && DataBaseManager.AidenKeywordCount >= 2)
+                    else
                     {
+                 
+                    }
 
+                }
+                else
+                {
+
+                    if (DataBaseManager.nowPlace == "Client'shouse" && (DataBaseManager.isFirstDoor == true && DataBaseManager.isFirst2st == true))
+                    {
+                        if (this.name == "2sttoRoom" && DataBaseManager.AidenKeywordCount < 2)
+                        {
+                            DataBaseManager.isDirecting = true;
+                            FadingBackGround.Instance.FadeInOut();
+                            Invoke("MovePlayer", 2);
+                        }
+                        else if (this.name == "2sttoRoom" && DataBaseManager.AidenKeywordCount >= 2)
+                        {
+
+                        }
+                        else
+                        {
+                            DataBaseManager.isDirecting = true;
+                            FadingBackGround.Instance.FadeInOut();
+                            Invoke("MovePlayer", 2);
+                        }
+                    }
+                    else if (DataBaseManager.nowPlace == "Client'shouse" && this.name == "to1st" && DataBaseManager.isFirstDoor == false)
+                    {
+                        DataBaseManager.isDirecting = true;
+                        DataBaseManager.isFirstDoor = true;
+                        DirectingManager.Instance.DoorNocking();
+                    }
+                    else if (DataBaseManager.nowPlace == "Client'shouse" && this.name == "1stto2st" && DataBaseManager.isFirst2st == false)
+                    {
+                        DataBaseManager.isDirecting = true;
+                        DataBaseManager.isFirst2st = true;
+                        DirectingManager.Instance.FirstUpsair();
                     }
                     else
                     {
@@ -68,24 +105,7 @@ public class PotalPoint : MonoBehaviour
                         Invoke("MovePlayer", 2);
                     }
                 }
-                else if(DataBaseManager.nowPlace == "Client'shouse" && this.name == "to1st" &&DataBaseManager.isFirstDoor == false)
-                {
-                    DataBaseManager.isDirecting = true;
-                    DataBaseManager.isFirstDoor = true;
-                    DirectingManager.Instance.DoorNocking();
-                }
-                else if (DataBaseManager.nowPlace == "Client'shouse" && this.name == "1stto2st" && DataBaseManager.isFirst2st == false)
-                {
-                    DataBaseManager.isDirecting = true;
-                    DataBaseManager.isFirst2st = true;
-                    DirectingManager.Instance.FirstUpsair();
-                }
-                else
-                {
-                    DataBaseManager.isDirecting = true;
-                    FadingBackGround.Instance.FadeInOut();
-                    Invoke("MovePlayer", 2);
-                }
+               
             }
         }
     }
@@ -167,7 +187,7 @@ public class PotalPoint : MonoBehaviour
         }
         else if (this.name == "2sttoRoom")
         {
-            if (DataBaseManager.isFirstRoom == true)
+            if (DataBaseManager.isFirstRoom == true || DataBaseManager.TimeCount >=6)
             {
                 player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
                 CameraManager.Instance.isCheckEnd = true;
