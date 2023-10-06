@@ -67,11 +67,12 @@ public class Intel_ObtoUI : MonoBehaviour
 
                 if (isJudge == false)
                 {
-                    DataBaseManager.isJudge = false;
+                  //  DataBaseManager.isJudge = false;
                 }
                 else if (isJudge == true)
                 {
-                    DataBaseManager.isJudge = true;
+                    // DataBaseManager.isJudge = true;
+                    OnJudge();
                 }
 
 
@@ -86,11 +87,13 @@ public class Intel_ObtoUI : MonoBehaviour
 
                 if (isKeyword == false || KeywordCounter == 0)
                 {
-                    DataBaseManager.isKeyword = false;
+                //    DataBaseManager.isKeyword = false;
                 }
                 else if (isKeyword == true)
                 {
-                    DataBaseManager.isKeyword = true;
+                    // DataBaseManager.isKeyword = true;
+
+                    Onkeyword();
                 }
                 if (this.name == "GunshopMan")
                 {
@@ -148,6 +151,10 @@ public class Intel_ObtoUI : MonoBehaviour
                         {
                             InteractionController.Instance.Start_1st_Bar(Look_Dilaog);
                         }
+                        if (DataBaseManager.nowPlace == "NoonEvent")
+                        {
+                            InteractionController.Instance.Start_2nd_NoonEvent(Look_Dilaog);
+                        }
                     }
 
                     else if (DataBaseManager.NowSelecter == "Judge")
@@ -194,6 +201,10 @@ public class Intel_ObtoUI : MonoBehaviour
                         {
                             InteractionController.Instance.Start_1st_Bar(Active_Dilaog);
                         }
+                        if (DataBaseManager.nowPlace == "NoonEvent")
+                        {
+                            InteractionController.Instance.Start_2nd_NoonEvent(Active_Dilaog);
+                        }
                     }
                 }
 
@@ -201,6 +212,26 @@ public class Intel_ObtoUI : MonoBehaviour
         }
      
     }
+
+
+    public GameObject JudgeOb;
+    public GameObject JudgeBackOb;
+    public GameObject KeywordOb;
+    public GameObject KeywordBackOb;
+
+    
+    public void OnJudge()
+    {
+        JudgeOb.SetActive(true);
+        JudgeBackOb.SetActive(true);
+
+    }
+    public void Onkeyword()
+    {
+        KeywordOb.SetActive(true);
+        KeywordBackOb.SetActive(true);
+    }
+
 
 
     void SetJudge()
@@ -446,6 +477,8 @@ public class Intel_ObtoUI : MonoBehaviour
 
     private void Awake()
     {
+
+
 
     }
 }

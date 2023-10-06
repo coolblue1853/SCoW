@@ -32,6 +32,7 @@ public class End_Look_Judge : MonoBehaviour
         DataBaseManager.isSelect = false;
         End.SetActive(true);
         Look.SetActive(true);
+        /*
         if (DataBaseManager.isJudge)
         {
             Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
@@ -56,8 +57,8 @@ public class End_Look_Judge : MonoBehaviour
             Keyword.SetActive(false);
             Keyword_BackOb.SetActive(false);
         }
-
-        //DataBaseManager.NowSelecter = "End";
+        */
+        DataBaseManager.NowSelecter = "End";
         End_Back.DOFade(1,0.00001f).SetAutoKill();
         Look_Back.DOFade(0, 0.00001f).SetAutoKill();
 
@@ -73,6 +74,15 @@ public class End_Look_Judge : MonoBehaviour
     public void Inactive()
     {
         Checker.SetActive(false);
+        Look_Back.DOFade(0, 0.00001f).SetAutoKill();
+
+        //Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
+        //  Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+        Judge_BackOb.SetActive(false);
+        Keyword_BackOb.SetActive(false);
+        Judge.SetActive(false);
+        Keyword.SetActive(false);
+
     }
 
     public void OnEnd()

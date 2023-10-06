@@ -20,7 +20,7 @@ public class DataBaseManager : MonoBehaviour
     public static bool NoonEvent_MovetoClient = false;
     public static bool NoonEvent_ClientsFirst = false;
     public static bool NoonEvent_AccessAuthorization = false;
-
+    public static bool Witness_FirstDailog = false;
     //Sanity
     public static int Debuff = 0;
 

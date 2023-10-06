@@ -53,7 +53,7 @@ public class PotalPoint : MonoBehaviour
   
                     if (DataBaseManager.NoonEvent_AccessAuthorization == true && DataBaseManager.firstClientsHouseEnd == true)
                     {
-                        Debug.Log("22222222222222");
+         
                         DataBaseManager.isDirecting = true;
                         FadingBackGround.Instance.FadeInOut();
                         Invoke("MovePlayer", 2);

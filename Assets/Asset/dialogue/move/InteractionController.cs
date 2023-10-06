@@ -301,6 +301,17 @@ public class InteractionController : MonoBehaviour
     public GameObject NoonEvent_FirstDailog_MissingPeople;
     public GameObject NoonEvent_FirstDailog_Noquest;
     public GameObject NoonEvent_ClientHouse;
+
+    public GameObject NoonEvent_Witness_FirstDialog;
+    public GameObject NoonEvent_Witness_RepeatDialog;
+    public GameObject NoonEvent_Witness_Look;
+    public GameObject NoonEvent_Witness_ListeningFail;
+    public GameObject NoonEvent_Witness_ListeningSucc_Nomal;
+    public GameObject NoonEvent_Witness_ListeningSucc_MissingPeople;
+    public GameObject NoonEvent_Witness_ListeningSucc_NoRequest;
+
+
+
     private void Start()
     {
         //TestNar();
@@ -331,7 +342,43 @@ public class InteractionController : MonoBehaviour
             theDM.ShowDialog(NoonEvent_ClientHouse.transform.GetComponent<interactionEvent>().GetDialogs());
         }
 
-            
+
+        if (setDialog == "NoonEvent_Witness_Dialog")
+        {
+
+            if (DataBaseManager.Witness_FirstDailog == false)
+            {
+                DataBaseManager.Witness_FirstDailog = true;
+                theDM.ShowDialog(NoonEvent_Witness_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(NoonEvent_Witness_RepeatDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+    
+        if (setDialog == "NoonEvent_Witness_Look")
+        {
+            theDM.ShowDialog(NoonEvent_Witness_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "NoonEvent_Witness_ListeningFail")
+        {
+            theDM.ShowDialog(NoonEvent_Witness_ListeningFail.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "NoonEvent_Witness_ListeningSucc_Nomal")
+        {
+            theDM.ShowDialog(NoonEvent_Witness_ListeningSucc_Nomal.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "NoonEvent_Witness_ListeningSucc_MissingPeople")
+        {
+            theDM.ShowDialog(NoonEvent_Witness_ListeningSucc_MissingPeople.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "NoonEvent_Witness_ListeningSucc_NoRequest")
+        {
+            theDM.ShowDialog(NoonEvent_Witness_ListeningSucc_NoRequest.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+
     }
     public void Start_2nd_DetectiveOffice(string setDialog)
     {

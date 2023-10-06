@@ -11,6 +11,7 @@ TagManager:
   - Dir_Sofa
   - Dir_Newspaper
   - Dir_Ella
+  - Ella
   layers:
   - Default
   - TransparentFX

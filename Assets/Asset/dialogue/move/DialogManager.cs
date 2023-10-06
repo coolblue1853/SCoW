@@ -313,7 +313,7 @@ public class DialogManager : MonoBehaviour
 
     }
 
-
+    
     public void EndDialog()
     {
         DataBaseManager.isItemUI = false;
