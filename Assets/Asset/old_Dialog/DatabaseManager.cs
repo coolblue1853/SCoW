@@ -21,6 +21,13 @@ public class DataBaseManager : MonoBehaviour
     public static bool NoonEvent_ClientsFirst = false;
     public static bool NoonEvent_AccessAuthorization = false;
     public static bool Witness_FirstDailog = false;
+    public static bool DoorPolice_FirstDailog = false;
+    public static bool NoonEventFirstDoor = false;
+    public static bool NoonEventSanCheck = false;
+    public static bool InsidePolice_FirstDailog = false;
+    public static bool DeadBodyFirstLook = false;
+    public static bool DeadBodyLook_MissingDialog = false;
+    public static bool DeadBodyLook_FishySmellDialog = false;
     //Sanity
     public static int Debuff = 0;
 

@@ -224,12 +224,13 @@ public class Intel_ObtoUI : MonoBehaviour
     {
         JudgeOb.SetActive(true);
         JudgeBackOb.SetActive(true);
-
+        DataBaseManager.isJudge = true;
     }
     public void Onkeyword()
     {
         KeywordOb.SetActive(true);
         KeywordBackOb.SetActive(true);
+        DataBaseManager.isKeyword = true;
     }
 
 
@@ -271,6 +272,18 @@ public class Intel_ObtoUI : MonoBehaviour
             CanJudge = false;
             isJudge = true;
             Rollet.Instance.setRollet("Swain : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+        }
+        if (DataBaseManager.Select_Object == "Witness")
+        {
+            CanJudge = false;
+            isJudge = true;
+            Rollet.Instance.setRollet("Witness : Eavesdropping", "Listening", DataBaseManager.listeningPoint, "dialog");
+        }
+        if (DataBaseManager.Select_Object == "DoorPolice")
+        {
+            CanJudge = false;
+            isJudge = true;
+            Rollet.Instance.setRollet("Police : Persuasion", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
         }
     }
 

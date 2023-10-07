@@ -319,6 +319,8 @@ public class DialogManager : MonoBehaviour
         DataBaseManager.isItemUI = false;
         DataBaseManager.endDialogLine = false;
         DataBaseManager.isActiveDialog1 = false;
+        DataBaseManager.isJudge = false;
+        DataBaseManager.isKeyword = false;
         //DeleteChilds(정보플로팅위치);
         FirstClick = true;
         DataBaseManager.isActiveDialog2 = false;
@@ -1024,7 +1026,7 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '②')
                     {
-
+                        DataBaseManager.NoonEventSanCheck = true;
                     }
                     if (t_ReplaceText[i + 1] == '③')
                     {

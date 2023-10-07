@@ -300,8 +300,30 @@ public class DirectingManager : MonoBehaviour
             Invoke("MoveToClient", 0.7f);
 
         }
+        if (DataBaseManager.NoonEventSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        {
 
-        
+            DataBaseManager.NoonEventSanCheck = false;
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "NoonEvent");
+        }
+        if(DataBaseManager.DeadBodyFirstLook == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            if((DataBaseManager.Intel_MissingPeople1 == true || DataBaseManager.Intel_MissingPeople2 == true) && DataBaseManager.DeadBodyLook_MissingDialog == false)
+            {
+                DataBaseManager.DeadBodyLook_MissingDialog = true;
+                InteractionController.Instance.Start_2nd_NoonEvent("NoonEvent_DeadBody_Look_Missing");
+            }
+            else if ((DataBaseManager.Intel_FishySmell3 == true || DataBaseManager.Intel_FishySmell4 == true || DataBaseManager.Intel_SewerWorker3 == true) && DataBaseManager.DeadBodyLook_FishySmellDialog == false)
+            {
+                DataBaseManager.DeadBodyLook_FishySmellDialog = true;
+                InteractionController.Instance.Start_2nd_NoonEvent("NoonEvent_DeadBody_Look_Missing");
+            }
+        }
+
+
+
+
+
 
         if (DataBaseManager.nowHP <= 0 && DataBaseManager.TimeCount >1)  
         {

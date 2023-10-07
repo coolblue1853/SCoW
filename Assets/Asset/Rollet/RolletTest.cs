@@ -90,7 +90,7 @@ DataBaseManager.Intel_FishySmell3 = true;
         DataBaseManager.nowHP = DataBaseManager.hp;
         DataBaseManager.nowSan = DataBaseManager.san;
         DataBaseManager.Intel_QuestHouse1 = true;
-
+        DataBaseManager.rhetoricPoint = 80;
 
         DataBaseManager.Intel_Hospital1 = true;
         DataBaseManager.Intel_Aiden1 = true;

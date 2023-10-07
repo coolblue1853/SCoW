@@ -309,6 +309,24 @@ public class InteractionController : MonoBehaviour
     public GameObject NoonEvent_Witness_ListeningSucc_Nomal;
     public GameObject NoonEvent_Witness_ListeningSucc_MissingPeople;
     public GameObject NoonEvent_Witness_ListeningSucc_NoRequest;
+    public GameObject NoonEvent_DoorPolice_FirstDialog;
+    public GameObject NoonEvent_DoorPolice_RepeatDialog;
+    public GameObject NoonEvent_DoorPolice_Look;
+    public GameObject NoonEvent_DoorPolice_PersuasionSucc;
+    public GameObject NoonEvent_DoorPolice_PersuasionFail;
+    public GameObject NoonEvent_FirstDoor;
+    public GameObject NoonEvent_FirstDoorAfterSan;
+
+    public GameObject NoonEvent_InsidePolice_FirstDialog;
+    public GameObject NoonEvent_InsidePolice_RepeatDialog;
+    public GameObject NoonEvent_InsidePolice_Look;
+
+    public GameObject NoonEvent_DeadBody_Dialog;
+    public GameObject NoonEvent_DeadBody_Look_NoRumor;
+    public GameObject NoonEvent_DeadBody_Look_YesRumor;
+    public GameObject NoonEvent_DeadBody_Look_Missing;
+    public GameObject NoonEvent_DeadBody_Look_FishySmell;
+
 
 
 
@@ -361,24 +379,73 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(NoonEvent_Witness_Look.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-        if (setDialog == "NoonEvent_Witness_ListeningFail")
+
+        if (setDialog == "NoonEvent_DoorPolice_Dialog")
         {
-            theDM.ShowDialog(NoonEvent_Witness_ListeningFail.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            if (DataBaseManager.DoorPolice_FirstDailog == false)
+            {
+                DataBaseManager.DoorPolice_FirstDailog = true;
+                theDM.ShowDialog(NoonEvent_DoorPolice_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(NoonEvent_DoorPolice_RepeatDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
         }
-        if (setDialog == "NoonEvent_Witness_ListeningSucc_Nomal")
+        if (setDialog == "NoonEvent_DoorPolice_Look")
         {
-            theDM.ShowDialog(NoonEvent_Witness_ListeningSucc_Nomal.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(NoonEvent_DoorPolice_Look.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-        if (setDialog == "NoonEvent_Witness_ListeningSucc_MissingPeople")
+        if (setDialog == "NoonEvent_FirstDoor")
         {
-            theDM.ShowDialog(NoonEvent_Witness_ListeningSucc_MissingPeople.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(NoonEvent_FirstDoor.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-        if (setDialog == "NoonEvent_Witness_ListeningSucc_NoRequest")
+
+        if (setDialog == "NoonEvent_InsidePolice_Dialog")
         {
-            theDM.ShowDialog(NoonEvent_Witness_ListeningSucc_NoRequest.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            if (DataBaseManager.InsidePolice_FirstDailog == false)
+            {
+                DataBaseManager.InsidePolice_FirstDailog = true;
+                theDM.ShowDialog(NoonEvent_InsidePolice_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(NoonEvent_InsidePolice_RepeatDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (setDialog == "NoonEvent_InsidePolice_Look")
+        {
+            theDM.ShowDialog(NoonEvent_InsidePolice_Look.transform.GetComponent<interactionEvent>().GetDialogs());
         }
 
 
+        if (setDialog == "NoonEvent_DeadBody_Dialog")
+        {
+            theDM.ShowDialog(NoonEvent_DeadBody_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "NoonEvent_DeadBody_Look")
+        {
+            DataBaseManager.DeadBodyFirstLook = true;
+
+            if (DataBaseManager.Intel_FishySmell1 == true)
+            {
+                theDM.ShowDialog(NoonEvent_DeadBody_Look_YesRumor.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(NoonEvent_DeadBody_Look_NoRumor.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (setDialog == "NoonEvent_DeadBody_Look_Missing")
+        {
+            theDM.ShowDialog(NoonEvent_DeadBody_Look_Missing.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "NoonEvent_DeadBody_Look_FishySmell")
+        {
+            theDM.ShowDialog(NoonEvent_DeadBody_Look_FishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
     }
     public void Start_2nd_DetectiveOffice(string setDialog)
     {
@@ -1749,7 +1816,7 @@ public class InteractionController : MonoBehaviour
     */
 
 
-   public void RetrunDialogResult(string Sub_Dialog, string result_End)
+   public void RetrunDialogResult(string Sub_Dialog, string result_End, string SanCheck = "")
     {
         // 1일차 오전 탐정사무소 판정
         if(Sub_Dialog == "Newspaper : Read")
@@ -1874,9 +1941,48 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(Swain_LookJudge_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
+        if (Sub_Dialog == "Witness : Eavesdropping")
+        {
 
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                if(DataBaseManager.Intel_QuestHouse1 == false)
+                {
+                    theDM.ShowDialog(NoonEvent_Witness_ListeningSucc_NoRequest.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else if(DataBaseManager.Intel_MissingPeople1 == true || DataBaseManager.Intel_MissingPeople2 == true)
+                {
+                    theDM.ShowDialog(NoonEvent_Witness_ListeningSucc_MissingPeople.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(NoonEvent_Witness_ListeningSucc_Nomal.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+
+                theDM.ShowDialog(NoonEvent_Witness_ListeningFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (Sub_Dialog == "Police : Persuasion")
+        {
+
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(NoonEvent_DoorPolice_PersuasionSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+
+                DataBaseManager.NoonEvent_AccessAuthorization = true;
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+
+                theDM.ShowDialog(NoonEvent_DoorPolice_PersuasionFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
         // 강가 Sewer : Look
-        if(DataBaseManager.nowPlace == "Riverside")
+        if (DataBaseManager.nowPlace == "Riverside")
         {
             if (Sub_Dialog == "Sewer : Look")
             {
@@ -1941,6 +2047,11 @@ public class InteractionController : MonoBehaviour
         
         }
 
+        if(SanCheck == "NoonEvent_FirstDoor")
+        {
+            theDM.ShowDialog(NoonEvent_FirstDoorAfterSan.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        
 
         //Item
         if (Sub_Dialog == "Safe : Open")

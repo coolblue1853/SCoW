@@ -1194,7 +1194,11 @@ public class Rollet : MonoBehaviour
             // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
             // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 결과값에 따른 문자를 출력하도록 함
         }
-
+        
+        if (Subject == "NoonEvent")
+        {
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "NoonEvent_FirstDoor");
+        }
 
     }
 

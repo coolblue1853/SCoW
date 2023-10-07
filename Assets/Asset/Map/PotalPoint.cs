@@ -51,9 +51,18 @@ public class PotalPoint : MonoBehaviour
                 if ((DataBaseManager.nowPlace == "Client'shouse"|| DataBaseManager.nowPlace == "NoonEvent") && DataBaseManager.TimeCount >= 6)
                 {
   
-                    if (DataBaseManager.NoonEvent_AccessAuthorization == true && DataBaseManager.firstClientsHouseEnd == true)
+                    if (DataBaseManager.NoonEvent_AccessAuthorization == true)
                     {
-         
+                        if(DataBaseManager.TimeCount == 6)
+                        {
+                            if(DataBaseManager.NoonEventFirstDoor == false)
+                            {
+                               DataBaseManager.NoonEventFirstDoor = true;
+                                DataBaseManager.StoryDirecting = true;
+                                Invoke("NoonEventFirstDoor", 3f);
+                            }
+                        }
+                
                         DataBaseManager.isDirecting = true;
                         FadingBackGround.Instance.FadeInOut();
                         Invoke("MovePlayer", 2);
@@ -110,7 +119,10 @@ public class PotalPoint : MonoBehaviour
         }
     }
 
-
+    void NoonEventFirstDoor()
+    {
+        InteractionController.Instance.Start_2nd_NoonEvent("NoonEvent_FirstDoor");
+    }
     void MovePlayer()
     {
         //°­°¡
