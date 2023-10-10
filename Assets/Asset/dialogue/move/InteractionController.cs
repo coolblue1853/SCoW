@@ -316,19 +316,24 @@ public class InteractionController : MonoBehaviour
     public GameObject NoonEvent_DoorPolice_PersuasionFail;
     public GameObject NoonEvent_FirstDoor;
     public GameObject NoonEvent_FirstDoorAfterSan;
-
     public GameObject NoonEvent_InsidePolice_FirstDialog;
     public GameObject NoonEvent_InsidePolice_RepeatDialog;
     public GameObject NoonEvent_InsidePolice_Look;
-
     public GameObject NoonEvent_DeadBody_Dialog;
     public GameObject NoonEvent_DeadBody_Look_NoRumor;
     public GameObject NoonEvent_DeadBody_Look_YesRumor;
     public GameObject NoonEvent_DeadBody_Look_Missing;
     public GameObject NoonEvent_DeadBody_Look_FishySmell;
 
-
-
+    public GameObject NoonEvent_DeadBody_medicineSucc;
+    public GameObject NoonEvent_DeadBody_medicineFail;
+    public GameObject NoonEvent_DeadBody_ObservationSucc;
+    public GameObject NoonEvent_DeadBody_ObservationFail;
+    public GameObject NoonEvent_DeadBody_analysisSucc;
+    public GameObject NoonEvent_DeadBody_analysisSuccAfter;
+    public GameObject NoonEvent_DeadBody_analysisFail;
+    public GameObject NoonEvent_DeadBody_deftnessSucc;
+    public GameObject NoonEvent_DeadBody_deftnessFail;
 
     private void Start()
     {
@@ -446,6 +451,12 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(NoonEvent_DeadBody_Look_FishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+        if (setDialog == "NoonEvent_DeadBody_analysisSuccAfter")
+        {
+            theDM.ShowDialog(NoonEvent_DeadBody_analysisSuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+        
     }
     public void Start_2nd_DetectiveOffice(string setDialog)
     {
@@ -1981,6 +1992,70 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(NoonEvent_DoorPolice_PersuasionFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
+
+        // 2일차 강제이벤트
+        if (Sub_Dialog == "DeadBody : Diagnosis")
+        {
+            DataBaseManager.DeadBody_medicine = true;
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(NoonEvent_DeadBody_medicineSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+
+
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+
+                theDM.ShowDialog(NoonEvent_DeadBody_medicineFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (Sub_Dialog == "DeadBody : Look")
+        {
+            DataBaseManager.DeadBody_observational = true;
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(NoonEvent_DeadBody_ObservationSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+
+
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+
+                theDM.ShowDialog(NoonEvent_DeadBody_ObservationFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (Sub_Dialog == "DeadBody : Check")
+        {
+            DataBaseManager.DeadBody_Analyzing = true;
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(NoonEvent_DeadBody_analysisSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+
+                theDM.ShowDialog(NoonEvent_DeadBody_analysisFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (Sub_Dialog == "DeadBody : Stealing")
+        {
+            DataBaseManager.DeadBody_deftness = true;
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(NoonEvent_DeadBody_deftnessSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+
+
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+
+                theDM.ShowDialog(NoonEvent_DeadBody_deftnessFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+
+
+
         // 강가 Sewer : Look
         if (DataBaseManager.nowPlace == "Riverside")
         {

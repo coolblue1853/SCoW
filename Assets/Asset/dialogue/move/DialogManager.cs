@@ -421,7 +421,7 @@ public class DialogManager : MonoBehaviour
                                         IntelManager.Instance.AddIntelFloating("Event", "Insomnia - Newspaper Article");
 
                                     }
-                              
+
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓝ')
                                 {
@@ -430,7 +430,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Nightmare1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "Nightmare - Aiden's Nightmare");
                                     }
-                               
+
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓞ')
                                 {
@@ -439,7 +439,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Paranoia1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "Paranoia - Husband's Condition");
                                     }
-                                       
+
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓐ')
                                 {
@@ -448,7 +448,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Safe1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "Safe - Aiden's Safe");
                                     }
-   
+
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓢ') // 하수도 괴담
                                 {
@@ -457,7 +457,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_SewerGhostStory1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "SewerGhostStory - Contents of a GhostStory");
                                     }
-                                        
+
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓕ') // 비릿한 냄새
                                 {
@@ -466,14 +466,14 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_FishySmell1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "FishySmell - Rumor");
                                     }
-                    
+
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓜ') // 연속실종사건
                                 {
-                                    if (DataBaseManager.Intel_MissingPeople2 == false) 
+                                    if (DataBaseManager.Intel_MissingPeople2 == false)
                                     {
-                                     DataBaseManager.Intel_MissingPeople2 = true;
-                                    IntelManager.Instance.AddIntelFloating("Event", "MissingPeople - Reporting by Swain");
+                                        DataBaseManager.Intel_MissingPeople2 = true;
+                                        IntelManager.Instance.AddIntelFloating("Event", "MissingPeople - Reporting by Swain");
                                     }
 
                                 }
@@ -484,7 +484,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_RiverWaterQuality1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "RiverWaterQuality - Strange Point");
                                     }
- 
+
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓒ') // 섬뜩한 눈
                                 {
@@ -494,6 +494,14 @@ public class DialogManager : MonoBehaviour
                                         IntelManager.Instance.AddIntelFloating("Event", "CreepyEyes - Saw in the sewer");
                                     }
 
+                                }
+                                if (t_ReplaceText[i + 4] == 'ⓩ')
+                                {
+                                    if (DataBaseManager.Intel_MurderCase1 == false)
+                                    {
+                                        IntelManager.Instance.AddIntelFloating("Event", "MurderCase - Witness Testimony");
+                                        DataBaseManager.Intel_MurderCase1 = true;
+                                    }
                                 }
                             }
                             if (t_ReplaceText[i + 3] == '2')
@@ -525,7 +533,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Paranoia2 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "Paranoia - Cause of Paranoia");
                                     }
-            
+
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓐ')
                                 {
@@ -534,7 +542,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Safe2 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "Safe - Acquiring a Safe");
                                     }
-                
+
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓜ') // 연속실종사건
                                 {
@@ -543,7 +551,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_MissingPeople1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "MissingPeople - Albert's Information");
                                     }
-                            
+
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓕ') // 비릿한 냄새
                                 {
@@ -552,7 +560,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_FishySmell2 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "FishySmell - Source of the smell?");
                                     }
-   
+
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓡ') // 강의 수질
                                 {
@@ -571,6 +579,14 @@ public class DialogManager : MonoBehaviour
                                         IntelManager.Instance.AddIntelFloating("Event", "SewerGhostStory - Truth of a rumor");
                                     }
 
+                                }
+                                if (t_ReplaceText[i + 4] == 'ⓩ')
+                                {
+                                    if (DataBaseManager.Intel_MurderCase2 == false)
+                                    {
+                                        IntelManager.Instance.AddIntelFloating("Event", "MurderCase - Missing People & Fishy Smell");
+                                        DataBaseManager.Intel_MurderCase2 = true;
+                                    }
                                 }
                             }
                             if (t_ReplaceText[i + 3] == '3')
@@ -610,6 +626,14 @@ public class DialogManager : MonoBehaviour
                                     }
 
                                 }
+                                if (t_ReplaceText[i + 4] == 'ⓩ')
+                                {
+                                    if (DataBaseManager.Intel_MurderCase3 == false)
+                                    {
+                                        IntelManager.Instance.AddIntelFloating("Event", "MurderCase - The Culprit");
+                                        DataBaseManager.Intel_MurderCase3 = true;
+                                    }
+                                }
                             }
                             if (t_ReplaceText[i + 3] == '4')
                             {
@@ -629,11 +653,40 @@ public class DialogManager : MonoBehaviour
                                     }
 
                                 }
-
+                                if (t_ReplaceText[i + 4] == 'ⓩ')
+                                {
+                                    if (DataBaseManager.Intel_MurderCase4 == false)
+                                    {
+                                        IntelManager.Instance.AddIntelFloating("Event", "MurderCase - Cause of Death");
+                                        DataBaseManager.Intel_MurderCase4 = true;
+                                    }
+                                }
 
                             }
+                            if (t_ReplaceText[i + 3] == '5')
+                            {
+                                if (t_ReplaceText[i + 4] == 'ⓩ')
+                                {
+                                    if (DataBaseManager.Intel_MurderCase5 == false)
+                                    {
+                                        IntelManager.Instance.AddIntelFloating("Event", "MurderCase - Webbed Feet");
+                                        DataBaseManager.Intel_MurderCase5 = true;
+                                    }
+                                }
+                            }
+                            if (t_ReplaceText[i + 3] == '6')
+                            {
+                                if (t_ReplaceText[i + 4] == 'ⓩ')
+                                {
+                                    if (DataBaseManager.Intel_MurderCase6 == false)
+                                    {
+                                        IntelManager.Instance.AddIntelFloating("Event", "MurderCase - Way to Escape");
+                                        DataBaseManager.Intel_MurderCase6 = true;
+                                    }
+                                }
+                            }
                         }
-                    }
+                        }
                     break;
 
                 case 'ⓑ': t_white = false; t_yellow = false; t_red = false; t_green = false; t_blue = true; t_ignore = true;
@@ -805,7 +858,15 @@ public class DialogManager : MonoBehaviour
                             }
                             if (t_ReplaceText[i + 3] == '2')
                             {
+                                if (t_ReplaceText[i + 4] == 'ⓔ')
+                                {
+                                    if (DataBaseManager.Intel_Ella2 == false)
+                                    {
+                                        DataBaseManager.Intel_Ella2 = true;
+                                        IntelManager.Instance.AddIntelFloating("Character", "Ella Triss - Murdered Clients");
+                                    }
 
+                                }
                                 if (t_ReplaceText[i + 4] == 'ⓐ')
                                 {
                                     if (DataBaseManager.Intel_Aiden2 == false)
@@ -834,7 +895,14 @@ public class DialogManager : MonoBehaviour
                             }
                             if (t_ReplaceText[i + 3] == '3')
                             {
-
+                                if (t_ReplaceText[i + 4] == 'ⓐ')
+                                {
+                                    if (DataBaseManager.Intel_Aiden3 == false)
+                                    {
+                                        DataBaseManager.Intel_Aiden3 = true;
+                                        IntelManager.Instance.AddIntelFloating("Character", "Aiden Triss - Missing Subject");
+                                    }
+                                }
                                 if (t_ReplaceText[i + 4] == 'ⓦ' || t_ReplaceText[i + 4] == '비')
                                 {
                                     if (DataBaseManager.Intel_SewerWorker3 == false)
@@ -1030,12 +1098,12 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '③')
                     {
-
+                        DataBaseManager.DeadBody_GotoSwere = true;
                     }
                     if (t_ReplaceText[i + 1] == '④')
                     {
 
-
+                        
                     }
                     if (t_ReplaceText[i + 1] == '⑤')
                     {
@@ -1060,7 +1128,7 @@ public class DialogManager : MonoBehaviour
 
                     if (t_ReplaceText[i + 1] == '①')
                     {
-                        DataBaseManager.StoryDirecting = false;
+                        DataBaseManager.StoryDirecting = false; 
                     }
                     t_ignore = true;
                     break;

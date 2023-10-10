@@ -501,6 +501,20 @@ public class KeyWordManager : MonoBehaviour
                 }
             }
         }
+        if (DataBaseManager.keyword_upper == "MurderCase")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (MurderCaseKeywordCount <= MurderCaseKeywordNum)
+                {
+                    MurderCaseKeywordNum = 0;
+                }
+                else
+                {
+                    MurderCaseKeywordNum += 1;
+                }
+            }
+        }
     }
     public void DownerLeft()
     {
@@ -787,6 +801,21 @@ public class KeyWordManager : MonoBehaviour
 
             }
         }
+        if (DataBaseManager.keyword_upper == "MurderCase")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (MurderCaseKeywordNum <= 0)
+                {
+                    MurderCaseKeywordNum = MurderCaseKeywordCount;
+                }
+                else
+                {
+                    MurderCaseKeywordNum -= 1;
+                }
+
+            }
+        }
     }
 
 
@@ -812,7 +841,7 @@ public class KeyWordManager : MonoBehaviour
     bool isFishySmellAddList = false;
     bool isRiverWaterQualityAddList = false;
     bool isCreepyEyesAddList = false;
-    bool isSuddenChangeAddList = false;
+    bool isMurderCaseAddList = false;
     bool isSafeAddList = false;
 
     //장소
@@ -924,12 +953,12 @@ public class KeyWordManager : MonoBehaviour
                 upperEventKeywordList.Add("CreepyEyes");
             }
         }
-        if (isSuddenChangeAddList == false)
+        if (isMurderCaseAddList == false)
         {
-            if (DataBaseManager.Intel_SuddenChange1 == true || DataBaseManager.Intel_SuddenChange2 == true || DataBaseManager.Intel_SuddenChange3 == true || DataBaseManager.Intel_SuddenChange4 == true || DataBaseManager.Intel_SuddenChange5 == true || DataBaseManager.Intel_SuddenChange6 == true)
+            if (DataBaseManager.Intel_MurderCase1 == true || DataBaseManager.Intel_MurderCase2 == true || DataBaseManager.Intel_MurderCase3 == true || DataBaseManager.Intel_MurderCase4 == true || DataBaseManager.Intel_MurderCase5 == true || DataBaseManager.Intel_MurderCase6 == true)
             {
-                isSuddenChangeAddList = true;
-                upperEventKeywordList.Add("SuddenChange");
+                isMurderCaseAddList = true;
+                upperEventKeywordList.Add("MurderCase");
             }
         }
 
@@ -1108,9 +1137,9 @@ public class KeyWordManager : MonoBehaviour
     int CreepyEyesKeywordCount = 0;
     public int CreepyEyesKeywordNum = 0;
 
-    public List<string> SuddenChangeList = new List<string>();//string들어가야하고
-    int SuddenChangeKeywordCount = 0;
-    public int SuddenChangeKeywordNum = 0;
+    public List<string> MurderCaseList = new List<string>();//string들어가야하고
+    int MurderCaseKeywordCount = 0;
+    public int MurderCaseKeywordNum = 0;
 
     public List<string> SafeList = new List<string>();//string들어가야하고
     int SafeKeywordCount = 0;
@@ -1143,7 +1172,12 @@ public class KeyWordManager : MonoBehaviour
     bool isRiverWaterQuality2Add = false;
     bool isRiverWaterQuality3Add = false;
     bool isCreepyEyes1Add = false;
-    bool isSuddenChange1Add = false;
+    bool isMurderCase1Add = false;
+    bool isMurderCase2Add = false;
+    bool isMurderCase3Add = false;
+    bool isMurderCase4Add = false;
+    bool isMurderCase5Add = false;
+    bool isMurderCase6Add = false;
     bool isSafe1Add = false;
     bool isSafe2Add = false;
     // ------------------------------- 인물하위
@@ -1180,6 +1214,7 @@ public class KeyWordManager : MonoBehaviour
     bool isAiden3Add = false;
     bool isAiden4Add = false;
     bool isElla1Add = false;
+    bool isElla2Add = false;
     bool isSwain1Add = false;
     bool isCane1Add = false;
     bool isMeiv1Add = false;
@@ -1244,7 +1279,7 @@ public class KeyWordManager : MonoBehaviour
         FishySmellKeywordCount = FishySmellList.Count - 1;
         RiverWaterQualityKeywordCount = RiverWaterQualityList.Count - 1;
         CreepyEyesKeywordCount = CreepyEyesList.Count - 1;
-        SuddenChangeKeywordCount = SuddenChangeList.Count - 1;
+        MurderCaseKeywordCount = MurderCaseList.Count - 1;
         SafeKeywordCount = SafeList.Count - 1;
 
         EllaKeywordCount = EllaList.Count - 1;
@@ -1444,17 +1479,45 @@ public class KeyWordManager : MonoBehaviour
             CreepyEyesList.Add("Saw in the sewer");
         }
 
-        // 부당해고
-        else if (DataBaseManager.keyword_upper == "SuddenChange" && SuddenChangeKeywordCount >= 0)
+        // 살인사건
+        else if (DataBaseManager.keyword_upper == "MurderCase" && MurderCaseKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = SuddenChangeList[SuddenChangeKeywordNum];
+            DataBaseManager.keyword_downer = MurderCaseList[MurderCaseKeywordNum];
+        }
+        if (DataBaseManager.Intel_MurderCase1 == true && isMurderCase1Add == false)
+        {
+            isMurderCase1Add = true;
+            MurderCaseList.Add("Witness Testimony");
+        }
+        if (DataBaseManager.Intel_MurderCase2 == true && isMurderCase2Add == false)
+        {
+            isMurderCase2Add = true;
+            MurderCaseList.Add("Missing People & Fishy Smell");
+        }
+        if (DataBaseManager.Intel_MurderCase3 == true && isMurderCase3Add == false)
+        {
+            isMurderCase3Add = true;
+            MurderCaseList.Add("The Culprit");
+        }
+        if (DataBaseManager.Intel_MurderCase4 == true && isMurderCase4Add == false)
+        {
+            isMurderCase4Add = true;
+            MurderCaseList.Add("Cause of Death");
+        }
+        if (DataBaseManager.Intel_MurderCase5 == true && isMurderCase5Add == false)
+        {
+            isMurderCase5Add = true;
+            MurderCaseList.Add("Webbed Feet");
+        }
+        if (DataBaseManager.Intel_MurderCase6 == true && isMurderCase6Add == false)
+        {
+            isMurderCase6Add = true;
+            MurderCaseList.Add("Way to Escape");
         }
 
-        if (DataBaseManager.Intel_SuddenChange1 == true && isSuddenChange1Add == false)
-        {
-            isSuddenChange1Add = true;
-           // SuddenChangeList.Add("Unfair Dismissal");
-        }
+
+
+
         // 금고
         else if (DataBaseManager.keyword_upper == "Safe" && SafeKeywordCount >= 0)
         {
@@ -1491,7 +1554,7 @@ public class KeyWordManager : MonoBehaviour
         if (DataBaseManager.Intel_Aiden3 == true && isAiden3Add == false)
         {
             isAiden3Add = true;
-            //AidenList.Add("Aiden's Remarks");
+            AidenList.Add("Missing Subject");
         }
         // 엘라
         if (DataBaseManager.keyword_upper == "Ella Triss" && EllaKeywordCount >= 0)
@@ -1502,6 +1565,11 @@ public class KeyWordManager : MonoBehaviour
         {
             isElla1Add = true;
             EllaList.Add("Client");
+        }
+        if (DataBaseManager.Intel_Ella2 == true && isElla2Add == false)
+        {
+            isElla2Add = true;
+            EllaList.Add("Murdered Clients");
         }
 
         // 스탠리

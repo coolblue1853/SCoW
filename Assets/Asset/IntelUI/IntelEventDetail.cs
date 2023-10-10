@@ -197,24 +197,24 @@ public class IntelEventDetail : MonoBehaviour
     public GameObject NextButton_Safe;
     public GameObject PrevButton_Safe;
 
-    GameObject Detail_SuddenChange1;
-    GameObject Detail_SuddenChange2;
-    GameObject Detail_SuddenChange3;
-    GameObject Detail_SuddenChange4;
-    GameObject Detail_SuddenChange5;
-    GameObject Detail_SuddenChange6;
-    bool ON_SuddenChange1;
-    bool ON_SuddenChange2;
-    bool ON_SuddenChange3;
-    bool ON_SuddenChange4;
-    bool ON_SuddenChange5;
-    bool ON_SuddenChange6;
-    int Count_SuddenChange = 0;
-    public GameObject SuddenChangeContents;
-    public GameObject SuddenChange_Detail;
-    public static int SuddenChangeIntelInt;
-    public GameObject NextButton_SuddenChange;
-    public GameObject PrevButton_SuddenChange;
+    GameObject Detail_MurderCase1;
+    GameObject Detail_MurderCase2;
+    GameObject Detail_MurderCase3;
+    GameObject Detail_MurderCase4;
+    GameObject Detail_MurderCase5;
+    GameObject Detail_MurderCase6;
+    bool ON_MurderCase1;
+    bool ON_MurderCase2;
+    bool ON_MurderCase3;
+    bool ON_MurderCase4;
+    bool ON_MurderCase5;
+    bool ON_MurderCase6;
+    int Count_MurderCase = 0;
+    public GameObject MurderCaseContents;
+    public GameObject MurderCase_Detail;
+    public static int MurderCaseIntelInt;
+    public GameObject NextButton_MurderCase;
+    public GameObject PrevButton_MurderCase;
     void Awake()
     {
         setGameObecject();
@@ -293,12 +293,12 @@ public class IntelEventDetail : MonoBehaviour
         Detail_Safe5 = SafeContents.transform.GetChild(4).gameObject;
         Detail_Safe6 = SafeContents.transform.GetChild(5).gameObject;
 
-        Detail_SuddenChange1 = SuddenChangeContents.transform.GetChild(0).gameObject;
-        Detail_SuddenChange2 = SuddenChangeContents.transform.GetChild(1).gameObject;
-        Detail_SuddenChange3 = SuddenChangeContents.transform.GetChild(2).gameObject;
-        Detail_SuddenChange4 = SuddenChangeContents.transform.GetChild(3).gameObject;
-        Detail_SuddenChange5 = SuddenChangeContents.transform.GetChild(4).gameObject;
-        Detail_SuddenChange6 = SuddenChangeContents.transform.GetChild(5).gameObject;
+        Detail_MurderCase1 = MurderCaseContents.transform.GetChild(0).gameObject;
+        Detail_MurderCase2 = MurderCaseContents.transform.GetChild(1).gameObject;
+        Detail_MurderCase3 = MurderCaseContents.transform.GetChild(2).gameObject;
+        Detail_MurderCase4 = MurderCaseContents.transform.GetChild(3).gameObject;
+        Detail_MurderCase5 = MurderCaseContents.transform.GetChild(4).gameObject;
+        Detail_MurderCase6 = MurderCaseContents.transform.GetChild(5).gameObject;
     }
     // Start is called before the first frame update
     void Start()
@@ -320,16 +320,16 @@ public class IntelEventDetail : MonoBehaviour
         CreepyEyesDetail();
 
         SafeDetail();
-        SuddenChangeDetail();
+        MurderCaseDetail();
 
-        if (NextButton_CreepyEyes.activeSelf == true || NextButton_FishySmell.activeSelf == true || NextButton_Insomnia.activeSelf == true || NextButton_MissingPeople.activeSelf == true || NextButton_Nightmare.activeSelf == true || NextButton_Paranoia.activeSelf == true || NextButton_PlanetarySequence.activeSelf == true || NextButton_RiverWaterQuality.activeSelf == true || NextButton_Safe.activeSelf == true || NextButton_SewerGhostStory.activeSelf == true || NextButton_SuddenChange.activeSelf == true)
+        if (NextButton_CreepyEyes.activeSelf == true || NextButton_FishySmell.activeSelf == true || NextButton_Insomnia.activeSelf == true || NextButton_MissingPeople.activeSelf == true || NextButton_Nightmare.activeSelf == true || NextButton_Paranoia.activeSelf == true || NextButton_PlanetarySequence.activeSelf == true || NextButton_RiverWaterQuality.activeSelf == true || NextButton_Safe.activeSelf == true || NextButton_SewerGhostStory.activeSelf == true || NextButton_MurderCase.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.D))
             {
                 NextPage();
             }
         }
-        if (PrevButton_CreepyEyes.activeSelf == true || PrevButton_FishySmell.activeSelf == true || PrevButton_Insomnia.activeSelf == true || PrevButton_MissingPeople.activeSelf == true || PrevButton_Nightmare.activeSelf == true || PrevButton_Paranoia.activeSelf == true || PrevButton_PlanetarySequence.activeSelf == true || PrevButton_RiverWaterQuality.activeSelf == true || PrevButton_Safe.activeSelf == true || PrevButton_SewerGhostStory.activeSelf == true || PrevButton_SuddenChange.activeSelf == true)
+        if (PrevButton_CreepyEyes.activeSelf == true || PrevButton_FishySmell.activeSelf == true || PrevButton_Insomnia.activeSelf == true || PrevButton_MissingPeople.activeSelf == true || PrevButton_Nightmare.activeSelf == true || PrevButton_Paranoia.activeSelf == true || PrevButton_PlanetarySequence.activeSelf == true || PrevButton_RiverWaterQuality.activeSelf == true || PrevButton_Safe.activeSelf == true || PrevButton_SewerGhostStory.activeSelf == true || PrevButton_MurderCase.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -380,9 +380,9 @@ public class IntelEventDetail : MonoBehaviour
         {
             NowPage = "Safe";
         }
-        if (SuddenChange_Detail.activeSelf == true)
+        if (MurderCase_Detail.activeSelf == true)
         {
-            NowPage = "SuddenChange";
+            NowPage = "MurderCase";
         }
 
     }
@@ -1104,75 +1104,75 @@ public class IntelEventDetail : MonoBehaviour
             PrevButton_Safe.SetActive(false);
         }
     }
-    void SuddenChangeDetail()
+    void MurderCaseDetail()
     {
-        if (ON_SuddenChange1 == false && DataBaseManager.Intel_SuddenChange1 == true)
+        if (ON_MurderCase1 == false && DataBaseManager.Intel_MurderCase1 == true)
         {
-            ON_SuddenChange1 = true;
-            Detail_SuddenChange1.SetActive(true);
-            Detail_SuddenChange1.transform.SetAsLastSibling();
-            Count_SuddenChange += 1;
+            ON_MurderCase1 = true;
+            Detail_MurderCase1.SetActive(true);
+            Detail_MurderCase1.transform.SetAsLastSibling();
+            Count_MurderCase += 1;
         }
-        if (ON_SuddenChange2 == false && DataBaseManager.Intel_SuddenChange2 == true)
+        if (ON_MurderCase2 == false && DataBaseManager.Intel_MurderCase2 == true)
         {
-            ON_SuddenChange2 = true;
-            Detail_SuddenChange2.SetActive(true);
-            Detail_SuddenChange2.transform.SetAsLastSibling();
-            Count_SuddenChange += 1;
+            ON_MurderCase2 = true;
+            Detail_MurderCase2.SetActive(true);
+            Detail_MurderCase2.transform.SetAsLastSibling();
+            Count_MurderCase += 1;
         }
-        if (ON_SuddenChange3 == false && DataBaseManager.Intel_SuddenChange3 == true)
+        if (ON_MurderCase3 == false && DataBaseManager.Intel_MurderCase3 == true)
         {
-            ON_SuddenChange3 = true;
-            Detail_SuddenChange3.SetActive(true);
-            Detail_SuddenChange3.transform.SetAsLastSibling();
-            Count_SuddenChange += 1;
+            ON_MurderCase3 = true;
+            Detail_MurderCase3.SetActive(true);
+            Detail_MurderCase3.transform.SetAsLastSibling();
+            Count_MurderCase += 1;
         }
-        if (ON_SuddenChange4 == false && DataBaseManager.Intel_SuddenChange4 == true)
+        if (ON_MurderCase4 == false && DataBaseManager.Intel_MurderCase4 == true)
         {
-            ON_SuddenChange4 = true;
-            Detail_SuddenChange4.SetActive(true);
-            Detail_SuddenChange4.transform.SetAsLastSibling();
-            Count_SuddenChange += 1;
+            ON_MurderCase4 = true;
+            Detail_MurderCase4.SetActive(true);
+            Detail_MurderCase4.transform.SetAsLastSibling();
+            Count_MurderCase += 1;
         }
-        if (ON_SuddenChange5 == false && DataBaseManager.Intel_SuddenChange5 == true)
+        if (ON_MurderCase5 == false && DataBaseManager.Intel_MurderCase5 == true)
         {
-            ON_SuddenChange5 = true;
-            Detail_SuddenChange5.SetActive(true);
-            Detail_SuddenChange5.transform.SetAsLastSibling();
-            Count_SuddenChange += 1;
+            ON_MurderCase5 = true;
+            Detail_MurderCase5.SetActive(true);
+            Detail_MurderCase5.transform.SetAsLastSibling();
+            Count_MurderCase += 1;
         }
-        if (ON_SuddenChange6 == false && DataBaseManager.Intel_SuddenChange6 == true)
+        if (ON_MurderCase6 == false && DataBaseManager.Intel_MurderCase6 == true)
         {
-            ON_SuddenChange6 = true;
-            Detail_SuddenChange6.SetActive(true);
-            Detail_SuddenChange6.transform.SetAsLastSibling();
-            Count_SuddenChange += 1;
+            ON_MurderCase6 = true;
+            Detail_MurderCase6.SetActive(true);
+            Detail_MurderCase6.transform.SetAsLastSibling();
+            Count_MurderCase += 1;
         }
 
-        if (Count_SuddenChange > 2 && DataBaseManager.NowPage_SuddenChange == 1)
+        if (Count_MurderCase > 2 && DataBaseManager.NowPage_MurderCase == 1)
         {
-            NextButton_SuddenChange.SetActive(true);
+            NextButton_MurderCase.SetActive(true);
         }
-        else if (Count_SuddenChange > 4 && DataBaseManager.NowPage_SuddenChange == 2)
+        else if (Count_MurderCase > 4 && DataBaseManager.NowPage_MurderCase == 2)
         {
-            NextButton_SuddenChange.SetActive(true);
+            NextButton_MurderCase.SetActive(true);
         }
         else
         {
-            NextButton_SuddenChange.SetActive(false);
+            NextButton_MurderCase.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_SuddenChange == 2)
+        if (DataBaseManager.NowPage_MurderCase == 2)
         {
-            PrevButton_SuddenChange.SetActive(true);
+            PrevButton_MurderCase.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_SuddenChange == 3)
+        else if (DataBaseManager.NowPage_MurderCase == 3)
         {
-            PrevButton_SuddenChange.SetActive(true);
+            PrevButton_MurderCase.SetActive(true);
         }
         else
         {
-            PrevButton_SuddenChange.SetActive(false);
+            PrevButton_MurderCase.SetActive(false);
         }
     }
 
@@ -1630,49 +1630,49 @@ public class IntelEventDetail : MonoBehaviour
                 DataBaseManager.NowPage_Safe = 3;
             }
         }
-        if (NowPage == "SuddenChange")
+        if (NowPage == "MurderCase")
         {
-            if (DataBaseManager.NowPage_SuddenChange == 1)
+            if (DataBaseManager.NowPage_MurderCase == 1)
             {
-                if (Count_SuddenChange >= 6)
+                if (Count_MurderCase >= 6)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    Reset_MurderCase();
+                    MurderCaseContents.transform.GetChild(2).gameObject.SetActive(true);
+                    MurderCaseContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 5)
+                else if (Count_MurderCase >= 5)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(true);
+                    Reset_MurderCase();
+                    MurderCaseContents.transform.GetChild(3).gameObject.SetActive(true);
+                    MurderCaseContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 4)
+                else if (Count_MurderCase >= 4)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_MurderCase();
+                    MurderCaseContents.transform.GetChild(4).gameObject.SetActive(true);
+                    MurderCaseContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 3)
+                else if (Count_MurderCase >= 3)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_MurderCase();
+                    MurderCaseContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_SuddenChange = 2;
+                DataBaseManager.NowPage_MurderCase = 2;
             }
-            else if (DataBaseManager.NowPage_SuddenChange == 2)
+            else if (DataBaseManager.NowPage_MurderCase == 2)
             {
-                if (Count_SuddenChange >= 6)
+                if (Count_MurderCase >= 6)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_MurderCase();
+                    MurderCaseContents.transform.GetChild(4).gameObject.SetActive(true);
+                    MurderCaseContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 5)
+                else if (Count_MurderCase >= 5)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(5).gameObject.SetActive(true);
+                    Reset_MurderCase();
+                    MurderCaseContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_SuddenChange = 3;
+                DataBaseManager.NowPage_MurderCase = 3;
             }
         }
     }
@@ -2159,52 +2159,52 @@ public class IntelEventDetail : MonoBehaviour
                 DataBaseManager.NowPage_Safe = 2;
             }
         }
-        if (NowPage == "SuddenChange")
+        if (NowPage == "MurderCase")
         {
-            if (DataBaseManager.NowPage_SuddenChange == 2)
+            if (DataBaseManager.NowPage_MurderCase == 2)
             {
-                if (Count_SuddenChange >= 6)
+                if (Count_MurderCase >= 6)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(0).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(1).gameObject.SetActive(true);
+                    Reset_MurderCase();
+                    MurderCaseContents.transform.GetChild(0).gameObject.SetActive(true);
+                    MurderCaseContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 5)
+                else if (Count_MurderCase >= 5)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(1).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(2).gameObject.SetActive(true);
+                    Reset_MurderCase();
+                    MurderCaseContents.transform.GetChild(1).gameObject.SetActive(true);
+                    MurderCaseContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 4)
+                else if (Count_MurderCase >= 4)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    Reset_MurderCase();
+                    MurderCaseContents.transform.GetChild(2).gameObject.SetActive(true);
+                    MurderCaseContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 3)
+                else if (Count_MurderCase >= 3)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(true);
+                    Reset_MurderCase();
+                    MurderCaseContents.transform.GetChild(3).gameObject.SetActive(true);
+                    MurderCaseContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_SuddenChange = 1;
+                DataBaseManager.NowPage_MurderCase = 1;
             }
-            else if (DataBaseManager.NowPage_SuddenChange == 3)
+            else if (DataBaseManager.NowPage_MurderCase == 3)
             {
-                if (Count_SuddenChange >= 6)
+                if (Count_MurderCase >= 6)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
+                    Reset_MurderCase();
+                    MurderCaseContents.transform.GetChild(2).gameObject.SetActive(true);
+                    MurderCaseContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_SuddenChange >= 5)
+                else if (Count_MurderCase >= 5)
                 {
-                    Reset_SuddenChange();
-                    SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(true);
+                    Reset_MurderCase();
+                    MurderCaseContents.transform.GetChild(3).gameObject.SetActive(true);
+                    MurderCaseContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_SuddenChange = 2;
+                DataBaseManager.NowPage_MurderCase = 2;
             }
         }
     }
@@ -2300,14 +2300,14 @@ public class IntelEventDetail : MonoBehaviour
         SafeContents.transform.GetChild(4).gameObject.SetActive(false);
         SafeContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_SuddenChange()
+    void Reset_MurderCase()
     {
-        SuddenChangeContents.transform.GetChild(0).gameObject.SetActive(false);
-        SuddenChangeContents.transform.GetChild(1).gameObject.SetActive(false);
-        SuddenChangeContents.transform.GetChild(2).gameObject.SetActive(false);
-        SuddenChangeContents.transform.GetChild(3).gameObject.SetActive(false);
-        SuddenChangeContents.transform.GetChild(4).gameObject.SetActive(false);
-        SuddenChangeContents.transform.GetChild(5).gameObject.SetActive(false);
+        MurderCaseContents.transform.GetChild(0).gameObject.SetActive(false);
+        MurderCaseContents.transform.GetChild(1).gameObject.SetActive(false);
+        MurderCaseContents.transform.GetChild(2).gameObject.SetActive(false);
+        MurderCaseContents.transform.GetChild(3).gameObject.SetActive(false);
+        MurderCaseContents.transform.GetChild(4).gameObject.SetActive(false);
+        MurderCaseContents.transform.GetChild(5).gameObject.SetActive(false);
     }
 
     public void Open_PlanetarySequence()
@@ -2371,11 +2371,11 @@ public class IntelEventDetail : MonoBehaviour
         CloseAllContents();
         Safe_Detail.SetActive(true);
     }
-    public void Open_SuddenChange()
+    public void Open_MurderCase()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
-        SuddenChange_Detail.SetActive(true);
+        MurderCase_Detail.SetActive(true);
     }
 
 
@@ -2392,7 +2392,7 @@ public class IntelEventDetail : MonoBehaviour
         CreepyEyes_Detail.SetActive(false);
 
         Safe_Detail.SetActive(false);
-        SuddenChange_Detail.SetActive(false);
+        MurderCase_Detail.SetActive(false);
     }
 }
 

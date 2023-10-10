@@ -65,7 +65,7 @@ public class PotalPoint : MonoBehaviour
                 
                         DataBaseManager.isDirecting = true;
                         FadingBackGround.Instance.FadeInOut();
-                        Invoke("MovePlayer", 2);
+                        Invoke("MovePlayer", 1.5f);
                     }
                     else
                     {

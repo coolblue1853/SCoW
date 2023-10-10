@@ -316,9 +316,18 @@ public class DirectingManager : MonoBehaviour
             else if ((DataBaseManager.Intel_FishySmell3 == true || DataBaseManager.Intel_FishySmell4 == true || DataBaseManager.Intel_SewerWorker3 == true) && DataBaseManager.DeadBodyLook_FishySmellDialog == false)
             {
                 DataBaseManager.DeadBodyLook_FishySmellDialog = true;
-                InteractionController.Instance.Start_2nd_NoonEvent("NoonEvent_DeadBody_Look_Missing");
+                InteractionController.Instance.Start_2nd_NoonEvent("NoonEvent_DeadBody_Look_FishySmell");
             }
         }
+
+        if (DataBaseManager.DeadBody_GotoSwere == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.DeadBody_GotoSwere = false;
+            DataBaseManager.StoryDirecting = true;
+            MapManager.Instance.SuccAnalysis();
+
+        }
+        
 
 
 

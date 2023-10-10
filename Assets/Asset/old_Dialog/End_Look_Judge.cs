@@ -76,8 +76,8 @@ public class End_Look_Judge : MonoBehaviour
         Checker.SetActive(false);
         Look_Back.DOFade(0, 0.00001f).SetAutoKill();
 
-        //Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
-        //  Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
+        Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
+        Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
         Judge_BackOb.SetActive(false);
         Keyword_BackOb.SetActive(false);
         Judge.SetActive(false);

@@ -28,6 +28,14 @@ public class DataBaseManager : MonoBehaviour
     public static bool DeadBodyFirstLook = false;
     public static bool DeadBodyLook_MissingDialog = false;
     public static bool DeadBodyLook_FishySmellDialog = false;
+
+    public static bool DeadBody_medicine = false;
+    public static bool DeadBody_observational = false;
+    public static bool DeadBody_Analyzing = false;
+    public static bool DeadBody_deftness = false;
+    public static bool DeadBody_GotoSwere = false;
+
+
     //Sanity
     public static int Debuff = 0;
 
@@ -373,7 +381,7 @@ public class DataBaseManager : MonoBehaviour
     public static int NowPage_CreepyEyes = 1;
     public static int NowPage_SewerWorker = 1;
     public static int NowPage_Safe = 1;
-    public static int NowPage_SuddenChange = 1;
+    public static int NowPage_MurderCase = 1;
 
     public static int GainEventInt = 0;
 
@@ -388,7 +396,7 @@ public class DataBaseManager : MonoBehaviour
     public static int ButtonCount_CreepyEyes = -1;
     public static int ButtonCount_SewerWorker = -1;
     public static int ButtonCount_Safe = -1;
-    public static int ButtonCount_SuddenChange = -1;
+    public static int ButtonCount_MurderCase = -1;
 
 
 
@@ -472,12 +480,12 @@ public class DataBaseManager : MonoBehaviour
     public static bool Intel_Safe5 = false;
     public static bool Intel_Safe6 = false;
 
-    public static bool Intel_SuddenChange1 = false;
-    public static bool Intel_SuddenChange2 = false;
-    public static bool Intel_SuddenChange3 = false;
-    public static bool Intel_SuddenChange4 = false;
-    public static bool Intel_SuddenChange5 = false;
-    public static bool Intel_SuddenChange6 = false;
+    public static bool Intel_MurderCase1 = false;
+    public static bool Intel_MurderCase2 = false;
+    public static bool Intel_MurderCase3 = false;
+    public static bool Intel_MurderCase4 = false;
+    public static bool Intel_MurderCase5 = false;
+    public static bool Intel_MurderCase6 = false;
 
     //장소정보
 
@@ -901,7 +909,7 @@ NowSelecter = "End"; // End_Look_Judge 존재
      NowPage_CreepyEyes = 1;
      NowPage_SewerWorker = 1;
      NowPage_Safe = 1;
-     NowPage_SuddenChange = 1;
+     NowPage_MurderCase = 1;
 
      GainEventInt = 0;
 
@@ -916,7 +924,7 @@ NowSelecter = "End"; // End_Look_Judge 존재
      ButtonCount_CreepyEyes = -1;
      ButtonCount_SewerWorker = -1;
      ButtonCount_Safe = -1;
-     ButtonCount_SuddenChange = -1;
+     ButtonCount_MurderCase = -1;
 
 
 
@@ -1000,12 +1008,12 @@ NowSelecter = "End"; // End_Look_Judge 존재
      Intel_Safe5 = false;
      Intel_Safe6 = false;
 
-     Intel_SuddenChange1 = false;
-     Intel_SuddenChange2 = false;
-     Intel_SuddenChange3 = false;
-     Intel_SuddenChange4 = false;
-     Intel_SuddenChange5 = false;
-     Intel_SuddenChange6 = false;
+     Intel_MurderCase1 = false;
+     Intel_MurderCase2 = false;
+     Intel_MurderCase3 = false;
+     Intel_MurderCase4 = false;
+     Intel_MurderCase5 = false;
+     Intel_MurderCase6 = false;
 
     //장소정보
 

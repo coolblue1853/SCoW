@@ -111,9 +111,15 @@ DataBaseManager.Intel_FishySmell3 = true;
         DataBaseManager.Intel_RiverWaterQuality2 = true;
         DataBaseManager.Intel_Aiden2 = true;
         DataBaseManager.Intel_SewerWorker2 = true;
-      
+
+
 
         // 테스트 진행중 삭제
+        DataBaseManager.ObservationPoint = 80;
+        DataBaseManager.listeningPoint = 80;
+        DataBaseManager.medicinePoint = 80;
+        DataBaseManager.analysisPoint = 80;
+        DataBaseManager.NoonEvent_AccessAuthorization = true;
         DataBaseManager.TimeCount = 5;
         DataBaseManager.SecondDayDialog = true;
     }

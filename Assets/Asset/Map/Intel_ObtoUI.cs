@@ -5,6 +5,7 @@ using UnityEngine;
 public class Intel_ObtoUI : MonoBehaviour
 {
     private static Intel_ObtoUI instance = null;
+    public GameObject Arrow;
 
     public int KeywordCounter;
     //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
@@ -35,8 +36,12 @@ public class Intel_ObtoUI : MonoBehaviour
         if(this.name == "Aiden Triss")
         {
             Set_Aiden();
-
         }
+        else if (this.name == "DeadBody")
+        {
+            Set_DeadBody();
+        }
+
 
         if (DataBaseManager.CancelJudge == true)
         {
@@ -50,10 +55,30 @@ public class Intel_ObtoUI : MonoBehaviour
         }
         previousState = DataBaseManager.NowSelecter;
 
-        if ((Input.GetKeyDown(KeyCode.E) && DataBaseManager.isActiveDialog2 == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false))
+        if ((Input.GetKeyDown(KeyCode.E) && DataBaseManager.isActiveDialog2 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.isOpenUi == false))
         {
             if (this.transform.name == DataBaseManager.Select_Object)
             {
+
+                if (this.name == "Aiden Triss")
+                {
+
+                    Arrow.SetActive(true);
+                }
+                else if (this.name == "DeadBody")
+                {
+
+                    Arrow.SetActive(true);
+                }
+                else
+                {
+                    Arrow.SetActive(false);
+                }
+
+
+
+
+
                 DataBaseManager.workSound = false;
 
                 if (CanJudge == false)
@@ -285,6 +310,32 @@ public class Intel_ObtoUI : MonoBehaviour
             isJudge = true;
             Rollet.Instance.setRollet("Police : Persuasion", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
         }
+
+        if (DataBaseManager.Select_Object == "DeadBody")
+        {
+            if (DataBaseManager.DeadBody_medicine == false)
+            {
+                DeadBodyJudge = "medicine";
+                Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
+            }
+            else if (DataBaseManager.DeadBody_observational == false)
+            {
+                DeadBodyJudge = "Observation";
+                Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+            }
+            else if (DataBaseManager.DeadBody_Analyzing == false)
+            {
+                DeadBodyJudge = "analysis";
+                Rollet.Instance.setRollet("DeadBody : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
+            }
+            else if (DataBaseManager.DeadBody_deftness == false)
+            {
+                DeadBodyJudge = "deftness";
+                Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
+            }
+        }
+
+
     }
 
     string AidenJudge;
@@ -395,6 +446,181 @@ public class Intel_ObtoUI : MonoBehaviour
                     }
 
              
+                }
+            }
+        }
+    }
+
+
+    string DeadBodyJudge;
+
+    void Set_DeadBody()
+    {
+   
+        if (DataBaseManager.DeadBody_medicine == true && DataBaseManager.DeadBody_observational == true && DataBaseManager.DeadBody_Analyzing == true && DataBaseManager.DeadBody_deftness == true)
+        {
+            CanJudge = false;
+            isJudge = true;
+        }
+
+        if (Rollet.Instance.RolletSetUi.activeSelf == true)
+        {
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                if (DeadBodyJudge == "medicine")
+                {
+                    if (DataBaseManager.DeadBody_observational == false)
+                    {
+                        DeadBodyJudge = "Observation";
+                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                    }
+                    else if (DataBaseManager.DeadBody_Analyzing == false)
+                    {
+                        DeadBodyJudge = "analysis";
+                        Rollet.Instance.setRollet("DeadBody : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
+                    }
+                    else if (DataBaseManager.DeadBody_deftness == false)
+                    {
+                        DeadBodyJudge = "deftness";
+                        Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
+                    }
+                }
+                else if (DeadBodyJudge == "Observation")
+                {
+                    if (DataBaseManager.DeadBody_Analyzing == false)
+                    {
+                        DeadBodyJudge = "analysis";
+                        Rollet.Instance.setRollet("DeadBody : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
+                    }
+                    else if (DataBaseManager.DeadBody_deftness == false)
+                    {
+                        DeadBodyJudge = "deftness";
+                        Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
+                    }
+                    else if (DataBaseManager.DeadBody_medicine == false)
+                    {
+                        DeadBodyJudge = "medicine";
+                        Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
+                    }
+                }
+                else if (DeadBodyJudge == "analysis")
+                {
+
+                    if (DataBaseManager.DeadBody_deftness == false)
+                    {
+                        DeadBodyJudge = "deftness";
+                        Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
+                    }
+
+                    else if (DataBaseManager.DeadBody_medicine == false)
+                    {
+                        DeadBodyJudge = "medicine";
+                        Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
+                    }
+                    else if (DataBaseManager.DeadBody_observational == false)
+                    {
+                        DeadBodyJudge = "Observation";
+                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                    }
+                }
+                else if (DeadBodyJudge == "deftness")
+                {
+
+                    if (DataBaseManager.DeadBody_medicine == false)
+                    {
+                        DeadBodyJudge = "medicine";
+                        Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
+                    }
+
+                    else if (DataBaseManager.DeadBody_observational == false)
+                    {
+                        DeadBodyJudge = "Observation";
+                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                    }
+                    else if (DataBaseManager.DeadBody_Analyzing == false)
+                    {
+                        DeadBodyJudge = "analysis";
+                        Rollet.Instance.setRollet("DeadBody : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
+                    }
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                if (DeadBodyJudge == "medicine")
+                {
+                    if (DataBaseManager.DeadBody_deftness == false)
+                    {
+                        DeadBodyJudge = "deftness";
+                        Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
+                    }
+                    else if (DataBaseManager.DeadBody_Analyzing == false)
+                    {
+                        DeadBodyJudge = "analysis";
+                        Rollet.Instance.setRollet("DeadBody : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
+                    }
+                    else if (DataBaseManager.DeadBody_observational == false)
+                    {
+                        DeadBodyJudge = "Observation";
+                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                    }
+
+                }
+                else if (DeadBodyJudge == "Observation")
+                {
+                    if (DataBaseManager.DeadBody_medicine == false)
+                    {
+                        DeadBodyJudge = "medicine";
+                        Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
+                    }
+                    else if (DataBaseManager.DeadBody_deftness == false)
+                    {
+                        DeadBodyJudge = "deftness";
+                        Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
+                    }
+                    else if (DataBaseManager.DeadBody_Analyzing == false)
+                    {
+                        DeadBodyJudge = "analysis";
+                        Rollet.Instance.setRollet("DeadBody : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
+                    }
+
+                }
+                else if (DeadBodyJudge == "analysis")
+                {
+                    if (DataBaseManager.DeadBody_observational == false)
+                    {
+                        DeadBodyJudge = "Observation";
+                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                    }
+                    else if (DataBaseManager.DeadBody_medicine == false)
+                    {
+                        DeadBodyJudge = "medicine";
+                        Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
+                    }
+                    else if (DataBaseManager.DeadBody_deftness == false)
+                    {
+                        DeadBodyJudge = "deftness";
+                        Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
+                    }
+
+                }
+                else if (DeadBodyJudge == "deftness")
+                {
+                    if (DataBaseManager.DeadBody_Analyzing == false)
+                    {
+                        DeadBodyJudge = "analysis";
+                        Rollet.Instance.setRollet("DeadBody : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
+                    }
+                    else if (DataBaseManager.DeadBody_observational == false)
+                    {
+                        DeadBodyJudge = "Observation";
+                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                    }
+                    else if (DataBaseManager.DeadBody_medicine == false)
+                    {
+                        DeadBodyJudge = "medicine";
+                        Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
+                    }
+
                 }
             }
         }

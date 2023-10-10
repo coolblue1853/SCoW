@@ -27,11 +27,16 @@ public class MapManager : MonoBehaviour
     //¥Î«–±≥
     public GameObject Student;
 
+    Vector3 player_NoonEventMenhole = new Vector3(-976.4003f, 3.074435f);
+    Vector3 Cam_NoonEventMenhole = new Vector3(-993.87f, 1.5f, -15);
+
     Vector3 player_NoonEvent = new Vector3(-818.0412f, 2.183268f);
     Vector3 Cam_NoonEvent = new Vector3(-814.3779f, 1.5f, -15);
 
     Vector3 player_DetectiveOffice = new Vector3(-774.2f, 2.6f);
     Vector3 Cam_DetectiveOffice = new Vector3(-797.2f, 1.690001f, -15);
+
+    Vector3 player_NoonEventFirst = new Vector3(-981.2974f, 2.86f);
 
     Vector3 player_ClientsHouse = new Vector3(-990.2f, 2.86f);
     Vector3 Cam_ClientsHouse = new Vector3(-993.87f, 1.5f, -15);
@@ -714,7 +719,7 @@ public class MapManager : MonoBehaviour
         {
             DataBaseManager.TimeCount += 1;
             player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
-            player.transform.localPosition = player_ClientsHouse;
+            player.transform.localPosition = player_NoonEventFirst;
             camera.transform.localPosition = Cam_ClientsHouse;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
@@ -742,6 +747,26 @@ public class MapManager : MonoBehaviour
         }
 
     }
+
+    public void SuccAnalysis()
+    {
+        FadingBackGround.Instance.FadeInOut();
+        Invoke("MoveToSewer", 1.5f);
+    }
+    public void MoveToSewer()
+    {
+        player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
+        CameraManager.Instance.isCheckEnd = true;
+        player.transform.localPosition = player_NoonEventMenhole;
+        camera.transform.localPosition = Cam_NoonEventMenhole;
+        Invoke("SewerDialog", 1f);
+    }
+    public void SewerDialog()
+    {
+        InteractionController.Instance.Start_2nd_NoonEvent("NoonEvent_DeadBody_analysisSuccAfter");
+    }
+
+
 
     void PanicAttack()
     {

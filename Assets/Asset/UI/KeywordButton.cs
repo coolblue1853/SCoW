@@ -136,7 +136,17 @@ public class KeywordButton : MonoBehaviour
             KeyWordManager.Instance.RiverWaterQualityKeywordNum = index_down;
             DataBaseManager.keyword_downer = KeyWordManager.Instance.RiverWaterQualityList[index_down];
         }
+        if (A == "MurderCase")
+        {
+            DataBaseManager.keyword_main = "Event";
 
+            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
+
+            index_down = FindStringIndex(KeyWordManager.Instance.MurderCaseList, B);
+            KeyWordManager.Instance.MurderCaseKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.MurderCaseList[index_down];
+        }
 
         // Å°¿öµå - PLACE
         if (A == "Wharf")

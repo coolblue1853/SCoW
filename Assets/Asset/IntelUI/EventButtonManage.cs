@@ -60,7 +60,7 @@ public class EventButtonManage : MonoBehaviour
     public GameObject Button_CreepyEyes;
 
     public GameObject Button_Safe;
-    public GameObject Button_SuddenChange;
+    public GameObject Button_MurderCase;
 
 
     bool ButtonRize_PlanetarySequence = false;
@@ -76,7 +76,7 @@ public class EventButtonManage : MonoBehaviour
     bool ButtonRize_CreepyEyes = false;
 
     bool ButtonRize_Safe = false;
-    bool ButtonRize_SuddenChange = false;
+    bool ButtonRize_MurderCase = false;
 
 
     void ButtonUpdate()
@@ -141,14 +141,14 @@ public class EventButtonManage : MonoBehaviour
         if ((DataBaseManager.Intel_Safe1 == true || DataBaseManager.Intel_Safe2 == true || DataBaseManager.Intel_Safe3 == true || DataBaseManager.Intel_Safe4 == true || DataBaseManager.Intel_Safe5 == true || DataBaseManager.Intel_Safe6 == true) && ButtonRize_Safe == false)
         {
             ButtonRize_Safe = true;
-            DataBaseManager.ButtonCount_SuddenChange = DataBaseManager.GainEventInt;
+            DataBaseManager.ButtonCount_Safe = DataBaseManager.GainEventInt;
             DataBaseManager.GainEventInt += 1;
         }
 
-        if ((DataBaseManager.Intel_SuddenChange1 == true || DataBaseManager.Intel_SuddenChange2 == true || DataBaseManager.Intel_SuddenChange3 == true || DataBaseManager.Intel_SuddenChange4 == true || DataBaseManager.Intel_SuddenChange5 == true || DataBaseManager.Intel_SuddenChange6 == true) && ButtonRize_SuddenChange == false)
+        if ((DataBaseManager.Intel_MurderCase1 == true || DataBaseManager.Intel_MurderCase2 == true || DataBaseManager.Intel_MurderCase3 == true || DataBaseManager.Intel_MurderCase4 == true || DataBaseManager.Intel_MurderCase5 == true || DataBaseManager.Intel_MurderCase6 == true) && ButtonRize_MurderCase == false)
         {
-            ButtonRize_SuddenChange = true;
-            DataBaseManager.ButtonCount_Safe = DataBaseManager.GainEventInt;
+            ButtonRize_MurderCase = true;
+            DataBaseManager.ButtonCount_MurderCase = DataBaseManager.GainEventInt;
             DataBaseManager.GainEventInt += 1;
         }
 
@@ -209,15 +209,16 @@ public class EventButtonManage : MonoBehaviour
             Button_CreepyEyes.transform.SetSiblingIndex(DataBaseManager.ButtonCount_CreepyEyes);
         }
  
-        if (DataBaseManager.ButtonCount_SuddenChange != -1)
+        if (DataBaseManager.ButtonCount_MurderCase != -1)
         {
-            Button_Safe.SetActive(true);
-            Button_Safe.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Safe);
+            Button_MurderCase.SetActive(true);
+            Button_MurderCase.transform.SetSiblingIndex(DataBaseManager.ButtonCount_MurderCase);
         }
         if (DataBaseManager.ButtonCount_Safe != -1)
         {
-            Button_SuddenChange.SetActive(true);
-            Button_SuddenChange.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Safe);
+            Button_Safe.SetActive(true);
+            Button_Safe.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Safe);
+
         }
 
 
