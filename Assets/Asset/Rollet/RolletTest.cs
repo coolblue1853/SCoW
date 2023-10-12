@@ -92,25 +92,20 @@ DataBaseManager.Intel_FishySmell3 = true;
         DataBaseManager.Intel_QuestHouse1 = true;
         DataBaseManager.rhetoricPoint = 80;
 
-        DataBaseManager.Intel_Hospital1 = true;
-        DataBaseManager.Intel_Aiden1 = true;
-        DataBaseManager.Intel_SewerGhostStory1 = true;
-        DataBaseManager.Intel_SewerGhostStory2 = true;
-        DataBaseManager.Intel_SewerGhostStory3 = true;
-        DataBaseManager.Intel_CreepyEyes1 = true;
-        DataBaseManager.Intel_MissingPeople1 = true;
-        DataBaseManager.Intel_MissingPeople2 = true;
-        DataBaseManager.Intel_Nightmare2 = true;
-        DataBaseManager.Intel_Nightmare4 = true;
-        DataBaseManager.Intel_FishySmell1 = true;
-        DataBaseManager.Intel_FishySmell2 = true;
-        DataBaseManager.Intel_FishySmell3 = true;
-        DataBaseManager.Intel_FishySmell4 = true;
-        DataBaseManager.Intel_Meiv2 = true;
-        DataBaseManager.Intel_SewerWorker3 = true;
-        DataBaseManager.Intel_RiverWaterQuality2 = true;
-        DataBaseManager.Intel_Aiden2 = true;
-        DataBaseManager.Intel_SewerWorker2 = true;
+        DataBaseManager.Intel_MurderCase1 = true;
+        DataBaseManager.Intel_MurderCase2 = true;
+        DataBaseManager.Intel_MurderCase3 = true;
+        DataBaseManager.Intel_MurderCase4 = true;
+        DataBaseManager.Intel_MurderCase5 = true;
+        DataBaseManager.Intel_MurderCase6 = true;
+
+        DataBaseManager.Intel_MissingPeople3 = true;
+        DataBaseManager.Intel_RiverWaterQuality3 = true;
+        DataBaseManager.Intel_Sewer3 = true;
+        DataBaseManager.Intel_Ella2 = true;
+        DataBaseManager.Intel_Aiden3 = true;
+
+
 
 
 
@@ -120,7 +115,7 @@ DataBaseManager.Intel_FishySmell3 = true;
         DataBaseManager.medicinePoint = 80;
         DataBaseManager.analysisPoint = 80;
         DataBaseManager.NoonEvent_AccessAuthorization = true;
-        DataBaseManager.TimeCount = 5;
+        DataBaseManager.TimeCount = 6;
         DataBaseManager.SecondDayDialog = true;
     }
     public void NewsRollet()

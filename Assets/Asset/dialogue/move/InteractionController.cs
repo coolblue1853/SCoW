@@ -335,15 +335,35 @@ public class InteractionController : MonoBehaviour
     public GameObject NoonEvent_DeadBody_deftnessSucc;
     public GameObject NoonEvent_DeadBody_deftnessFail;
 
+    // 강제 이번트 이후 추가 키워드 
+    // 신문사
+    public GameObject Swain_NoContect_FirstDialog;
+    public GameObject Swain_Kidnap;
+    public GameObject Swain_fishySlime;
+    public GameObject Swain_ManholeOrWarn;
+    public GameObject Swain_MurderedElla;
+    public GameObject Swain_MissingAiden_Nomal;
+    public GameObject Swain_MissingAiden_MissingPeopleOk;
+    public GameObject Swain_witness;
+    public GameObject Swain_culprit;
+    public GameObject Swain_MissingandFishy;
+    public GameObject Swain_EllaDeathCause;
+    public GameObject Swain_WebbedFeet;
+    public GameObject Swain_RunawayRoute;
+
+
+
+
+
+
+
+
     private void Start()
     {
         //TestNar();
     }
 
-
-
-    //2nd
-    public void Start_2nd_NoonEvent(string setDialog)
+public void Start_2nd_NoonEvent(string setDialog)
     {
         if (setDialog == "NoonEvent_FirstDailog_Detective")
         {
@@ -879,7 +899,15 @@ public class InteractionController : MonoBehaviour
             if(DataBaseManager.Aiden_FirstDialog == false)
             {
                 DataBaseManager.Aiden_FirstDialog = true;
-                theDM.ShowDialog(Swain_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+
+                if(DataBaseManager.TimeCount < 6)
+                {
+                    theDM.ShowDialog(Swain_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Swain_NoContect_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
             }
             else
             {
@@ -1498,6 +1526,60 @@ public class InteractionController : MonoBehaviour
             else if (DataBaseManager.keyword_downer == "Unfair dismissal")
             {
                 theDM.ShowDialog(Swain_key_Unfairdismissal.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+
+
+            else if (DataBaseManager.keyword_downer == "Kidnap")
+            {
+                theDM.ShowDialog(Swain_Kidnap.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Fishy Slime")
+            {
+                theDM.ShowDialog(Swain_fishySlime.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Manhole" || DataBaseManager.keyword_downer == "Aiden's warning")
+            {
+                theDM.ShowDialog(Swain_ManholeOrWarn.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Murdered Clients")
+            {
+                theDM.ShowDialog(Swain_MurderedElla.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Missing Subject")
+            {
+                if(DataBaseManager.Intel_MissingPeople1 == true || DataBaseManager.Intel_MissingPeople2 == true)
+                {
+                    theDM.ShowDialog(Swain_MissingAiden_MissingPeopleOk.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Swain_MissingAiden_Nomal.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+            }
+     
+            else if (DataBaseManager.keyword_downer == "Witness Testimony")
+            {
+                theDM.ShowDialog(Swain_witness.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "The Culprit")
+            {
+                theDM.ShowDialog(Swain_culprit.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Missing People & Fishy Smell")
+            {
+                theDM.ShowDialog(Swain_MissingandFishy.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Cause of Death")
+            {
+                theDM.ShowDialog(Swain_EllaDeathCause.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Webbed Feet")
+            {
+                theDM.ShowDialog(Swain_WebbedFeet.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Way to Escape")
+            {
+                theDM.ShowDialog(Swain_RunawayRoute.transform.GetComponent<interactionEvent>().GetDialogs());
             }
 
 

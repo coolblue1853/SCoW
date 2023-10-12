@@ -790,6 +790,18 @@ public class DialogManager : MonoBehaviour
 
 
                             }
+                            if (t_ReplaceText[i + 3] == '4')
+                            {
+                                if (t_ReplaceText[i + 4] == 'ⓦ')
+                                {
+                                    if (DataBaseManager.Intel_SewerWorker4 == false)
+                                    {
+                                        DataBaseManager.Intel_SewerWorker4 = true;
+                                        IntelManager.Instance.AddIntelFloating("Character", "SewerWorker - Owner of Uniform");
+                                    }
+                                }
+
+                            }
                         }
                     }
                     break;
@@ -913,6 +925,21 @@ public class DialogManager : MonoBehaviour
 
                                 }
                             }
+                            if (t_ReplaceText[i + 3] == '4')
+                            {
+                                if (t_ReplaceText[i + 4] == 'ⓦ')
+                                {
+                                    if (DataBaseManager.Intel_SewerWorker4 == false)
+                                    {
+                                        DataBaseManager.Intel_SewerWorker4 = true;
+                                        IntelManager.Instance.AddIntelFloating("Character", "SewerWorker - Owner of Uniform");
+                                    }
+                                }
+
+                            }
+
+
+                               
                         }
                     }
                     break;
@@ -1102,8 +1129,8 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '④')
                     {
-
                         
+                        DataBaseManager.SwainDIE = transform;
                     }
                     if (t_ReplaceText[i + 1] == '⑤')
                     {

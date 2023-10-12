@@ -14,6 +14,8 @@ public class DataBaseManager : MonoBehaviour
     public static bool Case2IntCheck = false;
     public static bool Case2SanCheck = false;
 
+    public static bool SwainDIE = false;
+
     //낮 강제 이벤트
     public static bool NoonMorningMove = false;
     public static bool snd_Detective_NoonEvent = false;

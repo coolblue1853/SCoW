@@ -1223,6 +1223,7 @@ public class KeyWordManager : MonoBehaviour
     bool isSewerWorker1Add = false;
     bool isSewerWorker2Add = false;
     bool isSewerWorker3Add = false;
+    bool isSewerWorker4Add = false;
     // ------------------------------- 장소하위
     public List<string> HospitalList = new List<string>();//string들어가야하고
     int HospitalKeywordCount = 0;
@@ -1637,7 +1638,11 @@ public class KeyWordManager : MonoBehaviour
             isSewerWorker3Add = true;
             SewerWorkerList.Add("Cause of Fishy smell");
         }
-        
+        if (DataBaseManager.Intel_SewerWorker4 == true && isSewerWorker4Add == false)
+        {
+            isSewerWorker4Add = true;
+            SewerWorkerList.Add("Owner of Uniform");
+        }
 
         // 장소 
 
