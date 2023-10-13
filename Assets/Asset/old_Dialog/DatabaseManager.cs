@@ -37,7 +37,7 @@ public class DataBaseManager : MonoBehaviour
     public static bool DeadBody_deftness = false;
     public static bool DeadBody_GotoSwere = false;
 
-
+    public static bool Site_Analyzing = false;
     //Sanity
     public static int Debuff = 0;
 

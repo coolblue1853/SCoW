@@ -18,9 +18,19 @@ public class DialogDatabaseManager : MonoBehaviour
             }
             else if (DataBaseManager.nowPlace == "Client'shouse" && Check == true)
             {
-                Check = false;
-                csv_FileName = "1st_Client'sHouse";
-                setDialog();
+                if(DataBaseManager.TimeCount < 6)
+                {
+                    Check = false;
+                    csv_FileName = "1st_Client'sHouse";
+                    setDialog();
+                }
+                else
+                {
+                    Check = false;
+                    csv_FileName = "2nd_NoonEvent";
+                    setDialog();
+                }
+        
             }
             else if (DataBaseManager.nowPlace == "DailyNews" && Check == true)
             {

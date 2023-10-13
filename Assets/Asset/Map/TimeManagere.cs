@@ -16,6 +16,9 @@ public class TimeManagere : MonoBehaviour
 
     public GameObject BFNoonEvent;
     public GameObject AFNoonEvent;
+    public GameObject Witness;
+    public GameObject DeadBody;
+    public GameObject Site;
 
     void Update()
     {
@@ -24,8 +27,16 @@ public class TimeManagere : MonoBehaviour
             BFNoonEvent.transform.localPosition = new Vector3(0, 60, 0);
             AFNoonEvent.transform.localPosition = new Vector3(0, 0, 0);
         }
+        if (DataBaseManager.TimeCount >= 7 && Witness.activeSelf == true)
+        {
 
-        if((DataBaseManager.TimeCount % 4 )== 1)
+            Witness.SetActive(false);
+            DeadBody.SetActive(false);
+            Site.transform.localPosition = new Vector3(-250.6001f, 2.840187f, 0);
+
+  
+        }
+        if ((DataBaseManager.TimeCount % 4 )== 1)
         {
             lightColorController.time = 0.2f;
         }

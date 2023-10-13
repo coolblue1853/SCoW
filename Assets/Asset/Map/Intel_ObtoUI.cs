@@ -146,7 +146,15 @@ public class Intel_ObtoUI : MonoBehaviour
                         }
                         if (DataBaseManager.nowPlace == "Client'shouse")
                         {
-                            InteractionController.Instance.Start_1st_ClientsHouse(Look_Dilaog);
+                            if (DataBaseManager.TimeCount < 7)
+                            {
+                                InteractionController.Instance.Start_1st_ClientsHouse(Look_Dilaog);
+                            }
+                            else
+                            {
+                                InteractionController.Instance.Start_2nd_NoonEvent(Look_Dilaog);
+                            }
+
                         }
                         if (DataBaseManager.nowPlace == "DailyNews")
                         {
@@ -196,7 +204,15 @@ public class Intel_ObtoUI : MonoBehaviour
                         }
                         if (DataBaseManager.nowPlace == "Client'shouse")
                         {
-                            InteractionController.Instance.Start_1st_ClientsHouse(Active_Dilaog);
+                            if(DataBaseManager.TimeCount < 7)
+                            {
+                                InteractionController.Instance.Start_1st_ClientsHouse(Active_Dilaog);
+                            }
+                            else
+                            {
+                                InteractionController.Instance.Start_2nd_NoonEvent(Active_Dilaog);
+                            }
+                    
                         }
                         if (DataBaseManager.nowPlace == "DailyNews")
                         {
@@ -334,7 +350,15 @@ public class Intel_ObtoUI : MonoBehaviour
                 Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
             }
         }
+        if (DataBaseManager.Select_Object == "Accident Site")
+        {
 
+             if (DataBaseManager.Site_Analyzing == false)
+            {
+                Rollet.Instance.setRollet("Accident Site : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
+            }
+ 
+        }
 
     }
 
@@ -450,7 +474,6 @@ public class Intel_ObtoUI : MonoBehaviour
             }
         }
     }
-
 
     string DeadBodyJudge;
 

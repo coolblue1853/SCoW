@@ -324,6 +324,8 @@ public class DirectingManager : MonoBehaviour
         {
             DataBaseManager.DeadBody_GotoSwere = false;
             DataBaseManager.StoryDirecting = true;
+
+
             MapManager.Instance.SuccAnalysis();
 
         }

@@ -351,9 +351,12 @@ public class InteractionController : MonoBehaviour
     public GameObject Swain_WebbedFeet;
     public GameObject Swain_RunawayRoute;
 
-
-
-
+    // 의뢰자의 집
+    public GameObject Site_Dialog;
+    public GameObject Site_Look;
+    public GameObject Site_analysisSucc;
+    public GameObject Site_analysisSuccAfter;
+    public GameObject Site_analysisFail;
 
 
 
@@ -476,6 +479,18 @@ public void Start_2nd_NoonEvent(string setDialog)
             theDM.ShowDialog(NoonEvent_DeadBody_analysisSuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
         }
 
+        if (setDialog == "Accident Site_Dialog")
+        {
+            theDM.ShowDialog(Site_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Accident Site_Look")
+        {
+            theDM.ShowDialog(Site_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Site_analysisSuccAfter")
+        {
+            theDM.ShowDialog(Site_analysisSuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
         
     }
     public void Start_2nd_DetectiveOffice(string setDialog)
@@ -2136,7 +2151,20 @@ public void Start_2nd_NoonEvent(string setDialog)
             }
         }
 
+        if (Sub_Dialog == "Accident Site : Check")
+        {
+            DataBaseManager.Site_Analyzing = true;
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(Site_analysisSucc.transform.GetComponent<interactionEvent>().GetDialogs());
 
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+
+                theDM.ShowDialog(Site_analysisFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
 
         // 강가 Sewer : Look
         if (DataBaseManager.nowPlace == "Riverside")

@@ -763,7 +763,14 @@ public class MapManager : MonoBehaviour
     }
     public void SewerDialog()
     {
-        InteractionController.Instance.Start_2nd_NoonEvent("NoonEvent_DeadBody_analysisSuccAfter");
+        if(DataBaseManager.TimeCount < 7)
+        {
+            InteractionController.Instance.Start_2nd_NoonEvent("NoonEvent_DeadBody_analysisSuccAfter");
+        }
+        else
+        {
+            InteractionController.Instance.Start_2nd_NoonEvent("Site_analysisSuccAfter");
+        }
     }
 
 
