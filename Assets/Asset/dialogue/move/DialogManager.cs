@@ -813,6 +813,15 @@ public class DialogManager : MonoBehaviour
                         {
                             if (t_ReplaceText[i + 3] == '1')
                             {
+                                   if (t_ReplaceText[i + 4] == 'ⓥ')
+                                {
+                                    if (DataBaseManager.Intel_Dave1 == false)
+                                    {
+                                        DataBaseManager.Intel_Dave1 = true;
+                                        IntelManager.Instance.AddIntelFloating("Character", "Dave - Bracelet");
+                                    }
+
+                                }
                                 if (t_ReplaceText[i + 4] == 'ⓛ')
                                 {
                                     if (DataBaseManager.Intel_Albert1 == false)

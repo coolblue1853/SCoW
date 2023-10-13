@@ -285,6 +285,17 @@ public class KeywordButton : MonoBehaviour
             KeyWordManager.Instance.SewerWorkerKeywordNum = index_down;
             DataBaseManager.keyword_downer = KeyWordManager.Instance.SewerWorkerList[index_down];
         }
+        if (A == "Dave")
+        {
+            DataBaseManager.keyword_main = "Character";
+
+            index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
+            DataBaseManager.keyword_upper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
+
+            index_down = FindStringIndex(KeyWordManager.Instance.DaveList, B);
+            KeyWordManager.Instance.DaveKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.DaveList[index_down];
+        }
     }
     int FindStringIndex(List<string> list, string target)
     {

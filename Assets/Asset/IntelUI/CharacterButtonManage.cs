@@ -53,7 +53,7 @@ public class CharacterButtonManage : MonoBehaviour
     public GameObject Button_BlackWell;
     public GameObject Button_Swain;
     public GameObject Button_SewerWorker;
-
+    public GameObject Button_Dave;
 
     bool ButtonRize_Ella = false;
     bool ButtonRize_Aiden = false;
@@ -63,7 +63,7 @@ public class CharacterButtonManage : MonoBehaviour
     bool ButtonRize_BlackWell = false;
     bool ButtonRize_Swain = false;
     bool ButtonRize_SewerWorker = false;
-
+    bool ButtonRize_Dave = false;
     void ButtonUpdate()
     {
 
@@ -118,7 +118,12 @@ public class CharacterButtonManage : MonoBehaviour
             DataBaseManager.GainEventInt += 1;
         }
 
-
+        if ((DataBaseManager.Intel_Dave1 == true || DataBaseManager.Intel_Dave2 == true || DataBaseManager.Intel_Dave3 == true || DataBaseManager.Intel_Dave4 == true || DataBaseManager.Intel_Dave5 == true || DataBaseManager.Intel_Dave6 == true) && ButtonRize_Dave == false)
+        {
+            ButtonRize_Dave = true;
+            DataBaseManager.ButtonCount_Dave = DataBaseManager.GainEventInt;
+            DataBaseManager.GainEventInt += 1;
+        }
 
     }
 
@@ -173,6 +178,11 @@ public class CharacterButtonManage : MonoBehaviour
         {
             Button_SewerWorker.SetActive(true);
             Button_SewerWorker.transform.SetSiblingIndex(DataBaseManager.ButtonCount_SewerWorker);
+        }
+        if (DataBaseManager.ButtonCount_Dave != -1)
+        {
+            Button_Dave.SetActive(true);
+            Button_Dave.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Dave);
         }
     }
 

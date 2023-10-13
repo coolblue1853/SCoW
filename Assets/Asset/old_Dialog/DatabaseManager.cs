@@ -382,6 +382,7 @@ public class DataBaseManager : MonoBehaviour
     public static int NowPage_RiverWaterQuality = 1;
     public static int NowPage_CreepyEyes = 1;
     public static int NowPage_SewerWorker = 1;
+    public static int NowPage_Dave = 1;
     public static int NowPage_Safe = 1;
     public static int NowPage_MurderCase = 1;
 
@@ -397,6 +398,7 @@ public class DataBaseManager : MonoBehaviour
     public static int ButtonCount_RiverWaterQuality = -1;
     public static int ButtonCount_CreepyEyes = -1;
     public static int ButtonCount_SewerWorker = -1;
+    public static int ButtonCount_Dave = -1;
     public static int ButtonCount_Safe = -1;
     public static int ButtonCount_MurderCase = -1;
 
@@ -474,6 +476,13 @@ public class DataBaseManager : MonoBehaviour
     public static bool Intel_SewerWorker4 = false;
     public static bool Intel_SewerWorker5 = false;
     public static bool Intel_SewerWorker6 = false;
+
+    public static bool Intel_Dave1 = false;
+    public static bool Intel_Dave2 = false;
+    public static bool Intel_Dave3 = false;
+    public static bool Intel_Dave4 = false;
+    public static bool Intel_Dave5 = false;
+    public static bool Intel_Dave6 = false;
 
     public static bool Intel_Safe1 = false;
     public static bool Intel_Safe2 = false;
@@ -910,7 +919,8 @@ NowSelecter = "End"; // End_Look_Judge 존재
      NowPage_RiverWaterQuality = 1;
      NowPage_CreepyEyes = 1;
      NowPage_SewerWorker = 1;
-     NowPage_Safe = 1;
+        NowPage_Dave = 1;
+        NowPage_Safe = 1;
      NowPage_MurderCase = 1;
 
      GainEventInt = 0;
@@ -925,7 +935,8 @@ NowSelecter = "End"; // End_Look_Judge 존재
      ButtonCount_RiverWaterQuality = -1;
      ButtonCount_CreepyEyes = -1;
      ButtonCount_SewerWorker = -1;
-     ButtonCount_Safe = -1;
+        ButtonCount_Dave = -1;
+        ButtonCount_Safe = -1;
      ButtonCount_MurderCase = -1;
 
 
@@ -1003,7 +1014,14 @@ NowSelecter = "End"; // End_Look_Judge 존재
      Intel_SewerWorker5 = false;
      Intel_SewerWorker6 = false;
 
-     Intel_Safe1 = false;
+        Intel_Dave1 = false;
+        Intel_Dave2 = false;
+        Intel_Dave3 = false;
+        Intel_Dave4 = false;
+        Intel_Dave5 = false;
+        Intel_Dave6 = false;
+
+        Intel_Safe1 = false;
      Intel_Safe2 = false;
      Intel_Safe3 = false;
      Intel_Safe4 = false;

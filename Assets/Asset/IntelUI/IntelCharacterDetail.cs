@@ -67,6 +67,14 @@ public class IntelCharacterDetail : MonoBehaviour
         Detail_SewerWorker4 = SewerWorkerContents.transform.GetChild(3).gameObject;
         Detail_SewerWorker5 = SewerWorkerContents.transform.GetChild(4).gameObject;
         Detail_SewerWorker6 = SewerWorkerContents.transform.GetChild(5).gameObject;
+
+
+        Detail_Dave1 = DaveContents.transform.GetChild(0).gameObject;
+        Detail_Dave2 = DaveContents.transform.GetChild(1).gameObject;
+        Detail_Dave3 = DaveContents.transform.GetChild(2).gameObject;
+        Detail_Dave4 = DaveContents.transform.GetChild(3).gameObject;
+        Detail_Dave5 = DaveContents.transform.GetChild(4).gameObject;
+        Detail_Dave6 = DaveContents.transform.GetChild(5).gameObject;
     }
 
 
@@ -79,7 +87,9 @@ public class IntelCharacterDetail : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DaveDetail();
         SewerWorkerDetail();
+        DaveDetail();
         EllaDetail();
         AidenDetail();
         SwainDetail();
@@ -89,14 +99,14 @@ public class IntelCharacterDetail : MonoBehaviour
         BlackWellDetail();
 
 
-        if (NextButton_Aiden.activeSelf == true || NextButton_Albert.activeSelf == true || NextButton_BlackWell.activeSelf == true || NextButton_Cane.activeSelf == true || NextButton_Ella.activeSelf == true || NextButton_Meiv.activeSelf == true || NextButton_SewerWorker.activeSelf == true || NextButton_Swain.activeSelf == true)    {
+        if (NextButton_Aiden.activeSelf == true || NextButton_Albert.activeSelf == true || NextButton_BlackWell.activeSelf == true || NextButton_Cane.activeSelf == true || NextButton_Ella.activeSelf == true || NextButton_Meiv.activeSelf == true || NextButton_SewerWorker.activeSelf == true || NextButton_Dave.activeSelf == true || NextButton_Swain.activeSelf == true)    {
             if (Input.GetKeyDown(KeyCode.D))
             {
                 NextPage();
             }
         }
 
-        if (PrevButton_Aiden.activeSelf == true || PrevButton_Albert.activeSelf == true || PrevButton_BlackWell.activeSelf == true || PrevButton_Cane.activeSelf == true || PrevButton_Ella.activeSelf == true || PrevButton_Meiv.activeSelf == true || PrevButton_SewerWorker.activeSelf == true || PrevButton_Swain.activeSelf == true)
+        if (PrevButton_Aiden.activeSelf == true || PrevButton_Albert.activeSelf == true || PrevButton_BlackWell.activeSelf == true || PrevButton_Cane.activeSelf == true || PrevButton_Ella.activeSelf == true || PrevButton_Meiv.activeSelf == true || PrevButton_SewerWorker.activeSelf == true || NextButton_Dave.activeSelf == true || PrevButton_Swain.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -136,6 +146,10 @@ public class IntelCharacterDetail : MonoBehaviour
         if (SewerWorker_Detail.activeSelf == true)
         {
             NowPage = "SewerWorker";
+        }
+        if (Dave_Detail.activeSelf == true)
+        {
+            NowPage = "Dave";
         }
     }
 
@@ -299,6 +313,27 @@ public class IntelCharacterDetail : MonoBehaviour
     public static int SewerWorkerIntelInt;
     public GameObject NextButton_SewerWorker;
     public GameObject PrevButton_SewerWorker;
+
+    //µ¥ÀÌºê
+    GameObject Detail_Dave1;
+    GameObject Detail_Dave2;
+    GameObject Detail_Dave3;
+    GameObject Detail_Dave4;
+    GameObject Detail_Dave5;
+    GameObject Detail_Dave6;
+    bool ON_Dave1;
+    bool ON_Dave2;
+    bool ON_Dave3;
+    bool ON_Dave4;
+    bool ON_Dave5;
+    bool ON_Dave6;
+    int Count_Dave = 0;
+    public GameObject DaveContents;
+    public GameObject Dave_Detail;
+    public static int DaveIntelInt;
+    public GameObject NextButton_Dave;
+    public GameObject PrevButton_Dave;
+
     void AidenDetail()
     {
         if (ON_Aiden1 == false && DataBaseManager.Intel_Aiden1 == true)
@@ -867,6 +902,78 @@ public class IntelCharacterDetail : MonoBehaviour
             PrevButton_SewerWorker.SetActive(false);
         }
     }
+
+    void DaveDetail()
+    {
+        if (ON_Dave1 == false && DataBaseManager.Intel_Dave1 == true)
+        {
+            ON_Dave1 = true;
+            Detail_Dave1.SetActive(true);
+            Detail_Dave1.transform.SetAsLastSibling();
+            Count_Dave += 1;
+        }
+        if (ON_Dave2 == false && DataBaseManager.Intel_Dave2 == true)
+        {
+            ON_Dave2 = true;
+            Detail_Dave2.SetActive(true);
+            Detail_Dave2.transform.SetAsLastSibling();
+            Count_Dave += 1;
+        }
+        if (ON_Dave3 == false && DataBaseManager.Intel_Dave3 == true)
+        {
+            ON_Dave3 = true;
+            Detail_Dave3.SetActive(true);
+            Detail_Dave3.transform.SetAsLastSibling();
+            Count_Dave += 1;
+        }
+        if (ON_Dave4 == false && DataBaseManager.Intel_Dave4 == true)
+        {
+            ON_Dave4 = true;
+            Detail_Dave4.SetActive(true);
+            Detail_Dave4.transform.SetAsLastSibling();
+            Count_Dave += 1;
+        }
+        if (ON_Dave5 == false && DataBaseManager.Intel_Dave5 == true)
+        {
+            ON_Dave5 = true;
+            Detail_Dave5.SetActive(true);
+            Detail_Dave5.transform.SetAsLastSibling();
+            Count_Dave += 1;
+        }
+        if (ON_Dave6 == false && DataBaseManager.Intel_Dave6 == true)
+        {
+            ON_Dave6 = true;
+            Detail_Dave6.SetActive(true);
+            Detail_Dave6.transform.SetAsLastSibling();
+            Count_Dave += 1;
+        }
+
+        if (Count_Dave > 2 && DataBaseManager.NowPage_Dave == 1)
+        {
+            NextButton_Dave.SetActive(true);
+        }
+        else if (Count_Dave > 4 && DataBaseManager.NowPage_Dave == 2)
+        {
+            NextButton_Dave.SetActive(true);
+        }
+        else
+        {
+            NextButton_Dave.SetActive(false);
+        }
+
+        if (DataBaseManager.NowPage_Dave == 2)
+        {
+            PrevButton_Dave.SetActive(true);
+        }
+        else if (DataBaseManager.NowPage_Dave == 3)
+        {
+            PrevButton_Dave.SetActive(true);
+        }
+        else
+        {
+            PrevButton_Dave.SetActive(false);
+        }
+    }
     public void NextPage()
     {
         if(NowPage == "Ella")
@@ -1227,6 +1334,51 @@ public class IntelCharacterDetail : MonoBehaviour
                     SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_SewerWorker = 3;
+            }
+        }
+        if (NowPage == "Dave")
+        {
+            if (DataBaseManager.NowPage_Dave == 1)
+            {
+                if (Count_Dave >= 6)
+                {
+                    Reset_Dave();
+                    DaveContents.transform.GetChild(2).gameObject.SetActive(true);
+                    DaveContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_Dave >= 5)
+                {
+                    Reset_Dave();
+                    DaveContents.transform.GetChild(3).gameObject.SetActive(true);
+                    DaveContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                else if (Count_Dave >= 4)
+                {
+                    Reset_Dave();
+                    DaveContents.transform.GetChild(4).gameObject.SetActive(true);
+                    DaveContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_Dave >= 3)
+                {
+                    Reset_Dave();
+                    DaveContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_Dave = 2;
+            }
+            else if (DataBaseManager.NowPage_Dave == 2)
+            {
+                if (Count_Dave >= 6)
+                {
+                    Reset_Dave();
+                    DaveContents.transform.GetChild(4).gameObject.SetActive(true);
+                    DaveContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                else if (Count_Dave >= 5)
+                {
+                    Reset_Dave();
+                    DaveContents.transform.GetChild(5).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_Dave = 3;
             }
         }
     }
@@ -1617,6 +1769,54 @@ public class IntelCharacterDetail : MonoBehaviour
                 DataBaseManager.NowPage_SewerWorker = 2;
             }
         }
+        if (NowPage == "Dave")
+        {
+            if (DataBaseManager.NowPage_Dave == 2)
+            {
+                if (Count_Dave >= 6)
+                {
+                    Reset_Dave();
+                    DaveContents.transform.GetChild(0).gameObject.SetActive(true);
+                    DaveContents.transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else if (Count_Dave >= 5)
+                {
+                    Reset_Dave();
+                    DaveContents.transform.GetChild(1).gameObject.SetActive(true);
+                    DaveContents.transform.GetChild(2).gameObject.SetActive(true);
+                }
+                else if (Count_Dave >= 4)
+                {
+                    Reset_Dave();
+                    DaveContents.transform.GetChild(2).gameObject.SetActive(true);
+                    DaveContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_Dave >= 3)
+                {
+                    Reset_Dave();
+                    DaveContents.transform.GetChild(3).gameObject.SetActive(true);
+                    DaveContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+
+                DataBaseManager.NowPage_Dave = 1;
+            }
+            else if (DataBaseManager.NowPage_Dave == 3)
+            {
+                if (Count_Dave >= 6)
+                {
+                    Reset_Dave();
+                    DaveContents.transform.GetChild(2).gameObject.SetActive(true);
+                    DaveContents.transform.GetChild(3).gameObject.SetActive(true);
+                }
+                else if (Count_Dave >= 5)
+                {
+                    Reset_Dave();
+                    DaveContents.transform.GetChild(3).gameObject.SetActive(true);
+                    DaveContents.transform.GetChild(4).gameObject.SetActive(true);
+                }
+                DataBaseManager.NowPage_Dave = 2;
+            }
+        }
     }
 
 
@@ -1697,6 +1897,16 @@ public class IntelCharacterDetail : MonoBehaviour
         SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(false);
         SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(false);
     }
+
+    void Reset_Dave()
+    {
+        DaveContents.transform.GetChild(0).gameObject.SetActive(false);
+        DaveContents.transform.GetChild(1).gameObject.SetActive(false);
+        DaveContents.transform.GetChild(2).gameObject.SetActive(false);
+        DaveContents.transform.GetChild(3).gameObject.SetActive(false);
+        DaveContents.transform.GetChild(4).gameObject.SetActive(false);
+        DaveContents.transform.GetChild(5).gameObject.SetActive(false);
+    }
     public void Open_Ella()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -1746,6 +1956,13 @@ public class IntelCharacterDetail : MonoBehaviour
         CloseAllContents();
         SewerWorker_Detail.SetActive(true);
     }
+
+    public void Open_Dave()
+    {
+        SoundManager.Instance.ClickSound_Play();
+        CloseAllContents();
+        Dave_Detail.SetActive(true);
+    }
     void CloseAllContents()
     {
         Ella_Detail.SetActive(false);
@@ -1756,6 +1973,7 @@ public class IntelCharacterDetail : MonoBehaviour
         Meiv_Detail.SetActive(false);
         BlackWell_Detail.SetActive(false);
         SewerWorker_Detail.SetActive(false);
+        Dave_Detail.SetActive(false);
     }
 
 }

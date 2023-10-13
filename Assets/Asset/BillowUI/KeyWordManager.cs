@@ -360,6 +360,20 @@ public class KeyWordManager : MonoBehaviour
                 }
             }
         }
+        if (DataBaseManager.keyword_upper == "Dave")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (DaveKeywordCount <= DaveKeywordNum)
+                {
+                    DaveKeywordNum = 0;
+                }
+                else
+                {
+                    DaveKeywordNum += 1;
+                }
+            }
+        }
         if (DataBaseManager.keyword_upper == "MissingPeople")
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
@@ -649,7 +663,20 @@ public class KeyWordManager : MonoBehaviour
                 }
             }
         }
-
+        if (DataBaseManager.keyword_upper == "Dave")
+        {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
+            {
+                if (DaveKeywordNum <= 0)
+                {
+                    DaveKeywordNum = DaveKeywordCount;
+                }
+                else
+                {
+                    DaveKeywordNum -= 1;
+                }
+            }
+        }
         if (DataBaseManager.keyword_upper == "MissingPeople")
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
@@ -861,7 +888,7 @@ public class KeyWordManager : MonoBehaviour
     bool isMeivAddList = false;
     bool isAlberAddList = false;
     bool isSewerWorkerAddList = false;
-
+    bool isDaveAddList = false;
 
 
     public void KeywordUpdate()
@@ -1099,6 +1126,14 @@ public class KeyWordManager : MonoBehaviour
                 upperCharacterKewordList.Add("SewerWorker");
             }
         }
+        if (isDaveAddList == false)
+        {
+            if (DataBaseManager.Intel_Dave1 == true || DataBaseManager.Intel_Dave2 == true || DataBaseManager.Intel_Dave3 == true || DataBaseManager.Intel_Dave4 == true || DataBaseManager.Intel_Dave5 == true || DataBaseManager.Intel_Dave6 == true)
+            {
+                isDaveAddList = true;
+                upperCharacterKewordList.Add("Dave");
+            }
+        }
     }
     // ------------------------------- 사건하위
     public List<string> PlanetaryParadeList = new List<string>();//string들어가야하고
@@ -1208,6 +1243,10 @@ public class KeyWordManager : MonoBehaviour
     public List<string> SewerWorkerList = new List<string>();//string들어가야하고
     int SewerWorkerKeywordCount = 0;
     public int SewerWorkerKeywordNum = 0;
+
+    public List<string> DaveList = new List<string>();//string들어가야하고
+    int DaveKeywordCount = 0;
+    public int DaveKeywordNum = 0;
     //사건
     bool isAiden1Add = false;
     bool isAiden2Add = false;
@@ -1224,6 +1263,7 @@ public class KeyWordManager : MonoBehaviour
     bool isSewerWorker2Add = false;
     bool isSewerWorker3Add = false;
     bool isSewerWorker4Add = false;
+    bool isDave1Add = false;
     // ------------------------------- 장소하위
     public List<string> HospitalList = new List<string>();//string들어가야하고
     int HospitalKeywordCount = 0;
@@ -1642,6 +1682,17 @@ public class KeyWordManager : MonoBehaviour
         {
             isSewerWorker4Add = true;
             SewerWorkerList.Add("Owner of Uniform");
+        }
+
+
+        if (DataBaseManager.keyword_upper == "Dave" && DaveKeywordCount >= 0)
+        {
+            DataBaseManager.keyword_downer = DaveList[DaveKeywordNum];
+        }
+        if (DataBaseManager.Intel_Dave1 == true && isDave1Add == false)
+        {
+            isDave1Add = true;
+            DaveList.Add("Bracelet");
         }
 
         // 장소 
