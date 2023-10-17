@@ -1143,7 +1143,7 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '⑤')
                     {
-
+                        DataBaseManager.KaneSlimeSan = true;
                     }
                     if (t_ReplaceText[i + 1] == '⑥')
                     {

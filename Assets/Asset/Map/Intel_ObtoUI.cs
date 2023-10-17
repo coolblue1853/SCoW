@@ -162,6 +162,7 @@ public class Intel_ObtoUI : MonoBehaviour
                         }
                         if (DataBaseManager.nowPlace == "University")
                         {
+                            
                             InteractionController.Instance.Start_1st_University(Look_Dilaog);
                         }
                         if (DataBaseManager.nowPlace == "Riverside")

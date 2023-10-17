@@ -305,8 +305,8 @@ public class Rollet : MonoBehaviour
 
     void GetIntResult()
     {
-
         SoundManager.Instance.pen_Line();
+
         if (DataBaseManager.Condition == "Nomal")
         {
             result_int = int.Parse(NomalRollet_10t.text) + int.Parse(NomalRollet_1t.text);
@@ -1200,7 +1200,15 @@ public class Rollet : MonoBehaviour
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "NoonEvent_FirstDoor");
         }
 
+        if (Subject == "KaneSan")
+        {
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "KaneSan");
+        }
+        
+
     }
+
+
 
     void resetSanRollet()
     {

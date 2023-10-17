@@ -358,6 +358,15 @@ public class InteractionController : MonoBehaviour
     public GameObject Site_analysisSuccAfter;
     public GameObject Site_analysisFail;
 
+    //대학교
+    public GameObject Kane_FirstMeatatSev;
+    public GameObject Kane_DetailOB;
+    public GameObject Kane_AfterSevDilaog;
+    public GameObject Kane_AfterSevLook;
+    public GameObject Kane_FishySlime_CreepyEye;
+    public GameObject Kane_FishySlime_CreepyEyeAfterSans;
+    public GameObject Kane_FishySlime_Nomal;
+
 
 
 
@@ -996,6 +1005,7 @@ public void Start_2nd_NoonEvent(string setDialog)
 
         if (setDialog == "Univ_Look")
         {
+
             theDM.ShowDialog(Univ_Look.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Univ_Key_PlanetarySequence1")
@@ -1009,7 +1019,35 @@ public void Start_2nd_NoonEvent(string setDialog)
 
 
 
-}
+
+        if (setDialog == "Kane_FirstDialog")
+        {
+            if(DataBaseManager.Kane_FirstDialog == false && DataBaseManager.Intel_RiverWaterQuality2 == true)
+            {
+                DataBaseManager.Kane_FirstDialog = true;
+                theDM.ShowDialog(Kane_DetailOB.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.Kane_FirstDialog == false)
+            {
+                DataBaseManager.Kane_FirstDialog = true;
+                theDM.ShowDialog(Kane_FirstMeatatSev.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Kane_AfterSevDilaog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }    
+
+        }
+
+        if (setDialog == "Kane_Look")
+        {
+
+            theDM.ShowDialog(Kane_AfterSevLook.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+
+
+    }
     public void Start_1st_Riverside(string setDialog)
     {
 
@@ -1658,6 +1696,19 @@ public void Start_2nd_NoonEvent(string setDialog)
                 }
             }
 
+            else if (DataBaseManager.keyword_downer == "Fishy Slime")
+            {
+                if(DataBaseManager.Intel_CreepyEyes1 == true)
+                {
+                    theDM.ShowDialog(Kane_FishySlime_CreepyEye.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Kane_FishySlime_Nomal.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+
+            }
+
             else
             {
 
@@ -2271,6 +2322,11 @@ public void Start_2nd_NoonEvent(string setDialog)
                 theDM.ShowDialog(Fab_Case2Fail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
 
+        }
+
+        if (SanCheck == "KaneSan")
+        {
+            theDM.ShowDialog(Kane_FishySlime_CreepyEyeAfterSans.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
 

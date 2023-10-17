@@ -20,6 +20,9 @@ public class TimeManagere : MonoBehaviour
     public GameObject DeadBody;
     public GameObject Site;
 
+    public GameObject Kane;
+    public GameObject Student;
+
     void Update()
     {
         if(DataBaseManager.TimeCount >= 6 && AFNoonEvent.transform.localPosition.y > 30)
@@ -33,8 +36,9 @@ public class TimeManagere : MonoBehaviour
             Witness.SetActive(false);
             DeadBody.SetActive(false);
             Site.transform.localPosition = new Vector3(-250.6001f, 2.840187f, 0);
+            Kane.transform.localPosition = new Vector3(253.27f, -79.6f, 0);
+            Student.transform.localPosition = new Vector3(-41.67f, 40.9f, 0);
 
-  
         }
         if ((DataBaseManager.TimeCount % 4 )== 1)
         {

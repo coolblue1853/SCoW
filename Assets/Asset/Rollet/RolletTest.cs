@@ -104,9 +104,10 @@ DataBaseManager.Intel_FishySmell3 = true;
         DataBaseManager.Intel_Sewer3 = true;
         DataBaseManager.Intel_Ella2 = true;
         DataBaseManager.Intel_Aiden3 = true;
+        DataBaseManager.Intel_CreepyEyes1 = true;
+        DataBaseManager.Intel_RiverWaterQuality2 = true;
 
-
-
+        DataBaseManager.Intel_RiverWaterQuality3 = true;
 
 
         // 테스트 진행중 삭제

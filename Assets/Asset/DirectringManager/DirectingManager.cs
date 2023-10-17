@@ -329,6 +329,12 @@ public class DirectingManager : MonoBehaviour
             MapManager.Instance.SuccAnalysis();
 
         }
+        if (DataBaseManager.KaneSlimeSan == true && DataBaseManager.isActiveDialog1 == false)
+        {
+
+            DataBaseManager.KaneSlimeSan = false;
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "KaneSan");
+        }
         
 
 

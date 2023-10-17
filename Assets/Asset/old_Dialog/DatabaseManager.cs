@@ -7,6 +7,9 @@ public class DataBaseManager : MonoBehaviour
     public static bool isOpenMap = false;
     public static bool secondisDirecting = false;
     public static bool StoryDirecting = false;
+
+
+
     //2일차
     public static bool SecondDayDialog = false;
    
@@ -15,6 +18,11 @@ public class DataBaseManager : MonoBehaviour
     public static bool Case2SanCheck = false;
 
     public static bool SwainDIE = false;
+
+    public static bool KaneSlimeSan = false;
+
+
+
 
     //낮 강제 이벤트
     public static bool NoonMorningMove = false;
