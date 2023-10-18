@@ -512,6 +512,23 @@ public class SIS_UIManager : MonoBehaviour
             }
             DeactivateObjectWithName(Key_ItemBox, "Safe");
         }
+
+        if (DataBaseManager.Intel_Dave1 == true)
+        {
+            ActivateObjectWithName(Key_ItemBox, "Bracelet");
+        }
+        else
+        {
+
+            if (DataBaseManager.nowItem == "Bracelet")
+            {
+                imageComponent_Key.sprite = None;
+                DataBaseManager.nowItem = "";
+                Use_Name.text = "";
+                Use_Detail.text = "";
+            }
+            DeactivateObjectWithName(Key_ItemBox, "Bracelet");
+        }
     }
 
     public void OpenItemDetail()
@@ -621,7 +638,11 @@ public class SIS_UIManager : MonoBehaviour
                 Key_Name.text = "Safe";
                 Key_Detail.text = "Skill :\nDeftness-20\n\nDetail:\nAiden's safe. It's locked solidly.";
             }
-
+            if (DataBaseManager.nowItem == "Bracelet" && DataBaseManager.Intel_Dave1 == true)
+            {
+                Key_Name.text = "Bracelet";
+                Key_Detail.text = "\n\nDetail:\nElla's Bracelet.\nIt seems to be expensive.";
+            }
 
         }
 

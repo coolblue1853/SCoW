@@ -526,6 +526,7 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.TimeCount == 6)
         {
+            selectionUIManager.Instance.Ex_AddFunc9();
             text.text = "12/7/1921-Afternoon";
         }
         else if (DataBaseManager.TimeCount == 7)

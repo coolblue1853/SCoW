@@ -30,6 +30,9 @@ public class KeyWordManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+
+
     }
     public void endterKey()
     {
@@ -1684,7 +1687,7 @@ public class KeyWordManager : MonoBehaviour
             SewerWorkerList.Add("Owner of Uniform");
         }
 
-
+        
         if (DataBaseManager.keyword_upper == "Dave" && DaveKeywordCount >= 0)
         {
             DataBaseManager.keyword_downer = DaveList[DaveKeywordNum];
@@ -1826,5 +1829,11 @@ public class KeyWordManager : MonoBehaviour
     }
 
 
-  
+    public GameObject DaveIntel_1;
+    public GameObject DaveIntel_2;
+    public GameObject DaveIntel_3;
+    public GameObject DaveIntel_4;
+    public GameObject DaveIntel_5;
+    public GameObject DaveIntel_6;
+
 }

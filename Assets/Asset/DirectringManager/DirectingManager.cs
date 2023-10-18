@@ -256,7 +256,11 @@ public class DirectingManager : MonoBehaviour
 
 
 
-        
+        if(DataBaseManager.DaveCheck == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.DaveCheck = false;
+            selectionUIManager.Instance.EndDialog();
+        }
 
         //전투
         if (DataBaseManager.Battle_San == true && DataBaseManager.isActiveDialog1 == false)
@@ -544,6 +548,11 @@ public class DirectingManager : MonoBehaviour
 
     }
 
+    //키워드 삭제
+
+
+
+
 
 
 
@@ -718,6 +727,9 @@ public class DirectingManager : MonoBehaviour
         // 함수 리스트에서 무작위로 함수 선택
 
     }
+
+
+
     private void Fab_FirstDialog()
     {
         InteractionController.Instance.Start_1st_DetectiveOffice("Fab_FirstDialog");

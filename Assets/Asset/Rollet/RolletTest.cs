@@ -92,6 +92,7 @@ DataBaseManager.Intel_FishySmell3 = true;
         DataBaseManager.Intel_QuestHouse1 = true;
         DataBaseManager.rhetoricPoint = 80;
 
+  
         DataBaseManager.Intel_MurderCase1 = true;
         DataBaseManager.Intel_MurderCase2 = true;
         DataBaseManager.Intel_MurderCase3 = true;
@@ -99,6 +100,13 @@ DataBaseManager.Intel_FishySmell3 = true;
         DataBaseManager.Intel_MurderCase5 = true;
         DataBaseManager.Intel_MurderCase6 = true;
 
+        DataBaseManager.Intel_Dave1 = true;
+        DataBaseManager.Intel_Dave2 = true;
+        DataBaseManager.Intel_Dave3 = true;
+        DataBaseManager.Intel_Dave4 = true;
+        DataBaseManager.Intel_Dave5 = true;
+
+        DataBaseManager.Intel_Dave1 = true;
         DataBaseManager.Intel_MissingPeople3 = true;
         DataBaseManager.Intel_RiverWaterQuality3 = true;
         DataBaseManager.Intel_Sewer3 = true;
@@ -109,7 +117,16 @@ DataBaseManager.Intel_FishySmell3 = true;
 
         DataBaseManager.Intel_RiverWaterQuality3 = true;
 
+        DataBaseManager.Intel_Safe2 = true;
 
+        DataBaseManager.getSafe = true;
+        DataBaseManager.Intel_Safe2 = true;
+        DataBaseManager.Intel_Sewer1 = true;
+
+        DataBaseManager.Intel_Sewer2 = true;
+
+
+        
         // 테스트 진행중 삭제
         DataBaseManager.ObservationPoint = 80;
         DataBaseManager.listeningPoint = 80;
@@ -118,6 +135,12 @@ DataBaseManager.Intel_FishySmell3 = true;
         DataBaseManager.NoonEvent_AccessAuthorization = true;
         DataBaseManager.TimeCount = 6;
         DataBaseManager.SecondDayDialog = true;
+
+
+
+
+        DataBaseManager.Albert_FirstDialog = true;
+
     }
     public void NewsRollet()
     {
@@ -138,10 +161,10 @@ DataBaseManager.Intel_FishySmell3 = true;
     }
     private void Update()
     {
-        Debug.Log(DataBaseManager.nowPlace);
-        Debug.Log(DataBaseManager.TimeCount);
-        if(Input.GetKeyDown(KeyCode.F10))
+    
+        if(Input.GetKeyDown(KeyCode.F12))
         {
+            DataBaseManager.weal += 10;
         }
 
             if (Input.GetKeyDown(KeyCode.F10))
@@ -232,7 +255,7 @@ DataBaseManager.Intel_FishySmell3 = true;
         if (Input.GetKeyDown(KeyCode.F4))
         {
 
-            BillowUIManager.Instance.San_up(10);
+            //BillowUIManager.Instance.San_up(10);
         }
         if (Input.GetKeyDown(KeyCode.F5))
         {

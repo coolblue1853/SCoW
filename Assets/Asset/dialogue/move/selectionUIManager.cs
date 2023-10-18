@@ -137,13 +137,14 @@ public class selectionUIManager : MonoBehaviour
         {
             if(DataBaseManager.weal >= 2)
             {
-
+                DataBaseManager.DaveCheck = false;
                 DialogManager.Instance.ChoiceEx_NextPage_t();
                 Select_1st_Slum.SetActive(false);
                 ActivateRandomFunction();
             }
             else
             {
+                DataBaseManager.DaveCheck = false;
                 DialogManager.Instance.ChoiceEx_NextPage_t();
                 Select_1st_Slum.SetActive(false);
                 InteractionController.Instance.Start_1st_Slum("Dave_NoMoney");
@@ -153,10 +154,15 @@ public class selectionUIManager : MonoBehaviour
         }
         if (SelectButton == "Reject")
         {
+            DataBaseManager.DaveCheck = false;
             DialogManager.Instance.ChoiceEx_NextPage_t();
             Select_1st_Slum.SetActive(false);
 
         }
+    }
+    public void EndDialog ()
+    {
+        Select_1st_Slum.SetActive(false);
     }
     private void ActivateRandomFunction()
     {
@@ -226,9 +232,20 @@ public class selectionUIManager : MonoBehaviour
         DataBaseManager.weal -= 2;
         InteractionController.Instance.Start_1st_Slum("Dave_Ran8");
     }
-
+    private void Function9()
+    {
+        DataBaseManager.weal -= 2;
+        InteractionController.Instance.Start_1st_Slum("Dave_Ran9");
+    }
     private void FunctionEx()
     {
         InteractionController.Instance.Start_1st_Slum("Dave_RanEnd");
+    }
+
+
+
+    public void Ex_AddFunc9()
+    {
+        functionList.Add(Function9);
     }
 }

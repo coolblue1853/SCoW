@@ -4,13 +4,29 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    public static bool Set_IntelCharDetail = false;
+
     public static bool isOpenMap = false;
     public static bool secondisDirecting = false;
     public static bool StoryDirecting = false;
 
 
 
+
+
     //2ÀÏÂ÷
+    public static bool DaveDeathKeyword = false;
+    public static bool AlbertDeathKeyword = false;
+    public static bool SwainDeathKeyword = false;
+
+
+    public static bool AlbertFirstAfterEvent = false;
+
+    public static bool DaveSafeOpen = false;
+    public static bool DaveAfterSafe= false;
+    public static bool DaveAfterBreclet = false;
+    public static bool DaveCheck = false;
+
     public static bool SecondDayDialog = false;
    
     public static bool AfterSanCheck = false;

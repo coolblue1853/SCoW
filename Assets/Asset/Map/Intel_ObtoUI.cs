@@ -197,6 +197,8 @@ public class Intel_ObtoUI : MonoBehaviour
 
                         SetJudge();
                     }
+               
+
                     else if (DataBaseManager.NowSelecter == "End" && DataBaseManager.isActiveDialog1 == false)
                     {
                         if (DataBaseManager.nowPlace == "DetectiveOffice")
@@ -237,6 +239,7 @@ public class Intel_ObtoUI : MonoBehaviour
                         }
                         if (DataBaseManager.nowPlace == "Slum")
                         {
+  
                             InteractionController.Instance.Start_1st_Slum(Active_Dilaog);
                         }
                         if (DataBaseManager.nowPlace == "Bar")
@@ -248,6 +251,7 @@ public class Intel_ObtoUI : MonoBehaviour
                             InteractionController.Instance.Start_2nd_NoonEvent(Active_Dilaog);
                         }
                     }
+        
                 }
 
             }

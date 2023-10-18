@@ -12,6 +12,7 @@ public class InteractionController : MonoBehaviour
     public GameObject Safe_Look;
     public GameObject Safe_Fail;
     public GameObject Safe_Succ;
+    public GameObject Bracelet_Look;
     //의뢰자의 집
     public GameObject Start_1st_Detective;
     public GameObject NewsPaper;
@@ -367,7 +368,33 @@ public class InteractionController : MonoBehaviour
     public GameObject Kane_FishySlime_CreepyEyeAfterSans;
     public GameObject Kane_FishySlime_Nomal;
 
+    //빈민가
+    public GameObject Dave_Rand9;
+    public GameObject Dave_Key_SafeAquire;
+    public GameObject Dave_Key_Breclet;
+    public GameObject Dave_Key_Witness;
+    public GameObject Dave_Key_Fail;
+    public GameObject Dave_Key_BrecletAfter;
+    public GameObject Dave_Key_SafeAfter;
+    public GameObject Dave_Key_OpenSafe;
 
+    //병원
+    public GameObject Kate_Key_EllaBody;
+    public GameObject Kate_Key_Witness;
+    public GameObject Alan_Key_EllaBody;
+
+    // 경찰서
+    public GameObject Albert_FirstDialogAfterEvent;
+    public GameObject Albert_FirstDialogNew;
+    public GameObject Albert_Key_WarnOfAiden;
+    public GameObject Albert_Key_Rootofproblem;
+    public GameObject Albert_Key_DeadElla;
+    public GameObject Albert_Key_MissingAiden;
+    public GameObject Albert_Key_Witness;
+    public GameObject Albert_Key_Culprit;
+    public GameObject Albert_Key_CauseOfDeath;
+    public GameObject Albert_Key_WebbedFeet;
+    public GameObject Albert_Key_RunwayMenhole;
 
 
     private void Start()
@@ -544,6 +571,12 @@ public void Start_2nd_NoonEvent(string setDialog)
         {
             theDM.ShowDialog(Safe_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+        if (setDialog == "Bracelet_Look")
+        {
+            theDM.ShowDialog(Bracelet_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+        
     }
     // 1st
 
@@ -1208,15 +1241,39 @@ public void Start_2nd_NoonEvent(string setDialog)
         }
         if (setDialog == "Albert_FirstDialog")
         {
-            if (DataBaseManager.Albert_FirstDialog == false)
+            if(DataBaseManager.TimeCount < 7)
             {
-                DataBaseManager.Albert_FirstDialog = true;
-                theDM.ShowDialog(Albert_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                if (DataBaseManager.Albert_FirstDialog == false)
+                {
+                    DataBaseManager.Albert_FirstDialog = true;
+                    theDM.ShowDialog(Albert_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Albert_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
             }
             else
             {
-                theDM.ShowDialog(Albert_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                if (DataBaseManager.Albert_FirstDialog == false)
+                {
+                    Debug.Log("11111");
+                    DataBaseManager.Albert_FirstDialog = true;
+                    DataBaseManager.AlbertFirstAfterEvent = true;
+                    theDM.ShowDialog(Albert_FirstDialogAfterEvent.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else if (DataBaseManager.AlbertFirstAfterEvent == false)
+                {
+                    Debug.Log("22222222");
+                    DataBaseManager.AlbertFirstAfterEvent = true;
+                    theDM.ShowDialog(Albert_FirstDialogNew.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Albert_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
             }
+
         }
         if (setDialog == "A_Look")
         {
@@ -1250,42 +1307,59 @@ public void Start_2nd_NoonEvent(string setDialog)
 
         if (setDialog == "Dave_Ran1")
         {
+            End_Look_Judge.Instance.DaveRandActive();
             theDM.ShowDialog(Dave_Ran1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_Ran2")
         {
+            End_Look_Judge.Instance.DaveRandActive();
             theDM.ShowDialog(Dave_Ran2.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_Ran3")
         {
+            End_Look_Judge.Instance.DaveRandActive();
             theDM.ShowDialog(Dave_Ran3.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_Ran4")
         {
+            End_Look_Judge.Instance.DaveRandActive();
             theDM.ShowDialog(Dave_Ran4.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_Ran5")
         {
+            End_Look_Judge.Instance.DaveRandActive();
             theDM.ShowDialog(Dave_Ran5.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_Ran6")
         {
+            End_Look_Judge.Instance.DaveRandActive();
             theDM.ShowDialog(Dave_Ran6.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_Ran7")
         {
+            End_Look_Judge.Instance.DaveRandActive();
             theDM.ShowDialog(Dave_Ran7.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_Ran8")
         {
+            End_Look_Judge.Instance.DaveRandActive();
             theDM.ShowDialog(Dave_Ran8.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+        if (setDialog == "Dave_Ran9")
+        {
+            End_Look_Judge.Instance.DaveRandActive();
+            theDM.ShowDialog(Dave_Rand9.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+
         if (setDialog == "Dave_NoMoney")
         {
+            End_Look_Judge.Instance.DaveRandActive();
             theDM.ShowDialog(Dave_NoMoney.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_RanEnd")
         {
+            End_Look_Judge.Instance.DaveRandActive();
             theDM.ShowDialog(Dave_RanEnd.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         
@@ -1592,6 +1666,7 @@ public void Start_2nd_NoonEvent(string setDialog)
             }
             else if (DataBaseManager.keyword_downer == "Manhole" || DataBaseManager.keyword_downer == "Aiden's warning")
             {
+                DataBaseManager.SwainDeathKeyword = true;
                 theDM.ShowDialog(Swain_ManholeOrWarn.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Murdered Clients")
@@ -1612,10 +1687,12 @@ public void Start_2nd_NoonEvent(string setDialog)
      
             else if (DataBaseManager.keyword_downer == "Witness Testimony")
             {
+                DataBaseManager.SwainDeathKeyword = true;
                 theDM.ShowDialog(Swain_witness.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "The Culprit")
             {
+                DataBaseManager.SwainDeathKeyword = true;
                 theDM.ShowDialog(Swain_culprit.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Missing People & Fishy Smell")
@@ -1632,6 +1709,7 @@ public void Start_2nd_NoonEvent(string setDialog)
             }
             else if (DataBaseManager.keyword_downer == "Way to Escape")
             {
+                DataBaseManager.SwainDeathKeyword = true;
                 theDM.ShowDialog(Swain_RunawayRoute.transform.GetComponent<interactionEvent>().GetDialogs());
             }
 
@@ -1780,7 +1858,48 @@ public void Start_2nd_NoonEvent(string setDialog)
                 theDM.ShowDialog(Albert_key_Unfairdismissal.transform.GetComponent<interactionEvent>().GetDialogs());
             }
 
-
+            // 낮 이벤트 이후 추가
+            else if (DataBaseManager.keyword_downer == "Root of problem")
+            {
+                DataBaseManager.AlbertDeathKeyword = true;
+                theDM.ShowDialog(Albert_Key_Rootofproblem.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Murdered Clients")
+            {
+                theDM.ShowDialog(Albert_Key_DeadElla.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Missing Subject")
+            {
+                theDM.ShowDialog(Albert_Key_MissingAiden.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Witness Testimony")
+            {
+                theDM.ShowDialog(Albert_Key_Witness.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "The Culprit")
+            {
+                DataBaseManager.AlbertDeathKeyword = true;
+                theDM.ShowDialog(Albert_Key_Culprit.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Cause of Death")
+            {
+                theDM.ShowDialog(Albert_Key_CauseOfDeath.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Webbed Feet")
+            {
+                theDM.ShowDialog(Albert_Key_WebbedFeet.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Way to Escape")
+            {
+                DataBaseManager.AlbertDeathKeyword = true;
+                theDM.ShowDialog(Albert_Key_RunwayMenhole.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Aiden's warning")
+            {
+                DataBaseManager.AlbertDeathKeyword = true;
+                theDM.ShowDialog(Albert_Key_WarnOfAiden.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            
 
             else
             {
@@ -1822,6 +1941,14 @@ public void Start_2nd_NoonEvent(string setDialog)
             else if (DataBaseManager.keyword_downer == "Subject to request")
             {
                 theDM.ShowDialog(Kate_key_Subjecttorequest.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Murdered Clients" || DataBaseManager.keyword_downer == "Cause of Death" || DataBaseManager.keyword_downer == "" || DataBaseManager.keyword_downer == "Webbed Feet")
+            {
+                theDM.ShowDialog(Kate_Key_EllaBody.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Witness Testimony")
+            {
+                theDM.ShowDialog(Kate_Key_Witness.transform.GetComponent<interactionEvent>().GetDialogs());
             }
 
             else
@@ -1865,6 +1992,10 @@ public void Start_2nd_NoonEvent(string setDialog)
             else if (DataBaseManager.keyword_downer == "State of congestion")
             {
                 theDM.ShowDialog(Alan_key_Stateofcongestion.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Murdered Clients" || DataBaseManager.keyword_downer == "Cause of Death" || DataBaseManager.keyword_downer == "" || DataBaseManager.keyword_downer == "Webbed Feet")
+            {
+                theDM.ShowDialog(Alan_Key_EllaBody.transform.GetComponent<interactionEvent>().GetDialogs());
             }
 
             else
@@ -1927,8 +2058,56 @@ public void Start_2nd_NoonEvent(string setDialog)
                 theDM.ShowDialog(Maeve_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
-         
-}
+        if (setDialog == "Dusty Dave")
+        {
+            selectionUIManager.Instance.EndDialog();
+            if (DataBaseManager.keyword_downer == "Witness Testimony")
+            {
+                theDM.ShowDialog(Dave_Key_Witness.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "")
+            {
+                theDM.ShowDialog(Dave_Key_SafeAquire.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Acquiring a Safe")
+            {
+                if (DataBaseManager.DaveSafeOpen == true)
+                {
+                    theDM.ShowDialog(Dave_Key_OpenSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+
+                }
+                else if (DataBaseManager.DaveAfterSafe == false)
+                {
+                    DataBaseManager.DaveAfterSafe = true;
+                    theDM.ShowDialog(Dave_Key_SafeAquire.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+       
+                else
+                {
+                    theDM.ShowDialog(Dave_Key_SafeAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+
+            }
+            else if (DataBaseManager.keyword_downer == "Bracelet")
+            {
+                if(DataBaseManager.DaveAfterBreclet == false)
+                {
+                    DataBaseManager.DaveAfterBreclet = true;
+                    theDM.ShowDialog(Dave_Key_Breclet.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Dave_Key_BrecletAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+
+            }
+            else
+            {
+                theDM.ShowDialog(Dave_Key_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+
+    }
 
     //전투
     public void BattleDialog(string setDialog)

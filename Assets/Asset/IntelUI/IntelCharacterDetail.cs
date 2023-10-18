@@ -6,12 +6,10 @@ using TMPro;
 public class IntelCharacterDetail : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Awake()
-    {
-        setGameObecject();
-    }
+
     void setGameObecject()
     {
+        DataBaseManager.Set_IntelCharDetail = true;
         Detail_Ella1 = EllaContents.transform.GetChild(0).gameObject;
         Detail_Ella2 = EllaContents.transform.GetChild(1).gameObject;
         Detail_Ella3 = EllaContents.transform.GetChild(2).gameObject;
@@ -87,6 +85,8 @@ public class IntelCharacterDetail : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         DaveDetail();
         SewerWorkerDetail();
         DaveDetail();
@@ -151,6 +151,7 @@ public class IntelCharacterDetail : MonoBehaviour
         {
             NowPage = "Dave";
         }
+
     }
 
      string NowPage;
@@ -315,24 +316,55 @@ public class IntelCharacterDetail : MonoBehaviour
     public GameObject PrevButton_SewerWorker;
 
     //데이브
-    GameObject Detail_Dave1;
-    GameObject Detail_Dave2;
-    GameObject Detail_Dave3;
-    GameObject Detail_Dave4;
-    GameObject Detail_Dave5;
-    GameObject Detail_Dave6;
+    public GameObject Detail_Dave1;
+    public GameObject Detail_Dave2;
+    public GameObject Detail_Dave3;
+    public GameObject Detail_Dave4;
+    public GameObject Detail_Dave5;
+    public GameObject Detail_Dave6;
     bool ON_Dave1;
     bool ON_Dave2;
     bool ON_Dave3;
     bool ON_Dave4;
     bool ON_Dave5;
     bool ON_Dave6;
-    int Count_Dave = 0;
+    public int Count_Dave = 0;
     public GameObject DaveContents;
     public GameObject Dave_Detail;
     public static int DaveIntelInt;
     public GameObject NextButton_Dave;
     public GameObject PrevButton_Dave;
+
+
+    private static IntelCharacterDetail instance = null;
+    private void Awake()
+    {
+        setGameObecject();
+        if (null == instance)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+
+    //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
+    public static IntelCharacterDetail Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+
 
     void AidenDetail()
     {

@@ -8,6 +8,7 @@ public class KeyItemBox : MonoBehaviour
 
     Image imageComponent;
     public Sprite Safe;
+    public Sprite Bracelet;
 
     public Sprite None;
 
@@ -42,6 +43,13 @@ public class KeyItemBox : MonoBehaviour
             InteractionController.Instance.Start_Safe_Look("Safe_Look");
             SISUI.SetActive(false);
         }
+        if (DataBaseManager.nowItem == "Bracelet")
+        {
+            DataBaseManager.isOpenUi = false;
+
+            InteractionController.Instance.Start_Safe_Look("Bracelet_Look");
+            SISUI.SetActive(false);
+        }
     }
 
     public void UseButton()
@@ -69,6 +77,12 @@ public class KeyItemBox : MonoBehaviour
             {
                 Use_B.SetActive(true);
             }
+
+        }
+        else if (DataBaseManager.nowItem == "Bracelet")
+        {
+            imageComponent.sprite = Bracelet;
+            Use_B.SetActive(true);
 
         }
         else

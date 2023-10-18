@@ -120,7 +120,7 @@ public class DialogManager : MonoBehaviour
         {
             if (isNext)
             {
-                if (Input.GetKeyDown(KeyCode.E) || (Input.GetMouseButtonDown(0)))
+                if (Input.GetKeyDown(KeyCode.E) || (Input.GetMouseButtonDown(0) && DataBaseManager.DaveCheck == false ))
                 {
                     if (FirstClick == true)
                     {
@@ -1075,8 +1075,9 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '③')
                     {
-                        DataBaseManager.SelectionOn = true;
+                        //DataBaseManager.SelectionOn = true;
                         selectionUIManager.Instance.Open_1st_Slum_Dave();
+                        DataBaseManager.DaveCheck = true;
                     }
                     break;
 
@@ -1147,15 +1148,20 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '⑥')
                     {
-
+                        DataBaseManager.DaveDeathKeyword = true;
+                        DataBaseManager.getSafe = false;
+                        DataBaseManager.Intel_Safe2 = false;
                     }
                     if (t_ReplaceText[i + 1] == '⑦')
                     {
-
+                        DataBaseManager.getSafe = false;
+                        DataBaseManager.Intel_Safe2 = false;
+                        DataBaseManager.DaveSafeOpen = true;
+                        //여기에 금고 성공시 나오는 대사
                     }
                     if (t_ReplaceText[i + 1] == '⑧')
                     {
-
+                        DataBaseManager.weal += 10;
                     }
                     t_ignore = true;
                     break;
@@ -1166,6 +1172,36 @@ public class DialogManager : MonoBehaviour
                     {
                         DataBaseManager.StoryDirecting = false; 
                     }
+                    if (t_ReplaceText[i + 1] == '②')
+                    {
+
+                    }
+                    if (t_ReplaceText[i + 1] == '③')
+                    {
+
+                    }
+                    if (t_ReplaceText[i + 1] == '④')
+                    {
+
+
+                    }
+                    if (t_ReplaceText[i + 1] == '⑤')
+                    {
+
+                    }
+                    if (t_ReplaceText[i + 1] == '⑥')
+                    {
+
+                    }
+                    if (t_ReplaceText[i + 1] == '⑦')
+                    {
+
+                    }
+                    if (t_ReplaceText[i + 1] == '⑧')
+                    {
+
+                    }
+
                     t_ignore = true;
                     break;
 

@@ -71,6 +71,14 @@ public class End_Look_Judge : MonoBehaviour
     {
         Checker.SetActive(true);
     }
+
+    public void DaveRandActive()
+    {
+        DataBaseManager.isKeyword = true;
+        Keyword_Back.DOFade(0, 0.00001f).SetAutoKill();
+        Keyword_BackOb.SetActive(true);
+        Keyword.SetActive(true);
+    }
     public void Inactive()
     {
         Checker.SetActive(false);
@@ -275,6 +283,7 @@ public class End_Look_Judge : MonoBehaviour
         }
         else if(DataBaseManager.isSelect == true)
         {
+            /* 일단 주석화 시켜 두었음
             End_Back.DOFade(0, 0.00001f).SetAutoKill();
             Look_Back.DOFade(0, 0.00001f).SetAutoKill();
             Judge_Back.DOFade(0, 0.00001f).SetAutoKill();
@@ -283,7 +292,7 @@ public class End_Look_Judge : MonoBehaviour
             End.SetActive(false);
             Look.SetActive(false);
             Judge.SetActive(false);
-            Keyword.SetActive(false);
+            Keyword.SetActive(false);*/
         }
     }
 
