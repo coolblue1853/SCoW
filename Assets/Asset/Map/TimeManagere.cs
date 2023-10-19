@@ -22,7 +22,9 @@ public class TimeManagere : MonoBehaviour
 
     public GameObject Kane;
     public GameObject Student;
-
+    public GameObject BarPeople1;
+    public GameObject BarPeople2;
+    public Intel_ObtoUI Meave;
     void Update()
     {
         if(DataBaseManager.TimeCount >= 6 && AFNoonEvent.transform.localPosition.y > 30)
@@ -32,7 +34,7 @@ public class TimeManagere : MonoBehaviour
         }
         if (DataBaseManager.TimeCount >= 7 && Witness.activeSelf == true)
         {
-
+            Meave.CanJudge = true;
             Witness.SetActive(false);
             DeadBody.SetActive(false);
             Site.transform.localPosition = new Vector3(-250.6001f, 2.840187f, 0);
@@ -40,6 +42,12 @@ public class TimeManagere : MonoBehaviour
             Student.transform.localPosition = new Vector3(-41.67f, 40.9f, 0);
 
         }
+        if (DataBaseManager.TimeCount == 8 && BarPeople1.activeSelf == true)
+        {
+            BarPeople1.SetActive(false);
+            BarPeople2.SetActive(false);
+        }
+
         if ((DataBaseManager.TimeCount % 4 )== 1)
         {
             lightColorController.time = 0.2f;

@@ -396,7 +396,34 @@ public class InteractionController : MonoBehaviour
     public GameObject Albert_Key_WebbedFeet;
     public GameObject Albert_Key_RunwayMenhole;
 
+    // 술집
+    public GameObject Day2Bar_fishysmellO;
+    public GameObject Day2Bar_fishysmellX;
+    public GameObject Day2Bar_1stBarIn;
+    public GameObject Day2Bar_firstBar;
+    public GameObject Meave_key_CauseOfProblem;
+    public GameObject Meave_key_DEllaMAiden;
+    public GameObject Meave_key_Witness;
+    public GameObject Meave_key_MissingFishyCauseX;
+    public GameObject Meave_key_MissingFishyCauseO;
+    public GameObject Meave_Judge_RhetoricSucc;
+    public GameObject Meave_Judge_RhetoricSanAfter;
+    public GameObject Meave_Judge_RhetoricFail;
 
+    //탐정사무소 추가 정리
+    
+    public GameObject Fab_2ndConnectStart;
+    public GameObject Fab_Witness;
+    public GameObject Fab_OwnerofUnifrom;
+    public GameObject Fab_CauseofDeath;
+    public GameObject Fab_WebbedFeet;
+    public GameObject Fab_Runway;
+    public GameObject Fab_FishySmellMissing;
+    public GameObject Fab_TheClupet;
+    public GameObject Fab_Both;
+    public GameObject Fab_WarnOrRoot;
+    public GameObject Fab_SwainSewer;
+    
     private void Start()
     {
         //TestNar();
@@ -773,8 +800,53 @@ public void Start_2nd_NoonEvent(string setDialog)
         }
         else if (setDialog == "Fab_Connect")
         {
-
             theDM.ShowDialog(Fab_Connect.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+        else if (setDialog == "Fab_Witness")
+        {
+            theDM.ShowDialog(Fab_Witness.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_OwnerofUnifrom")
+        {
+            theDM.ShowDialog(Fab_OwnerofUnifrom.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_CauseofDeath")
+        {
+            theDM.ShowDialog(Fab_CauseofDeath.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_WebbedFeet")
+        {
+            theDM.ShowDialog(Fab_WebbedFeet.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Runway")
+        {
+            theDM.ShowDialog(Fab_Runway.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_FishySmellMissing")
+        {
+            theDM.ShowDialog(Fab_FishySmellMissing.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_TheClupet")
+        {
+            theDM.ShowDialog(Fab_TheClupet.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_Both")
+        {
+            theDM.ShowDialog(Fab_Both.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_WarnOrRoot")
+        {
+            theDM.ShowDialog(Fab_WarnOrRoot.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "Fab_SwainSewer")
+        {
+            theDM.ShowDialog(Fab_SwainSewer.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+        else if (setDialog == "Fab_2ndConnectStart")
+        {
+            theDM.ShowDialog(Fab_2ndConnectStart.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     
@@ -1418,8 +1490,31 @@ public void Start_2nd_NoonEvent(string setDialog)
                 theDM.ShowDialog(Worker_Look_X.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
-            
-}
+
+        if (setDialog == "BarArrive")
+        {
+            if (DataBaseManager.Intel_FishySmell1 == true || DataBaseManager.Intel_FishySmell2 == true|| DataBaseManager.Intel_FishySmell3 == true|| DataBaseManager.Intel_FishySmell4 == true)
+            {
+                theDM.ShowDialog(Day2Bar_fishysmellO.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Day2Bar_fishysmellX.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (setDialog == "Meave2ndDialog")
+        {
+            if (DataBaseManager.isBar == true)
+            {
+                theDM.ShowDialog(Day2Bar_1stBarIn.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Day2Bar_firstBar.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+
+    }
 
 
  
@@ -1437,7 +1532,7 @@ public void Start_2nd_NoonEvent(string setDialog)
 
     public void KeywordDialog(string setDialog)
     {
-        if (setDialog  == "Ella Triss")
+        if (setDialog == "Ella Triss")
         {
             if (DataBaseManager.keyword_downer == "Subject to request" && DataBaseManager.Intel_SewerGhostStory1 == false)
             {
@@ -1445,7 +1540,7 @@ public void Start_2nd_NoonEvent(string setDialog)
             }
             else if (DataBaseManager.keyword_downer == "Rumor")
             {
-                if(DataBaseManager.Intel_SewerGhostStory1 == true)
+                if (DataBaseManager.Intel_SewerGhostStory1 == true)
                 {
                     theDM.ShowDialog(Ella_Key_FishySmell1_yesGhosty1.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
@@ -1453,7 +1548,7 @@ public void Start_2nd_NoonEvent(string setDialog)
                 {
                     theDM.ShowDialog(Ella_Key_FishySmell1_noGhosty1.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
-                
+
             }
             else if (DataBaseManager.keyword_downer == "Contents of a Newspaper")
             {
@@ -1532,16 +1627,16 @@ public void Start_2nd_NoonEvent(string setDialog)
 
             else if (DataBaseManager.keyword_downer == "Aiden's Safe")
             {
-                if(DataBaseManager.getSafe == false)
+                if (DataBaseManager.getSafe == false)
                     theDM.ShowDialog(Aiden_key_Safe1.transform.GetComponent<interactionEvent>().GetDialogs());
                 else
                 {
                     theDM.ShowDialog(Aiden_Judge_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
-            else 
+            else
             {
-                if(DataBaseManager.AidenKeywordCount == 0)
+                if (DataBaseManager.AidenKeywordCount == 0)
                 {
                     DataBaseManager.AidenKeywordCount += 1;
                     theDM.ShowDialog(Aiden_key_Fail1.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -1550,7 +1645,7 @@ public void Start_2nd_NoonEvent(string setDialog)
                 {
                     theDM.ShowDialog(Aiden_key_Fail2.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
-      
+
             }
         }
         if (setDialog == "Berkeley Swain")
@@ -1581,7 +1676,7 @@ public void Start_2nd_NoonEvent(string setDialog)
             }
             else if (DataBaseManager.keyword_downer == "Husband's job")
             {
-                if(DataBaseManager.Intel_MissingPeople1 == false || DataBaseManager.Swain_isTalkMissingpeople == false)
+                if (DataBaseManager.Intel_MissingPeople1 == false || DataBaseManager.Swain_isTalkMissingpeople == false)
                 {
                     DataBaseManager.Swain_isTalkMissingpeople = true;
                     theDM.ShowDialog(Swain_Key_DailyNews1.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -1594,7 +1689,7 @@ public void Start_2nd_NoonEvent(string setDialog)
             }
             else if (DataBaseManager.keyword_downer == "Albert's Information")
             {
-                if (DataBaseManager.Intel_MissingPeople2 == false &&DataBaseManager.Swain_isTalkMissingpeople == false)
+                if (DataBaseManager.Intel_MissingPeople2 == false && DataBaseManager.Swain_isTalkMissingpeople == false)
                 {
                     DataBaseManager.Swain_isTalkMissingpeople = true;
                     theDM.ShowDialog(Swain_Key_MissingPeople1.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -1631,7 +1726,7 @@ public void Start_2nd_NoonEvent(string setDialog)
             }
             else if (DataBaseManager.keyword_downer == "Source speculation" || DataBaseManager.keyword_downer == "Sewer & FishySmell" || DataBaseManager.keyword_downer == "Cause of Fishy smell")
             {
-                if(DataBaseManager.Intel_MissingPeople2 == true)
+                if (DataBaseManager.Intel_MissingPeople2 == true)
                 {
                     theDM.ShowDialog(Swain_key_FishySmell_Reort.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
@@ -1675,7 +1770,7 @@ public void Start_2nd_NoonEvent(string setDialog)
             }
             else if (DataBaseManager.keyword_downer == "Missing Subject")
             {
-                if(DataBaseManager.Intel_MissingPeople1 == true || DataBaseManager.Intel_MissingPeople2 == true)
+                if (DataBaseManager.Intel_MissingPeople1 == true || DataBaseManager.Intel_MissingPeople2 == true)
                 {
                     theDM.ShowDialog(Swain_MissingAiden_MissingPeopleOk.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
@@ -1684,7 +1779,7 @@ public void Start_2nd_NoonEvent(string setDialog)
                     theDM.ShowDialog(Swain_MissingAiden_Nomal.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
-     
+
             else if (DataBaseManager.keyword_downer == "Witness Testimony")
             {
                 DataBaseManager.SwainDeathKeyword = true;
@@ -1719,8 +1814,8 @@ public void Start_2nd_NoonEvent(string setDialog)
             {
 
                 theDM.ShowDialog(Swain_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
-            }  
-}
+            }
+        }
         if (setDialog == "University student")
         {
             if (DataBaseManager.keyword_downer == "Contents of a Newspaper")
@@ -1764,7 +1859,7 @@ public void Start_2nd_NoonEvent(string setDialog)
 
             if (DataBaseManager.keyword_downer == "Strange Point")
             {
-                if(DataBaseManager.Intel_FishySmell1 == true)
+                if (DataBaseManager.Intel_FishySmell1 == true)
                 {
                     theDM.ShowDialog(Kane_key_waterQuality1_yesFishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
@@ -1776,7 +1871,7 @@ public void Start_2nd_NoonEvent(string setDialog)
 
             else if (DataBaseManager.keyword_downer == "Fishy Slime")
             {
-                if(DataBaseManager.Intel_CreepyEyes1 == true)
+                if (DataBaseManager.Intel_CreepyEyes1 == true)
                 {
                     theDM.ShowDialog(Kane_FishySlime_CreepyEye.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
@@ -1836,7 +1931,7 @@ public void Start_2nd_NoonEvent(string setDialog)
 
             else if (DataBaseManager.keyword_downer == "Details")
             {
-             if (DataBaseManager.Intel_FishySmell3 == true || DataBaseManager.Intel_FishySmell4 == true || DataBaseManager.Intel_SewerWorker3 == true)
+                if (DataBaseManager.Intel_FishySmell3 == true || DataBaseManager.Intel_FishySmell4 == true || DataBaseManager.Intel_SewerWorker3 == true)
                 {
                     theDM.ShowDialog(Albert_key_Details_Origin.transform.GetComponent<interactionEvent>().GetDialogs());
 
@@ -1899,7 +1994,7 @@ public void Start_2nd_NoonEvent(string setDialog)
                 DataBaseManager.AlbertDeathKeyword = true;
                 theDM.ShowDialog(Albert_Key_WarnOfAiden.transform.GetComponent<interactionEvent>().GetDialogs());
             }
-            
+
 
             else
             {
@@ -1983,8 +2078,8 @@ public void Start_2nd_NoonEvent(string setDialog)
             {
                 theDM.ShowDialog(Alan_NoonAiden1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
-           
-            
+
+
             else if (DataBaseManager.keyword_downer == "Details")
             {
                 theDM.ShowDialog(Alan_key_Details.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -2053,6 +2148,34 @@ public void Start_2nd_NoonEvent(string setDialog)
             {
                 theDM.ShowDialog(Meave_key_Details.transform.GetComponent<interactionEvent>().GetDialogs());
             }
+
+            else if (DataBaseManager.keyword_downer == "Root of problem")
+            {
+                theDM.ShowDialog(Meave_key_CauseOfProblem.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Murdered Clients" || DataBaseManager.keyword_downer == "Missing Subject")
+            {
+                theDM.ShowDialog(Meave_key_DEllaMAiden.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Witness Testimony")
+            {
+                theDM.ShowDialog(Meave_key_Witness.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Missing People & Fishy Smell")
+            {
+             if (DataBaseManager.keyword_downer == "Source speculation" || DataBaseManager.keyword_downer == "Sewer & FishySmell" || DataBaseManager.keyword_downer == "Cause of Fishy smell")
+                {
+                    theDM.ShowDialog(Meave_key_MissingFishyCauseO.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Meave_key_MissingFishyCauseX.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+            }
+  
+
+
+
             else
             {
                 theDM.ShowDialog(Maeve_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -2320,6 +2443,24 @@ public void Start_2nd_NoonEvent(string setDialog)
             }
         }
 
+        if (Sub_Dialog == "Maeve : Persuasion")
+        {
+
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(Meave_Judge_RhetoricSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+
+                DataBaseManager.NoonEvent_AccessAuthorization = true;
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+
+                theDM.ShowDialog(Meave_Judge_RhetoricFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+
+
+
         // 2일차 강제이벤트
         if (Sub_Dialog == "DeadBody : Diagnosis")
         {
@@ -2507,6 +2648,11 @@ public void Start_2nd_NoonEvent(string setDialog)
         {
             theDM.ShowDialog(Kane_FishySlime_CreepyEyeAfterSans.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+        if (SanCheck == "DrinkSan")
+        {
+            theDM.ShowDialog(Meave_Judge_RhetoricSanAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        
     }
 
 

@@ -28,7 +28,7 @@ public class DirectingManager : MonoBehaviour
 
 
     Vector3 Cam_BattlePos = new Vector3(-774.6f, 120.1f, -15);
-
+    bool twice;
     private static DirectingManager instance = null;
     public GameObject player;
     public GameObject Camera;
@@ -195,6 +195,7 @@ public class DirectingManager : MonoBehaviour
         }
         if (DataBaseManager.EndDay == true && DataBaseManager.isActiveDialog1 == false)
         {
+            DataBaseManager.StoryDirecting = true;
             DataBaseManager.EndDay = false;
             FadingBackGround.Instance.FadeIn();
 
@@ -209,7 +210,7 @@ public class DirectingManager : MonoBehaviour
             MapManager.Instance.MapOn();
         }
         
-         if((DataBaseManager.TimeCount % 4) == 0 && DataBaseManager.nowPlace  == "DetectiveOffice" && once == false)
+         if((DataBaseManager.TimeCount == 4)  && DataBaseManager.nowPlace  == "DetectiveOffice" && once == false)
         {
             DirectingManager.Instance.OrganizeKeyword();
             once = true;
@@ -229,7 +230,26 @@ public class DirectingManager : MonoBehaviour
             }
         }
 
-
+        if ((DataBaseManager.TimeCount == 8 && DataBaseManager.nowPlace == "DetectiveOffice" && twice == false))
+        {
+            DataBaseManager.StoryDirecting = true;
+            DirectingManager.Instance.OrganizeKeyword();
+            twice = true;
+            player.SetActive(false);
+            sit_NoNewsPaperPlayer.SetActive(true);
+            if (DataBaseManager.isBar == true)
+            {
+                Invoke("KeyConnect", 12f);
+            }
+            else if (DataBaseManager.AfterBattle == true)
+            {
+                Invoke("KeyConnect", 3f);
+            }
+            else
+            {
+                Invoke("KeyConnect", 3f);
+            }
+        }
 
 
         //  << 2일차 이후 >>
@@ -284,7 +304,7 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.EndBattle = false;
             isGo1stBattle = true;
             DirectingManager.Instance.EndBattle();
-           // DataBaseManager.nowPlace = "DetectiveOffice";
+
             MapManager.Instance.MapOn();
         }
 
@@ -339,8 +359,26 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.KaneSlimeSan = false;
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "KaneSan");
         }
-        
 
+
+        if (DataBaseManager.BarArrive == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            Invoke("ArriveBar_2nd", 4f);
+            DataBaseManager.BarArrive = false;
+            DataBaseManager.StoryDirecting = true;
+            DataBaseManager.Maeve_FirstDialog = true;
+        }
+        if (DataBaseManager.BarMove == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            Invoke("BarMove", 0.3f);
+            DataBaseManager.BarMove = false;
+
+        }
+        if (DataBaseManager.BarDrinkSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.BarDrinkSanCheck = false;
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "DrinkSan");
+        }
 
 
 
@@ -356,6 +394,29 @@ public class DirectingManager : MonoBehaviour
         
     }
     bool once = false;
+
+    public void BarMove()
+    {
+        Invoke("MeaveDialog", 2.5f);
+        Invoke("BarFabianMove", 1.5f);
+        FadingBackGround.Instance.FadeInOut();
+    }
+    public void BarFabianMove()
+    {
+        MapManager.Instance.BarFabianMove();
+    }
+
+    public void MeaveDialog()
+    {
+        InteractionController.Instance.Start_1st_Bar("Meave2ndDialog");
+    }
+
+
+
+    public void ArriveBar_2nd()
+    {
+        InteractionController.Instance.Start_1st_Bar("BarArrive");
+    }
 
     public void NoonEvent_ClientsFirst()
     {
@@ -462,6 +523,8 @@ public class DirectingManager : MonoBehaviour
     }
     public void EndDay()
     {
+        DataBaseManager.isRollet = false;
+        DataBaseManager.secondisDirecting = false;
         InteractionController.Instance.Start_1st_DetectiveOffice("Fab_EndDay");
     }
 
@@ -629,83 +692,169 @@ public class DirectingManager : MonoBehaviour
     private List<System.Action> functionList = new List<System.Action>();
     public void OrganizeKeyword()
     {
-        functionList.Add(Fab_FirstDialog);
-        if(DataBaseManager.Intel_Aiden1 == true)
+        if(DataBaseManager.TimeCount == 4)
         {
+            functionList.Add(Fab_FirstDialog);
+        }
+        else if(DataBaseManager.TimeCount == 8)
+        {
+            functionList.Add(Fab_2ndConnectStart);
+        }
+
+
+        if(DataBaseManager.Intel_Aiden1 == true && Intel_Aiden1KeyCheck == false)
+        {
+            Intel_Aiden1KeyCheck = true;
             functionList.Add(Fab_Aiden1);
         }
-        if (DataBaseManager.Intel_Safe1 == true)
+        if (DataBaseManager.Intel_Safe1 == true && Intel_Safe1KeyCheck == false)
         {
+            Intel_Safe1KeyCheck = true;
             functionList.Add(Fab_Safe1);
         }
-        if (DataBaseManager.Intel_Nightmare1 == true)
+        if (DataBaseManager.Intel_Nightmare1 == true && Intel_Nightmare1KeyCheck == false)
         {
+            Intel_Nightmare1KeyCheck = true;
             functionList.Add(Fab_Nightmare1);
         }
-        if (DataBaseManager.Intel_Nightmare2 == true)
+        if (DataBaseManager.Intel_Nightmare2 == true && Intel_Nightmare2KeyCheck == false)
         {
+            Intel_Nightmare2KeyCheck = true;
             functionList.Add(Fab_Nightmare2);
         }
-        if (DataBaseManager.Intel_Nightmare3 == true)
+        if (DataBaseManager.Intel_Nightmare3 == true && Intel_Nightmare3KeyCheck == false)
         {
+            Intel_Nightmare3KeyCheck = true;
             functionList.Add(Fab_Nightmare3);
         }
-        if (DataBaseManager.Intel_Nightmare4 == true)
+        if (DataBaseManager.Intel_Nightmare4 == true && Intel_Nightmare4KeyCheck == false)
         {
+            Intel_Nightmare4KeyCheck = true;
             functionList.Add(Fab_Nightmare4);
         }
-        if (DataBaseManager.Intel_Insomnia1 == true)
+        if (DataBaseManager.Intel_Insomnia1 == true && Intel_Insomnia1KeyCheck == false)
         {
+            Intel_Insomnia1KeyCheck = true;
             functionList.Add(Fab_Insomnia1);
         }
-        if (DataBaseManager.Intel_Insomnia2 == true)
+        if (DataBaseManager.Intel_Insomnia2 == true && Intel_Insomnia2KeyCheck == false)
         {
+            Intel_Insomnia2KeyCheck = true;
             functionList.Add(Fab_Insomnia2);
         }
-        if (DataBaseManager.Intel_PlanetaryParade1 == true)
+        if (DataBaseManager.Intel_PlanetaryParade1 == true && Intel_PlanetaryParade1KeyCheck == false)
         {
+            Intel_PlanetaryParade1KeyCheck = true;
             functionList.Add(Fab_PlanetarySequence1);
         }
-        if (DataBaseManager.Intel_University1 == true)
+        if (DataBaseManager.Intel_University1 == true && Intel_University1KeyCheck == false)
         {
+            Intel_University1KeyCheck = true;
             functionList.Add(Fab_Univ1);
         }
-        if (DataBaseManager.Intel_Meiv2 == true)
+        if (DataBaseManager.Intel_Meiv2 == true && Intel_Meiv2KeyCheck == false)
         {
+            Intel_Meiv2KeyCheck = true;
             functionList.Add(Fab_Meiv2);
         }
-        if (DataBaseManager.Intel_MissingPeople1 == true)
+        if (DataBaseManager.Intel_MissingPeople1 == true && Intel_MissingPeople1KeyCheck == false)
         {
+            Intel_MissingPeople1KeyCheck = true;
             functionList.Add(Fab_MissingPeople);
         }
-        if (DataBaseManager.Intel_SewerGhostStory1 == true)
+        if (DataBaseManager.Intel_SewerGhostStory1 == true && Intel_SewerGhostStory1KeyCheck == false)
         {
+            Intel_SewerGhostStory1KeyCheck = true;
             functionList.Add(Fab_GhostStory1);
         }
-        if (DataBaseManager.Intel_SewerGhostStory2 == true)
+        if (DataBaseManager.Intel_SewerGhostStory2 == true && Intel_SewerGhostStory2KeyCheck == false)
         {
+            Intel_SewerGhostStory2KeyCheck = true;
             functionList.Add(Fab_GhostStory2);
         }
-        if (DataBaseManager.Intel_CreepyEyes1 == true)
+        if (DataBaseManager.Intel_CreepyEyes1 == true && Intel_CreepyEyes1KeyCheck == false)
         {
+            Intel_CreepyEyes1KeyCheck = true;
             functionList.Add(Fab_CreepyEye);
         }
-        if (DataBaseManager.Intel_SewerWorker1 == true)
+        if (DataBaseManager.Intel_SewerWorker1 == true && Intel_SewerWorker1KeyCheck == false)
         {
+            Intel_SewerWorker1KeyCheck = true;
             functionList.Add(Fab_Worker1);
         }
-        if (DataBaseManager.Intel_FishySmell1 == true)
+        if (DataBaseManager.Intel_FishySmell1 == true && Intel_FishySmell1KeyCheck == false)
         {
+            Intel_FishySmell1KeyCheck = true;
             functionList.Add(Fab_FishySmell1);
         }
-        if (DataBaseManager.Intel_FishySmell2 == true)
+        if (DataBaseManager.Intel_FishySmell2 == true && Intel_FishySmell2KeyCheck == false)
         {
+            Intel_FishySmell2KeyCheck = true;
             functionList.Add(Fab_FishySmell2);
         }
-        if (DataBaseManager.Intel_FishySmell3 == true)
+        if (DataBaseManager.Intel_FishySmell3 == true && Intel_FishySmell3KeyCheck == false)
         {
+            Intel_FishySmell3KeyCheck = true;
             functionList.Add(Fab_FishySmell3);
         }
+
+
+
+
+        Debug.Log("발동중 2");
+        if (DataBaseManager.Intel_MurderCase1 == true && Intel_MurderCase1KeyCheck == false)
+        {
+            Debug.Log("발동중 1");
+            Intel_MurderCase1KeyCheck = true;
+            functionList.Add(Fab_Witness);
+        }
+        if (DataBaseManager.Intel_SewerWorker4 == true && Intel_SewerWorker4KeyCheck == false)
+        {
+            Intel_SewerWorker4KeyCheck = true;
+            functionList.Add(Fab_OwnerofUnifrom);
+        }
+        if (DataBaseManager.Intel_MurderCase4 == true && Intel_MurderCase4KeyCheck == false)
+        {
+            Intel_MurderCase4KeyCheck = true;
+            functionList.Add(Fab_CauseofDeath);
+        }
+        if (DataBaseManager.Intel_MurderCase5 == true && Intel_MurderCase5KeyCheck == false)
+        {
+            Intel_MurderCase5KeyCheck = true;
+            functionList.Add(Fab_WebbedFeet);
+        }
+        if (DataBaseManager.Intel_MurderCase6 == true && Intel_MurderCase6KeyCheck == false)
+        {
+            Intel_MurderCase6KeyCheck = true;
+            functionList.Add(Fab_Runway);
+        }
+        if (DataBaseManager.Intel_MurderCase2 == true && Intel_MurderCase2KeyCheck == false)
+        {
+            Intel_MurderCase2KeyCheck = true;
+            functionList.Add(Fab_FishySmellMissing);
+        }
+        if (DataBaseManager.Intel_MurderCase3 == true && Intel_MurderCase3KeyCheck == false)
+        {
+            Intel_MurderCase3KeyCheck = true;
+            functionList.Add(Fab_TheClupet);
+        }
+        if ((DataBaseManager.Intel_MurderCase2 == true || DataBaseManager.Intel_MurderCase3 == true) && BothKeyCheck == false)
+        {
+            BothKeyCheck = true;
+            functionList.Add(Fab_Both);
+        }
+        if ((DataBaseManager.Intel_Sewer1 == true || DataBaseManager.Intel_Sewer2 == true) && Intel_Sewer2KeyCheck == false)
+        {
+            Intel_Sewer2KeyCheck = true;
+            functionList.Add(Fab_WarnOrRoot);
+        }
+        if ((DataBaseManager.SwainDeathKeyword == true) && SwainSewerKeyCheck == false)
+        {
+            SwainSewerKeyCheck = true;
+            functionList.Add(Fab_SwainSewer);
+        }
+
+
     }
     public void OrganizeKeywordFunc()
     {
@@ -728,11 +877,14 @@ public class DirectingManager : MonoBehaviour
 
     }
 
-
-
     private void Fab_FirstDialog()
     {
         InteractionController.Instance.Start_1st_DetectiveOffice("Fab_FirstDialog");
+    }
+
+    private void Fab_2ndConnectStart()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_2ndConnectStart");
     }
     private void Fab_Aiden1()
     {
@@ -812,4 +964,79 @@ public class DirectingManager : MonoBehaviour
     }
 
 
+
+
+    private void Fab_Witness()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_Witness");
+    }
+    private void Fab_OwnerofUnifrom()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_OwnerofUnifrom");
+    }
+    private void Fab_CauseofDeath()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_CauseofDeath");
+    }
+    private void Fab_WebbedFeet()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_WebbedFeet");
+    }
+    private void Fab_Runway()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_Runway");
+    }
+    private void Fab_FishySmellMissing()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_FishySmellMissing");
+    }
+    private void Fab_TheClupet()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_TheClupet");
+    }
+    private void Fab_Both()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_Both");
+    }
+    private void Fab_WarnOrRoot()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_WarnOrRoot");
+    }
+    private void Fab_SwainSewer()
+    {
+        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_SwainSewer");
+    }
+
+
+
+    bool Intel_Aiden1KeyCheck = false;
+    bool Intel_Safe1KeyCheck = false;
+    bool Intel_Nightmare1KeyCheck = false;
+    bool Intel_Nightmare2KeyCheck = false;
+    bool Intel_Nightmare3KeyCheck = false;
+bool Intel_Nightmare4KeyCheck = false;
+    bool Intel_Insomnia1KeyCheck = false;
+bool Intel_Insomnia2KeyCheck = false;
+    bool Intel_PlanetaryParade1KeyCheck = false;
+    bool Intel_University1KeyCheck = false;
+    bool Intel_Meiv2KeyCheck = false;
+bool Intel_MissingPeople1KeyCheck = false;
+    bool Intel_SewerGhostStory1KeyCheck = false;
+    bool Intel_SewerGhostStory2KeyCheck = false;
+    bool Intel_CreepyEyes1KeyCheck = false;
+    bool Intel_SewerWorker1KeyCheck = false;
+bool Intel_FishySmell1KeyCheck = false;
+    bool Intel_FishySmell2KeyCheck = false;
+    bool Intel_FishySmell3KeyCheck = false;
+
+    bool Intel_MurderCase1KeyCheck = false;
+    bool Intel_SewerWorker4KeyCheck = false;
+    bool Intel_MurderCase4KeyCheck = false;
+    bool Intel_MurderCase5KeyCheck = false;
+    bool Intel_MurderCase6KeyCheck = false;
+    bool Intel_MurderCase2KeyCheck = false;
+    bool Intel_MurderCase3KeyCheck = false;
+    bool BothKeyCheck = false;
+    bool Intel_Sewer2KeyCheck = false;
+    bool SwainSewerKeyCheck = false;
 }

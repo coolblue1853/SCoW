@@ -15,6 +15,10 @@ public class DataBaseManager : MonoBehaviour
 
 
     //2ÀÏÂ÷
+    public static bool BarDrinkSanCheck = false;
+    public static bool BarMove = false;
+    public static bool BarArrive = false;
+
     public static bool DaveDeathKeyword = false;
     public static bool AlbertDeathKeyword = false;
     public static bool SwainDeathKeyword = false;

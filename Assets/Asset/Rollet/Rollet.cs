@@ -1204,8 +1204,11 @@ public class Rollet : MonoBehaviour
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "KaneSan");
         }
+        if (Subject == "DrinkSan")
+        {
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "DrinkSan");
+        }
         
-
     }
 
 

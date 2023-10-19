@@ -35,26 +35,6 @@ DataBaseManager.dex = 999;
 
 DataBaseManager.gunShotPoint = 50;
 
-DataBaseManager.Intel_Aiden1 = true;
-DataBaseManager.Intel_Safe1 = true;
-DataBaseManager.Intel_Nightmare1 = true;
-DataBaseManager.Intel_Nightmare2 = true;
-DataBaseManager.Intel_Nightmare3 = true;
-DataBaseManager.Intel_Nightmare4 = true;
-DataBaseManager.Intel_Insomnia1 = true;
-DataBaseManager.Intel_Insomnia2 =true;
-
-DataBaseManager.Intel_PlanetarySequence1 = true;
-DataBaseManager.Intel_University1 = true;
-DataBaseManager.Intel_Meiv1 = true;
-DataBaseManager.Intel_MissingPeople1 = true;
-DataBaseManager.Intel_SewerGhostStory1 = true;
-DataBaseManager.Intel_SewerGhostStory2 = true;
-DataBaseManager.Intel_CreepyEyes1 = true;
-DataBaseManager.Intel_SewerWorker1 = true;
-DataBaseManager.Intel_FishySmell1 = true;
-DataBaseManager.Intel_FishySmell2 = true;
-DataBaseManager.Intel_FishySmell3 = true;
 
         DataBaseManager.nowPlace = "DetectiveOffice";
         //DataBaseManager.nowPlace = "DetectiveOffice";
@@ -92,7 +72,8 @@ DataBaseManager.Intel_FishySmell3 = true;
         DataBaseManager.Intel_QuestHouse1 = true;
         DataBaseManager.rhetoricPoint = 80;
 
-  
+
+        /*
         DataBaseManager.Intel_MurderCase1 = true;
         DataBaseManager.Intel_MurderCase2 = true;
         DataBaseManager.Intel_MurderCase3 = true;
@@ -126,20 +107,39 @@ DataBaseManager.Intel_FishySmell3 = true;
         DataBaseManager.Intel_Sewer2 = true;
 
 
-        
+                DataBaseManager.Intel_Aiden1 = true;
+        DataBaseManager.Intel_Safe1 = true;
+        DataBaseManager.Intel_Nightmare1 = true;
+        DataBaseManager.Intel_Nightmare2 = true;
+
+        DataBaseManager.Intel_Insomnia1 = true;
+        DataBaseManager.Intel_Insomnia2 = true;
+
+        DataBaseManager.Intel_University1 = true;
+        DataBaseManager.Intel_Meiv1 = true;
+        DataBaseManager.Intel_MissingPeople1 = true;
+        DataBaseManager.Intel_SewerGhostStory1 = true;
+        DataBaseManager.Intel_SewerGhostStory2 = true;
+        DataBaseManager.Intel_CreepyEyes1 = true;
+        DataBaseManager.Intel_SewerWorker1 = true;
+        DataBaseManager.Intel_FishySmell1 = true;
+        DataBaseManager.Intel_FishySmell2 = true;
+        DataBaseManager.Intel_FishySmell3 = true;
         // 테스트 진행중 삭제
         DataBaseManager.ObservationPoint = 80;
         DataBaseManager.listeningPoint = 80;
         DataBaseManager.medicinePoint = 80;
         DataBaseManager.analysisPoint = 80;
         DataBaseManager.NoonEvent_AccessAuthorization = true;
-        DataBaseManager.TimeCount = 6;
-        DataBaseManager.SecondDayDialog = true;
+        DataBaseManager.TimeCount = 3;
+       // DataBaseManager.SecondDayDialog = true;
 
+                DataBaseManager.Albert_FirstDialog = true;
+        */
+        DataBaseManager.Intel_Nightmare3 = true;
+        DataBaseManager.Intel_Nightmare4 = true;
 
-
-
-        DataBaseManager.Albert_FirstDialog = true;
+        DataBaseManager.TimeCount = 3;
 
     }
     public void NewsRollet()
@@ -161,8 +161,17 @@ DataBaseManager.Intel_FishySmell3 = true;
     }
     private void Update()
     {
-    
-        if(Input.GetKeyDown(KeyCode.F12))
+        /*
+        Debug.Log(DataBaseManager.isActiveDialog1);
+        Debug.Log(DataBaseManager.StoryDirecting);
+        Debug.Log(DataBaseManager.secondisDirecting);
+        Debug.Log(DataBaseManager.isRollet);
+        Debug.Log(DataBaseManager.isDirecting);
+        Debug.Log(DataBaseManager.isOpenUi);
+        Debug.Log(DataBaseManager.isOpenMap);
+        */
+
+        if (Input.GetKeyDown(KeyCode.F12))
         {
             DataBaseManager.weal += 10;
         }
@@ -234,7 +243,7 @@ DataBaseManager.Intel_FishySmell3 = true;
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-
+            DataBaseManager.TimeCount = 7;
         }
 
         if (Input.GetKeyDown(KeyCode.F1))
@@ -260,6 +269,15 @@ DataBaseManager.Intel_FishySmell3 = true;
         if (Input.GetKeyDown(KeyCode.F5))
         {
 
+            DataBaseManager.Intel_MurderCase1 = true;
+            DataBaseManager.Intel_SewerWorker4 = true;
+            DataBaseManager.Intel_MurderCase5 = true;
+            DataBaseManager.Intel_MurderCase6 = true;
+            DataBaseManager.Intel_MurderCase2 = true;
+            DataBaseManager.Intel_MurderCase3 = true;
+            DataBaseManager.Intel_MurderCase2 = true;
+            DataBaseManager.Intel_Sewer1 = true;
+            DataBaseManager.SwainDeathKeyword = true;
 
         }
         if (Input.GetKeyDown(KeyCode.F6))

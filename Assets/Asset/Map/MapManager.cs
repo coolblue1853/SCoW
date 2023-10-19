@@ -27,6 +27,10 @@ public class MapManager : MonoBehaviour
     //¥Î«–±≥
     public GameObject Student;
 
+    Vector3 player_BarMeaveMove = new Vector3(-635.9305f, 1.532792f);
+    Vector3 Cam_BarMeaveMove = new Vector3(-634.0516f, 1.690001f, -15);
+
+
     Vector3 player_NoonEventMenhole = new Vector3(-976.4003f, 3.074435f);
     Vector3 Cam_NoonEventMenhole = new Vector3(-993.87f, 1.5f, -15);
 
@@ -531,6 +535,10 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.TimeCount == 7)
         {
+            if(DataBaseManager.nowPlace == "Bar")
+            {
+                DataBaseManager.BarArrive = true;
+            }
             text.text = "12/7/1921-Night";
         }
         else if (DataBaseManager.TimeCount == 8)
@@ -550,6 +558,12 @@ public class MapManager : MonoBehaviour
             text.text = "13/7/1921-Night";
         }
 
+    }
+
+    public void BarFabianMove()
+    {
+        player.transform.localPosition = player_BarMeaveMove;
+        camera.transform.localPosition = Cam_BarMeaveMove;
     }
     public void EndEvent()
     {

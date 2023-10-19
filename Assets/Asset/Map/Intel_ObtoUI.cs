@@ -26,6 +26,10 @@ public class Intel_ObtoUI : MonoBehaviour
 
     public void Update()
     {
+        if(DataBaseManager.TimeCount == 8 && this.name == "Meave" && isJudge == false)
+        {
+            isJudge = true;
+        }
 
         if(DataBaseManager.TimeCount == 5 && ResetCheck_1 == false)
         {
@@ -332,6 +336,7 @@ public class Intel_ObtoUI : MonoBehaviour
             Rollet.Instance.setRollet("Police : Persuasion", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
         }
 
+
         if (DataBaseManager.Select_Object == "DeadBody")
         {
             if (DataBaseManager.DeadBody_medicine == false)
@@ -364,7 +369,12 @@ public class Intel_ObtoUI : MonoBehaviour
             }
  
         }
-
+        if (DataBaseManager.Select_Object == "Maeve" && DataBaseManager.TimeCount == 8)
+        {
+            CanJudge = false;
+            isJudge = true;
+            Rollet.Instance.setRollet("Maeve : Persuasion", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
+        }
     }
 
     string AidenJudge;
