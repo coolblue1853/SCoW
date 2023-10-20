@@ -257,10 +257,15 @@ public class DirectingManager : MonoBehaviour
         if (DataBaseManager.TimeCount == 5 && DataBaseManager.SecondDayDialog == false && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.SecondDayDialog = true;
+         
             Invoke("ScendDayStartDialog", 3f);
         }
+        if (DataBaseManager.TimeCount == 9 && DataBaseManager.SecondDayDialog == false && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.SecondDayDialog = true;
+            Invoke("ThirdDayStartDialog", 3f);
+        }
 
- 
         if (DataBaseManager.AfterSanCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.AfterSanCheck = false;
@@ -380,7 +385,12 @@ public class DirectingManager : MonoBehaviour
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "DrinkSan");
         }
 
-
+        if (DataBaseManager.ThirdDayDreamSan == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.ThirdDayDreamSan = false;
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "DayTwoCase2San");
+        }
+        
 
 
 
@@ -436,14 +446,14 @@ public class DirectingManager : MonoBehaviour
     }
 
     //2일차
-
+    
     public void ScendDayStartDialog()
     {
         if(DataBaseManager.Intel_Nightmare3 == true || DataBaseManager.Intel_Nightmare3 == true)
         {
             InteractionController.Instance.Start_2nd_DetectiveOffice("Fab_Case1");
         }
-        else if (DataBaseManager.Intel_Aiden1)
+        else if (DataBaseManager.Intel_QuestHouse1==true)
         {
             InteractionController.Instance.Start_2nd_DetectiveOffice("Fab_Case2");
         }
@@ -453,7 +463,11 @@ public class DirectingManager : MonoBehaviour
         }
             
     }
+    public void ThirdDayStartDialog()
+    {
+        Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "ThirdDayStartSan");
 
+    }
 
 
 
@@ -525,7 +539,15 @@ public class DirectingManager : MonoBehaviour
     {
         DataBaseManager.isRollet = false;
         DataBaseManager.secondisDirecting = false;
-        InteractionController.Instance.Start_1st_DetectiveOffice("Fab_EndDay");
+        if(DataBaseManager.TimeCount == 4)
+        {
+            InteractionController.Instance.Start_1st_DetectiveOffice("Fab_EndDay");
+        }
+        else if(DataBaseManager.TimeCount == 8)
+        {
+            InteractionController.Instance.Start_1st_DetectiveOffice("SecondDream");
+        }
+
     }
 
     //병원 연출

@@ -24,9 +24,19 @@ public class TimeManagere : MonoBehaviour
     public GameObject Student;
     public GameObject BarPeople1;
     public GameObject BarPeople2;
+    public GameObject Albert;
+    public GameObject Dave;
+    public GameObject Swain;
+
+
     public Intel_ObtoUI Meave;
+
+    
+
     void Update()
     {
+        
+
         if(DataBaseManager.TimeCount >= 6 && AFNoonEvent.transform.localPosition.y > 30)
         {
             BFNoonEvent.transform.localPosition = new Vector3(0, 60, 0);
@@ -47,6 +57,22 @@ public class TimeManagere : MonoBehaviour
             BarPeople1.SetActive(false);
             BarPeople2.SetActive(false);
         }
+        if (DataBaseManager.AlbertDeathKeyword && Albert.activeSelf == true && DataBaseManager.TimeCount % 4  == 0)
+        {
+            DataBaseManager.ThirdDayPoliceADialog = true;
+            DataBaseManager.ThirdDayPoliceBDialog = true;
+
+            Albert.SetActive(false);
+        }
+        if (DataBaseManager.DaveDeathKeyword && Dave.activeSelf == true && DataBaseManager.TimeCount % 4 == 0)
+        {
+            Dave.SetActive(false);
+        }
+        if (DataBaseManager.SwainDeathKeyword && Swain.activeSelf == true && DataBaseManager.TimeCount % 4 == 0)
+        {
+            Swain.SetActive(false);
+        }
+
 
         if ((DataBaseManager.TimeCount % 4 )== 1)
         {

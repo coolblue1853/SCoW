@@ -557,7 +557,22 @@ public class MapManager : MonoBehaviour
         {
             text.text = "13/7/1921-Night";
         }
-
+        else if (DataBaseManager.TimeCount == 12)
+        {
+            text.text = "14/7/1921-Morning";
+        }
+        else if (DataBaseManager.TimeCount == 13)
+        {
+            text.text = "14/7/1921-Noon";
+        }
+        else if (DataBaseManager.TimeCount == 14)
+        {
+            text.text = "14/7/1921-Afternoon";
+        }
+        else if (DataBaseManager.TimeCount == 15)
+        {
+            text.text = "14/7/1921-Night";
+        }
     }
 
     public void BarFabianMove()

@@ -1184,7 +1184,7 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '④')
                     {
-
+                        DataBaseManager.ThirdDayDreamSan = true;
 
                     }
                     if (t_ReplaceText[i + 1] == '⑤')

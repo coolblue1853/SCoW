@@ -423,7 +423,20 @@ public class InteractionController : MonoBehaviour
     public GameObject Fab_Both;
     public GameObject Fab_WarnOrRoot;
     public GameObject Fab_SwainSewer;
-    
+    public GameObject SecondDream;
+    public GameObject ThirdDayStartCase1;
+    public GameObject ThirdDayStartCase1AfterSan;
+    public GameObject ThirdDayStartCase2;
+
+    // 3일차 추가
+    public GameObject Albert_ThirdFirstDialog;
+    public GameObject Albert_Key_OwnerOfOutfit;
+    public GameObject Albert_KeyChange_MissingFishySmell;
+    public GameObject Albert_KeyChange_WebbedFeet;
+    public GameObject PoliceA_NoAlbert;
+    public GameObject PoliceB_NoAlbert;
+
+
     private void Start()
     {
         //TestNar();
@@ -847,6 +860,11 @@ public void Start_2nd_NoonEvent(string setDialog)
         else if (setDialog == "Fab_2ndConnectStart")
         {
             theDM.ShowDialog(Fab_2ndConnectStart.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "SecondDream")
+        {
+
+            theDM.ShowDialog(SecondDream.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     
@@ -1289,7 +1307,14 @@ public void Start_2nd_NoonEvent(string setDialog)
 
         if (setDialog == "A_FirstDialog")
         {
-            if (DataBaseManager.A_FirstDialog == false)
+
+            if(DataBaseManager.TimeCount > 8 && DataBaseManager.ThirdDayPoliceADialog == true)
+            {
+                DataBaseManager.ThirdDayPoliceADialog = false;
+                DataBaseManager.A_FirstDialog = true;
+                theDM.ShowDialog(PoliceA_NoAlbert.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.A_FirstDialog == false)
             {
                 DataBaseManager.A_FirstDialog = true;
                 theDM.ShowDialog(A_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -1301,7 +1326,13 @@ public void Start_2nd_NoonEvent(string setDialog)
         }
         if (setDialog == "B_FirstDialog")
         {
-            if (DataBaseManager.B_FirstDialog == false)
+            if (DataBaseManager.TimeCount > 8 && DataBaseManager.ThirdDayPoliceBDialog == true)
+            {
+                DataBaseManager.ThirdDayPoliceBDialog = false;
+                DataBaseManager.B_FirstDialog = true;
+                theDM.ShowDialog(PoliceB_NoAlbert.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.B_FirstDialog == false)
             {
                 DataBaseManager.B_FirstDialog = true;
                 theDM.ShowDialog(B_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -1324,6 +1355,20 @@ public void Start_2nd_NoonEvent(string setDialog)
                 {
                     theDM.ShowDialog(Albert_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
+                
+            }
+            else if (DataBaseManager.TimeCount > 8)
+            {
+                if (DataBaseManager.ThirdDayAlbertDialog == false)
+                {
+                    DataBaseManager.ThirdDayAlbertDialog = true;
+                    theDM.ShowDialog(Albert_ThirdFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Albert_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                
             }
             else
             {
@@ -1982,7 +2027,15 @@ public void Start_2nd_NoonEvent(string setDialog)
             }
             else if (DataBaseManager.keyword_downer == "Webbed Feet")
             {
-                theDM.ShowDialog(Albert_Key_WebbedFeet.transform.GetComponent<interactionEvent>().GetDialogs());
+                if(DataBaseManager.TimeCount > 8)
+                {
+                    theDM.ShowDialog(Albert_KeyChange_WebbedFeet.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Albert_Key_WebbedFeet.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+
             }
             else if (DataBaseManager.keyword_downer == "Way to Escape")
             {
@@ -1994,8 +2047,16 @@ public void Start_2nd_NoonEvent(string setDialog)
                 DataBaseManager.AlbertDeathKeyword = true;
                 theDM.ShowDialog(Albert_Key_WarnOfAiden.transform.GetComponent<interactionEvent>().GetDialogs());
             }
-
-
+            else if (DataBaseManager.keyword_downer == "Owner of Uniform")
+            {
+                DataBaseManager.AlbertDeathKeyword = true;
+                theDM.ShowDialog(Albert_Key_OwnerOfOutfit.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.keyword_downer == "Missing People & Fishy Smell" && DataBaseManager.TimeCount > 8)
+            {
+                theDM.ShowDialog(Albert_KeyChange_MissingFishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            
             else
             {
 
@@ -2651,6 +2712,23 @@ public void Start_2nd_NoonEvent(string setDialog)
         if (SanCheck == "DrinkSan")
         {
             theDM.ShowDialog(Meave_Judge_RhetoricSanAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (SanCheck == "ThirdDayStartSan")
+        {
+
+            if (DataBaseManager.Intel_Nightmare3 == true || DataBaseManager.Intel_Nightmare3 == true)
+            {
+                theDM.ShowDialog(ThirdDayStartCase1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(ThirdDayStartCase2.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+
+        }
+        if (SanCheck == "DayTwoCase2San")
+        {
+            theDM.ShowDialog(ThirdDayStartCase1AfterSan.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         
     }

@@ -73,7 +73,7 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.rhetoricPoint = 80;
 
 
-        /*
+    
         DataBaseManager.Intel_MurderCase1 = true;
         DataBaseManager.Intel_MurderCase2 = true;
         DataBaseManager.Intel_MurderCase3 = true;
@@ -105,9 +105,9 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.Intel_Sewer1 = true;
 
         DataBaseManager.Intel_Sewer2 = true;
+        DataBaseManager.Intel_SewerWorker4 = true;
 
-
-                DataBaseManager.Intel_Aiden1 = true;
+        DataBaseManager.Intel_Aiden1 = true;
         DataBaseManager.Intel_Safe1 = true;
         DataBaseManager.Intel_Nightmare1 = true;
         DataBaseManager.Intel_Nightmare2 = true;
@@ -131,15 +131,15 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.medicinePoint = 80;
         DataBaseManager.analysisPoint = 80;
         DataBaseManager.NoonEvent_AccessAuthorization = true;
-        DataBaseManager.TimeCount = 3;
-       // DataBaseManager.SecondDayDialog = true;
+
 
                 DataBaseManager.Albert_FirstDialog = true;
-        */
+       
         DataBaseManager.Intel_Nightmare3 = true;
         DataBaseManager.Intel_Nightmare4 = true;
+        DataBaseManager.SecondDayDialog = true;
 
-        DataBaseManager.TimeCount = 3;
+        DataBaseManager.TimeCount = 9;
 
     }
     public void NewsRollet()
