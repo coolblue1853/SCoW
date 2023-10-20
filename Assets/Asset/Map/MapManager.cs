@@ -394,7 +394,7 @@ public class MapManager : MonoBehaviour
     }
     bool isNoonEvent = false;
     bool MorningMove_2nd = false;
-
+    bool MorningMove_3rd = false;
     void TimeMinus()
     {
         DataBaseManager.TimeCount -= 1;
@@ -403,7 +403,17 @@ public class MapManager : MonoBehaviour
     public void MapOn()
     {
 
-         if(DataBaseManager.TimeCount == 5 && MorningMove_2nd == false)
+        if (DataBaseManager.TimeCount == 9 && MorningMove_3rd == false)
+        {
+            DataBaseManager.secondisDirecting = true;
+            MorningMove_3rd = true;
+            FadingBackGround.Instance.FadeInOut();
+            CloseMap();
+            Invoke("OpenSpinUi", 1f);
+            Invoke("WaitFade", 4f);
+            Invoke("TimeMinus", 1f);
+        }
+        else if (DataBaseManager.TimeCount == 5 && MorningMove_2nd == false)
         {
             DataBaseManager.NoonMorningMove = true;
             DataBaseManager.secondisDirecting = true;

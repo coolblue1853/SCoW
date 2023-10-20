@@ -11,12 +11,13 @@ public class DataBaseManager : MonoBehaviour
     public static bool StoryDirecting = false;
 
 
-    //3일차
+    //
+    public static bool MorningMove_3rd = false;
     public static bool ThirdDayDreamSan = false;
     public static bool ThirdDayAlbertDialog = false;
     public static bool ThirdDayPoliceADialog = false;
     public static bool ThirdDayPoliceBDialog = false;
-
+    public static bool ThirdDayAlanDialog = false;
     //2일차
     public static bool BarDrinkSanCheck = false;
     public static bool BarMove = false;

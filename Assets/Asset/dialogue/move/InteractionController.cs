@@ -429,6 +429,7 @@ public class InteractionController : MonoBehaviour
     public GameObject ThirdDayStartCase2;
 
     // 3일차 추가
+    // 경찰서
     public GameObject Albert_ThirdFirstDialog;
     public GameObject Albert_Key_OwnerOfOutfit;
     public GameObject Albert_KeyChange_MissingFishySmell;
@@ -436,6 +437,26 @@ public class InteractionController : MonoBehaviour
     public GameObject PoliceA_NoAlbert;
     public GameObject PoliceB_NoAlbert;
 
+    // 병원
+    public GameObject Alan_ThirdFirstDialog;
+    public GameObject Alan_Key_MurderdElla;
+    public GameObject Alan_Key_CauseOfDeath;
+    public GameObject Alan_Key_WebbedFeet;
+
+
+    //술집
+    public GameObject Meave_ThirdDay_FirstO;
+    public GameObject Meave_ThirdDay_FirstX;
+
+    //밤 악몽 연출
+    public GameObject ThirdNightmare;
+    public GameObject Fab_3rd_QuestO;
+    public GameObject Fab_3rd_QuestO_SanCheck;
+    public GameObject Fab_3rd_QuestO_HealthCehckSucc;
+    public GameObject Fab_3rd_QuestO_HealthCehckFail;
+    public GameObject Fab_3rd_QuestX;
+    public GameObject Fab_3rd_QuestX_HealthCehckSucc;
+    public GameObject Fab_3rd_QuestX_HealthCehckFail;
 
     private void Start()
     {
@@ -1289,6 +1310,13 @@ public void Start_2nd_NoonEvent(string setDialog)
             }
             else
             {
+                if (DataBaseManager.TimeCount > 8 && DataBaseManager.ThirdDayAlanDialog == false)
+                {
+                    DataBaseManager.ThirdDayAlanDialog = true;
+                    DataBaseManager.Alan_NoonFirstDialog = true;
+                    theDM.ShowDialog(Alan_ThirdFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+
                 if (DataBaseManager.Alan_NoonFirstDialog == false)
                 {
                     DataBaseManager.Alan_NoonFirstDialog = true;
@@ -1489,13 +1517,32 @@ public void Start_2nd_NoonEvent(string setDialog)
             if (DataBaseManager.Maeve_FirstDialog == false)
             {
                 DataBaseManager.Maeve_FirstDialog = true;
+
+                
                 if(DataBaseManager.Intel_QuestHouse1 == true)
                 {
-                    theDM.ShowDialog(Maeve_FirstDialog_JobO.transform.GetComponent<interactionEvent>().GetDialogs());
+                    if(DataBaseManager.TimeCount == 12)
+                    {
+                        theDM.ShowDialog(Meave_ThirdDay_FirstO.transform.GetComponent<interactionEvent>().GetDialogs());
+                    }
+                    else
+                    {
+                        theDM.ShowDialog(Maeve_FirstDialog_JobO.transform.GetComponent<interactionEvent>().GetDialogs());
+                    }
+
+         
                 }
                 else
                 {
-                    theDM.ShowDialog(Maeve_FirstDialog_JobX.transform.GetComponent<interactionEvent>().GetDialogs());
+                    if (DataBaseManager.TimeCount == 12)
+                    {
+                        theDM.ShowDialog(Meave_ThirdDay_FirstX.transform.GetComponent<interactionEvent>().GetDialogs());
+                    }
+                    else
+                    {
+                        theDM.ShowDialog(Maeve_FirstDialog_JobX.transform.GetComponent<interactionEvent>().GetDialogs());
+                    }
+
                 }
 
             }

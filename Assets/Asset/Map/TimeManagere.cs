@@ -52,6 +52,12 @@ public class TimeManagere : MonoBehaviour
             Student.transform.localPosition = new Vector3(-41.67f, 40.9f, 0);
 
         }
+        if (DataBaseManager.TimeCount >= 11 && Meave.CanJudge == true)
+        {
+            Meave.CanJudge = false;
+
+
+        }
         if (DataBaseManager.TimeCount == 8 && BarPeople1.activeSelf == true)
         {
             BarPeople1.SetActive(false);

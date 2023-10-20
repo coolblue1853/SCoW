@@ -139,7 +139,7 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.Intel_Nightmare4 = true;
         DataBaseManager.SecondDayDialog = true;
 
-        DataBaseManager.TimeCount = 9;
+        DataBaseManager.TimeCount = 11;
 
     }
     public void NewsRollet()

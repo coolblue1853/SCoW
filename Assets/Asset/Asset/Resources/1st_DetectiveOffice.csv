@@ -315,32 +315,32 @@ ID,캐릭터이름,대사,
 314,Fabian,@No... I don't think so.@,
 315,Fabian,@It's just that my brain is tired from yesterday's traumatic event.@,
 316,Fabian,@Ugh. Let's get to work.@◎①※①,
-317,Fabian,,
-318,Fabian,,
-319,Fabian,,
-320,Fabian,,
-321,Fabian,,
-322,Fabian,,
-323,Fabian,,
-324,Fabian,,
-325,Fabian,,
-326,Fabian,,
-327,Fabian,,
-328,Fabian,,
-329,Fabian,,
-330,Fabian,,
-331,Fabian,,
-332,Fabian,,
-333,Fabian,,
-334,Fabian,,
-335,Fabian,,
-336,Fabian,,
-337,Fabian,,
-338,Fabian,,
-339,Fabian,,
-340,Fabian,,
-341,Fabian,,
-342,Fabian,,
+317,Fabian,(I go to my bed and lie down^ feeling strangely more groggy than usual.),3일차 악몽 연출
+318,Fabian,(I didn't fall asleep easily because of the weird dreams),
+319,Fabian,'The sea... the water... and the (nightmare)...',
+320,Fabian,(I wondered if I was going to have nightmares about it again today^ and suddenly I was looking at a deep green ocean.),
+321,Fabian,'As expected...!',
+322,Fabian,(It was definitely darker than what I saw yesterday^ so even my body was almost indistinct.),
+323,Fabian,'Wait^ if this is a continuation of yesterday's dream...',
+324,Fabian,(As I was thinking that^ I looked at my leg and saw a black tentacle hanging from it.),
+325,Fabian,'Damn it^ let go of me!',
+326,Fabian,(I tried flailing and kicking^ but since I was underwater^ it didn't seem to have any effect.),
+327,Fabian,(And it turned out to be a bad choice^ as the tentacles started to tighten.),
+328,Fabian,@Ugh....!@,
+329,Fabian,(It was dragging me deeper and deeper in no time.),
+330,Fabian,(The pain of being crushed me harder and harder^ and the fishy taste of the ocean floods my brain.),
+331,Fabian,(I don't know how far I'd been dragged down... and then my eyes were finally opened.),
+332,Fabian,@Huh. Huh...@,이성판정
+333,Fabian,'I don't have the power to deny it anymore...',// 의뢰 받았다면
+334,Fabian,@Damn.....@,이성판정 -
+335,Fabian,(It took me a while to clear my head of all those gruesome images.),– 건강판정
+336,Fabian,@Phew.... I'm calmer now.@,<성공>
+337,Fabian,@But... I have to move. It's only going to get worse if I stay put.@,
+338,Fabian,@I think I'll... take a little more rest today.@,<실패>
+339,Fabian,@Huh. Huh...@,// 의뢰를 받지 않았다면
+340,Fabian,@Damn.....@,– 건강판정
+341,Fabian,@But... I have to move.@,<성공>
+342,Fabian,@I think I'll... take a little more rest today.@,<실패>
 343,Fabian,,
 344,Fabian,,
 345,Fabian,,

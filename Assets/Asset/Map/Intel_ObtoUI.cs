@@ -30,8 +30,9 @@ public class Intel_ObtoUI : MonoBehaviour
         {
             isJudge = true;
         }
+ 
 
-        if(DataBaseManager.TimeCount == 5 && ResetCheck_1 == false)
+        if (DataBaseManager.TimeCount == 5 && ResetCheck_1 == false)
         {
             ResetCheck_1 = true;
             ResetKeyCount();
@@ -375,6 +376,8 @@ public class Intel_ObtoUI : MonoBehaviour
             isJudge = true;
             Rollet.Instance.setRollet("Maeve : Persuasion", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
         }
+
+
     }
 
     string AidenJudge;
