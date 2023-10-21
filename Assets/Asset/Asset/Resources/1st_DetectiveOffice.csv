@@ -329,18 +329,18 @@ ID,캐릭터이름,대사,
 328,Fabian,@Ugh....!@,
 329,Fabian,(It was dragging me deeper and deeper in no time.),
 330,Fabian,(The pain of being crushed me harder and harder^ and the fishy taste of the ocean floods my brain.),
-331,Fabian,(I don't know how far I'd been dragged down... and then my eyes were finally opened.),
-332,Fabian,@Huh. Huh...@,이성판정
-333,Fabian,'I don't have the power to deny it anymore...',// 의뢰 받았다면
-334,Fabian,@Damn.....@,이성판정 -
-335,Fabian,(It took me a while to clear my head of all those gruesome images.),– 건강판정
+331,Fabian,(I don't know how far I'd been dragged down... and then my eyes were finally opened.)♠⑤,이성판정
+332,Fabian,@Huh. Huh...@,// 의뢰 받았다면
+333,Fabian,'I don't have the power to deny it anymore...',
+334,Fabian,@Damn.....@※⑤,이성판정 -
+335,Fabian,(It took me a while to clear my head of all those gruesome images.)※⑥,– 건강판정
 336,Fabian,@Phew.... I'm calmer now.@,<성공>
-337,Fabian,@But... I have to move. It's only going to get worse if I stay put.@,
-338,Fabian,@I think I'll... take a little more rest today.@,<실패>
+337,Fabian,@But... I have to move. It's only going to get worse if I stay put.@◎①※①,
+338,Fabian,@I think I'll... take a little more rest today.@◎①※①,<실패>
 339,Fabian,@Huh. Huh...@,// 의뢰를 받지 않았다면
-340,Fabian,@Damn.....@,– 건강판정
-341,Fabian,@But... I have to move.@,<성공>
-342,Fabian,@I think I'll... take a little more rest today.@,<실패>
+340,Fabian,@Damn.....@※⑥,– 건강판정
+341,Fabian,@But... I have to move.@◎①※①,<성공>
+342,Fabian,@I think I'll... take a little more rest today.@◎①※①,<실패>
 343,Fabian,,
 344,Fabian,,
 345,Fabian,,

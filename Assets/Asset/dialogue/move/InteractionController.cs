@@ -450,13 +450,13 @@ public class InteractionController : MonoBehaviour
 
     //밤 악몽 연출
     public GameObject ThirdNightmare;
-    public GameObject Fab_3rd_QuestO;
-    public GameObject Fab_3rd_QuestO_SanCheck;
-    public GameObject Fab_3rd_QuestO_HealthCehckSucc;
-    public GameObject Fab_3rd_QuestO_HealthCehckFail;
-    public GameObject Fab_3rd_QuestX;
-    public GameObject Fab_3rd_QuestX_HealthCehckSucc;
-    public GameObject Fab_3rd_QuestX_HealthCehckFail;
+    public GameObject Fab_4th_QuestO;
+    public GameObject Fab_4th_QuestO_SanCheck;
+    public GameObject Fab_4thQuestO_HealthCehckSucc;
+    public GameObject Fab_4th_QuestO_HealthCehckFail;
+    public GameObject Fab_4thQuestX;
+    public GameObject Fab_4thQuestX_HealthCehckSucc;
+    public GameObject Fab_4th_QuestX_HealthCehckFail;
 
     private void Start()
     {
@@ -887,6 +887,12 @@ public void Start_2nd_NoonEvent(string setDialog)
 
             theDM.ShowDialog(SecondDream.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+        else if (setDialog == "ThirdNightmare")
+        {
+
+            theDM.ShowDialog(ThirdNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        
     }
     
 
@@ -2763,7 +2769,7 @@ public void Start_2nd_NoonEvent(string setDialog)
         if (SanCheck == "ThirdDayStartSan")
         {
 
-            if (DataBaseManager.Intel_Nightmare3 == true || DataBaseManager.Intel_Nightmare3 == true)
+            if (DataBaseManager.Intel_Nightmare3 == true || DataBaseManager.Intel_Nightmare4 == true)
             {
                 theDM.ShowDialog(ThirdDayStartCase1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
@@ -2777,7 +2783,45 @@ public void Start_2nd_NoonEvent(string setDialog)
         {
             theDM.ShowDialog(ThirdDayStartCase1AfterSan.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-        
+
+        if (SanCheck == "FourthDayStartSan")
+        {
+
+            if (DataBaseManager.Intel_Nightmare3 == true || DataBaseManager.Intel_Nightmare4 == true)
+            {
+                theDM.ShowDialog(Fab_4th_QuestO.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Fab_4thQuestX.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+
+        }
+        if (SanCheck == "Fab_4th_QuestO_SanCheck")
+        {
+            theDM.ShowDialog(Fab_4th_QuestO_SanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+        if (SanCheck == "Day_4_case1Health")
+        {
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(Fab_4thQuestO_HealthCehckSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+
+
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+                DataBaseManager.MorningMove_4th = true;
+                DataBaseManager.MorningMove_3rd = true;
+                DataBaseManager.MorningMove_2nd = true;
+                theDM.ShowDialog(Fab_4th_QuestO_HealthCehckFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+
+
+
+
     }
 
 

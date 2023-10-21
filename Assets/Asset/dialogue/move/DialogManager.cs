@@ -1189,11 +1189,11 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '⑤')
                     {
-
+                        DataBaseManager.Day_4_case1San = true;
                     }
                     if (t_ReplaceText[i + 1] == '⑥')
                     {
-
+                        DataBaseManager.Day_4_case1Health = true;
                     }
                     if (t_ReplaceText[i + 1] == '⑦')
                     {

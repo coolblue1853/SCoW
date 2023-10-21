@@ -460,7 +460,7 @@ public class Rollet : MonoBehaviour
         }
         if(Subject == "dialog")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, EnemySubject);
             // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
             // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 결과값에 따른 문자를 출력하도록 함
         }
@@ -1216,9 +1216,20 @@ public class Rollet : MonoBehaviour
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "DayTwoCase2San");
         }
+
+
+
+        if (Subject == "FourthDayStartSan")
+        {
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "FourthDayStartSan");
+        }
+        if (Subject == "Fab_4th_QuestO_SanCheck")
+        {
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "Fab_4th_QuestO_SanCheck");
+        }
+     
+
         
-
-
     }
 
 

@@ -57,6 +57,7 @@ DataBaseManager.gunShotPoint = 50;
 
 
         */
+    
         //DataBaseManager.TimeCount = 1;
         DataBaseManager.intl = 99;
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
@@ -73,7 +74,7 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.rhetoricPoint = 80;
 
 
-    
+        /*
         DataBaseManager.Intel_MurderCase1 = true;
         DataBaseManager.Intel_MurderCase2 = true;
         DataBaseManager.Intel_MurderCase3 = true;
@@ -135,10 +136,12 @@ DataBaseManager.gunShotPoint = 50;
 
                 DataBaseManager.Albert_FirstDialog = true;
        
-        DataBaseManager.Intel_Nightmare3 = true;
-        DataBaseManager.Intel_Nightmare4 = true;
-        DataBaseManager.SecondDayDialog = true;
 
+                DataBaseManager.SecondDayDialog = true;
+        */
+
+     //   DataBaseManager.Intel_Nightmare3 = true;
+  //      DataBaseManager.Intel_Nightmare4 = true;
         DataBaseManager.TimeCount = 11;
 
     }

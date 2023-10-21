@@ -28,6 +28,7 @@ public class DirectingManager : MonoBehaviour
 
 
     Vector3 Cam_BattlePos = new Vector3(-774.6f, 120.1f, -15);
+    bool Thrid;
     bool twice;
     private static DirectingManager instance = null;
     public GameObject player;
@@ -230,11 +231,33 @@ public class DirectingManager : MonoBehaviour
             }
         }
 
+
         if ((DataBaseManager.TimeCount == 8 && DataBaseManager.nowPlace == "DetectiveOffice" && twice == false))
         {
             DataBaseManager.StoryDirecting = true;
             DirectingManager.Instance.OrganizeKeyword();
             twice = true;
+            player.SetActive(false);
+            sit_NoNewsPaperPlayer.SetActive(true);
+            if (DataBaseManager.isBar == true)
+            {
+                Invoke("KeyConnect", 12f);
+            }
+            else if (DataBaseManager.AfterBattle == true)
+            {
+                Invoke("KeyConnect", 3f);
+            }
+            else
+            {
+                Invoke("KeyConnect", 3f);
+            }
+        }
+
+        if ((DataBaseManager.TimeCount == 12 && DataBaseManager.nowPlace == "DetectiveOffice" && Thrid == false))
+        {
+            DataBaseManager.StoryDirecting = true;
+            DirectingManager.Instance.OrganizeKeyword();
+            Thrid = true;
             player.SetActive(false);
             sit_NoNewsPaperPlayer.SetActive(true);
             if (DataBaseManager.isBar == true)
@@ -265,6 +288,13 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.SecondDayDialog = true;
             Invoke("ThirdDayStartDialog", 3f);
         }
+        if (DataBaseManager.TimeCount == 13 && DataBaseManager.SecondDayDialog == false && DataBaseManager.isActiveDialog1 == false)
+        {
+            Debug.Log("작동중");
+            DataBaseManager.SecondDayDialog = true;
+            Invoke("FourthDayStartDialog", 3f);
+        }
+
 
         if (DataBaseManager.AfterSanCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
@@ -390,10 +420,25 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.ThirdDayDreamSan = false;
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "DayTwoCase2San");
         }
+
+
+
+
+        if (DataBaseManager.Day_4_case1San == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.Day_4_case1San = false;
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "Fab_4th_QuestO_SanCheck");
+        }
+
+        if (DataBaseManager.Day_4_case1Health == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.Day_4_case1Health = false;
+            Rollet.Instance.setRollet("Health : Check", "Health", DataBaseManager.hp, "dialog", "Day_4_case1Health");
+        }
+
+
+
         
-
-
-
         if (DataBaseManager.nowHP <= 0 && DataBaseManager.TimeCount >1)  
         {
 
@@ -468,7 +513,11 @@ public class DirectingManager : MonoBehaviour
         Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "ThirdDayStartSan");
 
     }
+    public void FourthDayStartDialog()
+    {
+        Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "FourthDayStartSan");
 
+    }
 
 
 
@@ -547,7 +596,10 @@ public class DirectingManager : MonoBehaviour
         {
             InteractionController.Instance.Start_1st_DetectiveOffice("SecondDream");
         }
-
+        else if (DataBaseManager.TimeCount == 12)
+        {
+            InteractionController.Instance.Start_1st_DetectiveOffice("ThirdNightmare");
+        }
     }
 
     //병원 연출
@@ -722,9 +774,13 @@ public class DirectingManager : MonoBehaviour
         {
             functionList.Add(Fab_2ndConnectStart);
         }
+        else if (DataBaseManager.TimeCount == 12)
+        {
+            functionList.Add(Fab_FirstDialog);
+        }
 
 
-        if(DataBaseManager.Intel_Aiden1 == true && Intel_Aiden1KeyCheck == false)
+        if (DataBaseManager.Intel_Aiden1 == true && Intel_Aiden1KeyCheck == false)
         {
             Intel_Aiden1KeyCheck = true;
             functionList.Add(Fab_Aiden1);
