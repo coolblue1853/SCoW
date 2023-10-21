@@ -10,13 +10,17 @@ public class DataBaseManager : MonoBehaviour
     public static bool secondisDirecting = false;
     public static bool StoryDirecting = false;
 
+    public static bool isSewerOffice = false;
     // 4ÀÏÂ÷MorningMove_2nd
+    public static int battleEnemyCount = 0;
     public static bool MorningMove_2nd = false;
     public static bool MorningMove_4th = false;
     public static bool Day_4_case1San = false;
     public static bool Day_4_case1Health = false;
 
-
+    public static bool SewerDoorOpen = false;
+    public static bool SewerDoorOpenDeftness = false;
+    public static bool SewerDoorOpenCheck = false;
     //
     public static bool MorningMove_3rd = false;
     public static bool ThirdDayDreamSan = false;

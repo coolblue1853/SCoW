@@ -42,6 +42,12 @@ public class PotalPoint : MonoBehaviour
     Vector2 player_2stToRoom = new Vector3(-1567.91f, 2.86f);
     Vector3 Cam_2stTo2Room = new Vector3(-1551.49f, 1.5f, -15);
 
+    // 하수정비시설
+    Vector2 player_SewerInside = new Vector3(-1363.46f, -78.46f);
+    Vector3 Cam_SewerInside = new Vector3(-1374.97f, -81.1f, -15);
+
+    Vector2 player_SewerOutside = new Vector3(-1214.113f, -81f);
+    Vector3 Cam_SewerOutside =  new Vector3(-1222.3f, -81.1f, -15);
     public void Update()
     {
         if (PlayerInTrigger == true)
@@ -107,11 +113,15 @@ public class PotalPoint : MonoBehaviour
                         DataBaseManager.isFirst2st = true;
                         DirectingManager.Instance.FirstUpsair();
                     }
+                    else if (DataBaseManager.nowPlace == "SewerOffice" && this.name == "GoInside" && DataBaseManager.SewerDoorOpenDeftness ==false && DataBaseManager.SewerDoorOpen == false)
+                    {
+
+                    }
                     else
                     {
                         DataBaseManager.isDirecting = true;
                         FadingBackGround.Instance.FadeInOut();
-                        Invoke("MovePlayer", 2);
+                        Invoke("MovePlayer", 1.5f);
                     }
                 }
                
@@ -138,7 +148,7 @@ public class PotalPoint : MonoBehaviour
             player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_LtoR;
-            camera.transform.localPosition = Cam_LtoR ;
+            camera.transform.localPosition = Cam_LtoR;
         }
         else if (this.name == "UtoD")
         {
@@ -183,9 +193,9 @@ public class PotalPoint : MonoBehaviour
         {
             player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = false;
-                player.transform.localPosition = player_2stTo1st;
-                camera.transform.localPosition = Cam_2stTo1st;
-           
+            player.transform.localPosition = player_2stTo1st;
+            camera.transform.localPosition = Cam_2stTo1st;
+
 
 
         }
@@ -197,9 +207,11 @@ public class PotalPoint : MonoBehaviour
             camera.transform.localPosition = Cam_RoomTo2st;
 
         }
+
+
         else if (this.name == "2sttoRoom")
         {
-            if (DataBaseManager.isFirstRoom == true || DataBaseManager.TimeCount >=6)
+            if (DataBaseManager.isFirstRoom == true || DataBaseManager.TimeCount >= 6)
             {
                 player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
                 CameraManager.Instance.isCheckEnd = true;
@@ -217,6 +229,21 @@ public class PotalPoint : MonoBehaviour
             }
 
         }
+        else if (this.name == "GoInside")
+        {
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
+            CameraManager.Instance.isCheckEnd = true;
+            player.transform.localPosition = player_SewerInside;
+            camera.transform.localPosition = Cam_SewerInside;
+        }
+        else if (this.name == "GoOutside")
+        {
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
+            CameraManager.Instance.isCheckEnd = true;
+            player.transform.localPosition = player_SewerOutside;
+            camera.transform.localPosition = Cam_SewerOutside;
+        }
+
         DataBaseManager.isDirecting = true;
         Invoke("ablePotal", 3);
     }

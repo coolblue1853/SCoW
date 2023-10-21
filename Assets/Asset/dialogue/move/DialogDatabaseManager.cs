@@ -38,6 +38,12 @@ public class DialogDatabaseManager : MonoBehaviour
                 csv_FileName = "1st_DailyNews";
                 setDialog();
             }
+            else if (DataBaseManager.nowPlace == "SewerOffice" && Check == true)
+            {
+                Check = false;
+                csv_FileName = "SewerOffice";
+                setDialog();
+            }
             else if (DataBaseManager.nowPlace == "University" && Check == true)
             {
                 Check = false;

@@ -137,13 +137,15 @@ DataBaseManager.gunShotPoint = 50;
                 DataBaseManager.Albert_FirstDialog = true;
        
 
-                DataBaseManager.SecondDayDialog = true;
+
         */
 
-     //   DataBaseManager.Intel_Nightmare3 = true;
-  //      DataBaseManager.Intel_Nightmare4 = true;
-        DataBaseManager.TimeCount = 11;
-
+        //   DataBaseManager.Intel_Nightmare3 = true;
+        //      DataBaseManager.Intel_Nightmare4 = true;
+        DataBaseManager.deftnessPoint = 80;
+        DataBaseManager.dex = 999;
+        DataBaseManager.TimeCount = 2;
+        DataBaseManager.Intel_SewageMaintenanceOffice1 = true;
     }
     public void NewsRollet()
     {

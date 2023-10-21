@@ -217,7 +217,7 @@ public class DirectingManager : MonoBehaviour
             once = true;
             player.SetActive(false);
             sit_NoNewsPaperPlayer.SetActive(true);
-            if (DataBaseManager.isBar == true)
+            if (DataBaseManager.isBar == true || DataBaseManager.isSewerOffice == true)
             {
                 Invoke("KeyConnect", 12f);
             }
@@ -239,7 +239,7 @@ public class DirectingManager : MonoBehaviour
             twice = true;
             player.SetActive(false);
             sit_NoNewsPaperPlayer.SetActive(true);
-            if (DataBaseManager.isBar == true)
+            if (DataBaseManager.isBar == true || DataBaseManager.isSewerOffice == true)
             {
                 Invoke("KeyConnect", 12f);
             }
@@ -260,7 +260,7 @@ public class DirectingManager : MonoBehaviour
             Thrid = true;
             player.SetActive(false);
             sit_NoNewsPaperPlayer.SetActive(true);
-            if (DataBaseManager.isBar == true)
+            if (DataBaseManager.isBar == true || DataBaseManager.isSewerOffice == true)
             {
                 Invoke("KeyConnect", 12f);
             }
@@ -336,6 +336,7 @@ public class DirectingManager : MonoBehaviour
         {
             DataBaseManager.AfterBattle = true;
             DialogDatabaseManager.instance.Check = true;
+
             DataBaseManager.EndBattle = false;
             isGo1stBattle = true;
             DirectingManager.Instance.EndBattle();
@@ -524,7 +525,9 @@ public class DirectingManager : MonoBehaviour
 
 
 
-
+    public GameObject Enemy1;
+    public GameObject Enemy2;
+    public GameObject Enemy3;
 
     // 1일차
 
@@ -545,7 +548,24 @@ public class DirectingManager : MonoBehaviour
     //전투 
     public void GotoBattle()
     {
-
+        if(DataBaseManager.battleEnemyCount == 1)
+        {
+            Enemy1.SetActive(true);
+            Enemy2.SetActive(false);
+            Enemy3.SetActive(false);
+        }
+        else if (DataBaseManager.battleEnemyCount == 2)
+        {
+            Enemy1.SetActive(true);
+            Enemy2.SetActive(true);
+            Enemy3.SetActive(false);
+        }
+        else
+        {
+            Enemy1.SetActive(true);
+            Enemy2.SetActive(true);
+            Enemy3.SetActive(true);
+        }
         DataBaseManager.nowPlace = "BattleRoad";
         BattleManager.Instance.startReload();
         battleUI.SetActive(true);

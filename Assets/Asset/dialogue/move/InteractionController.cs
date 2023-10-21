@@ -458,12 +458,30 @@ public class InteractionController : MonoBehaviour
     public GameObject Fab_4thQuestX_HealthCehckSucc;
     public GameObject Fab_4th_QuestX_HealthCehckFail;
 
+    //하수정비사무소
+
+    public GameObject SewerDoordialog;
+    public GameObject SewerDoorLook;
+    public GameObject SewerDoorPickSucc;
+    public GameObject SewerDoorPickFail;
+
     private void Start()
     {
         //TestNar();
     }
+    public void Start_SewerOffice(string setDialog)
+    {
+        if (setDialog == "SewerDoordialog")
+        {
+            theDM.ShowDialog(SewerDoordialog.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "SewerDoorLook")
+        {
+            theDM.ShowDialog(SewerDoorLook.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
 
-public void Start_2nd_NoonEvent(string setDialog)
+    }
+    public void Start_2nd_NoonEvent(string setDialog)
     {
         if (setDialog == "NoonEvent_FirstDailog_Detective")
         {
@@ -2572,7 +2590,21 @@ public void Start_2nd_NoonEvent(string setDialog)
                 theDM.ShowDialog(Meave_Judge_RhetoricFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
+        if (Sub_Dialog == "Door : Picking doors")
+        {
 
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(SewerDoorPickSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                DataBaseManager.SewerDoorOpenDeftness = true;
+                DataBaseManager.SewerDoorOpenCheck = true;
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+
+                theDM.ShowDialog(SewerDoorPickFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
 
 
         // 2일차 강제이벤트

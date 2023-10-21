@@ -26,7 +26,8 @@ public class Intel_ObtoUI : MonoBehaviour
 
     public void Update()
     {
-        if(DataBaseManager.TimeCount == 8 && this.name == "Meave" && isJudge == false)
+
+        if (DataBaseManager.TimeCount == 8 && this.name == "Meave" && isJudge == false)
         {
             isJudge = true;
         }
@@ -64,6 +65,7 @@ public class Intel_ObtoUI : MonoBehaviour
         {
             if (this.transform.name == DataBaseManager.Select_Object)
             {
+
 
                 if (this.name == "Aiden Triss")
                 {
@@ -194,6 +196,10 @@ public class Intel_ObtoUI : MonoBehaviour
                         {
                             InteractionController.Instance.Start_2nd_NoonEvent(Look_Dilaog);
                         }
+                        if (DataBaseManager.nowPlace == "SewerOffice")
+                        {
+                            InteractionController.Instance.Start_SewerOffice(Look_Dilaog);
+                        }
                     }
 
                     else if (DataBaseManager.NowSelecter == "Judge")
@@ -254,6 +260,11 @@ public class Intel_ObtoUI : MonoBehaviour
                         if (DataBaseManager.nowPlace == "NoonEvent")
                         {
                             InteractionController.Instance.Start_2nd_NoonEvent(Active_Dilaog);
+                        }
+                        if (DataBaseManager.nowPlace == "SewerOffice")
+                        {
+
+                            InteractionController.Instance.Start_SewerOffice(Active_Dilaog);
                         }
                     }
         
@@ -376,7 +387,12 @@ public class Intel_ObtoUI : MonoBehaviour
             isJudge = true;
             Rollet.Instance.setRollet("Maeve : Persuasion", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
         }
-
+        if (DataBaseManager.Select_Object == "GoInside_Dialog")
+        {
+            CanJudge = false;
+            isJudge = true;
+            Rollet.Instance.setRollet("Door : Picking doors", "Deftness", DataBaseManager.deftnessPoint, "dialog");
+        }
 
     }
 
@@ -681,7 +697,10 @@ public class Intel_ObtoUI : MonoBehaviour
             BillowUIManager.Instance.SetIntelUi(name, detail);
         }
     }
-
+    public void ExDetailChange()
+    {
+        BillowUIManager.Instance.SetIntelUi(name, detail);
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {

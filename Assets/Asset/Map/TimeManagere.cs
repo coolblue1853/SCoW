@@ -31,13 +31,42 @@ public class TimeManagere : MonoBehaviour
 
     public Intel_ObtoUI Meave;
 
-    
+    public GameObject SewerDoor_Dialog;
+    public GameObject SewerDoor_Potal;
 
     void Update()
     {
         
 
-        if(DataBaseManager.TimeCount >= 6 && AFNoonEvent.transform.localPosition.y > 30)
+        if((DataBaseManager.TimeCount % 4 == 1 )|| (DataBaseManager.TimeCount % 4 == 2) && DataBaseManager.SewerDoorOpen == false)
+        {
+            DataBaseManager.SewerDoorOpen = true;
+            SewerDoor_Potal.transform.localPosition = new Vector3(-65.10986f, 5, 0);
+            SewerDoor_Dialog.transform.localPosition = new Vector3(-65.10986f, 33, 0);
+        }
+        if ((DataBaseManager.TimeCount % 4 == 3) || (DataBaseManager.TimeCount % 4 == 0) && DataBaseManager.SewerDoorOpen == true)
+        {
+            DataBaseManager.SewerDoorOpen = false;
+            if (DataBaseManager.SewerDoorOpenDeftness == true)
+            {
+                SewerDoor_Potal.transform.localPosition = new Vector3(-65.10986f, 5, 0);
+                SewerDoor_Dialog.transform.localPosition = new Vector3(-65.10986f, 33, 0);
+            }
+            else
+            {
+                SewerDoor_Potal.transform.localPosition = new Vector3(-65.10986f, 33, 0);
+                SewerDoor_Dialog.transform.localPosition = new Vector3(-65.10986f, 5, 0);
+            }
+        }
+        if ( DataBaseManager.SewerDoorOpenCheck == true)
+        {
+            DataBaseManager.SewerDoorOpenCheck = false;
+            SewerDoor_Potal.transform.localPosition = new Vector3(-65.10986f, 5, 0);
+            SewerDoor_Dialog.transform.localPosition = new Vector3(-65.10986f, 33, 0);
+
+        }
+        
+        if (DataBaseManager.TimeCount >= 6 && AFNoonEvent.transform.localPosition.y > 30)
         {
             BFNoonEvent.transform.localPosition = new Vector3(0, 60, 0);
             AFNoonEvent.transform.localPosition = new Vector3(0, 0, 0);

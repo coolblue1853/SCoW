@@ -537,15 +537,15 @@ public class BattleManager : MonoBehaviour
         SoundManager.Instance.ClickSound_Play();
         EnemyCount = 0;
         RunAwayObject.SetActive(true);
-        if (EnemyTrunSymbol_1.activeSelf == true)
+        if (DeepOneHybrid1_Object.activeSelf == true)
         {
             EnemyCount += 1;
         }
-        if( EnemyTrunSymbol_2.activeSelf == true) 
+        if(DeepOneHybrid2_Object.activeSelf == true) 
         {
             EnemyCount += 1;
         }
-        if(EnemyTrunSymbol_3.activeSelf == true)
+        if(DeepOneHybrid3_Object.activeSelf == true)
         {
             EnemyCount += 1;
         }

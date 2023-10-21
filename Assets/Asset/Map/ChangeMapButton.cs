@@ -13,10 +13,12 @@ public class ChangeMapButton : MonoBehaviour
             DataBaseManager.nowPlace = "NoonEvent";
         }
 
-        else if(this.name == "DetectiveOffice" && DataBaseManager.isBar == true)
+        else if(this.name == "DetectiveOffice" && (DataBaseManager.isBar == true || DataBaseManager.isSewerOffice == true))
         {
-            MapManager.Instance.MapOn();
+            
             DataBaseManager.nowPlace = "BattleRoad";
+            MapManager.Instance.MapOn();
+
         }
         else
         {
