@@ -392,7 +392,7 @@ public class MapManager : MonoBehaviour
 
     public void OpenMap()
     {
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad" && DataBaseManager.isOpenMap == false)
+        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false&& DataBaseManager.potalWait == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad" && DataBaseManager.isOpenMap == false)
         {
             SoundManager.Instance.PaperClip_Play();
             DataBaseManager.workSound = false;
@@ -680,7 +680,14 @@ public class MapManager : MonoBehaviour
             text.text = "14/7/1921-Night";
         }
     }
+    Vector2 player_SewerInside = new Vector3(-1363.46f, -78.46f);
+    Vector3 Cam_SewerInside = new Vector3(-1374.97f, -81.1f, -15);
 
+    public void WindowFabianMove()
+    {
+        player.transform.localPosition = player_SewerInside;
+        camera.transform.localPosition = Cam_SewerInside;
+    }
     public void BarFabianMove()
     {
         player.transform.localPosition = player_BarMeaveMove;

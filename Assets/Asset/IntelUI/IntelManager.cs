@@ -72,8 +72,32 @@ public class IntelManager : MonoBehaviour
                 clone.transform.SetParent(FloatingPlace2.transform);
                 clone.transform.localScale = new Vector3(1, 1, 1);
             }
-        }
 
+
+
+            
+        }
+        if (Category == "Item")
+        {
+            if (FloatingPlace.transform.childCount == 0)
+            {
+                var clone = Instantiate(FloatingTextObject, FloatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().Text.text = "(" + detail + ")".ToString();
+                clone.transform.SetParent(FloatingPlace.transform);
+                clone.transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (FloatingPlace.transform.childCount == 1)
+            {
+                var clone = Instantiate(FloatingTextObject, FloatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().Text.text = "(" + detail + ")".ToString();
+                clone.transform.SetParent(FloatingPlace2.transform);
+                clone.transform.localScale = new Vector3(1, 1, 1);
+            }
+
+
+
+            
+        }
     }
     public void QuitIntelWindow()
     {
@@ -129,7 +153,7 @@ public class IntelManager : MonoBehaviour
     
     public void OpenSetting()
     {
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isOpenMap == false)
+        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.potalWait == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isOpenMap == false)
         {
             SoundManager.Instance.PaperClip_Play();
             DataBaseManager.isOpenUi = true;

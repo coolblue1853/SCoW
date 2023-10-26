@@ -26,11 +26,41 @@ public class Player : MonoBehaviour
 
 
 	}
-
-    // Update is called once per frame
-    private void Update()
+	public void CheckChangeCoat()
+    {
+		anime.SetBool("Coat", false);
+	}
+	public void CheckChangeNomal()
 	{
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false )
+		anime.SetBool("Nomal", false);
+	}
+	bool CoatCheckOn = false;
+	bool CoatCheckOff = false;
+	// Update is called once per frame
+	private void Update()
+	{
+		if (DataBaseManager.WearCoat == true && CoatCheckOff == false)
+		{
+			Debug.Log("ssddff22");
+			CoatCheckOn = false;
+			CoatCheckOff = true;
+			anime.SetBool("IsChange", true);
+			anime.SetBool("Coat", true);
+
+		}
+
+
+		if (DataBaseManager.WearCoat == false && CoatCheckOn == false)
+        {
+			Debug.Log("ssddff");
+			CoatCheckOn = true;
+			CoatCheckOff = false;
+			anime.SetBool("Nomal", true);
+			anime.SetBool("IsChange", false);
+		}
+
+
+			if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false )
 		{
 			anime.SetBool("Dialog", false);
 			runAndWalkChanger();
@@ -66,7 +96,7 @@ public class Player : MonoBehaviour
 	void Move()
 	{
 		Vector3 moveVelocity = Vector3.zero;
-
+		/*
 		if (Input.GetAxisRaw("Horizontal") < 0 && Input.GetKey(KeyCode.Z))
 		{
 			DataBaseManager.workSound = true;
@@ -81,6 +111,7 @@ public class Player : MonoBehaviour
 			transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
 			//X값 스케일을 1로 주어 다시 원위치 
 		}
+		*/
 
 		if (Input.GetAxisRaw("Horizontal") < 0 )
 		{

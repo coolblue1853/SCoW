@@ -63,7 +63,7 @@ public class FadingBackGround : MonoBehaviour
         .SetDelay(0.1f)
         .Append(CastOutBackground.DOFillAmount(0, 0.7f).SetAutoKill());
         yield return mySequence2.WaitForCompletion();
-        DataBaseManager.isDirecting = false;
+       DataBaseManager.isDirecting = false;
         CastOut.SetActive(false);
         CastInBackground.fillAmount = 0;
         CastOutBackground.fillAmount = 1;

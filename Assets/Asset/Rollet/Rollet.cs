@@ -507,9 +507,13 @@ public class Rollet : MonoBehaviour
             }
             if (DataBaseManager.nowItem == "Safe")
             {
-                DataBaseManager.isUseSafe = true;
                 InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
             }
+            if (DataBaseManager.nowItem == "Coat")
+            {
+                InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
+            }
+
         }
         
         if (Subject == "MS_attack")

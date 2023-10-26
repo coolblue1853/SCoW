@@ -459,11 +459,49 @@ public class InteractionController : MonoBehaviour
     public GameObject Fab_4th_QuestX_HealthCehckFail;
 
     //하수정비사무소
-
     public GameObject SewerDoordialog;
     public GameObject SewerDoorLook;
     public GameObject SewerDoorPickSucc;
     public GameObject SewerDoorPickFail;
+    public GameObject Window_dialog_BFNoon;
+    public GameObject Window_lookBFNoon;
+    public GameObject Window_dialog_AFNoon;
+    public GameObject Window_lookAFNoon;
+    public GameObject Window_JudgeBreakSucc;
+    public GameObject Window_JudgeBreakFail;
+
+    public GameObject Loker_dialog_BFNoon;
+    public GameObject Loker_look_BFNoon;
+    public GameObject Loker_dialog_AFNoon;
+    public GameObject Loker_look_AFNoon;
+    public GameObject Loker_Judge_ObservationSucc;
+    public GameObject Loker_Judge_ObservationFail;
+
+    public GameObject Map_dialog_BFNoon;
+    public GameObject Map_look_BFNoon;
+    public GameObject Map_dialog_AFNoon;
+    public GameObject Map_look_AFNoon;
+    public GameObject Item_CoatLook;
+    public GameObject Item_DiaguiseSucc;
+    public GameObject Item_DiaguiseFail;
+    public GameObject Item_MapLook;
+
+    public GameObject BlackWell_FirstDialog;
+    public GameObject BlackWell_Dialog;
+    public GameObject BlackWell_DialogLook;
+    public GameObject BlackWell_Judege_RheticSucc;
+    public GameObject BlackWell_Judege_RheticFail;
+    public GameObject BlackWell_Judege_DeftnessSucc;
+    public GameObject BlackWell_Judege_DeftnessFail;
+    public GameObject BlackWell_Key_WarnRoot;
+    public GameObject BlackWell_Key_Witness;
+    public GameObject BlackWell_Key_runway;
+    public GameObject BlackWell_Key_Fishysmell;
+    public GameObject BlackWell_Key_Fail;
+    public GameObject AfterJudgeLookLocker;
+
+
+    public GameObject SewergeKey_Look;
 
     private void Start()
     {
@@ -480,6 +518,99 @@ public class InteractionController : MonoBehaviour
             theDM.ShowDialog(SewerDoorLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
 
+        if(setDialog == "Window_dialog")
+        {
+            if(DataBaseManager.TimeCount%4 == 1|| DataBaseManager.TimeCount % 4 == 2)
+            {
+                theDM.ShowDialog(Window_dialog_BFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Window_dialog_AFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (setDialog == "Window_look")
+        {
+            if (DataBaseManager.TimeCount % 4 == 1 || DataBaseManager.TimeCount % 4 == 2)
+            {
+                theDM.ShowDialog(Window_lookBFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Window_lookAFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (setDialog == "Map_dialog")
+        {
+            if (DataBaseManager.TimeCount % 4 == 1 || DataBaseManager.TimeCount % 4 == 2)
+            {
+                theDM.ShowDialog(Map_dialog_BFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Map_dialog_AFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (setDialog == "Map_look")
+        {
+            if (DataBaseManager.TimeCount % 4 == 1 || DataBaseManager.TimeCount % 4 == 2)
+            {
+                theDM.ShowDialog(Map_look_BFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Map_look_AFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+
+        if (setDialog == "Locker_dialog")
+        {
+            if (DataBaseManager.TimeCount % 4 == 1 || DataBaseManager.TimeCount % 4 == 2)
+            {
+                theDM.ShowDialog(Loker_dialog_BFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Loker_dialog_AFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
+        }
+        if (setDialog == "Locker_look")
+        {
+            if (DataBaseManager.TimeCount % 4 == 1 || DataBaseManager.TimeCount % 4 == 2)
+            {
+                if(DataBaseManager.Black_RechSucc_CanTalck == true)
+                {
+                    theDM.ShowDialog(AfterJudgeLookLocker.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Loker_look_BFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+       
+            }
+            else
+            {
+                theDM.ShowDialog(Loker_look_AFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (setDialog == "BlackWell_dialog")
+        {
+            if(DataBaseManager.Black_FirstDialog == false)
+            {
+                DataBaseManager.Black_FirstDialog = true;
+                theDM.ShowDialog(BlackWell_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(BlackWell_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+
+        }
+        if (setDialog == "BlackWell_look")
+        {
+            theDM.ShowDialog(BlackWell_DialogLook.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
     }
     public void Start_2nd_NoonEvent(string setDialog)
     {
@@ -654,9 +785,22 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(Bracelet_Look.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+        if (setDialog == "Coat_Look")
+        {
+            theDM.ShowDialog(Item_CoatLook.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "SewergeKey_Look")
+        {
+            theDM.ShowDialog(SewergeKey_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
 
-        
-    }
+        if (setDialog == "Map_Look")
+        {
+            theDM.ShowDialog(Item_MapLook.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+
+}
     // 1st
 
     public void Start_1st_DetectiveOffice(string setDialog)
@@ -1281,8 +1425,10 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(Sewer_Observation_SucssesAfterSanSuc.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-        
-}
+
+
+
+    }
 
     public void Start_1st_Hospital(string setDialog)
     {
@@ -2361,7 +2507,37 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(Dave_Key_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
+        if (setDialog == "BlackWell")
+        {
 
+            if(DataBaseManager.Black_RechSucc_CanTalck == true)
+            {
+                if (DataBaseManager.keyword_downer == "Source speculation" || DataBaseManager.keyword_downer == "Sewer & FishySmell" || DataBaseManager.keyword_downer == "Cause of Fishy smell")
+                {
+                    theDM.ShowDialog(BlackWell_Key_Fishysmell.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else if(DataBaseManager.keyword_downer == "Root of problem" || DataBaseManager.keyword_downer == "Aiden's warning")
+                {
+                    theDM.ShowDialog(BlackWell_Key_WarnRoot.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else if (DataBaseManager.keyword_downer == "Witness Testimony")
+                {
+                    theDM.ShowDialog(BlackWell_Key_Witness.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else if (DataBaseManager.keyword_downer == "Way to Escape")
+                {
+                    theDM.ShowDialog(BlackWell_Key_runway.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(BlackWell_Key_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+            }
+            else
+            {
+                theDM.ShowDialog(BlackWell_Key_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
     }
 
     //전투
@@ -2605,8 +2781,39 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(SewerDoorPickFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
+        if (Sub_Dialog == "Window : Break")
+        {
+            DataBaseManager.SewerDoorOpenDeftness = true;
+            DataBaseManager.SewerDoorOpenCheck = true;
+            DataBaseManager.isSewerOfficeBrokenWindow = true;
+            DataBaseManager.TryBrokenWindow = true;
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(Window_JudgeBreakSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                DataBaseManager.MoveSewerOfficeWindow = true;
+
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+                theDM.ShowDialog(Window_JudgeBreakFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                DataBaseManager.MoveSewerOfficeWindow = true;
+            }
+        }
+        if (Sub_Dialog == "Locker : Take a Look")
+        {
+            DataBaseManager.TryObserLokcer = true;
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(Loker_Judge_ObservationSucc.transform.GetComponent<interactionEvent>().GetDialogs());
 
 
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+                theDM.ShowDialog(Loker_Judge_ObservationFail.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
+        }
         // 2일차 강제이벤트
         if (Sub_Dialog == "DeadBody : Diagnosis")
         {
@@ -2758,7 +2965,7 @@ public class InteractionController : MonoBehaviour
         //Item
         if (Sub_Dialog == "Safe : Open")
         {
-
+            DataBaseManager.isUseSafe = true;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
 
@@ -2771,9 +2978,23 @@ public class InteractionController : MonoBehaviour
             }
         }
 
+        if (Sub_Dialog == "Coat : Disguise")
+        {
+            DataBaseManager.JudgeCoat_TryDisguise = true;
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                DataBaseManager.WearCoat = true;
+                theDM.ShowDialog(Item_DiaguiseSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+                theDM.ShowDialog(Item_DiaguiseFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
 
         // 이성판정
-      
+
         if (Sub_Dialog == "Case2IntCheck")
         {
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
@@ -2852,8 +3073,31 @@ public class InteractionController : MonoBehaviour
         }
 
 
-
-
+        if (Sub_Dialog == "Warden : Steal")
+        {
+            DataBaseManager.Black_Deftness = true;
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(BlackWell_Judege_DeftnessSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+                theDM.ShowDialog(BlackWell_Judege_DeftnessFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (Sub_Dialog == "Warden : Persuade")
+        {
+            DataBaseManager.Black_Rhethic = true;
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                DataBaseManager.Black_RechSucc_CanTalck = true;
+                theDM.ShowDialog(BlackWell_Judege_RheticSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+                theDM.ShowDialog(BlackWell_Judege_RheticFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
     }
 
 

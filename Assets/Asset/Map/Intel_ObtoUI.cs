@@ -47,8 +47,12 @@ public class Intel_ObtoUI : MonoBehaviour
         {
             Set_DeadBody();
         }
+        else if (this.name == "BlackWell")
+        {
+            Set_BlackWell();
+        }
 
-
+   
         if (DataBaseManager.CancelJudge == true)
         {
             CancelJudge();
@@ -75,6 +79,10 @@ public class Intel_ObtoUI : MonoBehaviour
                 else if (this.name == "DeadBody")
                 {
 
+                    Arrow.SetActive(true);
+                }
+                else if (this.name == "BlackWell")
+                {
                     Arrow.SetActive(true);
                 }
                 else
@@ -348,8 +356,7 @@ public class Intel_ObtoUI : MonoBehaviour
             Rollet.Instance.setRollet("Police : Persuasion", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
         }
 
-
-        if (DataBaseManager.Select_Object == "DeadBody")
+            if (DataBaseManager.Select_Object == "DeadBody")
         {
             if (DataBaseManager.DeadBody_medicine == false)
             {
@@ -393,9 +400,72 @@ public class Intel_ObtoUI : MonoBehaviour
             isJudge = true;
             Rollet.Instance.setRollet("Door : Picking doors", "Deftness", DataBaseManager.deftnessPoint, "dialog");
         }
-
+        if (DataBaseManager.Select_Object == "Window")
+        {
+            CanJudge = false;
+            isJudge = true;
+            Rollet.Instance.setRollet("Window : Break", "STR", DataBaseManager.str, "dialog");
+        }
+        if (DataBaseManager.Select_Object == "Locker")
+        {
+            CanJudge = false;
+            isJudge = true;
+            Rollet.Instance.setRollet("Locker : Take a Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+        }
+        if (DataBaseManager.Select_Object == "BlackWell")
+        {
+            if (DataBaseManager.Black_Deftness == false)
+            {
+                BlackWellJudge = "deftness";
+                Rollet.Instance.setRollet("Warden : Steal", "Deftness", DataBaseManager.deftnessPoint, "dialog");
+            }
+            else if (DataBaseManager.Black_Rhethic == false)
+            {
+                BlackWellJudge = "rhetoric";
+                Rollet.Instance.setRollet("Warden : Persuade", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
+            }
+        }
     }
+    string BlackWellJudge;
+    void Set_BlackWell()
+    {
 
+        if (DataBaseManager.Black_Rhethic == true && DataBaseManager.Black_Deftness == true)
+        {
+            CanJudge = false;
+            isJudge = true;
+        }
+
+        if (Rollet.Instance.RolletSetUi.activeSelf == true)
+        {
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
+            {
+                if (BlackWellJudge == "deftness")
+                {
+                    if (DataBaseManager.Black_Rhethic == false)
+                    {
+                        BlackWellJudge = "rhetoric";
+                        Rollet.Instance.setRollet("Warden : Persuade", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
+                    }
+      
+                }
+                else if (BlackWellJudge == "rhetoric")
+                {
+                    if (DataBaseManager.Black_Deftness == false)
+                    {
+                        BlackWellJudge = "deftness";
+                        Rollet.Instance.setRollet("Warden : Steal", "Deftness", DataBaseManager.deftnessPoint, "dialog");
+                    }
+               
+                }
+              
+           
+           
+
+              
+            }
+        }
+    }
     string AidenJudge;
 
     void Set_Aiden()

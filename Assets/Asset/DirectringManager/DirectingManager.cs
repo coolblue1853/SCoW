@@ -13,6 +13,7 @@ public class DirectingManager : MonoBehaviour
     public GameObject Back;
     public Image BackGround;
 
+
     float ChInRommSize = 2.383215f; // -이면 왼쪽 +면 오른쪽
     Vector2 player_OutsideTo1st = new Vector3(-1217.79f, 2.13f);
     Vector3 Cam_OutsideTo1st = new Vector3(-1198, 1.5f, -15);
@@ -105,7 +106,15 @@ public class DirectingManager : MonoBehaviour
 
     void startGame()
     {
-        InteractionController.Instance.Start_1st_DetectiveOffice("start");
+        if(DataBaseManager.isTest == false)
+        {
+            InteractionController.Instance.Start_1st_DetectiveOffice("start");
+        }
+        else
+        {
+            DataBaseManager.fst_Detective_EndFirstDialog = true;
+        }
+
     }
     bool isGo1stBattle;
     // Update is called once per frame
@@ -437,9 +446,20 @@ public class DirectingManager : MonoBehaviour
             Rollet.Instance.setRollet("Health : Check", "Health", DataBaseManager.hp, "dialog", "Day_4_case1Health");
         }
 
+        if (DataBaseManager.MoveSewerOfficeWindow == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.MoveSewerOfficeWindow = false;
+            Invoke("WindowMove", 1.5f);
+            FadingBackGround.Instance.FadeInOut();
+
+        }
+
 
 
         
+
+
+
         if (DataBaseManager.nowHP <= 0 && DataBaseManager.TimeCount >1)  
         {
 
@@ -450,6 +470,14 @@ public class DirectingManager : MonoBehaviour
         
     }
     bool once = false;
+
+
+    public void WindowMove()
+    {
+        
+        MapManager.Instance.WindowFabianMove();
+    }
+
 
     public void BarMove()
     {

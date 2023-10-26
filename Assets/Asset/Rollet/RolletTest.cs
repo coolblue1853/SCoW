@@ -74,7 +74,7 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.rhetoricPoint = 80;
 
 
-        /*
+
         DataBaseManager.Intel_MurderCase1 = true;
         DataBaseManager.Intel_MurderCase2 = true;
         DataBaseManager.Intel_MurderCase3 = true;
@@ -135,17 +135,22 @@ DataBaseManager.gunShotPoint = 50;
 
 
                 DataBaseManager.Albert_FirstDialog = true;
-       
 
 
-        */
+
+        DataBaseManager.rhetoricPoint = 11;
 
         //   DataBaseManager.Intel_Nightmare3 = true;
         //      DataBaseManager.Intel_Nightmare4 = true;
-        DataBaseManager.deftnessPoint = 80;
+        DataBaseManager.deftnessPoint = 11;
+        DataBaseManager.DisguisePoint = 11;
         DataBaseManager.dex = 999;
-        DataBaseManager.TimeCount = 2;
+        DataBaseManager.ObservationPoint = 11;
+   //     DataBaseManager.GainMap = true;
+        DataBaseManager.TimeCount = 1;
         DataBaseManager.Intel_SewageMaintenanceOffice1 = true;
+        DataBaseManager.isTest = true;
+      //  DataBaseManager.GainCoat = true;
     }
     public void NewsRollet()
     {
@@ -287,7 +292,11 @@ DataBaseManager.gunShotPoint = 50;
         }
         if (Input.GetKeyDown(KeyCode.F6))
         {
-
+            DataBaseManager.WearCoat = true;
+        }
+        if (Input.GetKeyDown(KeyCode.F7))
+        {
+            DataBaseManager.WearCoat = false;
         }
 
         if (Input.GetKeyDown(KeyCode.P))

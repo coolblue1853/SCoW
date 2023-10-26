@@ -9,9 +9,10 @@ public class KeyItemBox : MonoBehaviour
     Image imageComponent;
     public Sprite Safe;
     public Sprite Bracelet;
-
-    public Sprite None;
-
+    public Sprite Coat;
+    public Sprite SewergeKey;
+    public Sprite None; 
+            public Sprite Map;
 
     public GameObject SISUI;
     public TextMeshProUGUI UseUI_Text;
@@ -50,15 +51,43 @@ public class KeyItemBox : MonoBehaviour
             InteractionController.Instance.Start_Safe_Look("Bracelet_Look");
             SISUI.SetActive(false);
         }
+        if (DataBaseManager.nowItem == "Coat")
+        {
+            DataBaseManager.isOpenUi = false;
+
+            InteractionController.Instance.Start_Safe_Look("Coat_Look");
+            SISUI.SetActive(false);
+        }
+        if (DataBaseManager.nowItem == "Sewerge Key")
+        {
+            DataBaseManager.isOpenUi = false;
+
+            InteractionController.Instance.Start_Safe_Look("SewergeKey_Look");
+            SISUI.SetActive(false);
+        }
+        if (DataBaseManager.nowItem == "Map")
+        {
+            DataBaseManager.isOpenUi = false;
+
+            InteractionController.Instance.Start_Safe_Look("Map_Look");
+            SISUI.SetActive(false);
+        }
     }
 
     public void UseButton()
     {
-        if (DataBaseManager.nowItem == "Safe")
+        if (DataBaseManager.nowItem == "Safe" && DataBaseManager.JudgeSafe_TryOpen == false)
         {
             DataBaseManager.isOpenUi = false;
 
             Rollet.Instance.setRollet("Safe : Open", "Deftness-20", DataBaseManager.deftnessPoint - 20, "Item");
+            SISUI.SetActive(false);
+        }
+        if (DataBaseManager.nowItem == "Coat" && DataBaseManager.JudgeCoat_TryDisguise == false)
+        {
+            DataBaseManager.isOpenUi = false;
+
+            Rollet.Instance.setRollet("Coat : Disguise", "Disguise", DataBaseManager.DisguisePoint, "Item");
             SISUI.SetActive(false);
         }
     }
@@ -82,7 +111,32 @@ public class KeyItemBox : MonoBehaviour
         else if (DataBaseManager.nowItem == "Bracelet")
         {
             imageComponent.sprite = Bracelet;
-            Use_B.SetActive(true);
+            Use_B.SetActive(false);
+
+        }
+        else if (DataBaseManager.nowItem == "Sewerge Key")
+        {
+            imageComponent.sprite = SewergeKey;
+            Use_B.SetActive(false);
+
+        }
+        else if (DataBaseManager.nowItem == "Coat")
+        {
+            imageComponent.sprite = Coat;
+            if (DataBaseManager.JudgeCoat_TryDisguise == true)
+            {
+                Use_B.SetActive(false);
+            }
+            else
+            {
+                Use_B.SetActive(true);
+            }
+
+        }
+        else if (DataBaseManager.nowItem == "Map")
+        {
+            imageComponent.sprite = Map;
+            Use_B.SetActive(false);
 
         }
         else

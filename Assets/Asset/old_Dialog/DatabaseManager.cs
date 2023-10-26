@@ -4,6 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    public static bool potalWait = false;
+    public static bool Black_RechSucc_CanTalck = false;
+    public static bool Black_Deftness = false;
+    public static bool Black_Rhethic = false;
+
+    public static bool Black_FirstDialog = false;
+    public static bool Map_Looked = false;
+    public static bool Map_FirstDialog = false;
+    public static bool SewerageKey = false;
+    public static bool isTest = false;
+    public static bool JudgeSafe_TryOpen = false;
+    public static bool JudgeCoat_TryDisguise = false;
+    public static bool GainCoat = false;
+    public static bool GainMap = false;
+    public static bool WearCoat = false;
     public static bool Set_IntelCharDetail = false;
 
     public static bool isOpenMap = false;
@@ -11,6 +26,11 @@ public class DataBaseManager : MonoBehaviour
     public static bool StoryDirecting = false;
 
     public static bool isSewerOffice = false;
+    public static bool isSewerOfficeBrokenWindow = false;
+    public static bool TryBrokenWindow = false;
+    public static bool TryObserLokcer = false;
+    public static bool MoveSewerOfficeWindow = false;
+
     // 4ÀÏÂ÷MorningMove_2nd
     public static int battleEnemyCount = 0;
     public static bool MorningMove_2nd = false;

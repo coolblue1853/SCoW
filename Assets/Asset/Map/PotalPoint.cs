@@ -52,7 +52,7 @@ public class PotalPoint : MonoBehaviour
     {
         if (PlayerInTrigger == true)
         {
-            if (Input.GetKeyDown(KeyCode.F) && DataBaseManager.isDirecting == false && DataBaseManager.isActiveDialog1 == false)
+            if (Input.GetKeyDown(KeyCode.F) && DataBaseManager.isDirecting == false && DataBaseManager.isActiveDialog1 == false && DataBaseManager.potalWait == false)
             {
                 if ((DataBaseManager.nowPlace == "Client'shouse"|| DataBaseManager.nowPlace == "NoonEvent") && DataBaseManager.TimeCount >= 6)
                 {
@@ -135,9 +135,12 @@ public class PotalPoint : MonoBehaviour
     }
     void MovePlayer()
     {
+        DataBaseManager.potalWait = true;
         //°­°¡
         if (this.name == "RtoL")
         {
+
+            DataBaseManager.isDirecting = true;
             player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_RtoL;
@@ -145,6 +148,7 @@ public class PotalPoint : MonoBehaviour
         }
         else if (this.name == "LtoR")
         {
+            DataBaseManager.isDirecting = true;
             player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_LtoR;
@@ -152,6 +156,7 @@ public class PotalPoint : MonoBehaviour
         }
         else if (this.name == "UtoD")
         {
+            DataBaseManager.isDirecting = true;
             player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_UtoD;
@@ -159,6 +164,7 @@ public class PotalPoint : MonoBehaviour
         }
         else if (this.name == "DtoU")
         {
+            DataBaseManager.isDirecting = true;
             player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_DtoU;
@@ -167,6 +173,7 @@ public class PotalPoint : MonoBehaviour
         //Áý
         else if (this.name == "to1st")
         {
+            DataBaseManager.isDirecting = true;
             player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_OutsideTo1st;
@@ -175,6 +182,7 @@ public class PotalPoint : MonoBehaviour
         }
         else if (this.name == "toOustside")
         {
+            DataBaseManager.isDirecting = true;
             player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_1stToOutside;
@@ -183,6 +191,7 @@ public class PotalPoint : MonoBehaviour
         }
         else if (this.name == "1stto2st")
         {
+            DataBaseManager.isDirecting = true;
             player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_1stTo2st;
@@ -191,6 +200,7 @@ public class PotalPoint : MonoBehaviour
         }
         else if (this.name == "2stto1st")
         {
+            DataBaseManager.isDirecting = true;
             player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = false;
             player.transform.localPosition = player_2stTo1st;
@@ -201,6 +211,7 @@ public class PotalPoint : MonoBehaviour
         }
         else if (this.name == "Roomto2st")
         {
+            DataBaseManager.isDirecting = true;
             player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_RoomTo2st;
@@ -213,6 +224,7 @@ public class PotalPoint : MonoBehaviour
         {
             if (DataBaseManager.isFirstRoom == true || DataBaseManager.TimeCount >= 6)
             {
+                DataBaseManager.isDirecting = true;
                 player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
                 CameraManager.Instance.isCheckEnd = true;
                 player.transform.localPosition = player_2stToRoom;
@@ -220,6 +232,7 @@ public class PotalPoint : MonoBehaviour
             }
             else
             {
+                DataBaseManager.isDirecting = true;
                 player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
                 DataBaseManager.isFirstRoom = true;
                 CameraManager.Instance.isCheckEnd = true;
@@ -231,6 +244,7 @@ public class PotalPoint : MonoBehaviour
         }
         else if (this.name == "GoInside")
         {
+            DataBaseManager.isDirecting = true;
             player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_SewerInside;
@@ -238,14 +252,15 @@ public class PotalPoint : MonoBehaviour
         }
         else if (this.name == "GoOutside")
         {
+            DataBaseManager.isDirecting = true;
             player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_SewerOutside;
             camera.transform.localPosition = Cam_SewerOutside;
         }
 
-        DataBaseManager.isDirecting = true;
-        Invoke("ablePotal", 3);
+
+        Invoke("ablePotal", 2f);
     }
 
 
@@ -267,6 +282,7 @@ public class PotalPoint : MonoBehaviour
 
     void ablePotal()
     {
+        DataBaseManager.potalWait = false;
         DataBaseManager.isDirecting = false;
     }
 

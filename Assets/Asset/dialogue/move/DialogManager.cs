@@ -541,6 +541,7 @@ public class DialogManager : MonoBehaviour
                                     {
                                         DataBaseManager.Intel_Safe2 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "Safe - Acquiring a Safe");
+                                        IntelManager.Instance.AddIntelFloating("Item", "KeyItem - Safe");
                                     }
 
                                 }
@@ -1197,16 +1198,75 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '⑦')
                     {
-
+                        DataBaseManager.MoveSewerOfficeWindow = true;
                     }
                     if (t_ReplaceText[i + 1] == '⑧')
                     {
-
+                        BillowUIManager.Instance.HP_down(5);
+                    }
+                    if (t_ReplaceText[i + 1] == '⑧')
+                    {
+                        BillowUIManager.Instance.HP_down(5);
                     }
 
                     t_ignore = true;
                     break;
+                case '⊙':// 연출 관련
 
+                    if (t_ReplaceText[i + 1] == '①')
+                    {
+                        if (DataBaseManager.GainCoat == false)
+                        {
+                            IntelManager.Instance.AddIntelFloating("Item", "KeyItem - Coat");
+                            DataBaseManager.GainCoat = true;
+                        }
+
+                    }
+                    if (t_ReplaceText[i + 1] == '②')
+                    {
+                        if (DataBaseManager.SewerageKey == false)
+                        {
+                            IntelManager.Instance.AddIntelFloating("Item", "KeyItem - SewerageKey");
+                            DataBaseManager.SewerageKey = true;
+                        }
+                            
+                    }
+                    if (t_ReplaceText[i + 1] == '③')
+                    {
+                        if (DataBaseManager.GainMap == false)
+                        {
+                            IntelManager.Instance.AddIntelFloating("Item", "KeyItem - Map");
+                            DataBaseManager.GainMap = true;
+                        }
+                    }
+                    if (t_ReplaceText[i + 1] == '④')
+                    {
+
+
+                    }
+                    if (t_ReplaceText[i + 1] == '⑤')
+                    {
+
+                    }
+                    if (t_ReplaceText[i + 1] == '⑥')
+                    {
+
+                    }
+                    if (t_ReplaceText[i + 1] == '⑦')
+                    {
+
+                    }
+                    if (t_ReplaceText[i + 1] == '⑧')
+                    {
+  
+                    }
+                    if (t_ReplaceText[i + 1] == '⑧')
+                    {
+            
+                    }
+
+                    t_ignore = true;
+                    break;
                 case '⒭':
                     theSpriteManager.allReset();
                     t_ignore = true;
@@ -1260,17 +1320,17 @@ public class DialogManager : MonoBehaviour
                 case '5': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
                 case '6': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
                 //case '0': if (t_ReplaceText[i + 1] == '§') { t_ignore = true; } if (t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '①': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '②': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '③': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' || t_ReplaceText[i - 1] == '♠') { t_ignore = true; } break;
-                case '④': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
-                case '⑤': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '⑥': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '⑦': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '⑧': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '⑨': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '⑩': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-                case '⑫': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '①': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '⊙' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
+                case '②': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '⊙' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '☆' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
+                case '③': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '⊙' || t_ReplaceText[i - 1] == '★' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '◎' || t_ReplaceText[i - 1] == '♠') { t_ignore = true; } break;
+                case '④': if (t_ReplaceText[i - 1] == '⑩' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '⊙' || t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '◎') { t_ignore = true; } break;
+                case '⑤': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '⊙' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑥': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '⊙' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑦': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '⊙' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑧': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '⊙' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑨': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '⊙' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i - 1] == '◎' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑩': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '⊙' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
+                case '⑫': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '⊙' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
             
                 case 'ⓐ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
                 case 'ⓒ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;

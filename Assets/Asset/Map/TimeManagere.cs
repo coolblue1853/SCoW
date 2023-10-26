@@ -34,18 +34,29 @@ public class TimeManagere : MonoBehaviour
     public GameObject SewerDoor_Dialog;
     public GameObject SewerDoor_Potal;
 
+    public Intel_ObtoUI SewerOfficeWindow;
+    public Intel_ObtoUI SewerOfficeLocker;
+    public Intel_ObtoUI BlackWell;
+    public GameObject BlackWell_OB;
     void Update()
     {
-        
+        if(DataBaseManager.Black_RechSucc_CanTalck == true && BlackWell.CanKeyword ==false)
+        {
+            BlackWell.CanKeyword = true;
+        }
 
         if((DataBaseManager.TimeCount % 4 == 1 )|| (DataBaseManager.TimeCount % 4 == 2) && DataBaseManager.SewerDoorOpen == false)
         {
             DataBaseManager.SewerDoorOpen = true;
             SewerDoor_Potal.transform.localPosition = new Vector3(-65.10986f, 5, 0);
             SewerDoor_Dialog.transform.localPosition = new Vector3(-65.10986f, 33, 0);
+            BlackWell_OB.transform.localPosition = new Vector3(-224.6f, 4.08f, 0);
+            SewerOfficeWindow.CanJudge = false;
+            SewerOfficeLocker.CanJudge = false;
         }
         if ((DataBaseManager.TimeCount % 4 == 3) || (DataBaseManager.TimeCount % 4 == 0) && DataBaseManager.SewerDoorOpen == true)
         {
+            BlackWell_OB.transform.localPosition = new Vector3(-224.6f, 29.6f, 0);
             DataBaseManager.SewerDoorOpen = false;
             if (DataBaseManager.SewerDoorOpenDeftness == true)
             {
@@ -56,6 +67,23 @@ public class TimeManagere : MonoBehaviour
             {
                 SewerDoor_Potal.transform.localPosition = new Vector3(-65.10986f, 33, 0);
                 SewerDoor_Dialog.transform.localPosition = new Vector3(-65.10986f, 5, 0);
+            }
+
+            if (DataBaseManager.TryBrokenWindow == true)
+            {
+                SewerOfficeWindow.CanJudge = false;
+            }
+            else
+            {
+                SewerOfficeWindow.CanJudge = true;
+            }
+            if (DataBaseManager.TryObserLokcer == true)
+            {
+                SewerOfficeLocker.CanJudge = false;
+            }
+            else
+            {
+                SewerOfficeLocker.CanJudge = true;
             }
         }
         if ( DataBaseManager.SewerDoorOpenCheck == true)

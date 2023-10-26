@@ -5,14 +5,14 @@ ID,캐릭터이름,대사,
 4,Fabian,(I don't think I'll be able to open this safe.),금고 실패
 5,,!Not available in the current version!♣⑦,금고 성공
 6,Fabian,(ⓡ(Bracelet)ⓦ taken from ⓖ(Ella)ⓦ),팔찌 살펴보기
-7,Fabian,"(If I took it to ⓖ(Dave)ⓦ in the ⓑ(slum)ⓦ, he might be able to turn it into money.)",
-8,,,
-9,,,
-10,,,
-11,,,
-12,,,
-13,,,
-14,,,
+7,Fabian,(If I took it to ⓖ(Dave)ⓦ in the ⓑ(slum)ⓦ^ he might be able to turn it into money.),
+8,Fabian,(This is the worker's outfit from the (sewerage office).),코트 살펴보기
+9,Fabian,(I guess I could use this to disguise myself as one of them.),
+10,Fabian,'Phew... now I'm starting to look like them.',변장성공
+11,Fabian,'But if I show my face^ I might get caught. Be careful.',
+12,Fabian,(I don't think I can trick them into this.),변장실패
+13,Fabian,(It is inscribed with the words (Lower Riverside)),열쇠 살펴보기
+14,Fabian,(An internal map of the (sewer)^ taken from the (Sewerage Office).),지도 살표보기
 15,,,
 16,,,
 17,,,

@@ -171,7 +171,7 @@ public class SIS_UIManager : MonoBehaviour
     // Update is called once per frame
     public void OpenMap()
     {
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad" && DataBaseManager.isOpenMap == false)
+        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.potalWait == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad" && DataBaseManager.isOpenMap == false)
         {
             SoundManager.Instance.PaperClip_Play();
             DataBaseManager.isItemUI = true;
@@ -512,6 +512,38 @@ public class SIS_UIManager : MonoBehaviour
             }
             DeactivateObjectWithName(Key_ItemBox, "Safe");
         }
+        if (DataBaseManager.GainMap == true)
+        {
+            ActivateObjectWithName(Key_ItemBox, "Map");
+        }
+        else
+        {
+
+            if (DataBaseManager.nowItem == "Map")
+            {
+                imageComponent_Key.sprite = None;
+                DataBaseManager.nowItem = "";
+                Use_Name.text = "";
+                Use_Detail.text = "";
+            }
+            DeactivateObjectWithName(Key_ItemBox, "Map");
+        }
+        if (DataBaseManager.SewerageKey == true)
+        {
+            ActivateObjectWithName(Key_ItemBox, "Sewerge Key");
+        }
+        else
+        {
+
+            if (DataBaseManager.nowItem == "Sewerge Key")
+            {
+                imageComponent_Key.sprite = None;
+                DataBaseManager.nowItem = "";
+                Use_Name.text = "";
+                Use_Detail.text = "";
+            }
+            DeactivateObjectWithName(Key_ItemBox, "Sewerge Key");
+        }
 
         if (DataBaseManager.Intel_Dave1 == true)
         {
@@ -528,6 +560,23 @@ public class SIS_UIManager : MonoBehaviour
                 Use_Detail.text = "";
             }
             DeactivateObjectWithName(Key_ItemBox, "Bracelet");
+        }
+
+        if (DataBaseManager.GainCoat == true)
+        {
+            ActivateObjectWithName(Key_ItemBox, "Coat");
+        }
+        else
+        {
+
+            if (DataBaseManager.nowItem == "Coat")
+            {
+                imageComponent_Key.sprite = None;
+                DataBaseManager.nowItem = "";
+                Use_Name.text = "";
+                Use_Detail.text = "";
+            }
+            DeactivateObjectWithName(Key_ItemBox, "Coat");
         }
     }
 
@@ -638,10 +687,25 @@ public class SIS_UIManager : MonoBehaviour
                 Key_Name.text = "Safe";
                 Key_Detail.text = "Skill :\nDeftness-20\n\nDetail:\nAiden's safe. It's locked solidly.";
             }
+            if (DataBaseManager.nowItem == "Map" && DataBaseManager.GainMap == true)
+            {
+                Key_Name.text = "Map";
+                Key_Detail.text = "Detail:\nMap of the sewer interior.";
+            }
             if (DataBaseManager.nowItem == "Bracelet" && DataBaseManager.Intel_Dave1 == true)
             {
                 Key_Name.text = "Bracelet";
-                Key_Detail.text = "\n\nDetail:\nElla's Bracelet.\nIt seems to be expensive.";
+                Key_Detail.text = "Detail:\nElla's Bracelet.\nIt seems to be expensive.";
+            }
+            if (DataBaseManager.nowItem == "Sewerge Key" && DataBaseManager.SewerageKey == true)
+            {
+                Key_Name.text = "Sewerge Key";
+                Key_Detail.text = "Detail:\nKeys used in sewer maintenance facilities.)";
+            }
+            if (DataBaseManager.nowItem == "Coat" && DataBaseManager.GainCoat == true)
+            {
+                Key_Name.text = "Coat";
+                Key_Detail.text = "Skill :\nDisguise\n\nDetail:\nA sewer worker's Outfit.";
             }
 
         }
