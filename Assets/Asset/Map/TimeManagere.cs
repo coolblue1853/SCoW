@@ -13,6 +13,175 @@ public class TimeManagere : MonoBehaviour
     }
 
     // Update is called once per frame
+    public GameObject Sewer_Flat;
+ public GameObject Sewer_Round;
+ public GameObject Burb_Round1;
+ public GameObject Burb_Round2;
+ public GameObject Burb_Flet1;
+ public GameObject Burb_Flet2;
+
+
+ public GameObject Ledder;
+ public GameObject Hole;
+ public GameObject House;
+ public GameObject Rand2;
+ public GameObject SideRoad;
+ public GameObject Pipe;
+ public GameObject Cage;
+
+
+    public void MakeCageLand()
+    {
+        Pipe.SetActive(false);
+        Sewer_Flat.SetActive(false);
+        Sewer_Round.SetActive(false);
+        Burb_Round1.SetActive(false);
+        Burb_Round2.SetActive(false);
+        Burb_Flet1.SetActive(false);
+        Burb_Flet2.SetActive(false);
+        Ledder.SetActive(false);
+        Hole.SetActive(false);
+        Cage.SetActive(false);
+        SideRoad.SetActive(false);
+
+        Sewer_Flat.SetActive(true);
+        Burb_Flet1.SetActive(true);
+        Burb_Flet2.SetActive(true);
+        Pipe.SetActive(true);
+        Rand2.SetActive(true);
+        Cage.SetActive(true);
+    }
+    public void MakeHouseLand()
+    {
+        Pipe.SetActive(false);
+        Sewer_Flat.SetActive(false);
+        Sewer_Round.SetActive(false);
+        Burb_Round1.SetActive(false);
+        Burb_Round2.SetActive(false);
+        Burb_Flet1.SetActive(false);
+        Burb_Flet2.SetActive(false);
+        Ledder.SetActive(false);
+        Hole.SetActive(false);
+        Cage.SetActive(false);
+        SideRoad.SetActive(false);
+
+
+        Sewer_Flat.SetActive(true);
+        Burb_Flet2.SetActive(true);
+        Rand2.SetActive(true);
+        House.SetActive(true);
+    }
+    public void MakeSewer()
+    {
+        Pipe.SetActive(false);
+        Sewer_Flat.SetActive(false);
+        Sewer_Round.SetActive(false);
+        Burb_Round1.SetActive(false);
+        Burb_Round2.SetActive(false);
+        Burb_Flet1.SetActive(false);
+        Burb_Flet2.SetActive(false);
+        Ledder.SetActive(false);
+        Hole.SetActive(false);
+        Cage.SetActive(false);
+        SideRoad.SetActive(false);
+
+
+
+        int Sewer = Random.Range(0, 2);
+        if(Sewer == 1)
+        {
+            Sewer_Flat.SetActive(true);
+            Sewer_Round.SetActive(false);
+
+            int FlatLight1 = Random.Range(0, 2);
+            if(FlatLight1 == 0)
+            {
+                Burb_Flet1.SetActive(true);
+            }
+            else
+            {
+                Burb_Flet1.SetActive(false);
+            }
+
+            int FlatLight2 = Random.Range(0, 2);
+            if (FlatLight2 == 0)
+            {
+                Burb_Flet2.SetActive(true);
+            }
+            else
+            {
+                Burb_Flet2.SetActive(false);
+            }
+            int Side = Random.Range(0, 2);
+            if (Side == 0)
+            {
+                SideRoad.SetActive(true);
+            }
+            else
+            {
+                SideRoad.SetActive(false);
+
+                int HoleInt = Random.Range(0, 2);
+                if (HoleInt == 0)
+                {
+                    Hole.SetActive(true);
+                }
+                else
+                {
+                    Hole.SetActive(false);
+                }
+
+                int Ledderint = Random.Range(0, 2);
+                if (Ledderint == 0)
+                {
+                    Ledder.SetActive(true);
+                }
+                else
+                {
+                    Ledder.SetActive(false);
+                }
+
+
+            }
+        }
+        else
+        {
+            Sewer_Flat.SetActive(false);
+            Sewer_Round.SetActive(true);
+            int RoundLight1 = Random.Range(0, 2);
+            if (RoundLight1 == 0)
+            {
+                Burb_Round1.SetActive(true);
+            }
+            else
+            {
+                Burb_Round1.SetActive(false);
+            }
+            int RoundLight2 = Random.Range(0, 2);
+            if (RoundLight2 == 0)
+            {
+                Burb_Round2.SetActive(true);
+            }
+            else
+            {
+                Burb_Round2.SetActive(false);
+            }
+        }
+
+      
+        int Pipeint = Random.Range(0, 2);
+        if (Pipeint == 0)
+        {
+            Pipe.SetActive(true);
+        }
+        else
+        {
+            Pipe.SetActive(false);
+        }
+    }
+
+
+
 
     public GameObject BFNoonEvent;
     public GameObject AFNoonEvent;
@@ -40,6 +209,15 @@ public class TimeManagere : MonoBehaviour
     public GameObject BlackWell_OB;
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            // MakeSewer();
+            //
+              MakeCageLand();
+
+         //   MakeHouseLand();
+        }
+
         if(DataBaseManager.Black_RechSucc_CanTalck == true && BlackWell.CanKeyword ==false)
         {
             BlackWell.CanKeyword = true;
