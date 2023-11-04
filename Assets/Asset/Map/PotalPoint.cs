@@ -48,6 +48,17 @@ public class PotalPoint : MonoBehaviour
 
     Vector2 player_SewerOutside = new Vector3(-1214.113f, -81f);
     Vector3 Cam_SewerOutside =  new Vector3(-1222.3f, -81.1f, -15);
+
+    // 해당 이동은 강가 하부의 통로를 통해 하수도에 들어갔을 때
+    Vector2 player_Sewer = new Vector3(-1241.24f, -193.57f);
+    Vector3 Cam_Sewer = new Vector3(-1221.3f, -195f, -15);
+
+
+    Vector2 player_SewerRight = new Vector3(-1194.19f, -193.57f);
+    Vector3 Cam_SewerRight = new Vector3(-1217.02f, -195f, -15);
+
+    Vector2 player_SewerLeft = new Vector3(-1243.64f, -193.57f);
+    Vector3 Cam_SewerLeft = new Vector3(-1221.5f, -195f, -15);
     public void Update()
     {
         if (PlayerInTrigger == true)
@@ -258,6 +269,57 @@ public class PotalPoint : MonoBehaviour
             player.transform.localPosition = player_SewerOutside;
             camera.transform.localPosition = Cam_SewerOutside;
         }
+
+        else if (this.name == "Sewer")
+        {
+            DataBaseManager.isDirecting = true;
+            player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
+            CameraManager.Instance.isCheckEnd = true;
+            player.transform.localPosition = player_Sewer;
+            camera.transform.localPosition = Cam_Sewer;
+
+            TimeManagere.Instance.Sewer_ByRiverSide();
+        }
+
+        else if (this.name == "Sewer_Left" || this.name == "Sewer_Right")
+        {
+
+
+            int RandInt = Random.Range(0, 2);
+            if(RandInt == 0)
+            {
+                DataBaseManager.isDirecting = true;
+                player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
+                CameraManager.Instance.isCheckEnd = true;
+                player.transform.localPosition = player_SewerRight;
+                camera.transform.localPosition = Cam_SewerRight;
+                TimeManagere.Instance.DeletRightSewerPotal();
+                TimeManagere.Instance.MakeSewer();
+            }
+            else
+            {
+                DataBaseManager.isDirecting = true;
+                player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
+                CameraManager.Instance.isCheckEnd = true;
+                player.transform.localPosition = player_SewerLeft;
+                camera.transform.localPosition = Cam_SewerLeft;
+                TimeManagere.Instance.DeletLeftSewerPotal();
+                TimeManagere.Instance.MakeSewer();
+            }
+        }
+
+        else if (this.name == "Sewer_Middle")
+        {
+            DataBaseManager.isDirecting = true;
+            player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
+            CameraManager.Instance.isCheckEnd = true;
+            player.transform.localPosition = player_SewerLeft;
+            camera.transform.localPosition = Cam_SewerLeft;
+            TimeManagere.Instance.DeletLeftSewerPotal();
+
+            TimeManagere.Instance.MakeSewer();
+        }
+        
 
 
         Invoke("ablePotal", 2f);

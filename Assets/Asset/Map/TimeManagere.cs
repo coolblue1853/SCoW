@@ -29,7 +29,8 @@ public class TimeManagere : MonoBehaviour
  public GameObject Pipe;
  public GameObject Cage;
 
-
+    public GameObject GroundWater;
+    public GameObject GroundWaterRand2;
     public void MakeCageLand()
     {
         Pipe.SetActive(false);
@@ -43,6 +44,7 @@ public class TimeManagere : MonoBehaviour
         Hole.SetActive(false);
         Cage.SetActive(false);
         SideRoad.SetActive(false);
+        House.SetActive(false);
 
         Sewer_Flat.SetActive(true);
         Burb_Flet1.SetActive(true);
@@ -50,6 +52,8 @@ public class TimeManagere : MonoBehaviour
         Pipe.SetActive(true);
         Rand2.SetActive(true);
         Cage.SetActive(true);
+        GroundWater.SetActive(false);
+        GroundWaterRand2.SetActive(true);
     }
     public void MakeHouseLand()
     {
@@ -70,8 +74,12 @@ public class TimeManagere : MonoBehaviour
         Burb_Flet2.SetActive(true);
         Rand2.SetActive(true);
         House.SetActive(true);
+        GroundWater.SetActive(false);
+        GroundWaterRand2.SetActive(true);
+
+
     }
-    public void MakeSewer()
+    public void MakeSighnLand()
     {
         Pipe.SetActive(false);
         Sewer_Flat.SetActive(false);
@@ -84,8 +92,196 @@ public class TimeManagere : MonoBehaviour
         Hole.SetActive(false);
         Cage.SetActive(false);
         SideRoad.SetActive(false);
+        House.SetActive(false);
+
+        Rand2.SetActive(false);
+        Sewer_Flat.SetActive(true);
+        Burb_Flet1.SetActive(true);
+        Burb_Flet2.SetActive(true);
+        Pipe.SetActive(true);
+        GroundWater.SetActive(true);
+
+        GroundWaterRand2.SetActive(false);
+    }
 
 
+    public void MakeSewer()
+    {
+        // 지도가 없다면
+        if(DataBaseManager.GainMap == false)
+        {
+            int RandLuk = Random.Range(1, 101);
+            Debug.Log("럭 : "+DataBaseManager.luk + "// 판정값 : " + RandLuk);
+
+            //성공
+            if (RandLuk < DataBaseManager.luk)
+            {
+                if(RandLuk < (DataBaseManager.luk/3)) // 극단적 성공일시
+                {
+                    MakeSighnLand();
+                    Debug.Log("문양 도착");
+                }
+                else
+                {
+                    int RandInt = Random.Range(0, 6);
+                    if(RandInt == 0)
+                    {
+                        MakeHouseLand();
+                        Debug.Log("비밀기지 도착");
+                    }
+                    else if(RandInt == 1)
+                    {
+                        MakeSewerMap_Nomal();
+                        Debug.Log("아이템이 떨어진 곳 도착");
+                    }
+                    else if (RandInt == 2)
+                    {
+                        MakeCageLand();
+                        Debug.Log("케이지가 있는곳 도착");
+                    }
+                    else
+                    {
+                        MakeSewerMap_Nomal();
+                        Debug.Log("빈방 도착");
+                    }
+                }
+
+            }
+            //실패
+            else 
+            {
+                if (DataBaseManager.SewerEnemyCounter > 2 && DataBaseManager.SewerHouseIn == false)  // 최초로 비밀기지 도착
+                {
+                    MakeHouseLand();
+                    Debug.Log("비밀기지 도착");
+                }
+                else if (DataBaseManager.SewerEnemyCounter > 2)
+                {
+                    int RandInt = Random.Range(0, 3);
+                    if(RandInt == 0)
+                    {
+                        MakeHouseLand();
+                        Debug.Log("비밀기지 도착");
+                    }
+                    else
+                    {
+                        MakeSewerMap_Nomal();
+                        Debug.Log("빈방 도착");
+                    }
+                    
+                }
+                else
+                {
+                    DataBaseManager.SewerEnemyCounter += 1;
+                    int RandInt = Random.Range(0, 3);
+
+                    MakeSewerMap_Enemy();
+                    Debug.Log("적 등장");
+                    // 적이 등장하는 횟수에 따라 전투 개시를 BattleManager로 전송
+                }
+            }
+
+        }
+        // 지도가 있다면
+        else
+        {
+            int RandLuk = Random.Range(1, 101);
+            Debug.Log("럭 : " + DataBaseManager.luk + "// 판정값 : " + RandLuk);
+
+            int RandIntel = Random.Range(1, 101);
+            Debug.Log("지능 : " + DataBaseManager.intl + "// 판정값 : " + RandIntel);
+
+            //성공
+            if (RandLuk < DataBaseManager.luk || RandIntel < DataBaseManager.intl)
+            {
+                if (RandLuk < (DataBaseManager.luk / 3) || RandIntel < (DataBaseManager.intl /3)) // 극단적 성공일시
+                {
+                    MakeSighnLand();
+                    Debug.Log("문양 도착");
+                }
+                else
+                {
+                    int RandInt = Random.Range(0, 5);
+                    if (RandInt == 0)
+                    {
+                        MakeHouseLand();
+                        Debug.Log("비밀기지 도착");
+                    }
+                    else if (RandInt == 1)
+                    {
+                        MakeSewerMap_Nomal();
+                        Debug.Log("아이템이 떨어진 곳 도착");
+                    }
+                    else
+                    {
+                        MakeSewerMap_Nomal();
+                        Debug.Log("빈방 도착");
+                    }
+                }
+
+            }
+            //실패
+            else
+            {
+
+
+                if (DataBaseManager.SewerEnemyCounter > 2 && DataBaseManager.SewerHouseIn == false)  // 최초로 비밀기지 도착
+                {
+                    MakeHouseLand();
+                    Debug.Log("비밀기지 도착");
+                }
+                else if (DataBaseManager.SewerEnemyCounter > 2)
+                {
+                    int RandInt = Random.Range(0, 3);
+                    if (RandInt == 0)
+                    {
+                        MakeHouseLand();
+                        Debug.Log("비밀기지 도착");
+                    }
+                    else
+                    {
+                        MakeSewerMap_Nomal();
+                        Debug.Log("빈방 도착");
+                    }
+
+                }
+                else
+                {
+                    DataBaseManager.SewerEnemyCounter += 1;
+                    int RandInt = Random.Range(0, 3);
+
+                    MakeSewerMap_Enemy();
+                    Debug.Log("적 등장");
+
+                    Debug.Log("쇼고스 등장");
+
+                    // 적이 등장하는 횟수에 따라 전투 개시를 BattleManager로 전송
+                }
+            }
+
+
+        }
+
+    }
+
+    public void MakeSewerMap_Nomal()
+    {
+        Pipe.SetActive(false);
+        Sewer_Flat.SetActive(false);
+        Sewer_Round.SetActive(false);
+        Burb_Round1.SetActive(false);
+        Burb_Round2.SetActive(false);
+        Burb_Flet1.SetActive(false);
+        Burb_Flet2.SetActive(false);
+        Ledder.SetActive(false);
+        Hole.SetActive(false);
+        Cage.SetActive(false);
+        SideRoad.SetActive(false);
+        House.SetActive(false);
+        Rand2.SetActive(false);
+
+        GroundWater.SetActive(true);
+        GroundWaterRand2.SetActive(false);
 
         int Sewer = Random.Range(0, 2);
         if(Sewer == 1)
@@ -179,7 +375,200 @@ public class TimeManagere : MonoBehaviour
             Pipe.SetActive(false);
         }
     }
+    public void MakeSewerMap_Enemy()
+    {
+        GroundWater.SetActive(true);
+        Pipe.SetActive(false);
+        Sewer_Flat.SetActive(false);
+        Sewer_Round.SetActive(false);
+        Burb_Round1.SetActive(false);
+        Burb_Round2.SetActive(false);
+        Burb_Flet1.SetActive(false);
+        Burb_Flet2.SetActive(false);
+        Ledder.SetActive(false);
+        Hole.SetActive(false);
+        Cage.SetActive(false);
+        SideRoad.SetActive(false);
+        House.SetActive(false);
+        Rand2.SetActive(false);
 
+        GroundWater.SetActive(true);
+        GroundWaterRand2.SetActive(false);
+
+
+
+        int Sewer = Random.Range(0, 2);
+        if (Sewer == 1)
+        {
+            Sewer_Flat.SetActive(true);
+            Sewer_Round.SetActive(false);
+
+            int FlatLight1 = Random.Range(0, 2);
+            if (FlatLight1 == 0)
+            {
+                Burb_Flet1.SetActive(true);
+            }
+            else
+            {
+                Burb_Flet1.SetActive(false);
+            }
+
+            int FlatLight2 = Random.Range(0, 2);
+            if (FlatLight2 == 0)
+            {
+                Burb_Flet2.SetActive(true);
+            }
+            else
+            {
+                Burb_Flet2.SetActive(false);
+            }
+
+            int HoleInt = Random.Range(0, 2);
+            if (HoleInt == 0)
+            {
+                Hole.SetActive(true);
+            }
+            else
+            {
+                Hole.SetActive(false);
+            }
+        }
+        else
+        {
+            Sewer_Flat.SetActive(false);
+            Sewer_Round.SetActive(true);
+            int RoundLight1 = Random.Range(0, 2);
+            if (RoundLight1 == 0)
+            {
+                Burb_Round1.SetActive(true);
+            }
+            else
+            {
+                Burb_Round1.SetActive(false);
+            }
+            int RoundLight2 = Random.Range(0, 2);
+            if (RoundLight2 == 0)
+            {
+                Burb_Round2.SetActive(true);
+            }
+            else
+            {
+                Burb_Round2.SetActive(false);
+            }
+        }
+
+
+        int Pipeint = Random.Range(0, 2);
+        if (Pipeint == 0)
+        {
+            Pipe.SetActive(true);
+        }
+        else
+        {
+            Pipe.SetActive(false);
+        }
+    }
+    public void Sewer_ByRiverSide()
+    {
+        Pipe.SetActive(false);
+        Sewer_Flat.SetActive(false);
+        Sewer_Round.SetActive(false);
+        Burb_Round1.SetActive(false);
+        Burb_Round2.SetActive(false);
+        Burb_Flet1.SetActive(false);
+        Burb_Flet2.SetActive(false);
+        Ledder.SetActive(false);
+        Hole.SetActive(false);
+        Cage.SetActive(false);
+        SideRoad.SetActive(false);
+        House.SetActive(false);
+        GroundWater.SetActive(true);
+        GroundWaterRand2.SetActive(false);
+
+        int Sewer = Random.Range(0, 2);
+        if (Sewer == 1)
+        {
+            Sewer_Flat.SetActive(true);
+            Sewer_Round.SetActive(false);
+
+            int FlatLight1 = Random.Range(0, 2);
+            if (FlatLight1 == 0)
+            {
+                Burb_Flet1.SetActive(true);
+            }
+            else
+            {
+                Burb_Flet1.SetActive(false);
+            }
+
+            int FlatLight2 = Random.Range(0, 2);
+            if (FlatLight2 == 0)
+            {
+                Burb_Flet2.SetActive(true);
+            }
+            else
+            {
+                Burb_Flet2.SetActive(false);
+            }
+            int Side = Random.Range(0, 2);
+            if (Side == 0)
+            {
+                SideRoad.SetActive(true);
+            }
+            else
+            {
+                SideRoad.SetActive(false);
+
+                int HoleInt = Random.Range(0, 2);
+                if (HoleInt == 0)
+                {
+                    Hole.SetActive(true);
+                }
+                else
+                {
+                    Hole.SetActive(false);
+                }
+
+      
+
+
+            }
+        }
+        else
+        {
+            Sewer_Flat.SetActive(false);
+            Sewer_Round.SetActive(true);
+            int RoundLight1 = Random.Range(0, 2);
+            if (RoundLight1 == 0)
+            {
+                Burb_Round1.SetActive(true);
+            }
+            else
+            {
+                Burb_Round1.SetActive(false);
+            }
+            int RoundLight2 = Random.Range(0, 2);
+            if (RoundLight2 == 0)
+            {
+                Burb_Round2.SetActive(true);
+            }
+            else
+            {
+                Burb_Round2.SetActive(false);
+            }
+        }
+
+
+        int Pipeint = Random.Range(0, 2);
+        if (Pipeint == 0)
+        {
+            Pipe.SetActive(true);
+        }
+        else
+        {
+            Pipe.SetActive(false);
+        }
+    }
 
 
 
@@ -207,16 +596,25 @@ public class TimeManagere : MonoBehaviour
     public Intel_ObtoUI SewerOfficeLocker;
     public Intel_ObtoUI BlackWell;
     public GameObject BlackWell_OB;
+
+
+    public GameObject LeftSewerPotal;
+    public GameObject RightSewerPotal;
+    public void DeletRightSewerPotal()
+    {
+        LeftSewerPotal.SetActive(true);
+        RightSewerPotal.SetActive(false);
+    }
+    public void DeletLeftSewerPotal()
+    {
+        LeftSewerPotal.SetActive(false);
+        RightSewerPotal.SetActive(true);
+    }
+
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            // MakeSewer();
-            //
-              MakeCageLand();
 
-         //   MakeHouseLand();
-        }
 
         if(DataBaseManager.Black_RechSucc_CanTalck == true && BlackWell.CanKeyword ==false)
         {
@@ -330,6 +728,38 @@ public class TimeManagere : MonoBehaviour
         if ((DataBaseManager.TimeCount % 4) == 0)
         {
             lightColorController.time = 0.9f;
+        }
+
+
+
+
+    }
+
+    private static TimeManagere instance = null;
+
+    public static TimeManagere Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+    void Awake()
+    {
+
+
+        if (null == instance)
+        {
+            instance = this;
+            //DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
         }
     }
 }
