@@ -80,6 +80,12 @@ public class DialogDatabaseManager : MonoBehaviour
                 csv_FileName = "1st_Bar";
                 setDialog();
             }
+            else if (DataBaseManager.nowPlace == "InSewer" && Check == true)
+            {
+                Check = false;
+                csv_FileName = "InSewer";
+                setDialog();
+            }
             else if (DataBaseManager.nowPlace == "BattleRoad" && Check == true)
             {
                 Check = false;
@@ -164,6 +170,10 @@ public class DialogDatabaseManager : MonoBehaviour
         else if (DataBaseManager.nowPlace == "Bar")
         {
             csv_FileName = "1st_Bar";
+        }
+        else if (DataBaseManager.nowPlace == "InSewer")
+        {
+            csv_FileName = "InSewer";
         }
         if (instance == null)
         {

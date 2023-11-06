@@ -499,14 +499,36 @@ public class InteractionController : MonoBehaviour
     public GameObject BlackWell_Key_Fishysmell;
     public GameObject BlackWell_Key_Fail;
     public GameObject AfterJudgeLookLocker;
-
-
     public GameObject SewergeKey_Look;
+
+
+    //하수도 내부
+    public GameObject Sewer_EnemySpawn;
+    public GameObject Sewer_StealthSucc;
+    public GameObject Sewer_StealthFail;
+
 
     private void Start()
     {
         //TestNar();
     }
+
+    public void InSewerDialog(string setDialog)
+    {
+        if (setDialog == "Sewer_EnemySpawn")
+        {
+            theDM.ShowDialog(Sewer_EnemySpawn.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Sewer_StealthSucc")
+        {
+            theDM.ShowDialog(Sewer_StealthSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Sewer_StealthFail")
+        {
+            theDM.ShowDialog(Sewer_StealthFail.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+    }
+
     public void Start_SewerOffice(string setDialog)
     {
         if (setDialog == "SewerDoordialog")

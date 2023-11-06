@@ -12,6 +12,13 @@ public class DirectingManager : MonoBehaviour
 
     public GameObject Back;
     public Image BackGround;
+    public GameObject SewerBattleBackGround;
+    public GameObject RoadBattleBackGround;
+
+
+    public GameObject battleObject;
+    Vector2 BattlePlayer_Road = new Vector3(-213.58f, 209.2012f);
+    Vector2 BattlePlayer_Sewer = new Vector3(-220.9f, 204.5f);
 
 
     float ChInRommSize = 2.383215f; // -이면 왼쪽 +면 오른쪽
@@ -29,6 +36,7 @@ public class DirectingManager : MonoBehaviour
 
 
     Vector3 Cam_BattlePos = new Vector3(-774.6f, 120.1f, -15);
+    Vector3 Cam_BattleSewerPos = new Vector3(-776.77f, 119.79f, -15);
     bool Thrid;
     bool twice;
     private static DirectingManager instance = null;
@@ -353,6 +361,15 @@ public class DirectingManager : MonoBehaviour
             MapManager.Instance.MapOn();
         }
 
+        //하수도 
+        if (DataBaseManager.StartSewerBattle == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.StartSewerBattle = false;
+            FadingBackGround.Instance.CastInOut();
+            Invoke("GotoBattleSewer", 0.8f);
+            BattleManager.Instance.CloseButtonUI();
+        }
+
         //2일차 낮 강제 이벤트
 
         if (DataBaseManager.snd_Detective_NoonEvent == true && DataBaseManager.isActiveDialog1 == false)
@@ -573,6 +590,9 @@ public class DirectingManager : MonoBehaviour
 
         InteractionController.Instance.BattleDialog("start");
     }
+    public GameObject EnemyTrunSymbol_1;
+    public GameObject EnemyTrunSymbol_2;
+    public GameObject EnemyTrunSymbol_3;
     //전투 
     public void GotoBattle()
     {
@@ -581,20 +601,36 @@ public class DirectingManager : MonoBehaviour
             Enemy1.SetActive(true);
             Enemy2.SetActive(false);
             Enemy3.SetActive(false);
+            EnemyTrunSymbol_1.SetActive(true);
+            EnemyTrunSymbol_2.SetActive(false);
+            EnemyTrunSymbol_3.SetActive(false);
+
+
         }
         else if (DataBaseManager.battleEnemyCount == 2)
         {
             Enemy1.SetActive(true);
             Enemy2.SetActive(true);
             Enemy3.SetActive(false);
+            EnemyTrunSymbol_1.SetActive(true);
+            EnemyTrunSymbol_2.SetActive(true);
+            EnemyTrunSymbol_3.SetActive(false);
         }
         else
         {
             Enemy1.SetActive(true);
             Enemy2.SetActive(true);
             Enemy3.SetActive(true);
+            EnemyTrunSymbol_1.SetActive(true);
+            EnemyTrunSymbol_2.SetActive(true);
+            EnemyTrunSymbol_3.SetActive(true);
         }
-        DataBaseManager.nowPlace = "BattleRoad";
+        RoadBattleBackGround.SetActive(true);
+        SewerBattleBackGround.SetActive(false);
+
+        battleObject.transform.position = BattlePlayer_Road;
+
+    DataBaseManager.nowPlace = "BattleRoad";
         BattleManager.Instance.startReload();
         battleUI.SetActive(true);
         cameraMove.enabled = true;
@@ -604,6 +640,29 @@ public class DirectingManager : MonoBehaviour
         Invoke("setBattle", 3);
         BattleM.SetActive(true);
     }
+    public GameObject SewerEnemy1;
+    public void GotoBattleSewer()
+    {
+        battleObject.transform.localPosition = BattlePlayer_Sewer;
+
+        SewerEnemy1.SetActive(true);
+        EnemyTrunSymbol_1.SetActive(true);
+        EnemyTrunSymbol_2.SetActive(false);
+        EnemyTrunSymbol_3.SetActive(false);
+
+        RoadBattleBackGround.SetActive(false);
+        SewerBattleBackGround.SetActive(true);
+        BattleManager.Instance.startReload();
+        battleUI.SetActive(true);
+        cameraMove.enabled = false;
+        //DialogManager.SetActive(false);
+        cameraManager.enabled = false;
+        Camera.transform.position = Cam_BattleSewerPos;
+        Invoke("setBattle", 3);
+        BattleM.SetActive(true);
+    }
+
+    
     public void EndBattle()
     {
         Invoke("EndBattleInvoke", 1f);

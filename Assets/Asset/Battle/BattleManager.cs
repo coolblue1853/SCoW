@@ -74,7 +74,7 @@ public class BattleManager : MonoBehaviour
     EnemyClass.DeepOneHybrid DeepOneHybrid1 = new EnemyClass.DeepOneHybrid();
     EnemyClass.DeepOneHybrid DeepOneHybrid2 = new EnemyClass.DeepOneHybrid();
     EnemyClass.DeepOneHybrid DeepOneHybrid3 = new EnemyClass.DeepOneHybrid();
-
+    EnemyClass.DeepOneHybrid DeepOneHybrid4 = new EnemyClass.DeepOneHybrid();
     //적 오브젝트 관련
     public GameObject DeepOneHybrid1_Object;
     public SpriteRenderer DeepOneHybrid1_Render;
@@ -82,6 +82,9 @@ public class BattleManager : MonoBehaviour
     public SpriteRenderer DeepOneHybrid2_Render;
     public GameObject DeepOneHybrid3_Object;
     public SpriteRenderer DeepOneHybrid3_Render;
+    public GameObject DeepOneHybrid4_Object;
+    public SpriteRenderer DeepOneHybrid4_Render;
+
 
     public Sprite DeepOneHybrid_Stand;
     public Sprite DeepOneHybrid_HittedByPunch;
@@ -172,10 +175,12 @@ public class BattleManager : MonoBehaviour
         DeepOneHybrid1_Render = DeepOneHybrid1_Object.GetComponent<SpriteRenderer>();
         DeepOneHybrid2_Render = DeepOneHybrid2_Object.GetComponent<SpriteRenderer>();
         DeepOneHybrid3_Render = DeepOneHybrid3_Object.GetComponent<SpriteRenderer>();
+        DeepOneHybrid4_Render = DeepOneHybrid4_Object.GetComponent<SpriteRenderer>();
         OriginPoint = player.transform.position;
         set_DeepOneHybrid1();
         set_DeepOneHybrid2();
         set_DeepOneHybrid3();
+        set_DeepOneHybrid4();
         if (null == instance)
         {
             instance = this;
@@ -200,7 +205,10 @@ public class BattleManager : MonoBehaviour
     {
         DeepOneHybrid3.SetStatDeepOneHybrid();
     }
-
+    public void set_DeepOneHybrid4()
+    {
+        DeepOneHybrid4.SetStatDeepOneHybrid();
+    }
     public void TimeWait()
     {
         if (BattleState == "setTrun")
@@ -215,18 +223,37 @@ public class BattleManager : MonoBehaviour
                 {
                     SymbolUp(PlayerTrunSymbol, DataBaseManager.dex  , "Player");
                 }
-                if (EnemyTrunSymbol_1.activeSelf == true)
+                if(DataBaseManager.nowPlace != "InSewer")
                 {
-                    SymbolUp(EnemyTrunSymbol_1, DeepOneHybrid1.dex, "DeepOneHybrid1");
+                    if (EnemyTrunSymbol_1.activeSelf == true)
+                    {
+                        SymbolUp(EnemyTrunSymbol_1, DeepOneHybrid1.dex, "DeepOneHybrid1");
+                    }
+                    if (EnemyTrunSymbol_2.activeSelf == true)
+                    {
+                        SymbolUp(EnemyTrunSymbol_2, DeepOneHybrid2.dex, "DeepOneHybrid2");
+                    }
+                    if (EnemyTrunSymbol_3.activeSelf == true)
+                    {
+                        SymbolUp(EnemyTrunSymbol_3, DeepOneHybrid3.dex, "DeepOneHybrid3");
+                    }
                 }
-                if (EnemyTrunSymbol_2.activeSelf == true)
+                else
                 {
-                    SymbolUp(EnemyTrunSymbol_2, DeepOneHybrid2.dex, "DeepOneHybrid2");
+                    if (EnemyTrunSymbol_1.activeSelf == true)
+                    {
+                        SymbolUp(EnemyTrunSymbol_1, DeepOneHybrid4.dex, "DeepOneHybrid4");
+                    }
+                    if (EnemyTrunSymbol_2.activeSelf == true)
+                    {
+                      //  SymbolUp(EnemyTrunSymbol_2, DeepOneHybrid2.dex, "DeepOneHybrid2");
+                    }
+                    if (EnemyTrunSymbol_3.activeSelf == true)
+                    {
+                       // SymbolUp(EnemyTrunSymbol_3, DeepOneHybrid3.dex, "DeepOneHybrid3");
+                    }
                 }
-                if (EnemyTrunSymbol_3.activeSelf == true)
-                {
-                    SymbolUp(EnemyTrunSymbol_3, DeepOneHybrid3.dex, "DeepOneHybrid3");
-                }
+   
 
             }
         }
@@ -284,6 +311,11 @@ public class BattleManager : MonoBehaviour
         if (BattleState == "DeepOneHybrid3Trun")
         {
             BattleState = "DeepOneHybrid3Attack";
+            Invoke("Enemy_setAction", 1);
+        }
+        if (BattleState == "DeepOneHybrid4Trun")
+        {
+            BattleState = "DeepOneHybrid4Attack";
             Invoke("Enemy_setAction", 1);
         }
         if (BattleState == "PlayerTrun")
@@ -400,7 +432,7 @@ public class BattleManager : MonoBehaviour
 
     public void startReload()
     {
-        Debug.Log("11");
+
         while (DataBaseManager.PistolAmmo > 0)
         {
             if (DataBaseManager.nowSmallPistol == 2)
@@ -537,15 +569,15 @@ public class BattleManager : MonoBehaviour
         SoundManager.Instance.ClickSound_Play();
         EnemyCount = 0;
         RunAwayObject.SetActive(true);
-        if (DeepOneHybrid1_Object.activeSelf == true)
+        if (EnemyTrunSymbol_1.activeSelf == true)
         {
             EnemyCount += 1;
         }
-        if(DeepOneHybrid2_Object.activeSelf == true) 
+        if(EnemyTrunSymbol_2.activeSelf == true) 
         {
             EnemyCount += 1;
         }
-        if(DeepOneHybrid3_Object.activeSelf == true)
+        if(EnemyTrunSymbol_3.activeSelf == true)
         {
             EnemyCount += 1;
         }
@@ -599,6 +631,13 @@ public class BattleManager : MonoBehaviour
             CloseRoundObject();
             BattleRollet.Instance.setBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", DeepOneHybrid3.DeepOneHybrid_MatialArts);
         }
+        if (BattleState == "DeepOneHybrid4Attack")
+        {
+            // BattleState = "Rollet";
+            PlayerChoiceUi.SetActive(false);
+            CloseRoundObject();
+            BattleRollet.Instance.setBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", DeepOneHybrid4.DeepOneHybrid_MatialArts);
+        }
     }
     public void PlayerChoiceButton_CounterAttack()
     {
@@ -623,6 +662,13 @@ public class BattleManager : MonoBehaviour
             PlayerChoiceUi.SetActive(false);
             CloseRoundObject();
             BattleRollet.Instance.setBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", DeepOneHybrid3.DeepOneHybrid_MatialArts);
+        }
+        if (BattleState == "DeepOneHybrid4Attack")
+        {
+            //  BattleState = "Rollet";
+            PlayerChoiceUi.SetActive(false);
+            CloseRoundObject();
+            BattleRollet.Instance.setBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", DeepOneHybrid4.DeepOneHybrid_MatialArts);
         }
     }
 
@@ -780,6 +826,57 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                                          .AppendCallback(() => CamRotate(0))
+                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                }
+            }
+            else if (BattleState == "DeepOneHybrid4Attack")
+            {
+                Vector3 playerOrigin = player.transform.position;
+                Vector3 enemyOrigin = DeepOneHybrid4_Object.transform.position;
+                GameObject obj = DeepOneHybrid4_Object;
+                SpriteRenderer spR = DeepOneHybrid4_Render;
+                if (Success == "Success")
+                {
+                    BattleCameraMove.Instance.ZoomUp();
+                    DeepOneHybrid4_Render.sprite = DeepOneHybrid_Punch;
+                    Cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
+                    // 연출 삽입
+                    Sequence sequence = DOTween.Sequence()
+                    .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
+                                                                .AppendCallback(() => SoundManager.Instance.Battle_Sound("Evaision"))
+                        .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
+
+                    .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1.5f, player.transform.position.y - 0.2f, -1), 0.7f))
+                     .AppendInterval(0.5f) // 2초 대기
+                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                    .AppendCallback(() => TurnEnd())
+                     .AppendCallback(() => CamRotate(0))
+                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+
+                }
+                else
+                {
+                  //  BattleCameraMove.Instance.ZoomUp();
+                    DeepOneHybrid4_Render.sprite = DeepOneHybrid_Punch;
+                    Cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
+                    // 연출 삽입
+                    Sequence sequence = DOTween.Sequence()
+                    .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
+                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                                        .AppendCallback(() => SoundManager.Instance.Battle_Sound("MartialArts"))
+                    .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                    .Join(player.transform.DOShakePosition(1, 2, 90))
+                    .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
+                    .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
+                    .AppendInterval(0.5f) // 2초 대기
+                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                    .AppendCallback(() => TurnEnd())
+                                      .AppendCallback(() => CamRotate(0))
                     .Append(player.transform.DOMove(OriginPoint, 0.5f))
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
@@ -950,6 +1047,67 @@ public class BattleManager : MonoBehaviour
 
                     DeepOneHybrid3_Render.sprite = DeepOneHybrid_Punch;
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
+                    // 연출 삽입
+                    Sequence sequence = DOTween.Sequence()
+                    .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
+                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                                        .AppendCallback(() => SoundManager.Instance.Battle_Sound("MartialArts"))
+                    .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                    .Join(player.transform.DOShakePosition(1, 2, 90))
+                    .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
+                    .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
+                    .AppendInterval(0.5f) // 2초 대기
+                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                    .AppendCallback(() => TurnEnd())
+                                         .AppendCallback(() => CamRotate(0))
+                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                }
+            }
+            else if (BattleState == "DeepOneHybrid4Attack")
+            {
+                Vector3 playerOrigin = player.transform.position;
+                BattleCameraMove.Instance.ZoomUp();
+                Vector3 enemyOrigin = DeepOneHybrid4_Object.transform.position;
+                GameObject obj = DeepOneHybrid4_Object;
+                SpriteRenderer spR = DeepOneHybrid4_Render;
+                if (Success == "Success")
+                {
+                    DeepOneHybrid4_Render.sprite = DeepOneHybrid_Punch;
+                    Cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
+                    // 연출 삽입
+                    Sequence sequence = DOTween.Sequence()
+                    .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
+                                                                                .AppendCallback(() => SoundManager.Instance.Battle_Sound("Evaision"))
+                    .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 0.5f))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Punch))
+
+                   .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 0.2f))
+                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByPunch))
+
+                   .AppendCallback(() => CamRotate(+1))
+                    .AppendCallback(() => OnDamageObject("DeepOneHybrid4", Random.Range(1, 4) * 5))
+                                        .AppendCallback(() => SoundManager.Instance.Battle_Sound("MartialArts"))
+                     .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                    .Join(DeepOneHybrid4_Object.transform.DOShakePosition(1, 2, 90))
+                    .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 8f, player.transform.position.y), 1.5f))
+                    .Join(player.transform.DOMove(new Vector3(player.transform.position.x + 2, player.transform.position.y, -1), 1f))
+
+                    .AppendInterval(0.5f) // 2초 대기
+                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                    .AppendCallback(() => TurnEnd())
+                    .AppendCallback(() => CamRotate(0))
+                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                }
+                else
+                {
+
+                    DeepOneHybrid4_Render.sprite = DeepOneHybrid_Punch;
+                    Cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
@@ -1149,6 +1307,69 @@ public class BattleManager : MonoBehaviour
                      .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
 
                 }
+
+            }
+            else if (onPointerEnemy == "DeepOneHybrid4")
+            {
+                BattleCameraMove.Instance.ZoomUp();
+                Vector3 enemyOrigin = DeepOneHybrid4_Object.transform.position;
+                GameObject obj = DeepOneHybrid4_Object;
+                SpriteRenderer spR = DeepOneHybrid4_Render;
+                if (Success == "Success")
+                {
+                    player_R.sprite = Punch;
+                    Cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
+                    // 연출 삽입
+                    Sequence sequence = DOTween.Sequence()
+                    .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
+                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByPunch))
+                    .AppendCallback(() => OnDamageObject("DeepOneHybrid4", Random.Range(1, 4) * 5))
+                                                            .AppendCallback(() => SoundManager.Instance.Battle_Sound("MartialArts"))
+                    .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                    .Join(obj.transform.DOShakePosition(1, 2, 90))
+                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
+                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
+                    .AppendInterval(0.5f) // 2초 대기
+                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                     .AppendCallback(() => CamRotate(0))
+                    .AppendCallback(() => TurnEnd())
+                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+
+                }
+                else
+                {
+                    player_R.sprite = Punch;
+                    Cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
+                    // 연출 삽입
+                    Sequence sequence = DOTween.Sequence()
+                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 5.5f, DeepOneHybrid4_Object.transform.position.y - 0.2f, -1), 0.5f))
+                                        .AppendCallback(() => SoundManager.Instance.Battle_Sound("Evaision"))
+                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x + 2f, DeepOneHybrid4_Object.transform.position.y), 0.5f))
+                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Punch))
+
+                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 2f, DeepOneHybrid4_Object.transform.position.y, -2), 0.2f))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
+                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                                                            .AppendCallback(() => SoundManager.Instance.Battle_Sound("MartialArts"))
+                    .AppendCallback(() => CamRotate(-1))
+                    .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                    .Join(DeepOneHybrid4_Object.transform.DOShakePosition(1, 2, 90))
+                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
+                   .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
+
+                    .AppendInterval(0.5f) // 2초 대기
+                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                     .AppendCallback(() => CamRotate(0))
+                    .AppendCallback(() => TurnEnd())
+
+                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+
+                }
+
             }
         }
         if (PlayerAction == "SS_attack_Counter")
@@ -1679,6 +1900,188 @@ public class BattleManager : MonoBehaviour
 
                    .AppendInterval(0.5f) // 2초 대기
                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid3_Render, DeepOneHybrid_Stand))
+                   .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                   .AppendCallback(() => TurnEnd())
+
+                   .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+                    // 연출 삽입
+
+
+                }
+            }
+            else if (onPointerEnemy == "DeepOneHybrid4")
+            {
+                BattleCameraMove.Instance.ZoomUp();
+                Vector3 enemyOrigin = DeepOneHybrid4_Object.transform.position;
+                GameObject obj = DeepOneHybrid4_Object;
+                SpriteRenderer spR = DeepOneHybrid4_Render;
+                if (Success == "Success")
+                {
+                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    {
+                        player_R.sprite = Dagger_Ready;
+                    }
+                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    {
+                        player_R.sprite = Bat_Ready;
+                    }
+                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    {
+                        player_R.sprite = Axe_Ready;
+                    }
+                    Cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
+
+                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByNife))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Dagger_Attack))
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 5) + 2) * 5))//1D4 + 2
+                                           .AppendCallback(() => SoundManager.Instance.Battle_Sound("Dagger_Attack"))
+                        .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
+                        .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                         .AppendCallback(() => CamRotate(0))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByBat))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Bat_Attack))
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 9)) * 5))//1D8
+                                                                   .AppendCallback(() => SoundManager.Instance.Battle_Sound("Bat_Attack"))
+                        .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
+                        .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                         .AppendCallback(() => CamRotate(0))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByAxe))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Axe_Attack))
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 7) + 2) * 5))//1D8
+                                                                     .AppendCallback(() => SoundManager.Instance.Battle_Sound("Axe_Attack"))
+                        .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
+                        .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                         .AppendCallback(() => CamRotate(0))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+
+                }
+                else
+                {
+                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    {
+                        player_R.sprite = Dagger_Ready;
+                    }
+                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    {
+                        player_R.sprite = Bat_Ready;
+                    }
+                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    {
+                        player_R.sprite = Axe_Ready;
+                    }
+
+
+
+                    Cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
+                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                   .Append(player.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 3.5f, DeepOneHybrid4_Object.transform.position.y - 0.2f, -1), 0.5f))
+                   .AppendCallback(() => OnSpriteChangeComplete(player_R, Dagger_Attack))
+                   .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x + 2f, DeepOneHybrid4_Object.transform.position.y), 0.5f))
+                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Punch))
+                   .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 2f, DeepOneHybrid4_Object.transform.position.y, -2), 0.2f))
+                   .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
+                   .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                                                                     .AppendCallback(() => SoundManager.Instance.Battle_Sound("MartialArts"))
+                   .AppendCallback(() => CamRotate(-1))
+                   .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                   .Join(DeepOneHybrid4_Object.transform.DOShakePosition(1, 2, 90))
+                   .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
+                  .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
+
+                   .AppendInterval(0.5f) // 2초 대기
+                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Stand))
+                   .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                   .AppendCallback(() => TurnEnd())
+
+                   .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                   .Append(player.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 3.5f, DeepOneHybrid4_Object.transform.position.y - 0.2f, -1), 0.5f))
+                   .AppendCallback(() => OnSpriteChangeComplete(player_R, Bat_Attack))
+                   .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x + 2f, DeepOneHybrid4_Object.transform.position.y), 0.5f))
+                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Punch))
+                   .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 2f, DeepOneHybrid4_Object.transform.position.y, -2), 0.2f))
+                   .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
+                   .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                                                                            .AppendCallback(() => SoundManager.Instance.Battle_Sound("MartialArts"))
+                   .AppendCallback(() => CamRotate(-1))
+                   .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                   .Join(DeepOneHybrid4_Object.transform.DOShakePosition(1, 2, 90))
+                   .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
+                  .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
+
+                   .AppendInterval(0.5f) // 2초 대기
+                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Stand))
+                   .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                   .AppendCallback(() => TurnEnd())
+
+                   .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                   .Append(player.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 3.5f, DeepOneHybrid4_Object.transform.position.y - 0.2f, -1), 0.5f))
+                   .AppendCallback(() => OnSpriteChangeComplete(player_R, Axe_Attack))
+                   .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x + 2f, DeepOneHybrid4_Object.transform.position.y), 0.5f))
+                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Punch))
+                   .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 2f, DeepOneHybrid4_Object.transform.position.y, -2), 0.2f))
+                   .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
+                   .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                                                                            .AppendCallback(() => SoundManager.Instance.Battle_Sound("MartialArts"))
+                   .AppendCallback(() => CamRotate(-1))
+                   .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                   .Join(DeepOneHybrid4_Object.transform.DOShakePosition(1, 2, 90))
+                   .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
+                  .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
+
+                   .AppendInterval(0.5f) // 2초 대기
+                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Stand))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                    .AppendCallback(() => TurnEnd())
 
@@ -2260,6 +2663,201 @@ public class BattleManager : MonoBehaviour
 
                 }
             }
+            else if (onPointerEnemy == "DeepOneHybrid4")
+            {
+                BattleCameraMove.Instance.ZoomUp();
+                Vector3 playerOrigin = player.transform.position;
+                Vector3 enemyOrigin = DeepOneHybrid4_Object.transform.position;
+                GameObject obj = DeepOneHybrid4_Object;
+                SpriteRenderer spR = DeepOneHybrid4_Render;
+                if (Success == "Result : Success" || Success == "Result : Critical Success")
+                {
+                    if (DataBaseManager.BattleWeapon == "SmallPistoll")
+                    {
+                        player_R.sprite = SmallPistol_Ready;
+                    }
+                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    {
+                        player_R.sprite = Revolver_Ready;
+                    }
+                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    {
+                        player_R.sprite = Rifle_Ready;
+                    }
+                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    {
+                        player_R.sprite = Shotgun_Ready;
+                    }
+
+                    Cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
+
+                    if (DataBaseManager.BattleWeapon == "SmallPistol")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedBySmallPistol))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, SmallPistol_Attack))
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 7)) * 5))//1D6
+                                                                   .AppendCallback(() => SoundManager.Instance.Battle_Sound("SmallPisol_Attack"))//1D6
+                        .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
+                        .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                         .AppendCallback(() => CamRotate(0))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRevolver))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Revolver_Attack))
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 11) + 2) * 5))//1d10+2
+                                                .AppendCallback(() => SoundManager.Instance.Battle_Sound("Revolver_Attack"))
+                        .AppendCallback(() => SoundManager.Instance.Battle_Sound("Revolver_Hit"))
+                        .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
+                        .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                         .AppendCallback(() => CamRotate(0))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRifle))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Rifle_Attack))
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2D6+2
+                          .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rifle_Attack"))
+                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rifle_Hit"))
+                        .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
+                        .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                         .AppendCallback(() => CamRotate(0))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByShotgun))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Shotgun_Attack))
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6)) * 5))//1D6
+                                                   .AppendCallback(() => SoundManager.Instance.Battle_Sound("Shotgun_Attack"))
+                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("Shotgun_Hit"))
+                       .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
+                        .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                         .AppendCallback(() => CamRotate(0))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+
+
+                }
+                else
+                {
+                    if (DataBaseManager.BattleWeapon == "SmallPistoll")
+                    {
+                        player_R.sprite = SmallPistol_Ready;
+                    }
+                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    {
+                        player_R.sprite = Revolver_Ready;
+                    }
+                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    {
+                        player_R.sprite = Rifle_Ready;
+                    }
+                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    {
+                        player_R.sprite = Shotgun_Ready;
+                    }
+
+
+
+
+                    Cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
+                    if (DataBaseManager.BattleWeapon == "SmallPistol")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, SmallPistol_Attack))
+                                                                   .AppendCallback(() => SoundManager.Instance.Battle_Sound("SmallPisol_Attack"))//1D6
+                        .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                         .AppendCallback(() => CamRotate(0))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Revolver_Attack))
+                        .AppendCallback(() => SoundManager.Instance.Battle_Sound("Revolver_Attack"))
+                        .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                         .AppendCallback(() => CamRotate(0))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Rifle_Attack))
+                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rifle_Attack"))
+                        .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                         .AppendCallback(() => CamRotate(0))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Shotgun_Attack))
+                        .AppendCallback(() => SoundManager.Instance.Battle_Sound("Shotgun_Attack"))
+                        .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                         .AppendCallback(() => CamRotate(0))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+
+                    // 연출 삽입
+
+
+                }
+            }
         }
         if (PlayerAction == "Deftness_attack")
         {
@@ -2578,6 +3176,115 @@ public class BattleManager : MonoBehaviour
 
                 }
             }
+            else if (onPointerEnemy == "DeepOneHybrid4")
+            {
+                BattleCameraMove.Instance.ZoomUp();
+                Vector3 playerOrigin = player.transform.position;
+                Vector3 enemyOrigin = DeepOneHybrid4_Object.transform.position;
+                GameObject obj = DeepOneHybrid4_Object;
+                SpriteRenderer spR = DeepOneHybrid4_Render;
+                if (Success == "Result : Success" || Success == "Result : Critical Success")
+                {
+                    if (DataBaseManager.BattleWeapon == "Rock")
+                    {
+                        player_R.sprite = Rock_Ready;
+                    }
+                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    {
+                        player_R.sprite = Molotov_Ready;
+                    }
+
+
+                    Cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
+
+                    if (DataBaseManager.BattleWeapon == "Rock")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRock))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 3)) * 5))//1D6
+                                                                                   .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rock_Attack"))
+                        .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
+                        .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                         .AppendCallback(() => CamRotate(0))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByMolotov))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2d6+2
+                                                                                   .AppendCallback(() => SoundManager.Instance.Battle_Sound("Molotov_Attack"))
+                        .Join(Cam.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
+                        .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                         .AppendCallback(() => CamRotate(0))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+
+
+
+                }
+                else
+                {
+                    if (DataBaseManager.BattleWeapon == "Rock")
+                    {
+                        player_R.sprite = Rock_Ready;
+                    }
+                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    {
+                        player_R.sprite = Molotov_Ready;
+                    }
+                    Cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
+                    if (DataBaseManager.BattleWeapon == "Rock")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
+                                                                                .AppendCallback(() => SoundManager.Instance.Battle_Sound("DeftNess_Miss"))
+                        .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                         .AppendCallback(() => CamRotate(0))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    {
+                        Sequence sequence = DOTween.Sequence()
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
+                                                                                .AppendCallback(() => SoundManager.Instance.Battle_Sound("DeftNess_Miss"))
+                        .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
+                        .AppendInterval(0.5f) // 2초 대기
+                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                        .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                                         .AppendCallback(() => CamRotate(0))
+                        .AppendCallback(() => TurnEnd())
+                        .Append(player.transform.DOMove(OriginPoint, 0.5f))
+                        .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
+                    }
+
+
+                    // 연출 삽입
+
+
+                }
+            }
         }
     }
 
@@ -2604,6 +3311,12 @@ public class BattleManager : MonoBehaviour
         {
             DeepOneHybrid3.NowHP -= damage;
             DamageNumber damageNumber = numberPrefab.Spawn(DeepOneHybrid3_Object.transform.position, damage);
+
+        }
+        if (subject == "DeepOneHybrid4")
+        {
+            DeepOneHybrid4.NowHP -= damage;
+            DamageNumber damageNumber = numberPrefab.Spawn(DeepOneHybrid4_Object.transform.position, damage);
 
         }
         if (subject == "player")
@@ -2654,6 +3367,12 @@ public class BattleManager : MonoBehaviour
             DeepOneHybrid3_Object.SetActive(false);
             EnemyTrunSymbol_3.SetActive(false);
         }
+        if (DeepOneHybrid4.NowHP <= 0 && BattleState == "setTrun")
+        {
+            DeepOneHybrid4_Object.SetActive(false);
+            EnemyTrunSymbol_1.SetActive(false);
+        }
+
     }
 
 
@@ -2877,6 +3596,72 @@ public class BattleManager : MonoBehaviour
                 {
                     BattleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid3.DeepOneHybrid_MatialArts);
+                }
+            }
+            if (PlayerAction == "PlayerMarkmen")
+            {
+                PlayerMarkmenUi.SetActive(false);
+                if (DataBaseManager.BattleWeapon == "SmallPistol")
+                {
+                    BattleState = "Rollet";
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
+                }
+                if (DataBaseManager.BattleWeapon == "Rifle")
+                {
+                    BattleState = "Rollet";
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
+                }
+                if (DataBaseManager.BattleWeapon == "Revolver")
+                {
+                    BattleState = "Rollet";
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
+                }
+                if (DataBaseManager.BattleWeapon == "Shotgun")
+                {
+                    BattleState = "Rollet";
+                    Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
+                }
+            }
+            if (PlayerAction == "PlayerDeftness")
+            {
+                PlayerDeftnessUi.SetActive(false);
+                if (DataBaseManager.BattleWeapon == "Rock")
+                {
+                    BattleState = "Rollet";
+                    Rollet.Instance.setRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
+                }
+                if (DataBaseManager.BattleWeapon == "Molotov")
+                {
+                    BattleState = "Rollet";
+                    Rollet.Instance.setRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
+                }
+
+            }
+        }
+        if (enemy == "DeepOneHybrid4")
+        {
+            if (PlayerAction == "martialarts")
+            {
+                BattleState = "Rollet";
+                BattleRollet.Instance.setBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid4.DeepOneHybrid_MatialArts);
+            }
+            if (PlayerAction == "PlayerSwords")
+            {
+                PlayerSwordsUi.SetActive(false);
+                if (DataBaseManager.BattleWeapon == "Dagger")
+                {
+                    BattleState = "Rollet";
+                    BattleRollet.Instance.setBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid4.DeepOneHybrid_MatialArts);
+                }
+                if (DataBaseManager.BattleWeapon == "Bat")
+                {
+                    BattleState = "Rollet";
+                    BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid4.DeepOneHybrid_MatialArts);
+                }
+                if (DataBaseManager.BattleWeapon == "Axe")
+                {
+                    BattleState = "Rollet";
+                    BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", DeepOneHybrid4.DeepOneHybrid_MatialArts);
                 }
             }
             if (PlayerAction == "PlayerMarkmen")

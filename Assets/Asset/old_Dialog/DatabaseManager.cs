@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    public static bool StartSewerBattle = false;
+
     public static bool SewerHouseIn = false;
     public static int SewerEnemyCounter = 0;
 

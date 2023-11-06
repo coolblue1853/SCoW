@@ -1241,7 +1241,9 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '④')
                     {
-
+                        //적 발견시 선택지 출력
+                        DataBaseManager.SelectionOn = true;
+                        selectionUIManager.Instance.Open_Select_SewerEnemy();
 
                     }
                     if (t_ReplaceText[i + 1] == '⑤')

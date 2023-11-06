@@ -279,6 +279,9 @@ public class PotalPoint : MonoBehaviour
             camera.transform.localPosition = Cam_Sewer;
 
             TimeManagere.Instance.Sewer_ByRiverSide();
+
+            DataBaseManager.nowPlace = "InSewer";
+            DialogDatabaseManager.instance.Check = true;
         }
 
         else if (this.name == "Sewer_Left" || this.name == "Sewer_Right")

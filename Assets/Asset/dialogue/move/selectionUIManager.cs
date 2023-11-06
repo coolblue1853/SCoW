@@ -10,6 +10,8 @@ public class selectionUIManager : MonoBehaviour
 
     public GameObject Select_1st_ClientsOffice_Safe;
 
+    public GameObject Select_SewerEnemy;
+
     //빈민가
     private List<System.Action> functionList = new List<System.Action>();
 
@@ -60,6 +62,12 @@ public class selectionUIManager : MonoBehaviour
     {
         DataBaseManager.isActiveDialog1 = true;
         Select_1st_DetectiveOiffce_1.SetActive(true);
+    }
+
+    public void Open_Select_SewerEnemy()
+    {
+        DataBaseManager.isActiveDialog1 = true;
+        Select_SewerEnemy.SetActive(true);
     }
     public void Open_1st_ClientsOffic_SafeSelect()
     {
@@ -157,6 +165,23 @@ public class selectionUIManager : MonoBehaviour
             DataBaseManager.DaveCheck = false;
             DialogManager.Instance.ChoiceEx_NextPage_t();
             Select_1st_Slum.SetActive(false);
+
+        }
+
+
+        // 하수도 내부
+        if (SelectButton == "Stealth")
+        {
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_SewerEnemy.SetActive(false);
+            InteractionController.Instance.Start_1st_DetectiveOffice("Reject_Request");
+        }
+        if (SelectButton == "Fight")
+        {
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_SewerEnemy.SetActive(false);
+           
+            // 전투로 이동
 
         }
     }

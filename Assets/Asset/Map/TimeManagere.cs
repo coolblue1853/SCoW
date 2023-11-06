@@ -29,6 +29,24 @@ public class TimeManagere : MonoBehaviour
  public GameObject Pipe;
  public GameObject Cage;
 
+
+    //¿¸≈ı ∏ 
+    public GameObject Sewer_Flat_Battle;
+    public GameObject Sewer_Round_Battle;
+    public GameObject Burb_Round1_Battle;
+    public GameObject Burb_Round2_Battle;
+    public GameObject Burb_Flet1_Battle;
+    public GameObject Burb_Flet2_Battle;
+    public GameObject Ledder_Battle;
+    public GameObject Hole_Battle;
+    public GameObject House_Battle;
+    public GameObject Rand2_Battle;
+    public GameObject SideRoad_Battle;
+    public GameObject Pipe_Battle;
+    public GameObject Cage_Battle;
+    public GameObject GroundWater_Battle;
+    public GameObject GroundWaterRand2_Battle;
+
     public GameObject GroundWater;
     public GameObject GroundWaterRand2;
     public void MakeCageLand()
@@ -102,6 +120,12 @@ public class TimeManagere : MonoBehaviour
         GroundWater.SetActive(true);
 
         GroundWaterRand2.SetActive(false);
+    }
+
+    public void EnemySpawn()
+    {
+        DataBaseManager.StoryDirecting = true;
+
     }
 
 
@@ -336,8 +360,6 @@ public class TimeManagere : MonoBehaviour
                 {
                     Ledder.SetActive(false);
                 }
-
-
             }
         }
         else
@@ -392,10 +414,26 @@ public class TimeManagere : MonoBehaviour
         House.SetActive(false);
         Rand2.SetActive(false);
 
-        GroundWater.SetActive(true);
-        GroundWaterRand2.SetActive(false);
+        GroundWater_Battle.SetActive(true);
+        GroundWaterRand2_Battle.SetActive(false);
 
+        GroundWater_Battle.SetActive(true);
+        Pipe_Battle.SetActive(false);
+        Sewer_Flat_Battle.SetActive(false);
+        Sewer_Round_Battle.SetActive(false);
+        Burb_Round1_Battle.SetActive(false);
+        Burb_Round2_Battle.SetActive(false);
+        Burb_Flet1_Battle.SetActive(false);
+        Burb_Flet2_Battle.SetActive(false);
+        Ledder_Battle.SetActive(false);
+        Hole_Battle.SetActive(false);
+        Cage_Battle.SetActive(false);
+        SideRoad_Battle.SetActive(false);
+        House_Battle.SetActive(false);
+        Rand2_Battle.SetActive(false);
 
+        GroundWater_Battle.SetActive(true);
+        GroundWaterRand2_Battle.SetActive(false);
 
         int Sewer = Random.Range(0, 2);
         if (Sewer == 1)
@@ -403,57 +441,73 @@ public class TimeManagere : MonoBehaviour
             Sewer_Flat.SetActive(true);
             Sewer_Round.SetActive(false);
 
+            Sewer_Flat_Battle.SetActive(true);
+            Sewer_Round_Battle.SetActive(false);
+
             int FlatLight1 = Random.Range(0, 2);
             if (FlatLight1 == 0)
             {
                 Burb_Flet1.SetActive(true);
+                Burb_Flet1_Battle.SetActive(true);
             }
             else
             {
                 Burb_Flet1.SetActive(false);
+                Burb_Flet1_Battle.SetActive(false);
             }
 
             int FlatLight2 = Random.Range(0, 2);
             if (FlatLight2 == 0)
             {
                 Burb_Flet2.SetActive(true);
+                Burb_Flet2_Battle.SetActive(true);
             }
             else
             {
                 Burb_Flet2.SetActive(false);
+                Burb_Flet2_Battle.SetActive(false);
             }
 
-            int HoleInt = Random.Range(0, 2);
+            int HoleInt = Random.Range(0, 2); 
             if (HoleInt == 0)
             {
                 Hole.SetActive(true);
+                Hole_Battle.SetActive(true);
             }
             else
             {
                 Hole.SetActive(false);
+                Hole_Battle.SetActive(false);
             }
         }
         else
         {
             Sewer_Flat.SetActive(false);
             Sewer_Round.SetActive(true);
+
+            Sewer_Flat_Battle.SetActive(false);
+            Sewer_Round_Battle.SetActive(true);
             int RoundLight1 = Random.Range(0, 2);
             if (RoundLight1 == 0)
             {
                 Burb_Round1.SetActive(true);
+                Burb_Round1_Battle.SetActive(true);
             }
             else
             {
                 Burb_Round1.SetActive(false);
+                Burb_Round1_Battle.SetActive(false);
             }
             int RoundLight2 = Random.Range(0, 2);
             if (RoundLight2 == 0)
             {
                 Burb_Round2.SetActive(true);
+                Burb_Round2_Battle.SetActive(true);
             }
             else
             {
                 Burb_Round2.SetActive(false);
+                Burb_Round2_Battle.SetActive(false);
             }
         }
 

@@ -144,7 +144,7 @@ DataBaseManager.gunShotPoint = 50;
         //      DataBaseManager.Intel_Nightmare4 = true;
         DataBaseManager.deftnessPoint = 11;
         DataBaseManager.DisguisePoint = 11;
-        DataBaseManager.dex = 999;
+        DataBaseManager.dex = 50;
         DataBaseManager.ObservationPoint = 11;
    //     DataBaseManager.GainMap = true;
         DataBaseManager.TimeCount = 1;
@@ -200,11 +200,8 @@ DataBaseManager.gunShotPoint = 50;
         }
         if (Input.GetKeyDown(KeyCode.F7))
         {
-            DataBaseManager.Masochism = true;
-      
-          //  DataBaseManager.Bandages += 1;
-           // DataBaseManager.Intel_Safe2 = true;
-            //DataBaseManager.Firstaidkit += 1;
+            DataBaseManager.nowPlace = "InSewer";
+            DataBaseManager.StartSewerBattle = true;
 
         }
         if (Input.GetKeyDown(KeyCode.F8))
