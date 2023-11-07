@@ -9,7 +9,8 @@ public class DirectingManager : MonoBehaviour
     public GameObject BattleM;
     public CameraManager cameraManager;
     public GameObject DialogManager;
-
+    Vector2 player_SewerRight = new Vector3(-1194.19f, -193.57f);
+    Vector3 Cam_SewerRight = new Vector3(-1217.02f, -195f, -15);
     public GameObject Back;
     public Image BackGround;
     public GameObject SewerBattleBackGround;
@@ -37,6 +38,9 @@ public class DirectingManager : MonoBehaviour
 
     Vector3 Cam_BattlePos = new Vector3(-774.6f, 120.1f, -15);
     Vector3 Cam_BattleSewerPos = new Vector3(-776.77f, 119.79f, -15);
+
+
+
     bool Thrid;
     bool twice;
     private static DirectingManager instance = null;
@@ -337,11 +341,14 @@ public class DirectingManager : MonoBehaviour
         //전투
         if (DataBaseManager.Battle_San == true && DataBaseManager.isActiveDialog1 == false)
         {
- 
             DataBaseManager.Battle_San = false;
+            
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "RoadBattle1");
         }
-        if(DataBaseManager.isBattleBeforeDialog == true &&DataBaseManager.isActiveDialog1 == false)
+
+
+        
+        if (DataBaseManager.isBattleBeforeDialog == true &&DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.isBattleBeforeDialog = false;
             FadingBackGround.Instance.CastInOut();
@@ -369,6 +376,24 @@ public class DirectingManager : MonoBehaviour
             Invoke("GotoBattleSewer", 0.8f);
             BattleManager.Instance.CloseButtonUI();
         }
+        if (DataBaseManager.InSewer_StealthSucc == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.InSewer_StealthSucc = false;
+            FadingBackGround.Instance.CastInOut(); // 이거 문제 체크
+            Invoke("InSewerFabianMove", 0.8f);
+
+        }
+        if (DataBaseManager.InSewer_StealthFail == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.InSewer_StealthFail = false;
+            FadingBackGround.Instance.CastInOut();
+            Invoke("GotoBattleSewer", 0.8f);
+            BattleManager.Instance.CloseButtonUI();
+
+        }
+
+
+
 
         //2일차 낮 강제 이벤트
 
@@ -473,14 +498,20 @@ public class DirectingManager : MonoBehaviour
 
 
 
-        
+        //하수도 내부
+        if (DataBaseManager.InsmusRhtoric == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.InsmusRhtoric = false;
+
+            Rollet.Instance.setRollet("??? : Give Excuse", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
+        }
 
 
 
         if (DataBaseManager.nowHP <= 0 && DataBaseManager.TimeCount >1)  
         {
-
-            DataBaseManager.EndDemo = true;
+            //죽었을때
+            //DataBaseManager.EndDemo = true;
         }
 
 
@@ -505,6 +536,19 @@ public class DirectingManager : MonoBehaviour
     public void BarFabianMove()
     {
         MapManager.Instance.BarFabianMove();
+    }
+
+    public void InSewerFabianMove()
+    {
+        TimeManagere.Instance.MakeSewerMap_Nomal();
+        DataBaseManager.isDirecting = false;
+        player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
+        CameraManager.Instance.isCheckEnd = true;
+        player.transform.localPosition = player_SewerRight;
+        Camera.transform.localPosition = Cam_SewerRight;
+        TimeManagere.Instance.DeletRightSewerPotal();
+
+
     }
 
     public void MeaveDialog()
@@ -593,10 +637,12 @@ public class DirectingManager : MonoBehaviour
     public GameObject EnemyTrunSymbol_1;
     public GameObject EnemyTrunSymbol_2;
     public GameObject EnemyTrunSymbol_3;
+    public GameObject BattleRoadLight;
     //전투 
     public void GotoBattle()
     {
-        if(DataBaseManager.battleEnemyCount == 1)
+        BattleRoadLight.SetActive(true);
+        if (DataBaseManager.battleEnemyCount == 1)
         {
             Enemy1.SetActive(true);
             Enemy2.SetActive(false);
@@ -643,6 +689,8 @@ public class DirectingManager : MonoBehaviour
     public GameObject SewerEnemy1;
     public void GotoBattleSewer()
     {
+        DataBaseManager.SewerBattleEndCheck = false;
+        BattleRoadLight.SetActive(false);
         battleObject.transform.localPosition = BattlePlayer_Sewer;
 
         SewerEnemy1.SetActive(true);
@@ -662,14 +710,21 @@ public class DirectingManager : MonoBehaviour
         BattleM.SetActive(true);
     }
 
-    
+    public GameObject PlayerTrunSymbol;
     public void EndBattle()
     {
+        battleUI.SetActive(false);
         Invoke("EndBattleInvoke", 1f);
     }
     public void EndBattleInvoke()
     {
-
+        BattleManager.Instance.StartBattle = false;
+        BattleManager.Instance.BattleState = "setTrun";
+        EnemyTrunSymbol_1.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
+        EnemyTrunSymbol_2.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
+        EnemyTrunSymbol_3.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
+        PlayerTrunSymbol.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
+        DataBaseManager.isRollet = false;
         battleUI.SetActive(false);
         cameraMove.enabled = false;
         DialogManager.SetActive(true);

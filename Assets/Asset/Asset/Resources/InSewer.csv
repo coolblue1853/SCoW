@@ -1,17 +1,17 @@
 ID,캐릭터이름,대사,
 1,Fabian,'There's a suspicious person standing in front of me.',
-2,Fabian,'How do I....',선택지 출현 -> 변장 안했을시.
-3,Fabian,(Luckily^ I was able to move on without being seen.),은밀행동 성공 -> 화면 암전이후 이동 -> 맵생성
+2,Fabian,'How do I....'⊙④,선택지 출현 -> 변장 안했을시.
+3,Fabian,(Luckily^ I was able to move on without being seen.)⊙⑤,은밀행동 성공 -> 화면 암전이후 이동 -> 맵생성
 4,Fabian,(The attempt to sneak past failed.),은밀행동 실패
 5,Fabian,(The figure approached me with a look of intense hostility that said it didn't care about my excuses.),
-6,Fabian,@Damn...@,
-7,Fabian,,
-8,Fabian,,
-9,Fabian,,
-10,Fabian,,
-11,Fabian,,
-12,Fabian,,
-13,Fabian,,
+6,Fabian,@Damn...@⊙⑥,
+7,???,@Wait... I don't recognize you there. Stop.@,변장 판정 실패
+8,Fabian,'Oh my... Did I get caught?',
+9,Fabian,@I'll have to make excuses it somehow.@⊙⑦,언변술 판정
+10,Fabian,(I somehow managed to get away with it.),언변술 판정 성공
+11,Fabian,'Let's get out of here quickly.'⊙⑤,
+12,Fabian,'Oh ... I think I've been found out...!',언변술 판정 실패
+13,Fabian,'I can't help^ it I have to deal with it.'⊙⑥,
 14,Fabian,,
 15,Fabian,,
 16,Fabian,,

@@ -1244,23 +1244,31 @@ public class DialogManager : MonoBehaviour
                         //적 발견시 선택지 출력
                         DataBaseManager.SelectionOn = true;
                         selectionUIManager.Instance.Open_Select_SewerEnemy();
-
+                        DataBaseManager.StoryDirecting = true;
                     }
                     if (t_ReplaceText[i + 1] == '⑤')
                     {
+                        // 은밀행동 성공시
+                        DataBaseManager.StoryDirecting = false;
+                        DataBaseManager.InSewer_StealthSucc = true;
 
                     }
                     if (t_ReplaceText[i + 1] == '⑥')
                     {
-
+                        // 은밀행동 실패시
+                        DataBaseManager.InSewer_StealthFail = true;
                     }
                     if (t_ReplaceText[i + 1] == '⑦')
                     {
+                        DataBaseManager.InsmusRhtoric = true;
 
                     }
                     if (t_ReplaceText[i + 1] == '⑧')
                     {
-  
+                        IntelManager.Instance.AddIntelFloating("Item", "KeyItem - Document");
+                        DataBaseManager.SafeDocument = true;
+                        DataBaseManager.weal += 10;
+
                     }
                     if (t_ReplaceText[i + 1] == '⑧')
                     {

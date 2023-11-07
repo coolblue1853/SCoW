@@ -13,6 +13,8 @@ public class InteractionController : MonoBehaviour
     public GameObject Safe_Fail;
     public GameObject Safe_Succ;
     public GameObject Bracelet_Look;
+
+    public GameObject Document_Look;
     //의뢰자의 집
     public GameObject Start_1st_Detective;
     public GameObject NewsPaper;
@@ -507,6 +509,9 @@ public class InteractionController : MonoBehaviour
     public GameObject Sewer_StealthSucc;
     public GameObject Sewer_StealthFail;
 
+    public GameObject Sewer_DisgauseFail;
+    public GameObject Sewer_RhethicSucc;
+    public GameObject Sewer_RhethicFail;
 
     private void Start()
     {
@@ -527,6 +532,11 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(Sewer_StealthFail.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+        if (setDialog == "Sewer_DisgauseFail")
+        {
+            theDM.ShowDialog(Sewer_DisgauseFail.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        
     }
 
     public void Start_SewerOffice(string setDialog)
@@ -795,6 +805,11 @@ public class InteractionController : MonoBehaviour
 
     public void Start_Safe_Look(string setDialog)
     {
+        
+       if (setDialog == "Document_Look")
+        {
+            theDM.ShowDialog(Document_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
         if (setDialog == "Safe_Look")
         {
             theDM.ShowDialog(Safe_Look.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -2990,7 +3005,7 @@ public class InteractionController : MonoBehaviour
             DataBaseManager.isUseSafe = true;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-
+                DataBaseManager.getSafe = false;
                 theDM.ShowDialog(Safe_Succ.transform.GetComponent<interactionEvent>().GetDialogs());
 
             }
@@ -3120,6 +3135,31 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(BlackWell_Judege_RheticFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
+
+        // 하수도 내부 
+        if (Sub_Dialog == "Fabian : Sneak Out")
+        {
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(Sewer_StealthSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+                theDM.ShowDialog(Sewer_StealthFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (Sub_Dialog == "??? : Give Excuse")
+        {
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(Sewer_RhethicSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+                theDM.ShowDialog(Sewer_RhethicFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+       
     }
 
 

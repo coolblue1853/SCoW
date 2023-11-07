@@ -496,7 +496,7 @@ public class SIS_UIManager : MonoBehaviour
             DeactivateObjectWithName(Use_ItemBox, "Painkillers");
         }
 
-        if (DataBaseManager.Intel_Safe2 == true)
+        if (DataBaseManager.getSafe == true)
         {
             ActivateObjectWithName(Key_ItemBox, "Safe");
         }
@@ -511,6 +511,23 @@ public class SIS_UIManager : MonoBehaviour
                 Use_Detail.text = "";
             }
             DeactivateObjectWithName(Key_ItemBox, "Safe");
+        }
+
+        if (DataBaseManager.SafeDocument == true)
+        {
+            ActivateObjectWithName(Key_ItemBox, "Document");
+        }
+        else
+        {
+
+            if (DataBaseManager.nowItem == "Document")
+            {
+                imageComponent_Key.sprite = None;
+                DataBaseManager.nowItem = "";
+                Use_Name.text = "";
+                Use_Detail.text = "";
+            }
+            DeactivateObjectWithName(Key_ItemBox, "Document");
         }
         if (DataBaseManager.GainMap == true)
         {
@@ -682,10 +699,15 @@ public class SIS_UIManager : MonoBehaviour
                 Key_Name.text = "";
                 Key_Detail.text = "";
             }
-            if (DataBaseManager.nowItem == "Safe" && DataBaseManager.Intel_Safe2 == true)
+            if (DataBaseManager.nowItem == "Safe" && DataBaseManager.getSafe == true)
             {
                 Key_Name.text = "Safe";
                 Key_Detail.text = "Skill :\nDeftness-20\n\nDetail:\nAiden's safe. It's locked solidly.";
+            }
+            if (DataBaseManager.nowItem == "Document" && DataBaseManager.SafeDocument == true)
+            {
+                Key_Name.text = "Document";
+                Key_Detail.text = "Detail:\nThe documents in Aiden's safe.";
             }
             if (DataBaseManager.nowItem == "Map" && DataBaseManager.GainMap == true)
             {

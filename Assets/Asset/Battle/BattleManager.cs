@@ -131,6 +131,15 @@ public class BattleManager : MonoBehaviour
 
 
             }
+    
+  
+        }
+         if (EnemyTrunSymbol_1.activeSelf == false && EnemyTrunSymbol_2.activeSelf == false && EnemyTrunSymbol_3.activeSelf == false && DataBaseManager.nowPlace == "InSewer" && DataBaseManager.SewerBattleEndCheck == false)
+        {
+            DataBaseManager.SewerBattleEndCheck = true;
+            DataBaseManager.StoryDirecting = false;
+            FadingBackGround.Instance.FadeInOut();
+            Invoke("EndSewerBattle", 1f);
         }
         /*
         if (Input.GetKeyDown(KeyCode.K)){
@@ -146,9 +155,31 @@ public class BattleManager : MonoBehaviour
     }
     void EndRoadBattle()
     {
+        PlayerActionUi.SetActive(false);
         UIButton.SetActive(true);
         InteractionController.Instance.BattleDialog("End");
+
+        BattleState = "setTrun";
+        EnemyTrunSymbol_1.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
+        EnemyTrunSymbol_2.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
+        EnemyTrunSymbol_3.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
+        PlayerTrunSymbol.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
     }
+    public void EndSewerBattle()
+    {
+        PlayerActionUi.SetActive(false);
+        UIButton.SetActive(true);
+        DataBaseManager.InSewer_StealthSucc = true;
+        DialogDatabaseManager.instance.Check = true;
+        DataBaseManager.isDirecting = false;
+        DataBaseManager.StoryDirecting = false;
+        DataBaseManager.isRollet = false;
+        DataBaseManager.EndBattle = false;
+        DirectingManager.Instance.EndBattle();
+        
+
+    }
+
     public static BattleManager Instance
     {
         get
@@ -289,7 +320,15 @@ public class BattleManager : MonoBehaviour
                 symbol.transform.localPosition = new Vector2(symbol.transform.localPosition.x, -130);
                 BattleState = Target+"Trun";
 
-                RoundText.text = Target + " Trun";
+                if(Target == "Player")
+                {
+                    RoundText.text = "Player Trun";
+                }
+                else
+                {
+                    RoundText.text = "Enemy Trun";
+                }
+
                 RoundGameObject.SetActive(true);
             }
         }
@@ -2033,6 +2072,7 @@ public class BattleManager : MonoBehaviour
                    .AppendInterval(0.5f) // 2초 대기
                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Stand))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                            .AppendCallback(() => CamRotate(0))
                    .AppendCallback(() => TurnEnd())
 
                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2058,6 +2098,7 @@ public class BattleManager : MonoBehaviour
                    .AppendInterval(0.5f) // 2초 대기
                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Stand))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                            .AppendCallback(() => CamRotate(0))
                    .AppendCallback(() => TurnEnd())
 
                    .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2083,6 +2124,7 @@ public class BattleManager : MonoBehaviour
                    .AppendInterval(0.5f) // 2초 대기
                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Stand))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
+                            .AppendCallback(() => CamRotate(0))
                    .AppendCallback(() => TurnEnd())
 
                    .Append(player.transform.DOMove(OriginPoint, 0.5f))

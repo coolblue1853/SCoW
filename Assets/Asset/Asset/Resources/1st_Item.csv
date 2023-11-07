@@ -3,7 +3,7 @@ ID,캐릭터이름,대사,
 2,Fabian,(It looks pretty sturdy^ so I don't think there's any way to force it open.),
 3,Fabian,(I can open it myself^ or I can take it to ⓖ(Dave)ⓦ in the ⓑ(slum)ⓦ and he can open it.),
 4,Fabian,(I don't think I'll be able to open this safe.),금고 실패
-5,,!Not available in the current version!♣⑦,금고 성공
+5,,!Not available in the current version!♣⑦,금고 성공(데모버전)
 6,Fabian,(ⓡ(Bracelet)ⓦ taken from ⓖ(Ella)ⓦ),팔찌 살펴보기
 7,Fabian,(If I took it to ⓖ(Dave)ⓦ in the ⓑ(slum)ⓦ^ he might be able to turn it into money.),
 8,Fabian,(This is the worker's outfit from the (sewerage office).),코트 살펴보기
@@ -13,19 +13,19 @@ ID,캐릭터이름,대사,
 12,Fabian,(I don't think I can trick them into this.),변장실패
 13,Fabian,(It is inscribed with the words (Lower Riverside)),열쇠 살펴보기
 14,Fabian,(An internal map of the (sewer)^ taken from the (Sewerage Office).),지도 살표보기
-15,,,
-16,,,
-17,,,
-18,,,
-19,,,
-20,,,
-21,,,
-22,,,
-23,,,
-24,,,
-25,,,
-26,,,
-27,,,
+15,Fabian,(What was found in the safe was a bundle of money and documents.)⊙⑧,금고 성공(정식버전)
+16,Fabian,'Let's take a look at the documents...',서류 살펴보기
+17,Fabian,(The documents appears to be about something (Aiden) has been investigating recently ⓡ(●1ⓢghost story in the sewers)ⓦ.,키워드 획득- 하수도 괴담
+18,Fabian,@Let's see... I wandered around the sewers to investigate the crocodiles living in the sewers...@,
+19,Fabian,(I can see scrawled writing behind some pictures of sewers.),
+20,Fabian,@It's dangerous here. Unidentified people crowd the sewers.@,
+21,Fabian,@They emit a very nasty ⓡ(●3ⓕfishy smell)ⓦ^ and they seem to be the source of the smell that has been circulating in the city lately.@,키워드 획득- 비릿한 냄새 근원
+22,Fabian,@Also^ they are ⓡ(●3ⓜkidnapping)ⓦ people in sacks and bringing them inside the sewers!@,키워드 획득- 납치
+23,Fabian,@It must be trying to do something terrible.@,
+24,Fabian,(The rest of the writing is too blurred to make out^ but one letter is clear.),
+25,Fabian,@Ella^ you run away...@,
+26,Fabian,'This is a big deal... (sewer)...',
+27,Fabian,'I'll have to go to the ⓑ(●1ⓢSewerage Maintenance Office)ⓦ to get into the sewers down by the river.',
 28,,,
 29,,,
 30,,,

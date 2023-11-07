@@ -13,6 +13,8 @@ public class TimeManagere : MonoBehaviour
     }
 
     // Update is called once per frame
+    public GameObject Enemy;
+
     public GameObject Sewer_Flat;
  public GameObject Sewer_Round;
  public GameObject Burb_Round1;
@@ -131,8 +133,9 @@ public class TimeManagere : MonoBehaviour
 
     public void MakeSewer()
     {
+        Enemy.SetActive(false);
         // 지도가 없다면
-        if(DataBaseManager.GainMap == false)
+        if (DataBaseManager.GainMap == false)
         {
             int RandLuk = Random.Range(1, 101);
             Debug.Log("럭 : "+DataBaseManager.luk + "// 판정값 : " + RandLuk);
@@ -201,6 +204,17 @@ public class TimeManagere : MonoBehaviour
 
                     MakeSewerMap_Enemy();
                     Debug.Log("적 등장");
+                    if (DataBaseManager.WearCoat == true)
+                    {
+                        Enemy.SetActive(true);
+                        DataBaseManager.IsInsmusMeetSewer = false;
+                    }
+                    else
+                    {
+                        Enemy.SetActive(true);
+                        Invoke("PrintBattleDialog", 1f);
+                    }
+
                     // 적이 등장하는 횟수에 따라 전투 개시를 BattleManager로 전송
                 }
             }
@@ -277,6 +291,19 @@ public class TimeManagere : MonoBehaviour
                     MakeSewerMap_Enemy();
                     Debug.Log("적 등장");
 
+
+                    if(DataBaseManager.WearCoat == true)
+                    {
+                        Enemy.SetActive(true);
+                        DataBaseManager.IsInsmusMeetSewer = false;
+                    }
+                    else
+                    {
+                        Enemy.SetActive(true);
+                        Invoke("PrintBattleDialog", 1f);
+                    }
+
+
                     Debug.Log("쇼고스 등장");
 
                     // 적이 등장하는 횟수에 따라 전투 개시를 BattleManager로 전송
@@ -287,9 +314,14 @@ public class TimeManagere : MonoBehaviour
         }
 
     }
+    public void PrintBattleDialog()
+    {
+        InteractionController.Instance.InSewerDialog("Sewer_EnemySpawn");
+    }
 
     public void MakeSewerMap_Nomal()
     {
+        Enemy.SetActive(false);
         Pipe.SetActive(false);
         Sewer_Flat.SetActive(false);
         Sewer_Round.SetActive(false);
@@ -516,10 +548,12 @@ public class TimeManagere : MonoBehaviour
         if (Pipeint == 0)
         {
             Pipe.SetActive(true);
+            Pipe_Battle.SetActive(true);
         }
         else
         {
             Pipe.SetActive(false);
+            Pipe_Battle.SetActive(false);
         }
     }
     public void Sewer_ByRiverSide()

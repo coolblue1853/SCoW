@@ -11,8 +11,9 @@ public class KeyItemBox : MonoBehaviour
     public Sprite Bracelet;
     public Sprite Coat;
     public Sprite SewergeKey;
+    public Sprite Document;
     public Sprite None; 
-            public Sprite Map;
+   public Sprite Map;
 
     public GameObject SISUI;
     public TextMeshProUGUI UseUI_Text;
@@ -37,6 +38,13 @@ public class KeyItemBox : MonoBehaviour
     }
     public void LookButton()
     {
+        if (DataBaseManager.nowItem == "Document")
+        {
+            DataBaseManager.isOpenUi = false;
+
+            InteractionController.Instance.Start_Safe_Look("Document_Look");
+            SISUI.SetActive(false);
+        }
         if (DataBaseManager.nowItem == "Safe")
         {
             DataBaseManager.isOpenUi = false;
@@ -139,10 +147,20 @@ public class KeyItemBox : MonoBehaviour
             Use_B.SetActive(false);
 
         }
+        else if (DataBaseManager.nowItem == "Document")
+        {
+            imageComponent.sprite = Document;
+            Use_B.SetActive(false);
+
+        }
         else
         {
             imageComponent.sprite = None;
         }
+        
+
+
+  
     }
 }
 

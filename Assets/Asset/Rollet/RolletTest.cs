@@ -135,16 +135,18 @@ DataBaseManager.gunShotPoint = 50;
 
 
                 DataBaseManager.Albert_FirstDialog = true;
-
-
-
-        DataBaseManager.rhetoricPoint = 11;
-
+        DataBaseManager.getSafe = true;
+        DataBaseManager.GainCoat = true;
+        DataBaseManager.stealthPoint = 90;
+        DataBaseManager.swordPoint = 90;
+        DataBaseManager.Axe = 1;
+        DataBaseManager.rhetoricPoint = 90;
+        DataBaseManager.luk = 25;
         //   DataBaseManager.Intel_Nightmare3 = true;
         //      DataBaseManager.Intel_Nightmare4 = true;
-        DataBaseManager.deftnessPoint = 11;
-        DataBaseManager.DisguisePoint = 11;
-        DataBaseManager.dex = 50;
+        DataBaseManager.deftnessPoint = 80;
+        DataBaseManager.DisguisePoint = 90;
+        DataBaseManager.dex = 80;
         DataBaseManager.ObservationPoint = 11;
    //     DataBaseManager.GainMap = true;
         DataBaseManager.TimeCount = 1;
@@ -171,19 +173,19 @@ DataBaseManager.gunShotPoint = 50;
     }
     private void Update()
     {
-        /*
-        Debug.Log(DataBaseManager.isActiveDialog1);
-        Debug.Log(DataBaseManager.StoryDirecting);
-        Debug.Log(DataBaseManager.secondisDirecting);
-        Debug.Log(DataBaseManager.isRollet);
-        Debug.Log(DataBaseManager.isDirecting);
-        Debug.Log(DataBaseManager.isOpenUi);
-        Debug.Log(DataBaseManager.isOpenMap);
-        */
+     /*   
+        Debug.Log("isActiveDialog1 :" + DataBaseManager.isActiveDialog1);
+        Debug.Log("StoryDirecting :" + DataBaseManager.StoryDirecting);
+        Debug.Log("secondisDirecting :" + DataBaseManager.secondisDirecting);
+        Debug.Log("isRollet :" + DataBaseManager.isRollet);
+        Debug.Log("isDirecting :" + DataBaseManager.isDirecting);
+        Debug.Log("isOpenUi :" + DataBaseManager.isOpenUi);
+        Debug.Log("isOpenMap :" + DataBaseManager.isOpenMap);
+       */ 
 
         if (Input.GetKeyDown(KeyCode.F12))
         {
-            DataBaseManager.weal += 10;
+            DataBaseManager.WearCoat = true;
         }
 
             if (Input.GetKeyDown(KeyCode.F10))

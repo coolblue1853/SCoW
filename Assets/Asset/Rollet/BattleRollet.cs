@@ -734,7 +734,16 @@ public class BattleRollet : MonoBehaviour
         {
             if (FinalResult == "Success")
             {
-                BattleManager.Instance.Ex_BattleEnd();
+                if(DataBaseManager.nowPlace != "InSewer")
+                {
+                    BattleManager.Instance.Ex_BattleEnd();
+                }
+                else
+                {
+                    BattleManager.Instance.EndSewerBattle();
+
+                }
+
             }
             else
             {

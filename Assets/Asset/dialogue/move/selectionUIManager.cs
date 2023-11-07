@@ -66,6 +66,7 @@ public class selectionUIManager : MonoBehaviour
 
     public void Open_Select_SewerEnemy()
     {
+
         DataBaseManager.isActiveDialog1 = true;
         Select_SewerEnemy.SetActive(true);
     }
@@ -174,13 +175,14 @@ public class selectionUIManager : MonoBehaviour
         {
             DialogManager.Instance.ChoiceEx_NextPage_t();
             Select_SewerEnemy.SetActive(false);
-            InteractionController.Instance.Start_1st_DetectiveOffice("Reject_Request");
+            Rollet.Instance.setRollet("Fabian : Sneak Out", "Stealth", DataBaseManager.stealthPoint, "dialog");
+
         }
         if (SelectButton == "Fight")
         {
             DialogManager.Instance.ChoiceEx_NextPage_t();
             Select_SewerEnemy.SetActive(false);
-           
+            DataBaseManager.StartSewerBattle = true;
             // 전투로 이동
 
         }

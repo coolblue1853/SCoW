@@ -4,6 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    public static bool SafeDocument = false;
+    public static bool InsmusRhtoric = false;
+    public static bool IsInsmusMeetSewer = false;
+
+    public static bool SewerBattleEndCheck = false;
+    public static bool InSewer_StealthFail = false;
+    public static bool InSewer_StealthSucc = false;
     public static bool StartSewerBattle = false;
 
     public static bool SewerHouseIn = false;

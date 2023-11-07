@@ -56,16 +56,17 @@ public class Rollet : MonoBehaviour
     private static Rollet instance = null;
 
     public GameObject EndButton;
-
+  
     string  String;
 
     private void Update()
     {
-        if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) && Sub_Dialog != "SAN : Check")
+        if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) && (Sub_Dialog != "SAN : Check" || Sub_Dialog != "Fabian : Sneak Out") )
         {
             activeCheck = false;
             DataBaseManager.CancelJudge = true;
-   
+              
+      
 
              if (BattleManager.Instance.PlayerAction == "PlayerMarkmen")
             {
