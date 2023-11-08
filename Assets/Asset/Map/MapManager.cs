@@ -392,13 +392,22 @@ public class MapManager : MonoBehaviour
 
     public void OpenMap()
     {
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false&& DataBaseManager.potalWait == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad" && DataBaseManager.isOpenMap == false)
+        if(DataBaseManager.nowPlace != "InSewer")
         {
-            SoundManager.Instance.PaperClip_Play();
-            DataBaseManager.workSound = false;
-            DataBaseManager.isOpenUi = true;
-            MapChainingUI.SetActive(true);
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.potalWait == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad" && DataBaseManager.isOpenMap == false)
+            {
+                SoundManager.Instance.PaperClip_Play();
+                DataBaseManager.workSound = false;
+                DataBaseManager.isOpenUi = true;
+                MapChainingUI.SetActive(true);
+            }
         }
+        else
+        {
+
+
+        }
+
 
     }
     public void CloseMap()

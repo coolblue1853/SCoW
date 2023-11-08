@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class RolletTest : MonoBehaviour
 {
+    public GameObject player;
+    public GameObject cam;
 
     // setRollet(string skill, string point_sting, int point_int)
 
-
+    Vector2 player_SecretHouse = new Vector3(-1291.44f, -194.02f);
+    Vector3 Cam_SecretHouse = new Vector3(-1303f, -195f, -15);
     private void Awake()
     {
 
@@ -152,7 +155,8 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.TimeCount = 1;
         DataBaseManager.Intel_SewageMaintenanceOffice1 = true;
         DataBaseManager.isTest = true;
-      //  DataBaseManager.GainCoat = true;
+        //  DataBaseManager.GainCoat = true;
+        DataBaseManager.SafeDocument = true;
     }
     public void NewsRollet()
     {
@@ -185,10 +189,12 @@ DataBaseManager.gunShotPoint = 50;
 
         if (Input.GetKeyDown(KeyCode.F12))
         {
-            DataBaseManager.WearCoat = true;
+            player.transform.position = player_SecretHouse;
+            cam.transform.position = Cam_SecretHouse;
+
         }
 
-            if (Input.GetKeyDown(KeyCode.F10))
+        if (Input.GetKeyDown(KeyCode.F10))
         {
             DataBaseManager.Sewer_San = true;
 
@@ -214,7 +220,7 @@ DataBaseManager.gunShotPoint = 50;
         }
         if (Input.GetKeyDown(KeyCode.F9))
         {
-             DataBaseManager.Painkillers += 1;
+            TimeManagere.Instance.MakeSewerMap_Enemy();
 
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))

@@ -59,6 +59,15 @@ public class PotalPoint : MonoBehaviour
 
     Vector2 player_SewerLeft = new Vector3(-1243.64f, -193.57f);
     Vector3 Cam_SewerLeft = new Vector3(-1221.5f, -195f, -15);
+
+
+    Vector2 player_SecretHouse = new Vector3(-1291.44f, -194.02f);
+    Vector3 Cam_SecretHouse = new Vector3(-1303f, -195f, -15);
+
+
+    Vector2 player_InSewer = new Vector3(-1211.05f, -194.02f);
+    Vector3 Cam_InSewer = new Vector3(-1217.72f, -195f, -15);
+
     public void Update()
     {
         if (PlayerInTrigger == true)
@@ -322,8 +331,23 @@ public class PotalPoint : MonoBehaviour
 
             TimeManagere.Instance.MakeSewer();
         }
-        
-
+        else if (this.name == "MoveSecretHouse")
+        {
+            DataBaseManager.isDirecting = true;
+            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
+            CameraManager.Instance.isCheckEnd = true;
+            player.transform.localPosition = player_SecretHouse;
+            camera.transform.localPosition = Cam_SecretHouse;
+        }
+        else if (this.name == "MoveSewer")
+        {
+            DataBaseManager.isDirecting = true;
+            player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
+            CameraManager.Instance.isCheckEnd = true;
+            player.transform.localPosition = player_InSewer;
+            camera.transform.localPosition = Cam_InSewer;
+  
+        }
 
         Invoke("ablePotal", 2f);
     }

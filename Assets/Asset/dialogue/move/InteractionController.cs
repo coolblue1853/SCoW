@@ -513,6 +513,19 @@ public class InteractionController : MonoBehaviour
     public GameObject Sewer_RhethicSucc;
     public GameObject Sewer_RhethicFail;
 
+    public GameObject Sewer_MapDialog;
+    public GameObject Sewer_MapLook;
+    public GameObject Sewer_JournalDialog;
+    public GameObject Sewer_JornalLook;
+    public GameObject Sewer_JornalLookSanCheck;
+    public GameObject Sewer_JornalLookAfterSanCheck;
+    public GameObject Sewer_BookDialog;
+    public GameObject Sewer_BookLook;
+    public GameObject Sewer_BookLookSanCheck;
+    public GameObject Sewer_BookLookOccultSucc;
+    public GameObject Sewer_BookLookOccultFail;
+  
+
     private void Start()
     {
         //TestNar();
@@ -536,7 +549,39 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(Sewer_DisgauseFail.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+       
+        if (setDialog == "Sewer_MapDialog")
+        {
+            theDM.ShowDialog(Sewer_MapDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Sewer_MapLook")
+        {
+            theDM.ShowDialog(Sewer_MapLook.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+
+        if (setDialog == "Sewer_JournalDialog")
+        {
+            theDM.ShowDialog(Sewer_JournalDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Sewer_JornalLook")
+        {
+            theDM.ShowDialog(Sewer_JornalLook.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Sewer_JornalLookAfterSanCheck")
+        {
+            theDM.ShowDialog(Sewer_JornalLookAfterSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Sewer_BookDialog")
+        {
+            theDM.ShowDialog(Sewer_BookDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Sewer_BookLook")
+        {
+            theDM.ShowDialog(Sewer_BookLook.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
         
+
     }
 
     public void Start_SewerOffice(string setDialog)

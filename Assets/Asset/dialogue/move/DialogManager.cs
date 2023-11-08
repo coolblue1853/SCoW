@@ -380,7 +380,7 @@ public class DialogManager : MonoBehaviour
         t_ReplaceText = t_ReplaceText.Replace("^", ",");
         t_ReplaceText = t_ReplaceText.Replace('@', '"');
         t_ReplaceText = t_ReplaceText.Replace("\\n", "\n");
-        bool t_white = false, t_yellow = false, t_red = false, t_green = false, t_blue = false;   // 색 추가 지점
+        bool t_white = false, t_yellow = false, t_red = false, t_green = false, t_blue = false, t_grey = false;   // 색 추가 지점
         bool t_ignore = false;
         for (int i = 0; i < t_ReplaceText.Length; i++)
         {
@@ -389,16 +389,16 @@ public class DialogManager : MonoBehaviour
                 case 'ⓦ':
                     if (t_ReplaceText[i - 1] == ')')
                     {
-                        t_white = true; t_yellow = false; t_red = false; t_green = false; t_blue = false; t_ignore = true; break;
+                        t_white = true; t_yellow = false; t_red = false; t_green = false; t_blue = false; t_ignore = true; t_grey = false; break;
                     }
                     t_ignore = true;
                     break;
-                case 'ⓨ': t_white = false; t_yellow = true; t_red = false; t_green = false; t_blue = false; t_ignore = true; break;
-            
-                
-                
-                
-                case 'ⓡ': t_white = false; t_yellow = false; t_red = true; t_green = false; t_blue = false; t_ignore = true; 
+                case 'ⓨ': t_white = false; t_yellow = true; t_red = false; t_green = false; t_blue = false; t_ignore = true; t_grey = false; break;
+
+                case '⒢': t_white = false; t_yellow = false; t_red = false; t_green = false; t_blue = false; t_ignore = true; t_grey = true; break;
+
+
+                case 'ⓡ': t_white = false; t_yellow = false; t_red = true; t_green = false; t_blue = false; t_grey = false; t_ignore = true; 
                     if (t_ReplaceText[i + 1] == '(')
                     {
                         if (t_ReplaceText[i + 2] == '●')
@@ -690,7 +690,7 @@ public class DialogManager : MonoBehaviour
                         }
                     break;
 
-                case 'ⓑ': t_white = false; t_yellow = false; t_red = false; t_green = false; t_blue = true; t_ignore = true;
+                case 'ⓑ': t_white = false; t_yellow = false; t_red = false; t_green = false; t_blue = true; t_grey = false; t_ignore = true;
                     if (t_ReplaceText[i + 1] == '(')
                     {
                         if (t_ReplaceText[i + 2] == '●')
@@ -807,7 +807,7 @@ public class DialogManager : MonoBehaviour
                     }
                     break;
 
-                case 'ⓖ': t_white = false; t_yellow = false; t_red = false; t_green = true; t_blue = false; t_ignore = true; 
+                case 'ⓖ': t_white = false; t_yellow = false; t_red = false; t_green = true; t_blue = false; t_grey = false; t_ignore = true; 
                     if (t_ReplaceText[i + 1] == '(')
                     {
                         if (t_ReplaceText[i + 2] == '●')
@@ -1373,11 +1373,12 @@ public class DialogManager : MonoBehaviour
 
             if (!t_ignore)
             {//<color=#000000>
-                if (t_white) { t_letter = "<color=#FFFFFF>" + t_letter + "</color>"; }
+                if (t_white) { t_letter = "<color=#FFFFFF></i>" + t_letter + "</color>"; }
                 else if (t_yellow) { t_letter = "<color=#FFFF00>" + t_letter + "</color>"; }
                 else if (t_red) { t_letter = "<color=#B30000>" + t_letter + "</color>"; }
                 else if (t_blue) { t_letter = "<color=#0026A9>" + t_letter + "</color>"; }
-                else if (t_green) { t_letter = "<color=#1A6800>" + t_letter + "</color>"; }
+                else if (t_green) { t_letter = "<color=#C8C2C2>" + t_letter + "</color>"; }
+                else if (t_grey) { t_letter = "<i><color=#C8C2C2>" + t_letter + "</color>"; }
                 txt_Dialog.text += t_letter;
             }
             t_ignore = false;
