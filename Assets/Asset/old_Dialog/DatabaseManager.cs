@@ -4,6 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    public static bool SymbolStrSanCheck = false;
+
+    public static bool SymbolOccultFirst = false;
+    public static bool SewerSymbolOccultCheck = false;
+
+
+    public static bool BookLookFirst = false;
+    public static bool SewerBookOccultCheck = false;
+    public static bool SewerBookSanCheck = false;
+
+    public static bool JournalFirstSanCheck = false;
+    public static bool JournalSanCheck = false;
+    public static bool firstLookJournal = false;
+
+    public static bool GainOldMap = false;
+
     public static bool SafeDocument = false;
     public static bool InsmusRhtoric = false;
     public static bool IsInsmusMeetSewer = false;

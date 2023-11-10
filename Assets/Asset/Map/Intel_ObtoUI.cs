@@ -208,6 +208,10 @@ public class Intel_ObtoUI : MonoBehaviour
                         {
                             InteractionController.Instance.Start_SewerOffice(Look_Dilaog);
                         }
+                        if (DataBaseManager.nowPlace == "InSewer")
+                        {
+                            InteractionController.Instance.InSewerDialog(Look_Dilaog);
+                        }
                     }
 
                     else if (DataBaseManager.NowSelecter == "Judge")
@@ -273,6 +277,11 @@ public class Intel_ObtoUI : MonoBehaviour
                         {
 
                             InteractionController.Instance.Start_SewerOffice(Active_Dilaog);
+                        }
+                        if (DataBaseManager.nowPlace == "InSewer")
+                        {
+
+                            InteractionController.Instance.InSewerDialog(Active_Dilaog);
                         }
                     }
         
@@ -424,6 +433,12 @@ public class Intel_ObtoUI : MonoBehaviour
                 BlackWellJudge = "rhetoric";
                 Rollet.Instance.setRollet("Warden : Persuade", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
             }
+        }
+        if (DataBaseManager.Select_Object == "Symbol")
+        {
+            CanJudge = false;
+            isJudge = true;
+            Rollet.Instance.setRollet("Symbol : Break", "STR", DataBaseManager.str, "dialog");
         }
     }
     string BlackWellJudge;

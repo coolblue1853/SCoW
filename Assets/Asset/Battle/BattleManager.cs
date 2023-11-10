@@ -77,29 +77,26 @@ public class BattleManager : MonoBehaviour
     EnemyClass.DeepOneHybrid DeepOneHybrid4 = new EnemyClass.DeepOneHybrid();
     //적 오브젝트 관련
     public GameObject DeepOneHybrid1_Object;
-    public SpriteRenderer DeepOneHybrid1_Render;
+
     public GameObject DeepOneHybrid2_Object;
-    public SpriteRenderer DeepOneHybrid2_Render;
+
     public GameObject DeepOneHybrid3_Object;
-    public SpriteRenderer DeepOneHybrid3_Render;
+
     public GameObject DeepOneHybrid4_Object;
-    public SpriteRenderer DeepOneHybrid4_Render;
 
 
-    public Sprite DeepOneHybrid_Stand;
-    public Sprite DeepOneHybrid_HittedByPunch;
-    public Sprite DeepOneHybrid_HittedByNife;
-    public Sprite DeepOneHybrid_HittedByBat;
-    public Sprite DeepOneHybrid_HittedByAxe;
-    public Sprite DeepOneHybrid_HittedBySmallPistol;
-    public Sprite DeepOneHybrid_HittedByRevolver;
-    public Sprite DeepOneHybrid_HittedByRifle;
-    public Sprite DeepOneHybrid_HittedByShotgun;
-    public Sprite DeepOneHybrid_HittedByRock;
-    public Sprite DeepOneHybrid_HittedByMolotov;
-    public Sprite DeepOneHybrid_Punch;
 
 
+
+
+
+
+
+
+    public EnemySpriteChanger DeepOneHybrid1_SC;
+    public EnemySpriteChanger DeepOneHybrid2_SC;
+    public EnemySpriteChanger DeepOneHybrid3_SC;
+    public EnemySpriteChanger DeepOneHybrid4_SC;
 
     public string PlayerAction = "";
     public string SelectEnemy = "";
@@ -203,10 +200,8 @@ public class BattleManager : MonoBehaviour
     {
 
         player_R = player.GetComponent<SpriteRenderer>();
-        DeepOneHybrid1_Render = DeepOneHybrid1_Object.GetComponent<SpriteRenderer>();
-        DeepOneHybrid2_Render = DeepOneHybrid2_Object.GetComponent<SpriteRenderer>();
-        DeepOneHybrid3_Render = DeepOneHybrid3_Object.GetComponent<SpriteRenderer>();
-        DeepOneHybrid4_Render = DeepOneHybrid4_Object.GetComponent<SpriteRenderer>();
+
+
         OriginPoint = player.transform.position;
         set_DeepOneHybrid1();
         set_DeepOneHybrid2();
@@ -721,11 +716,11 @@ public class BattleManager : MonoBehaviour
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = DeepOneHybrid1_Object.transform.position;
                 GameObject obj = DeepOneHybrid1_Object;
-                SpriteRenderer spR = DeepOneHybrid1_Render;
+
                 if (Success == "Success")
                 {
                     BattleCameraMove.Instance.ZoomMidle();
-                    DeepOneHybrid1_Render.sprite = DeepOneHybrid_Punch;
+                   DeepOneHybrid1_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -735,7 +730,7 @@ public class BattleManager : MonoBehaviour
 
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1.5f, player.transform.position.y - 0.2f, -1), 0.7f))
                      .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid1_Render, DeepOneHybrid_Stand))
+                              .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                      .AppendCallback(() => CamRotate(0))
@@ -746,7 +741,7 @@ public class BattleManager : MonoBehaviour
                 else
                 {
                     BattleCameraMove.Instance.ZoomMidle();
-                    DeepOneHybrid1_Render.sprite = DeepOneHybrid_Punch;
+                    DeepOneHybrid1_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -759,7 +754,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                                          .AppendCallback(() => CamRotate(0))
@@ -772,11 +767,11 @@ public class BattleManager : MonoBehaviour
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = DeepOneHybrid2_Object.transform.position;
                 GameObject obj = DeepOneHybrid2_Object;
-                SpriteRenderer spR = DeepOneHybrid2_Render;
+
                 if (Success == "Success")
                 {
                     BattleCameraMove.Instance.ZoomDown();
-                    DeepOneHybrid2_Render.sprite = DeepOneHybrid_Punch;
+                    DeepOneHybrid2_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -786,7 +781,7 @@ public class BattleManager : MonoBehaviour
 
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1.5f, player.transform.position.y - 0.2f, -1), 0.7f))
                      .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid2_Render, DeepOneHybrid_Stand))
+          .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                      .AppendCallback(() => CamRotate(0))
@@ -797,7 +792,7 @@ public class BattleManager : MonoBehaviour
                 else
                 {
                     BattleCameraMove.Instance.ZoomDown();
-                    DeepOneHybrid2_Render.sprite = DeepOneHybrid_Punch;
+                    DeepOneHybrid2_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -810,7 +805,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                                          .AppendCallback(() => CamRotate(0))
@@ -823,11 +818,11 @@ public class BattleManager : MonoBehaviour
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = DeepOneHybrid3_Object.transform.position;
                 GameObject obj = DeepOneHybrid3_Object;
-                SpriteRenderer spR = DeepOneHybrid3_Render;
+
                 if (Success == "Success")
                 {
                     BattleCameraMove.Instance.ZoomUp();
-                    DeepOneHybrid3_Render.sprite = DeepOneHybrid_Punch;
+                    DeepOneHybrid3_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -837,7 +832,7 @@ public class BattleManager : MonoBehaviour
 
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1.5f, player.transform.position.y - 0.2f, -1), 0.7f))
                      .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid3_Render, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                      .AppendCallback(() => CamRotate(0))
@@ -848,7 +843,7 @@ public class BattleManager : MonoBehaviour
                 else
                 {
                     BattleCameraMove.Instance.ZoomUp();
-                    DeepOneHybrid3_Render.sprite = DeepOneHybrid_Punch;
+                    DeepOneHybrid3_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -861,7 +856,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                                          .AppendCallback(() => CamRotate(0))
@@ -874,11 +869,11 @@ public class BattleManager : MonoBehaviour
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = DeepOneHybrid4_Object.transform.position;
                 GameObject obj = DeepOneHybrid4_Object;
-                SpriteRenderer spR = DeepOneHybrid4_Render;
+
                 if (Success == "Success")
                 {
                     BattleCameraMove.Instance.ZoomUp();
-                    DeepOneHybrid4_Render.sprite = DeepOneHybrid_Punch;
+                    DeepOneHybrid4_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -888,7 +883,7 @@ public class BattleManager : MonoBehaviour
 
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1.5f, player.transform.position.y - 0.2f, -1), 0.7f))
                      .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                      .AppendCallback(() => CamRotate(0))
@@ -898,8 +893,8 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                  //  BattleCameraMove.Instance.ZoomUp();
-                    DeepOneHybrid4_Render.sprite = DeepOneHybrid_Punch;
+                    //  BattleCameraMove.Instance.ZoomUp();
+                    DeepOneHybrid4_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -912,7 +907,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                                       .AppendCallback(() => CamRotate(0))
@@ -928,10 +923,10 @@ public class BattleManager : MonoBehaviour
                 BattleCameraMove.Instance.ZoomMidle();
                 Vector3 enemyOrigin = DeepOneHybrid1_Object.transform.position;
                 GameObject obj = DeepOneHybrid1_Object;
-                SpriteRenderer spR = DeepOneHybrid1_Render;
+
                 if (Success == "Success")
                 {
-                    DeepOneHybrid1_Render.sprite = DeepOneHybrid_Punch;
+                    DeepOneHybrid1_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -941,7 +936,7 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Punch))
 
                    .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 0.2f))
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByPunch))
+                     .AppendCallback(() => DeepOneHybrid1_SC.HittedByPunchChange())
 
                     .AppendCallback(() => CamRotate(+5))
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid1", Random.Range(1, 4) * 5))
@@ -952,7 +947,8 @@ public class BattleManager : MonoBehaviour
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x +2, player.transform.position.y, -1), 1f))
 
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid1_Render, DeepOneHybrid_Stand))
+                              .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
+
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                     .AppendCallback(() => CamRotate(0))
@@ -961,8 +957,7 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-
-                    DeepOneHybrid1_Render.sprite = DeepOneHybrid_Punch;
+                    DeepOneHybrid1_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -975,7 +970,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                                          .AppendCallback(() => CamRotate(0))
@@ -989,10 +984,10 @@ public class BattleManager : MonoBehaviour
                 BattleCameraMove.Instance.ZoomDown();
                 Vector3 enemyOrigin = DeepOneHybrid2_Object.transform.position;
                 GameObject obj = DeepOneHybrid2_Object;
-                SpriteRenderer spR = DeepOneHybrid2_Render;
+
                 if (Success == "Success")
                 {
-                    DeepOneHybrid2_Render.sprite = DeepOneHybrid_Punch;
+                    DeepOneHybrid2_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -1002,7 +997,9 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Punch))
 
                    .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 0.2f))
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByPunch))
+                  .AppendCallback(() => DeepOneHybrid2_SC.HittedByPunchChange())
+
+
 
                     .AppendCallback(() => CamRotate(+5))
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid2", Random.Range(1, 4) * 5))
@@ -1013,7 +1010,7 @@ public class BattleManager : MonoBehaviour
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x + 2, player.transform.position.y, -1), 1f))
 
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid2_Render, DeepOneHybrid_Stand))
+          .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                     .AppendCallback(() => CamRotate(0))
@@ -1023,7 +1020,7 @@ public class BattleManager : MonoBehaviour
                 else
                 {
 
-                    DeepOneHybrid2_Render.sprite = DeepOneHybrid_Punch;
+                    DeepOneHybrid2_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -1036,7 +1033,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                                          .AppendCallback(() => CamRotate(0))
@@ -1050,10 +1047,10 @@ public class BattleManager : MonoBehaviour
                 BattleCameraMove.Instance.ZoomUp();
                 Vector3 enemyOrigin = DeepOneHybrid3_Object.transform.position;
                 GameObject obj = DeepOneHybrid3_Object;
-                SpriteRenderer spR = DeepOneHybrid3_Render;
+
                 if (Success == "Success")
                 {
-                    DeepOneHybrid3_Render.sprite = DeepOneHybrid_Punch;
+                    DeepOneHybrid3_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -1063,7 +1060,7 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Punch))
 
                    .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 0.2f))
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByPunch))
+                  .AppendCallback(() => DeepOneHybrid3_SC.HittedByPunchChange())
 
                     .AppendCallback(() => CamRotate(+5))
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid3", Random.Range(1, 4) * 5))
@@ -1074,7 +1071,7 @@ public class BattleManager : MonoBehaviour
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x + 2, player.transform.position.y, -1), 1f))
 
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid3_Render, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                     .AppendCallback(() => CamRotate(0))
@@ -1084,7 +1081,7 @@ public class BattleManager : MonoBehaviour
                 else
                 {
 
-                    DeepOneHybrid3_Render.sprite = DeepOneHybrid_Punch;
+                    DeepOneHybrid3_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -1097,7 +1094,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                                          .AppendCallback(() => CamRotate(0))
@@ -1111,10 +1108,10 @@ public class BattleManager : MonoBehaviour
                 BattleCameraMove.Instance.ZoomUp();
                 Vector3 enemyOrigin = DeepOneHybrid4_Object.transform.position;
                 GameObject obj = DeepOneHybrid4_Object;
-                SpriteRenderer spR = DeepOneHybrid4_Render;
+
                 if (Success == "Success")
                 {
-                    DeepOneHybrid4_Render.sprite = DeepOneHybrid_Punch;
+                    DeepOneHybrid4_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -1124,7 +1121,7 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Punch))
 
                    .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 0.2f))
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByPunch))
+                  .AppendCallback(() => DeepOneHybrid4_SC.HittedByPunchChange())
 
                    .AppendCallback(() => CamRotate(+1))
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid4", Random.Range(1, 4) * 5))
@@ -1135,7 +1132,7 @@ public class BattleManager : MonoBehaviour
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x + 2, player.transform.position.y, -1), 1f))
 
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                     .AppendCallback(() => CamRotate(0))
@@ -1145,7 +1142,7 @@ public class BattleManager : MonoBehaviour
                 else
                 {
 
-                    DeepOneHybrid4_Render.sprite = DeepOneHybrid_Punch;
+                    DeepOneHybrid4_SC.DeepOneHybrid_PunchChange();
                     Cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
@@ -1158,7 +1155,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                                          .AppendCallback(() => CamRotate(0))
@@ -1175,7 +1172,7 @@ public class BattleManager : MonoBehaviour
                 BattleCameraMove.Instance.ZoomMidle();
                 Vector3 enemyOrigin = DeepOneHybrid1_Object.transform.position;
                 GameObject obj = DeepOneHybrid1_Object;
-                SpriteRenderer spR = DeepOneHybrid1_Render;
+ 
                 if (Success == "Success")
                 {
                     player_R.sprite = Punch;
@@ -1183,7 +1180,7 @@ public class BattleManager : MonoBehaviour
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByPunch))
+                  .AppendCallback(() => DeepOneHybrid1_SC.HittedByPunchChange())
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid1", Random.Range(1, 4) * 5))
                                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("MartialArts"))
                     .Join(Cam.transform.DOShakePosition(1, 2, 90))
@@ -1191,7 +1188,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                     .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -1207,7 +1204,7 @@ public class BattleManager : MonoBehaviour
                     .Append(player.transform.DOMove(new Vector3(DeepOneHybrid1_Object.transform.position.x - 5.5f, DeepOneHybrid1_Object.transform.position.y - 0.2f, -1), 0.5f))
                                                             .AppendCallback(() => SoundManager.Instance.Battle_Sound("Evaision"))
                     .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid1_Object.transform.position.x + 2f, DeepOneHybrid1_Object.transform.position.y), 0.5f))
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid1_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid1_SC.DeepOneHybrid_PunchChange())
 
                     .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid1_Object.transform.position.x - 2f, DeepOneHybrid1_Object.transform.position.y, -2), 0.2f))
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
@@ -1220,7 +1217,7 @@ public class BattleManager : MonoBehaviour
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x  - 3f, obj.transform.position.y), 1.5f))
 
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid1_Render, DeepOneHybrid_Stand))
+                              .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
 
@@ -1234,7 +1231,7 @@ public class BattleManager : MonoBehaviour
                 BattleCameraMove.Instance.ZoomDown();
                 Vector3 enemyOrigin = DeepOneHybrid2_Object.transform.position;
                 GameObject obj = DeepOneHybrid2_Object;
-                SpriteRenderer spR = DeepOneHybrid2_Render;
+  
                 if (Success == "Success")
                 {
                     player_R.sprite = Punch;
@@ -1242,7 +1239,7 @@ public class BattleManager : MonoBehaviour
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByPunch))
+                           .AppendCallback(() => DeepOneHybrid2_SC.HittedByPunchChange())
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid2", Random.Range(1, 4) * 5))
                                                             .AppendCallback(() => SoundManager.Instance.Battle_Sound("MartialArts"))
                     .Join(Cam.transform.DOShakePosition(1, 2, 90))
@@ -1250,7 +1247,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                     .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -1266,7 +1263,7 @@ public class BattleManager : MonoBehaviour
                     .Append(player.transform.DOMove(new Vector3(DeepOneHybrid2_Object.transform.position.x - 5.5f, DeepOneHybrid2_Object.transform.position.y - 0.2f, -1), 0.5f))
                                                             .AppendCallback(() => SoundManager.Instance.Battle_Sound("Evaision"))
                     .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid2_Object.transform.position.x + 2f, DeepOneHybrid2_Object.transform.position.y), 0.5f))
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid2_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid2_SC.DeepOneHybrid_PunchChange())
 
                     .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid2_Object.transform.position.x - 2f, DeepOneHybrid2_Object.transform.position.y, -2), 0.2f))
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
@@ -1279,7 +1276,7 @@ public class BattleManager : MonoBehaviour
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
 
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid2_Render, DeepOneHybrid_Stand))
+          .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
 
@@ -1293,7 +1290,7 @@ public class BattleManager : MonoBehaviour
                 BattleCameraMove.Instance.ZoomUp();
                 Vector3 enemyOrigin = DeepOneHybrid3_Object.transform.position;
                 GameObject obj = DeepOneHybrid3_Object;
-                SpriteRenderer spR = DeepOneHybrid3_Render;
+
                 if (Success == "Success")
                 {
                     player_R.sprite = Punch;
@@ -1301,7 +1298,7 @@ public class BattleManager : MonoBehaviour
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByPunch))
+                  .AppendCallback(() => DeepOneHybrid3_SC.HittedByPunchChange())
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid3", Random.Range(1, 4) * 5))
                                                             .AppendCallback(() => SoundManager.Instance.Battle_Sound("MartialArts"))
                     .Join(Cam.transform.DOShakePosition(1, 2, 90))
@@ -1309,7 +1306,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
                     .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -1325,7 +1322,7 @@ public class BattleManager : MonoBehaviour
                     .Append(player.transform.DOMove(new Vector3(DeepOneHybrid3_Object.transform.position.x - 5.5f, DeepOneHybrid3_Object.transform.position.y - 0.2f, -1), 0.5f))
                                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("Evaision"))
                     .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid3_Object.transform.position.x + 2f, DeepOneHybrid3_Object.transform.position.y), 0.5f))
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid3_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid3_SC.DeepOneHybrid_PunchChange())
 
                     .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid3_Object.transform.position.x - 2f, DeepOneHybrid3_Object.transform.position.y, -2), 0.2f))
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
@@ -1338,7 +1335,7 @@ public class BattleManager : MonoBehaviour
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
 
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid3_Render, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                     .AppendCallback(() => TurnEnd())
 
@@ -1353,7 +1350,7 @@ public class BattleManager : MonoBehaviour
                 BattleCameraMove.Instance.ZoomUp();
                 Vector3 enemyOrigin = DeepOneHybrid4_Object.transform.position;
                 GameObject obj = DeepOneHybrid4_Object;
-                SpriteRenderer spR = DeepOneHybrid4_Render;
+
                 if (Success == "Success")
                 {
                     player_R.sprite = Punch;
@@ -1361,7 +1358,7 @@ public class BattleManager : MonoBehaviour
                     // 연출 삽입
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByPunch))
+                  .AppendCallback(() => DeepOneHybrid4_SC.HittedByPunchChange())
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid4", Random.Range(1, 4) * 5))
                                                             .AppendCallback(() => SoundManager.Instance.Battle_Sound("MartialArts"))
                     .Join(Cam.transform.DOShakePosition(1, 2, 90))
@@ -1369,7 +1366,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                      .AppendCallback(() => CamRotate(0))
                     .AppendCallback(() => TurnEnd())
@@ -1386,7 +1383,7 @@ public class BattleManager : MonoBehaviour
                     .Append(player.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 5.5f, DeepOneHybrid4_Object.transform.position.y - 0.2f, -1), 0.5f))
                                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("Evaision"))
                     .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x + 2f, DeepOneHybrid4_Object.transform.position.y), 0.5f))
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid4_SC.DeepOneHybrid_PunchChange())
 
                     .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 2f, DeepOneHybrid4_Object.transform.position.y, -2), 0.2f))
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
@@ -1399,7 +1396,7 @@ public class BattleManager : MonoBehaviour
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
 
                     .AppendInterval(0.5f) // 2초 대기
-                    .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                      .AppendCallback(() => CamRotate(0))
                     .AppendCallback(() => TurnEnd())
@@ -1418,7 +1415,7 @@ public class BattleManager : MonoBehaviour
                 BattleCameraMove.Instance.ZoomMidle();
                 Vector3 enemyOrigin = DeepOneHybrid1_Object.transform.position;
                 GameObject obj = DeepOneHybrid1_Object;
-                SpriteRenderer spR = DeepOneHybrid1_Render;
+
                 if (Success == "Success")
                 {
                     if(DataBaseManager.BattleWeapon == "Dagger")
@@ -1439,7 +1436,7 @@ public class BattleManager : MonoBehaviour
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByNife))
+                             .AppendCallback(() => DeepOneHybrid1_SC.HittedByNifeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Dagger_Attack))
                          .AppendCallback(() => SoundManager.Instance.Battle_Sound("Dagger_Attack"))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 5) + 2) * 5))//1D4 + 2
@@ -1448,7 +1445,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -1458,7 +1455,7 @@ public class BattleManager : MonoBehaviour
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByBat))
+                     .AppendCallback(() => DeepOneHybrid1_SC.HittedByBatChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Bat_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 9))  * 5))//1D8
                                              .AppendCallback(() => SoundManager.Instance.Battle_Sound("Bat_Attack"))
@@ -1467,7 +1464,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -1477,7 +1474,7 @@ public class BattleManager : MonoBehaviour
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByAxe))
+                     .AppendCallback(() => DeepOneHybrid1_SC.HittedByAxeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Axe_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 7) +2) * 5))//1D8
                                              .AppendCallback(() => SoundManager.Instance.Battle_Sound("Axe_Attack"))
@@ -1486,7 +1483,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -1518,7 +1515,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid1_Object.transform.position.x - 3.5f, DeepOneHybrid1_Object.transform.position.y - 0.2f, -1), 0.5f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Dagger_Attack))
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid1_Object.transform.position.x + 2f, DeepOneHybrid1_Object.transform.position.y), 0.5f))
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid1_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid1_SC.DeepOneHybrid_PunchChange())
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid1_Object.transform.position.x - 2f, DeepOneHybrid1_Object.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
@@ -1530,7 +1527,7 @@ public class BattleManager : MonoBehaviour
                   .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
 
                    .AppendInterval(0.5f) // 2초 대기
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid1_Render, DeepOneHybrid_Stand))
+                             .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                    .AppendCallback(() => TurnEnd())
 
@@ -1543,7 +1540,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid1_Object.transform.position.x - 3.5f, DeepOneHybrid1_Object.transform.position.y - 0.2f, -1), 0.5f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Bat_Attack))
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid1_Object.transform.position.x + 2f, DeepOneHybrid1_Object.transform.position.y), 0.5f))
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid1_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid1_SC.DeepOneHybrid_PunchChange())
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid1_Object.transform.position.x - 2f, DeepOneHybrid1_Object.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
@@ -1555,7 +1552,7 @@ public class BattleManager : MonoBehaviour
                   .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
 
                    .AppendInterval(0.5f) // 2초 대기
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid1_Render, DeepOneHybrid_Stand))
+                             .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                    .AppendCallback(() => TurnEnd())
 
@@ -1568,7 +1565,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid1_Object.transform.position.x - 3.5f, DeepOneHybrid1_Object.transform.position.y - 0.2f, -1), 0.5f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Axe_Attack))
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid1_Object.transform.position.x + 2f, DeepOneHybrid1_Object.transform.position.y), 0.5f))
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid1_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid1_SC.DeepOneHybrid_PunchChange())
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid1_Object.transform.position.x - 2f, DeepOneHybrid1_Object.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
@@ -1580,7 +1577,7 @@ public class BattleManager : MonoBehaviour
                   .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
 
                    .AppendInterval(0.5f) // 2초 대기
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid1_Render, DeepOneHybrid_Stand))
+                             .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                    .AppendCallback(() => TurnEnd())
 
@@ -1597,7 +1594,7 @@ public class BattleManager : MonoBehaviour
                 BattleCameraMove.Instance.ZoomDown();
                 Vector3 enemyOrigin = DeepOneHybrid2_Object.transform.position;
                 GameObject obj = DeepOneHybrid2_Object;
-                SpriteRenderer spR = DeepOneHybrid2_Render;
+
                 if (Success == "Success")
                 {
                     if (DataBaseManager.BattleWeapon == "Dagger")
@@ -1618,7 +1615,7 @@ public class BattleManager : MonoBehaviour
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByNife))
+                             .AppendCallback(() => DeepOneHybrid2_SC.HittedByNifeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Dagger_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 5) + 2) * 5))//1D4 + 2
                                                                      .AppendCallback(() => SoundManager.Instance.Battle_Sound("Dagger_Attack"))
@@ -1627,7 +1624,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -1637,7 +1634,7 @@ public class BattleManager : MonoBehaviour
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByBat))
+                     .AppendCallback(() => DeepOneHybrid2_SC.HittedByBatChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Bat_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 9)) * 5))//1D8
                                                                      .AppendCallback(() => SoundManager.Instance.Battle_Sound("Bat_Attack"))
@@ -1646,7 +1643,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -1656,7 +1653,7 @@ public class BattleManager : MonoBehaviour
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByAxe))
+                     .AppendCallback(() => DeepOneHybrid2_SC.HittedByAxeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Axe_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 7) + 2) * 5))//1D8
                                                                      .AppendCallback(() => SoundManager.Instance.Battle_Sound("Axe_Attack"))
@@ -1665,7 +1662,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -1697,7 +1694,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid2_Object.transform.position.x - 3.5f, DeepOneHybrid2_Object.transform.position.y - 0.2f, -1), 0.5f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Dagger_Attack))
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid2_Object.transform.position.x + 2f, DeepOneHybrid2_Object.transform.position.y), 0.5f))
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid2_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid2_SC.DeepOneHybrid_PunchChange())
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid2_Object.transform.position.x - 2f, DeepOneHybrid2_Object.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
@@ -1709,7 +1706,7 @@ public class BattleManager : MonoBehaviour
                   .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
 
                    .AppendInterval(0.5f) // 2초 대기
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid2_Render, DeepOneHybrid_Stand))
+         .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                    .AppendCallback(() => TurnEnd())
 
@@ -1722,7 +1719,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid2_Object.transform.position.x - 3.5f, DeepOneHybrid2_Object.transform.position.y - 0.2f, -1), 0.5f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Bat_Attack))
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid2_Object.transform.position.x + 2f, DeepOneHybrid2_Object.transform.position.y), 0.5f))
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid2_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid2_SC.DeepOneHybrid_PunchChange())
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid2_Object.transform.position.x - 2f, DeepOneHybrid2_Object.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
@@ -1734,7 +1731,7 @@ public class BattleManager : MonoBehaviour
                   .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
 
                    .AppendInterval(0.5f) // 2초 대기
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid2_Render, DeepOneHybrid_Stand))
+         .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                    .AppendCallback(() => TurnEnd())
 
@@ -1747,7 +1744,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid2_Object.transform.position.x - 3.5f, DeepOneHybrid2_Object.transform.position.y - 0.2f, -1), 0.5f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Axe_Attack))
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid2_Object.transform.position.x + 2f, DeepOneHybrid2_Object.transform.position.y), 0.5f))
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid2_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid2_SC.DeepOneHybrid_PunchChange())
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid2_Object.transform.position.x - 2f, DeepOneHybrid2_Object.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
@@ -1759,7 +1756,7 @@ public class BattleManager : MonoBehaviour
                   .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
 
                    .AppendInterval(0.5f) // 2초 대기
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid2_Render, DeepOneHybrid_Stand))
+         .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                    .AppendCallback(() => TurnEnd())
 
@@ -1776,7 +1773,7 @@ public class BattleManager : MonoBehaviour
                 BattleCameraMove.Instance.ZoomUp();
                 Vector3 enemyOrigin = DeepOneHybrid3_Object.transform.position;
                 GameObject obj = DeepOneHybrid3_Object;
-                SpriteRenderer spR = DeepOneHybrid3_Render;
+
                 if (Success == "Success")
                 {
                     if (DataBaseManager.BattleWeapon == "Dagger")
@@ -1797,7 +1794,7 @@ public class BattleManager : MonoBehaviour
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByNife))
+                             .AppendCallback(() => DeepOneHybrid3_SC.HittedByNifeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Dagger_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 5) + 2) * 5))//1D4 + 2
                                            .AppendCallback(() => SoundManager.Instance.Battle_Sound("Dagger_Attack"))
@@ -1806,7 +1803,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -1816,7 +1813,7 @@ public class BattleManager : MonoBehaviour
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByBat))
+                     .AppendCallback(() => DeepOneHybrid3_SC.HittedByBatChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Bat_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 9)) * 5))//1D8
                                                                    .AppendCallback(() => SoundManager.Instance.Battle_Sound("Bat_Attack"))
@@ -1825,7 +1822,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -1835,7 +1832,7 @@ public class BattleManager : MonoBehaviour
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByAxe))
+                     .AppendCallback(() => DeepOneHybrid3_SC.HittedByAxeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Axe_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 7) + 2) * 5))//1D8
                                                                      .AppendCallback(() => SoundManager.Instance.Battle_Sound("Axe_Attack"))
@@ -1844,7 +1841,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -1876,7 +1873,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid3_Object.transform.position.x - 3.5f, DeepOneHybrid3_Object.transform.position.y - 0.2f, -1), 0.5f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Dagger_Attack))
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid3_Object.transform.position.x + 2f, DeepOneHybrid3_Object.transform.position.y), 0.5f))
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid3_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid3_SC.DeepOneHybrid_PunchChange())
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid3_Object.transform.position.x - 2f, DeepOneHybrid3_Object.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
@@ -1888,7 +1885,7 @@ public class BattleManager : MonoBehaviour
                   .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
 
                    .AppendInterval(0.5f) // 2초 대기
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid3_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                    .AppendCallback(() => TurnEnd())
 
@@ -1901,7 +1898,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid3_Object.transform.position.x - 3.5f, DeepOneHybrid3_Object.transform.position.y - 0.2f, -1), 0.5f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Bat_Attack))
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid3_Object.transform.position.x + 2f, DeepOneHybrid3_Object.transform.position.y), 0.5f))
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid3_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid3_SC.DeepOneHybrid_PunchChange())
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid3_Object.transform.position.x - 2f, DeepOneHybrid3_Object.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
@@ -1913,7 +1910,7 @@ public class BattleManager : MonoBehaviour
                   .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
 
                    .AppendInterval(0.5f) // 2초 대기
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid3_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                    .AppendCallback(() => TurnEnd())
 
@@ -1926,7 +1923,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid3_Object.transform.position.x - 3.5f, DeepOneHybrid3_Object.transform.position.y - 0.2f, -1), 0.5f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Axe_Attack))
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid3_Object.transform.position.x + 2f, DeepOneHybrid3_Object.transform.position.y), 0.5f))
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid3_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid3_SC.DeepOneHybrid_PunchChange())
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid3_Object.transform.position.x - 2f, DeepOneHybrid3_Object.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
@@ -1938,7 +1935,7 @@ public class BattleManager : MonoBehaviour
                   .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
 
                    .AppendInterval(0.5f) // 2초 대기
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid3_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                    .AppendCallback(() => TurnEnd())
 
@@ -1955,7 +1952,7 @@ public class BattleManager : MonoBehaviour
                 BattleCameraMove.Instance.ZoomUp();
                 Vector3 enemyOrigin = DeepOneHybrid4_Object.transform.position;
                 GameObject obj = DeepOneHybrid4_Object;
-                SpriteRenderer spR = DeepOneHybrid4_Render;
+
                 if (Success == "Success")
                 {
                     if (DataBaseManager.BattleWeapon == "Dagger")
@@ -1976,7 +1973,7 @@ public class BattleManager : MonoBehaviour
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByNife))
+                                .AppendCallback(() => DeepOneHybrid4_SC.HittedByNifeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Dagger_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 5) + 2) * 5))//1D4 + 2
                                            .AppendCallback(() => SoundManager.Instance.Battle_Sound("Dagger_Attack"))
@@ -1985,7 +1982,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                          .AppendCallback(() => CamRotate(0))
                         .AppendCallback(() => TurnEnd())
@@ -1996,7 +1993,7 @@ public class BattleManager : MonoBehaviour
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByBat))
+                     .AppendCallback(() => DeepOneHybrid4_SC.HittedByBatChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Bat_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 9)) * 5))//1D8
                                                                    .AppendCallback(() => SoundManager.Instance.Battle_Sound("Bat_Attack"))
@@ -2005,7 +2002,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                          .AppendCallback(() => CamRotate(0))
                         .AppendCallback(() => TurnEnd())
@@ -2016,7 +2013,7 @@ public class BattleManager : MonoBehaviour
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByAxe))
+                     .AppendCallback(() => DeepOneHybrid4_SC.HittedByAxeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Axe_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 7) + 2) * 5))//1D8
                                                                      .AppendCallback(() => SoundManager.Instance.Battle_Sound("Axe_Attack"))
@@ -2025,7 +2022,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                          .AppendCallback(() => CamRotate(0))
                         .AppendCallback(() => TurnEnd())
@@ -2058,7 +2055,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 3.5f, DeepOneHybrid4_Object.transform.position.y - 0.2f, -1), 0.5f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Dagger_Attack))
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x + 2f, DeepOneHybrid4_Object.transform.position.y), 0.5f))
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid4_SC.DeepOneHybrid_PunchChange())
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 2f, DeepOneHybrid4_Object.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
@@ -2070,7 +2067,7 @@ public class BattleManager : MonoBehaviour
                   .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
 
                    .AppendInterval(0.5f) // 2초 대기
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                             .AppendCallback(() => CamRotate(0))
                    .AppendCallback(() => TurnEnd())
@@ -2084,7 +2081,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 3.5f, DeepOneHybrid4_Object.transform.position.y - 0.2f, -1), 0.5f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Bat_Attack))
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x + 2f, DeepOneHybrid4_Object.transform.position.y), 0.5f))
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid4_SC.DeepOneHybrid_PunchChange())
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 2f, DeepOneHybrid4_Object.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
@@ -2096,7 +2093,7 @@ public class BattleManager : MonoBehaviour
                   .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
 
                    .AppendInterval(0.5f) // 2초 대기
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                             .AppendCallback(() => CamRotate(0))
                    .AppendCallback(() => TurnEnd())
@@ -2110,7 +2107,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 3.5f, DeepOneHybrid4_Object.transform.position.y - 0.2f, -1), 0.5f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Axe_Attack))
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x + 2f, DeepOneHybrid4_Object.transform.position.y), 0.5f))
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Punch))
+                     .AppendCallback(() => DeepOneHybrid4_SC.DeepOneHybrid_PunchChange())
                    .Append(obj.transform.DOMove(new Vector3(DeepOneHybrid4_Object.transform.position.x - 2f, DeepOneHybrid4_Object.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Hitted))
                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
@@ -2122,7 +2119,7 @@ public class BattleManager : MonoBehaviour
                   .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
 
                    .AppendInterval(0.5f) // 2초 대기
-                   .AppendCallback(() => OnSpriteChangeComplete(DeepOneHybrid4_Render, DeepOneHybrid_Stand))
+                    .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                             .AppendCallback(() => CamRotate(0))
                    .AppendCallback(() => TurnEnd())
@@ -2145,7 +2142,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 enemyOrigin = DeepOneHybrid1_Object.transform.position;
                 Vector3 playerOrigin = player.transform.position;
                 GameObject obj = DeepOneHybrid1_Object;
-                SpriteRenderer spR = DeepOneHybrid1_Render;
+
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
                     if (DataBaseManager.BattleWeapon == "SmallPistoll")
@@ -2170,7 +2167,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "SmallPistol")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedBySmallPistol))
+                     .AppendCallback(() => DeepOneHybrid1_SC.HittedBySmallPistolChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, SmallPistol_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 7)) * 5))//1D6
                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("SmallPisol_Attack"))
@@ -2180,7 +2177,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2189,7 +2186,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Revolver")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRevolver))
+                     .AppendCallback(() => DeepOneHybrid1_SC.HittedByRevolverChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Revolver_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 11)+2) * 5))//1d10+2
                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("Revolver_Attack"))
@@ -2199,7 +2196,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2208,7 +2205,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Rifle")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRifle))
+                     .AppendCallback(() => DeepOneHybrid1_SC.HittedByRifleChnage())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Rifle_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 7)+ Random.Range(1, 7) + 2) * 5))//2D6+2
                          .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rifle_Attack"))
@@ -2218,7 +2215,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2227,7 +2224,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Shotgun")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByShotgun))
+                     .AppendCallback(() => DeepOneHybrid1_SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Shotgun_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 6)+ Random.Range(1, 6)+ Random.Range(1, 6)+ Random.Range(1, 6)) * 5))//1D6
                            .AppendCallback(() => SoundManager.Instance.Battle_Sound("Shotgun_Attack"))
@@ -2237,7 +2234,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2277,7 +2274,7 @@ public class BattleManager : MonoBehaviour
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
                              
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2291,7 +2288,7 @@ public class BattleManager : MonoBehaviour
 
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2304,7 +2301,7 @@ public class BattleManager : MonoBehaviour
                          .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rifle_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2317,7 +2314,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("Shotgun_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2335,7 +2332,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = DeepOneHybrid2_Object.transform.position;
                 GameObject obj = DeepOneHybrid2_Object;
-                SpriteRenderer spR = DeepOneHybrid2_Render;
+
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
                     if (DataBaseManager.BattleWeapon == "SmallPistoll")
@@ -2360,7 +2357,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "SmallPistol")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedBySmallPistol))
+                     .AppendCallback(() => DeepOneHybrid2_SC.HittedBySmallPistolChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, SmallPistol_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 7)) * 5))//1D6
                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("SmallPisol_Attack"))//1D6
@@ -2370,7 +2367,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2379,7 +2376,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Revolver")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRevolver))
+                     .AppendCallback(() => DeepOneHybrid2_SC.HittedByRevolverChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Revolver_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 11) + 2) * 5))//1d10+2
                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("Revolver_Attack"))
@@ -2389,7 +2386,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2398,7 +2395,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Rifle")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRifle))
+                     .AppendCallback(() => DeepOneHybrid2_SC.HittedByRifleChnage())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Rifle_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2D6+2
                          .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rifle_Attack"))
@@ -2408,7 +2405,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2417,7 +2414,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Shotgun")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByShotgun))
+                     .AppendCallback(() => DeepOneHybrid2_SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Shotgun_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6)) * 5))//1D6
                                                    .AppendCallback(() => SoundManager.Instance.Battle_Sound("Shotgun_Attack"))
@@ -2427,7 +2424,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2466,7 +2463,7 @@ public class BattleManager : MonoBehaviour
                          .AppendCallback(() => SoundManager.Instance.Battle_Sound("SmallPisol_Attack"))//1D6
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2480,7 +2477,7 @@ public class BattleManager : MonoBehaviour
 
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2493,7 +2490,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rifle_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x -3f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2506,7 +2503,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("Shotgun_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2524,7 +2521,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = DeepOneHybrid3_Object.transform.position;
                 GameObject obj = DeepOneHybrid3_Object;
-                SpriteRenderer spR = DeepOneHybrid3_Render;
+
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
                     if (DataBaseManager.BattleWeapon == "SmallPistoll")
@@ -2549,7 +2546,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "SmallPistol")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedBySmallPistol))
+                     .AppendCallback(() => DeepOneHybrid3_SC.HittedBySmallPistolChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, SmallPistol_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 7)) * 5))//1D6
                                                                    .AppendCallback(() => SoundManager.Instance.Battle_Sound("SmallPisol_Attack"))//1D6
@@ -2558,7 +2555,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2567,7 +2564,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Revolver")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRevolver))
+                     .AppendCallback(() => DeepOneHybrid3_SC.HittedByRevolverChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Revolver_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 11) + 2) * 5))//1d10+2
                                                 .AppendCallback(() => SoundManager.Instance.Battle_Sound("Revolver_Attack"))
@@ -2577,7 +2574,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2586,7 +2583,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Rifle")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRifle))
+                     .AppendCallback(() => DeepOneHybrid3_SC.HittedByRifleChnage())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Rifle_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2D6+2
                           .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rifle_Attack"))
@@ -2596,7 +2593,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2605,7 +2602,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Shotgun")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByShotgun))
+                     .AppendCallback(() => DeepOneHybrid3_SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Shotgun_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6)) * 5))//1D6
                                                    .AppendCallback(() => SoundManager.Instance.Battle_Sound("Shotgun_Attack"))
@@ -2615,7 +2612,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2654,7 +2651,7 @@ public class BattleManager : MonoBehaviour
                                                                    .AppendCallback(() => SoundManager.Instance.Battle_Sound("SmallPisol_Attack"))//1D6
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2667,7 +2664,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("Revolver_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2680,7 +2677,7 @@ public class BattleManager : MonoBehaviour
                          .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rifle_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2693,7 +2690,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("Shotgun_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2711,7 +2708,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = DeepOneHybrid4_Object.transform.position;
                 GameObject obj = DeepOneHybrid4_Object;
-                SpriteRenderer spR = DeepOneHybrid4_Render;
+
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
                     if (DataBaseManager.BattleWeapon == "SmallPistoll")
@@ -2736,7 +2733,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "SmallPistol")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedBySmallPistol))
+                     .AppendCallback(() => DeepOneHybrid4_SC.HittedBySmallPistolChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, SmallPistol_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 7)) * 5))//1D6
                                                                    .AppendCallback(() => SoundManager.Instance.Battle_Sound("SmallPisol_Attack"))//1D6
@@ -2745,7 +2742,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                          .AppendCallback(() => CamRotate(0))
                         .AppendCallback(() => TurnEnd())
@@ -2755,7 +2752,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Revolver")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRevolver))
+                     .AppendCallback(() => DeepOneHybrid4_SC.HittedByRevolverChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Revolver_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 11) + 2) * 5))//1d10+2
                                                 .AppendCallback(() => SoundManager.Instance.Battle_Sound("Revolver_Attack"))
@@ -2765,7 +2762,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                          .AppendCallback(() => CamRotate(0))
                         .AppendCallback(() => TurnEnd())
@@ -2775,7 +2772,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Rifle")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRifle))
+                     .AppendCallback(() => DeepOneHybrid4_SC.HittedByRifleChnage())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Rifle_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2D6+2
                           .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rifle_Attack"))
@@ -2785,7 +2782,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                          .AppendCallback(() => CamRotate(0))
                         .AppendCallback(() => TurnEnd())
@@ -2795,7 +2792,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Shotgun")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByShotgun))
+                     .AppendCallback(() => DeepOneHybrid4_SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Shotgun_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6)) * 5))//1D6
                                                    .AppendCallback(() => SoundManager.Instance.Battle_Sound("Shotgun_Attack"))
@@ -2805,7 +2802,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                          .AppendCallback(() => CamRotate(0))
                         .AppendCallback(() => TurnEnd())
@@ -2845,7 +2842,7 @@ public class BattleManager : MonoBehaviour
                                                                    .AppendCallback(() => SoundManager.Instance.Battle_Sound("SmallPisol_Attack"))//1D6
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                          .AppendCallback(() => CamRotate(0))
                         .AppendCallback(() => TurnEnd())
@@ -2859,7 +2856,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("Revolver_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                          .AppendCallback(() => CamRotate(0))
                         .AppendCallback(() => TurnEnd())
@@ -2873,7 +2870,7 @@ public class BattleManager : MonoBehaviour
                          .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rifle_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                          .AppendCallback(() => CamRotate(0))
                         .AppendCallback(() => TurnEnd())
@@ -2887,7 +2884,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("Shotgun_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                                 .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                          .AppendCallback(() => CamRotate(0))
                         .AppendCallback(() => TurnEnd())
@@ -2909,7 +2906,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = DeepOneHybrid1_Object.transform.position;
                 GameObject obj = DeepOneHybrid1_Object;
-                SpriteRenderer spR = DeepOneHybrid1_Render;
+
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
                     if (DataBaseManager.BattleWeapon == "Rock")
@@ -2927,7 +2924,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Rock")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRock))
+                     .AppendCallback(() => DeepOneHybrid1_SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 3)) * 5))//1D6
                                                         .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rock_Attack"))
@@ -2936,7 +2933,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2945,7 +2942,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Molotov")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByMolotov))
+                     .AppendCallback(() => DeepOneHybrid1_SC.HittedByMolotovChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2d6+2
                                        .AppendCallback(() => SoundManager.Instance.Battle_Sound("Molotov_Attack"))
@@ -2954,7 +2951,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2982,7 +2979,7 @@ public class BattleManager : MonoBehaviour
                                                                .AppendCallback(() => SoundManager.Instance.Battle_Sound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -2995,7 +2992,7 @@ public class BattleManager : MonoBehaviour
                                                                                 .AppendCallback(() => SoundManager.Instance.Battle_Sound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid1_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -3014,7 +3011,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = DeepOneHybrid2_Object.transform.position;
                 GameObject obj = DeepOneHybrid2_Object;
-                SpriteRenderer spR = DeepOneHybrid2_Render;
+
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
                     if (DataBaseManager.BattleWeapon == "Rock")
@@ -3032,7 +3029,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Rock")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRock))
+                     .AppendCallback(() => DeepOneHybrid2_SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 3)) * 5))//1D6
                                                              .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rock_Attack"))
@@ -3041,7 +3038,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -3050,7 +3047,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Molotov")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByMolotov))
+                     .AppendCallback(() => DeepOneHybrid2_SC.HittedByMolotovChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2d6+2
                                                              .AppendCallback(() => SoundManager.Instance.Battle_Sound("Molotov_Attack"))
@@ -3059,7 +3056,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -3087,7 +3084,7 @@ public class BattleManager : MonoBehaviour
                                                                                 .AppendCallback(() => SoundManager.Instance.Battle_Sound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -3100,7 +3097,7 @@ public class BattleManager : MonoBehaviour
                                                                                 .AppendCallback(() => SoundManager.Instance.Battle_Sound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid2_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -3119,7 +3116,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = DeepOneHybrid3_Object.transform.position;
                 GameObject obj = DeepOneHybrid3_Object;
-                SpriteRenderer spR = DeepOneHybrid3_Render;
+
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
                     if (DataBaseManager.BattleWeapon == "Rock")
@@ -3137,7 +3134,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Rock")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRock))
+                     .AppendCallback(() => DeepOneHybrid3_SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 3)) * 5))//1D6
                                                                                    .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rock_Attack"))
@@ -3146,7 +3143,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -3155,7 +3152,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Molotov")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByMolotov))
+                     .AppendCallback(() => DeepOneHybrid3_SC.HittedByMolotovChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2d6+2
                                                                                    .AppendCallback(() => SoundManager.Instance.Battle_Sound("Molotov_Attack"))
@@ -3164,7 +3161,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -3192,7 +3189,7 @@ public class BattleManager : MonoBehaviour
                                                                                 .AppendCallback(() => SoundManager.Instance.Battle_Sound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -3205,7 +3202,7 @@ public class BattleManager : MonoBehaviour
                                                                                 .AppendCallback(() => SoundManager.Instance.Battle_Sound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid3_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                         .AppendCallback(() => TurnEnd())
                         .Append(player.transform.DOMove(OriginPoint, 0.5f))
@@ -3224,7 +3221,7 @@ public class BattleManager : MonoBehaviour
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = DeepOneHybrid4_Object.transform.position;
                 GameObject obj = DeepOneHybrid4_Object;
-                SpriteRenderer spR = DeepOneHybrid4_Render;
+
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
                     if (DataBaseManager.BattleWeapon == "Rock")
@@ -3242,7 +3239,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Rock")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByRock))
+                     .AppendCallback(() => DeepOneHybrid3_SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 3)) * 5))//1D6
                                                                                    .AppendCallback(() => SoundManager.Instance.Battle_Sound("Rock_Attack"))
@@ -3251,7 +3248,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                          .AppendCallback(() => CamRotate(0))
                         .AppendCallback(() => TurnEnd())
@@ -3261,7 +3258,7 @@ public class BattleManager : MonoBehaviour
                     if (DataBaseManager.BattleWeapon == "Molotov")
                     {
                         Sequence sequence = DOTween.Sequence()
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_HittedByMolotov))
+                     .AppendCallback(() => DeepOneHybrid4_SC.HittedByMolotovChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Deftness_Attack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2d6+2
                                                                                    .AppendCallback(() => SoundManager.Instance.Battle_Sound("Molotov_Attack"))
@@ -3270,7 +3267,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                          .AppendCallback(() => CamRotate(0))
                         .AppendCallback(() => TurnEnd())
@@ -3299,7 +3296,7 @@ public class BattleManager : MonoBehaviour
                                                                                 .AppendCallback(() => SoundManager.Instance.Battle_Sound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                          .AppendCallback(() => CamRotate(0))
                         .AppendCallback(() => TurnEnd())
@@ -3313,7 +3310,7 @@ public class BattleManager : MonoBehaviour
                                                                                 .AppendCallback(() => SoundManager.Instance.Battle_Sound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
-                        .AppendCallback(() => OnSpriteChangeComplete(spR, DeepOneHybrid_Stand))
+                     .AppendCallback(() => DeepOneHybrid4_SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(player_R, Stand))
                                          .AppendCallback(() => CamRotate(0))
                         .AppendCallback(() => TurnEnd())

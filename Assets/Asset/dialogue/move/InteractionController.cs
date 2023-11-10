@@ -13,7 +13,8 @@ public class InteractionController : MonoBehaviour
     public GameObject Safe_Fail;
     public GameObject Safe_Succ;
     public GameObject Bracelet_Look;
-
+    public GameObject OldMap_Look;
+    
     public GameObject Document_Look;
     //의뢰자의 집
     public GameObject Start_1st_Detective;
@@ -524,8 +525,21 @@ public class InteractionController : MonoBehaviour
     public GameObject Sewer_BookLookSanCheck;
     public GameObject Sewer_BookLookOccultSucc;
     public GameObject Sewer_BookLookOccultFail;
-  
+    public GameObject Sewer_BookLookAfterCheck;
 
+    public GameObject Sewer_SymbolDialog;
+    public GameObject Sewer_SymbolLook_YseJournal;
+    public GameObject Sewer_SymbolLook_NoJournal;
+    public GameObject Sewer_SymbolLook_OccultSucc;
+    public GameObject Sewer_SymbolLook_OccultFail;
+    public GameObject Sewer_JudgeStrSucc;
+    public GameObject Sewer_JudgeStrFail;
+    public GameObject Sewer_SanChecck;
+
+    public GameObject Sewer_SymbolLook_NoJournalAfterOccult;
+    public GameObject Sewer_SymbolKeyWorkSucc;
+    public GameObject Sewer_SymbolKeyWorkFail;
+    
     private void Start()
     {
         //TestNar();
@@ -557,6 +571,8 @@ public class InteractionController : MonoBehaviour
         if (setDialog == "Sewer_MapLook")
         {
             theDM.ShowDialog(Sewer_MapLook.transform.GetComponent<interactionEvent>().GetDialogs());
+
+
         }
 
 
@@ -566,7 +582,17 @@ public class InteractionController : MonoBehaviour
         }
         if (setDialog == "Sewer_JornalLook")
         {
-            theDM.ShowDialog(Sewer_JornalLook.transform.GetComponent<interactionEvent>().GetDialogs());
+            if (DataBaseManager.firstLookJournal == false)
+            {
+                DataBaseManager.firstLookJournal = true;
+                theDM.ShowDialog(Sewer_JornalLook.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
+            else
+            {
+                theDM.ShowDialog(Sewer_JornalLookAfterSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+
+            }
         }
         if (setDialog == "Sewer_JornalLookAfterSanCheck")
         {
@@ -578,10 +604,48 @@ public class InteractionController : MonoBehaviour
         }
         if (setDialog == "Sewer_BookLook")
         {
-            theDM.ShowDialog(Sewer_BookLook.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        
+            if(DataBaseManager.BookLookFirst == false)
+            {
+                DataBaseManager.BookLookFirst = true;
+                theDM.ShowDialog(Sewer_BookLook.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Sewer_BookLookAfterCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
 
+        }
+        if (setDialog == "Sewer_JornalLookSanCheck")
+        {
+            theDM.ShowDialog(Sewer_JornalLookSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+        if (setDialog == "Sewer_SymbolDialog")
+        {
+            theDM.ShowDialog(Sewer_SymbolDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+        } 
+        if (setDialog == "Sewer_SymbolLook")
+        {
+            if(DataBaseManager.JournalFirstSanCheck == true)
+            {
+                theDM.ShowDialog(Sewer_SymbolLook_YseJournal.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                if(DataBaseManager.SymbolOccultFirst == false)
+                {
+                    theDM.ShowDialog(Sewer_SymbolLook_NoJournal.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Sewer_SymbolLook_NoJournalAfterOccult.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+
+            }
+
+
+
+        }
     }
 
     public void Start_SewerOffice(string setDialog)
@@ -851,7 +915,11 @@ public class InteractionController : MonoBehaviour
     public void Start_Safe_Look(string setDialog)
     {
         
-       if (setDialog == "Document_Look")
+                   if (setDialog == "OldMap_Look")
+        {
+            theDM.ShowDialog(OldMap_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Document_Look")
         {
             theDM.ShowDialog(Document_Look.transform.GetComponent<interactionEvent>().GetDialogs());
         }
@@ -2620,6 +2688,21 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(BlackWell_Key_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
+
+        if (setDialog == "Symbol")
+        {
+
+            if (DataBaseManager.keyword_downer == "Advent")
+            {
+                theDM.ShowDialog(Sewer_SymbolKeyWorkSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+
+            else
+            {
+
+                theDM.ShowDialog(Sewer_SymbolKeyWorkFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
     }
 
     //전투
@@ -3118,6 +3201,17 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(ThirdDayStartCase1AfterSan.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+        if (SanCheck == "JournalSan")
+        {
+            DataBaseManager.JournalFirstSanCheck = true;
+            theDM.ShowDialog(Sewer_JornalLookSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (SanCheck == "SymbolStrSan")
+        {
+            theDM.ShowDialog(Sewer_SanChecck.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+        
 
         if (SanCheck == "FourthDayStartSan")
         {
@@ -3153,8 +3247,12 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(Fab_4th_QuestO_HealthCehckFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
+        if (SanCheck == "BookSan")
+        {
+            theDM.ShowDialog(Sewer_BookLookSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
 
-
+        
         if (Sub_Dialog == "Warden : Steal")
         {
             DataBaseManager.Black_Deftness = true;
@@ -3204,8 +3302,47 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(Sewer_RhethicFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
-       
+
+        if (Sub_Dialog == "Book : Decryption")
+        {
+
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(Sewer_BookLookOccultSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+                theDM.ShowDialog(Sewer_BookLookOccultFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (Sub_Dialog == "Symbol : Decryption")
+        {
+            DataBaseManager.SymbolOccultFirst = true;
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(Sewer_SymbolLook_OccultSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+                theDM.ShowDialog(Sewer_SymbolLook_OccultFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+        if (Sub_Dialog == "Symbol : Break")
+        {
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(Sewer_JudgeStrSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+                theDM.ShowDialog(Sewer_JudgeStrFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+    
+
+
     }
+
 
 
 

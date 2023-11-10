@@ -254,8 +254,14 @@ public class BattleRollet : MonoBehaviour
         }
         Invoke("waitOneSec", 0.1f);
     }
+    
     public void activeRollet()
     {
+        BattleManager.Instance.PlayerMAUI.SetActive(false);
+        BattleManager.Instance.PlayerActionUi.SetActive(false);
+
+
+
 
         setUI.SetActive(false);
         activeUI.SetActive(true);

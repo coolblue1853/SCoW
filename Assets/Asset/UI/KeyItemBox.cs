@@ -14,6 +14,7 @@ public class KeyItemBox : MonoBehaviour
     public Sprite Document;
     public Sprite None; 
    public Sprite Map;
+    public Sprite OldMap;
 
     public GameObject SISUI;
     public TextMeshProUGUI UseUI_Text;
@@ -80,6 +81,13 @@ public class KeyItemBox : MonoBehaviour
             InteractionController.Instance.Start_Safe_Look("Map_Look");
             SISUI.SetActive(false);
         }
+        if (DataBaseManager.nowItem == "OldMap")
+        {
+            DataBaseManager.isOpenUi = false;
+
+            InteractionController.Instance.Start_Safe_Look("OldMap_Look");
+            SISUI.SetActive(false);
+        }
     }
 
     public void UseButton()
@@ -98,6 +106,8 @@ public class KeyItemBox : MonoBehaviour
             Rollet.Instance.setRollet("Coat : Disguise", "Disguise", DataBaseManager.DisguisePoint, "Item");
             SISUI.SetActive(false);
         }
+
+        //오래된 지도 -> 사용하면 아예 지도창으로 바로 보내주기.
     }
 
     // Update is called once per frame
@@ -150,6 +160,12 @@ public class KeyItemBox : MonoBehaviour
         else if (DataBaseManager.nowItem == "Document")
         {
             imageComponent.sprite = Document;
+            Use_B.SetActive(false);
+
+        }
+        else if (DataBaseManager.nowItem == "OldMap")
+        {
+            imageComponent.sprite = OldMap;
             Use_B.SetActive(false);
 
         }

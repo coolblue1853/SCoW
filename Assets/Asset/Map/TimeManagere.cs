@@ -14,6 +14,9 @@ public class TimeManagere : MonoBehaviour
 
     // Update is called once per frame
     public GameObject Enemy;
+    public GameObject OldMap;
+
+
 
     public GameObject Sewer_Flat;
  public GameObject Sewer_Round;
@@ -31,7 +34,7 @@ public class TimeManagere : MonoBehaviour
  public GameObject Pipe;
  public GameObject Cage;
 
-
+    public GameObject Symbol;
     //전투 맵
     public GameObject Sewer_Flat_Battle;
     public GameObject Sewer_Round_Battle;
@@ -51,8 +54,14 @@ public class TimeManagere : MonoBehaviour
 
     public GameObject GroundWater;
     public GameObject GroundWaterRand2;
+
+    public void CloseOldMap()
+    {
+        OldMap.SetActive(false);
+    }
     public void MakeCageLand()
     {
+        Symbol.SetActive(false);
         Pipe.SetActive(false);
         Sewer_Flat.SetActive(false);
         Sewer_Round.SetActive(false);
@@ -77,6 +86,7 @@ public class TimeManagere : MonoBehaviour
     }
     public void MakeHouseLand()
     {
+        Symbol.SetActive(false);
         Pipe.SetActive(false);
         Sewer_Flat.SetActive(false);
         Sewer_Round.SetActive(false);
@@ -101,6 +111,7 @@ public class TimeManagere : MonoBehaviour
     }
     public void MakeSighnLand()
     {
+        Symbol.SetActive(true);
         Pipe.SetActive(false);
         Sewer_Flat.SetActive(false);
         Sewer_Round.SetActive(false);
@@ -133,6 +144,7 @@ public class TimeManagere : MonoBehaviour
 
     public void MakeSewer()
     {
+
         Enemy.SetActive(false);
         // 지도가 없다면
         if (DataBaseManager.GainMap == false)
@@ -321,6 +333,7 @@ public class TimeManagere : MonoBehaviour
 
     public void MakeSewerMap_Nomal()
     {
+        Symbol.SetActive(false);
         Enemy.SetActive(false);
         Pipe.SetActive(false);
         Sewer_Flat.SetActive(false);
@@ -431,6 +444,7 @@ public class TimeManagere : MonoBehaviour
     }
     public void MakeSewerMap_Enemy()
     {
+        Symbol.SetActive(false);
         GroundWater.SetActive(true);
         Pipe.SetActive(false);
         Sewer_Flat.SetActive(false);
@@ -558,6 +572,7 @@ public class TimeManagere : MonoBehaviour
     }
     public void Sewer_ByRiverSide()
     {
+        Symbol.SetActive(false);
         Pipe.SetActive(false);
         Sewer_Flat.SetActive(false);
         Sewer_Round.SetActive(false);

@@ -18,7 +18,7 @@ public class MapManager : MonoBehaviour
     public GameObject Ring2;
     public GameObject Ring3;
     public GameObject Ring4;
-
+    
     public GameObject player;
     public GameObject camera;
     public GameObject MapChainingUI;

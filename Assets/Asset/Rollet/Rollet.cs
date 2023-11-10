@@ -1221,6 +1221,16 @@ public class Rollet : MonoBehaviour
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "DayTwoCase2San");
         }
+        if (Subject == "JournalSan")
+        
+        {
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "JournalSan");
+        }
+        if (Subject == "BookSan")
+
+        {
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "BookSan");
+        }
 
 
 
@@ -1232,8 +1242,11 @@ public class Rollet : MonoBehaviour
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "Fab_4th_QuestO_SanCheck");
         }
-     
 
+        if (Subject == "SymbolStrSan")
+        {
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "SymbolStrSan");
+        }
         
     }
 

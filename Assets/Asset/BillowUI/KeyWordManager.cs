@@ -1304,6 +1304,7 @@ public class KeyWordManager : MonoBehaviour
     bool isSewer1Add = false;
     bool isSewer2Add = false;
     bool isSewer3Add = false;
+    bool isSewer4Add = false;
     bool isHospital1Add = false;
     bool isNewspaper1Add = false;
     bool isQuestHouse1Add = false;
@@ -1777,7 +1778,11 @@ public class KeyWordManager : MonoBehaviour
             isSewer3Add = true;
             SewerList.Add("Manhole");
         }
-
+        if (DataBaseManager.Intel_Sewer4 == true && isSewer4Add == false)
+        {
+            isSewer4Add = true;
+            SewerList.Add("Advent");
+        }
 
 
         // 부두

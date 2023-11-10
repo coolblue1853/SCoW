@@ -512,6 +512,22 @@ public class SIS_UIManager : MonoBehaviour
             }
             DeactivateObjectWithName(Key_ItemBox, "Safe");
         }
+        if (DataBaseManager.GainOldMap == true)
+        {
+            ActivateObjectWithName(Key_ItemBox, "OldMap");
+        }
+        else
+        {
+
+            if (DataBaseManager.nowItem == "OldMap")
+            {
+                imageComponent_Key.sprite = None;
+                DataBaseManager.nowItem = "";
+                Use_Name.text = "";
+                Use_Detail.text = "";
+            }
+            DeactivateObjectWithName(Key_ItemBox, "OldMap");
+        }
 
         if (DataBaseManager.SafeDocument == true)
         {
@@ -703,6 +719,11 @@ public class SIS_UIManager : MonoBehaviour
             {
                 Key_Name.text = "Safe";
                 Key_Detail.text = "Skill :\nDeftness-20\n\nDetail:\nAiden's safe. It's locked solidly.";
+            }
+            if (DataBaseManager.nowItem == "OldMap" && DataBaseManager.GainOldMap == true)
+            {
+                Key_Name.text = "Old Map";
+                Key_Detail.text = "Detail:\nAn old map picked up from inside a sewer.";
             }
             if (DataBaseManager.nowItem == "Document" && DataBaseManager.SafeDocument == true)
             {

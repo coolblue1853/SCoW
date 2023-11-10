@@ -506,7 +506,37 @@ public class DirectingManager : MonoBehaviour
             Rollet.Instance.setRollet("??? : Give Excuse", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
         }
 
+        if (DataBaseManager.JournalSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.JournalSanCheck = false;
 
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "JournalSan");
+        }
+        if (DataBaseManager.SewerBookSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.SewerBookSanCheck = false;
+
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "BookSan");
+
+        }
+        if (DataBaseManager.SewerBookOccultCheck == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.SewerBookOccultCheck = false;
+            Rollet.Instance.setRollet("Book : Decryption", "Occult", DataBaseManager.occultPoint, "dialog");
+        }
+        if (DataBaseManager.SewerSymbolOccultCheck == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.SewerSymbolOccultCheck = false;
+            Rollet.Instance.setRollet("Symbol : Decryption", "Occult", DataBaseManager.occultPoint, "dialog");
+        }
+        if (DataBaseManager.SymbolStrSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.SymbolStrSanCheck = false;
+
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "SymbolStrSan");
+        }
+
+        
 
         if (DataBaseManager.nowHP <= 0 && DataBaseManager.TimeCount >1)  
         {

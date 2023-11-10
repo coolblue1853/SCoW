@@ -11,6 +11,9 @@ public class RolletTest : MonoBehaviour
 
     Vector2 player_SecretHouse = new Vector3(-1291.44f, -194.02f);
     Vector3 Cam_SecretHouse = new Vector3(-1303f, -195f, -15);
+
+    Vector2 player_Symbol = new Vector3(-1203.16f, -192.8f);
+    Vector3 Cam_Symbol = new Vector3(-1217.2f, -195f, -15);
     private void Awake()
     {
 
@@ -140,6 +143,10 @@ DataBaseManager.gunShotPoint = 50;
                 DataBaseManager.Albert_FirstDialog = true;
         DataBaseManager.getSafe = true;
         DataBaseManager.GainCoat = true;
+
+        DataBaseManager.gunShotPoint = 90;
+        DataBaseManager.swordPoint = 90;
+        DataBaseManager.martialArtsPoint = 90;
         DataBaseManager.stealthPoint = 90;
         DataBaseManager.swordPoint = 90;
         DataBaseManager.Axe = 1;
@@ -151,11 +158,26 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.DisguisePoint = 90;
         DataBaseManager.dex = 80;
         DataBaseManager.ObservationPoint = 11;
-   //     DataBaseManager.GainMap = true;
+        DataBaseManager.occultPoint = 80;
+        //     DataBaseManager.GainMap = true;
         DataBaseManager.TimeCount = 1;
         DataBaseManager.Intel_SewageMaintenanceOffice1 = true;
         DataBaseManager.isTest = true;
-        //  DataBaseManager.GainCoat = true;
+        DataBaseManager.Intel_Sewer4 = true;
+
+
+          DataBaseManager.Shotgun += 1;
+         DataBaseManager.Rifle += 1;
+         DataBaseManager.Revolver += 1;
+         DataBaseManager.SmallPistol += 1;
+
+        DataBaseManager.Dagger += 1; DataBaseManager.Bat += 1; DataBaseManager.Molotov += 1; DataBaseManager.SmallPistol += 1;
+
+
+        DataBaseManager.PistolAmmo += 10;
+        DataBaseManager.RifleAmmo += 10;
+        DataBaseManager.ShotgunAmmo += 10;
+
         DataBaseManager.SafeDocument = true;
     }
     public void NewsRollet()
@@ -189,8 +211,13 @@ DataBaseManager.gunShotPoint = 50;
 
         if (Input.GetKeyDown(KeyCode.F12))
         {
-            player.transform.position = player_SecretHouse;
-            cam.transform.position = Cam_SecretHouse;
+            //   player.transform.position = player_SecretHouse;
+            // cam.transform.position = Cam_SecretHouse;
+            player.transform.position = player_Symbol;
+            cam.transform.position = Cam_Symbol;
+            TimeManagere.Instance.MakeSighnLand();
+            DataBaseManager.nowPlace = "InSewer";
+            DialogDatabaseManager.instance.Check = true;
 
         }
 
@@ -198,12 +225,7 @@ DataBaseManager.gunShotPoint = 50;
         {
             DataBaseManager.Sewer_San = true;
 
-            //   DataBaseManager.Shotgun += 1;
-            // DataBaseManager.Rifle += 1;
-            // DataBaseManager.Revolver += 1;
-            // DataBaseManager.SmallPistol += 1;
 
-            // DataBaseManager.PistolAmmo += 1;
 
         }
         if (Input.GetKeyDown(KeyCode.F7))
