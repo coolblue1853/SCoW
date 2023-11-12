@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    public static int PosionDebuff = 0;
+
     public static bool SymbolStrSanCheck = false;
 
     public static bool SymbolOccultFirst = false;

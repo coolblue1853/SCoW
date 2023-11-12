@@ -171,6 +171,15 @@ public class SoundManager : MonoBehaviour
         {
             SFX_Secend.PlayOneShot(DeftNess_Miss);
         }
+        else if (sound == "Posion_Attack")
+        {
+            SFX_Secend.PlayOneShot(DeftNess_Miss); // 이거 독 소리로 바꾸어 줘야 함
+        }
+        else if (sound == "Posion_Miss")
+        {
+            SFX_Secend.PlayOneShot(DeftNess_Miss); // 이거 독 소리로 바꾸어 줘야 함
+        }
+
     }
 
 

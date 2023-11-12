@@ -700,10 +700,18 @@ public class BattleRollet : MonoBehaviour
             {
                 BattleManager.Instance.RetrunRolletResult(Subject,FinalResult, EnemySubject);   
             }
+            else if (EnemySubject == "DeepOne")
+            {
+                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
+            }
         }
         if (Subject == "counterattack")
         {
             if (EnemySubject == "DeepOneHybrid")
+            {
+                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
+            }
+            else if (EnemySubject == "DeepOne")
             {
                 BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
             }
@@ -716,10 +724,18 @@ public class BattleRollet : MonoBehaviour
             {
                 BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
             }
+            else if (EnemySubject == "DeepOne")
+            {
+                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
+            }
         }
         if (Subject == "SS_attack_Counter")
         {
             if (EnemySubject == "DeepOneHybrid")
+            {
+                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
+            }
+            else if (EnemySubject == "DeepOne")
             {
                 BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
             }

@@ -19,6 +19,9 @@ public class EnemySpriteChanger : MonoBehaviour
     public GameObject HittedByRock;
     public GameObject HittedByMolotov;
     public Sprite DeepOneHybrid_Punch;
+    public Sprite DeepOneHybrid_SanAttack;
+    public Sprite DeepOneHybrid_PosionAttack;
+
     void OnSpriteChangeComplete(SpriteRenderer subject, Sprite sprite)
     {
         subject.sprite = sprite;
@@ -99,7 +102,14 @@ public class EnemySpriteChanger : MonoBehaviour
     {
         SpriteRenderer.sprite = DeepOneHybrid_Punch;
     }
-
+    public void DeepOne_PoisonChange()
+    {
+        SpriteRenderer.sprite = DeepOneHybrid_SanAttack;
+    }
+    public void DeepOne_SanAttackChange()
+    {
+        SpriteRenderer.sprite = DeepOneHybrid_SanAttack;
+    }
 
 
     // Start is called before the first frame update

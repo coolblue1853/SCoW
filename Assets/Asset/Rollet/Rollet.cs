@@ -172,7 +172,14 @@ public class Rollet : MonoBehaviour
         ResetString();
         RolletSetUi.SetActive(true);
         Skill.text = skill;
-        Point.text = point_sting + " : " + point_int;
+        if(skill != "??? : Deftness")
+        {
+            Point.text = point_sting + " : " + point_int;
+        }
+        else
+        {
+            Point.text = point_sting + " : ???" ;
+        }
         skillPoint = point_int;
         String = point_sting;
         if (DataBaseManager.Condition == "Nomal")
@@ -540,6 +547,27 @@ public class Rollet : MonoBehaviour
                 }
 
             }
+            if (EnemySubject == "DeepOne")
+            {
+                BattleManager.Instance.RetrunRolletResult(Subject, result_End.text, EnemySubject);
+                if (DataBaseManager.BattleWeapon == "SmallPistol")
+                {
+                    DataBaseManager.nowSmallPistol -= 1;
+                }
+                if (DataBaseManager.BattleWeapon == "Rifle")
+                {
+                    DataBaseManager.nowRifle -= 1;
+                }
+                if (DataBaseManager.BattleWeapon == "Shotgun")
+                {
+                    DataBaseManager.nowShotgun -= 1;
+                }
+                if (DataBaseManager.BattleWeapon == "Revolver")
+                {
+                    DataBaseManager.nowRevolver -= 1;
+                }
+
+            }
         }
         if (Subject == "Deftness_attack")
         {
@@ -553,7 +581,27 @@ public class Rollet : MonoBehaviour
 
 
             }
+            if (EnemySubject == "DeepOne")
+            {
+                BattleManager.Instance.RetrunRolletResult(Subject, result_End.text, EnemySubject);
+                if (DataBaseManager.BattleWeapon == "Molotov")
+                {
+                    DataBaseManager.Molotov -= 1;
+                }
+
+
+            }
         }
+        if (Subject == "EnemyDeftness")
+        {
+            BattleManager.Instance.RetrunRolletResult(Subject, result_End.text, EnemySubject);
+        }
+        if (Subject == "DeepOneDeftness")
+        {
+            BattleManager.Instance.RetrunRolletResult(Subject, result_End.text, EnemySubject);
+        }
+
+        
 
         if (Subject == "Case2IntCheck") // 이성판정 광련
         {
@@ -1246,6 +1294,12 @@ public class Rollet : MonoBehaviour
         if (Subject == "SymbolStrSan")
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "SymbolStrSan");
+        }
+
+
+        if (Subject == "BattleSan_DeepOne1")
+        {
+            BattleManager.Instance.EndDeepOneSanAttack();
         }
         
     }

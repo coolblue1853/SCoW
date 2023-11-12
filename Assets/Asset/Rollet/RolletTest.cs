@@ -172,12 +172,13 @@ DataBaseManager.gunShotPoint = 50;
          DataBaseManager.SmallPistol += 1;
 
         DataBaseManager.Dagger += 1; DataBaseManager.Bat += 1; DataBaseManager.Molotov += 1; DataBaseManager.SmallPistol += 1;
+        DataBaseManager.TimeCount = 11;
 
 
         DataBaseManager.PistolAmmo += 10;
         DataBaseManager.RifleAmmo += 10;
         DataBaseManager.ShotgunAmmo += 10;
-
+        DataBaseManager.battleEnemyCount = 1;
         DataBaseManager.SafeDocument = true;
     }
     public void NewsRollet()
@@ -280,7 +281,7 @@ DataBaseManager.gunShotPoint = 50;
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            DataBaseManager.TimeCount = 7;
+
         }
 
         if (Input.GetKeyDown(KeyCode.F1))

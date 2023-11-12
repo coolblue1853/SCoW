@@ -653,6 +653,40 @@ public class DirectingManager : MonoBehaviour
 
     public void BeforeBattle()
     {
+        battleObject.transform.localPosition = BattlePlayer_Road;
+        BattleManager.Instance.OriginPointChange();
+
+
+        BattleRoadLight.SetActive(true);
+        if (DataBaseManager.TimeCount< 5)
+        {
+            Enemy1.SetActive(true);
+            Enemy2.SetActive(false);
+            Enemy3.SetActive(false);
+            EnemyTrunSymbol_1.SetActive(true);
+            EnemyTrunSymbol_2.SetActive(false);
+            EnemyTrunSymbol_3.SetActive(false);
+
+
+        }
+        else if (DataBaseManager.TimeCount < 9)
+        {
+            Enemy1.SetActive(true);
+            Enemy2.SetActive(true);
+            Enemy3.SetActive(false);
+            EnemyTrunSymbol_1.SetActive(true);
+            EnemyTrunSymbol_2.SetActive(true);
+            EnemyTrunSymbol_3.SetActive(false);
+        }
+        else 
+        {
+            Enemy1.SetActive(false);
+            Enemy2.SetActive(true);
+            Enemy3.SetActive(true);
+            EnemyTrunSymbol_1.SetActive(false);
+            EnemyTrunSymbol_2.SetActive(true);
+            EnemyTrunSymbol_3.SetActive(true);
+        }
         player.SetActive(false);
         Camera.transform.position = Cam_BattlePos;
         Invoke("BattleDialog", 2f);
@@ -671,42 +705,12 @@ public class DirectingManager : MonoBehaviour
     //전투 
     public void GotoBattle()
     {
-        BattleRoadLight.SetActive(true);
-        if (DataBaseManager.battleEnemyCount == 1)
-        {
-            Enemy1.SetActive(true);
-            Enemy2.SetActive(false);
-            Enemy3.SetActive(false);
-            EnemyTrunSymbol_1.SetActive(true);
-            EnemyTrunSymbol_2.SetActive(false);
-            EnemyTrunSymbol_3.SetActive(false);
 
-
-        }
-        else if (DataBaseManager.battleEnemyCount == 2)
-        {
-            Enemy1.SetActive(true);
-            Enemy2.SetActive(true);
-            Enemy3.SetActive(false);
-            EnemyTrunSymbol_1.SetActive(true);
-            EnemyTrunSymbol_2.SetActive(true);
-            EnemyTrunSymbol_3.SetActive(false);
-        }
-        else
-        {
-            Enemy1.SetActive(true);
-            Enemy2.SetActive(true);
-            Enemy3.SetActive(true);
-            EnemyTrunSymbol_1.SetActive(true);
-            EnemyTrunSymbol_2.SetActive(true);
-            EnemyTrunSymbol_3.SetActive(true);
-        }
         RoadBattleBackGround.SetActive(true);
         SewerBattleBackGround.SetActive(false);
 
-        battleObject.transform.position = BattlePlayer_Road;
 
-    DataBaseManager.nowPlace = "BattleRoad";
+        DataBaseManager.nowPlace = "BattleRoad";
         BattleManager.Instance.startReload();
         battleUI.SetActive(true);
         cameraMove.enabled = true;
@@ -717,16 +721,23 @@ public class DirectingManager : MonoBehaviour
         BattleM.SetActive(true);
     }
     public GameObject SewerEnemy1;
+    public GameObject SewerEnemy2;
     public void GotoBattleSewer()
     {
         DataBaseManager.SewerBattleEndCheck = false;
         BattleRoadLight.SetActive(false);
         battleObject.transform.localPosition = BattlePlayer_Sewer;
+        BattleManager.Instance.OriginPointChange();
 
-        SewerEnemy1.SetActive(true);
-        EnemyTrunSymbol_1.SetActive(true);
-        EnemyTrunSymbol_2.SetActive(false);
+
+        // 적 1,2,3에 따라 여기 변경해줘야함
+        SewerEnemy2.SetActive(true);
+        EnemyTrunSymbol_1.SetActive(false);
+        EnemyTrunSymbol_2.SetActive(true);
         EnemyTrunSymbol_3.SetActive(false);
+
+
+
 
         RoadBattleBackGround.SetActive(false);
         SewerBattleBackGround.SetActive(true);

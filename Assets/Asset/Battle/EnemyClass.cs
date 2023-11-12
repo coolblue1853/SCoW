@@ -24,7 +24,7 @@ public class EnemyClass : MonoBehaviour
     {
         public int DeepOneHybrid_MatialArts = 0;
         public int DeepOneHybrid_Evasion = 0 ;
- 
+
 
         public void SetStatDeepOneHybrid()
         {
@@ -44,7 +44,33 @@ public class EnemyClass : MonoBehaviour
 
     }
 
+    public class DeepOne : everyEnemy
+    {
 
+
+        public int DeepOne_MatialArts = 0;
+        public int DeepOne_SewerdManShip = 0;
+        public int DeepOne_Evasion = 0;
+
+
+        public void SetStatDeepOne()
+        {
+            str = Random.Range(60, 80);
+            intl = Random.Range(55, 75);
+            dex = Random.Range(45, 55);
+
+            MP = Random.Range(40, 60);
+            FullHP = Random.Range(100, 120);
+
+
+            NowHP = FullHP;
+            San = Random.Range(30, 60);
+            DeepOne_MatialArts = 45;
+            DeepOne_SewerdManShip = 50;
+            DeepOne_Evasion = 25;
+        }
+
+    }
 
 
 

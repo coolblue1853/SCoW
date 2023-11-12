@@ -6,6 +6,7 @@ public class BattlePlayer : MonoBehaviour
 {
      GameObject player;
      SpriteRenderer player_R;
+    public Sprite Hitted;
     public Sprite Stand;
     public Sprite Dagger_Ready;
     public Sprite Axe_Ready;
@@ -18,12 +19,43 @@ public class BattlePlayer : MonoBehaviour
 
     public Sprite Rock_Ready;
     public Sprite Molotov_Ready;
+
+
+    public GameObject HittedDagger;
+    public GameObject HittedRcok;
     // Start is called before the first frame update
     void Start()
     {
         player = this.GetComponent<GameObject>();
         player_R = this.GetComponent<SpriteRenderer>();
 
+    }
+
+    public void PlayerHittedDagger()
+    {
+        player_R.sprite = Hitted;
+        HittedDagger.SetActive(true);
+    }
+    public void PlayerHittedRock()
+    {
+        player_R.sprite = Hitted;
+        HittedRcok.SetActive(true);
+    }
+    public void PlayerHittedPosion()
+    {
+        player_R.sprite = Hitted;
+        HittedRcok.SetActive(true);
+    }
+    public void PlayerHittedSanAttack()
+    {
+        player_R.sprite = Hitted;
+        HittedRcok.SetActive(true);
+    }
+
+    public void resetPlayer()
+    {
+        HittedDagger.SetActive(false);
+        HittedRcok.SetActive(false);
     }
 
     // Update is called once per frame
