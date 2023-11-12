@@ -144,41 +144,36 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.getSafe = true;
         DataBaseManager.GainCoat = true;
 
-        DataBaseManager.gunShotPoint = 90;
-        DataBaseManager.swordPoint = 90;
-        DataBaseManager.martialArtsPoint = 90;
+        DataBaseManager.gunShotPoint = 50;
+        DataBaseManager.swordPoint = 40;
+        DataBaseManager.martialArtsPoint = 30;
         DataBaseManager.stealthPoint = 90;
-        DataBaseManager.swordPoint = 90;
-        DataBaseManager.Axe = 1;
+
+
         DataBaseManager.rhetoricPoint = 90;
         DataBaseManager.luk = 25;
         //   DataBaseManager.Intel_Nightmare3 = true;
         //      DataBaseManager.Intel_Nightmare4 = true;
-        DataBaseManager.deftnessPoint = 80;
+        DataBaseManager.deftnessPoint = 30;
         DataBaseManager.DisguisePoint = 90;
         DataBaseManager.dex = 80;
         DataBaseManager.ObservationPoint = 11;
         DataBaseManager.occultPoint = 80;
         //     DataBaseManager.GainMap = true;
-        DataBaseManager.TimeCount = 1;
+
         DataBaseManager.Intel_SewageMaintenanceOffice1 = true;
         DataBaseManager.isTest = true;
         DataBaseManager.Intel_Sewer4 = true;
 
 
-          DataBaseManager.Shotgun += 1;
-         DataBaseManager.Rifle += 1;
+
          DataBaseManager.Revolver += 1;
-         DataBaseManager.SmallPistol += 1;
 
-        DataBaseManager.Dagger += 1; DataBaseManager.Bat += 1; DataBaseManager.Molotov += 1; DataBaseManager.SmallPistol += 1;
-        DataBaseManager.TimeCount = 11;
+        DataBaseManager.Dagger += 1; DataBaseManager.Molotov += 2; 
+        DataBaseManager.TimeCount = 2;
 
 
-        DataBaseManager.PistolAmmo += 10;
-        DataBaseManager.RifleAmmo += 10;
-        DataBaseManager.ShotgunAmmo += 10;
-        DataBaseManager.battleEnemyCount = 1;
+        DataBaseManager.PistolAmmo += 20;
         DataBaseManager.SafeDocument = true;
     }
     public void NewsRollet()
@@ -200,6 +195,7 @@ DataBaseManager.gunShotPoint = 50;
     }
     private void Update()
     {
+
      /*   
         Debug.Log("isActiveDialog1 :" + DataBaseManager.isActiveDialog1);
         Debug.Log("StoryDirecting :" + DataBaseManager.StoryDirecting);

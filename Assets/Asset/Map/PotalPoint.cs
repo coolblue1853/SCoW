@@ -348,7 +348,7 @@ public class PotalPoint : MonoBehaviour
             camera.transform.localPosition = Cam_InSewer;
   
         }
-
+        Invoke("EndIsDerecting", 1f);
         Invoke("ablePotal", 2f);
     }
 
@@ -368,11 +368,17 @@ public class PotalPoint : MonoBehaviour
         player.transform.localPosition = player_OutsideTo1st;
         camera.transform.localPosition = Cam_OutsideTo1st;
     }
+    void EndIsDerecting()
+    {
+        SoundManager.Instance.달리기효과음켜짐 = false;
+        DataBaseManager.isDirecting = false;
+    }
 
     void ablePotal()
     {
+        
         DataBaseManager.potalWait = false;
-        DataBaseManager.isDirecting = false;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

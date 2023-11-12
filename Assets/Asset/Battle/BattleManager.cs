@@ -138,8 +138,9 @@ public class BattleManager : MonoBehaviour
     
   
         }
-         if (EnemyTrunSymbol_1.activeSelf == false && EnemyTrunSymbol_2.activeSelf == false && EnemyTrunSymbol_3.activeSelf == false && DataBaseManager.nowPlace == "InSewer" && DataBaseManager.SewerBattleEndCheck == false)
+        if (EnemyTrunSymbol_1.activeSelf == false && EnemyTrunSymbol_2.activeSelf == false && EnemyTrunSymbol_3.activeSelf == false && DataBaseManager.SewerBattleChecker == true && DataBaseManager.nowPlace == "InSewer" && DataBaseManager.SewerBattleEndCheck == false)
         {
+            DataBaseManager.SewerBattleChecker = false;
             DataBaseManager.SewerBattleEndCheck = true;
             DataBaseManager.StoryDirecting = false;
             FadingBackGround.Instance.FadeInOut();

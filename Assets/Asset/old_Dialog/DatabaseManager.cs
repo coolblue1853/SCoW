@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    public static bool BGMChangeChecker = true;
+    public static bool SewerBattleChecker = false;
     public static int PosionDebuff = 0;
 
     public static bool SymbolStrSanCheck = false;

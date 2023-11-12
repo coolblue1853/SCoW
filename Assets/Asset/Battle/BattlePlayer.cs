@@ -21,8 +21,15 @@ public class BattlePlayer : MonoBehaviour
     public Sprite Molotov_Ready;
 
 
+
+
+
     public GameObject HittedDagger;
     public GameObject HittedRcok;
+    public GameObject HittedPosion;
+    public GameObject HittedSanAttack;
+    public GameObject PosionAcctive;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,23 +51,34 @@ public class BattlePlayer : MonoBehaviour
     public void PlayerHittedPosion()
     {
         player_R.sprite = Hitted;
-        HittedRcok.SetActive(true);
+        HittedPosion.SetActive(true);
     }
     public void PlayerHittedSanAttack()
     {
         player_R.sprite = Hitted;
-        HittedRcok.SetActive(true);
+        HittedSanAttack.SetActive(true);
     }
 
     public void resetPlayer()
     {
         HittedDagger.SetActive(false);
         HittedRcok.SetActive(false);
+        HittedPosion.SetActive(false);
+        HittedSanAttack.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(DataBaseManager.PosionDebuff > 0 && PosionAcctive.activeSelf == false)
+        {
+            PosionAcctive.SetActive(true);
+        }
+        else if (DataBaseManager.PosionDebuff <= 0 && PosionAcctive.activeSelf == true)
+        {
+            PosionAcctive.SetActive(false);
+        }
+
         if((BattleManager.Instance.BattleState == "PlayerAttack" || BattleManager.Instance.BattleState == "selectEnemy"))
         {
             if(BattleManager.Instance.PlayerAction == "PlayerSwords")

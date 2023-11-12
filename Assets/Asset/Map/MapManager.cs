@@ -468,6 +468,8 @@ public class MapManager : MonoBehaviour
 
     public void MapOn()
     {
+        DataBaseManager.BGMChangeChecker = true;
+
         if (DataBaseManager.TimeCount == 13 && DataBaseManager.MorningMove_4th == false)
         {
             DataBaseManager.secondisDirecting = true;

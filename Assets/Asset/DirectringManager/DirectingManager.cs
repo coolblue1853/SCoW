@@ -667,6 +667,7 @@ public class DirectingManager : MonoBehaviour
             EnemyTrunSymbol_2.SetActive(false);
             EnemyTrunSymbol_3.SetActive(false);
 
+        BattleManager.Instance.set_DeepOneHybrid1();
 
         }
         else if (DataBaseManager.TimeCount < 9)
@@ -677,6 +678,9 @@ public class DirectingManager : MonoBehaviour
             EnemyTrunSymbol_1.SetActive(true);
             EnemyTrunSymbol_2.SetActive(true);
             EnemyTrunSymbol_3.SetActive(false);
+            BattleManager.Instance.set_DeepOneHybrid1();
+            BattleManager.Instance.set_DeepOneHybrid2();
+
         }
         else 
         {
@@ -686,6 +690,8 @@ public class DirectingManager : MonoBehaviour
             EnemyTrunSymbol_1.SetActive(false);
             EnemyTrunSymbol_2.SetActive(true);
             EnemyTrunSymbol_3.SetActive(true);
+            BattleManager.Instance.set_DeepOneHybrid2();
+            BattleManager.Instance.set_DeepOneHybrid3();
         }
         player.SetActive(false);
         Camera.transform.position = Cam_BattlePos;
@@ -719,11 +725,13 @@ public class DirectingManager : MonoBehaviour
         Camera.transform.position = Cam_BattlePos;
         Invoke("setBattle", 3);
         BattleM.SetActive(true);
+
     }
     public GameObject SewerEnemy1;
     public GameObject SewerEnemy2;
     public void GotoBattleSewer()
     {
+        DataBaseManager.SewerBattleChecker = true;
         DataBaseManager.SewerBattleEndCheck = false;
         BattleRoadLight.SetActive(false);
         battleObject.transform.localPosition = BattlePlayer_Sewer;
@@ -731,10 +739,36 @@ public class DirectingManager : MonoBehaviour
 
 
         // 적 1,2,3에 따라 여기 변경해줘야함
-        SewerEnemy2.SetActive(true);
-        EnemyTrunSymbol_1.SetActive(false);
-        EnemyTrunSymbol_2.SetActive(true);
-        EnemyTrunSymbol_3.SetActive(false);
+
+
+        if (DataBaseManager.SewerEnemyCounter == 1)
+        {
+            SewerEnemy1.SetActive(true);
+            EnemyTrunSymbol_1.SetActive(true);
+            EnemyTrunSymbol_2.SetActive(false);
+            EnemyTrunSymbol_3.SetActive(false);
+            BattleManager.Instance.set_DeepOneHybrid4();
+        }
+
+        else if (DataBaseManager.SewerEnemyCounter == 2)
+        {
+            SewerEnemy2.SetActive(true);
+            EnemyTrunSymbol_1.SetActive(false);
+            EnemyTrunSymbol_2.SetActive(true);
+            EnemyTrunSymbol_3.SetActive(false);
+            BattleManager.Instance.set_DeepOne1();
+        }
+        else
+        {
+            SewerEnemy1.SetActive(true);
+            SewerEnemy2.SetActive(true);
+            EnemyTrunSymbol_1.SetActive(true);
+            EnemyTrunSymbol_2.SetActive(true);
+            EnemyTrunSymbol_3.SetActive(false);
+            BattleManager.Instance.set_DeepOneHybrid4();
+            BattleManager.Instance.set_DeepOne1();
+        }
+
 
 
 

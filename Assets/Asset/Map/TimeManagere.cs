@@ -14,6 +14,7 @@ public class TimeManagere : MonoBehaviour
 
     // Update is called once per frame
     public GameObject Enemy;
+    public GameObject Enemy2;
     public GameObject OldMap;
 
 
@@ -142,6 +143,7 @@ public class TimeManagere : MonoBehaviour
     }
 
 
+
     public void MakeSewer()
     {
 
@@ -212,18 +214,35 @@ public class TimeManagere : MonoBehaviour
                 else
                 {
                     DataBaseManager.SewerEnemyCounter += 1;
+                    
+                    if(DataBaseManager.SewerEnemyCounter == 1)
+                    {
+                        Enemy.SetActive(true);
+                    }
+                    else if(DataBaseManager.SewerEnemyCounter == 2)
+                    {
+                        Enemy2.SetActive(true);
+                    }
+                    else
+                    {
+                        Enemy.SetActive(true);
+                        Enemy2.SetActive(true);
+                    }
+                    
                     int RandInt = Random.Range(0, 3);
+
+                    
 
                     MakeSewerMap_Enemy();
                     Debug.Log("¿˚ µÓ¿Â");
                     if (DataBaseManager.WearCoat == true)
                     {
-                        Enemy.SetActive(true);
+
                         DataBaseManager.IsInsmusMeetSewer = false;
                     }
                     else
                     {
-                        Enemy.SetActive(true);
+
                         Invoke("PrintBattleDialog", 1f);
                     }
 
@@ -335,6 +354,7 @@ public class TimeManagere : MonoBehaviour
     {
         Symbol.SetActive(false);
         Enemy.SetActive(false);
+        Enemy2.SetActive(false);
         Pipe.SetActive(false);
         Sewer_Flat.SetActive(false);
         Sewer_Round.SetActive(false);
