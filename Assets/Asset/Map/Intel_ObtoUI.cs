@@ -316,7 +316,15 @@ public class Intel_ObtoUI : MonoBehaviour
 
     void SetJudge()
     {
-        if(DataBaseManager.Select_Object == "NewsPaper_Active")
+
+        if (DataBaseManager.Select_Object == "Sewer")
+        {
+            CanJudge = false;
+            isJudge = true;
+            Rollet.Instance.setRollet("Sewer : Picking", "Deftness", DataBaseManager.deftnessPoint, "dialog");
+        }
+
+        if (DataBaseManager.Select_Object == "NewsPaper_Active")
         {
             CanJudge = false;
             isJudge = true;
@@ -813,7 +821,11 @@ public class Intel_ObtoUI : MonoBehaviour
 
     public void ResetKeyCount()
     {
-        if(this.name == "Ella Triss")
+
+        isJudge = true;
+        CanJudge = true;
+
+        if (this.name == "Ella Triss")
         {
             KeywordCounter = 3;
         }
@@ -856,7 +868,16 @@ public class Intel_ObtoUI : MonoBehaviour
         {
             KeywordCounter = 4;
         }
+        else if (this.name == "BlackWell")
+        {
+            KeywordCounter = 3;
+        }
+        else if (this.name == "Dusty Dave")
+        {
+            KeywordCounter = 3;
+        }
 
+        
     }
 
     private void Awake()

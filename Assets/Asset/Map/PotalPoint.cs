@@ -279,7 +279,7 @@ public class PotalPoint : MonoBehaviour
             camera.transform.localPosition = Cam_SewerOutside;
         }
 
-        else if (this.name == "Sewer")
+        else if (this.name == "Sewer_Potal")
         {
             DataBaseManager.isDirecting = true;
             player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);

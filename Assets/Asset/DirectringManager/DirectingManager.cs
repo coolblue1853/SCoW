@@ -130,11 +130,20 @@ public class DirectingManager : MonoBehaviour
         }
 
     }
+    public GameObject endGame;
     bool isGo1stBattle;
     // Update is called once per frame
     void Update()
     {
   
+        if(DataBaseManager.nowHP <=0 || DataBaseManager.nowSan <= 0)
+        {
+            endGame.SetActive(true);
+        }
+        else
+        {
+            endGame.SetActive(false);
+        }
 
         if (DataBaseManager.fst_Detectiv_TimeOn >= 2)
         {
@@ -504,13 +513,11 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.AfterDaveDeathFirstSlum = false;
             if ((DataBaseManager.TimeCount == 13 && DataBaseManager.IsMorningMapMove == true) || (DataBaseManager.TimeCount == 9 && DataBaseManager.IsMorningMapMove == true) ||(DataBaseManager.TimeCount == 5 && DataBaseManager.IsMorningMapMove == true))
             {
-                Debug.Log("진행중 1");
                 Invoke("AfterDaveDeathDailog", 6f);
 
             }
             else
             {
-                Debug.Log("진행중 2    ");
                 Invoke("AfterDaveDeathDailog", 10f);
             }
 

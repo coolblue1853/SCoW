@@ -721,6 +721,8 @@ public class TimeManagere : MonoBehaviour
     public Intel_ObtoUI BlackWell;
     public GameObject BlackWell_OB;
 
+    public GameObject RiverActive;
+    public GameObject RiverPotal;
 
     public GameObject LeftSewerPotal;
     public GameObject RightSewerPotal;
@@ -735,10 +737,21 @@ public class TimeManagere : MonoBehaviour
         RightSewerPotal.SetActive(true);
     }
 
+    public GameObject Manhole;
 
     void Update()
     {
+        if (Manhole.activeSelf == false && DataBaseManager.DeadBody_GotoSwere == true)
+        {
+            Manhole.SetActive(true);
+        }
 
+        
+        if (RiverActive.activeSelf == true && (DataBaseManager.SewerPicingSucc == true|| DataBaseManager.SewerageKey == true))
+        {
+            RiverPotal.SetActive(true);
+            RiverActive.SetActive(false);
+        }
 
         if(DataBaseManager.Black_RechSucc_CanTalck == true && BlackWell.CanKeyword ==false)
         {

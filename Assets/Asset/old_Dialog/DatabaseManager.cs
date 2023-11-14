@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    public static bool SewerPicingSucc = false;
+
     public static bool IsMorningMapMove = false;
     public static bool AfterDaveDeathFirstSlum = false;
    

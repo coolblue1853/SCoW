@@ -540,10 +540,10 @@ public class InteractionController : MonoBehaviour
     public GameObject Sewer_SymbolKeyWorkSucc;
     public GameObject Sewer_SymbolKeyWorkFail;
 
-
     public GameObject AfterDaveDeath;
 
-
+    public GameObject RiverDeftnessSucc;
+    public GameObject RiverDeftnessFail;
 
     public GameObject Journalist_FirstDialog;
 
@@ -3331,6 +3331,21 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(Sewer_BookLookOccultFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
+        if (Sub_Dialog == "Sewer : Picking")
+        {
+
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                DataBaseManager.SewerPicingSucc = true;
+                theDM.ShowDialog(RiverDeftnessSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+                theDM.ShowDialog(RiverDeftnessFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+        }
+
+
         if (Sub_Dialog == "Symbol : Decryption")
         {
             DataBaseManager.SymbolOccultFirst = true;

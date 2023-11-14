@@ -155,10 +155,10 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.luk = 25;
         //   DataBaseManager.Intel_Nightmare3 = true;
         //      DataBaseManager.Intel_Nightmare4 = true;
-        DataBaseManager.deftnessPoint = 30;
+        DataBaseManager.deftnessPoint = 10;
         DataBaseManager.DisguisePoint = 90;
         DataBaseManager.dex = 80;
-        DataBaseManager.ObservationPoint = 11;
+        DataBaseManager.ObservationPoint = 90;
         DataBaseManager.occultPoint = 80;
         //     DataBaseManager.GainMap = true;
 
@@ -172,7 +172,7 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.Revolver += 1;
 
         DataBaseManager.Dagger += 1; DataBaseManager.Molotov += 2; 
-        DataBaseManager.TimeCount = 7;
+        DataBaseManager.TimeCount = 3;
 
       //  DataBaseManager.SecondDayDialog = true;
         DataBaseManager.AlbertDeathKeyword = true;DataBaseManager.SwainDeathKeyword = true;
