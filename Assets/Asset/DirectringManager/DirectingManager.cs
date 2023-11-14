@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class DirectingManager : MonoBehaviour
 {
+    public GameObject BoxMus;
+
     public GameObject BattleM;
     public CameraManager cameraManager;
     public GameObject DialogManager;
@@ -450,6 +452,7 @@ public class DirectingManager : MonoBehaviour
 
         if (DataBaseManager.BarArrive == true && DataBaseManager.isActiveDialog1 == false)
         {
+            BoxMus.SetActive(true);
             Invoke("ArriveBar_2nd", 4f);
             DataBaseManager.BarArrive = false;
             DataBaseManager.StoryDirecting = true;
@@ -496,7 +499,24 @@ public class DirectingManager : MonoBehaviour
 
         }
 
+        if (DataBaseManager.AfterDaveDeathFirstSlum == true && DataBaseManager.nowPlace == "Slum" && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.AfterDaveDeathFirstSlum = false;
+            if ((DataBaseManager.TimeCount == 13 && DataBaseManager.IsMorningMapMove == true) || (DataBaseManager.TimeCount == 9 && DataBaseManager.IsMorningMapMove == true) ||(DataBaseManager.TimeCount == 5 && DataBaseManager.IsMorningMapMove == true))
+            {
+                Debug.Log("진행중 1");
+                Invoke("AfterDaveDeathDailog", 6f);
 
+            }
+            else
+            {
+                Debug.Log("진행중 2    ");
+                Invoke("AfterDaveDeathDailog", 10f);
+            }
+
+
+            
+        }
 
         //하수도 내부
         if (DataBaseManager.InsmusRhtoric == true && DataBaseManager.isActiveDialog1 == false)
@@ -565,6 +585,7 @@ public class DirectingManager : MonoBehaviour
     }
     public void BarFabianMove()
     {
+        BoxMus.SetActive(false);
         MapManager.Instance.BarFabianMove();
     }
 
@@ -587,6 +608,10 @@ public class DirectingManager : MonoBehaviour
     }
 
 
+    public void AfterDaveDeathDailog()
+    {
+        InteractionController.Instance.Start_1st_Slum("AfterDaveDeath");
+    }
 
     public void ArriveBar_2nd()
     {
@@ -810,6 +835,7 @@ public class DirectingManager : MonoBehaviour
 
     public void setBattle()
     {
+        DataBaseManager.ISRoadBattleStart = true;
         DataBaseManager.isDirecting = false;
         BattleManager.Instance.StartBattle = true;
 

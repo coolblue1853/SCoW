@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    public static bool IsMorningMapMove = false;
+    public static bool AfterDaveDeathFirstSlum = false;
+   
+
+    public static bool ISRoadBattleStart = false;
+
     public static bool BGMChangeChecker = true;
     public static bool SewerBattleChecker = false;
     public static int PosionDebuff = 0;

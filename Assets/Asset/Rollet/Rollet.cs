@@ -672,6 +672,7 @@ public class Rollet : MonoBehaviour
     public TextMeshProUGUI Detail_San;
     public void OpenSanRollet()
     {
+        ActiveButton.SetActive(true);
         SoundManager.Instance.PaperClip_Play();
         SanRollet.SetActive(true);
         Invoke("waitOneSec2", 0.1f);
@@ -812,8 +813,10 @@ public class Rollet : MonoBehaviour
         }
 
     }
+    public GameObject ActiveButton;
     public void activeSanRollet()
     {
+        ActiveButton.SetActive(false);
         ChangeSanRollet();
     }
     public void waitOneSec2()

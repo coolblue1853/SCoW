@@ -395,7 +395,7 @@ public class DialogManager : MonoBehaviour
                     break;
                 case 'ⓨ': t_white = false; t_yellow = true; t_red = false; t_green = false; t_blue = false; t_ignore = true; t_grey = false; break;
 
-                case '⒢': t_white = false; t_yellow = false; t_red = false; t_green = false; t_blue = false; t_ignore = true; t_grey = true; break;
+                case '⒳': t_white = false; t_yellow = false; t_red = false; t_green = false; t_blue = false; t_ignore = true; t_grey = true; break;
 
 
                 case 'ⓡ': t_white = false; t_yellow = false; t_red = true; t_green = false; t_blue = false; t_grey = false; t_ignore = true; 
@@ -1436,7 +1436,7 @@ public class DialogManager : MonoBehaviour
                 else if (t_yellow) { t_letter = "<color=#FFFF00>" + t_letter + "</color>"; }
                 else if (t_red) { t_letter = "<color=#B30000>" + t_letter + "</color>"; }
                 else if (t_blue) { t_letter = "<color=#0026A9>" + t_letter + "</color>"; }
-                else if (t_green) { t_letter = "<color=#C8C2C2>" + t_letter + "</color>"; }
+                else if (t_green) { t_letter = "<color=#1A6800>" + t_letter + "</color>"; }
                 else if (t_grey) { t_letter = "<i><color=#C8C2C2>" + t_letter + "</color>"; }
                 txt_Dialog.text += t_letter;
             }

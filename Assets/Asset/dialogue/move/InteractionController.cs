@@ -539,7 +539,14 @@ public class InteractionController : MonoBehaviour
     public GameObject Sewer_SymbolLook_NoJournalAfterOccult;
     public GameObject Sewer_SymbolKeyWorkSucc;
     public GameObject Sewer_SymbolKeyWorkFail;
-    
+
+
+    public GameObject AfterDaveDeath;
+
+
+
+    public GameObject Journalist_FirstDialog;
+
     private void Start()
     {
         //TestNar();
@@ -1447,6 +1454,11 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(Swain_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+        if (setDialog == "Journalist_FirstDialog")
+        {
+            theDM.ShowDialog(Journalist_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        
 
     }
     public void Start_1st_University(string setDialog)
@@ -1656,7 +1668,7 @@ public class InteractionController : MonoBehaviour
         if (setDialog == "A_FirstDialog")
         {
 
-            if(DataBaseManager.TimeCount > 8 && DataBaseManager.ThirdDayPoliceADialog == true)
+            if(DataBaseManager.AlbertDeathKeyword == true && DataBaseManager.TimeCount > 8 && DataBaseManager.ThirdDayPoliceADialog == true)
             {
                 DataBaseManager.ThirdDayPoliceADialog = false;
                 DataBaseManager.A_FirstDialog = true;
@@ -1674,7 +1686,7 @@ public class InteractionController : MonoBehaviour
         }
         if (setDialog == "B_FirstDialog")
         {
-            if (DataBaseManager.TimeCount > 8 && DataBaseManager.ThirdDayPoliceBDialog == true)
+            if (DataBaseManager.AlbertDeathKeyword == true && DataBaseManager.TimeCount > 8 && DataBaseManager.ThirdDayPoliceBDialog == true)
             {
                 DataBaseManager.ThirdDayPoliceBDialog = false;
                 DataBaseManager.B_FirstDialog = true;
@@ -1827,7 +1839,11 @@ public class InteractionController : MonoBehaviour
             End_Look_Judge.Instance.DaveRandActive();
             theDM.ShowDialog(Dave_RanEnd.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-        
+        if (setDialog == "AfterDaveDeath")
+        {
+            theDM.ShowDialog(AfterDaveDeath.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
     }
     public void Start_1st_Bar(string setDialog)
     {

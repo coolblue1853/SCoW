@@ -693,7 +693,7 @@ public class TimeManagere : MonoBehaviour
         }
     }
 
-
+    public GameObject PoliceLine;
 
     public GameObject BFNoonEvent;
     public GameObject AFNoonEvent;
@@ -709,6 +709,7 @@ public class TimeManagere : MonoBehaviour
     public GameObject Dave;
     public GameObject Swain;
 
+    public GameObject Journalist;
 
     public Intel_ObtoUI Meave;
 
@@ -797,13 +798,14 @@ public class TimeManagere : MonoBehaviour
         {
             BFNoonEvent.transform.localPosition = new Vector3(0, 60, 0);
             AFNoonEvent.transform.localPosition = new Vector3(0, 0, 0);
+            PoliceLine.transform.localPosition = new Vector3(-65.88f, 4.96f, 0);
         }
         if (DataBaseManager.TimeCount >= 7 && Witness.activeSelf == true)
         {
             Meave.CanJudge = true;
             Witness.SetActive(false);
             DeadBody.SetActive(false);
-            Site.transform.localPosition = new Vector3(-250.6001f, 2.840187f, 0);
+            Site.transform.localPosition = new Vector3(-250.6001f, 0.4400024f, 0);
             Kane.transform.localPosition = new Vector3(253.27f, -79.6f, 0);
             Student.transform.localPosition = new Vector3(-41.67f, 40.9f, 0);
 
@@ -819,7 +821,7 @@ public class TimeManagere : MonoBehaviour
             BarPeople1.SetActive(false);
             BarPeople2.SetActive(false);
         }
-        if (DataBaseManager.AlbertDeathKeyword && Albert.activeSelf == true && DataBaseManager.TimeCount % 4  == 0)
+        if (DataBaseManager.AlbertDeathKeyword && Albert.activeSelf == true && DataBaseManager.TimeCount % 4  == 0 && DataBaseManager.TimeCount >= 8)
         {
             DataBaseManager.ThirdDayPoliceADialog = true;
             DataBaseManager.ThirdDayPoliceBDialog = true;
@@ -828,10 +830,12 @@ public class TimeManagere : MonoBehaviour
         }
         if (DataBaseManager.DaveDeathKeyword && Dave.activeSelf == true && DataBaseManager.TimeCount % 4 == 0)
         {
+            DataBaseManager.AfterDaveDeathFirstSlum = true;
             Dave.SetActive(false);
         }
         if (DataBaseManager.SwainDeathKeyword && Swain.activeSelf == true && DataBaseManager.TimeCount % 4 == 0)
         {
+            Journalist.transform.localPosition = new Vector3(-61.37f, 3.4f, 0);
             Swain.SetActive(false);
         }
 

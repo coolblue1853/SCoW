@@ -472,6 +472,7 @@ public class MapManager : MonoBehaviour
 
         if (DataBaseManager.TimeCount == 13 && DataBaseManager.MorningMove_4th == false)
         {
+            DataBaseManager.IsMorningMapMove = true;
             DataBaseManager.secondisDirecting = true;
             DataBaseManager.MorningMove_4th = true;
             FadingBackGround.Instance.FadeInOut();
@@ -482,6 +483,7 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.TimeCount == 9 && DataBaseManager.MorningMove_3rd == false)
         {
+            DataBaseManager.IsMorningMapMove = true;
             DataBaseManager.secondisDirecting = true;
             DataBaseManager.MorningMove_3rd = true;
             FadingBackGround.Instance.FadeInOut();
@@ -492,6 +494,7 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.TimeCount == 5 && DataBaseManager.MorningMove_2nd == false)
         {
+            DataBaseManager.IsMorningMapMove = true;
             DataBaseManager.NoonMorningMove = true;
             DataBaseManager.secondisDirecting = true;
 
@@ -504,6 +507,7 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.TimeCount == 5 && isNoonEvent == false)
         {
+            DataBaseManager.IsMorningMapMove = false;
             isNoonEvent = true;
             DataBaseManager.nowPlace = "NoonEvent";
             DataBaseManager.isDirecting = true;
@@ -514,6 +518,7 @@ public class MapManager : MonoBehaviour
         }
         else
         {
+            DataBaseManager.IsMorningMapMove = false;
             DataBaseManager.isOpenMap = true;
             if (DataBaseManager.isBar == true)
             {

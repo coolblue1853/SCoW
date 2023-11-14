@@ -80,7 +80,7 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.rhetoricPoint = 80;
 
 
-
+        /*
         DataBaseManager.Intel_MurderCase1 = true;
         DataBaseManager.Intel_MurderCase2 = true;
         DataBaseManager.Intel_MurderCase3 = true;
@@ -133,6 +133,7 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.Intel_FishySmell2 = true;
         DataBaseManager.Intel_FishySmell3 = true;
         // 테스트 진행중 삭제
+        */
         DataBaseManager.ObservationPoint = 80;
         DataBaseManager.listeningPoint = 80;
         DataBaseManager.medicinePoint = 80;
@@ -140,7 +141,7 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.NoonEvent_AccessAuthorization = true;
 
 
-                DataBaseManager.Albert_FirstDialog = true;
+
         DataBaseManager.getSafe = true;
         DataBaseManager.GainCoat = true;
 
@@ -166,13 +167,15 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.Intel_Sewer4 = true;
 
 
-
-         DataBaseManager.Revolver += 1;
+        DataBaseManager.AfterDaveDeathFirstSlum = true;
+       // DataBaseManager.DaveDeathKeyword = true;
+        DataBaseManager.Revolver += 1;
 
         DataBaseManager.Dagger += 1; DataBaseManager.Molotov += 2; 
-        DataBaseManager.TimeCount = 2;
+        DataBaseManager.TimeCount = 7;
 
-
+      //  DataBaseManager.SecondDayDialog = true;
+        DataBaseManager.AlbertDeathKeyword = true;DataBaseManager.SwainDeathKeyword = true;
         DataBaseManager.PistolAmmo += 20;
         DataBaseManager.SafeDocument = true;
     }

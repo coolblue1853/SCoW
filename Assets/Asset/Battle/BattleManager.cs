@@ -124,9 +124,9 @@ public class BattleManager : MonoBehaviour
 
         if(DataBaseManager.nowPlace == "BattleRoad")
         {
-            if (EnemyTrunSymbol_1.activeSelf == false && EnemyTrunSymbol_2.activeSelf == false && EnemyTrunSymbol_3.activeSelf == false && DataBaseManager.RoadBattleEnd == false)
+            if (EnemyTrunSymbol_1.activeSelf == false && EnemyTrunSymbol_2.activeSelf == false && EnemyTrunSymbol_3.activeSelf == false && DataBaseManager.RoadBattleEnd == false && DataBaseManager.ISRoadBattleStart == true)
             {
-
+                DataBaseManager.ISRoadBattleStart = false;
                 DataBaseManager.isDirecting = true;
 
                 DataBaseManager.RoadBattleEnd = true;

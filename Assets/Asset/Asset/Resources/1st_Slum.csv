@@ -59,8 +59,8 @@ ID,캐릭터이름,대사,
 58,Dave,@Once you give it to me^ you can't take it back.@,팔찌 키워드 다시사용시
 59,Fabian,'The ⓡ(safe)ⓦ has already been delivered to ⓖ(Dave)ⓦ',금고 획득 키워드 다시사용시
 60,Fabian,'The ⓡ(safe)ⓦ already opened',"금고 사용 이후, 금고내용물 획득 상태라면"
-61,,,
-62,,,
+61,Fabian,'Hmm..? I can't see Dave.',데이브 사후 최초로 빈민가 도착
+62,Fabian,'Did he go to search the trash can?',
 63,,,
 64,,,
 65,,,
