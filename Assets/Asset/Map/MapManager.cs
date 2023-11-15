@@ -282,7 +282,8 @@ public class MapManager : MonoBehaviour
         if ((DataBaseManager.TimeCount % 4) == 3)
         {
             DetectiveOfficeButton.SetActive(true);
-            BarButton.SetActive(true);
+
+
             ClientsHouseButton.SetActive(false);
             DailyNewsButton.SetActive(false);
             UnivercityButton.SetActive(false);
@@ -291,18 +292,31 @@ public class MapManager : MonoBehaviour
             PoliceofficeButton.SetActive(false);
             SlumButton.SetActive(false);
             GunshopButton.SetActive(false);
-            if (DataBaseManager.Intel_SewageMaintenanceOffice1 == false)
+
+            if(DataBaseManager.isDebuff_NightPhobia == false)
             {
-                SewerOfficeButton.SetActive(false);
-            }
-            else if (DataBaseManager.nowPlace == "SewerOffice")
-            {
-                SewerOfficeButton.SetActive(false);
+                BarButton.SetActive(true);
+                if (DataBaseManager.Intel_SewageMaintenanceOffice1 == false)
+                {
+                    SewerOfficeButton.SetActive(false);
+                }
+                else if (DataBaseManager.nowPlace == "SewerOffice")
+                {
+                    SewerOfficeButton.SetActive(false);
+                }
+                else
+                {
+                    SewerOfficeButton.SetActive(true);
+                }
             }
             else
             {
-                SewerOfficeButton.SetActive(true);
+                SewerOfficeButton.SetActive(false);
+                BarButton.SetActive(false);
             }
+
+
+
 
         }
         if ((DataBaseManager.TimeCount % 4) == 0)

@@ -132,10 +132,28 @@ public class DirectingManager : MonoBehaviour
     }
     public GameObject endGame;
     bool isGo1stBattle;
+    public GameObject VisionLessField;
+    public GameObject NoteButton;
+
     // Update is called once per frame
     void Update()
     {
-  
+
+
+        if (DataBaseManager.isDebuff_Dyslexia == true && NoteButton.activeSelf == true)
+        {
+            NoteButton.SetActive(false);
+        }
+         else if (DataBaseManager.isDebuff_Dyslexia == false && NoteButton.activeSelf == false)
+        {
+            NoteButton.SetActive(true);
+        }
+
+        if (DataBaseManager.isDebuff_VisionLoss == true && VisionLessField.activeSelf == false)
+        {
+            VisionLessField.SetActive(true);
+        }
+
         if(DataBaseManager.nowHP <=0 || DataBaseManager.nowSan <= 0)
         {
             endGame.SetActive(true);

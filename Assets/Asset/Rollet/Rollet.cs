@@ -1082,34 +1082,49 @@ public class Rollet : MonoBehaviour
             else if (DataBaseManager.Debuff == 2)
             {
                 DataBaseManager.Debuff += 1;
-                int DebuffRollet = (Random.Range(1, 11));
+                // 나중에 살려야함 int DebuffRollet = (Random.Range(1, 11));
+
+                int DebuffRollet = 5;
                 switch (DebuffRollet)
                 {
                     case 1:
+                        Detail_San.text = "Level 3 : NightPhobia\n\nThe player can't walk around at night anymore.";
                         NightPhobia.SetActive(true);
+                        DataBaseManager.isDebuff_NightPhobia = true;
                         SIS_UIManager.Instance.NightPhobia_Open();
                         break;
                     case 2:
+                        Detail_San.text = "Level 3 : Deafness\n\nThe player can no longer hear the sound.";
                         Deafness.SetActive(true);
+                        DataBaseManager.isDebuff_Deftness = true;
                         SIS_UIManager.Instance.Deafness_Open();
                         break;
                     case 3:
+                        Detail_San.text = "Level 3 : VisionLoss\n\nThe player narrows the field of view.";
                         VisionLoss.SetActive(true);
+                        DataBaseManager.isDebuff_VisionLoss = true;
                         SIS_UIManager.Instance.VisionLoss_Open();
                         break;
                     case 4:
+                        Detail_San.text = "Level 3 : Short-Tempered\n\nThe player can't run away from the battle.";
                         ShortTempered.SetActive(true);
+                        DataBaseManager.isDebuff_ShortTempred = true;
                         SIS_UIManager.Instance.ShortTempered_Open();
                         break;
                     case 5:
+                        Detail_San.text = "Level 3 : Dyslexia\n\nThe Detective Notebook is no longer available.";
                         Dyslexia.SetActive(true);
+                        DataBaseManager.isDebuff_Dyslexia = true;
                         SIS_UIManager.Instance.Dyslexia_Open();
                         break;
                     case 6:
+                        Detail_San.text = "Level 3 : DrugPhobia\n\nCure items are no longer available.";
                         DrugPhobia.SetActive(true);
+                        DataBaseManager.isDebuff_DrugPhobia = true;
                         SIS_UIManager.Instance.DrugPhobia_Open();
                         break;
                     case 7:
+                        Detail_San.text = "Level 3 : NightPhobia\n\n";
                         CognitiveDisorder.SetActive(true);
                         SIS_UIManager.Instance.CognitiveDisorder_Open();
                         break;
@@ -1118,10 +1133,12 @@ public class Rollet : MonoBehaviour
                         SIS_UIManager.Instance.CognitiveBreakdown_Open();
                         break;
                     case 9:
+                        Detail_San.text = "Level 3 : NightPhobia\n\n";
                         HomicidalImpulse.SetActive(true);
                         SIS_UIManager.Instance.HomicidalImpulse_Open();
                         break;
                     case 10:
+                        Detail_San.text = "Level 3 : NightPhobia\n\n";
                         Perfectionism.SetActive(true);
                         SIS_UIManager.Instance.Perfectionism_Open();
                         break;

@@ -4,6 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    //디버프 3단계
+
+    public static bool isDebuff_NightPhobia = false;
+    public static bool isDebuff_Deftness = false;
+    public static bool isDebuff_VisionLoss = false;
+    public static bool isDebuff_ShortTempred = false;
+    public static bool isDebuff_Dyslexia = false;
+    public static bool isDebuff_DrugPhobia = false;
+
+
+
+
+
     public static bool SewerPicingSucc = false;
 
     public static bool IsMorningMapMove = false;

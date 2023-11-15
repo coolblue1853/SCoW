@@ -374,14 +374,77 @@ public class DialogManager : MonoBehaviour
 
     IEnumerator TypeWriter()
     {
+
+
+
+
         SettingUI(true);
         string t_ReplaceText = dialogs[lineCount].contexts[contextCount];
         //t_ReplaceText = t_ReplaceText.Replace(" ", " ");  //자간늘리기
         t_ReplaceText = t_ReplaceText.Replace("^", ",");
+
         t_ReplaceText = t_ReplaceText.Replace('@', '"');
         t_ReplaceText = t_ReplaceText.Replace("\\n", "\n");
         bool t_white = false, t_yellow = false, t_red = false, t_green = false, t_blue = false, t_grey = false;   // 색 추가 지점
         bool t_ignore = false;
+        if (DataBaseManager.isDebuff_Deftness == true)
+        {
+            // 나중에 언어 추가시 조금 바꾸어 주어야 할지도.
+            t_ReplaceText = t_ReplaceText.Replace("A", ".");
+            t_ReplaceText = t_ReplaceText.Replace("B", ".");
+            t_ReplaceText = t_ReplaceText.Replace("C", ".");
+            t_ReplaceText = t_ReplaceText.Replace("D", ".");
+            t_ReplaceText = t_ReplaceText.Replace("E", ".");
+            t_ReplaceText = t_ReplaceText.Replace("F", ".");
+            t_ReplaceText = t_ReplaceText.Replace("G", ".");
+            t_ReplaceText = t_ReplaceText.Replace("H", ".");
+            t_ReplaceText = t_ReplaceText.Replace("I", ".");
+            t_ReplaceText = t_ReplaceText.Replace("J", ".");
+            t_ReplaceText = t_ReplaceText.Replace("K", ".");
+            t_ReplaceText = t_ReplaceText.Replace("L", ".");
+            t_ReplaceText = t_ReplaceText.Replace("M", ".");
+            t_ReplaceText = t_ReplaceText.Replace("N", ".");
+            t_ReplaceText = t_ReplaceText.Replace("O", ".");
+            t_ReplaceText = t_ReplaceText.Replace("P", ".");
+            t_ReplaceText = t_ReplaceText.Replace("Q", ".");
+            t_ReplaceText = t_ReplaceText.Replace("R", ".");
+            t_ReplaceText = t_ReplaceText.Replace("S", ".");
+            t_ReplaceText = t_ReplaceText.Replace("T", ".");
+            t_ReplaceText = t_ReplaceText.Replace("U", ".");
+            t_ReplaceText = t_ReplaceText.Replace("V", ".");
+            t_ReplaceText = t_ReplaceText.Replace("W", ".");
+            t_ReplaceText = t_ReplaceText.Replace("X", ".");
+            t_ReplaceText = t_ReplaceText.Replace("Y", ".");
+            t_ReplaceText = t_ReplaceText.Replace("Z", ".");
+
+            t_ReplaceText = t_ReplaceText.Replace("a", ".");
+            t_ReplaceText = t_ReplaceText.Replace("b", ".");
+            t_ReplaceText = t_ReplaceText.Replace("c", ".");
+            t_ReplaceText = t_ReplaceText.Replace("d", ".");
+            t_ReplaceText = t_ReplaceText.Replace("e", ".");
+            t_ReplaceText = t_ReplaceText.Replace("f", ".");
+            t_ReplaceText = t_ReplaceText.Replace("g", ".");
+            t_ReplaceText = t_ReplaceText.Replace("h", ".");
+            t_ReplaceText = t_ReplaceText.Replace("i", ".");
+            t_ReplaceText = t_ReplaceText.Replace("j", ".");
+            t_ReplaceText = t_ReplaceText.Replace("k", ".");
+            t_ReplaceText = t_ReplaceText.Replace("l", ".");
+            t_ReplaceText = t_ReplaceText.Replace("m", ".");
+            t_ReplaceText = t_ReplaceText.Replace("n", ".");
+            t_ReplaceText = t_ReplaceText.Replace("o", ".");
+            t_ReplaceText = t_ReplaceText.Replace("p", ".");
+            t_ReplaceText = t_ReplaceText.Replace("q", ".");
+            t_ReplaceText = t_ReplaceText.Replace("r", ".");
+            t_ReplaceText = t_ReplaceText.Replace("s", ".");
+            t_ReplaceText = t_ReplaceText.Replace("t", ".");
+            t_ReplaceText = t_ReplaceText.Replace("u", ".");
+            t_ReplaceText = t_ReplaceText.Replace("v", ".");
+            t_ReplaceText = t_ReplaceText.Replace("w", ".");
+            t_ReplaceText = t_ReplaceText.Replace("x", ".");
+            t_ReplaceText = t_ReplaceText.Replace("y", ".");
+            t_ReplaceText = t_ReplaceText.Replace("z", ".");
+        }
+
         for (int i = 0; i < t_ReplaceText.Length; i++)
         {
             switch (t_ReplaceText[i])

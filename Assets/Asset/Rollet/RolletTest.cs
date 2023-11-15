@@ -167,7 +167,7 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.Intel_Sewer4 = true;
 
 
-        DataBaseManager.AfterDaveDeathFirstSlum = true;
+        //DataBaseManager.isDebuff_Deftness = true;
        // DataBaseManager.DaveDeathKeyword = true;
         DataBaseManager.Revolver += 1;
 
@@ -178,6 +178,8 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.AlbertDeathKeyword = true;DataBaseManager.SwainDeathKeyword = true;
         DataBaseManager.PistolAmmo += 20;
         DataBaseManager.SafeDocument = true;
+        DataBaseManager.Condition = "Worst";
+        DataBaseManager.Debuff = 2;
     }
     public void NewsRollet()
     {
@@ -237,7 +239,7 @@ DataBaseManager.gunShotPoint = 50;
         if (Input.GetKeyDown(KeyCode.F8))
         {
             //BillowUIManager.Instance.HP_Battledown(5);
-            BillowUIManager.Instance.HP_down(5);
+
 
         }
         if (Input.GetKeyDown(KeyCode.F9))

@@ -989,7 +989,7 @@ public class SIS_UIManager : MonoBehaviour
 
   
     }
-
+    public GameObject VisionLoss;
 
     public GameObject ThinWallets;
     public void ThinWallets_Open()
@@ -1095,10 +1095,9 @@ public class SIS_UIManager : MonoBehaviour
     {
         Deafness.SetActive(true);
     }
-    public GameObject VisionLoss;
     public void VisionLoss_Open()
     {
-        Carelessness.SetActive(true);
+        VisionLoss.SetActive(true);
     }
     public GameObject ShortTempered;
     public void ShortTempered_Open()

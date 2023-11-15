@@ -114,6 +114,15 @@ public class BattleManager : MonoBehaviour
     void Update()
     {
 
+        if(RunAwayButton.activeSelf == true && DataBaseManager.isDebuff_ShortTempred == true)
+        {
+            RunAwayButton.SetActive(false);
+        }
+        else if(RunAwayButton.activeSelf == false && DataBaseManager.isDebuff_ShortTempred == false)
+        {
+            RunAwayButton.SetActive(true);
+        }
+
         if(StartBattle == true &&(EnemyTrunSymbol_1.activeSelf == true || EnemyTrunSymbol_2.activeSelf == true || EnemyTrunSymbol_3.activeSelf == true))
         {
             EnemyHealthCheck();
@@ -532,6 +541,7 @@ public class BattleManager : MonoBehaviour
             DataBaseManager.ShotgunAmmo -= 1;
         }
     }
+    public GameObject RunAwayButton;
     public void ReloadOk()
     {
         PlayerReloadCheckUi.SetActive(false);

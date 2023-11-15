@@ -85,6 +85,10 @@ public class SIS_Debuff : MonoBehaviour
             {
                 detailText.text = "Tightwad\n\nThe store is no longer available.";
             }
+            else if (this.name == "NightPhobia")
+            {
+                detailText.text = "NightPhobia\n\nThe player can't walk around at night anymore.";
+            }
 
         }
 

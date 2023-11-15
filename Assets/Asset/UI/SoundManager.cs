@@ -359,6 +359,13 @@ public class SoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(DataBaseManager.isDebuff_Deftness == true && (DataBaseManager.sfx_Volume != 0 || DataBaseManager.sound_Volume != 0))
+        {
+            DataBaseManager.sfx_Volume = 0;
+            DataBaseManager.sound_Volume = 0;
+            BGMVolum.value = 0;
+            sfx볼륨.value = 0;
+        }
 
         BGM_Manage();
       효과음관리();
