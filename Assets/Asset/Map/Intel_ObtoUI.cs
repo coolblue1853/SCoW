@@ -444,8 +444,10 @@ public class Intel_ObtoUI : MonoBehaviour
         }
         if (DataBaseManager.Select_Object == "Symbol")
         {
+            /*
             CanJudge = false;
             isJudge = true;
+            */
             Rollet.Instance.setRollet("Symbol : Break", "STR", DataBaseManager.str, "dialog");
         }
     }

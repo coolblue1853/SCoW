@@ -4,7 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    public static bool EndingDoorCheck = false;
+    public static bool EndingDeathCheck = false;
+    public static int EnemyDeathCount = 0;
+    public static bool Ending_RequestCheck = false;
+    public static bool Ending_SwainDeathCheck = false;
+    public static bool Ending_AfterPromiseDialog = false;
+    public static bool Ending_isPromise = false;
+    public static bool Ending_BreakSymbol = false;
+
+    public static int Ending_LadderSanInt = 0;
+    public static bool Ending_LadderSan;
+    public static bool Ending_Swin;
+
+    public static bool sewerMap;
+    public static bool IfGotRequset = false;
     //디버프 3단계
+    public static bool Sewer_FirstIn;
+    public static bool Sewer_FirstInSanCheck;
+    public static bool Sewer_DeepOneFirstSanCheck;
 
     public static bool isDebuff_NightPhobia = false;
     public static bool isDebuff_Deftness = false;
@@ -12,10 +30,9 @@ public class DataBaseManager : MonoBehaviour
     public static bool isDebuff_ShortTempred = false;
     public static bool isDebuff_Dyslexia = false;
     public static bool isDebuff_DrugPhobia = false;
-
-
-
-
+    public static bool isDebuff_CognitiveDisorder = false;
+    public static bool isDebuff_CognitiveBreakdown = false;
+    public static bool isDebuff_Perfectionism = false;
 
     public static bool SewerPicingSucc = false;
 

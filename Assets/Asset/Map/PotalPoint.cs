@@ -291,6 +291,9 @@ public class PotalPoint : MonoBehaviour
 
             DataBaseManager.nowPlace = "InSewer";
             DialogDatabaseManager.instance.Check = true;
+
+            DataBaseManager.StoryDirecting = true;
+            Invoke("FirstSewerIn", 2f);
         }
 
         else if (this.name == "Sewer_Left" || this.name == "Sewer_Right")
@@ -346,12 +349,22 @@ public class PotalPoint : MonoBehaviour
             CameraManager.Instance.isCheckEnd = true;
             player.transform.localPosition = player_InSewer;
             camera.transform.localPosition = Cam_InSewer;
-  
+
+
         }
         Invoke("EndIsDerecting", 1f);
         Invoke("ablePotal", 2f);
     }
 
+
+
+
+
+
+    public void FirstSewerIn()
+    {
+        DataBaseManager.Sewer_FirstIn = true;
+    }
 
     public void Force_2st()
     {

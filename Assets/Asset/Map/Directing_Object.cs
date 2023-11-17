@@ -6,12 +6,17 @@ public class Directing_Object : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "Player" && this.name == "Directing_Nock")
         {
             if(DataBaseManager.fst_Detectiv_TimeOn < -50 && DataBaseManager.fst_Detectiv_TimeOn > -500 )
             {
                 InteractionController.Instance.Start_1st_DetectiveOffice("Directing_Door");
             }
+        }
+        if (collision.tag == "Player" && this.name == "Directing_NockEnd")
+        {
+            DataBaseManager.StoryDirecting = true;
+            InteractionController.Instance.InSewerDialog("Ending_DoorEnd");
         }
     }
 

@@ -206,9 +206,19 @@ public class SIS_UIManager : MonoBehaviour
     }
 
 
+    public GameObject Disorder;
+    public GameObject Disorder2;
+    public GameObject Disorder3;
 
     private void Update()
     {
+        if(DataBaseManager.isDebuff_CognitiveBreakdown == true && Disorder.activeSelf == false)
+        {
+            Disorder.SetActive(true);
+            Disorder2.SetActive(true);
+            Disorder3.SetActive(true);
+        }
+
         ManageItem();
 
        

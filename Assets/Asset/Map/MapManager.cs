@@ -418,7 +418,17 @@ public class MapManager : MonoBehaviour
         }
         else
         {
+            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.potalWait == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad" && DataBaseManager.isOpenMap == false)
+            {
+                if (DataBaseManager.sewerMap == true)
+                {
+                    SoundManager.Instance.PaperClip_Play();
+                    DataBaseManager.workSound = false;
+                    DataBaseManager.isOpenUi = true;
+                    MapChainingUI.SetActive(true);
+                }
 
+            }
 
         }
 
@@ -430,8 +440,23 @@ public class MapManager : MonoBehaviour
         DataBaseManager.isOpenUi = false;
         MapChainingUI.SetActive(false);
     }
+
+    public GameObject NomalMap;
+    public GameObject SewerMap;
+
     private void Update()
     {
+        if(NomalMap.activeSelf == false && DataBaseManager.nowPlace != "InSewer")
+        {
+            NomalMap.SetActive(true);
+            SewerMap.SetActive(false);
+        }
+        else if (SewerMap.activeSelf == false && DataBaseManager.nowPlace == "InSewer")
+        {
+            NomalMap.SetActive(false);
+            SewerMap.SetActive(true);
+        }
+
         buttonChecker();
 
         if (DataBaseManager.isActiveDialog1 == false)
@@ -482,6 +507,12 @@ public class MapManager : MonoBehaviour
 
     public void MapOn()
     {
+
+
+
+
+
+
         DataBaseManager.BGMChangeChecker = true;
 
         if (DataBaseManager.TimeCount == 13 && DataBaseManager.MorningMove_4th == false)
@@ -744,6 +775,7 @@ public class MapManager : MonoBehaviour
         {
             DataBaseManager.secondisDirecting = true;
         }
+
 
 
 

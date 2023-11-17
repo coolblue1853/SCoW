@@ -420,8 +420,27 @@ public class DirectingManager : MonoBehaviour
             BattleManager.Instance.CloseButtonUI();
 
         }
+        if (DataBaseManager.Sewer_FirstIn == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.StoryDirecting = true;
+            DataBaseManager.Sewer_FirstIn = false;
+            InteractionController.Instance.InSewerDialog("Sewer_FirstIn");
 
+        }
+        if (DataBaseManager.Sewer_FirstInSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.StoryDirecting = false;
+            DataBaseManager.Sewer_FirstInSanCheck = false;
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "Sewer_FirstInSan");
 
+        }
+        if (DataBaseManager.Sewer_DeepOneFirstSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.Sewer_DeepOneFirstSanCheck = false;
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "DeepOneFirstSan");
+
+        }
+        
 
 
         //2일차 낮 강제 이벤트
@@ -578,7 +597,7 @@ public class DirectingManager : MonoBehaviour
         {
             DataBaseManager.SymbolStrSanCheck = false;
 
-            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "SymbolStrSan");
+
         }
 
         
@@ -590,10 +609,111 @@ public class DirectingManager : MonoBehaviour
         }
 
 
+        if (DataBaseManager.Ending_Swin == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.Ending_Swin = false;
+
+            Rollet.Instance.setRollet("Fabian : Swimming", "Swin", DataBaseManager.swimingPoint, "dialog");
+        }
+
+        if (DataBaseManager.Ending_LadderSan == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.Ending_LadderSan = false;
+            Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "EndingLedderSan");
+
+        }
+        
+        if (DataBaseManager.Ending_BreakSymbol == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.Ending_BreakSymbol = false;
+            InteractionController.Instance.InSewerDialog("Ending_BreakSymbol");
+        }
+        if (DataBaseManager.Ending_isPromise == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            Camera.transform.position = new Vector3(-806.7f, 0.3f, -16);
+            player.SetActive(false);
+            sit_NoNewsPaperPlayer.SetActive(true);
+            DataBaseManager.Ending_isPromise = false;
+            InteractionController.Instance.InSewerDialog("Ending_isPromise");
+        }
+        if (DataBaseManager.Ending_AfterPromiseDialog == true && DataBaseManager.isActiveDialog1 == false && DataBaseManager.AlbertDeathKeyword == true)
+        {
+            DataBaseManager.Ending_AfterPromiseDialog = false;
+            InteractionController.Instance.InSewerDialog("Ending_IfNoPromiseAlbertDeath");
+        }
+        if (DataBaseManager.Ending_SwainDeathCheck == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            
+            DataBaseManager.Ending_SwainDeathCheck = false;
+            if(DataBaseManager.SwainDeathKeyword == true)
+            {
+                InteractionController.Instance.InSewerDialog("Ending_SwainDeathCheck");
+            }
+            else
+            {
+                InteractionController.Instance.InSewerDialog("Ending_RequestCheck");
+            }
+
+        }
+        if (DataBaseManager.Ending_RequestCheck == true && DataBaseManager.isActiveDialog1 == false )
+        {
+            DataBaseManager.Ending_RequestCheck = false;
+            InteractionController.Instance.InSewerDialog("Ending_RequestCheck");
+        }
+
+        if (DataBaseManager.EndingDeathCheck == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.EndingDeathCheck = false;
+
+            if(DataBaseManager.EnemyDeathCount == 0)
+            {
+                // 결말 장면 삽입
+            }
+            else
+            {
+                int DeathCheck = Random.Range(1, DataBaseManager.EnemyDeathCount * 5);
+                if (DeathCheck <= DataBaseManager.EnemyDeathCount * 5)
+                {
+                    int LuckInt = Random.Range(1, DataBaseManager.luk);
+                    if (LuckInt <= DataBaseManager.luk)
+                    {
+                      //  결말 장면 삽입.
+                    }
+                    else
+                    {
+                        DataBaseManager.EndingDoorCheck = true;
+                        player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
+                        player.transform.position = new Vector3(-796.8f, 2.500006f, -1);
+                        SoundManager.Instance.Nock_Sound();
+                        Invoke("Ending_NockSound", 0.5f);
+
+                    }
+                }
+            }
+
+        }
+        /*
+        if (DataBaseManager.EndingDoorCheck == true && DataBaseManager.isActiveDialog1 == false)
+        {
+            DataBaseManager.EndingDoorCheck = false;
+            Ending_NockSound();
+
+        }
+        */
         
     }
     bool once = false;
 
+    void Ending_NockSound()
+    {
+
+        player.SetActive(true);
+        sit_NoNewsPaperPlayer.SetActive(false);
+
+        DataBaseManager.StoryDirecting = false;
+        DataBaseManager.isDirecting = false;
+        InteractionController.Instance.InSewerDialog("Ending_Killing");
+    }
 
     public void WindowMove()
     {

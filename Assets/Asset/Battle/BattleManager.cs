@@ -4371,28 +4371,31 @@ public class BattleManager : MonoBehaviour
         {
             DeepOneHybrid1_Object.SetActive(false);
             EnemyTrunSymbol_1.SetActive(false);
-
+            DataBaseManager.EnemyDeathCount += 1;
         }
         if (DeepOneHybrid2.NowHP <= 0 && BattleState == "setTrun")
         {
             DeepOneHybrid2_Object.SetActive(false);
             EnemyTrunSymbol_2.SetActive(false);
-
+            DataBaseManager.EnemyDeathCount += 1;
         }
         if (DeepOneHybrid3.NowHP <= 0 && BattleState == "setTrun")
         {
             DeepOneHybrid3_Object.SetActive(false);
             EnemyTrunSymbol_3.SetActive(false);
+            DataBaseManager.EnemyDeathCount += 1;
         }
         if (DeepOneHybrid4.NowHP <= 0 && BattleState == "setTrun")
         {
             DeepOneHybrid4_Object.SetActive(false);
             EnemyTrunSymbol_1.SetActive(false);
+            DataBaseManager.EnemyDeathCount += 1;
         }
         if (DeepOne1.NowHP <= 0 && BattleState == "setTrun")
         {
             DeepOne1_Object.SetActive(false);
             EnemyTrunSymbol_2.SetActive(false);
+            DataBaseManager.EnemyDeathCount += 1;
 
         }
 

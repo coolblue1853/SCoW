@@ -155,7 +155,7 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.luk = 25;
         //   DataBaseManager.Intel_Nightmare3 = true;
         //      DataBaseManager.Intel_Nightmare4 = true;
-        DataBaseManager.deftnessPoint = 10;
+        DataBaseManager.swimingPoint = 50;
         DataBaseManager.DisguisePoint = 90;
         DataBaseManager.dex = 80;
         DataBaseManager.ObservationPoint = 90;
@@ -172,14 +172,22 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.Revolver += 1;
 
         DataBaseManager.Dagger += 1; DataBaseManager.Molotov += 2; 
-        DataBaseManager.TimeCount = 3;
-
+        DataBaseManager.TimeCount = 1;
+        DataBaseManager.SewerageKey = true;
       //  DataBaseManager.SecondDayDialog = true;
         DataBaseManager.AlbertDeathKeyword = true;DataBaseManager.SwainDeathKeyword = true;
         DataBaseManager.PistolAmmo += 20;
         DataBaseManager.SafeDocument = true;
-        DataBaseManager.Condition = "Worst";
-        DataBaseManager.Debuff = 2;
+        DataBaseManager.Condition = "Best";
+        //   DataBaseManager.Debuff = 2;
+        DataBaseManager.SewerEnemyCounter = 1;
+        DataBaseManager.Bandages = 5;
+        DataBaseManager.Firstaidkit = 5;
+        DataBaseManager.Painkillers = 5;
+        
+        
+        DataBaseManager.EnemyDeathCount = 500;
+        DataBaseManager.luk = 0;
     }
     public void NewsRollet()
     {
@@ -225,9 +233,9 @@ DataBaseManager.gunShotPoint = 50;
 
         if (Input.GetKeyDown(KeyCode.F10))
         {
-            DataBaseManager.Sewer_San = true;
+            DataBaseManager.EndingDeathCheck = true;
 
-
+            DataBaseManager.nowPlace = "InSewer";
 
         }
         if (Input.GetKeyDown(KeyCode.F7))

@@ -444,7 +444,14 @@ public class BattleRollet : MonoBehaviour
         }
         else if (result_int <= skillPoint)
         {
-            result_End.text = "Result : Success";
+            if (DataBaseManager.isDebuff_Perfectionism == true)
+            {
+                result_End.text = "Result : Failure";
+            }
+            else
+            {
+                result_End.text = "Result : Success";
+            }
         }
         else
         {

@@ -424,7 +424,16 @@ public class Rollet : MonoBehaviour
         }
         else if (result_int <= skillPoint)
         {
-            result_End.text = "Result : Success";
+            if(DataBaseManager.isDebuff_Perfectionism == true)
+            {
+                result_End.text = "Result : Failure";
+            }
+            else
+            {
+                result_End.text = "Result : Success";
+            }
+
+
         }
         else
         {
@@ -1082,9 +1091,8 @@ public class Rollet : MonoBehaviour
             else if (DataBaseManager.Debuff == 2)
             {
                 DataBaseManager.Debuff += 1;
-                // 나중에 살려야함 int DebuffRollet = (Random.Range(1, 11));
+               int DebuffRollet = (Random.Range(1, 10));
 
-                int DebuffRollet = 5;
                 switch (DebuffRollet)
                 {
                     case 1:
@@ -1124,23 +1132,28 @@ public class Rollet : MonoBehaviour
                         SIS_UIManager.Instance.DrugPhobia_Open();
                         break;
                     case 7:
-                        Detail_San.text = "Level 3 : NightPhobia\n\n";
+                        Detail_San.text = "Level 3 : CognitiveDisorder\n\nThe player will be taken to a random place when using the map.";
                         CognitiveDisorder.SetActive(true);
+                        DataBaseManager.isDebuff_CognitiveDisorder = true;
                         SIS_UIManager.Instance.CognitiveDisorder_Open();
                         break;
                     case 8:
+                        Detail_San.text = "Level 3 : CognitiveBreakdown\n\nThe Player information is no longer available.";
                         CognitiveBreakdown.SetActive(true);
                         SIS_UIManager.Instance.CognitiveBreakdown_Open();
+                        DataBaseManager.isDebuff_CognitiveBreakdown = true;
                         break;
                     case 9:
+                        Detail_San.text = "Level 3 : Perfectionism\n\nUnless it's an Critical Success, the judgment will fail.";
+                        Perfectionism.SetActive(true);
+                        SIS_UIManager.Instance.Perfectionism_Open();
+                        DataBaseManager.isDebuff_Perfectionism = true;
+                        break;
+                    case 10:
+               
                         Detail_San.text = "Level 3 : NightPhobia\n\n";
                         HomicidalImpulse.SetActive(true);
                         SIS_UIManager.Instance.HomicidalImpulse_Open();
-                        break;
-                    case 10:
-                        Detail_San.text = "Level 3 : NightPhobia\n\n";
-                        Perfectionism.SetActive(true);
-                        SIS_UIManager.Instance.Perfectionism_Open();
                         break;
                 }
 
@@ -1321,7 +1334,22 @@ public class Rollet : MonoBehaviour
         {
             BattleManager.Instance.EndDeepOneSanAttack();
         }
+
+        if (Subject == "DeepOneFirstSan")
+        {
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "DeepOneFirstSan");
+        }
+        if (Subject == "Sewer_FirstInSan")
+        {
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "Sewer_FirstInSan");
+        }
+        if (Subject == "EndingLedderSan")
+        {
+            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "EndingLedderSan");
+        }
         
+
+
     }
 
 

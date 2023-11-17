@@ -18,7 +18,7 @@ public class TimeManagere : MonoBehaviour
     public GameObject OldMap;
 
 
-
+    public GameObject EndDoorDetective;
     public GameObject Sewer_Flat;
  public GameObject Sewer_Round;
  public GameObject Burb_Round1;
@@ -62,7 +62,7 @@ public class TimeManagere : MonoBehaviour
     }
     public void MakeCageLand()
     {
-        Symbol.SetActive(false);
+        Symbol.transform.localPosition = new Vector3(-61.96f, 34.7f, 0);
         Pipe.SetActive(false);
         Sewer_Flat.SetActive(false);
         Sewer_Round.SetActive(false);
@@ -70,7 +70,7 @@ public class TimeManagere : MonoBehaviour
         Burb_Round2.SetActive(false);
         Burb_Flet1.SetActive(false);
         Burb_Flet2.SetActive(false);
-        Ledder.SetActive(false);
+        Ledder.transform.localPosition = new Vector3(-60.49f, 30.9f, 0);
         Hole.SetActive(false);
         Cage.SetActive(false);
         SideRoad.SetActive(false);
@@ -87,7 +87,7 @@ public class TimeManagere : MonoBehaviour
     }
     public void MakeHouseLand()
     {
-        Symbol.SetActive(false);
+        Symbol.transform.localPosition = new Vector3(-61.96f, 34.7f, 0);
         Pipe.SetActive(false);
         Sewer_Flat.SetActive(false);
         Sewer_Round.SetActive(false);
@@ -95,7 +95,7 @@ public class TimeManagere : MonoBehaviour
         Burb_Round2.SetActive(false);
         Burb_Flet1.SetActive(false);
         Burb_Flet2.SetActive(false);
-        Ledder.SetActive(false);
+        Ledder.transform.localPosition = new Vector3(-60.49f, 30.9f, 0);
         Hole.SetActive(false);
         Cage.SetActive(false);
         SideRoad.SetActive(false);
@@ -110,9 +110,14 @@ public class TimeManagere : MonoBehaviour
 
 
     }
+
+    public void TestLand()
+    {
+        Ledder.transform.localPosition = new Vector3(-60.49f, 8.79f, 0);
+    }
     public void MakeSighnLand()
     {
-        Symbol.SetActive(true);
+        Symbol.transform.localPosition = new Vector3(-61.96f, 9.48f, 0);
         Pipe.SetActive(false);
         Sewer_Flat.SetActive(false);
         Sewer_Round.SetActive(false);
@@ -120,7 +125,7 @@ public class TimeManagere : MonoBehaviour
         Burb_Round2.SetActive(false);
         Burb_Flet1.SetActive(false);
         Burb_Flet2.SetActive(false);
-        Ledder.SetActive(false);
+        Ledder.transform.localPosition = new Vector3(-60.49f, 30.9f, 0);
         Hole.SetActive(false);
         Cage.SetActive(false);
         SideRoad.SetActive(false);
@@ -347,12 +352,34 @@ public class TimeManagere : MonoBehaviour
     }
     public void PrintBattleDialog()
     {
-        InteractionController.Instance.InSewerDialog("Sewer_EnemySpawn");
-    }
+        if(DataBaseManager.SewerEnemyCounter == 2)
+        {
+            InteractionController.Instance.InSewerDialog("Sewer_FirstDeepOne");
+        }
+        else
+        {
+            InteractionController.Instance.InSewerDialog("Sewer_EnemySpawn");
+        }
 
+    }
+    public GameObject player;
+    public GameObject camera;
+    Vector2 player_SewerRight = new Vector3(-1194.19f, -193.57f);
+    Vector3 Cam_SewerRight = new Vector3(-1217.02f, -195f, -15);
+    float ChInRommSize = 2.383215f; // -이면 왼쪽 +면 오른쪽
+    public void SewerMapMove()
+    {
+        TimeManagere.Instance.MakeSighnLand();
+        DataBaseManager.isDirecting = true;
+        player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
+        CameraManager.Instance.isCheckEnd = true;
+        player.transform.localPosition = player_SewerRight;
+        camera.transform.localPosition = Cam_SewerRight;
+        TimeManagere.Instance.DeletRightSewerPotal();
+    }
     public void MakeSewerMap_Nomal()
     {
-        Symbol.SetActive(false);
+        Symbol.transform.localPosition = new Vector3(-61.96f, 34.7f, 0);
         Enemy.SetActive(false);
         Enemy2.SetActive(false);
         Pipe.SetActive(false);
@@ -362,7 +389,7 @@ public class TimeManagere : MonoBehaviour
         Burb_Round2.SetActive(false);
         Burb_Flet1.SetActive(false);
         Burb_Flet2.SetActive(false);
-        Ledder.SetActive(false);
+        Ledder.transform.localPosition = new Vector3(-60.49f, 30.9f, 0);
         Hole.SetActive(false);
         Cage.SetActive(false);
         SideRoad.SetActive(false);
@@ -419,11 +446,11 @@ public class TimeManagere : MonoBehaviour
                 int Ledderint = Random.Range(0, 2);
                 if (Ledderint == 0)
                 {
-                    Ledder.SetActive(true);
+                    Ledder.transform.localPosition = new Vector3(-60.49f, 8.79f, 0);
                 }
                 else
                 {
-                    Ledder.SetActive(false);
+                    Ledder.transform.localPosition = new Vector3(-60.49f, 30.9f, 0);
                 }
             }
         }
@@ -464,7 +491,7 @@ public class TimeManagere : MonoBehaviour
     }
     public void MakeSewerMap_Enemy()
     {
-        Symbol.SetActive(false);
+        Symbol.transform.localPosition = new Vector3(-61.96f, 34.7f, 0);
         GroundWater.SetActive(true);
         Pipe.SetActive(false);
         Sewer_Flat.SetActive(false);
@@ -473,7 +500,7 @@ public class TimeManagere : MonoBehaviour
         Burb_Round2.SetActive(false);
         Burb_Flet1.SetActive(false);
         Burb_Flet2.SetActive(false);
-        Ledder.SetActive(false);
+        Ledder.transform.localPosition = new Vector3(-60.49f, 30.9f, 0);
         Hole.SetActive(false);
         Cage.SetActive(false);
         SideRoad.SetActive(false);
@@ -592,7 +619,7 @@ public class TimeManagere : MonoBehaviour
     }
     public void Sewer_ByRiverSide()
     {
-        Symbol.SetActive(false);
+        Symbol.transform.localPosition = new Vector3(-61.96f, 34.7f, 0);
         Pipe.SetActive(false);
         Sewer_Flat.SetActive(false);
         Sewer_Round.SetActive(false);
@@ -600,7 +627,7 @@ public class TimeManagere : MonoBehaviour
         Burb_Round2.SetActive(false);
         Burb_Flet1.SetActive(false);
         Burb_Flet2.SetActive(false);
-        Ledder.SetActive(false);
+        Ledder.transform.localPosition = new Vector3(-60.49f, 30.9f, 0); ;
         Hole.SetActive(false);
         Cage.SetActive(false);
         SideRoad.SetActive(false);
@@ -741,6 +768,10 @@ public class TimeManagere : MonoBehaviour
 
     void Update()
     {
+        if(EndDoorDetective.activeSelf == false && DataBaseManager.EndingDoorCheck == true)
+        {
+            EndDoorDetective.SetActive(true);
+        }
         if (Manhole.activeSelf == false && DataBaseManager.DeadBody_GotoSwere == true)
         {
             Manhole.SetActive(true);

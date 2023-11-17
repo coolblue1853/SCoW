@@ -85,11 +85,44 @@ public class SIS_Debuff : MonoBehaviour
             {
                 detailText.text = "Tightwad\n\nThe store is no longer available.";
             }
+
+
             else if (this.name == "NightPhobia")
             {
                 detailText.text = "NightPhobia\n\nThe player can't walk around at night anymore.";
             }
-
+            else if (this.name == "Deafness")
+            {
+                detailText.text = "Deafness\n\nThe player can no longer hear the sound.";
+            }
+            else if (this.name == "VisionLoss")
+            {
+                detailText.text = "VisionLoss\n\nThe player narrows the field of view.";
+            }
+            else if (this.name == "Short-Tempered")
+            {
+                detailText.text = "Short-Tempered\n\nThe player can't run away from the battle.";
+            }
+            else if (this.name == "Dyslexia")
+            {
+                detailText.text = "Dyslexia\n\nThe Detective Notebook is no longer available.";
+            }
+            else if (this.name == "DrugPhobia")
+            {
+                detailText.text = "DrugPhobia\n\nCure items are no longer available.";
+            }
+            else if (this.name == "CognitiveDisorder")
+            {
+                detailText.text = "CognitiveDisorder\n\nThe player will be taken to a random place when using the map.";
+            }
+            else if (this.name == "Perfectionism")
+            {
+                detailText.text = "Perfectionism\n\nUnless it's an Critical Success, the judgment will fail.";
+            }
+            else if (this.name == "CognitiveBreakdown")
+            {
+                detailText.text = "CognitiveBreakdown\n\nThe Player information is no longer available.";
+            }
         }
 
     }

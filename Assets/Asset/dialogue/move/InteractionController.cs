@@ -547,6 +547,41 @@ public class InteractionController : MonoBehaviour
 
     public GameObject Journalist_FirstDialog;
 
+
+    //하수도 내부
+    public GameObject Sewer_FirstIn;
+    public GameObject Sewer_FirstInAfterSan;
+    public GameObject Sewer_FirstDeepOne;
+    public GameObject Sewer_FirstDeepOneAfterSan;
+
+    public GameObject Sewer_LadderDialog;
+    public GameObject Sewer_LadderUP;
+    public GameObject Sewer_LadderSwin;
+    public GameObject Sewer_LadderSan1;
+    public GameObject Sewer_LadderSan2;
+    public GameObject Sewer_LadderSan3;
+    public GameObject Sewer_LadderSan4;
+    public GameObject Sewer_LadderSan5;
+    public GameObject Sewer_LadderSan6;
+    public GameObject Sewer_LadderSan7;
+    public GameObject Sewer_LadderSan8;
+    public GameObject Sewer_LadderSan9;
+
+    public GameObject BloodEnding;
+
+
+    public GameObject Ending_BreakSymbol;
+    public GameObject Ending_IfGotPromiseAndAblertAlive;
+    public GameObject Ending_IfGotPromiseAndAblertDeath;
+    public GameObject Ending_IfNoPromise;
+    public GameObject Ending_IfNoPromiseAlbertDeath;
+    public GameObject Ending_IfSwainDeath;
+    public GameObject Ending_LastIfGotRequest;
+    public GameObject Ending_LastIfNoRequest;
+    public GameObject Ending_Killing;
+    public GameObject Ending_DoorEnd;
+
+
     private void Start()
     {
         //TestNar();
@@ -554,6 +589,12 @@ public class InteractionController : MonoBehaviour
 
     public void InSewerDialog(string setDialog)
     {
+        
+             if (setDialog == "Sewer_LadderUP")
+        {
+            theDM.ShowDialog(Sewer_LadderUP.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
         if (setDialog == "Sewer_EnemySpawn")
         {
             theDM.ShowDialog(Sewer_EnemySpawn.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -653,6 +694,76 @@ public class InteractionController : MonoBehaviour
 
 
         }
+        if (setDialog == "Sewer_FirstIn")
+        {
+            theDM.ShowDialog(Sewer_FirstIn.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Sewer_FirstDeepOne")
+        {
+            theDM.ShowDialog(Sewer_FirstDeepOne.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Sewer_LadderDialog")
+        {
+            theDM.ShowDialog(Sewer_LadderDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+        if (setDialog == "Ending_BreakSymbol")
+        {
+            theDM.ShowDialog(Ending_BreakSymbol.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+
+        if (setDialog == "Ending_isPromise")
+        {
+            if(DataBaseManager.Intel_Meiv2 == true)
+            {
+                if(DataBaseManager.AlbertDeathKeyword == false)
+                {
+                    theDM.ShowDialog(Ending_IfGotPromiseAndAblertAlive.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+                else
+                {
+                    theDM.ShowDialog(Ending_IfGotPromiseAndAblertDeath.transform.GetComponent<interactionEvent>().GetDialogs());
+                }
+
+
+            }
+            else if (DataBaseManager.Intel_Meiv2 == false)
+            {
+                theDM.ShowDialog(Ending_IfNoPromise.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+
+
+        }
+        if (setDialog == "Ending_IfNoPromiseAlbertDeath")
+        {
+            theDM.ShowDialog(Ending_IfNoPromiseAlbertDeath.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Ending_SwainDeathCheck")
+        {
+            theDM.ShowDialog(Ending_IfSwainDeath.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Ending_RequestCheck")
+        {
+            if(DataBaseManager.IfGotRequset == true)
+            {
+                theDM.ShowDialog(Ending_LastIfGotRequest.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else
+            {
+                theDM.ShowDialog(Ending_LastIfNoRequest.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+
+        }
+        if (setDialog == "Ending_Killing")
+        {
+            theDM.ShowDialog(Ending_Killing.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        if (setDialog == "Ending_DoorEnd")
+        {
+            theDM.ShowDialog(Ending_DoorEnd.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        
     }
 
     public void Start_SewerOffice(string setDialog)
@@ -2710,7 +2821,7 @@ public class InteractionController : MonoBehaviour
 
             if (DataBaseManager.keyword_downer == "Advent")
             {
-                theDM.ShowDialog(Sewer_SymbolKeyWorkSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(BloodEnding.transform.GetComponent<interactionEvent>().GetDialogs());
             }
 
             else
@@ -3226,7 +3337,11 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(Sewer_SanChecck.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+        if (SanCheck == "Sewer_FirstInSan")
+        {
 
+            theDM.ShowDialog(Sewer_FirstInAfterSan.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
         
 
         if (SanCheck == "FourthDayStartSan")
@@ -3267,8 +3382,63 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(Sewer_BookLookSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
         }
+        if (SanCheck == "DeepOneFirstSan")
+        {
+            theDM.ShowDialog(Sewer_FirstDeepOneAfterSan.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+
+        if (SanCheck == "EndingLedderSan")
+        {
+            if(DataBaseManager.Ending_LadderSanInt == 0)
+            {
+                DataBaseManager.Ending_LadderSanInt += 1;
+                theDM.ShowDialog(Sewer_LadderSan1.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.Ending_LadderSanInt == 1)
+            {
+                DataBaseManager.Ending_LadderSanInt += 1;
+                theDM.ShowDialog(Sewer_LadderSan2.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.Ending_LadderSanInt == 2)
+            {
+                DataBaseManager.Ending_LadderSanInt += 1;
+                theDM.ShowDialog(Sewer_LadderSan3.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.Ending_LadderSanInt == 3)
+            {
+                DataBaseManager.Ending_LadderSanInt += 1;
+                theDM.ShowDialog(Sewer_LadderSan4.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.Ending_LadderSanInt == 4)
+            {
+                DataBaseManager.Ending_LadderSanInt += 1;
+                theDM.ShowDialog(Sewer_LadderSan5.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.Ending_LadderSanInt == 5)
+            {
+                DataBaseManager.Ending_LadderSanInt += 1;
+                theDM.ShowDialog(Sewer_LadderSan6.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.Ending_LadderSanInt == 6)
+            {
+                DataBaseManager.Ending_LadderSanInt += 1;
+                theDM.ShowDialog(Sewer_LadderSan7.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.Ending_LadderSanInt == 7)
+            {
+                DataBaseManager.Ending_LadderSanInt += 1;
+                theDM.ShowDialog(Sewer_LadderSan8.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (DataBaseManager.Ending_LadderSanInt == 8)
+            {
+                DataBaseManager.Ending_LadderSanInt += 1;
+                theDM.ShowDialog(Sewer_LadderSan9.transform.GetComponent<interactionEvent>().GetDialogs());
+            }   
+        }
 
         
+
+
         if (Sub_Dialog == "Warden : Steal")
         {
             DataBaseManager.Black_Deftness = true;
@@ -3360,6 +3530,7 @@ public class InteractionController : MonoBehaviour
         }
         if (Sub_Dialog == "Symbol : Break")
         {
+            DataBaseManager.StoryDirecting = true;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
                 theDM.ShowDialog(Sewer_JudgeStrSucc.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -3369,13 +3540,29 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(Sewer_JudgeStrFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
-    
+        if (Sub_Dialog == "Fabian : Swimming")
+        {
+            if (result_End == "Result : Success" || result_End == "Result : Critical Success")
+            {
+                theDM.ShowDialog(Sewer_LadderSwin.transform.GetComponent<interactionEvent>().GetDialogs());
+            }
+            else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
+            {
+                 BillowUIManager.Instance.HP_down(5);
+                Invoke("SwinCheckAgain", 0.5f);
+            }
+        }
 
+
+   
 
     }
 
 
-
+    void SwinCheckAgain()
+    {
+        Rollet.Instance.setRollet("Fabian : Swimming", "Swin", DataBaseManager.swimingPoint, "dialog");
+    }
 
 
     private static InteractionController instance = null;

@@ -58,6 +58,15 @@ public class selectionUIManager : MonoBehaviour
         
     }
 
+    public GameObject LadderSelectionUI;
+    public void Open_LadderSelectUI()
+    {
+        DataBaseManager.isActiveDialog1 = true;
+        LadderSelectionUI.SetActive(true);
+    }
+
+
+
     public void Open_1st_DetectiveOffice_Select1()
     {
         DataBaseManager.isActiveDialog1 = true;
@@ -110,6 +119,7 @@ public class selectionUIManager : MonoBehaviour
         }
         if (SelectButton == "Accept_Request")
         {
+            DataBaseManager.IfGotRequset = true;
             DialogManager.Instance.ChoiceEx_NextPage_t();
             Select_1st_DetectiveOiffce_2.SetActive(false);
             InteractionController.Instance.Start_1st_DetectiveOffice("Accept_Request");
@@ -185,6 +195,23 @@ public class selectionUIManager : MonoBehaviour
             DataBaseManager.StartSewerBattle = true;
             // 전투로 이동
 
+        }
+
+
+
+        if (SelectButton == "GoOut")
+        {
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            LadderSelectionUI.SetActive(false);
+            InteractionController.Instance.InSewerDialog("Sewer_LadderUP");
+            DataBaseManager.StoryDirecting = true;
+        }
+
+        if (SelectButton == "NotOut")
+        {
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            LadderSelectionUI.SetActive(false);
+            DataBaseManager.SelectionOn = false;
         }
     }
     public void EndDialog ()

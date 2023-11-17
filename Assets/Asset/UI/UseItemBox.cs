@@ -21,32 +21,34 @@ public class UseItemBox : MonoBehaviour
     }
     public void ClickYes()
     {
-        DataBaseManager.isOpenUi = false;
-        UseUI.SetActive(false);
-        SISUI.SetActive(false);
-        if (DataBaseManager.nowItem == "First aid kit")
+        if (DataBaseManager.isDebuff_DrugPhobia != true)
         {
-
-            Rollet.Instance.setRollet("Fabian : Medicines", "Medicine+20", DataBaseManager.medicinePoint + 20, "Item");
-        }
-        else if (DataBaseManager.nowItem == "Bandages")
-        {
-
-            Rollet.Instance.setRollet("Fabian : Medicines", "Medicine+20", DataBaseManager.medicinePoint + 20, "Item");
-        }
-        else if (DataBaseManager.nowItem == "Painkillers")
-        {
-            Debug.Log('1');
-            int Heal = Random.Range(1, 4) * 5;
-            if((DataBaseManager.san - DataBaseManager.nowSan) < Heal)
+            DataBaseManager.isOpenUi = false;
+            UseUI.SetActive(false);
+            SISUI.SetActive(false);
+            if (DataBaseManager.nowItem == "First aid kit")
             {
-                Heal = DataBaseManager.san - DataBaseManager.nowSan;
-            }
-            BillowUIManager.Instance.San_up(Heal);
-            DataBaseManager.Painkillers -= 1;
-            //Rollet.Instance.setRollet("Fabian : Psychotherapy", "Psychotherapy+20", DataBaseManager.medicinePoint + 20, "Item");
-        }
 
+                Rollet.Instance.setRollet("Fabian : Medicines", "Medicine+20", DataBaseManager.medicinePoint + 20, "Item");
+            }
+            else if (DataBaseManager.nowItem == "Bandages")
+            {
+
+                Rollet.Instance.setRollet("Fabian : Medicines", "Medicine+20", DataBaseManager.medicinePoint + 20, "Item");
+            }
+            else if (DataBaseManager.nowItem == "Painkillers")
+            {
+                Debug.Log('1');
+                int Heal = Random.Range(1, 4) * 5;
+                if ((DataBaseManager.san - DataBaseManager.nowSan) < Heal)
+                {
+                    Heal = DataBaseManager.san - DataBaseManager.nowSan;
+                }
+                BillowUIManager.Instance.San_up(Heal);
+                DataBaseManager.Painkillers -= 1;
+                //Rollet.Instance.setRollet("Fabian : Psychotherapy", "Psychotherapy+20", DataBaseManager.medicinePoint + 20, "Item");
+            }
+        }
     }
 
 
