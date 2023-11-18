@@ -71,9 +71,10 @@ public class BattleRollet : MonoBehaviour
     int E_result_int;
     public TextMeshProUGUI E_result_string;
     public TextMeshProUGUI E_result_End;
+    public GameObject RolletUI;
     private void Update()
     {
-        if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) && Sub_Dialog != "SAN : Check")
+        if (RolletUI.activeSelf == true && setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) && Sub_Dialog != "SAN : Check")
         {
             activeCheck = false;
             DataBaseManager.CancelJudge = true;

@@ -163,7 +163,7 @@ DataBaseManager.gunShotPoint = 50;
         //     DataBaseManager.GainMap = true;
 
         DataBaseManager.Intel_SewageMaintenanceOffice1 = true;
-        DataBaseManager.isTest = true;
+
         DataBaseManager.Intel_Sewer4 = true;
 
 
@@ -188,6 +188,8 @@ DataBaseManager.gunShotPoint = 50;
         
         DataBaseManager.EnemyDeathCount = 500;
         DataBaseManager.luk = 0;
+
+        DataBaseManager.isDebuff_CognitiveBreakdown = true;
     }
     public void NewsRollet()
     {

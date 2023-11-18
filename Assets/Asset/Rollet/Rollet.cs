@@ -59,9 +59,11 @@ public class Rollet : MonoBehaviour
   
     string  String;
 
+    public GameObject RolletUI;
+
     private void Update()
     {
-        if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) && (Sub_Dialog != "SAN : Check" || Sub_Dialog != "Fabian : Sneak Out") )
+        if (RolletUI.activeSelf == true && setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) && (Sub_Dialog != "SAN : Check" || Sub_Dialog != "Fabian : Sneak Out") )
         {
             activeCheck = false;
             DataBaseManager.CancelJudge = true;

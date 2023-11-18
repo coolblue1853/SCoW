@@ -4,6 +4,19 @@ using UnityEngine;
 using DG.Tweening;
 public class TimeManagere : MonoBehaviour
 {
+    public GameObject DetectiveNightBulb;
+
+    void BulbCheck()
+    {
+        if(DetectiveNightBulb.activeSelf == false && DataBaseManager.TimeCount % 4 == 0)
+        {
+            DetectiveNightBulb.SetActive(true);
+        }
+        else if (DetectiveNightBulb.activeSelf == true && DataBaseManager.TimeCount % 4 != 0)
+        {
+            DetectiveNightBulb.SetActive(false);
+        }
+    }
 
     public LightColorController lightColorController;
     // Start is called before the first frame update
@@ -768,7 +781,8 @@ public class TimeManagere : MonoBehaviour
 
     void Update()
     {
-        if(EndDoorDetective.activeSelf == false && DataBaseManager.EndingDoorCheck == true)
+        BulbCheck();
+        if (EndDoorDetective.activeSelf == false && DataBaseManager.EndingDoorCheck == true)
         {
             EndDoorDetective.SetActive(true);
         }
