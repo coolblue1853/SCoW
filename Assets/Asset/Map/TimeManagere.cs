@@ -11,11 +11,9 @@ public class TimeManagere : MonoBehaviour
         if(DetectiveNightBulb.activeSelf == false && DataBaseManager.TimeCount % 4 == 0)
         {
             DetectiveNightBulb.SetActive(true);
-            DayLight.SetActive(false);
         }
         else if (DetectiveNightBulb.activeSelf == true && DataBaseManager.TimeCount % 4 != 0)
         {
-            DayLight.SetActive(true);
             DetectiveNightBulb.SetActive(false);
         }
     }
@@ -31,7 +29,7 @@ public class TimeManagere : MonoBehaviour
     public GameObject Enemy;
     public GameObject Enemy2;
     public GameObject OldMap;
-    public GameObject DayLight;
+
 
     public GameObject EndDoorDetective;
     public GameObject Sewer_Flat;

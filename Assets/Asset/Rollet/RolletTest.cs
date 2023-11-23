@@ -172,7 +172,7 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.Revolver += 1;
 
         DataBaseManager.Dagger += 1; DataBaseManager.Molotov += 2; 
-        DataBaseManager.TimeCount = 5;
+        DataBaseManager.TimeCount = 1;
         DataBaseManager.SewerageKey = true;
       //  DataBaseManager.SecondDayDialog = true;
         DataBaseManager.AlbertDeathKeyword = true;DataBaseManager.SwainDeathKeyword = true;
@@ -184,11 +184,12 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.Bandages = 5;
         DataBaseManager.Firstaidkit = 5;
         DataBaseManager.Painkillers = 5;
-        DataBaseManager.isDebuff_CognitiveBreakdown = true;
-
+        
+        
         DataBaseManager.EnemyDeathCount = 500;
         DataBaseManager.luk = 0;
 
+        DataBaseManager.isDebuff_CognitiveBreakdown = true;
     }
     public void NewsRollet()
     {

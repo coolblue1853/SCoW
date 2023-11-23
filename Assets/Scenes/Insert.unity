@@ -710,7 +710,7 @@ GameObject:
   - component: {fileID: 574103173}
   - component: {fileID: 574103172}
   m_Layer: 5
-  m_Name: SelectImg
+  m_Name: Select (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -854,7 +854,7 @@ GameObject:
   - component: {fileID: 681219116}
   - component: {fileID: 681219115}
   m_Layer: 5
-  m_Name: SelectImg
+  m_Name: Select (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 735729862}
   - component: {fileID: 735729861}
   m_Layer: 5
-  m_Name: SelectImg
+  m_Name: Select
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1150,7 +1150,7 @@ GameObject:
   - component: {fileID: 1083747340}
   - component: {fileID: 1083747339}
   m_Layer: 0
-  m_Name: DatabaseManager
+  m_Name: Data
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1200,7 +1200,7 @@ GameObject:
   - component: {fileID: 1188174735}
   - component: {fileID: 1188174734}
   m_Layer: 0
-  m_Name: MainImage
+  m_Name: Image (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1412,7 +1412,7 @@ GameObject:
   - component: {fileID: 1211046466}
   - component: {fileID: 1211046465}
   m_Layer: 0
-  m_Name: BackImage
+  m_Name: Bacak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1526,7 +1526,7 @@ GameObject:
   - component: {fileID: 1385953223}
   - component: {fileID: 1385953222}
   m_Layer: 5
-  m_Name: TitleBackground
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1933,7 +1933,7 @@ GameObject:
   - component: {fileID: 1755226118}
   - component: {fileID: 1755226117}
   m_Layer: 0
-  m_Name: MainImageBackground
+  m_Name: Image (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2010,7 +2010,7 @@ GameObject:
   - component: {fileID: 1756505331}
   - component: {fileID: 1756505333}
   m_Layer: 5
-  m_Name: TitleImage
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2114,7 +2114,7 @@ GameObject:
   - component: {fileID: 1849039055}
   - component: {fileID: 1849039057}
   m_Layer: 0
-  m_Name: TitleText
+  m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2592,25 +2592,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 89403183, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
-      propertyPath: m_Name
-      value: ToMain
-      objectReference: {fileID: 0}
     - target: {fileID: 124021564, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 482329392, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
-      propertyPath: m_Name
-      value: PrevButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 542126451, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
-      propertyPath: m_Name
-      value: SFX Dice
-      objectReference: {fileID: 0}
-    - target: {fileID: 725952085, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
-      propertyPath: m_Name
-      value: TutorialsBack2
       objectReference: {fileID: 0}
     - target: {fileID: 725952085, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
       propertyPath: m_IsActive
@@ -2619,30 +2603,6 @@ PrefabInstance:
     - target: {fileID: 729369409, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 749064868, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
-      propertyPath: m_Name
-      value: NextButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 766916941, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
-      propertyPath: m_Name
-      value: SFX 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 897492299, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
-      propertyPath: m_Name
-      value: TutorialsBack1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1002587460, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
-      propertyPath: m_Name
-      value: PrevButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 1337192209, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
-      propertyPath: m_Name
-      value: TutorialsBack1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1671470860, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
-      propertyPath: m_Name
-      value: NextButton
       objectReference: {fileID: 0}
     - target: {fileID: 1846526122, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
       propertyPath: childObjects.Array.size
@@ -2664,10 +2624,6 @@ PrefabInstance:
       propertyPath: childObjects.Array.data[12]
       value: 
       objectReference: {fileID: 1427112165}
-    - target: {fileID: 1873500465, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
-      propertyPath: m_Name
-      value: TutorialsBack2
-      objectReference: {fileID: 0}
     - target: {fileID: 8831394067221339529, guid: 547c7de6a694f9d40a53664723ad8355,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2778,31 +2734,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8831394067625389048, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: PrevButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831394067828719475, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: CheckBoxImg
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831394067879687828, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: MenuText
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831394068077037330, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: BackMusicPower
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831394068128493241, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: SettingUI
-      objectReference: {fileID: 0}
     - target: {fileID: 8831394068285303204, guid: 547c7de6a694f9d40a53664723ad8355,
         type: 3}
       propertyPath: m_IsActive
@@ -2823,51 +2754,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8831394068448857957, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: MenuText3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831394068656021820, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: Resolution
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831394068658169865, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: MenuText2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831394068763795332, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: FullScreenButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831394068886543554, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: MenuText4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831394068935406715, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: SFXPower
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831394068948263400, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: NextButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831394068954265019, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: text
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831394068994967131, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: Background
-      objectReference: {fileID: 0}
     - target: {fileID: 8831394069004670989, guid: 547c7de6a694f9d40a53664723ad8355,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2893,16 +2779,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8831394069075731248, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: text
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831394069130061832, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: WindowModButton
-      objectReference: {fileID: 0}
     - target: {fileID: 8831394069154585088, guid: 547c7de6a694f9d40a53664723ad8355,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2912,11 +2788,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831394069186083852, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_Name
-      value: CheckBoxImg2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
