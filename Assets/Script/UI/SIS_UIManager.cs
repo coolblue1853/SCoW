@@ -5,18 +5,11 @@ using UnityEngine.UI;
 using TMPro;
 public class SIS_UIManager : MonoBehaviour
 {
-    
-
     public GameObject debuffDetail;
-
     public GameObject SIS_UI;
-
     public GameObject Stat_UI;
     public GameObject Inventory_UI;
     public GameObject Skill_UI;
-
-
-
     public GameObject Item_use;
     public GameObject Item_key;
     public GameObject Item_Eqip;
@@ -51,7 +44,6 @@ public class SIS_UIManager : MonoBehaviour
     public Image san_image;
     public Image luk_image;
     public Image weal_image;
-
 
     //skill - str
     public Text martialArtsPoint_t;
@@ -92,13 +84,10 @@ public class SIS_UIManager : MonoBehaviour
     public Image stealth_g;
     public Image Disguise_g;
 
-
     public Image imageComponent_Eqip;
     public Image imageComponent_Use;
     public Image imageComponent_Key;
     public Sprite None;
-
-
 
     private static SIS_UIManager instance = null;
     public static SIS_UIManager Instance
@@ -117,28 +106,23 @@ public class SIS_UIManager : MonoBehaviour
         if (null == instance)
         {
             instance = this;
-
         }
         else
         {
             Destroy(this.gameObject);
         }
     }
-
-
     public void Open_UseItemUI()
     {
         SoundManager.Instance.ClickSound_Play();
         DataBaseManager.nowItem = "";
         Item_use.transform.SetSiblingIndex(-1);
-
     }
     public void Open_KeyItemUI()
     {
         SoundManager.Instance.ClickSound_Play();
         DataBaseManager.nowItem = "";
         Item_key.transform.SetSiblingIndex(-1);
-
     }
     public void Open_NomalItemUI()
     {
@@ -146,7 +130,6 @@ public class SIS_UIManager : MonoBehaviour
         DataBaseManager.nowItem = "";
         Item_Eqip.transform.SetSiblingIndex(-1);
     }
-
     public void Open_StatUI()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -180,7 +163,6 @@ public class SIS_UIManager : MonoBehaviour
             DataBaseManager.isOpenUi = true;
             SIS_UI.SetActive(true);
         }
-
     }
     public void ResetDetail()
     {
@@ -194,7 +176,6 @@ public class SIS_UIManager : MonoBehaviour
         Use_Name.text = "";
         Use_Detail.text = "";
     }
-
     public void CloseMap()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -204,26 +185,18 @@ public class SIS_UIManager : MonoBehaviour
         DataBaseManager.isOpenUi = false;
         SIS_UI.SetActive(false);
     }
-
-
     public GameObject Disorder;
     public GameObject Disorder2;
     public GameObject Disorder3;
-
     private void Update()
     {
-        if(DataBaseManager.isDebuff_CognitiveBreakdown == true && Disorder.activeSelf == false)
+        if (DataBaseManager.isDebuff_CognitiveBreakdown == true && Disorder.activeSelf == false)
         {
             Disorder.SetActive(true);
             Disorder2.SetActive(true);
             Disorder3.SetActive(true);
         }
-
         ManageItem();
-
-       
-
-
         if (DataBaseManager.nowItem == "")
         {
             Name.text = "";
@@ -233,21 +206,18 @@ public class SIS_UIManager : MonoBehaviour
             Key_Name.text = "";
             Key_Detail.text = "";
         }
-
         if (DataBaseManager.isActiveDialog1 == false)
         {
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 if (SIS_UI.activeSelf == false)
                 {
-
                     Okay2CheckUI();
                     DataBaseManager.workSound = false;
                     OpenMap();
                 }
                 else if (SIS_UI.activeSelf == true)
                 {
-
                     CloseMap();
                 }
 
@@ -256,9 +226,7 @@ public class SIS_UIManager : MonoBehaviour
             {
                 CloseMap();
             }
-
-
-            if(SIS_UI.activeSelf == false && Key_Name.text != "" && Name.text != "" && Use_Name.text != "")
+            if (SIS_UI.activeSelf == false && Key_Name.text != "" && Name.text != "" && Use_Name.text != "")
             {
                 imageComponent_Eqip.sprite = None;
                 imageComponent_Use.sprite = None;
@@ -274,15 +242,11 @@ public class SIS_UIManager : MonoBehaviour
     }
     public void Okay2CheckUI()
     {
-
         str_txt.text = DataBaseManager.str.ToString();
         str_image.fillAmount = ((float)DataBaseManager.str / 100);
 
-
-
         intl_txt.text = DataBaseManager.intl.ToString();
         intl_image.fillAmount = ((float)DataBaseManager.intl / 100);
-
 
         dex_txt.text = DataBaseManager.dex.ToString();
         dex_image.fillAmount = ((float)DataBaseManager.dex / 100);
@@ -293,19 +257,14 @@ public class SIS_UIManager : MonoBehaviour
         mp_txt.text = DataBaseManager.mp.ToString();
         mp_image.fillAmount = ((float)DataBaseManager.mp / 100);
 
-
         san_txt.text = DataBaseManager.san.ToString();
         san_image.fillAmount = ((float)DataBaseManager.san / 100);
-
 
         luk_txt.text = DataBaseManager.luk.ToString();
         luk_image.fillAmount = ((float)DataBaseManager.luk / 100);
 
         weal_txt.text = DataBaseManager.weal.ToString();
         weal_image.fillAmount = ((float)DataBaseManager.weal / 25);
-
-
-
 
         martialArtsPoint_t.text = DataBaseManager.martialArtsPoint.ToString();
         martialArtsPoint_g.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
@@ -318,7 +277,6 @@ public class SIS_UIManager : MonoBehaviour
         swimingPoint_t.text = DataBaseManager.swimingPoint.ToString();
         swimingPoint_g.fillAmount = (float)DataBaseManager.swimingPoint / 100;
 
-
         medicine_t.text = DataBaseManager.medicinePoint.ToString();
         medicine_g.fillAmount = (float)DataBaseManager.medicinePoint / 100;
         analysis_t.text = DataBaseManager.analysisPoint.ToString();
@@ -330,7 +288,6 @@ public class SIS_UIManager : MonoBehaviour
         psychotherapy_t.text = DataBaseManager.psychotherapyPoint.ToString();
         psychotherapy_g.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
 
-
         evasion_t.text = DataBaseManager.evasionPoint.ToString();
         evasion_g.fillAmount = (float)DataBaseManager.evasionPoint / 100;
         deftness_t.text = DataBaseManager.deftnessPoint.ToString();
@@ -341,14 +298,12 @@ public class SIS_UIManager : MonoBehaviour
         stealth_g.fillAmount = (float)DataBaseManager.stealthPoint / 100;
         Disguise_t.text = DataBaseManager.DisguisePoint.ToString();
         Disguise_g.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
-
     }
 
     public GameObject ItemBox_Nomal;
 
     public void ManageItem()
     {
-
         if (DataBaseManager.Shotgun > 0)
         {
             ActivateObjectWithName(ItemBox_Nomal, "Shotgun");
@@ -419,7 +374,6 @@ public class SIS_UIManager : MonoBehaviour
         }
         else
         {
-
             if (DataBaseManager.nowItem == "PistolAmmo")
             {
                 DataBaseManager.nowItem = "";
@@ -457,8 +411,6 @@ public class SIS_UIManager : MonoBehaviour
             }
             DeactivateObjectWithName(ItemBox_Nomal, "ShotgunAmmo");
         }
-
-
         if (DataBaseManager.Firstaidkit > 0)
         {
             ActivateObjectWithName(Use_ItemBox, "First aid kit");
@@ -495,7 +447,6 @@ public class SIS_UIManager : MonoBehaviour
         }
         else
         {
-
             if (DataBaseManager.nowItem == "Painkillers")
             {
                 imageComponent_Use.sprite = None;
@@ -505,14 +456,12 @@ public class SIS_UIManager : MonoBehaviour
             }
             DeactivateObjectWithName(Use_ItemBox, "Painkillers");
         }
-
         if (DataBaseManager.getSafe == true)
         {
             ActivateObjectWithName(Key_ItemBox, "Safe");
         }
         else
         {
-
             if (DataBaseManager.nowItem == "Safe")
             {
                 imageComponent_Key.sprite = None;
@@ -528,7 +477,6 @@ public class SIS_UIManager : MonoBehaviour
         }
         else
         {
-
             if (DataBaseManager.nowItem == "OldMap")
             {
                 imageComponent_Key.sprite = None;
@@ -538,14 +486,12 @@ public class SIS_UIManager : MonoBehaviour
             }
             DeactivateObjectWithName(Key_ItemBox, "OldMap");
         }
-
         if (DataBaseManager.SafeDocument == true)
         {
             ActivateObjectWithName(Key_ItemBox, "Document");
         }
         else
         {
-
             if (DataBaseManager.nowItem == "Document")
             {
                 imageComponent_Key.sprite = None;
@@ -561,7 +507,6 @@ public class SIS_UIManager : MonoBehaviour
         }
         else
         {
-
             if (DataBaseManager.nowItem == "Map")
             {
                 imageComponent_Key.sprite = None;
@@ -577,7 +522,6 @@ public class SIS_UIManager : MonoBehaviour
         }
         else
         {
-
             if (DataBaseManager.nowItem == "Sewerge Key")
             {
                 imageComponent_Key.sprite = None;
@@ -587,14 +531,12 @@ public class SIS_UIManager : MonoBehaviour
             }
             DeactivateObjectWithName(Key_ItemBox, "Sewerge Key");
         }
-
         if (DataBaseManager.Intel_Dave1 == true)
         {
             ActivateObjectWithName(Key_ItemBox, "Bracelet");
         }
         else
         {
-
             if (DataBaseManager.nowItem == "Bracelet")
             {
                 imageComponent_Key.sprite = None;
@@ -604,14 +546,12 @@ public class SIS_UIManager : MonoBehaviour
             }
             DeactivateObjectWithName(Key_ItemBox, "Bracelet");
         }
-
         if (DataBaseManager.GainCoat == true)
         {
             ActivateObjectWithName(Key_ItemBox, "Coat");
         }
         else
         {
-
             if (DataBaseManager.nowItem == "Coat")
             {
                 imageComponent_Key.sprite = None;
@@ -622,7 +562,6 @@ public class SIS_UIManager : MonoBehaviour
             DeactivateObjectWithName(Key_ItemBox, "Coat");
         }
     }
-
     public void OpenItemDetail()
     {
         if (ItemBox_Nomal.activeSelf == true)
@@ -647,13 +586,11 @@ public class SIS_UIManager : MonoBehaviour
                 Name.text = "Axe";
                 Detail.text = "Skill :\nSwordsmanship\n\nDamage :\n(1D6 + 2)x5";
             }
-
             if (DataBaseManager.nowItem == "Molotov")
             {
                 Name.text = "Molotov";
-                Detail.text = "Skill :\nDeftness\n\nDamage :\n(2D6 + 2)x5\n\nPcs : "+DataBaseManager.Molotov;
+                Detail.text = "Skill :\nDeftness\n\nDamage :\n(2D6 + 2)x5\n\nPcs : " + DataBaseManager.Molotov;
             }
-
             if (DataBaseManager.nowItem == "Shotgun")
             {
                 Name.text = "Shotgun";
@@ -674,7 +611,6 @@ public class SIS_UIManager : MonoBehaviour
                 Name.text = "Small Pistol";
                 Detail.text = "Skill :\nMarkmanship\n\nDamage :\n(1D6)x5\n\nMagazine :\n2 Bullet";
             }
-
             if (DataBaseManager.nowItem == "PistolAmmo")
             {
                 Name.text = "PistolAmmo";
@@ -690,9 +626,7 @@ public class SIS_UIManager : MonoBehaviour
                 Name.text = "ShotgunAmmo";
                 Detail.text = "Used for :\nShotgun\n\nPcs : " + DataBaseManager.ShotgunAmmo;
             }
-
         }
-
         if (Use_ItemBox.activeSelf == true)
         {
             if (DataBaseManager.nowItem == "")
@@ -715,10 +649,8 @@ public class SIS_UIManager : MonoBehaviour
                 Use_Name.text = "Painkillers";
                 Use_Detail.text = "Skill :\nNoSkill\n\nEffects:\nSuccessful Function checks restore(1D3)x5 SAN points.\n\nPcs : " + DataBaseManager.Painkillers;
             }
-
         }
-
-        if (Key_ItemBox.activeSelf == true )
+        if (Key_ItemBox.activeSelf == true)
         {
             if (DataBaseManager.nowItem == "")
             {
@@ -760,23 +692,16 @@ public class SIS_UIManager : MonoBehaviour
                 Key_Name.text = "Coat";
                 Key_Detail.text = "Skill :\nDisguise\n\nDetail:\nA sewer worker's Outfit.";
             }
-
         }
-
-
-
     }
-
     public void openSetting()
     {
         settingManager.Instance.OpenSetting();
     }
-
-    public void ActivateObjectWithName(GameObject subject ,string objectName)
+    public void ActivateObjectWithName(GameObject subject, string objectName)
     {
         // 자식 오브젝트들을 모두 가져옵니다.
         Transform[] children = subject.GetComponentsInChildren<Transform>(true);
-
         foreach (Transform child in children)
         {
             // 자식 오브젝트의 이름이 지정한 이름과 일치하는지 확인합니다.
@@ -788,7 +713,6 @@ public class SIS_UIManager : MonoBehaviour
                 return;
             }
         }
-
     }
     public void DeactivateObjectWithName(GameObject subject, string objectName)
     {
@@ -798,113 +722,96 @@ public class SIS_UIManager : MonoBehaviour
         foreach (Transform child in children)
         {
             // 자식 오브젝트의 이름이 지정한 이름과 일치하는지 확인합니다.
-            if (child.name == objectName )
+            if (child.name == objectName)
             {
                 // 오브젝트를 활성화합니다.
                 child.gameObject.SetActive(false);
                 return;
             }
         }
-
         // 지정한 이름을 가진 오브젝트를 찾지 못한 경우에는 오류 메시지를 출력합니다.
         Debug.LogError("Object with name " + objectName + " not found in children.");
     }
 
-     string inputString; // 사용자가 입력한 문자열
-     string[] resultArray; // 문자열을 저장할 배열
-    int arrayInt=0;
+    string inputString; // 사용자가 입력한 문자열
+    string[] resultArray; // 문자열을 저장할 배열
+    int arrayInt = 0;
     public void CareLessActive()
     {
         // 배열 초기화
         int maxWeapons = 13; // 무기와 아이템의 총 개수
         resultArray = new string[maxWeapons];
 
-        if (DataBaseManager.Shotgun > 0 )
+        if (DataBaseManager.Shotgun > 0)
         {
             resultArray[arrayInt] = "Shotgun";
             arrayInt += 1;
-
-
         }
         if (DataBaseManager.Rifle > 0)
         {
             resultArray[arrayInt] = "Rifle";
             arrayInt += 1;
-
-
         }
         if (DataBaseManager.Revolver > 0)
         {
             resultArray[arrayInt] = "Revolver";
             arrayInt += 1;
-
         }
         if (DataBaseManager.SmallPistol > 0)
         {
             resultArray[arrayInt] = "SmallPistol";
             arrayInt += 1;
-
         }
         if (DataBaseManager.Bat > 0)
         {
             resultArray[arrayInt] = "Bat";
             arrayInt += 1;
-
         }
         if (DataBaseManager.Axe > 0)
         {
             resultArray[arrayInt] = "Axe";
             arrayInt += 1;
-
         }
         if (DataBaseManager.Dagger > 0)
         {
             resultArray[arrayInt] = "Dagger";
             arrayInt += 1;
-
         }
 
         if (DataBaseManager.Molotov > 0)
         {
             resultArray[arrayInt] = "Molotov";
             arrayInt += 1;
-
         }
         if (DataBaseManager.PistolAmmo > 0)
         {
             resultArray[arrayInt] = "PistolAmmo";
             arrayInt += 1;
-
         }
         if (DataBaseManager.RifleAmmo > 0)
         {
             resultArray[arrayInt] = "RifleAmmo";
             arrayInt += 1;
-
         }
         if (DataBaseManager.ShotgunAmmo > 0)
         {
             resultArray[arrayInt] = "ShotgunAmmo";
             arrayInt += 1;
-
         }
         if (DataBaseManager.Firstaidkit > 0)
         {
             resultArray[arrayInt] = "Firstaidkit";
             arrayInt += 1;
-
         }
         if (DataBaseManager.Bandages > 0)
         {
             resultArray[arrayInt] = "Bandages";
             arrayInt += 1;
-
         }
         if (DataBaseManager.Painkillers > 0)
         {
             resultArray[arrayInt] = "Painkillers";
             arrayInt += 1;
-
         }
 
         int i = Random.Range(0, arrayInt);
@@ -913,80 +820,54 @@ public class SIS_UIManager : MonoBehaviour
         if (resultArray[i] == "Shotgun")
         {
             DataBaseManager.Shotgun -= 1;
-
-
         }
         else if (resultArray[i] == "Rifle")
         {
             DataBaseManager.Rifle -= 1;
-
-
         }
         else if (resultArray[i] == "Revolver")
         {
             DataBaseManager.Revolver -= 1;
-
-
         }
         else if (resultArray[i] == "SmallPistol")
         {
             DataBaseManager.SmallPistol -= 1;
-
-
         }
         else if (resultArray[i] == "Bat")
         {
             DataBaseManager.Bat -= 1;
-
-
         }
         else if (resultArray[i] == "Axe")
         {
             DataBaseManager.Axe -= 1;
-
-
         }
         else if (resultArray[i] == "Dagger")
         {
             DataBaseManager.Dagger -= 1;
-
-
         }
         else if (resultArray[i] == "Molotov")
         {
             DataBaseManager.Molotov -= 1;
-
-
         }
         else if (resultArray[i] == "PistolAmmo")
         {
             DataBaseManager.PistolAmmo -= 1;
-
-
         }
         else if (resultArray[i] == "RifleAmmo")
         {
             DataBaseManager.RifleAmmo -= 1;
-
-
         }
         else if (resultArray[i] == "ShotgunAmmo")
         {
             DataBaseManager.ShotgunAmmo -= 1;
-
-
         }
         else if (resultArray[i] == "ShotgunAmmo")
         {
             DataBaseManager.ShotgunAmmo -= 1;
-
-
         }
         else if (resultArray[i] == "Firstaidkit")
         {
             DataBaseManager.Firstaidkit -= 1;
-
-
         }
         else if (resultArray[i] == "Bandages")
         {
@@ -996,8 +877,6 @@ public class SIS_UIManager : MonoBehaviour
         {
             DataBaseManager.Painkillers -= 1;
         }
-
-  
     }
     public GameObject VisionLoss;
 
@@ -1093,7 +972,6 @@ public class SIS_UIManager : MonoBehaviour
     {
         Tightwad.SetActive(true);
     }
-
     //Level - 3 Debuff
     public GameObject NightPhobia;
     public void NightPhobia_Open()
@@ -1144,7 +1022,4 @@ public class SIS_UIManager : MonoBehaviour
     {
         Perfectionism.SetActive(true);
     }
-
-    // 배열에서 랜덤 변수를 선택하는 함수
-
 }

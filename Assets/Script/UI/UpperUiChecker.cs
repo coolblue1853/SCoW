@@ -6,13 +6,7 @@ public class UpperUiChecker : MonoBehaviour
 {
     public TextMeshProUGUI conditionText;
     public TextMeshProUGUI DateText;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         conditionText.text = "Condition : " + DataBaseManager.Condition;
@@ -25,7 +19,7 @@ public class UpperUiChecker : MonoBehaviour
             DateText.text = "Day1-Noon";
         }
         else if (DataBaseManager.TimeCount == 3 && DateText.text != "Day1-Afternoon")
-        { 
+        {
             DateText.text = "Day1-Afternoon";
         }
         else if (DataBaseManager.TimeCount == 4 && DateText.text != "Day1-Night")

@@ -1,11 +1,11 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ItemButton : MonoBehaviour
 {
-     Image imageComponent;
+    Image imageComponent;
     public Sprite NoGuide;
     public Sprite Guided;
     public void ClickItem()
@@ -16,12 +16,11 @@ public class ItemButton : MonoBehaviour
     }
     private void Start()
     {
-        imageComponent = this.GetComponent<Image>(); 
+        imageComponent = this.GetComponent<Image>();
     }
-
     private void Update()
     {
-        if(DataBaseManager.nowItem == this.name)
+        if (DataBaseManager.nowItem == this.name)
         {
             imageComponent.sprite = Guided;
         }

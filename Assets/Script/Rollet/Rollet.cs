@@ -13,7 +13,6 @@ public class Rollet : MonoBehaviour
     public GameObject RolletCheckUI;
     public GameObject RolletRollUI;
 
-
     public GameObject Bad_1;
     public GameObject Bad_10;
     public GameObject Good_1;
@@ -23,15 +22,12 @@ public class Rollet : MonoBehaviour
     public GameObject Good_1_Rollet;
     public GameObject Good_10_Rollet;
 
-
     public GameObject setUI;
     public GameObject activeUI;
-
 
     public float SkillPoint_1;
     public float SkillPoint_10;
     public float SuccesProbability;
-
 
     public TextMeshProUGUI Skill;
     public TextMeshProUGUI Point;
@@ -56,21 +52,15 @@ public class Rollet : MonoBehaviour
     private static Rollet instance = null;
 
     public GameObject EndButton;
-  
-    string  String;
-
+    string String;
     public GameObject RolletUI;
-
     private void Update()
     {
-        if (RolletUI.activeSelf == true && setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) && (Sub_Dialog != "SAN : Check" || Sub_Dialog != "Fabian : Sneak Out") )
+        if (RolletUI.activeSelf == true && setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) && (Sub_Dialog != "SAN : Check" || Sub_Dialog != "Fabian : Sneak Out"))
         {
             activeCheck = false;
             DataBaseManager.CancelJudge = true;
-              
-      
-
-             if (BattleManager.Instance.PlayerAction == "PlayerMarkmen")
+            if (BattleManager.Instance.PlayerAction == "PlayerMarkmen")
             {
                 BattleManager.Instance.EnemySelectUI.SetActive(true);
                 BattleManager.Instance.BattleState = "selectEnemy";
@@ -88,15 +78,13 @@ public class Rollet : MonoBehaviour
             DataBaseManager.isDirecting = false;
             DataBaseManager.isOpenUi = false;
         }
-        if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck== true)
+        if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck == true)
         {
             activeCheck = false;
             activeRollet();
         }
-
         if (EndButton.activeSelf == true && Input.GetKeyDown(KeyCode.E))
         {
-
             EndRollet();
         }
         {
@@ -110,13 +98,8 @@ public class Rollet : MonoBehaviour
                     isActiveRollet = false;
                     Invoke("GetIntResult", 0.5f);
                 }
-
-
             }
         }
-
-
-
         if (SanRollet.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck2 == true)
         {
             activeCheck2 = false;
@@ -124,26 +107,21 @@ public class Rollet : MonoBehaviour
         }
         if (EndButton2.activeSelf == true && Input.GetKeyDown(KeyCode.E))
         {
-
             EndSanRollet();
         }
     }
     void Awake()
+    {
+        isClick = false;
+        if (null == instance)
         {
-            isClick = false;
-            if (null == instance)
-            {
-                instance = this;
-
-            }
-            else
-            {
-                Destroy(this.gameObject);
-            }
+            instance = this;
         }
- 
-
-    //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
     public static Rollet Instance
     {
         get
@@ -157,7 +135,7 @@ public class Rollet : MonoBehaviour
     }
     public void setRollet(string skill, string point_sting, int point_int, string subject, string Enemy = "")
     {
-        if(point_int >= 90)
+        if (point_int >= 90)
         {
             point_int = 90;
         }
@@ -174,13 +152,13 @@ public class Rollet : MonoBehaviour
         ResetString();
         RolletSetUi.SetActive(true);
         Skill.text = skill;
-        if(skill != "??? : Deftness")
+        if (skill != "??? : Deftness")
         {
             Point.text = point_sting + " : " + point_int;
         }
         else
         {
-            Point.text = point_sting + " : ???" ;
+            Point.text = point_sting + " : ???";
         }
         skillPoint = point_int;
         String = point_sting;
@@ -188,7 +166,6 @@ public class Rollet : MonoBehaviour
         {
             ResetRolletDice();
             Conditon.text = "Condition : Nomal";
-
             SkillPoint_1 = point_int % 10;
             SkillPoint_10 = point_int / 10;
             SuccesProbability = SkillPoint_10 * 0.1f + SkillPoint_1 * 0.01f;
@@ -201,9 +178,9 @@ public class Rollet : MonoBehaviour
             Good_1_Rollet.SetActive(true);
             SkillPoint_1 = point_int % 10;
             SkillPoint_10 = point_int / 10;
-            SuccesProbability = SkillPoint_10 * 0.1f + (SkillPoint_1 * SkillPoint_1 + 2* SkillPoint_1*(10- SkillPoint_1)) * 0.001f;
+            SuccesProbability = SkillPoint_10 * 0.1f + (SkillPoint_1 * SkillPoint_1 + 2 * SkillPoint_1 * (10 - SkillPoint_1)) * 0.001f;
         }
-        else if(DataBaseManager.Condition == "Best")
+        else if (DataBaseManager.Condition == "Best")
         {
             ResetRolletDice();
             Conditon.text = "Condition : Best";
@@ -211,9 +188,9 @@ public class Rollet : MonoBehaviour
             Good_10_Rollet.SetActive(true);
             SkillPoint_1 = point_int % 10;
             SkillPoint_10 = point_int / 10;
-            SuccesProbability = (SkillPoint_10* SkillPoint_10 + 2* SkillPoint_10*(10- SkillPoint_10)) * 0.01f + SkillPoint_1*0.001f;
+            SuccesProbability = (SkillPoint_10 * SkillPoint_10 + 2 * SkillPoint_10 * (10 - SkillPoint_10)) * 0.01f + SkillPoint_1 * 0.001f;
         }
-        else if(DataBaseManager.Condition == "Bad")
+        else if (DataBaseManager.Condition == "Bad")
         {
             ResetRolletDice();
             Conditon.text = "Condition : Bad";
@@ -221,9 +198,9 @@ public class Rollet : MonoBehaviour
             Bad_1_Rollet.SetActive(true);
             SkillPoint_1 = point_int % 10;
             SkillPoint_10 = point_int / 10;
-            SuccesProbability = SkillPoint_10 * 0.1f + SkillPoint_1* SkillPoint_1*0.001f;
+            SuccesProbability = SkillPoint_10 * 0.1f + SkillPoint_1 * SkillPoint_1 * 0.001f;
         }
-        else if(DataBaseManager.Condition == "Worst")
+        else if (DataBaseManager.Condition == "Worst")
         {
             ResetRolletDice();
             Conditon.text = "Condition : Worst";
@@ -231,14 +208,13 @@ public class Rollet : MonoBehaviour
             Bad_10_Rollet.SetActive(true);
             SkillPoint_1 = point_int % 10;
             SkillPoint_10 = point_int / 10;
-            SuccesProbability = (SkillPoint_10 * SkillPoint_10 *0.01f) + SkillPoint_1*0.001f;
+            SuccesProbability = (SkillPoint_10 * SkillPoint_10 * 0.01f) + SkillPoint_1 * 0.001f;
         }
-        
-        if(SuccesProbability < 0.20)
+        if (SuccesProbability < 0.20)
         {
             Expect.text = "Probability : Very Hard";
         }
-        else if(SuccesProbability < 0.40)
+        else if (SuccesProbability < 0.40)
         {
             Expect.text = "Probability : Hard";
         }
@@ -262,7 +238,6 @@ public class Rollet : MonoBehaviour
     }
     public void activeRollet()
     {
-
         setUI.SetActive(false);
         activeUI.SetActive(true);
         InvokeRepeating("ChangeRollet", 0.5f, 0.05f);
@@ -272,13 +247,12 @@ public class Rollet : MonoBehaviour
     {
         SoundManager.Instance.PlayDice();
     }
-
     void ChangeRollet()
     {
         isActiveRollet = true;
         NomalRollet_1t.text = Random.Range(0, 10).ToString();
-        int nom_10t = (Random.Range(0, 10)*10);
-        if(nom_10t != 0)
+        int nom_10t = (Random.Range(0, 10) * 10);
+        if (nom_10t != 0)
         {
             NomalRollet_10t.text = nom_10t.ToString();
         }
@@ -286,8 +260,6 @@ public class Rollet : MonoBehaviour
         {
             NomalRollet_10t.text = "00";
         }
-
-
         BadRollet_1t.text = Random.Range(0, 10).ToString();
         int bad_10t = (Random.Range(0, 10) * 10);
         if (bad_10t != 0)
@@ -298,7 +270,6 @@ public class Rollet : MonoBehaviour
         {
             BadRollet_10t.text = "00";
         }
-
         GoodRollet_1t.text = Random.Range(0, 10).ToString();
         int good_10t = (Random.Range(0, 10) * 10);
         if (good_10t != 0)
@@ -309,18 +280,14 @@ public class Rollet : MonoBehaviour
         {
             GoodRollet_10t.text = "00";
         }
-
     }
-    
-
     void GetIntResult()
     {
         SoundManager.Instance.pen_Line();
-
         if (DataBaseManager.Condition == "Nomal")
         {
             result_int = int.Parse(NomalRollet_10t.text) + int.Parse(NomalRollet_1t.text);
-            if(result_int == 0)
+            if (result_int == 0)
             {
                 result_int = 100;
             }
@@ -328,7 +295,7 @@ public class Rollet : MonoBehaviour
         }
         else if (DataBaseManager.Condition == "Good")
         {
-            if(int.Parse(NomalRollet_1t.text) > int.Parse(GoodRollet_1t.text))
+            if (int.Parse(NomalRollet_1t.text) > int.Parse(GoodRollet_1t.text))
             {
                 result_int = int.Parse(NomalRollet_10t.text) + int.Parse(GoodRollet_1t.text);
                 if (result_int == 0)
@@ -410,7 +377,6 @@ public class Rollet : MonoBehaviour
                 result_string.text = "Dice : " + result_int.ToString();
             }
         }
-
         Invoke("GetStringResult", 0.5f);
     }
     void GetStringResult()
@@ -420,13 +386,13 @@ public class Rollet : MonoBehaviour
         {
             result_End.text = "Result : Fumble";
         }
-        else if(result_int <= skillPoint / 3f)
+        else if (result_int <= skillPoint / 3f)
         {
             result_End.text = "Result : Critical Success";
         }
         else if (result_int <= skillPoint)
         {
-            if(DataBaseManager.isDebuff_Perfectionism == true)
+            if (DataBaseManager.isDebuff_Perfectionism == true)
             {
                 result_End.text = "Result : Failure";
             }
@@ -434,32 +400,23 @@ public class Rollet : MonoBehaviour
             {
                 result_End.text = "Result : Success";
             }
-
-
         }
         else
         {
             result_End.text = "Result : Failure";
         }
-
-   
-        if(String == "Sanity")
+        if (String == "Sanity")
         {
             Invoke("OpenSanRollet", 1f);
-
         }
         else
         {
             EndButton.SetActive(true);
         }
- 
-
     }
-
     public void EndRollet()
     {
         SoundManager.Instance.EndDice();
-
         DataBaseManager.isOpenUi = false;
         DataBaseManager.isRollet = false;
         activeCheck = false;
@@ -467,26 +424,21 @@ public class Rollet : MonoBehaviour
         isClick = false;
         RolletSetUi.SetActive(false);
         RolletCheckUI.SetActive(true);
-        RolletRollUI.SetActive(false) ;
+        RolletRollUI.SetActive(false);
         EndButton.SetActive(false);
 
         // 결과값을 전달하는 함수 필요
-
-
-        if(Subject == "dialog")
+        if (Subject == "dialog")
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, EnemySubject);
-            // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
-            // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 결과값에 따른 문자를 출력하도록 함
         }
         if (Subject == "Item")
         {
-            if(DataBaseManager.nowItem == "First aid kit")
+            if (DataBaseManager.nowItem == "First aid kit")
             {
                 DataBaseManager.Firstaidkit -= 1;
                 if (result_End.text == "Result : Success")
                 {
-
                     BillowUIManager.Instance.HP_up((Random.Range(1, 7)) * 5);
                 }
                 else if (result_End.text == "Result : Critical Success")
@@ -499,7 +451,6 @@ public class Rollet : MonoBehaviour
                 DataBaseManager.Bandages -= 1;
                 if (result_End.text == "Result : Success")
                 {
-
                     BillowUIManager.Instance.HP_up((Random.Range(1, 4)) * 5);
                 }
                 else if (result_End.text == "Result : Critical Success")
@@ -512,7 +463,6 @@ public class Rollet : MonoBehaviour
                 DataBaseManager.Painkillers -= 1;
                 if (result_End.text == "Result : Success")
                 {
-
                     BillowUIManager.Instance.San_up((Random.Range(1, 4)) * 5);
                 }
                 else if (result_End.text == "Result : Critical Success")
@@ -528,15 +478,14 @@ public class Rollet : MonoBehaviour
             {
                 InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
             }
-
         }
-        
+
         if (Subject == "MS_attack")
         {
             if (EnemySubject == "DeepOneHybrid")
             {
                 BattleManager.Instance.RetrunRolletResult(Subject, result_End.text, EnemySubject);
-                if(DataBaseManager.BattleWeapon == "SmallPistol")
+                if (DataBaseManager.BattleWeapon == "SmallPistol")
                 {
                     DataBaseManager.nowSmallPistol -= 1;
                 }
@@ -552,7 +501,6 @@ public class Rollet : MonoBehaviour
                 {
                     DataBaseManager.nowRevolver -= 1;
                 }
-
             }
             if (EnemySubject == "DeepOne")
             {
@@ -573,7 +521,6 @@ public class Rollet : MonoBehaviour
                 {
                     DataBaseManager.nowRevolver -= 1;
                 }
-
             }
         }
         if (Subject == "Deftness_attack")
@@ -585,8 +532,6 @@ public class Rollet : MonoBehaviour
                 {
                     DataBaseManager.Molotov -= 1;
                 }
-
-
             }
             if (EnemySubject == "DeepOne")
             {
@@ -595,8 +540,6 @@ public class Rollet : MonoBehaviour
                 {
                     DataBaseManager.Molotov -= 1;
                 }
-
-
             }
         }
         if (Subject == "EnemyDeftness")
@@ -607,9 +550,6 @@ public class Rollet : MonoBehaviour
         {
             BattleManager.Instance.RetrunRolletResult(Subject, result_End.text, EnemySubject);
         }
-
-        
-
         if (Subject == "Case2IntCheck") // 이성판정 광련
         {
             InteractionController.Instance.RetrunDialogResult("Case2IntCheck", result_End.text);
@@ -617,7 +557,6 @@ public class Rollet : MonoBehaviour
     }
 
     public GameObject EndButton2;
-
     public TextMeshProUGUI SanName;
     public TextMeshProUGUI Slot1_name;
     public TextMeshProUGUI Slot1_percent;
@@ -650,7 +589,7 @@ public class Rollet : MonoBehaviour
     public GameObject Masochism;
     public GameObject Careless;
     public GameObject MentalWeakness;
-    public GameObject Helplessness  ;
+    public GameObject Helplessness;
     public GameObject Extravagant;
     public GameObject PanicAttack;
     public GameObject Medicaldistrust;
@@ -675,7 +614,6 @@ public class Rollet : MonoBehaviour
     public GameObject Nomal;
     public GameObject Bad;
     public GameObject Worst;
-
     public TextMeshProUGUI Detail_San;
     public void OpenSanRollet()
     {
@@ -685,9 +623,9 @@ public class Rollet : MonoBehaviour
         Invoke("WaitOneSec2", 0.1f);
         if (result_End.text == "Result : Fumble" || result_End.text == "Result : Failure")
         {
-            if(DataBaseManager.Debuff == 0)
+            if (DataBaseManager.Debuff == 0)
             {
-                if(DataBaseManager.Condition != "Worst")
+                if (DataBaseManager.Condition != "Worst")
                 {
                     SanName.text = "!Sanity check failed!";
                     Slot1_name.text = "Sanity Decline";
@@ -743,7 +681,6 @@ public class Rollet : MonoBehaviour
                     Slot3_percent.text = "---";
                     slot3_int = slot2_int + 999;
                 }
-
             }
             else if (DataBaseManager.Debuff == 2)
             {
@@ -773,7 +710,6 @@ public class Rollet : MonoBehaviour
                     Slot3_percent.text = "---";
                     slot3_int = slot2_int + 999;
                 }
-
             }
             else if (DataBaseManager.Debuff == 3)
             {
@@ -802,7 +738,6 @@ public class Rollet : MonoBehaviour
                     Slot3_percent.text = "---";
                     slot3_int = slot2_int + 999;
                 }
-
             }
         }
         else
@@ -813,12 +748,11 @@ public class Rollet : MonoBehaviour
             slot1_int = 80;
             Slot2_name.text = "Rise sanity";
             Slot2_percent.text = "15%";
-            slot2_int  = 95;
+            slot2_int = 95;
             Slot3_name.text = "Raise Condition";
             Slot3_percent.text = "5%";
             slot3_int = 100;
         }
-
     }
     public GameObject ActiveButton;
     public void activeSanRollet()
@@ -838,14 +772,13 @@ public class Rollet : MonoBehaviour
             int SanRollet = (Random.Range(1, 101));
             Debug.Log(SanRollet);
 
-            if(DataBaseManager.Debuff == 3)
+            if (DataBaseManager.Debuff == 3)
             {
-                if (SanRollet <= slot1_int &&  SanRollet <= slot3_int)
+                if (SanRollet <= slot1_int && SanRollet <= slot3_int)
                 {
                     SanRolletText.text = "Sanity Decline";
                 }
                 else
-
                 {
                     SanRolletText.text = "Deconditioning";
                 }
@@ -861,12 +794,10 @@ public class Rollet : MonoBehaviour
                     SanRolletText.text = "Manifest Insanity";
                 }
                 else if (SanRollet >= slot1_int && SanRollet >= slot2_int && SanRollet <= slot3_int)
-
                 {
                     SanRolletText.text = "Deconditioning";
                 }
             }
-
         }
         else if (SanName.text == "Sanity check Success")
         {
@@ -885,18 +816,16 @@ public class Rollet : MonoBehaviour
                 SanRolletText.text = "Raise Condition";
             }
         }
-        Invoke("ResultRollet",1);
+        Invoke("ResultRollet", 1);
     }
-
     void ResultRollet()
     {
         SoundManager.Instance.pen_Circle();
         if (SanRolletText.text == "Sanity Decline")
         {
             int SanRollet = (Random.Range(0, 3));
-            if(SanRollet == 1)
+            if (SanRollet == 1)
             {
-
                 Detail_San.text = "Sanity Decline : 10\n\nThe current sanity reduced by 10 Point.";
                 BillowUIManager.Instance.San_Down(10);
                 SanM10.SetActive(true);
@@ -904,7 +833,6 @@ public class Rollet : MonoBehaviour
             else
             {
                 Detail_San.text = "Sanity Decline : 5\n\nThe current sanity reduced by 5 Point.";
-
                 BillowUIManager.Instance.San_Down(5);
                 SanM5.SetActive(true);
             }
@@ -914,16 +842,15 @@ public class Rollet : MonoBehaviour
             if (DataBaseManager.Debuff == 0)
             {
                 DataBaseManager.Debuff += 1;
-                 int DebuffRollet = (Random.Range(1, 10));
-
+                int DebuffRollet = (Random.Range(1, 10));
                 switch (DebuffRollet)
                 {
                     case 1:
                         Detail_San.text = "Level 1 : ThinWallets\n\nYou lose 5 of your wealth Point.";
                         DataBaseManager.ThinWallets = true;
-                        
+
                         ThinWallets.SetActive(true);
-                        if(DataBaseManager.weal > 5)
+                        if (DataBaseManager.weal > 5)
                         {
                             DataBaseManager.weal -= 5;
                         }
@@ -987,7 +914,7 @@ public class Rollet : MonoBehaviour
                         DataBaseManager.medicinePoint -= 10;
                         DataBaseManager.analysisPoint -= 10;
                         DataBaseManager.listeningPoint -= 10;
-                        if(DataBaseManager.psychotherapyPoint> 10)
+                        if (DataBaseManager.psychotherapyPoint > 10)
                         {
                             DataBaseManager.psychotherapyPoint -= 10;
                         }
@@ -995,7 +922,6 @@ public class Rollet : MonoBehaviour
                         {
                             DataBaseManager.psychotherapyPoint = 0;
                         }
-
                         if (DataBaseManager.occultPoint > 10)
                         {
                             DataBaseManager.occultPoint -= 10;
@@ -1020,13 +946,11 @@ public class Rollet : MonoBehaviour
                         SIS_UIManager.Instance.EyeDisease_Open();
                         break;
                 }
-                    
             }
             else if (DataBaseManager.Debuff == 1)
             {
                 DataBaseManager.Debuff += 1;
                 int DebuffRollet = (Random.Range(1, 8));
-
                 switch (DebuffRollet)
                 {
                     case 1:
@@ -1081,16 +1005,13 @@ public class Rollet : MonoBehaviour
                     case 9:
                         Medicaldistrust.SetActive(true);   // 나중에 상점 추가된 뒤에 해서 넣기~~~~~~~~~~~~
                         SIS_UIManager.Instance.Medicaldistrust_Open();
-
                         break;
                 }
-
             }
             else if (DataBaseManager.Debuff == 2)
             {
                 DataBaseManager.Debuff += 1;
-               int DebuffRollet = (Random.Range(1, 10));
-
+                int DebuffRollet = (Random.Range(1, 10));
                 switch (DebuffRollet)
                 {
                     case 1:
@@ -1148,23 +1069,19 @@ public class Rollet : MonoBehaviour
                         DataBaseManager.isDebuff_Perfectionism = true;
                         break;
                     case 10:
-               
                         Detail_San.text = "Level 3 : NightPhobia\n\n";
                         HomicidalImpulse.SetActive(true);
                         SIS_UIManager.Instance.HomicidalImpulse_Open();
                         break;
                 }
-
             }
         }
         else if (SanRolletText.text == "Deconditioning")
         {
             if (DataBaseManager.Condition == "Best")
             {
-
                 Good.SetActive(true);
                 Detail_San.text = "Deconditioning : Good\n\nCondition has dropped to (Good).";
-
                 DataBaseManager.Condition = "Good";
             }
             else if (DataBaseManager.Condition == "Good")
@@ -1173,23 +1090,21 @@ public class Rollet : MonoBehaviour
                 Detail_San.text = "Deconditioning : Nomal\n\nCondition has dropped to (Nomal).";
                 DataBaseManager.Condition = "Nomal";
             }
-            else if(DataBaseManager.Condition == "Nomal")
+            else if (DataBaseManager.Condition == "Nomal")
             {
                 Bad.SetActive(true);
                 Detail_San.text = "Deconditioning : Bad\n\nCondition has dropped to (Bad).";
                 DataBaseManager.Condition = "Bad";
             }
-            else if(DataBaseManager.Condition == "Bad")
+            else if (DataBaseManager.Condition == "Bad")
             {
                 Worst.SetActive(true);
                 Detail_San.text = "Deconditioning : Worst   \n\nCondition has dropped to (Worst).";
                 DataBaseManager.Condition = "Worst";
             }
-            else if(DataBaseManager.Condition == "Worst")
+            else if (DataBaseManager.Condition == "Worst")
             {
-
             }
-            
         }
         else if (SanRolletText.text == "Rise sanity")
         {
@@ -1211,7 +1126,6 @@ public class Rollet : MonoBehaviour
         {
             if (DataBaseManager.Condition == "Best")
             {
-   
             }
             else if (DataBaseManager.Condition == "Good")
             {
@@ -1240,7 +1154,6 @@ public class Rollet : MonoBehaviour
         }
         else if (SanRolletText.text == "No change")
         {
-            
         }
         EndButton2.SetActive(true);
     }
@@ -1248,13 +1161,9 @@ public class Rollet : MonoBehaviour
     public void EndSanRollet()
     {
         SoundManager.Instance.EndDice();
-
-
-
         RolletSetUi.SetActive(false);
         RolletCheckUI.SetActive(true);
         RolletRollUI.SetActive(false);
-
 
         activeCheck = false;
         DataBaseManager.isOpenUi = false;
@@ -1264,26 +1173,18 @@ public class Rollet : MonoBehaviour
         EndButton2.SetActive(false);
         resetSanRollet();
         // 결과값을 전달하는 함수 필요
-
         if (Subject == "RoadBattle1")
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
-            // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
-            // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 결과값에 따른 문자를 출력하도록 함
         }
-
         if (Subject == "Fab_Case1")
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
-            // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
-            // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 결과값에 따른 문자를 출력하도록 함
         }
-        
         if (Subject == "NoonEvent")
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "NoonEvent_FirstDoor");
         }
-
         if (Subject == "KaneSan")
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "KaneSan");
@@ -1301,7 +1202,6 @@ public class Rollet : MonoBehaviour
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "DayTwoCase2San");
         }
         if (Subject == "JournalSan")
-        
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "JournalSan");
         }
@@ -1310,9 +1210,6 @@ public class Rollet : MonoBehaviour
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "BookSan");
         }
-
-
-
         if (Subject == "FourthDayStartSan")
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "FourthDayStartSan");
@@ -1321,18 +1218,14 @@ public class Rollet : MonoBehaviour
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "Fab_4th_QuestO_SanCheck");
         }
-
         if (Subject == "SymbolStrSan")
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "SymbolStrSan");
         }
-
-
         if (Subject == "BattleSan_DeepOne1")
         {
             BattleManager.Instance.EndDeepOneSanAttack();
         }
-
         if (Subject == "DeepOneFirstSan")
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "DeepOneFirstSan");
@@ -1345,13 +1238,7 @@ public class Rollet : MonoBehaviour
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "EndingLedderSan");
         }
-        
-
-
     }
-
-
-
     void resetSanRollet()
     {
         EndButton2.SetActive(false);
@@ -1383,7 +1270,7 @@ public class Rollet : MonoBehaviour
         Migraines.SetActive(false);
         EyeDisease.SetActive(false);
 
-             Masochism.SetActive(false);
+        Masochism.SetActive(false);
         Careless.SetActive(false);
         MentalWeakness.SetActive(false);
         Helplessness.SetActive(false);
@@ -1411,8 +1298,8 @@ public class Rollet : MonoBehaviour
         Worst.SetActive(false);
     }
 
-// 중요!!!!!!!
-private void ResetString()
+    // 중요!!!!!!!
+    private void ResetString()
     {
         NomalRollet_1t.text = "-";
         NomalRollet_10t.text = "--";
@@ -1420,7 +1307,7 @@ private void ResetString()
         BadRollet_10t.text = "--";
         GoodRollet_1t.text = "-";
         GoodRollet_10t.text = "--";
-        result_string.text ="Dice : --";
+        result_string.text = "Dice : --";
         result_End.text = "Result : --";
     }
     private void ResetRolletDice()
@@ -1433,6 +1320,5 @@ private void ResetString()
         Good_10_Rollet.SetActive(false);
         Bad_1_Rollet.SetActive(false);
         Bad_10_Rollet.SetActive(false);
-
     }
 }

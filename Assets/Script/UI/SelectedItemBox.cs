@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SelectedItemBox : MonoBehaviour
 {
-
     Image imageComponent;
     public Sprite Shotgun;
     public Sprite Rifle;
@@ -23,7 +22,7 @@ public class SelectedItemBox : MonoBehaviour
     {
         imageComponent = this.GetComponent<Image>();
     }
-    // Update is called once per frame
+
     void Update()
     {
         if (DataBaseManager.nowItem == "Shotgun")

@@ -32,7 +32,4 @@ public class strSkillExplain : MonoBehaviour
         nameEX.text = "< Swim >";
         mainEX.text = "This stat represents the player's swimming ability.  The higher this stat is, the longer the player can dive and the easier it is to move through the water.";
     }
-
-
-
 }

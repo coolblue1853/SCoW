@@ -46,11 +46,6 @@ public class ShopUI : MonoBehaviour
     public Text AidKitPrice;
     public Text PainkillerPrice;
 
-
-
-
-
-
     private static ShopUI instance = null;
     public static ShopUI Instance
     {
@@ -65,7 +60,6 @@ public class ShopUI : MonoBehaviour
     }
     void Awake()
     {
-
         if (null == instance)
         {
             instance = this;
@@ -75,13 +69,6 @@ public class ShopUI : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && ShopUI_object.activeSelf == true)
@@ -90,14 +77,14 @@ public class ShopUI : MonoBehaviour
             DataBaseManager.isOpenUi = false;
             ShopUI_object.SetActive(false);
         }
-        if(DataBaseManager.SmallPistol > 0 && SO_SmallPistol.activeSelf == false)
+        if (DataBaseManager.SmallPistol > 0 && SO_SmallPistol.activeSelf == false)
         {
             SO_SmallPistol.SetActive(true);
         }
-        if(ShopUI_object.activeSelf == true)
+        if (ShopUI_object.activeSelf == true)
         {
             WealthText.text = "wealth : " + DataBaseManager.weal;
-            PistolAmmoText.text = "Hold:"+DataBaseManager.PistolAmmo+"Pcs";
+            PistolAmmoText.text = "Hold:" + DataBaseManager.PistolAmmo + "Pcs";
             RifleAmmoText.text = "Hold:" + DataBaseManager.RifleAmmo + "Pcs";
             ShotgunAmmoText.text = "Hold:" + DataBaseManager.ShotgunAmmo + "Pcs";
             MolotovText.text = "Hold:" + DataBaseManager.Molotov + "Pcs";
@@ -105,11 +92,7 @@ public class ShopUI : MonoBehaviour
             AidKitText.text = "Hold:" + DataBaseManager.Firstaidkit + "Pcs";
             PainkillerText.text = "Hold:" + DataBaseManager.Painkillers + "Pcs";
         }
-
-     
-
     }
-
     public void ExtravoltON()
     {
         SmallPistolPrice.text = "Price : 12$";
@@ -127,8 +110,6 @@ public class ShopUI : MonoBehaviour
         AidKitPrice.text = "Price : 6$";
         PainkillerPrice.text = "Price : 4$";
     }
-
-    //총기류 구매 버튼
     public void BuySmallPistol()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -150,8 +131,6 @@ public class ShopUI : MonoBehaviour
                 SO_SmallPistol.SetActive(true);
             }
         }
-
-
     }
     public void BuyRevolver()
     {
@@ -174,7 +153,6 @@ public class ShopUI : MonoBehaviour
                 SO_Revolver.SetActive(true);
             }
         }
-        
     }
     public void BuyRifle()
     {
@@ -197,7 +175,6 @@ public class ShopUI : MonoBehaviour
                 SO_Rifle.SetActive(true);
             }
         }
-        
     }
     public void BuyShotgun()
     {
@@ -220,10 +197,7 @@ public class ShopUI : MonoBehaviour
                 SO_Shotgun.SetActive(true);
             }
         }
-
-       
     }
-
     public void BuyPistolAmmo()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -243,14 +217,13 @@ public class ShopUI : MonoBehaviour
                 DataBaseManager.PistolAmmo += 12;
             }
         }
-          
     }
     public void BuyRifleAmmo()
     {
         SoundManager.Instance.ClickSound_Play();
         if (DataBaseManager.Extravagant == true)
         {
-             if (DataBaseManager.weal >= 3)
+            if (DataBaseManager.weal >= 3)
             {
                 DataBaseManager.weal -= 3;
                 DataBaseManager.RifleAmmo += 5;
@@ -264,7 +237,6 @@ public class ShopUI : MonoBehaviour
                 DataBaseManager.RifleAmmo += 5;
             }
         }
-           
     }
     public void BuyShotgunAmmo()
     {
@@ -286,9 +258,7 @@ public class ShopUI : MonoBehaviour
                 DataBaseManager.ShotgunAmmo += 8;
             }
         }
-       
     }
-
     public void BuyBat()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -310,7 +280,6 @@ public class ShopUI : MonoBehaviour
                 SO_Bat.SetActive(true);
             }
         }
-     
     }
     public void BuyDagger()
     {
@@ -333,7 +302,6 @@ public class ShopUI : MonoBehaviour
                 SO_Dagger.SetActive(true);
             }
         }
-     
     }
     public void BuyAxe()
     {
@@ -356,9 +324,7 @@ public class ShopUI : MonoBehaviour
                 SO_Axe.SetActive(true);
             }
         }
- 
     }
-
     public void BuyMolotov()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -378,9 +344,7 @@ public class ShopUI : MonoBehaviour
                 DataBaseManager.Molotov += 1;
             }
         }
-       
     }
-
     public void BuyBandage()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -400,7 +364,6 @@ public class ShopUI : MonoBehaviour
                 DataBaseManager.Bandages += 1;
             }
         }
-       
     }
     public void BuyAidkit()
     {
@@ -421,7 +384,6 @@ public class ShopUI : MonoBehaviour
                 DataBaseManager.Firstaidkit += 1;
             }
         }
-        
     }
     public void BuyPainkiller()
     {
@@ -442,19 +404,16 @@ public class ShopUI : MonoBehaviour
                 DataBaseManager.Painkillers += 1;
             }
         }
-     
     }
-
-
     //상점페이지 열기
     public void OpenPage_Firearm()
     {
         SoundManager.Instance.ClickSound_Play();
         Firearm_Page.SetActive(true);
-      Ammo_Page.SetActive(false);
-      Swords_Page.SetActive(false);
-      Throwable_Page.SetActive(false);
-      AidKit_Page.SetActive(false);
+        Ammo_Page.SetActive(false);
+        Swords_Page.SetActive(false);
+        Throwable_Page.SetActive(false);
+        AidKit_Page.SetActive(false);
     }
     public void OpenPage_Ammo()
     {
@@ -501,7 +460,6 @@ public class ShopUI : MonoBehaviour
             DataBaseManager.isOpenUi = true;
             ShopUI_object.SetActive(true);
         }
-
     }
     public void CloseShop()
     {

@@ -73,7 +73,7 @@ public class setSkill : MonoBehaviour
 
     private void Update()
     {
-        if(isClick == true)
+        if (isClick == true)
         {
             clickTime += Time.deltaTime;
         }
@@ -81,15 +81,13 @@ public class setSkill : MonoBehaviour
         {
             clickTime = 0;
         }
-
         skillUpButton();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-        
+
         martialArtsPoint_t.text = DataBaseManager.martialArtsPoint.ToString();
         martialArtsPoint_g.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
         gunShotPoint_t.text = DataBaseManager.gunShotPoint.ToString();
@@ -389,16 +387,10 @@ public class setSkill : MonoBehaviour
         DataBaseManager.strSkillPoint = DataBaseManager.str;
         strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
     }
-
-
-
-
     public void skillUpButton()
     {
-
-        if (clickTime > minClickTime )
+        if (clickTime > minClickTime)
         {
-
             if (nowSkill == "martialArtsUP")
             {
                 clickTime = 0;
@@ -586,7 +578,6 @@ public class setSkill : MonoBehaviour
     //str
     public void martialArtsUP()
     {
-
         if (DataBaseManager.martialArtsPoint < 90 && DataBaseManager.strSkillPoint >= 5)
         {
             SoundManager.Instance.ClickSound_Play();
@@ -726,9 +717,6 @@ public class setSkill : MonoBehaviour
             nowSkill = "swimingDown";
         }
     }
-
-
-
     public void RandInt()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -764,7 +752,8 @@ public class setSkill : MonoBehaviour
                         DataBaseManager.occultPoint += 5;
                         occult_t.text = DataBaseManager.occultPoint.ToString();
                         intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-                        occult_g.fillAmount = (float)DataBaseManager.occultPoint / 100;                    }
+                        occult_g.fillAmount = (float)DataBaseManager.occultPoint / 100;
+                    }
                     break;
                 case 4:
                     if (DataBaseManager.listeningPoint < 90 && DataBaseManager.intSkillPoint >= 5)
@@ -810,7 +799,6 @@ public class setSkill : MonoBehaviour
         DataBaseManager.intSkillPoint = DataBaseManager.intl;
         intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
     }
-
     //int
     public void medicineUP()
     {
@@ -1040,7 +1028,6 @@ public class setSkill : MonoBehaviour
         dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
     }
 
-
     //dex
     public void evasionUP()
     {
@@ -1183,7 +1170,6 @@ public class setSkill : MonoBehaviour
             nowSkill = "DisguiseDown";
         }
     }
-
     public void buttonUP()
     {
         isClick = false;
@@ -1199,10 +1185,8 @@ public class setSkill : MonoBehaviour
         setSkillWindow.SetActive(false);
         allRandButton.SetActive(true);
     }
-
     public void resetSkillPoint()
     {
-        //SoundManager.Instance.ClickSound_Play();
         DataBaseManager.martialArtsPoint = 25;
         martialArtsPoint_t.text = DataBaseManager.martialArtsPoint.ToString();
         martialArtsPoint_g.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
@@ -1251,6 +1235,4 @@ public class setSkill : MonoBehaviour
         Disguise_t.text = DataBaseManager.DisguisePoint.ToString();
         Disguise_g.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
     }
-
-
 }

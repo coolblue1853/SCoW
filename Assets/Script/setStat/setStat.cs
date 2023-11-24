@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class setStat : MonoBehaviour
 {
-
     public Text str_txt;
     public Text intl_txt;
     public Text dex_txt;
@@ -39,7 +38,7 @@ public class setStat : MonoBehaviour
     public bool firstSetStat = true;
     public void SetStatButton()
     {
-        if((DataBaseManager.strSkillPoint == DataBaseManager.str && DataBaseManager.intSkillPoint == DataBaseManager.intl && DataBaseManager.dexSkillPoint == DataBaseManager.dex) || firstSetStat == true)
+        if ((DataBaseManager.strSkillPoint == DataBaseManager.str && DataBaseManager.intSkillPoint == DataBaseManager.intl && DataBaseManager.dexSkillPoint == DataBaseManager.dex) || firstSetStat == true)
         {
             SoundManager.Instance.ClickSound_Play();
 
@@ -58,7 +57,6 @@ public class setStat : MonoBehaviour
             dex_txt.text = DataBaseManager.dex.ToString();
             dex_image.fillAmount = ((float)DataBaseManager.dex / 100);
             DataBaseManager.dexSkillPoint = DataBaseManager.dex;
-
 
             DataBaseManager.hp = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
             hp_txt.text = DataBaseManager.hp.ToString();
@@ -83,16 +81,13 @@ public class setStat : MonoBehaviour
             DataBaseManager.nowHP = DataBaseManager.hp;
             DataBaseManager.nowSan = DataBaseManager.san;
             setSkill.resetSkillPoint();
-
         }
         else
         {
             SoundManager.Instance.ClickSound_Play();
             checkUI.SetActive(true);
         }
-
     }
-
     public void CloseCheckUI()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -101,7 +96,7 @@ public class setStat : MonoBehaviour
     }
     public void Okay2CheckUI()
     {
-       SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSound_Play();
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         str_txt.text = DataBaseManager.str.ToString();
         str_image.fillAmount = ((float)DataBaseManager.str / 100);
@@ -116,7 +111,6 @@ public class setStat : MonoBehaviour
         dex_txt.text = DataBaseManager.dex.ToString();
         dex_image.fillAmount = ((float)DataBaseManager.dex / 100);
         DataBaseManager.dexSkillPoint = DataBaseManager.dex;
-
 
         DataBaseManager.hp = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         hp_txt.text = DataBaseManager.hp.ToString();
@@ -143,16 +137,13 @@ public class setStat : MonoBehaviour
         setSkill.resetSkillPoint();
         checkUI.SetActive(false);
 
-        if(isAll == true)
+        if (isAll == true)
         {
             setSkill.AllRand();
 
             isAll = false;
         }
-
     }
-
-
     public void setSkill_B()
     {
         SoundManager.Instance.PaperClip_Play();
@@ -166,16 +157,14 @@ public class setStat : MonoBehaviour
         dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         firstSetStat = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(DataBaseManager.str > 5)
+        if (DataBaseManager.str > 5)
         {
             next_B.SetActive(true);
         }
@@ -189,10 +178,7 @@ public class setStat : MonoBehaviour
     public void AllRandChar()
     {
         isAll = true;
-
         SetStatButton();
         setSkill.AllRand();
-
     }
-
 }

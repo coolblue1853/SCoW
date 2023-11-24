@@ -17,57 +17,8 @@ public class RolletTest : MonoBehaviour
     private void Awake()
     {
 
-
-        /*
-DataBaseManager.Axe += 1;
-DataBaseManager.Bat += 1;
-DataBaseManager.Dagger += 1;
-
-
-DataBaseManager.SmallPistol += 1;
- DataBaseManager.Shotgun += 1;
- DataBaseManager.Rifle += 1;
-DataBaseManager.Revolver += 1;
-
-
-DataBaseManager.PistolAmmo = 20;
-DataBaseManager.RifleAmmo += 10;
-DataBaseManager.ShotgunAmmo += 10;
-
-DataBaseManager.Molotov += 1;
-
-DataBaseManager.dex = 999;
-
-
-DataBaseManager.gunShotPoint = 50;
-
-
-        DataBaseManager.nowPlace = "DetectiveOffice";
-        //DataBaseManager.nowPlace = "DetectiveOffice";
-        //   DataBaseManager.nowPlace = "Slum";
-        //DataBaseManager.nowPlace = "University";
-
-        // DataBaseManager.firstClientsHouse = true; 
-        // DataBaseManager.Intel_Ella1 = true;
-        //DataBaseManager.Intel_Aiden1 = true;
-
-        //DataBaseManager.Intel_Nightmare1 = true;
-        //DataBaseManager.Intel_Paranoia1 = true;
-        //DataBaseManager.Intel_Newspaper1 = true;
-
-
-        //DataBaseManager.Intel_Hospital1 = true;
-       DataBaseManager.Condition = "Nomal";
-       // DataBaseManager.martialArtsPoint = 60;
-       // DataBaseManager.Condition = "Worst";
-
-
-        */
-    
-        //DataBaseManager.TimeCount = 1;
         DataBaseManager.intl = 99;
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
-     //   DataBaseManager.intl = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         DataBaseManager.dex = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         DataBaseManager.hp = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         DataBaseManager.mp = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
@@ -168,14 +119,14 @@ DataBaseManager.gunShotPoint = 50;
 
 
         //DataBaseManager.isDebuff_Deftness = true;
-       // DataBaseManager.DaveDeathKeyword = true;
+        // DataBaseManager.DaveDeathKeyword = true;
         DataBaseManager.Revolver += 1;
 
-        DataBaseManager.Dagger += 1; DataBaseManager.Molotov += 2; 
+        DataBaseManager.Dagger += 1; DataBaseManager.Molotov += 2;
         DataBaseManager.TimeCount = 1;
         DataBaseManager.SewerageKey = true;
-      //  DataBaseManager.SecondDayDialog = true;
-        DataBaseManager.AlbertDeathKeyword = true;DataBaseManager.SwainDeathKeyword = true;
+        //  DataBaseManager.SecondDayDialog = true;
+        DataBaseManager.AlbertDeathKeyword = true; DataBaseManager.SwainDeathKeyword = true;
         DataBaseManager.PistolAmmo += 20;
         DataBaseManager.SafeDocument = true;
         DataBaseManager.Condition = "Best";
@@ -184,8 +135,8 @@ DataBaseManager.gunShotPoint = 50;
         DataBaseManager.Bandages = 5;
         DataBaseManager.Firstaidkit = 5;
         DataBaseManager.Painkillers = 5;
-        
-        
+
+
         DataBaseManager.EnemyDeathCount = 500;
         DataBaseManager.luk = 0;
 
@@ -198,7 +149,7 @@ DataBaseManager.gunShotPoint = 50;
     }
     private void Start()
     {
-        
+
 
         //  DataBaseManager.weal = 99999;
         //    DataBaseManager.nowPlace = "BattleRoad";
@@ -211,15 +162,15 @@ DataBaseManager.gunShotPoint = 50;
     private void Update()
     {
 
-     /*   
-        Debug.Log("isActiveDialog1 :" + DataBaseManager.isActiveDialog1);
-        Debug.Log("StoryDirecting :" + DataBaseManager.StoryDirecting);
-        Debug.Log("secondisDirecting :" + DataBaseManager.secondisDirecting);
-        Debug.Log("isRollet :" + DataBaseManager.isRollet);
-        Debug.Log("isDirecting :" + DataBaseManager.isDirecting);
-        Debug.Log("isOpenUi :" + DataBaseManager.isOpenUi);
-        Debug.Log("isOpenMap :" + DataBaseManager.isOpenMap);
-       */ 
+        /*   
+           Debug.Log("isActiveDialog1 :" + DataBaseManager.isActiveDialog1);
+           Debug.Log("StoryDirecting :" + DataBaseManager.StoryDirecting);
+           Debug.Log("secondisDirecting :" + DataBaseManager.secondisDirecting);
+           Debug.Log("isRollet :" + DataBaseManager.isRollet);
+           Debug.Log("isDirecting :" + DataBaseManager.isDirecting);
+           Debug.Log("isOpenUi :" + DataBaseManager.isOpenUi);
+           Debug.Log("isOpenMap :" + DataBaseManager.isOpenMap);
+          */
 
         if (Input.GetKeyDown(KeyCode.F12))
         {
@@ -259,14 +210,14 @@ DataBaseManager.gunShotPoint = 50;
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            
 
-           // One();
-           // Two();
-          // Three();
-          // Four();
-           // Five();
-           // Six();
+
+            // One();
+            // Two();
+            // Three();
+            // Four();
+            // Five();
+            // Six();
             //  DirectingManager.Instance.OrganizeKeywordFunc();
             //DataBaseManager.카메라왼쪽워킹온오프 = true;
             //One();
@@ -303,7 +254,7 @@ DataBaseManager.gunShotPoint = 50;
         if (Input.GetKeyDown(KeyCode.F2))
         {
             DataBaseManager.Tightwad = true;
-           // BillowUIManager.Instance.HP_down(5);
+            // BillowUIManager.Instance.HP_down(5);
         }
         if (Input.GetKeyDown(KeyCode.F3))
         {

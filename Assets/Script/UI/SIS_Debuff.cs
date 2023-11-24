@@ -4,13 +4,12 @@ using UnityEngine;
 using TMPro;
 public class SIS_Debuff : MonoBehaviour
 {
-
     public GameObject DetailObject;
     public TextMeshProUGUI detailText;
 
     public void Open_Detail()
     {
-        if(DetailObject.activeSelf == false)
+        if (DetailObject.activeSelf == false)
         {
             DetailObject.SetActive(true);
             if (this.name == "Health -5")
@@ -85,8 +84,6 @@ public class SIS_Debuff : MonoBehaviour
             {
                 detailText.text = "Tightwad\n\nThe store is no longer available.";
             }
-
-
             else if (this.name == "NightPhobia")
             {
                 detailText.text = "NightPhobia\n\nThe player can't walk around at night anymore.";
@@ -124,24 +121,10 @@ public class SIS_Debuff : MonoBehaviour
                 detailText.text = "CognitiveBreakdown\n\nThe Player information is no longer available.";
             }
         }
-
     }
-
     public void closeDetail()
     {
         DetailObject.SetActive(false);
         detailText.text = "";
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

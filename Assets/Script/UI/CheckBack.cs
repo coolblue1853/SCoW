@@ -4,16 +4,8 @@ using UnityEngine;
 
 public class CheckBack : MonoBehaviour
 {
-
     public GameObject DialogBack;
     public GameObject Back;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -25,6 +17,5 @@ public class CheckBack : MonoBehaviour
         {
             Back.SetActive(false);
         }
-        
     }
 }

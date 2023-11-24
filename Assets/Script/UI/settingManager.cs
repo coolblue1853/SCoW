@@ -23,7 +23,6 @@ public class settingManager : MonoBehaviour
     }
     void Awake()
     {
-
         if (null == instance)
         {
             instance = this;
@@ -34,17 +33,12 @@ public class settingManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
-    // Start is called before the first frame update
-
-
     public void goToMain()
     {
         DataBaseManager.instance.ResetData();
         Setting.SetActive(false);
         SceneManager.LoadScene("Insert");
     }
-
 
     public GameObject Setting;
 
@@ -58,8 +52,6 @@ public class settingManager : MonoBehaviour
             Setting.SetActive(true);
 
         }
-
-
     }
     public void CloseSetting()
     {
@@ -73,8 +65,6 @@ public class settingManager : MonoBehaviour
     public void 게임종료버튼()
     {
         Application.Quit();
-
-
     }
 
     public Text 해상도;
@@ -106,23 +96,18 @@ public class settingManager : MonoBehaviour
         {
             Screen.SetResolution(1600, 900, false);
         }
-
         else if (화면체인지인트값 == 3 && 전체화면 == false)
         {
             Screen.SetResolution(1280, 720, false);
         }
-
         else if (화면체인지인트값 == 4 && 전체화면 == false)
         {
             Screen.SetResolution(960, 540, false);
         }
-
         else if (화면체인지인트값 == 5 && 전체화면 == false)
         {
             Screen.SetResolution(640, 360, false);
         }
-
-
         if (화면체인지인트값 == 0 && 전체화면 == true)
         {
             Screen.SetResolution(2560, 1440, true);
@@ -135,49 +120,34 @@ public class settingManager : MonoBehaviour
         {
             Screen.SetResolution(1600, 900, true);
         }
-
         else if (화면체인지인트값 == 3 && 전체화면 == true)
         {
             Screen.SetResolution(1280, 720, true);
         }
-
         else if (화면체인지인트값 == 4 && 전체화면 == true)
         {
             Screen.SetResolution(960, 540, true);
         }
-
         else if (화면체인지인트값 == 5 && 전체화면 == true)
         {
             Screen.SetResolution(640, 360, true);
         }
     }
-
     public void 인트더하기()
     {
         SoundManager.Instance.ClickSound_Play();
         화면체인지인트값++;
     }
-
     public void 빼기()
     {
         SoundManager.Instance.ClickSound_Play();
         화면체인지인트값--;
     }
-
-
-    void Start()
-    {
-
-
-    }
-
     public GameObject 전체레드;
     public GameObject 창레드;
-
-    // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene().name == "Insert")
+        if (SceneManager.GetActiveScene().name == "Insert")
         {
             toMainButton.SetActive(false);
         }
@@ -185,8 +155,6 @@ public class settingManager : MonoBehaviour
         {
             toMainButton.SetActive(true);
         }
-
-
         if (Input.GetKeyDown(KeyCode.Escape) && Setting.activeSelf == true)
         {
             CloseSetting();
@@ -194,21 +162,16 @@ public class settingManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Escape) && Setting.activeSelf == false)
         {
             OpenSetting();
-
         }
-
-
         if (전체화면 == true)
         {
             전체레드.SetActive(true);
             창레드.SetActive(false);
-
         }
         else if (전체화면 == false)
         {
             전체레드.SetActive(false);
             창레드.SetActive(true);
-
         }
 
         if (화면체인지인트값 == 6)
@@ -240,9 +203,7 @@ public class settingManager : MonoBehaviour
         {
             해상도.text = "640 x 360";
         }
-
     }
-
     public GameObject settingUi;
     public GameObject Tutorial;
     public GameObject keySetting;
@@ -252,7 +213,6 @@ public class settingManager : MonoBehaviour
         settingUi.SetActive(false);
         Tutorial.SetActive(true);
     }
-
     public void OpenKey()
     {
         SoundManager.Instance.ClickSound_Play();

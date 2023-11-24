@@ -302,7 +302,7 @@ public class DialogManager : MonoBehaviour
         isNext = false;
         SettingUI(false);
         DataBaseManager.NowSelecter = "End";
-        End_Look.Instance.Inactive();
+       
         End_Look_Judge.Instance.Inactive();
     }
 

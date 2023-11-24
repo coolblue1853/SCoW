@@ -12,7 +12,6 @@ public class BattleRollet : MonoBehaviour
     public GameObject RolletCheckUI;
     public GameObject RolletRollUI;
 
-
     public GameObject Bad_1;
     public GameObject Bad_10;
     public GameObject Good_1;
@@ -22,15 +21,12 @@ public class BattleRollet : MonoBehaviour
     public GameObject Good_1_Rollet;
     public GameObject Good_10_Rollet;
 
-
     public GameObject setUI;
     public GameObject activeUI;
-
 
     public float SkillPoint_1;
     public float SkillPoint_10;
     public float SuccesProbability;
-
 
     public TextMeshProUGUI Skill;
     public TextMeshProUGUI Point;
@@ -49,29 +45,27 @@ public class BattleRollet : MonoBehaviour
     public TextMeshProUGUI result_string;
     public TextMeshProUGUI result_End;
 
-
     public bool isClick;
     public bool isActiveRollet;
     private static BattleRollet instance = null;
 
     public GameObject EndButton;
 
-
     // 적 칸
     public string EnemySubject;
-    
     public TextMeshProUGUI E_Skill;
     public TextMeshProUGUI E_Point;
     public TextMeshProUGUI E_Expect;
-
     public TextMeshProUGUI E_NomalRollet_1t;
     public TextMeshProUGUI E_NomalRollet_10t;
 
     int E_skillPoint;
     int E_result_int;
+
     public TextMeshProUGUI E_result_string;
     public TextMeshProUGUI E_result_End;
     public GameObject RolletUI;
+
     private void Update()
     {
         if (RolletUI.activeSelf == true && setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) && Sub_Dialog != "SAN : Check")
@@ -100,18 +94,14 @@ public class BattleRollet : MonoBehaviour
             }
             RolletSetUi.SetActive(false);
             DataBaseManager.isRollet = false;
-
-
         }
         if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck == true)
         {
             activeCheck = false;
             activeRollet();
         }
-
         if (EndButton.activeSelf == true && Input.GetKeyDown(KeyCode.E))
         {
-
             EndRollet();
         }
         {
@@ -125,26 +115,21 @@ public class BattleRollet : MonoBehaviour
                     isActiveRollet = false;
                     Invoke("GetIntResult", 0.5f);
                 }
-
-
             }
         }
     }
 
     void Awake()
     {
-     
         isClick = false;
         if (null == instance)
         {
             instance = this;
-            //DontDestroyOnLoad(this.gameObject);
         }
         else
         {
             Destroy(this.gameObject);
         }
-
     }
     public void WaitOneSec()
     {
@@ -162,7 +147,7 @@ public class BattleRollet : MonoBehaviour
             return instance;
         }
     }
-    public void setBattleRollet(string skill, string point_sting, int point_int, string subject,string EnemyName , string E_skill, string E_point_string, int E_Point_int)
+    public void setBattleRollet(string skill, string point_sting, int point_int, string subject, string EnemyName, string E_skill, string E_point_string, int E_Point_int)
     {
         SoundManager.Instance.PaperClip_Play();
         DataBaseManager.isRollet = true;
@@ -255,15 +240,11 @@ public class BattleRollet : MonoBehaviour
         }
         Invoke("WaitOneSec", 0.1f);
     }
-    
+
     public void activeRollet()
     {
         BattleManager.Instance.PlayerMAUI.SetActive(false);
         BattleManager.Instance.PlayerActionUi.SetActive(false);
-
-
-
-
         setUI.SetActive(false);
         activeUI.SetActive(true);
         InvokeRepeating("ChangeRollet", 0.5f, 0.05f);
@@ -286,8 +267,6 @@ public class BattleRollet : MonoBehaviour
         {
             NomalRollet_10t.text = "00";
         }
-
-
         BadRollet_1t.text = Random.Range(0, 10).ToString();
         int bad_10t = (Random.Range(0, 10) * 10);
         if (bad_10t != 0)
@@ -298,7 +277,6 @@ public class BattleRollet : MonoBehaviour
         {
             BadRollet_10t.text = "00";
         }
-
         GoodRollet_1t.text = Random.Range(0, 10).ToString();
         int good_10t = (Random.Range(0, 10) * 10);
         if (good_10t != 0)
@@ -309,8 +287,6 @@ public class BattleRollet : MonoBehaviour
         {
             GoodRollet_10t.text = "00";
         }
-
-
         //적
         E_NomalRollet_1t.text = Random.Range(0, 10).ToString();
         int E_nom_10t = (Random.Range(0, 10) * 10);
@@ -323,8 +299,6 @@ public class BattleRollet : MonoBehaviour
             E_NomalRollet_10t.text = "00";
         }
     }
-
-
     void GetIntResult()
     {
         SoundManager.Instance.pen_Line();
@@ -421,7 +395,6 @@ public class BattleRollet : MonoBehaviour
                 result_string.text = "Dice : " + result_int.ToString();
             }
         }
-
         //적 관련
         E_result_int = int.Parse(E_NomalRollet_10t.text) + int.Parse(E_NomalRollet_1t.text);
         if (E_result_int == 0)
@@ -429,7 +402,6 @@ public class BattleRollet : MonoBehaviour
             E_result_int = 100;
         }
         E_result_string.text = "Dice : " + E_result_int.ToString();
-
         Invoke("GetStringResult", 0.5f);
     }
     void GetStringResult()
@@ -458,7 +430,6 @@ public class BattleRollet : MonoBehaviour
         {
             result_End.text = "Result : Failure";
         }
-
         if (E_result_int >= 95)
         {
             E_result_End.text = "Result : Fumble";
@@ -475,10 +446,8 @@ public class BattleRollet : MonoBehaviour
         {
             E_result_End.text = "Result : Failure";
         }
-
         Invoke("GetFinalResult", 0.5f);
     }
-
     public string FinalResult;
     public TextMeshProUGUI FinalResult_t;
     void GetFinalResult()
@@ -525,8 +494,6 @@ public class BattleRollet : MonoBehaviour
                 FinalResult = "Failure";
                 FinalResult_t.text = "Evasion : " + FinalResult;
             }
-
-            
         } // 유리Result 예제
         if (Subject == "counterattack")
         {
@@ -550,10 +517,7 @@ public class BattleRollet : MonoBehaviour
                 FinalResult = "Failure";
                 FinalResult_t.text = "CounterAttack : " + FinalResult;
             }
-
-
         } //불리Result 예제
-
         // 플레이어행동
         if (Subject == "MA_attack_Counter")
         {
@@ -597,9 +561,6 @@ public class BattleRollet : MonoBehaviour
                 FinalResult = "Failure";
                 FinalResult_t.text = "MartialArt : " + FinalResult;
             }
-
-
-
         }
         if (Subject == "SS_attack_Counter")
         {
@@ -643,11 +604,8 @@ public class BattleRollet : MonoBehaviour
                 FinalResult = "Failure";
                 FinalResult_t.text = "Swordsmanship : " + FinalResult;
             }
-
-
-
         }
-        if(Subject == "RunAway")
+        if (Subject == "RunAway")
         {
             if (result_End.text == "Result : Critical Success")
             {
@@ -692,21 +650,20 @@ public class BattleRollet : MonoBehaviour
         }
         EndButton.SetActive(true);
     }
-
     public void EndRollet()
     {
         activeCheck = false;
         isClick = false;
         RolletSetUi.SetActive(false);
         RolletCheckUI.SetActive(true);
-        RolletRollUI.SetActive(false) ;
+        RolletRollUI.SetActive(false);
         EndButton.SetActive(false);
 
         if (Subject == "evasion")
         {
-            if(EnemySubject == "DeepOneHybrid")
+            if (EnemySubject == "DeepOneHybrid")
             {
-                BattleManager.Instance.RetrunRolletResult(Subject,FinalResult, EnemySubject);   
+                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
             }
             else if (EnemySubject == "DeepOne")
             {
@@ -749,7 +706,6 @@ public class BattleRollet : MonoBehaviour
             }
         }
 
-
         if (Subject == "dialog")
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
@@ -760,7 +716,7 @@ public class BattleRollet : MonoBehaviour
         {
             if (FinalResult == "Success")
             {
-                if(DataBaseManager.nowPlace != "InSewer")
+                if (DataBaseManager.nowPlace != "InSewer")
                 {
                     BattleManager.Instance.Ex_BattleEnd();
                 }
@@ -769,15 +725,11 @@ public class BattleRollet : MonoBehaviour
                     BattleManager.Instance.EndSewerBattle();
 
                 }
-
             }
             else
             {
-               BattleManager.Instance.TurnEnd();
+                BattleManager.Instance.TurnEnd();
             }
-
-            // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
-            // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 Result값에 따른 문자를 출력하도록 함
         }
     }
 
@@ -792,7 +744,7 @@ public class BattleRollet : MonoBehaviour
         BadRollet_10t.text = "--";
         GoodRollet_1t.text = "-";
         GoodRollet_10t.text = "--";
-        result_string.text ="Dice : --";
+        result_string.text = "Dice : --";
         result_End.text = "Result : --";
         E_result_string.text = "Dice : --";
         E_result_End.text = "Result : --";
@@ -808,6 +760,5 @@ public class BattleRollet : MonoBehaviour
         Good_10_Rollet.SetActive(false);
         Bad_1_Rollet.SetActive(false);
         Bad_10_Rollet.SetActive(false);
-
     }
 }

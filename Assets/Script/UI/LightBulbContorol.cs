@@ -23,18 +23,10 @@ public class LightBulbContorol : MonoBehaviour
     public GameObject bulb_17;
     public GameObject bulb_18;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if((DataBaseManager.TimeCount % 4) == 3 || (DataBaseManager.TimeCount % 4) == 0)
-            {
+        if ((DataBaseManager.TimeCount % 4) == 3 || (DataBaseManager.TimeCount % 4) == 0)
+        {
             bulb_1.SetActive(true);
             bulb_2.SetActive(true);
             bulb_3.SetActive(true);
@@ -71,7 +63,7 @@ public class LightBulbContorol : MonoBehaviour
             bulb_15.SetActive(false);
             bulb_16.SetActive(false);
             bulb_17.SetActive(false);
-            bulb_18.SetActive(false );
+            bulb_18.SetActive(false);
         }
     }
 }
