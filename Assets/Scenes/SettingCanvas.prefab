@@ -3056,7 +3056,7 @@ GameObject:
   - component: {fileID: 482329395}
   - component: {fileID: 482329394}
   m_Layer: 5
-  m_Name: <<
+  m_Name: PrevButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3660,7 +3660,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1977403490923021518}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &542126453
 AudioSource:
@@ -5064,7 +5064,7 @@ GameObject:
   - component: {fileID: 725952088}
   - component: {fileID: 725952087}
   m_Layer: 5
-  m_Name: Tutorials (1)
+  m_Name: TutorialsBack2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5138,7 +5138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 729369410}
   m_Layer: 5
-  m_Name: TUt_MainGame
+  m_Name: Tut_MainGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5315,7 +5315,7 @@ GameObject:
   - component: {fileID: 749064871}
   - component: {fileID: 749064870}
   m_Layer: 5
-  m_Name: '>>'
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5872,7 +5872,7 @@ GameObject:
   - component: {fileID: 766916943}
   - component: {fileID: 766916942}
   m_Layer: 0
-  m_Name: SFX 2 (1)
+  m_Name: SFX 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5891,7 +5891,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1977403490923021518}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &766916942
 AudioSource:
@@ -7990,7 +7990,7 @@ GameObject:
   - component: {fileID: 897492302}
   - component: {fileID: 897492301}
   m_Layer: 5
-  m_Name: Tutorials (1)
+  m_Name: TutorialsBack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8984,7 +8984,7 @@ GameObject:
   - component: {fileID: 1002587463}
   - component: {fileID: 1002587462}
   m_Layer: 5
-  m_Name: <<
+  m_Name: PrevButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10894,7 +10894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1164768718}
   m_Layer: 5
-  m_Name: TUt_SetChar
+  m_Name: Tut_SetChar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12671,7 +12671,7 @@ GameObject:
   - component: {fileID: 1337192213}
   - component: {fileID: 1337192212}
   m_Layer: 5
-  m_Name: Tutorials (1)
+  m_Name: TutorialsBack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14192,7 +14192,7 @@ GameObject:
   - component: {fileID: 1526194027}
   - component: {fileID: 1526194026}
   m_Layer: 5
-  m_Name: Tutorials (2)
+  m_Name: TutorialsOb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15179,7 +15179,7 @@ GameObject:
   - component: {fileID: 1671470863}
   - component: {fileID: 1671470862}
   m_Layer: 5
-  m_Name: '>>'
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17022,7 +17022,7 @@ GameObject:
   - component: {fileID: 1873500468}
   - component: {fileID: 1873500467}
   m_Layer: 5
-  m_Name: Tutorials (1)
+  m_Name: TutorialsBack2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20368,8 +20368,8 @@ Transform:
   - {fileID: 1977403491772583055}
   - {fileID: 1977403492252482547}
   - {fileID: 8831394069159241514}
-  - {fileID: 542126452}
   - {fileID: 766916943}
+  - {fileID: 542126452}
   m_Father: {fileID: 8831394067221339529}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24025,6 +24025,7 @@ MonoBehaviour:
   "\uD6A8\uACFC\uC74C\uCC3D": {fileID: 1977403492252482546}
   SFX_Secend: {fileID: 8831394069159241515}
   "\uC624\uB514\uC624\uC18C\uC2A4_\uAE30\uC5B4": {fileID: 542126453}
+  "\uB2EC\uB9AC\uAE30\uD6A8\uACFC\uC74C\uCF1C\uC9D0": 0
   "\uBB38\uC5F4\uACE0\uB2EB\uAE30\uD6A8\uACFC\uC74C": {fileID: 8300000, guid: d7e0ba9bc08cc324880313d0bb5e3970,
     type: 3}
   "\uB191\uD06C\uD6A8\uACFC\uC74C": {fileID: 8300000, guid: 1056a7a9f82768e4aa4b8095e6c6498a,
@@ -24274,7 +24275,7 @@ GameObject:
   - component: {fileID: 8831394067625389051}
   - component: {fileID: 8831394067625389050}
   m_Layer: 5
-  m_Name: <
+  m_Name: PrevButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24888,7 +24889,7 @@ GameObject:
   - component: {fileID: 8831394067879687831}
   - component: {fileID: 8831394067879687830}
   m_Layer: 5
-  m_Name: "\uC0C1\uB2E8 (1)"
+  m_Name: Upper1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25120,7 +25121,7 @@ GameObject:
   - component: {fileID: 8831394068077037331}
   - component: {fileID: 8831394068077037324}
   m_Layer: 5
-  m_Name: "\uBC30\uACBD\uC74C"
+  m_Name: BGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25224,7 +25225,7 @@ GameObject:
   - component: {fileID: 8831394068128493236}
   - component: {fileID: 8831394068128493243}
   m_Layer: 5
-  m_Name: "\uC124\uC815\uCC3D"
+  m_Name: SettingUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25418,7 +25419,7 @@ GameObject:
   - component: {fileID: 8831394068448857952}
   - component: {fileID: 8831394068448857959}
   m_Layer: 5
-  m_Name: "\uC0C1\uB2E8 (3)"
+  m_Name: Upper3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25750,7 +25751,7 @@ GameObject:
   - component: {fileID: 8831394068658169860}
   - component: {fileID: 8831394068658169867}
   m_Layer: 5
-  m_Name: "\uC0C1\uB2E8 (2)"
+  m_Name: Upper2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25908,7 +25909,7 @@ GameObject:
   - component: {fileID: 8831394068763795335}
   - component: {fileID: 8831394068763795334}
   m_Layer: 5
-  m_Name: "\uC804\uCCB4"
+  m_Name: FullScrean
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26121,7 +26122,7 @@ GameObject:
   - component: {fileID: 8831394068886537021}
   - component: {fileID: 8831394068886537020}
   m_Layer: 5
-  m_Name: "\uC0C1\uB2E8 (4)"
+  m_Name: Upper1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26302,7 +26303,7 @@ GameObject:
   - component: {fileID: 8831394068948263403}
   - component: {fileID: 8831394068948263402}
   m_Layer: 5
-  m_Name: '>'
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26984,7 +26985,7 @@ GameObject:
   - component: {fileID: 8831394069130061835}
   - component: {fileID: 8831394069130061834}
   m_Layer: 5
-  m_Name: "\uCC3D"
+  m_Name: Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
