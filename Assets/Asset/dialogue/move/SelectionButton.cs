@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class SelectionButton : MonoBehaviour
 {
-    public bool dontDestroy = false;
+    public bool DontDestroy = false;
     public void ClickButton()
     {
         SoundManager.Instance.ClickSound_Play();
-        selectionUIManager.Instance.ReciveRequestSelectionButton(this.transform.name);
-        if(dontDestroy != true)
+        selectionUIManager.Instance.ReciveRequest_SelectionButton(this.transform.name);
+        if(DontDestroy != true)
         {
             Invoke("Destroy", 1);
         }
+
     }
+
     void Destroy()
     {
         Destroy(this.gameObject); 
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }

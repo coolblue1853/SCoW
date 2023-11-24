@@ -70,17 +70,17 @@ public class Rollet : MonoBehaviour
               
       
 
-             if (BattleManager.Instance.playerAction == "PlayerMarkmen")
+             if (BattleManager.Instance.PlayerAction == "PlayerMarkmen")
             {
-                BattleManager.Instance.enemySelectUi.SetActive(true);
-                BattleManager.Instance.battleState = "selectEnemy";
-                BattleManager.Instance.PlayerSetMarkmens();
+                BattleManager.Instance.EnemySelectUI.SetActive(true);
+                BattleManager.Instance.BattleState = "selectEnemy";
+                BattleManager.Instance.Player_setMarkmens();
             }
-            else if (BattleManager.Instance.playerAction == "PlayerDeftness")
+            else if (BattleManager.Instance.PlayerAction == "PlayerDeftness")
             {
-                BattleManager.Instance.enemySelectUi.SetActive(true);
-                BattleManager.Instance.battleState = "selectEnemy";
-                BattleManager.Instance.PlayerSetDeftness();
+                BattleManager.Instance.EnemySelectUI.SetActive(true);
+                BattleManager.Instance.BattleState = "selectEnemy";
+                BattleManager.Instance.Player_setDeftness();
             }
             RolletSetUi.SetActive(false);
             DataBaseManager.isRollet = false;
@@ -472,11 +472,7 @@ public class Rollet : MonoBehaviour
 
         // 결과값을 전달하는 함수 필요
 
-        //스트래스 전달
-        if(Subject == "stress")
-        {
-            StressManager.Instance.Result(result_End.text);
-        }
+
         if(Subject == "dialog")
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, EnemySubject);
@@ -491,11 +487,11 @@ public class Rollet : MonoBehaviour
                 if (result_End.text == "Result : Success")
                 {
 
-                    BillowUIManager.Instance.HPUp((Random.Range(1, 7)) * 5);
+                    BillowUIManager.Instance.HP_up((Random.Range(1, 7)) * 5);
                 }
                 else if (result_End.text == "Result : Critical Success")
                 {
-                    BillowUIManager.Instance.HPUp((Random.Range(1, 7)) * 5);
+                    BillowUIManager.Instance.HP_up((Random.Range(1, 7)) * 5);
                 }
             }
             if (DataBaseManager.nowItem == "Bandages")
@@ -504,11 +500,11 @@ public class Rollet : MonoBehaviour
                 if (result_End.text == "Result : Success")
                 {
 
-                    BillowUIManager.Instance.HPUp((Random.Range(1, 4)) * 5);
+                    BillowUIManager.Instance.HP_up((Random.Range(1, 4)) * 5);
                 }
                 else if (result_End.text == "Result : Critical Success")
                 {
-                    BillowUIManager.Instance.HPUp((Random.Range(1, 4)) * 5);
+                    BillowUIManager.Instance.HP_up((Random.Range(1, 4)) * 5);
                 }
             }
             if (DataBaseManager.nowItem == "Painkillers")
@@ -517,11 +513,11 @@ public class Rollet : MonoBehaviour
                 if (result_End.text == "Result : Success")
                 {
 
-                    BillowUIManager.Instance.SanUp((Random.Range(1, 4)) * 5);
+                    BillowUIManager.Instance.San_up((Random.Range(1, 4)) * 5);
                 }
                 else if (result_End.text == "Result : Critical Success")
                 {
-                    BillowUIManager.Instance.SanUp((Random.Range(1, 4)) * 5);
+                    BillowUIManager.Instance.San_up((Random.Range(1, 4)) * 5);
                 }
             }
             if (DataBaseManager.nowItem == "Safe")
@@ -902,14 +898,14 @@ public class Rollet : MonoBehaviour
             {
 
                 Detail_San.text = "Sanity Decline : 10\n\nThe current sanity reduced by 10 Point.";
-                BillowUIManager.Instance.SanDown(10);
+                BillowUIManager.Instance.San_Down(10);
                 SanM10.SetActive(true);
             }
             else
             {
                 Detail_San.text = "Sanity Decline : 5\n\nThe current sanity reduced by 5 Point.";
 
-                BillowUIManager.Instance.SanDown(5);
+                BillowUIManager.Instance.San_Down(5);
                 SanM5.SetActive(true);
             }
         }
@@ -941,8 +937,8 @@ public class Rollet : MonoBehaviour
                         Carelessness.SetActive(true);
                         DataBaseManager.hp -= 5;
                         DataBaseManager.nowHP -= 5;
-                        BillowUIManager.Instance.ResetHP();
-                        BillowUIManager.Instance.HPDown(5);
+                        BillowUIManager.Instance.resetHP();
+                        BillowUIManager.Instance.HP_down(5);
                         Detail_San.text = "Level 1 : Carelessness\n\nYou lose 5 HP and max HP Point.";
                         DataBaseManager.Carelessness = true;
                         SIS_UIManager.Instance.Carelessness_Open();
@@ -1201,13 +1197,13 @@ public class Rollet : MonoBehaviour
             if (SanRollet == 1)
             {
                 Detail_San.text = "Rise sanity : 10\n\nThe current sanity rised by 10 Point.";
-                BillowUIManager.Instance.SanUp(10);
+                BillowUIManager.Instance.San_up(10);
                 SanM10.SetActive(true);
             }
             else
             {
                 Detail_San.text = "Rise sanity : 5\n\nThe current sanity rised by 5 Point.";
-                BillowUIManager.Instance.SanUp(5);
+                BillowUIManager.Instance.San_up(5);
                 SanM5.SetActive(true);
             }
         }

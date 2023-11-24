@@ -388,7 +388,7 @@ public class DirectingManager : MonoBehaviour
         if (DataBaseManager.EndBattle == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.AfterBattle = true;
-            DialogDatabaseManager.instance.check = true;
+            DialogDatabaseManager.instance.Check = true;
 
             DataBaseManager.EndBattle = false;
             isGo1stBattle = true;
@@ -837,7 +837,7 @@ public class DirectingManager : MonoBehaviour
             EnemyTrunSymbol_2.SetActive(false);
             EnemyTrunSymbol_3.SetActive(false);
 
-        BattleManager.Instance.SetDeepOneHybrid1();
+        BattleManager.Instance.set_DeepOneHybrid1();
 
         }
         else if (DataBaseManager.TimeCount < 9)
@@ -848,8 +848,8 @@ public class DirectingManager : MonoBehaviour
             EnemyTrunSymbol_1.SetActive(true);
             EnemyTrunSymbol_2.SetActive(true);
             EnemyTrunSymbol_3.SetActive(false);
-            BattleManager.Instance.SetDeepOneHybrid1();
-            BattleManager.Instance.SetDeepOneHybrid2();
+            BattleManager.Instance.set_DeepOneHybrid1();
+            BattleManager.Instance.set_DeepOneHybrid2();
 
         }
         else 
@@ -860,8 +860,8 @@ public class DirectingManager : MonoBehaviour
             EnemyTrunSymbol_1.SetActive(false);
             EnemyTrunSymbol_2.SetActive(true);
             EnemyTrunSymbol_3.SetActive(true);
-            BattleManager.Instance.SetDeepOneHybrid2();
-            BattleManager.Instance.SetDeepOneHybrid3();
+            BattleManager.Instance.set_DeepOneHybrid2();
+            BattleManager.Instance.set_DeepOneHybrid3();
         }
         player.SetActive(false);
         Camera.transform.position = Cam_BattlePos;
@@ -887,7 +887,7 @@ public class DirectingManager : MonoBehaviour
 
 
         DataBaseManager.nowPlace = "BattleRoad";
-        BattleManager.Instance.StartReload();
+        BattleManager.Instance.startReload();
         battleUI.SetActive(true);
         cameraMove.enabled = true;
         //DialogManager.SetActive(false);
@@ -917,7 +917,7 @@ public class DirectingManager : MonoBehaviour
             EnemyTrunSymbol_1.SetActive(true);
             EnemyTrunSymbol_2.SetActive(false);
             EnemyTrunSymbol_3.SetActive(false);
-            BattleManager.Instance.SetDeepOneHybrid4();
+            BattleManager.Instance.set_DeepOneHybrid4();
         }
 
         else if (DataBaseManager.SewerEnemyCounter == 2)
@@ -926,7 +926,7 @@ public class DirectingManager : MonoBehaviour
             EnemyTrunSymbol_1.SetActive(false);
             EnemyTrunSymbol_2.SetActive(true);
             EnemyTrunSymbol_3.SetActive(false);
-            BattleManager.Instance.SetDeepOne1();
+            BattleManager.Instance.set_DeepOne1();
         }
         else
         {
@@ -935,8 +935,8 @@ public class DirectingManager : MonoBehaviour
             EnemyTrunSymbol_1.SetActive(true);
             EnemyTrunSymbol_2.SetActive(true);
             EnemyTrunSymbol_3.SetActive(false);
-            BattleManager.Instance.SetDeepOneHybrid4();
-            BattleManager.Instance.SetDeepOne1();
+            BattleManager.Instance.set_DeepOneHybrid4();
+            BattleManager.Instance.set_DeepOne1();
         }
 
 
@@ -945,7 +945,7 @@ public class DirectingManager : MonoBehaviour
 
         RoadBattleBackGround.SetActive(false);
         SewerBattleBackGround.SetActive(true);
-        BattleManager.Instance.StartReload();
+        BattleManager.Instance.startReload();
         battleUI.SetActive(true);
         cameraMove.enabled = false;
         //DialogManager.SetActive(false);
@@ -963,8 +963,8 @@ public class DirectingManager : MonoBehaviour
     }
     public void EndBattleInvoke()
     {
-        BattleManager.Instance.startBattle = false;
-        BattleManager.Instance.battleState = "setTrun";
+        BattleManager.Instance.StartBattle = false;
+        BattleManager.Instance.BattleState = "setTrun";
         EnemyTrunSymbol_1.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
         EnemyTrunSymbol_2.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
         EnemyTrunSymbol_3.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
@@ -982,7 +982,7 @@ public class DirectingManager : MonoBehaviour
     {
         DataBaseManager.ISRoadBattleStart = true;
         DataBaseManager.isDirecting = false;
-        BattleManager.Instance.startBattle = true;
+        BattleManager.Instance.StartBattle = true;
 
 
     }

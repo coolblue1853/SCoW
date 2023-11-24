@@ -5,23 +5,24 @@ using DG.Tweening;
 public class BattleCameraMove : MonoBehaviour
 {
     private static BattleCameraMove instance = null;
-    Transform cam;
+    Transform Cam;
     Camera camera;
-    float upSide = 122f;
-    float downSide = 119f;
-    float originPoint = 120.1f;
-    float originPointx = -774.6f;
 
-    bool once = false;
-    string nowCam;
-    bool isSetTurn = false;
+     float UpSide = 122f;
+     float DownSide = 119f;
+
+    float OriginPoint = 120.1f;
+    float OriginPointx = -774.6f;
+    // Start is called before the first frame update
     private void Awake()
     {
-        cam = this.GetComponent<Transform>();
+        Cam = this.GetComponent<Transform>();
         camera = this.GetComponent<Camera>();
+        
         if (null == instance)
         {
             instance = this;
+          //  DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -39,6 +40,16 @@ public class BattleCameraMove : MonoBehaviour
             return instance;
         }
     }
+
+    void Start()
+    {
+        
+    }
+    bool once = false;
+    string nowCam;
+    bool IsSetTurn = false;
+
+
     // Update is called once per frame
     void Update()
     {
@@ -46,19 +57,24 @@ public class BattleCameraMove : MonoBehaviour
         {
             if(DataBaseManager.nowPlace != "InSewer")
             {
-                if (BattleManager.Instance.battleState == "setTrun" && isSetTurn == false)
+
+
+                if (BattleManager.Instance.BattleState == "setTrun" && IsSetTurn == false)
                 {
-                    isSetTurn = true;
+                    IsSetTurn = true;
                     ResetCam();
                 }
-                if (BattleManager.Instance.battleState == "selectEnemy")
+
+
+                if (BattleManager.Instance.BattleState == "selectEnemy")
                 {
-                    isSetTurn = false;
+                    IsSetTurn = false;
                     if (BattleManager.Instance.onPointerEnemy == "" && once == false)
                     {
                         once = true;
                         nowCam = BattleManager.Instance.onPointerEnemy;
                         ResetCam();
+
                     }
                     if (BattleManager.Instance.onPointerEnemy == "DeepOneHybrid1" && once == false)
                     {
@@ -78,6 +94,7 @@ public class BattleCameraMove : MonoBehaviour
                         nowCam = BattleManager.Instance.onPointerEnemy;
                         ZoomUp();
                     }
+
                     if (nowCam != BattleManager.Instance.onPointerEnemy)
                     {
                         once = false;
@@ -85,22 +102,28 @@ public class BattleCameraMove : MonoBehaviour
                 }
             }
         }
+     
+       
+
+   
     }
     public void ZoomMe()
     {
         if (DataBaseManager.nowPlace != "InSewer")
         {
             camera.DOOrthoSize(11, 1).SetAutoKill(true);
-            cam.transform.DOMoveY(120.7f, 1).SetAutoKill(true);
-            cam.transform.DOMoveX(-779.2f, 1).SetAutoKill(true);
+            //Cam.transform.DOMove(new Vector2(120.7f, -779.2f), 1).SetAutoKill(true);
+            Cam.transform.DOMoveY(120.7f, 1).SetAutoKill(true);
+            Cam.transform.DOMoveX(-779.2f, 1).SetAutoKill(true);
         }
+
     }
     public void ZoomDown()
     {
         if (DataBaseManager.nowPlace != "InSewer") 
         {
             camera.DOOrthoSize(13, 1).SetAutoKill(true);
-            cam.transform.DOMoveY(downSide, 1).SetAutoKill(true);
+            Cam.transform.DOMoveY(DownSide, 1).SetAutoKill(true);
         }
     }
     public void ZoomMidle()
@@ -108,7 +131,7 @@ public class BattleCameraMove : MonoBehaviour
         if (DataBaseManager.nowPlace != "InSewer") 
         {
             camera.DOOrthoSize(13, 1).SetAutoKill(true);
-            cam.transform.DOMoveY(originPoint, 1).SetAutoKill(true);
+            Cam.transform.DOMoveY(OriginPoint, 1).SetAutoKill(true);
         }
     }
     public void ZoomUp()
@@ -116,16 +139,17 @@ public class BattleCameraMove : MonoBehaviour
         if (DataBaseManager.nowPlace != "InSewer")
         {
             camera.DOOrthoSize(13, 1).SetAutoKill(true);
-            cam.transform.DOMoveY(upSide, 1).SetAutoKill(true);
+            Cam.transform.DOMoveY(UpSide, 1).SetAutoKill(true);
         }
     }
     public void ResetCam()
     {
         if (DataBaseManager.nowPlace != "InSewer") {
+
             camera.DOOrthoSize(14.5216f, 1).SetAutoKill(true);
-            cam.transform.DOMoveX(originPointx, 1).SetAutoKill(true);
-            cam.transform.DOMoveY(originPoint, 1).SetAutoKill(true);
-            cam.transform.DORotate(new Vector3(0, 0, 0), 0.5f);
+            Cam.transform.DOMoveX(OriginPointx, 1).SetAutoKill(true);
+            Cam.transform.DOMoveY(OriginPoint, 1).SetAutoKill(true);
+            Cam.transform.DORotate(new Vector3(0, 0, 0), 0.5f);
         }
     }
 }

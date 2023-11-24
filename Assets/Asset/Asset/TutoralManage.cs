@@ -4,26 +4,39 @@ using UnityEngine;
 
 public class TutoralManage : MonoBehaviour
 {
-    public GameObject set;
-    public GameObject main;
-    public GameObject tutorial;
+    public GameObject Set;
+    public GameObject Main;
+    public GameObject Tut;
+
     // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
     public void Quit()
     {
         SoundManager.Instance.ClickSound_Play();
-        tutorial.SetActive(false);
+        Tut.SetActive(false);
     }
+
     public void openSet()
     {
         SoundManager.Instance.ClickSound_Play();
-        set.SetActive(true);
-        main.SetActive(false);
+        Set.SetActive(true);
+        Main.SetActive(false);
     }
+
     public void openMain()
     {
         SoundManager.Instance.ClickSound_Play();
-        set.SetActive(false);
-        main.SetActive(true);
+        Set.SetActive(false);
+        Main.SetActive(true);
     }
 
 }

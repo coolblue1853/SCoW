@@ -290,7 +290,7 @@ public class PotalPoint : MonoBehaviour
             TimeManagere.Instance.Sewer_ByRiverSide();
 
             DataBaseManager.nowPlace = "InSewer";
-            DialogDatabaseManager.instance.check = true;
+            DialogDatabaseManager.instance.Check = true;
 
             DataBaseManager.StoryDirecting = true;
             Invoke("FirstSewerIn", 2f);

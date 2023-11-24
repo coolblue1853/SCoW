@@ -10,11 +10,18 @@ public class CamReMove : MonoBehaviour
     {
         cameraManager = GameObject.FindWithTag("MainCamera").GetComponent<CameraManager>();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
             cameraManager.CameraMove();
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }

@@ -5,25 +5,33 @@ using UnityEngine.UI;
 using TMPro;
 public class DeftnessDetail : MonoBehaviour
 {
-    public TextMeshProUGUI name;
-    public TextMeshProUGUI detail;
+    public TextMeshProUGUI Name;
+    public TextMeshProUGUI Detail;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (DataBaseManager.BattleWeapon == "Rock")
         {
-            name.text = "Rock";
-            detail.text = "Damage:(1D3)x5\nSkillPoint:" + DataBaseManager.deftnessPoint;
+            Name.text = "Rock";
+            Detail.text = "Damage:(1D3)x5\nSkillPoint:" + DataBaseManager.deftnessPoint;
         }
         else if (DataBaseManager.BattleWeapon == "Molotov")
         {
-            name.text = "Molotov";
-            detail.text = "Damage:(2D6+2)x5\nSkillPoint:" + DataBaseManager.deftnessPoint;
+            Name.text = "Molotov";
+            Detail.text = "Damage:(2D6+2)x5\nSkillPoint:" + DataBaseManager.deftnessPoint;
         }
+
         else
         {
-            name.text = "";
-            detail.text = "";
+            Name.text = "";
+            Detail.text = "";
         }
     }
 }

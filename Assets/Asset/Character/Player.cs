@@ -5,17 +5,26 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
+	
 	Animator anime;
-	float chInRommSize = 2.383215f;
-	float runPower = 14f;
+
+	float ChInRommSize = 2.383215f;
+
+	 float runPower = 14f;
 	Rigidbody2D rigid;
 	Transform trans;
+
+
+
+
 	// Use this for initialization
 	void Start()
 	{
 		trans = gameObject.GetComponent<Transform>();
 		rigid = gameObject.GetComponent<Rigidbody2D>();
 		anime = gameObject.GetComponent<Animator>();
+
+
 	}
 	public void CheckChangeCoat()
     {
@@ -25,60 +34,91 @@ public class Player : MonoBehaviour
 	{
 		anime.SetBool("Nomal", false);
 	}
-	bool coatCheckOn = false;
-	bool coatCheckOff = false;
+	bool CoatCheckOn = false;
+	bool CoatCheckOff = false;
 	// Update is called once per frame
 	private void Update()
 	{
-		if (DataBaseManager.WearCoat == true && coatCheckOff == false)
+		if (DataBaseManager.WearCoat == true && CoatCheckOff == false)
 		{
-			coatCheckOn = false;
-			coatCheckOff = true;
+			Debug.Log("ssddff22");
+			CoatCheckOn = false;
+			CoatCheckOff = true;
 			anime.SetBool("IsChange", true);
 			anime.SetBool("Coat", true);
+
 		}
-		if (DataBaseManager.WearCoat == false && coatCheckOn == false)
+
+
+		if (DataBaseManager.WearCoat == false && CoatCheckOn == false)
         {
-			coatCheckOn = true;
-			coatCheckOff = false;
+			Debug.Log("ssddff");
+			CoatCheckOn = true;
+			CoatCheckOff = false;
 			anime.SetBool("Nomal", true);
 			anime.SetBool("IsChange", false);
 		}
+
+
 			if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false )
 		{
 			anime.SetBool("Dialog", false);
-			RunAndWalkChanger();
+			runAndWalkChanger();
 			Move();
+
 		}
         else
         {
 			anime.SetBool("Dialog", true);
 		}
+
+
 		if(DataBaseManager.Helplessness == true && runPower == 14f)
         {
 			runPower = 9.8f;
         }
 	}
-	void RunAndWalkChanger()
+
+
+	void runAndWalkChanger()
     {
 		if(Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Horizontal") < 0)
 		{
 			anime.SetFloat("move", 1);
         }
+
 		else if (Input.GetAxisRaw("Horizontal") == 0)
 		{
 			anime.SetFloat("move", 0);
 		}
 	}
+
 	void Move()
 	{
 		Vector3 moveVelocity = Vector3.zero;
+		/*
+		if (Input.GetAxisRaw("Horizontal") < 0 && Input.GetKey(KeyCode.Z))
+		{
+			DataBaseManager.workSound = true;
+			moveVelocity = Vector3.left;
+			transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
+			//X값 스케일을 -1로 주어 좌우반전
+		}
+		else if (Input.GetAxisRaw("Horizontal") > 0 && Input.GetKey(KeyCode.Z) )
+		{
+			DataBaseManager.workSound = true;
+			moveVelocity = Vector3.right;
+			transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
+			//X값 스케일을 1로 주어 다시 원위치 
+		}
+		*/
+
 		if (Input.GetAxisRaw("Horizontal") < 0 )
 		{
 			DataBaseManager.workSound = true;
 			moveVelocity = Vector3.left;
 
-			transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
+			transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
 			//X값 스케일을 -1로 주어 좌우반전
 		}
 		else if (Input.GetAxisRaw("Horizontal") > 0)
@@ -86,13 +126,21 @@ public class Player : MonoBehaviour
 			DataBaseManager.workSound = true;
 			moveVelocity = Vector3.right;
 
-			transform.localScale = new Vector3(chInRommSize, chInRommSize, 1);
+			transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
 			//X값 스케일을 1로 주어 다시 원위치 
 		}
         else
         {
 			DataBaseManager.workSound = false;
 		}
+
+
 		transform.position += moveVelocity * runPower * Time.deltaTime;
+
 	}
+
+
+
+
+
 }

@@ -32,9 +32,9 @@ public class KeywordButton : MonoBehaviour
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
 
 
-            index_down = FindStringIndex(KeyWordManager.Instance.planetaryParadeList, B);
-            KeyWordManager.Instance.planetaryParadeKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.planetaryParadeList[index_down];
+            index_down = FindStringIndex(KeyWordManager.Instance.PlanetaryParadeList, B);
+            KeyWordManager.Instance.PlanetaryParadeKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.PlanetaryParadeList[index_down];
         }
         if (A == "Paranoia")
         {
@@ -43,9 +43,9 @@ public class KeywordButton : MonoBehaviour
              index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
 
-            index_down = FindStringIndex(KeyWordManager.Instance.paranoiaList, B);
-            KeyWordManager.Instance.paranoiaKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.paranoiaList[index_down];
+            index_down = FindStringIndex(KeyWordManager.Instance.ParanoiaList, B);
+            KeyWordManager.Instance.ParanoiaKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.ParanoiaList[index_down];
         }
         if (A == "Insomnia")
         {
@@ -54,9 +54,9 @@ public class KeywordButton : MonoBehaviour
              index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
 
-            index_down = FindStringIndex(KeyWordManager.Instance.insomniaList, B);
-            KeyWordManager.Instance.insomniaKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.insomniaList[index_down];
+            index_down = FindStringIndex(KeyWordManager.Instance.InsomniaList, B);
+            KeyWordManager.Instance.InsomniaKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.InsomniaList[index_down];
         }
         if (A == "Nightmare")
         {
@@ -65,9 +65,9 @@ public class KeywordButton : MonoBehaviour
              index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
 
-            index_down = FindStringIndex(KeyWordManager.Instance.nightmareList, B);
-            KeyWordManager.Instance.nightmareKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.nightmareList[index_down];
+            index_down = FindStringIndex(KeyWordManager.Instance.NightmareList, B);
+            KeyWordManager.Instance.NightmareKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.NightmareList[index_down];
         }
         if (A == "FishySmell")
         {
@@ -76,9 +76,9 @@ public class KeywordButton : MonoBehaviour
              index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
 
-            index_down = FindStringIndex(KeyWordManager.Instance.fishySmellList, B);
-            KeyWordManager.Instance.fishySmellKeywordNum = index_down;
-           DataBaseManager.keyword_downer = KeyWordManager.Instance.fishySmellList[index_down];
+            index_down = FindStringIndex(KeyWordManager.Instance.FishySmellList, B);
+            KeyWordManager.Instance.FishySmellKeywordNum = index_down;
+           DataBaseManager.keyword_downer = KeyWordManager.Instance.FishySmellList[index_down];
             
         }
         if (A == "MissingPeople")
@@ -88,9 +88,9 @@ public class KeywordButton : MonoBehaviour
              index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
 
-             index_down = FindStringIndex(KeyWordManager.Instance.missingPeopleList, B);
-            KeyWordManager.Instance.missingPeopleKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.missingPeopleList[index_down];
+             index_down = FindStringIndex(KeyWordManager.Instance.MissingPeopleList, B);
+            KeyWordManager.Instance.MissingPeopleKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.MissingPeopleList[index_down];
         }
         if (A == "SewerGhostStory")
         {
@@ -99,9 +99,9 @@ public class KeywordButton : MonoBehaviour
             index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
 
-            index_down = FindStringIndex(KeyWordManager.Instance.sewerGhostStoryList, B);
-            KeyWordManager.Instance.sewerGhostStoryKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.sewerGhostStoryList[index_down];
+            index_down = FindStringIndex(KeyWordManager.Instance.SewerGhostStoryList, B);
+            KeyWordManager.Instance.SewerGhostStoryKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.SewerGhostStoryList[index_down];
         }
         if (A == "Safe")
         {
@@ -110,9 +110,9 @@ public class KeywordButton : MonoBehaviour
             index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
 
-            index_down = FindStringIndex(KeyWordManager.Instance.safeList, B);
-            KeyWordManager.Instance.safeKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.safeList[index_down];
+            index_down = FindStringIndex(KeyWordManager.Instance.SafeList, B);
+            KeyWordManager.Instance.SafeKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.SafeList[index_down];
         }
         if (A == "CreepyEyes")
         {
@@ -121,9 +121,9 @@ public class KeywordButton : MonoBehaviour
             index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
 
-            index_down = FindStringIndex(KeyWordManager.Instance.creepyEyesList, B);
-            KeyWordManager.Instance.creepyEyesKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.creepyEyesList[index_down];
+            index_down = FindStringIndex(KeyWordManager.Instance.CreepyEyesList, B);
+            KeyWordManager.Instance.CreepyEyesKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.CreepyEyesList[index_down];
         }
         if (A == "RiverWaterQuality")
         {
@@ -132,9 +132,9 @@ public class KeywordButton : MonoBehaviour
             index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
 
-            index_down = FindStringIndex(KeyWordManager.Instance.riverWaterQualityList, B);
-            KeyWordManager.Instance.riverWaterQualityKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.riverWaterQualityList[index_down];
+            index_down = FindStringIndex(KeyWordManager.Instance.RiverWaterQualityList, B);
+            KeyWordManager.Instance.RiverWaterQualityKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.RiverWaterQualityList[index_down];
         }
         if (A == "MurderCase")
         {
@@ -143,9 +143,9 @@ public class KeywordButton : MonoBehaviour
             index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
 
-            index_down = FindStringIndex(KeyWordManager.Instance.murderCaseList, B);
-            KeyWordManager.Instance.murderCaseKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.murderCaseList[index_down];
+            index_down = FindStringIndex(KeyWordManager.Instance.MurderCaseList, B);
+            KeyWordManager.Instance.MurderCaseKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.MurderCaseList[index_down];
         }
 
         // 키워드 - PLACE
@@ -156,9 +156,9 @@ public class KeywordButton : MonoBehaviour
              index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
 
-             index_down = FindStringIndex(KeyWordManager.Instance.wharfList, B);
-            KeyWordManager.Instance.wharfKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.wharfList[index_down];
+             index_down = FindStringIndex(KeyWordManager.Instance.WharfList, B);
+            KeyWordManager.Instance.WharfKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.WharfList[index_down];
         }
         if (A == "QuestHouse")
         {
@@ -168,9 +168,9 @@ public class KeywordButton : MonoBehaviour
              index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
 
-             index_down = FindStringIndex(KeyWordManager.Instance.questHouseList, B);
-            KeyWordManager.Instance.questHouseKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.questHouseList[index_down];
+             index_down = FindStringIndex(KeyWordManager.Instance.QuestHouseList, B);
+            KeyWordManager.Instance.QuestHouseKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.QuestHouseList[index_down];
         }
         if (A == "DailyNews")
         {
@@ -179,9 +179,9 @@ public class KeywordButton : MonoBehaviour
              index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
 
-             index_down = FindStringIndex(KeyWordManager.Instance.newspaperList, B);
-            KeyWordManager.Instance.newspaperKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.newspaperList[index_down];
+             index_down = FindStringIndex(KeyWordManager.Instance.NewspaperList, B);
+            KeyWordManager.Instance.NewspaperKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.NewspaperList[index_down];
         }
         if (A == "Hospital")
         {
@@ -190,9 +190,9 @@ public class KeywordButton : MonoBehaviour
              index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
 
-             index_down = FindStringIndex(KeyWordManager.Instance.hospitalList, B);
-            KeyWordManager.Instance.hospitalKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.hospitalList[index_down];
+             index_down = FindStringIndex(KeyWordManager.Instance.HospitalList, B);
+            KeyWordManager.Instance.HospitalKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.HospitalList[index_down];
         }
         if (A == "Univ of Miscatonic")
         {
@@ -201,9 +201,9 @@ public class KeywordButton : MonoBehaviour
              index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
 
-             index_down = FindStringIndex(KeyWordManager.Instance.universityList, B);
-            KeyWordManager.Instance.universityKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.universityList[index_down];
+             index_down = FindStringIndex(KeyWordManager.Instance.UniversityList, B);
+            KeyWordManager.Instance.UniversityKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.UniversityList[index_down];
         }
         if (A == "Sewage MA Office")
         {
@@ -212,9 +212,9 @@ public class KeywordButton : MonoBehaviour
             index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
 
-            index_down = FindStringIndex(KeyWordManager.Instance.sewageMaintenanceOfficeList, B);
-            KeyWordManager.Instance.sewageMaintenanceOfficeKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.sewageMaintenanceOfficeList[index_down];
+            index_down = FindStringIndex(KeyWordManager.Instance.SewageMaintenanceOfficeList, B);
+            KeyWordManager.Instance.SewageMaintenanceOfficeKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.SewageMaintenanceOfficeList[index_down];
         }
         if (A == "Sewer")
         {
@@ -223,9 +223,9 @@ public class KeywordButton : MonoBehaviour
             index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
 
-            index_down = FindStringIndex(KeyWordManager.Instance.sewerList, B);
-            KeyWordManager.Instance.sewerKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.sewerList[index_down];
+            index_down = FindStringIndex(KeyWordManager.Instance.SewerList, B);
+            KeyWordManager.Instance.SewerKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.SewerList[index_down];
         }
 
         // 키워드 - Character
@@ -236,9 +236,9 @@ public class KeywordButton : MonoBehaviour
              index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
 
-             index_down = FindStringIndex(KeyWordManager.Instance.ellaList, B);
-            KeyWordManager.Instance.ellaKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.ellaList[index_down];
+             index_down = FindStringIndex(KeyWordManager.Instance.EllaList, B);
+            KeyWordManager.Instance.EllaKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.EllaList[index_down];
         }
         if (A == "Aiden Triss")
         {
@@ -247,9 +247,9 @@ public class KeywordButton : MonoBehaviour
              index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
 
-             index_down = FindStringIndex(KeyWordManager.Instance.aidenList, B);
-            KeyWordManager.Instance.aidenKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.aidenList[index_down];
+             index_down = FindStringIndex(KeyWordManager.Instance.AidenList, B);
+            KeyWordManager.Instance.AidenKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.AidenList[index_down];
         }
         if (A == "Albert Bradley")
         {
@@ -258,9 +258,9 @@ public class KeywordButton : MonoBehaviour
              index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
 
-             index_down = FindStringIndex(KeyWordManager.Instance.albertList, B);
-            KeyWordManager.Instance.albertKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.albertList[index_down];
+             index_down = FindStringIndex(KeyWordManager.Instance.AlbertList, B);
+            KeyWordManager.Instance.AlbertKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.AlbertList[index_down];
         }
         if (A == "Maeve A Rossi")
         {
@@ -269,9 +269,9 @@ public class KeywordButton : MonoBehaviour
              index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
 
-             index_down = FindStringIndex(KeyWordManager.Instance.meivList, B);
-            KeyWordManager.Instance.meivKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.meivList[index_down];
+             index_down = FindStringIndex(KeyWordManager.Instance.MeivList, B);
+            KeyWordManager.Instance.MeivKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.MeivList[index_down];
         }
 
         if (A == "SewerWorker")
@@ -281,9 +281,9 @@ public class KeywordButton : MonoBehaviour
             index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
 
-            index_down = FindStringIndex(KeyWordManager.Instance.sewerWorkerList, B);
-            KeyWordManager.Instance.sewerWorkerKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.sewerWorkerList[index_down];
+            index_down = FindStringIndex(KeyWordManager.Instance.SewerWorkerList, B);
+            KeyWordManager.Instance.SewerWorkerKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.SewerWorkerList[index_down];
         }
         if (A == "Dave")
         {
@@ -292,9 +292,9 @@ public class KeywordButton : MonoBehaviour
             index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
             DataBaseManager.keyword_upper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
 
-            index_down = FindStringIndex(KeyWordManager.Instance.daveList, B);
-            KeyWordManager.Instance.daveKeywordNum = index_down;
-            DataBaseManager.keyword_downer = KeyWordManager.Instance.daveList[index_down];
+            index_down = FindStringIndex(KeyWordManager.Instance.DaveList, B);
+            KeyWordManager.Instance.DaveKeywordNum = index_down;
+            DataBaseManager.keyword_downer = KeyWordManager.Instance.DaveList[index_down];
         }
     }
     int FindStringIndex(List<string> list, string target)

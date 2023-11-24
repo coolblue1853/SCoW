@@ -4,13 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 public class selectionUIManager : MonoBehaviour
 {
-    public GameObject select1stDetectiveOiffce1;
-    public GameObject select1stDetectiveOiffce2;
-    public GameObject select1stClientsOfficeSafe;
-    public GameObject selectSewerEnemy;
+    public GameObject Select_1st_DetectiveOiffce_1;
+    public GameObject Select_1st_DetectiveOiffce_2;
+
+
+    public GameObject Select_1st_ClientsOffice_Safe;
+
+    public GameObject Select_SewerEnemy;
+
     //빈민가
     private List<System.Action> functionList = new List<System.Action>();
-    public GameObject select1stSlum;
+
+    public GameObject Select_1st_Slum;
+
     private static selectionUIManager instance = null;
     void Awake()
     {
@@ -23,6 +29,7 @@ public class selectionUIManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
         functionList.Add(Function1);
         functionList.Add(Function2);
         functionList.Add(Function3);
@@ -32,6 +39,8 @@ public class selectionUIManager : MonoBehaviour
         functionList.Add(Function7);
         functionList.Add(Function8);
     }
+
+
     //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
     public static selectionUIManager Instance
     {
@@ -44,149 +53,170 @@ public class selectionUIManager : MonoBehaviour
             return instance;
         }
     }
-    public GameObject ladderSelectionUI;
-    public void OpenLadderSelectUI()
+    private void Update()
     {
-        DataBaseManager.isActiveDialog1 = true;
-        ladderSelectionUI.SetActive(true);
+        
     }
-    public void Open1st_DetectiveOfficeSelect1()
+
+    public GameObject LadderSelectionUI;
+    public void Open_LadderSelectUI()
     {
         DataBaseManager.isActiveDialog1 = true;
-        select1stDetectiveOiffce1.SetActive(true);
+        LadderSelectionUI.SetActive(true);
     }
-    public void OpenSelectSewerEnemy()
+
+
+
+    public void Open_1st_DetectiveOffice_Select1()
     {
         DataBaseManager.isActiveDialog1 = true;
-        selectSewerEnemy.SetActive(true);
+        Select_1st_DetectiveOiffce_1.SetActive(true);
     }
-    public void Open1stClientsOffic_SafeSelect()
+
+    public void Open_Select_SewerEnemy()
+    {
+
+        DataBaseManager.isActiveDialog1 = true;
+        Select_SewerEnemy.SetActive(true);
+    }
+    public void Open_1st_ClientsOffic_SafeSelect()
     {
         DataBaseManager.isActiveDialog1 = true;
-        select1stClientsOfficeSafe.SetActive(true);
+        Select_1st_ClientsOffice_Safe.SetActive(true);
     }
     //빈민가
-    public void Open1stSlumDave()
+    public void Open_1st_Slum_Dave()
     {
         DataBaseManager.isActiveDialog1 = true;
-        select1stSlum.SetActive(true);
+        Select_1st_Slum.SetActive(true);
     }
-    public void ReciveRequestSelectionButton(string SelectButton)
+    public void ReciveRequest_SelectionButton(string SelectButton)
     {
         DataBaseManager.SelectionOn = false;
         if (SelectButton == "Select_AboutCrime")
         {
-            DialogManager.Instance.ChoiceExNextPageT();
-            select1stDetectiveOiffce1.SetActive(false);
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_1st_DetectiveOiffce_1.SetActive(false);
             InteractionController.Instance.Start_1st_DetectiveOffice("Select_AboutCrime");
         }
         if (SelectButton == "Select_AboutHospital")
         {
-            DialogManager.Instance.ChoiceExNextPageT();
-            select1stDetectiveOiffce1.SetActive(false);
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_1st_DetectiveOiffce_1.SetActive(false);
             InteractionController.Instance.Start_1st_DetectiveOffice("Select_AboutHospital");
         }
         if (SelectButton == "Select_AboutRunAway")
         {
-            DialogManager.Instance.ChoiceExNextPageT();
-            select1stDetectiveOiffce1.SetActive(false);
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_1st_DetectiveOiffce_1.SetActive(false);
             InteractionController.Instance.Start_1st_DetectiveOffice("Select_AboutRunAway");
         }
         if (SelectButton == "Select_GotoChoice")
         {
-            DialogManager.Instance.ChoiceExNextPageT();
-            select1stDetectiveOiffce1.SetActive(false);
-            select1stDetectiveOiffce2.SetActive(true);
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_1st_DetectiveOiffce_1.SetActive(false);
+            Select_1st_DetectiveOiffce_2.SetActive(true);
         }
         if (SelectButton == "Accept_Request")
         {
             DataBaseManager.IfGotRequset = true;
-            DialogManager.Instance.ChoiceExNextPageT();
-            select1stDetectiveOiffce2.SetActive(false);
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_1st_DetectiveOiffce_2.SetActive(false);
             InteractionController.Instance.Start_1st_DetectiveOffice("Accept_Request");
         }
         if (SelectButton == "Reject_Request")
         {
-            DialogManager.Instance.ChoiceExNextPageT();
-            select1stDetectiveOiffce2.SetActive(false);
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_1st_DetectiveOiffce_2.SetActive(false);
             InteractionController.Instance.Start_1st_DetectiveOffice("Reject_Request");
         }
+
         //의뢰자의 집
         if (SelectButton == "Select_Str")
         {
-            DialogManager.Instance.ChoiceExNextPageT();
-            select1stClientsOfficeSafe.SetActive(false);
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_1st_ClientsOffice_Safe.SetActive(false);
             InteractionController.Instance.Start_1st_ClientsHouse("Aiden_key_Safe_Str");
         }
         if (SelectButton == "Select_Rhetoric")
         {
-            DialogManager.Instance.ChoiceExNextPageT();
-            select1stClientsOfficeSafe.SetActive(false);
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_1st_ClientsOffice_Safe.SetActive(false);
             Rollet.Instance.setRollet("Aiden : Persuasion", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
         }
         if (SelectButton == "Select_End")
         {
-            DialogManager.Instance.ChoiceExNextPageT();
-            select1stClientsOfficeSafe.SetActive(false);
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_1st_ClientsOffice_Safe.SetActive(false);
             InteractionController.Instance.Start_1st_ClientsHouse("Aiden_key_Safe_Nothing");
         }
+
         //빈민가
         if (SelectButton == "GiveMoney")
         {
             if(DataBaseManager.weal >= 2)
             {
                 DataBaseManager.DaveCheck = false;
-                DialogManager.Instance.ChoiceExNextPageT();
-                select1stSlum.SetActive(false);
+                DialogManager.Instance.ChoiceEx_NextPage_t();
+                Select_1st_Slum.SetActive(false);
                 ActivateRandomFunction();
             }
             else
             {
                 DataBaseManager.DaveCheck = false;
-                DialogManager.Instance.ChoiceExNextPageT();
-                select1stSlum.SetActive(false);
+                DialogManager.Instance.ChoiceEx_NextPage_t();
+                Select_1st_Slum.SetActive(false);
                 InteractionController.Instance.Start_1st_Slum("Dave_NoMoney");
             }
+ 
+
         }
         if (SelectButton == "Reject")
         {
             DataBaseManager.DaveCheck = false;
-            DialogManager.Instance.ChoiceExNextPageT();
-            select1stSlum.SetActive(false);
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_1st_Slum.SetActive(false);
 
         }
+
+
         // 하수도 내부
         if (SelectButton == "Stealth")
         {
-            DialogManager.Instance.ChoiceExNextPageT();
-            selectSewerEnemy.SetActive(false);
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_SewerEnemy.SetActive(false);
             Rollet.Instance.setRollet("Fabian : Sneak Out", "Stealth", DataBaseManager.stealthPoint, "dialog");
 
         }
         if (SelectButton == "Fight")
         {
-            DialogManager.Instance.ChoiceExNextPageT();
-            selectSewerEnemy.SetActive(false);
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            Select_SewerEnemy.SetActive(false);
             DataBaseManager.StartSewerBattle = true;
             // 전투로 이동
+
         }
+
+
+
         if (SelectButton == "GoOut")
         {
-            DialogManager.Instance.ChoiceExNextPageT();
-            ladderSelectionUI.SetActive(false);
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            LadderSelectionUI.SetActive(false);
             InteractionController.Instance.InSewerDialog("Sewer_LadderUP");
             DataBaseManager.StoryDirecting = true;
         }
+
         if (SelectButton == "NotOut")
         {
-            DialogManager.Instance.ChoiceExNextPageT();
-            ladderSelectionUI.SetActive(false);
+            DialogManager.Instance.ChoiceEx_NextPage_t();
+            LadderSelectionUI.SetActive(false);
             DataBaseManager.SelectionOn = false;
         }
     }
     public void EndDialog ()
     {
-        select1stSlum.SetActive(false);
+        Select_1st_Slum.SetActive(false);
     }
     private void ActivateRandomFunction()
     {
@@ -207,8 +237,10 @@ public class selectionUIManager : MonoBehaviour
             FunctionEx();
         }
     }
+
     private void Function1()
     {
+
         DataBaseManager.weal -= 2;
         InteractionController.Instance.Start_1st_Slum("Dave_Ran1");
     }
@@ -224,26 +256,31 @@ public class selectionUIManager : MonoBehaviour
         DataBaseManager.weal -= 2;
         InteractionController.Instance.Start_1st_Slum("Dave_Ran3");
     }
+
     private void Function4()
     {
         DataBaseManager.weal -= 2;
         InteractionController.Instance.Start_1st_Slum("Dave_Ran4");
     }
+
     private void Function5()
     {
         DataBaseManager.weal -= 2;
         InteractionController.Instance.Start_1st_Slum("Dave_Ran5");
     }
+
     private void Function6()
     {
         DataBaseManager.weal -= 2;
         InteractionController.Instance.Start_1st_Slum("Dave_Ran6");
     }
+
     private void Function7()
     {
         DataBaseManager.weal -= 2;
         InteractionController.Instance.Start_1st_Slum("Dave_Ran7");
     }
+
     private void Function8()
     {
         DataBaseManager.weal -= 2;
@@ -258,7 +295,10 @@ public class selectionUIManager : MonoBehaviour
     {
         InteractionController.Instance.Start_1st_Slum("Dave_RanEnd");
     }
-    public void ExAddFunc9()
+
+
+
+    public void Ex_AddFunc9()
     {
         functionList.Add(Function9);
     }

@@ -78,25 +78,25 @@ public class BattleRollet : MonoBehaviour
         {
             activeCheck = false;
             DataBaseManager.CancelJudge = true;
-            if (BattleManager.Instance.playerAction == "PlayerSwords")
+            if (BattleManager.Instance.PlayerAction == "PlayerSwords")
             {
-                BattleManager.Instance.enemySelectUi.SetActive(true);
-                BattleManager.Instance.battleState = "selectEnemy";
-                BattleManager.Instance.PlayerSetSwords();
+                BattleManager.Instance.EnemySelectUI.SetActive(true);
+                BattleManager.Instance.BattleState = "selectEnemy";
+                BattleManager.Instance.Player_setSwords();
             }
-            else if (BattleManager.Instance.playerAction == "martialarts")
+            else if (BattleManager.Instance.PlayerAction == "martialarts")
             {
-                BattleManager.Instance.enemySelectUi.SetActive(true);
-                BattleManager.Instance.battleState = "selectEnemy";
+                BattleManager.Instance.EnemySelectUI.SetActive(true);
+                BattleManager.Instance.BattleState = "selectEnemy";
                 BattleManager.Instance.SetAciton("martialarts");
             }
-            else if (BattleManager.Instance.playerAction == "evasion")
+            else if (BattleManager.Instance.PlayerAction == "evasion")
             {
-                BattleManager.Instance.playerChoiceUi.SetActive(true);
+                BattleManager.Instance.PlayerChoiceUi.SetActive(true);
             }
-            else if (BattleManager.Instance.playerAction == "counterattack")
+            else if (BattleManager.Instance.PlayerAction == "counterattack")
             {
-                BattleManager.Instance.playerChoiceUi.SetActive(true);
+                BattleManager.Instance.PlayerChoiceUi.SetActive(true);
             }
             RolletSetUi.SetActive(false);
             DataBaseManager.isRollet = false;
@@ -258,8 +258,8 @@ public class BattleRollet : MonoBehaviour
     
     public void activeRollet()
     {
-        BattleManager.Instance.playerMAUI.SetActive(false);
-        BattleManager.Instance.playerActionUi.SetActive(false);
+        BattleManager.Instance.PlayerMAUI.SetActive(false);
+        BattleManager.Instance.PlayerActionUi.SetActive(false);
 
 
 
@@ -749,11 +749,7 @@ public class BattleRollet : MonoBehaviour
             }
         }
 
-        //스트래스 전달
-        if (Subject == "stress")
-        {
-            StressManager.Instance.Result(result_End.text);
-        }
+
         if (Subject == "dialog")
         {
             InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
@@ -766,7 +762,7 @@ public class BattleRollet : MonoBehaviour
             {
                 if(DataBaseManager.nowPlace != "InSewer")
                 {
-                    BattleManager.Instance.ExBattleEnd();
+                    BattleManager.Instance.Ex_BattleEnd();
                 }
                 else
                 {

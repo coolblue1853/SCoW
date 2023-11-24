@@ -7,29 +7,32 @@ using DamageNumbersPro;
 public class BillowUIManager : MonoBehaviour
 {
     public DamageNumber numberPrefab;
-    public GameObject battlePlayer;
-    public GameObject player;
+    public GameObject BattlePlayer;
+    public GameObject Player;
 
     public float setHP;
-    public float FullHP;
-    public float nomalizedHP;
+    public float  FullHP;
+    public float  nomalizedHP;
 
-    public Image hpBar;
-    public Image fadeBar;
-    public Image sanBar;
+    public Image HPBar;
+    public Image FadeBar;
+    public Image SanBar;
 
     public HealthBarShrink healthBar;
     public HealthBarShrink mentalBar;
 
+
     public float setSan;
-    public float fullSan;
+    public float FullSan;
     public float nomalizedSan;
 
     public TextMeshProUGUI hpText;
-    public TextMeshProUGUI sanText;
+    public TextMeshProUGUI SanText;
 
     public TextMeshProUGUI intelNameText;
     public TextMeshProUGUI intelDetailText;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,83 +45,107 @@ public class BillowUIManager : MonoBehaviour
         {
             ResetMHP();
         }
+
     }
+
+    // 정보 관련.
 
     public void SetIntelUi(string name, string detail)
     {
         intelNameText.text = name;
         intelDetailText.text = detail;
+        
     }
     public void ResetIntelUi()
     {
         intelNameText.text = "";
         intelDetailText.text = "";
+
     }
-    public void ResetHP()
+
+
+
+public void resetHP()
     {
         healthBar.resetHP();
+
     }
+
+
     //체력바 관련
     private void ResetMHP()
     {
         setHP = 1;
         FullHP = DataBaseManager.hp;
         nomalizedHP = 1 / FullHP;
+
+
         setSan = 1;
-        fullSan = DataBaseManager.san;
-        nomalizedSan = 1 / fullSan;
+        FullSan = DataBaseManager.san;
+        nomalizedSan = 1 / FullSan;
     }
+
     // Update is called once per frame
     void Update()
     {
+
         HPIntMagaer();
+
+
     }
+
+
+
     void HPIntMagaer()
     {
         hpText.text = "HP : " + DataBaseManager.nowHP;
-        sanText.text = "SAN : " + DataBaseManager.nowSan;
+        SanText.text = "SAN : " + DataBaseManager.nowSan;
     }
+
     private static BillowUIManager instance = null;
-    public void HPDown(int damage)
+
+    public void HP_down(int damage)
     {
         CameraManager.Instance.ShakeCam();
         if (DataBaseManager.Masochism == true)
         {
             int updamage = damage + 5;
-            DamageNumber damageNumber = numberPrefab.Spawn(player.transform.position, updamage);
-            DamageNumber damageNumber2 = numberPrefab.Spawn(player.transform.position, 5);
+            DamageNumber damageNumber = numberPrefab.Spawn(Player.transform.position, updamage);
+            DamageNumber damageNumber2 = numberPrefab.Spawn(Player.transform.position, 5);
             DataBaseManager.nowHP -= updamage;
             setHP = (setHP - nomalizedHP * updamage);
             healthBar.healthSystem.Damage(updamage);
         }
         else
         {
-            DamageNumber damageNumber = numberPrefab.Spawn(player.transform.position, damage);
+            DamageNumber damageNumber = numberPrefab.Spawn(Player.transform.position, damage);
             DataBaseManager.nowHP -= damage;
             setHP = (setHP - nomalizedHP * damage);
             healthBar.healthSystem.Damage(damage);
         }
+
     }
-    public void HPBattleDown(int damage)
+    public void HP_Battledown(int damage)
     {
         if (DataBaseManager.Masochism == true)
         {
             int updamage = damage + 5;
-            DamageNumber damageNumber = numberPrefab.Spawn(battlePlayer.transform.position, updamage);
-            DamageNumber damageNumber2 = numberPrefab.Spawn(battlePlayer.transform.position, 5);
+            DamageNumber damageNumber = numberPrefab.Spawn(BattlePlayer.transform.position, updamage);
+            DamageNumber damageNumber2 = numberPrefab.Spawn(BattlePlayer.transform.position, 5);
             DataBaseManager.nowHP -= updamage;
             setHP = (setHP - nomalizedHP * updamage);
             healthBar.healthSystem.Damage(updamage);
         }
         else
         {
-            DamageNumber damageNumber = numberPrefab.Spawn(battlePlayer.transform.position, damage);
+            DamageNumber damageNumber = numberPrefab.Spawn(BattlePlayer.transform.position, damage);
             DataBaseManager.nowHP -= damage;
             setHP = (setHP - nomalizedHP * damage);
             healthBar.healthSystem.Damage(damage);
         }
+
     }
-    public void SanDown(int damage)
+    public void San_Down(int damage)
     {
         CameraManager.Instance.ShakeCam();
         if (DataBaseManager.MentalWeakness == true)
@@ -136,7 +163,8 @@ public class BillowUIManager : MonoBehaviour
         }
 
     }
-    public void HPUp(int healed)
+
+    public void HP_up(int healed)
     {
         if (healed > DataBaseManager.hp - DataBaseManager.nowHP)
         {
@@ -151,8 +179,9 @@ public class BillowUIManager : MonoBehaviour
             setHP = (setHP - nomalizedHP * healed);
             healthBar.healthSystem.Heal(healed);
         }
+
     }
-    public void SanUp(int damage)
+    public void San_up(int damage)
     {
 
         if(damage > DataBaseManager.san - DataBaseManager.nowSan)
@@ -168,6 +197,7 @@ public class BillowUIManager : MonoBehaviour
             setSan = setSan - nomalizedSan * damage;
             mentalBar.healthSystem.Heal(damage);
         }
+
     }
     void Awake()
     {
@@ -181,6 +211,7 @@ public class BillowUIManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
     //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
     public static BillowUIManager Instance
     {

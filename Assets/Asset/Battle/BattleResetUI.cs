@@ -5,48 +5,66 @@ using TMPro;
 using UnityEngine.UI;
 public class BattleResetUI : MonoBehaviour
 {
-    public TextMeshProUGUI name_sword;
-    public TextMeshProUGUI name_Mark;
-    public TextMeshProUGUI name_Deft;
-    public TextMeshProUGUI detail_Deft;
-    public TextMeshProUGUI detail_Mark;
-    public TextMeshProUGUI detail_sword;
+    public TextMeshProUGUI Name_sword;
+    public TextMeshProUGUI Detail_sword;
+    public TextMeshProUGUI Name_Deft;
+    public TextMeshProUGUI Detail_Deft;
+    public TextMeshProUGUI Detail_Mark;
+    public TextMeshProUGUI Name_Mark;
 
-    public Image batImage;
-    public Image daggerImage;
-    public Image axeImage;
-    public Image smallPisolImage;
-    public Image revolverImage;
-    public Image rifleImage;
-    public Image shotgunImage;
-    public Image rockImage;
-    public Image molotovImage;
+    public Image Bat_Image;
+    public Image Dagger_Image;
+    public Image Axe_Image;
+    public Image SmallPisol_Image;
+    public Image Revolver_Image;
+    public Image Rifle_Image;
+    public Image Shotgun_Image;
 
-    public Sprite batSprite;
-    public Sprite daggerSprite;
-    public Sprite axeSprite;
-    public Sprite smallPisolSprite;
-    public Sprite revolverSprite;
-    public Sprite rifleSprite;
-    public Sprite shotgunSprite;
-    public Sprite rockSprite;
-    public Sprite molotovSprite;
+    public Image Rock_Image;
+    public Image Molotov_Image;
+
+    public Sprite Bat_Sprite;
+    public Sprite Dagger_Sprite;
+    public Sprite Axe_Sprite;
+    public Sprite SmallPisol_Sprite;
+    public Sprite Revolver_Sprite;
+    public Sprite Rifle_Sprite;
+    public Sprite Shotgun_Sprite;
+
+    public Sprite Rock_Sprite;
+    public Sprite Molotov_Sprite;
+
     public void EndTrun_Reset()
     {
-        name_sword.text = "";
-        detail_sword.text = "";
-        name_Deft.text = "";
-        detail_Deft.text = "";
-        detail_Mark.text = "";
-        name_Mark.text = "";
-        batImage.sprite = batSprite;
-        daggerImage.sprite = daggerSprite;
-        axeImage.sprite = axeSprite;
-        smallPisolImage.sprite = smallPisolSprite;
-        revolverImage.sprite = revolverSprite;
-        rifleImage.sprite = rifleSprite;
-        shotgunImage.sprite = shotgunSprite;
-        rockImage.sprite = rockSprite;
-        molotovImage.sprite = molotovSprite;
+        Name_sword.text = "";
+        Detail_sword.text = "";
+        Name_Deft.text = "";
+        Detail_Deft.text = "";
+        Detail_Mark.text = "";
+        Name_Mark.text = "";
+
+        Bat_Image.sprite = Bat_Sprite;
+        Dagger_Image.sprite = Dagger_Sprite;
+        Axe_Image.sprite = Axe_Sprite;
+
+        SmallPisol_Image.sprite = SmallPisol_Sprite;
+        Revolver_Image.sprite = Revolver_Sprite;
+        Rifle_Image.sprite = Rifle_Sprite;
+        Shotgun_Image.sprite = Shotgun_Sprite;
+
+        Rock_Image.sprite = Rock_Sprite;
+        Molotov_Image.sprite = Molotov_Sprite;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
