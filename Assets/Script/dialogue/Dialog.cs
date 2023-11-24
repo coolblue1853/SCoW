@@ -4,14 +4,14 @@ using UnityEngine;
 
 
 [System.Serializable]
-public class Dialog 
+public class Dialog
 {
     [Header("카메라의 타겟팅 대상")]
     public Transform tf_target;
 
     [Tooltip("대사 치는 캐릭터이름")]
     public string name;
-    
+
     [Tooltip("대사내용")]
     public string[] contexts;
 
@@ -23,7 +23,6 @@ public class Dialog
 public class DialogEvent
 {
     public string name;
-
     public Vector2 line;
     public Dialog[] dialogs;
 }

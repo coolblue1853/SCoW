@@ -11,9 +11,7 @@ using UnityEngine.Assertions;
 
 public class DialogManager : MonoBehaviour
 {
-
     public GameObject BackGround;
-
     public GameObject Image001;
     public GameObject Image002;
     public GameObject Image003;
@@ -21,8 +19,6 @@ public class DialogManager : MonoBehaviour
     public GameObject Image005;
     public GameObject Image006;
     public GameObject Image007;
-
-
     public void ActiveImage(GameObject obj)
     {
         if (obj.activeSelf == false)
@@ -42,7 +38,6 @@ public class DialogManager : MonoBehaviour
     private static DialogManager instance = null;
     private void Awake()
     {
-
         if (null == instance)
         {
             instance = this;
@@ -53,9 +48,6 @@ public class DialogManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
-
-    //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
     public static DialogManager Instance
     {
         get
@@ -70,22 +62,17 @@ public class DialogManager : MonoBehaviour
     public GameObject FloatPosition;
     // 선택지 등장시  해당변수 활성화로 멈추기
     public bool ShowChoice = false;
-
     public GameObject SkipButton;
     public GameObject SkipStopButton;
     // Start is called before the first frame update
     public GameObject DialogFace;
     public GameObject Fabian_1;
-
     // ⓦ 이건 색깔  , 쉼표는 ' 로  \n으로 해서 작성하면 됨 엑셀
-
     public GameObject PlayerChar;
-
     public selectionUIManager selectionUIManager;
     public bool isDialogON = false;
     [SerializeField] GameObject go_dialogBar;
     [SerializeField] GameObject go_dialogNameBar;
-
     [SerializeField] TextMeshProUGUI txt_Dialog;
     [SerializeField] TextMeshProUGUI txt_name;
     Dialog[] dialogs;
@@ -94,18 +81,13 @@ public class DialogManager : MonoBehaviour
     bool isNext = false; // 특정 키 입력 대기.
     public bool isSelectButton = false;
     public bool FirstClick = true;
-
     int lineCount = 0; // 대화 카운트(사람)
     int contextCount = 0; // 대사 카운트 (줄)
-
-    //public 아침사무소연출 연출매니저;
-    
     //기능판정 대화창
     public GameObject JudgeDialog;
     bool z_next2 = true;
     bool z_next1;
     SpriteManager theSpriteManager;
-  //  public GameObject 엘라심리학선택지버튼;
 
     [Header("텍스트 출력 딜레이.")]
     [SerializeField] float textDelay;
@@ -119,9 +101,6 @@ public class DialogManager : MonoBehaviour
     }
     void Update()
     {
-
-
-
         settingPlayerCon();
         TextCheker();
         if (Input.GetKeyDown(KeyCode.E) || (Input.GetMouseButtonDown(0)))
@@ -133,8 +112,6 @@ public class DialogManager : MonoBehaviour
             z_next2 = true;
         }
     }
-
-
     void TextCheker()
     {
         if (isDialog && DataBaseManager.SelectionOn == false)
@@ -174,16 +151,6 @@ public class DialogManager : MonoBehaviour
             }
         }
     }
-
-
-
-
-
-
-
-    
-
-
     public void SkipOn()
     {
         if (DataBaseManager.SelectionOn == false)
@@ -191,25 +158,18 @@ public class DialogManager : MonoBehaviour
             SkipButton.SetActive(false);
             SkipStopButton.SetActive(true);
             DataBaseManager.skipActive = true;
-
-            //TypeA.wait = 1;
-            //DataBaseManager.textDelay = 0.00001f;
             TextAnimatorPlayer.waitForNormalChars = 0.003f;
             TextAnimatorPlayer.waitLong = 0.003f;
             TextAnimatorPlayer.waitMiddle = 0.003f;
-
             StartCoroutine(Skip());
-
         }
         else if (DataBaseManager.SelectionOn == true)
         {
             SkipStopON();
         }
     }
-
     public void SkipStopON()
     {
-
         TextAnimatorPlayer.waitForNormalChars = 0.03f;
         TextAnimatorPlayer.waitLong = 0.03f;
         TextAnimatorPlayer.waitMiddle = 0.03f;
@@ -218,16 +178,12 @@ public class DialogManager : MonoBehaviour
         ShowChoice = true;
         StartCoroutine(SkipNomalize());
     }
-
     IEnumerator SkipNomalize()
     {
-
         yield return new WaitForSeconds(0.5f);
         ShowChoice = false;
         SkipButton.SetActive(true);
     }
-
-
     IEnumerator Skip()
     {
         if(DataBaseManager.SelectionOn == false)
@@ -256,9 +212,6 @@ public class DialogManager : MonoBehaviour
             SkipStopON();
         }
     }
-
-
-    // 선택지 선택시 외부에서 페이지 넘기기 t
     public void ChoiceEx_NextPage_t()
     {
         if (isDialog)
@@ -318,8 +271,6 @@ public class DialogManager : MonoBehaviour
             }
         }
     }
-
-
     public void DeleteChilds(GameObject stressBackground)
     {
         Transform[] childList = stressBackground.GetComponentsInChildren<Transform>(true);
@@ -333,8 +284,6 @@ public class DialogManager : MonoBehaviour
         }
 
     }
-
-    
     public void EndDialog()
     {
         DataBaseManager.isItemUI = false;
@@ -342,13 +291,9 @@ public class DialogManager : MonoBehaviour
         DataBaseManager.isActiveDialog1 = false;
         DataBaseManager.isJudge = false;
         DataBaseManager.isKeyword = false;
-        //DeleteChilds(정보플로팅위치);
         FirstClick = true;
         DataBaseManager.isActiveDialog2 = false;
-        //DataBaseManager.연출중움직임제한 = false;
-        //PlayerChar.transform.GetComponent<Mins>().다이얼로그다운();
         DialogFace.SetActive(false);
-
         isDialog = false;
         contextCount = 0;
         lineCount = 0;
@@ -359,15 +304,12 @@ public class DialogManager : MonoBehaviour
         DataBaseManager.NowSelecter = "End";
         End_Look.Instance.Inactive();
         End_Look_Judge.Instance.Inactive();
-
-
     }
 
     public void ShowDialog(Dialog[] P_dialogs)
     {
         DataBaseManager.isActiveDialog1 = true;
         DataBaseManager.isActiveDialog2 = true;
-        //PlayerChar.transform.GetComponent<Mins>().다이얼로그온();
         DialogFace.SetActive(true);
         isDialog = true;
         txt_Dialog.text = "";
@@ -375,13 +317,6 @@ public class DialogManager : MonoBehaviour
         dialogs = P_dialogs;
         StartCoroutine(TypeWriter());
     }
-
-
-//public 정보창Manager 정보창매니저;
-
-
-
-    // 타입라이터 강제
     public void TypeWriter_Force()
     {
         SettingUI(true);
@@ -390,27 +325,17 @@ public class DialogManager : MonoBehaviour
         txt_Dialog.text = t_ReplaceText;
         isNext = true;
     }
-
-
-
     IEnumerator TypeWriter()
     {
-
-
-
-
         SettingUI(true);
         string t_ReplaceText = dialogs[lineCount].contexts[contextCount];
-        //t_ReplaceText = t_ReplaceText.Replace(" ", " ");  //자간늘리기
         t_ReplaceText = t_ReplaceText.Replace("^", ",");
-
         t_ReplaceText = t_ReplaceText.Replace('@', '"');
         t_ReplaceText = t_ReplaceText.Replace("\\n", "\n");
         bool t_white = false, t_yellow = false, t_red = false, t_green = false, t_blue = false, t_grey = false;   // 색 추가 지점
         bool t_ignore = false;
         if (DataBaseManager.isDebuff_Deftness == true)
         {
-            // 나중에 언어 추가시 조금 바꾸어 주어야 할지도.
             t_ReplaceText = t_ReplaceText.Replace("A", ".");
             t_ReplaceText = t_ReplaceText.Replace("B", ".");
             t_ReplaceText = t_ReplaceText.Replace("C", ".");
@@ -464,8 +389,7 @@ public class DialogManager : MonoBehaviour
             t_ReplaceText = t_ReplaceText.Replace("x", ".");
             t_ReplaceText = t_ReplaceText.Replace("y", ".");
             t_ReplaceText = t_ReplaceText.Replace("z", ".");
-        }
-
+        } // 언어 추가시 변경 필요
         for (int i = 0; i < t_ReplaceText.Length; i++)
         {
             switch (t_ReplaceText[i])
@@ -478,10 +402,7 @@ public class DialogManager : MonoBehaviour
                     t_ignore = true;
                     break;
                 case 'ⓨ': t_white = false; t_yellow = true; t_red = false; t_green = false; t_blue = false; t_ignore = true; t_grey = false; break;
-
                 case '⒳': t_white = false; t_yellow = false; t_red = false; t_green = false; t_blue = false; t_ignore = true; t_grey = true; break;
-
-
                 case 'ⓡ': t_white = false; t_yellow = false; t_red = true; t_green = false; t_blue = false; t_grey = false; t_ignore = true; 
                     if (t_ReplaceText[i + 1] == '(')
                     {
@@ -503,9 +424,7 @@ public class DialogManager : MonoBehaviour
                                     {
                                         DataBaseManager.Intel_Insomnia1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "Insomnia - Newspaper Article");
-
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓝ')
                                 {
@@ -514,7 +433,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Nightmare1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "Nightmare - Aiden's Nightmare");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓞ')
                                 {
@@ -523,7 +441,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Paranoia1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "Paranoia - Husband's Condition");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓐ')
                                 {
@@ -532,7 +449,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Safe1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "Safe - Aiden's Safe");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓢ') // 하수도 괴담
                                 {
@@ -541,7 +457,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_SewerGhostStory1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "SewerGhostStory - Contents of a GhostStory");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓕ') // 비릿한 냄새
                                 {
@@ -550,7 +465,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_FishySmell1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "FishySmell - Rumor");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓜ') // 연속실종사건
                                 {
@@ -559,7 +473,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_MissingPeople2 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "MissingPeople - Reporting by Swain");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓡ') // 강의 수질
                                 {
@@ -568,7 +481,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_RiverWaterQuality1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "RiverWaterQuality - Strange Point");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓒ') // 섬뜩한 눈
                                 {
@@ -577,7 +489,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_CreepyEyes1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "CreepyEyes - Saw in the sewer");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓩ')
                                 {
@@ -595,8 +506,6 @@ public class DialogManager : MonoBehaviour
                                     if (DataBaseManager.Intel_PlanetaryParade2 == false)
                                         IntelManager.Instance.AddIntelFloating("Event", "planetaryparade - Meetings");
                                     DataBaseManager.Intel_PlanetaryParade2 = true;
-
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓘ')
                                 {
@@ -617,7 +526,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Paranoia2 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "Paranoia - Cause of Paranoia");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓐ')
                                 {
@@ -627,7 +535,6 @@ public class DialogManager : MonoBehaviour
                                         IntelManager.Instance.AddIntelFloating("Event", "Safe - Acquiring a Safe");
                                         IntelManager.Instance.AddIntelFloating("Item", "KeyItem - Safe");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓜ') // 연속실종사건
                                 {
@@ -636,7 +543,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_MissingPeople1 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "MissingPeople - Albert's Information");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓕ') // 비릿한 냄새
                                 {
@@ -645,7 +551,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_FishySmell2 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "FishySmell - Source of the smell?");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓡ') // 강의 수질
                                 {
@@ -654,7 +559,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_RiverWaterQuality2 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "RiverWaterQuality - Details");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓢ') // 하수도 괴담
                                 {
@@ -663,7 +567,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_SewerGhostStory2 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "SewerGhostStory - Truth of a rumor");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓩ')
                                 {
@@ -676,7 +579,6 @@ public class DialogManager : MonoBehaviour
                             }
                             if (t_ReplaceText[i + 3] == '3')
                             {
-
                                 if (t_ReplaceText[i + 4] == 'ⓝ')
                                 {
                                     if (DataBaseManager.Intel_Nightmare3 == false)
@@ -690,9 +592,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_MissingPeople3 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "MissingPeople - Kidnap");
                                     }
-
                                 }
-
                                 if (t_ReplaceText[i + 4] == 'ⓕ') // 비릿한 냄새
                                 {
                                     if (DataBaseManager.Intel_FishySmell3 == false)
@@ -700,7 +600,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_FishySmell3 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "FishySmell -Source speculation");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓡ') // 강의 수질
                                 {
@@ -709,7 +608,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_RiverWaterQuality3 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "RiverWaterQuality - Fishy Slime");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓩ')
                                 {
@@ -722,7 +620,6 @@ public class DialogManager : MonoBehaviour
                             }
                             if (t_ReplaceText[i + 3] == '4')
                             {
-
                                 if (t_ReplaceText[i + 4] == 'ⓝ')
                                 {
                                     if (DataBaseManager.Intel_Nightmare4 == false)
@@ -736,7 +633,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_FishySmell4 = true;
                                         IntelManager.Instance.AddIntelFloating("Event", "FishySmell - Sewer & FishySmell");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓩ')
                                 {
@@ -746,7 +642,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_MurderCase4 = true;
                                     }
                                 }
-
                             }
                             if (t_ReplaceText[i + 3] == '5')
                             {
@@ -773,7 +668,6 @@ public class DialogManager : MonoBehaviour
                         }
                         }
                     break;
-
                 case 'ⓑ': t_white = false; t_yellow = false; t_red = false; t_green = false; t_blue = true; t_grey = false; t_ignore = true;
                     if (t_ReplaceText[i + 1] == '(')
                     {
@@ -788,7 +682,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Sewer1 = true;
                                         IntelManager.Instance.AddIntelFloating("Place", "Sewer - Aiden's warning");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓦ')
                                 {
@@ -797,7 +690,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Wharf1 = true;
                                         IntelManager.Instance.AddIntelFloating("Place", "Wharf - Work");
                                     }
-                                
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓗ')
                                 {
@@ -806,7 +698,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Hospital1 = true;
                                         IntelManager.Instance.AddIntelFloating("Place", "Hospital - State of congestion");
                                     }
-                            
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓠ')
                                 {
@@ -815,7 +706,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_QuestHouse1 = true;
                                         IntelManager.Instance.AddIntelFloating("Place", "Client'shouse - Adress");
                                     }
-                               
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓝ')
                                 {
@@ -824,7 +714,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Newspaper1 = true;
                                         IntelManager.Instance.AddIntelFloating("Place", "DailyNews - Husband's job");
                                     }
-                              
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓢ')
                                 {
@@ -833,7 +722,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_SewageMaintenanceOffice1 = true;
                                         IntelManager.Instance.AddIntelFloating("Place", "SewageTreatmentOffice - Location");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓤ' )
                                 {
@@ -842,11 +730,8 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_University1 = true;
                                         IntelManager.Instance.AddIntelFloating("Place", "Univ of Miscatonic - Astronomical show");
                                     }
-                            
                                 }
-
                             }
-
                             if (t_ReplaceText[i + 3] == '2')
                             {
                                 if (t_ReplaceText[i + 4] == 'ⓧ')
@@ -856,10 +741,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Sewer2 = true;
                                         IntelManager.Instance.AddIntelFloating("Place", "Sewer - Root of problem");
                                     }
-
                                 }
-                             
-
                             }
                             if (t_ReplaceText[i + 3] == '3')
                             {
@@ -870,10 +752,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Sewer3 = true;
                                         IntelManager.Instance.AddIntelFloating("Place", "Sewer - Manhole");
                                     }
-
                                 }
-
-
                             }
                             if (t_ReplaceText[i + 3] == '4')
                             {
@@ -893,7 +772,6 @@ public class DialogManager : MonoBehaviour
                                         IntelManager.Instance.AddIntelFloating("Character", "SewerWorker - Owner of Uniform");
                                     }
                                 }
-
                             }
                         }
                     }
@@ -913,7 +791,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Dave1 = true;
                                         IntelManager.Instance.AddIntelFloating("Character", "Dave - Bracelet");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓛ')
                                 {
@@ -922,9 +799,7 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Albert1 = true;
                                         IntelManager.Instance.AddIntelFloating("Character", "Albert Bradley - Police friend");
                                     }
-
                                 }
-
                                 if (t_ReplaceText[i + 4] == 'ⓜ')
                                 {
                                     if (DataBaseManager.Intel_Meiv1 == false)
@@ -932,7 +807,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Meiv1 = true;
                                         IntelManager.Instance.AddIntelFloating("Character", "Maeve A Rossi - Mafia friend");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓔ')
                                 {
@@ -941,7 +815,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Ella1 = true;
                                         IntelManager.Instance.AddIntelFloating("Character", "Ella Triss - Client");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓐ')
                                 {
@@ -950,7 +823,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Aiden1 = true;
                                         IntelManager.Instance.AddIntelFloating("Character", "Aiden Triss - Subject to request");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓦ')
                                 {
@@ -968,7 +840,6 @@ public class DialogManager : MonoBehaviour
                                         IntelManager.Instance.AddIntelFloating("Character", "Berkeley Swain - Sewer Survey");
                                     }
                                 }
-
                             }
                             if (t_ReplaceText[i + 3] == '2')
                             {
@@ -979,7 +850,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Ella2 = true;
                                         IntelManager.Instance.AddIntelFloating("Character", "Ella Triss - Murdered Clients");
                                     }
-
                                 }
                                 if (t_ReplaceText[i + 4] == 'ⓐ')
                                 {
@@ -1004,7 +874,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_Meiv2 = true;
                                         IntelManager.Instance.AddIntelFloating("Character", "Maeve A Rossi - Promise");
                                     }
-
                                 }
                             }
                             if (t_ReplaceText[i + 3] == '3')
@@ -1024,7 +893,6 @@ public class DialogManager : MonoBehaviour
                                         DataBaseManager.Intel_SewerWorker3 = true;
                                         IntelManager.Instance.AddIntelFloating("Character", "SewerWorker - Cause of Fishy smell");
                                     }
-
                                 }
                             }
                             if (t_ReplaceText[i + 3] == '4')
@@ -1037,18 +905,10 @@ public class DialogManager : MonoBehaviour
                                         IntelManager.Instance.AddIntelFloating("Character", "SewerWorker - Owner of Uniform");
                                     }
                                 }
-
-                            }
-
-
-                               
+                            }        
                         }
                     }
                     break;
-
-
-                    
-
                 case '◎':  // 연출관련
                     t_ignore = true; // 
                     if (t_ReplaceText[i + 1] == '①')
@@ -1067,52 +927,41 @@ public class DialogManager : MonoBehaviour
                     {
                         t_ignore = true;
                         DataBaseManager.fst_Detective_AfterSelect = true;
-                      //  연출매니저.의뢰인앉는연출 = false;
                         break;
                     }
                     if (t_ReplaceText[i + 1] == '④')
                     {
                         t_ignore = true;
                         DataBaseManager.fst_Detective_EndSelect = true;
-                        //   연출매니저.의뢰인나감연출 = false;
-
                         break;
                     }
                     if (t_ReplaceText[i + 1] == '⑤')
                     {
                         DataBaseManager.fst_Detective_AfterSelectNo = true;
                         t_ignore = true;
-
                         break;
                     }
                     if (t_ReplaceText[i + 1] == '⑥')
                     {
                         DataBaseManager.FailTwoKeyword = true;
                         t_ignore = true;
-
                         break;
                     }
                     if (t_ReplaceText[i + 1] == '⑦')
                     {
                         DataBaseManager.Kate_Disapear = true;
                         t_ignore = true;
-
                         break;
                     }
                     if (t_ReplaceText[i + 1] == '⑧')
                     {
                         DataBaseManager.NoonEvent_MovetoClient = true;
-
                         t_ignore = true;
-
                         break;
                     }
                     if (t_ReplaceText[i + 1] == '⑨')
                     {
-                    
-
                         t_ignore = true;
-
                         break;
                     }
                     break;
@@ -1122,23 +971,17 @@ public class DialogManager : MonoBehaviour
                     if (t_ReplaceText[i + 1] == '①')
                     {
                         SkipStopON();
-
-     
                         End_Look_Judge.Instance.Active();
-                     
                         break;
                     }
-
                     if (t_ReplaceText[i + 1] == '⑵')
                     {
                         SkipButton.SetActive(false);
                         SkipStopButton.SetActive(false);
                         ShowChoice = true;
                         t_ignore = true;
-                       // selectionUIManager.선택지출력2(); // 2번선택지.
                         isSelectButton = true;
                         break;
-
                     }
                     if (t_ReplaceText[i + 1] == '⑶')
                     {
@@ -1146,14 +989,10 @@ public class DialogManager : MonoBehaviour
                         SkipStopButton.SetActive(false);
                         ShowChoice = true;
                         t_ignore = true;
-                        //selectionUIManager.선택지출력3(); // 2번선택지.
                         isSelectButton = true;
                         break;
-
                     }
-
                     break;
-
                 case '★':  // 검은별은 선택지이후 연결파트 표시
                     t_ignore = true;
                     if (t_ReplaceText[i + 1] == '①')
@@ -1232,7 +1071,6 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '④')
                     {
-                        
                         DataBaseManager.SwainDIE = transform;
                     }
                     if (t_ReplaceText[i + 1] == '⑤')
@@ -1260,7 +1098,6 @@ public class DialogManager : MonoBehaviour
                     break;
                 // 최초 심리학 기능판정 선택지 출력창.
                 case '※':// 연출 관련
-
                     if (t_ReplaceText[i + 1] == '①')
                     {
                       //  DataBaseManager.isDirecting = false;
@@ -1278,7 +1115,6 @@ public class DialogManager : MonoBehaviour
                     if (t_ReplaceText[i + 1] == '④')
                     {
                         DataBaseManager.ThirdDayDreamSan = true;
-
                     }
                     if (t_ReplaceText[i + 1] == '⑤')
                     {
@@ -1296,8 +1132,6 @@ public class DialogManager : MonoBehaviour
                     {
                         BillowUIManager.Instance.HP_down(5);
                     }
-
-
                     t_ignore = true;
                     break;
                 case '⊙':// 연출 관련⊙⑨
@@ -1309,7 +1143,6 @@ public class DialogManager : MonoBehaviour
                             IntelManager.Instance.AddIntelFloating("Item", "KeyItem - Coat");
                             DataBaseManager.GainCoat = true;
                         }
-
                     }
                     if (t_ReplaceText[i + 1] == '②')
                     {
@@ -1318,7 +1151,6 @@ public class DialogManager : MonoBehaviour
                             IntelManager.Instance.AddIntelFloating("Item", "KeyItem - SewerageKey");
                             DataBaseManager.SewerageKey = true;
                         }
-                            
                     }
                     if (t_ReplaceText[i + 1] == '③')
                     {
@@ -1340,7 +1172,6 @@ public class DialogManager : MonoBehaviour
                         // 은밀행동 성공시
                         DataBaseManager.StoryDirecting = false;
                         DataBaseManager.InSewer_StealthSucc = true;
-
                     }
                     if (t_ReplaceText[i + 1] == '⑥')
                     {
@@ -1350,14 +1181,12 @@ public class DialogManager : MonoBehaviour
                     if (t_ReplaceText[i + 1] == '⑦')
                     {
                         DataBaseManager.InsmusRhtoric = true;
-
                     }
                     if (t_ReplaceText[i + 1] == '⑧')
                     {
                         IntelManager.Instance.AddIntelFloating("Item", "KeyItem - Document");
                         DataBaseManager.SafeDocument = true;
                         DataBaseManager.weal += 10;
-
                     }
                     if (t_ReplaceText[i + 1] == '⑨')
                     {
@@ -1371,19 +1200,16 @@ public class DialogManager : MonoBehaviour
                     t_ignore = true;
                     break;
                 case '◐'://◐⑦⑥⑤④
-
                     if (t_ReplaceText[i + 1] == '①')
                     {
                         if(DataBaseManager.JournalFirstSanCheck == false)
                         {
                             DataBaseManager.JournalSanCheck = true;
                         }
-                        
                     }
                     if (t_ReplaceText[i + 1] == '②')
                     {
                         DataBaseManager.SewerBookSanCheck = true;
-
                     }
                     if (t_ReplaceText[i + 1] == '③')
                     {
@@ -1396,7 +1222,6 @@ public class DialogManager : MonoBehaviour
                     if (t_ReplaceText[i + 1] == '⑤')
                     {
                         DataBaseManager.SymbolStrSanCheck = true;
-
                     }
                     if (t_ReplaceText[i + 1] == '⑥')
                     {
@@ -1405,24 +1230,19 @@ public class DialogManager : MonoBehaviour
                     if (t_ReplaceText[i + 1] == '⑦')
                     {
                         DataBaseManager.Sewer_DeepOneFirstSanCheck = true;
-
                     }
                     if (t_ReplaceText[i + 1] == '⑧') // 사다리 선택지
                     {
                         DataBaseManager.SelectionOn = true;
                         selectionUIManager.Instance.Open_LadderSelectUI();
-
                     }
                     if (t_ReplaceText[i + 1] == '⑨')
                     {
                         DataBaseManager.Ending_Swin = true;
                     }
-
                     t_ignore = true;
                     break;
-
                 case '◈'://◐◈⑩⑪⑨⑧⑦⑥④③⑦⑥◈⑤④
-
                     if (t_ReplaceText[i + 1] == '①')
                     {
                         DataBaseManager.Ending_LadderSan = true;
@@ -1449,7 +1269,6 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '⑦')
                     {
-
                         DataBaseManager.EndingDoorCheck = true;
                     }
                     if (t_ReplaceText[i + 1] == '⑧') // 사다리 선택지
@@ -1521,9 +1340,7 @@ public class DialogManager : MonoBehaviour
                     theSpriteManager.allReset();
                     t_ignore = true;
                     break;
-
                 case '§':
-
                     if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '①' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트1(); };
                     if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '②' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트2(); };
                     if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '③' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트3(); };
@@ -1533,26 +1350,9 @@ public class DialogManager : MonoBehaviour
                     if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑦' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트7(); };
                     if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑧' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트8(); };
                     if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑨' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트9(); };
-         
                     if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '§') { theSpriteManager.엘라일러스트2(); };
                     if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '①' && t_ReplaceText[i + 5] == '§') { theSpriteManager.엘라일러스트1(); };
-                
                     if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '②' && t_ReplaceText[i + 5] == '§') { theSpriteManager.멜리사일러스트(); };
-                    /*
-        if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '③' && t_ReplaceText[i + 5] == '§') { theSpriteManager.노아일러스트13(); };
-         if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '④' && t_ReplaceText[i + 5] == '§') { theSpriteManager.노아일러스트14(); };
-         if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '⑤' && t_ReplaceText[i + 5] == '§') { theSpriteManager.노아일러스트15(); };
-         if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '⑥' && t_ReplaceText[i + 5] == '§') { theSpriteManager.노아일러스트16(); };
-         if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '⑦' && t_ReplaceText[i + 5] == '§') { theSpriteManager.노아일러스트17(); };
-         if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '⑧' && t_ReplaceText[i + 5] == '§') { theSpriteManager.노아일러스트18(); };
-         if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '⑨' && t_ReplaceText[i + 5] == '§') { theSpriteManager.노아일러스트19(); };
-         if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑫' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트20(); };
-         if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑫' && t_ReplaceText[i + 4] == '①' && t_ReplaceText[i + 5] == '§') { theSpriteManager.노아일러스트21(); };
-         if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑫' && t_ReplaceText[i + 4] == '②' && t_ReplaceText[i + 5] == '§') { theSpriteManager.노아일러스트22(); };
-         if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑫' && t_ReplaceText[i + 4] == '③' && t_ReplaceText[i + 5] == '§') { theSpriteManager.노아일러스트23(); };
-         if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑫' && t_ReplaceText[i + 4] == '④' && t_ReplaceText[i + 5] == '§') { theSpriteManager.노아일러스트24(); }; t_ignore = true; break; // 표정변경.
-         */
-
                     if (t_ReplaceText[i + 1] == '엘' && t_ReplaceText[i + 2] == '라' && t_ReplaceText[i + 3] == '1' && t_ReplaceText[i + 4] == '§') { theSpriteManager.엘라일러스트1(); }; t_ignore = true; break; // 표정변경.
 
                 //㉠ ㉡ ㉢ ㉣ ㉤ ㉥ ㉦ ㉧ ㉨ ㉩ ㉪ ㉫ ㉬ ㉭▒
@@ -1561,7 +1361,6 @@ public class DialogManager : MonoBehaviour
                 case '㉧': if (t_ReplaceText[i - 2] == '§' || t_ReplaceText[i + -2] == '☆') { t_ignore = true; } break;
                 case '㉦': if (t_ReplaceText[i - 1] == '※') { t_ignore = true; } break;
                 case '㉤': if (t_ReplaceText[i + -3] == '☆') { t_ignore = true; } break;
-
                 case '●': if (t_ReplaceText[i + -1] == '(') { t_ignore = true; } break;
                 case '1': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
                 case '2': if (t_ReplaceText[i + -1] == '●') { t_ignore = true; } break;
@@ -1582,9 +1381,6 @@ public class DialogManager : MonoBehaviour
                 case '⑩': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '▒' || t_ReplaceText[i - 1] == '◈' || t_ReplaceText[i - 1] == '◐' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '⊙' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
                 case '⑪': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '▒' || t_ReplaceText[i - 1] == '◈' || t_ReplaceText[i - 1] == '◐' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '⊙' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
                 case '⑫': if (t_ReplaceText[i - 3] == '§' || t_ReplaceText[i - 1] == '▒' || t_ReplaceText[i - 1] == '◈' || t_ReplaceText[i - 1] == '◐' || t_ReplaceText[i - 1] == '※' || t_ReplaceText[i - 1] == '⊙' || t_ReplaceText[i - 1] == '♠' || t_ReplaceText[i - 1] == '♣' || t_ReplaceText[i + 2] == '§' | t_ReplaceText[i - 1] == '☆') { t_ignore = true; } break;
-            
-
-                    
                 case 'ⓐ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
                 case 'ⓒ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
                 case 'ⓓ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
@@ -1606,14 +1402,8 @@ public class DialogManager : MonoBehaviour
                 case 'ⓥ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
                 case 'ⓩ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
                 case 'ⓧ': if (t_ReplaceText[i  -2] == '●') { t_ignore = true; } break;
-
             }
-
-
-
-
             string t_letter = t_ReplaceText[i].ToString();
-
             if (!t_ignore)
             {//<color=#000000>
                 if (t_white) { t_letter = "<color=#FFFFFF></i>" + t_letter + "</color>"; }
@@ -1625,22 +1415,11 @@ public class DialogManager : MonoBehaviour
                 txt_Dialog.text += t_letter;
             }
             t_ignore = false;
-
-
-            /*
-           if(z키로넘기기여부 == false)
-           {
-               yield return new WaitForSecondsRealtime(textDelay);
-           }
-           */
-
         }
         FirstClick = true;
         isNext = true;
         yield return null;
-
     }
-
     public void EndTypeSKip()
     {
         DataBaseManager.endDialogLine = true;
@@ -1653,42 +1432,30 @@ public class DialogManager : MonoBehaviour
     void SettingUI(bool P_flag)
     {
         go_dialogBar.SetActive(P_flag);
-
-
         if (P_flag)
         {
             if (dialogs[lineCount].name == "")
             {
                 go_dialogNameBar.SetActive(false);
-
             }
             else
             {
                 go_dialogNameBar.SetActive(true);
-
                 txt_name.text = dialogs[lineCount].name;
             }
         }
-
-
     }
-
     void settingPlayerCon()
     {
-
         if (go_dialogBar.activeSelf == true)
         {
-
             // PlayerChar.transform.GetComponent<Mins>().isDialogOnChangeT();
         }
 
         if (go_dialogBar.activeSelf == false)
         {
-
             // PlayerChar.transform.GetComponent<Mins>().isDialogOnChangeF();
         }
-
-
     }
 
     public void onButtonSetterT()
