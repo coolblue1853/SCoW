@@ -146,14 +146,14 @@ public class Intel_ObtoUI : MonoBehaviour
                 {
                     if (DataBaseManager.NowSelecter == "Keyword")
                     {
-                        DialogManager.Instance.ChoiceEx_NextPage();
+                        DialogManager.Instance.ChoiceExNextPage();
                         KeywordCounter -= 1;
                         DataBaseManager.isSelect = true;
                         InteractionController.Instance.KeywordDialog(this.name);
                     }
                     else if (DataBaseManager.NowSelecter == "Look")
                     {
-                        DialogManager.Instance.ChoiceEx_NextPage();
+                        DialogManager.Instance.ChoiceExNextPage();
                         DataBaseManager.isSelect = true;
                         if (DataBaseManager.nowPlace == "DetectiveOffice")
                         {

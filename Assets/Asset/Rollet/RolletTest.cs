@@ -229,7 +229,7 @@ DataBaseManager.gunShotPoint = 50;
             cam.transform.position = Cam_Symbol;
             TimeManagere.Instance.MakeSighnLand();
             DataBaseManager.nowPlace = "InSewer";
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
 
         }
 
@@ -307,7 +307,7 @@ DataBaseManager.gunShotPoint = 50;
         }
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            BillowUIManager.Instance.HP_up(5);
+            BillowUIManager.Instance.HPUp(5);
 
         }
         if (Input.GetKeyDown(KeyCode.F4))

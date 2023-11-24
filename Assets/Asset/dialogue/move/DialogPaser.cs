@@ -8,9 +8,7 @@ public class DialogPaser : MonoBehaviour
     {
         List<Dialog> dialogList = new List<Dialog>(); // 대사 리스트 생성
         TextAsset csvData = Resources.Load<TextAsset>(_CVSFileName); // csv파일 가져옴
-
         string[] data = csvData.text.Split(new char[] {'\n'});
-
         for (int i = 1; i < data.Length;)
         {
             string[] row = data[i].Split(new char[] { ',' });

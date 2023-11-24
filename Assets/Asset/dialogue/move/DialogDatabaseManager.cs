@@ -4,116 +4,112 @@ using UnityEngine;
 
 public class DialogDatabaseManager : MonoBehaviour
 {
-    public bool Check = false;
+    public bool check = false;
     public static DialogDatabaseManager instance;
     private void Update()
     {
      if(DataBaseManager.isItemUI == false)
         {
-            if (DataBaseManager.nowPlace == "DetectiveOffice" && Check == true)
+            if (DataBaseManager.nowPlace == "DetectiveOffice" && check == true)
             {
-                Check = false;
+                check = false;
                 csv_FileName = "1st_DetectiveOffice";
-                setDialog();
+                SetDialog();
             }
-            else if (DataBaseManager.nowPlace == "Client'shouse" && Check == true)
+            else if (DataBaseManager.nowPlace == "Client'shouse" && check == true)
             {
                 if(DataBaseManager.TimeCount < 6)
                 {
-                    Check = false;
+                    check = false;
                     csv_FileName = "1st_Client'sHouse";
-                    setDialog();
+                    SetDialog();
                 }
                 else
                 {
-                    Check = false;
+                    check = false;
                     csv_FileName = "2nd_NoonEvent";
-                    setDialog();
+                    SetDialog();
                 }
-        
             }
-            else if (DataBaseManager.nowPlace == "DailyNews" && Check == true)
+            else if (DataBaseManager.nowPlace == "DailyNews" && check == true)
             {
-                Check = false;
+                check = false;
                 csv_FileName = "1st_DailyNews";
-                setDialog();
+                SetDialog();
             }
-            else if (DataBaseManager.nowPlace == "SewerOffice" && Check == true)
+            else if (DataBaseManager.nowPlace == "SewerOffice" && check == true)
             {
-                Check = false;
+                check = false;
                 csv_FileName = "SewerOffice";
-                setDialog();
+                SetDialog();
             }
-            else if (DataBaseManager.nowPlace == "University" && Check == true)
+            else if (DataBaseManager.nowPlace == "University" && check == true)
             {
-                Check = false;
+                check = false;
                 csv_FileName = "1st_University";
-                setDialog();
+                SetDialog();
             }
-            else if (DataBaseManager.nowPlace == "Riverside" && Check == true)
+            else if (DataBaseManager.nowPlace == "Riverside" && check == true)
             {
-                Check = false;
+                check = false;
                 csv_FileName = "1st_Riverside";
-                setDialog();
+                SetDialog();
             }
-            else if (DataBaseManager.nowPlace == "Hospital" && Check == true)
+            else if (DataBaseManager.nowPlace == "Hospital" && check == true)
             {
-                Check = false;
+                check = false;
                 csv_FileName = "1st_Hospital";
-                setDialog();
+                SetDialog();
             }
-            else if (DataBaseManager.nowPlace == "Policeoffice" && Check == true)
+            else if (DataBaseManager.nowPlace == "Policeoffice" && check == true)
             {
-                Check = false;
+                check = false;
                 csv_FileName = "1st_PoliceOffice";
-                setDialog();
+                SetDialog();
             }
-            else if (DataBaseManager.nowPlace == "Slum" && Check == true)
+            else if (DataBaseManager.nowPlace == "Slum" && check == true)
             {
-                Check = false;
+                check = false;
                 csv_FileName = "1st_Slum";
-                setDialog();
+                SetDialog();
             }
-            else if (DataBaseManager.nowPlace == "Bar" && Check == true)
+            else if (DataBaseManager.nowPlace == "Bar" && check == true)
             {
-                Check = false;
+                check = false;
                 csv_FileName = "1st_Bar";
-                setDialog();
+                SetDialog();
             }
-            else if (DataBaseManager.nowPlace == "InSewer" && Check == true)
+            else if (DataBaseManager.nowPlace == "InSewer" && check == true)
             {
-                Check = false;
+                check = false;
                 csv_FileName = "InSewer";
-                setDialog();
+                SetDialog();
             }
-            else if (DataBaseManager.nowPlace == "BattleRoad" && Check == true)
+            else if (DataBaseManager.nowPlace == "BattleRoad" && check == true)
             {
-                Check = false;
+                check = false;
                 csv_FileName = "1st_Battle";
-                setDialog();
+                SetDialog();
             }
-            else if (DataBaseManager.nowPlace == "NoonEvent" && Check == true)
+            else if (DataBaseManager.nowPlace == "NoonEvent" && check == true)
             {
-                Check = false;
+                check = false;
                 csv_FileName = "2nd_NoonEvent";
-                setDialog();
+                SetDialog();
             }
         }
         else
         {
             if(csv_FileName != "1st_Item")
             {
-                Check = true;
+                check = true;
                 csv_FileName = "1st_Item";
-                setDialog();
-
+                SetDialog();
             }
-
         }
-
     }
     Dialog[] dialogs;
-    void setDialog()
+    void SetDialog()
     {
         dialogs = new Dialog[0];
         dialogDic.Clear();
@@ -130,7 +126,6 @@ public class DialogDatabaseManager : MonoBehaviour
     }
     public string csv_FileName;
     Dictionary<int, Dialog> dialogDic = new Dictionary<int, Dialog>();
-
     public static bool isFinish = false;
 
     private void Awake()
@@ -178,21 +173,10 @@ public class DialogDatabaseManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            /*
-            DialogPaser theParser = GetComponent<DialogPaser>();
-            Dialog[] dialogs = theParser.Prase(csv_FileName);
-
-            for(int i =0; i < dialogs.Length; i++)
-            {
-                dialogDic.Add(i + 1, dialogs[i]);
-            }
-            */
-            setDialog();
+            SetDialog();
             isFinish = true;
         }
     }
-
-
     public Dialog[] GetDialog(int _startNum, int _EndNum)
     {
         List<Dialog> dialogList = new List<Dialog>();
@@ -200,7 +184,6 @@ public class DialogDatabaseManager : MonoBehaviour
         {
             dialogList.Add(dialogDic[_startNum + i]);
         }
-
         return dialogList.ToArray();
     }
 }

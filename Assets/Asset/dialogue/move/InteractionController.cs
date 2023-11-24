@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class InteractionController : MonoBehaviour
 {
     public DialogManager theDM;
-
     //Item_Box
     public GameObject Safe_Look;
     public GameObject Safe_Fail;
@@ -269,15 +268,12 @@ public class InteractionController : MonoBehaviour
     public GameObject Swain_key_AidenandPandemic;
     public GameObject Swain_key_Unfairdismissal;
 
-
-
     //2st 대학교
     public GameObject Student_key_ContentofaNightmare;
     public GameObject Student_key_WaterandNightmare;
     public GameObject Student_key_Rumor;
     public GameObject Student_key_FishySmell;
     public GameObject Student_key_Details;
-
 
     //2st 경찰서
     public GameObject Albert_key_WaterandNightmare;
@@ -328,7 +324,6 @@ public class InteractionController : MonoBehaviour
     public GameObject NoonEvent_DeadBody_Look_YesRumor;
     public GameObject NoonEvent_DeadBody_Look_Missing;
     public GameObject NoonEvent_DeadBody_Look_FishySmell;
-
     public GameObject NoonEvent_DeadBody_medicineSucc;
     public GameObject NoonEvent_DeadBody_medicineFail;
     public GameObject NoonEvent_DeadBody_ObservationSucc;
@@ -446,7 +441,6 @@ public class InteractionController : MonoBehaviour
     public GameObject Alan_Key_CauseOfDeath;
     public GameObject Alan_Key_WebbedFeet;
 
-
     //술집
     public GameObject Meave_ThirdDay_FirstO;
     public GameObject Meave_ThirdDay_FirstX;
@@ -503,7 +497,6 @@ public class InteractionController : MonoBehaviour
     public GameObject BlackWell_Key_Fail;
     public GameObject AfterJudgeLookLocker;
     public GameObject SewergeKey_Look;
-
 
     //하수도 내부
     public GameObject Sewer_EnemySpawn;
@@ -589,12 +582,10 @@ public class InteractionController : MonoBehaviour
 
     public void InSewerDialog(string setDialog)
     {
-        
-             if (setDialog == "Sewer_LadderUP")
+        if (setDialog == "Sewer_LadderUP")
         {
             theDM.ShowDialog(Sewer_LadderUP.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-
         if (setDialog == "Sewer_EnemySpawn")
         {
             theDM.ShowDialog(Sewer_EnemySpawn.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -611,7 +602,6 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(Sewer_DisgauseFail.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-       
         if (setDialog == "Sewer_MapDialog")
         {
             theDM.ShowDialog(Sewer_MapDialog.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -619,11 +609,7 @@ public class InteractionController : MonoBehaviour
         if (setDialog == "Sewer_MapLook")
         {
             theDM.ShowDialog(Sewer_MapLook.transform.GetComponent<interactionEvent>().GetDialogs());
-
-
         }
-
-
         if (setDialog == "Sewer_JournalDialog")
         {
             theDM.ShowDialog(Sewer_JournalDialog.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -634,12 +620,10 @@ public class InteractionController : MonoBehaviour
             {
                 DataBaseManager.firstLookJournal = true;
                 theDM.ShowDialog(Sewer_JornalLook.transform.GetComponent<interactionEvent>().GetDialogs());
-
             }
             else
             {
                 theDM.ShowDialog(Sewer_JornalLookAfterSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
-
             }
         }
         if (setDialog == "Sewer_JornalLookAfterSanCheck")
@@ -661,13 +645,11 @@ public class InteractionController : MonoBehaviour
             {
                 theDM.ShowDialog(Sewer_BookLookAfterCheck.transform.GetComponent<interactionEvent>().GetDialogs());
             }
-
         }
         if (setDialog == "Sewer_JornalLookSanCheck")
         {
             theDM.ShowDialog(Sewer_JornalLookSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-
         if (setDialog == "Sewer_SymbolDialog")
         {
             theDM.ShowDialog(Sewer_SymbolDialog.transform.GetComponent<interactionEvent>().GetDialogs());
@@ -688,11 +670,7 @@ public class InteractionController : MonoBehaviour
                 {
                     theDM.ShowDialog(Sewer_SymbolLook_NoJournalAfterOccult.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
-
             }
-
-
-
         }
         if (setDialog == "Sewer_FirstIn")
         {
@@ -706,13 +684,10 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(Sewer_LadderDialog.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-
         if (setDialog == "Ending_BreakSymbol")
         {
             theDM.ShowDialog(Ending_BreakSymbol.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-
-
         if (setDialog == "Ending_isPromise")
         {
             if(DataBaseManager.Intel_Meiv2 == true)
@@ -725,15 +700,11 @@ public class InteractionController : MonoBehaviour
                 {
                     theDM.ShowDialog(Ending_IfGotPromiseAndAblertDeath.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
-
-
             }
             else if (DataBaseManager.Intel_Meiv2 == false)
             {
                 theDM.ShowDialog(Ending_IfNoPromise.transform.GetComponent<interactionEvent>().GetDialogs());
             }
-
-
         }
         if (setDialog == "Ending_IfNoPromiseAlbertDeath")
         {
@@ -753,7 +724,6 @@ public class InteractionController : MonoBehaviour
             {
                 theDM.ShowDialog(Ending_LastIfNoRequest.transform.GetComponent<interactionEvent>().GetDialogs());
             }
-
         }
         if (setDialog == "Ending_Killing")
         {
@@ -763,9 +733,7 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(Ending_DoorEnd.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-        
     }
-
     public void Start_SewerOffice(string setDialog)
     {
         if (setDialog == "SewerDoordialog")
@@ -776,7 +744,6 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(SewerDoorLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-
         if(setDialog == "Window_dialog")
         {
             if(DataBaseManager.TimeCount%4 == 1|| DataBaseManager.TimeCount % 4 == 2)
@@ -821,7 +788,6 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(Map_look_AFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
-
         if (setDialog == "Locker_dialog")
         {
             if (DataBaseManager.TimeCount % 4 == 1 || DataBaseManager.TimeCount % 4 == 2)
@@ -831,7 +797,6 @@ public class InteractionController : MonoBehaviour
             else
             {
                 theDM.ShowDialog(Loker_dialog_AFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
-
             }
         }
         if (setDialog == "Locker_look")
@@ -846,7 +811,6 @@ public class InteractionController : MonoBehaviour
                 {
                     theDM.ShowDialog(Loker_look_BFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
-       
             }
             else
             {
@@ -892,11 +856,8 @@ public class InteractionController : MonoBehaviour
         {
             theDM.ShowDialog(NoonEvent_ClientHouse.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-
-
         if (setDialog == "NoonEvent_Witness_Dialog")
         {
-
             if (DataBaseManager.Witness_FirstDailog == false)
             {
                 DataBaseManager.Witness_FirstDailog = true;
@@ -907,12 +868,10 @@ public class InteractionController : MonoBehaviour
                 theDM.ShowDialog(NoonEvent_Witness_RepeatDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
-    
         if (setDialog == "NoonEvent_Witness_Look")
         {
             theDM.ShowDialog(NoonEvent_Witness_Look.transform.GetComponent<interactionEvent>().GetDialogs());
         }
-
         if (setDialog == "NoonEvent_DoorPolice_Dialog")
         {
 
@@ -1032,8 +991,7 @@ public class InteractionController : MonoBehaviour
 
     public void Start_Safe_Look(string setDialog)
     {
-        
-                   if (setDialog == "OldMap_Look")
+        if (setDialog == "OldMap_Look")
         {
             theDM.ShowDialog(OldMap_Look.transform.GetComponent<interactionEvent>().GetDialogs());
         }
@@ -2983,7 +2941,7 @@ public class InteractionController : MonoBehaviour
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                BillowUIManager.Instance.HP_down(5);
+                BillowUIManager.Instance.HPDown(5);
                 theDM.ShowDialog(Aiden_key_Safe_Str_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
@@ -3548,7 +3506,7 @@ public class InteractionController : MonoBehaviour
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                 BillowUIManager.Instance.HP_down(5);
+                 BillowUIManager.Instance.HPDown(5);
                 Invoke("SwinCheckAgain", 0.5f);
             }
         }

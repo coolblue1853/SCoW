@@ -4,156 +4,142 @@ using UnityEngine;
 
 public class BattlePlayer : MonoBehaviour
 {
-     GameObject player;
-     SpriteRenderer player_R;
-    public Sprite Hitted;
-    public Sprite Stand;
-    public Sprite Dagger_Ready;
-    public Sprite Axe_Ready;
-    public Sprite Bat_Ready;
-
-    public Sprite SmallPistol_Ready;
-    public Sprite Revolver_Ready;
-    public Sprite Shotgun_Ready;
-    public Sprite Rifle_Ready;
-
-    public Sprite Rock_Ready;
-    public Sprite Molotov_Ready;
-
-
-
-
-
-    public GameObject HittedDagger;
-    public GameObject HittedRcok;
-    public GameObject HittedPosion;
-    public GameObject HittedSanAttack;
-    public GameObject PosionAcctive;
-
+    GameObject player;
+    SpriteRenderer playerRenderer;
+    public Sprite hitted;
+    public Sprite stand;
+    public Sprite daggerReady;
+    public Sprite axeReady;
+    public Sprite batReady;
+    public Sprite smallPistolReady;
+    public Sprite revolverReady;
+    public Sprite shotgunReady;
+    public Sprite rifleReady;
+    public Sprite rockReady;
+    public Sprite molotovReady;
+    public GameObject hittedDagger;
+    public GameObject hittedRcok;
+    public GameObject hittedPosion;
+    public GameObject hittedSanAttack;
+    public GameObject posionAcctive;
     // Start is called before the first frame update
     void Start()
     {
         player = this.GetComponent<GameObject>();
-        player_R = this.GetComponent<SpriteRenderer>();
-
+        playerRenderer = this.GetComponent<SpriteRenderer>();
     }
-
     public void PlayerHittedDagger()
     {
-        player_R.sprite = Hitted;
-        HittedDagger.SetActive(true);
+        playerRenderer.sprite = hitted;
+        hittedDagger.SetActive(true);
     }
     public void PlayerHittedRock()
     {
-        player_R.sprite = Hitted;
-        HittedRcok.SetActive(true);
+        playerRenderer.sprite = hitted;
+        hittedRcok.SetActive(true);
     }
     public void PlayerHittedPosion()
     {
-        player_R.sprite = Hitted;
-        HittedPosion.SetActive(true);
+        playerRenderer.sprite = hitted;
+        hittedPosion.SetActive(true);
     }
     public void PlayerHittedSanAttack()
     {
-        player_R.sprite = Hitted;
-        HittedSanAttack.SetActive(true);
+        playerRenderer.sprite = hitted;
+        hittedSanAttack.SetActive(true);
     }
-
-    public void resetPlayer()
+    public void ResetPlayer()
     {
-        HittedDagger.SetActive(false);
-        HittedRcok.SetActive(false);
-        HittedPosion.SetActive(false);
-        HittedSanAttack.SetActive(false);
+        hittedDagger.SetActive(false);
+        hittedRcok.SetActive(false);
+        hittedPosion.SetActive(false);
+        hittedSanAttack.SetActive(false);
     }
-
     // Update is called once per frame
     void Update()
     {
-        if(DataBaseManager.PosionDebuff > 0 && PosionAcctive.activeSelf == false)
+        if(DataBaseManager.PosionDebuff > 0 && posionAcctive.activeSelf == false)
         {
-            PosionAcctive.SetActive(true);
+            posionAcctive.SetActive(true);
         }
-        else if (DataBaseManager.PosionDebuff <= 0 && PosionAcctive.activeSelf == true)
+        else if (DataBaseManager.PosionDebuff <= 0 && posionAcctive.activeSelf == true)
         {
-            PosionAcctive.SetActive(false);
+            posionAcctive.SetActive(false);
         }
-
-        if((BattleManager.Instance.BattleState == "PlayerAttack" || BattleManager.Instance.BattleState == "selectEnemy"))
+        if((BattleManager.Instance.battleState == "PlayerAttack" || BattleManager.Instance.battleState == "selectEnemy"))
         {
-            if(BattleManager.Instance.PlayerAction == "PlayerSwords")
+            if(BattleManager.Instance.playerAction == "PlayerSwords")
             { 
-             if (DataBaseManager.BattleWeapon == "Dagger" && player_R.sprite != Dagger_Ready)
+             if (DataBaseManager.BattleWeapon == "Dagger" && playerRenderer.sprite != daggerReady)
             {
                 SoundManager.Instance.Battle_Sound("Dagger_Reddy");
-                BattleManager.Instance.EnemySelectUI.SetActive(true);
-                BattleManager.Instance.BattleState = "selectEnemy";
-                player_R.sprite = Dagger_Ready;
+                BattleManager.Instance.enemySelectUi.SetActive(true);
+                BattleManager.Instance.battleState = "selectEnemy";
+                playerRenderer.sprite = daggerReady;
             }
-            else if (DataBaseManager.BattleWeapon == "Bat" && player_R.sprite != Bat_Ready)
+            else if (DataBaseManager.BattleWeapon == "Bat" && playerRenderer.sprite != batReady)
             {
                 SoundManager.Instance.Battle_Sound("Bat_Reddy");
-                BattleManager.Instance.EnemySelectUI.SetActive(true);
-                BattleManager.Instance.BattleState = "selectEnemy";
-                player_R.sprite = Bat_Ready;
+                BattleManager.Instance.enemySelectUi.SetActive(true);
+                BattleManager.Instance.battleState = "selectEnemy";
+                playerRenderer.sprite = batReady;
             }
-            else if (DataBaseManager.BattleWeapon == "Axe" && player_R.sprite != Axe_Ready)
+            else if (DataBaseManager.BattleWeapon == "Axe" && playerRenderer.sprite != axeReady)
             {
                 SoundManager.Instance.Battle_Sound("Axe_Reddy");
-                BattleManager.Instance.EnemySelectUI.SetActive(true);
-                BattleManager.Instance.BattleState = "selectEnemy";
-                player_R.sprite = Axe_Ready;
+                BattleManager.Instance.enemySelectUi.SetActive(true);
+                BattleManager.Instance.battleState = "selectEnemy";
+                playerRenderer.sprite = axeReady;
             }
         }
-            if (BattleManager.Instance.PlayerAction == "PlayerMarkmen")
+            if (BattleManager.Instance.playerAction == "PlayerMarkmen")
             {
-                  if (DataBaseManager.BattleWeapon == "SmallPistol" && player_R.sprite != SmallPistol_Ready && DataBaseManager.nowSmallPistol > 0)
+                  if (DataBaseManager.BattleWeapon == "SmallPistol" && playerRenderer.sprite != smallPistolReady && DataBaseManager.nowSmallPistol > 0)
                 {
                     SoundManager.Instance.Battle_Sound("SmallPisol_Reddy");
-                    BattleManager.Instance.EnemySelectUI.SetActive(true);
-                    BattleManager.Instance.BattleState = "selectEnemy";
-                    player_R.sprite = SmallPistol_Ready;
+                    BattleManager.Instance.enemySelectUi.SetActive(true);
+                    BattleManager.Instance.battleState = "selectEnemy";
+                    playerRenderer.sprite = smallPistolReady;
                 }
-                else if (DataBaseManager.BattleWeapon == "Revolver" && player_R.sprite != Revolver_Ready && DataBaseManager.nowRevolver > 0)
+                else if (DataBaseManager.BattleWeapon == "Revolver" && playerRenderer.sprite != revolverReady && DataBaseManager.nowRevolver > 0)
                 {
                     SoundManager.Instance.Battle_Sound("Revolver_Reddy");
-                    BattleManager.Instance.EnemySelectUI.SetActive(true);
-                    BattleManager.Instance.BattleState = "selectEnemy";
-                    player_R.sprite = Revolver_Ready;
+                    BattleManager.Instance.enemySelectUi.SetActive(true);
+                    BattleManager.Instance.battleState = "selectEnemy";
+                    playerRenderer.sprite = revolverReady;
                 }
-                else if (DataBaseManager.BattleWeapon == "Rifle" && player_R.sprite != Rifle_Ready && DataBaseManager.nowRifle > 0)
+                else if (DataBaseManager.BattleWeapon == "Rifle" && playerRenderer.sprite != rifleReady && DataBaseManager.nowRifle > 0)
                 {
                     SoundManager.Instance.Battle_Sound("Rifle_Reddy");
-                    BattleManager.Instance.EnemySelectUI.SetActive(true);
-                    BattleManager.Instance.BattleState = "selectEnemy";
-                    player_R.sprite = Rifle_Ready;
+                    BattleManager.Instance.enemySelectUi.SetActive(true);
+                    BattleManager.Instance.battleState = "selectEnemy";
+                    playerRenderer.sprite = rifleReady;
                 }
-                else if (DataBaseManager.BattleWeapon == "Shotgun" && player_R.sprite != Shotgun_Ready && DataBaseManager.nowShotgun > 0)
+                else if (DataBaseManager.BattleWeapon == "Shotgun" && playerRenderer.sprite != shotgunReady && DataBaseManager.nowShotgun > 0)
                 {
                     SoundManager.Instance.Battle_Sound("Shotgun_Reddy");
-                    BattleManager.Instance.EnemySelectUI.SetActive(true);
-                    BattleManager.Instance.BattleState = "selectEnemy";
-                    player_R.sprite = Shotgun_Ready;
+                    BattleManager.Instance.enemySelectUi.SetActive(true);
+                    BattleManager.Instance.battleState = "selectEnemy";
+                    playerRenderer.sprite = shotgunReady;
                 }
             }
-            if (BattleManager.Instance.PlayerAction == "PlayerDeftness")
+            if (BattleManager.Instance.playerAction == "PlayerDeftness")
             {
-                         if (DataBaseManager.BattleWeapon == "Rock" && player_R.sprite != Rock_Ready)
+                if (DataBaseManager.BattleWeapon == "Rock" && playerRenderer.sprite != rockReady)
                 {
                     SoundManager.Instance.Battle_Sound("Rock_Reddy");
-                    BattleManager.Instance.EnemySelectUI.SetActive(true);
-                    BattleManager.Instance.BattleState = "selectEnemy";
-                    player_R.sprite = Rock_Ready;
+                    BattleManager.Instance.enemySelectUi.SetActive(true);
+                    BattleManager.Instance.battleState = "selectEnemy";
+                    playerRenderer.sprite = rockReady;
                 }
-                else if (DataBaseManager.BattleWeapon == "Molotov" && player_R.sprite != Molotov_Ready && DataBaseManager.Molotov > 0)
+                else if (DataBaseManager.BattleWeapon == "Molotov" && playerRenderer.sprite != molotovReady && DataBaseManager.Molotov > 0)
                 {
                     SoundManager.Instance.Battle_Sound("Molotov_Reddy");
-                    BattleManager.Instance.EnemySelectUI.SetActive(true);
-                    BattleManager.Instance.BattleState = "selectEnemy";
-                    player_R.sprite = Molotov_Ready;
+                    BattleManager.Instance.enemySelectUi.SetActive(true);
+                    BattleManager.Instance.battleState = "selectEnemy";
+                    playerRenderer.sprite = molotovReady;
                 }
             }
-    
         }
     }
 }

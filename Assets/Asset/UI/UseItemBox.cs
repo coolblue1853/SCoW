@@ -44,7 +44,7 @@ public class UseItemBox : MonoBehaviour
                 {
                     Heal = DataBaseManager.san - DataBaseManager.nowSan;
                 }
-                BillowUIManager.Instance.San_up(Heal);
+                BillowUIManager.Instance.SanUp(Heal);
                 DataBaseManager.Painkillers -= 1;
                 //Rollet.Instance.setRollet("Fabian : Psychotherapy", "Psychotherapy+20", DataBaseManager.medicinePoint + 20, "Item");
             }
