@@ -84,7 +84,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.Intel_FishySmell2 = true;
         DataBaseManager.Intel_FishySmell3 = true;
         // 테스트 진행중 삭제
-        */
+   
         DataBaseManager.ObservationPoint = 80;
         DataBaseManager.listeningPoint = 80;
         DataBaseManager.medicinePoint = 80;
@@ -140,7 +140,8 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.EnemyDeathCount = 500;
         DataBaseManager.luk = 0;
 
-        DataBaseManager.isDebuff_CognitiveBreakdown = true;
+      //  DataBaseManager.isDebuff_CognitiveBreakdown = true;
+             */
     }
     public void NewsRollet()
     {

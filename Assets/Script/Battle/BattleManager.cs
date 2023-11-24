@@ -558,6 +558,7 @@ public class BattleManager : MonoBehaviour
     public TextMeshProUGUI RunAwayText;
     public void RunAway()
     {
+        Debug.Log("Check");
         SoundManager.Instance.ClickSound_Play();
         EnemyCount = 0;
         RunAwayObject.SetActive(true);

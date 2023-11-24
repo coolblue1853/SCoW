@@ -148,7 +148,6 @@ public class DirectingManager : MonoBehaviour
         }
         if (DataBaseManager.fst_Detective_NockDialog == true && DataBaseManager.isActiveDialog1 == false)
         {
-
             DataBaseManager.fst_Detective_NockDialog = false;
             fst_DetectiveOffice_FadeIn("Nock_Directing");
         }
@@ -323,8 +322,8 @@ public class DirectingManager : MonoBehaviour
         if (DataBaseManager.isBattleBeforeDialog == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.isBattleBeforeDialog = false;
-            FadingBackGround.Instance.CastInOut();
-            Invoke("GotoBattle", 0.8f);
+            FadingBackGround.Instance.FadeInOut();
+            Invoke("GotoBattle", 1.1f);
             BattleManager.Instance.CloseButtonUI();
         }
 
@@ -341,21 +340,21 @@ public class DirectingManager : MonoBehaviour
         if (DataBaseManager.StartSewerBattle == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.StartSewerBattle = false;
-            FadingBackGround.Instance.CastInOut();
-            Invoke("GotoBattleSewer", 0.8f);
+            FadingBackGround.Instance.FadeInOut();
+            Invoke("GotoBattleSewer", 1.1f);
             BattleManager.Instance.CloseButtonUI();
         }
         if (DataBaseManager.InSewer_StealthSucc == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.InSewer_StealthSucc = false;
-            FadingBackGround.Instance.CastInOut(); // 이거 문제 체크
-            Invoke("InSewerFabianMove", 0.8f);
+            FadingBackGround.Instance.FadeInOut(); // 이거 문제 체크
+            Invoke("InSewerFabianMove", 1.1f);
         }
         if (DataBaseManager.InSewer_StealthFail == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.InSewer_StealthFail = false;
-            FadingBackGround.Instance.CastInOut();
-            Invoke("GotoBattleSewer", 0.8f);
+            FadingBackGround.Instance.FadeInOut();
+            Invoke("GotoBattleSewer", 1.1f);
             BattleManager.Instance.CloseButtonUI();
         }
         if (DataBaseManager.Sewer_FirstIn == true && DataBaseManager.isActiveDialog1 == false)
@@ -749,6 +748,7 @@ public class DirectingManager : MonoBehaviour
         if (DataBaseManager.SewerEnemyCounter == 1)
         {
             SewerEnemy1.SetActive(true);
+            SewerEnemy2.SetActive(false);
             EnemyTrunSymbol_1.SetActive(true);
             EnemyTrunSymbol_2.SetActive(false);
             EnemyTrunSymbol_3.SetActive(false);
@@ -756,6 +756,7 @@ public class DirectingManager : MonoBehaviour
         }
         else if (DataBaseManager.SewerEnemyCounter == 2)
         {
+            SewerEnemy1.SetActive(false);
             SewerEnemy2.SetActive(true);
             EnemyTrunSymbol_1.SetActive(false);
             EnemyTrunSymbol_2.SetActive(true);
