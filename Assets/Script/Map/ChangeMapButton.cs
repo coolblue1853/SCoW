@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ChangeMapButton : MonoBehaviour
 {
-
     public void ButtonClick()
     {
         if (DataBaseManager.TimeCount == 5 && DataBaseManager.NoonMorningMove == true)
@@ -12,13 +11,10 @@ public class ChangeMapButton : MonoBehaviour
             MapManager.Instance.MapOn();
             DataBaseManager.nowPlace = "NoonEvent";
         }
-
         else if(this.name == "DetectiveOffice" && (DataBaseManager.isBar == true || DataBaseManager.isSewerOffice == true))
         {
-            
             DataBaseManager.nowPlace = "BattleRoad";
             MapManager.Instance.MapOn();
-
         }
         else if (DataBaseManager.isDebuff_CognitiveDisorder == true && DataBaseManager.nowPlace != "BattleRoad")
         {
@@ -37,7 +33,6 @@ public class ChangeMapButton : MonoBehaviour
                 int randomIndex = Random.Range(0, unityList.Count);
                 string selectedElement = unityList[randomIndex];
                 DataBaseManager.nowPlace = selectedElement;
-
             }
             else if (DataBaseManager.TimeCount % 4 == 2) // ³·
             {
@@ -53,7 +48,6 @@ public class ChangeMapButton : MonoBehaviour
                 int randomIndex = Random.Range(0, unityList.Count);
                 string selectedElement = unityList[randomIndex];
                 DataBaseManager.nowPlace = selectedElement;
-
             }
             else if (DataBaseManager.TimeCount % 4 == 3) // ¿ÀÈÄ
             {
@@ -69,14 +63,10 @@ public class ChangeMapButton : MonoBehaviour
                 int randomIndex = Random.Range(0, unityList.Count);
                 string selectedElement = unityList[randomIndex];
                 DataBaseManager.nowPlace = selectedElement;
-
             }
             else if (DataBaseManager.TimeCount % 4 == 0) // ¿ÀÈÄ
             {
-
-
                 DataBaseManager.nowPlace = "DetectiveOffice";
-
             }
             MapManager.Instance.MapOn();
         }
@@ -85,34 +75,15 @@ public class ChangeMapButton : MonoBehaviour
             MapManager.Instance.MapOn();
             DataBaseManager.nowPlace = this.name;
         }
-        //DataBaseManager.nowPlace = this.name;
-
     }
-
     public void SewerMapButton()
     {
         FadingBackGround.Instance.FadeInOut();
         Invoke("InvokeSewer",1f);
-
     }
     public void InvokeSewer()
     {
         MapManager.Instance.CloseMap();
         TimeManagere.Instance.SewerMapMove();
-    }
-
-    void Chage()
-    {
-
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

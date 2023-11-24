@@ -5,22 +5,13 @@ using UnityEngine;
 public class CharacterButtonManage : MonoBehaviour
 {
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
-
         ButtonUpdate();
         if (PushDownButton == false)
         {
             ButtonManage();
         }
-
         if (UpButton.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -28,8 +19,6 @@ public class CharacterButtonManage : MonoBehaviour
                 ClickUPButton();
             }
         }
-
-
         else if (DownButton.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.S))
@@ -37,14 +26,10 @@ public class CharacterButtonManage : MonoBehaviour
                 ClickDownButton();
             }
         }
-
     }
 
     public GameObject UpButton;
     public GameObject DownButton;
-
-
-
     public GameObject Button_Ella;
     public GameObject Button_Aiden;
     public GameObject Button_Cane;
@@ -66,7 +51,6 @@ public class CharacterButtonManage : MonoBehaviour
     bool ButtonRize_Dave = false;
     void ButtonUpdate()
     {
-
         if ((DataBaseManager.Intel_Ella1 == true || DataBaseManager.Intel_Ella2 == true || DataBaseManager.Intel_Ella3 == true || DataBaseManager.Intel_Ella4 == true || DataBaseManager.Intel_Ella5 == true || DataBaseManager.Intel_Ella6 == true) && ButtonRize_Ella == false)
         {
             ButtonRize_Ella = true;
@@ -79,8 +63,6 @@ public class CharacterButtonManage : MonoBehaviour
             DataBaseManager.ButtonCount_Aiden = DataBaseManager.GainCharacterInt;
             DataBaseManager.GainCharacterInt += 1;
         }
-
-
         if ((DataBaseManager.Intel_Cane1 == true || DataBaseManager.Intel_Cane2 == true || DataBaseManager.Intel_Cane3 == true || DataBaseManager.Intel_Cane4 == true || DataBaseManager.Intel_Cane5 == true || DataBaseManager.Intel_Cane6 == true) && ButtonRize_Cane == false)
         {
             ButtonRize_Cane = true;
@@ -117,22 +99,15 @@ public class CharacterButtonManage : MonoBehaviour
             DataBaseManager.ButtonCount_SewerWorker = DataBaseManager.GainEventInt;
             DataBaseManager.GainEventInt += 1;
         }
-
         if ((DataBaseManager.Intel_Dave1 == true || DataBaseManager.Intel_Dave2 == true || DataBaseManager.Intel_Dave3 == true || DataBaseManager.Intel_Dave4 == true || DataBaseManager.Intel_Dave5 == true || DataBaseManager.Intel_Dave6 == true) && ButtonRize_Dave == false)
         {
             ButtonRize_Dave = true;
             DataBaseManager.ButtonCount_Dave = DataBaseManager.GainEventInt;
             DataBaseManager.GainEventInt += 1;
         }
-
     }
-
-
-
     void ButtonManage()
     {
-
-
         if (DataBaseManager.ButtonCount_Aiden != -1)
         {
             Button_Aiden.SetActive(true);
@@ -143,8 +118,6 @@ public class CharacterButtonManage : MonoBehaviour
             Button_Ella.SetActive(true);
             Button_Ella.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Ella);
         }
-
-
         if (DataBaseManager.ButtonCount_Cane != -1)
         {
             Button_Cane.SetActive(true);
@@ -194,7 +167,6 @@ public class CharacterButtonManage : MonoBehaviour
         UpButton.SetActive(false);
         DownButton.SetActive(true);
     }
-
     public void ClickDownButton()
     {
         UpButton.SetActive(true);
@@ -212,26 +184,5 @@ public class CharacterButtonManage : MonoBehaviour
             trChild16.gameObject.SetActive(true);
 
         }
-        /*
-        else if (DataBaseManager.현재획득한인물정보가지수 == 8)
-        {
-            Transform trC1hild6 = 버튼랙트.transform.GetChild(6);
-            trC1hild6.gameObject.SetActive(true);
-            Transform trC2hild7 = 버튼랙트.transform.GetChild(7);
-            trC2hild7.gameObject.SetActive(true);
-            Transform trChild8 = 버튼랙트.transform.GetChild(8);
-            trChild8.gameObject.SetActive(false);
-        }
-        else if (DataBaseManager.현재획득한인물정보가지수 == 9)
-        {
-            Transform trChild6 = 버튼랙트.transform.GetChild(6);
-            trChild6.gameObject.SetActive(true);
-            Transform trChild7 = 버튼랙트.transform.GetChild(7);
-            trChild7.gameObject.SetActive(true);
-            Transform trChild8 = 버튼랙트.transform.GetChild(8);
-            trChild8.gameObject.SetActive(true);
-        }
-        */
-
     }
 }

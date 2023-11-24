@@ -5,24 +5,13 @@ using UnityEngine;
 public class EventButtonManage : MonoBehaviour
 {
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
-
-
-
         ButtonUpdate();
         if (PushDownButton == false)
         {
             DetailUpdate();
         }
-
 
          if (UpButton.activeSelf == true)
         {
@@ -31,10 +20,6 @@ public class EventButtonManage : MonoBehaviour
                 ClickUpButton();
             }
         }
-
-
- 
-
          if (DownButton.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.S))
@@ -62,7 +47,6 @@ public class EventButtonManage : MonoBehaviour
     public GameObject Button_Safe;
     public GameObject Button_MurderCase;
 
-
     bool ButtonRize_PlanetarySequence = false;
     bool ButtonRize_Nightmare = false;
     bool ButtonRize_Paranoia = false;
@@ -77,8 +61,6 @@ public class EventButtonManage : MonoBehaviour
 
     bool ButtonRize_Safe = false;
     bool ButtonRize_MurderCase = false;
-
-
     void ButtonUpdate()
     {
         if ((DataBaseManager.Intel_PlanetaryParade1 == true || DataBaseManager.Intel_PlanetaryParade2 == true || DataBaseManager.Intel_PlanetaryParade3 == true || DataBaseManager.Intel_PlanetaryParade4 == true || DataBaseManager.Intel_PlanetaryParade5 == true || DataBaseManager.Intel_PlanetaryParade6 == true) && ButtonRize_PlanetarySequence == false)
@@ -123,8 +105,6 @@ public class EventButtonManage : MonoBehaviour
             DataBaseManager.ButtonCount_FishySmell = DataBaseManager.GainEventInt;
             DataBaseManager.GainEventInt += 1;
         }
-
-
         if ((DataBaseManager.Intel_RiverWaterQuality1 == true || DataBaseManager.Intel_RiverWaterQuality2 == true || DataBaseManager.Intel_RiverWaterQuality3 == true || DataBaseManager.Intel_RiverWaterQuality4 == true || DataBaseManager.Intel_RiverWaterQuality5 == true || DataBaseManager.Intel_RiverWaterQuality6 == true) && ButtonRize_RiverWaterQuality == false)
         {
             ButtonRize_RiverWaterQuality = true;
@@ -151,13 +131,7 @@ public class EventButtonManage : MonoBehaviour
             DataBaseManager.ButtonCount_MurderCase = DataBaseManager.GainEventInt;
             DataBaseManager.GainEventInt += 1;
         }
-
-
-
     }
-
-
-
     void DetailUpdate()
     {
 
@@ -220,8 +194,6 @@ public class EventButtonManage : MonoBehaviour
             Button_Safe.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Safe);
 
         }
-
-
         if (DataBaseManager.GainEventInt > 6)
         {
             DownButton.SetActive(true);
@@ -237,7 +209,6 @@ public class EventButtonManage : MonoBehaviour
         UpButton.SetActive(false);
         DownButton.SetActive(true);
     }
-
     public void ClickDownButton()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -249,14 +220,12 @@ public class EventButtonManage : MonoBehaviour
             Transform trChild = ButtonRect.transform.GetChild(i);
             trChild.gameObject.SetActive(false);
         }
-
         if (DataBaseManager.GainEventInt == 7)
         {
             Transform trChild16 = ButtonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);
 
         }
-
         else if (DataBaseManager.GainEventInt == 8)
         {
             Transform trChild16 = ButtonRect.transform.GetChild(6);
@@ -273,7 +242,6 @@ public class EventButtonManage : MonoBehaviour
             trChild7.gameObject.SetActive(true);
             Transform trChild9 = ButtonRect.transform.GetChild(8);
             trChild9.gameObject.SetActive(true);
-
         }
         else if (DataBaseManager.GainEventInt == 10)
         {
@@ -285,8 +253,6 @@ public class EventButtonManage : MonoBehaviour
             trChild9.gameObject.SetActive(true);
             Transform trChild10 = ButtonRect.transform.GetChild(9);
             trChild10.gameObject.SetActive(true);
-
-
         }
         else if (DataBaseManager.GainEventInt == 11)
         {
@@ -317,6 +283,4 @@ public class EventButtonManage : MonoBehaviour
             trChild12.gameObject.SetActive(true);
         }
     }
-
-
 }

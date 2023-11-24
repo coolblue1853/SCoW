@@ -72,10 +72,6 @@ public class IntelManager : MonoBehaviour
                 clone.transform.SetParent(FloatingPlace2.transform);
                 clone.transform.localScale = new Vector3(1, 1, 1);
             }
-
-
-
-            
         }
         if (Category == "Item")
         {
@@ -93,10 +89,6 @@ public class IntelManager : MonoBehaviour
                 clone.transform.SetParent(FloatingPlace2.transform);
                 clone.transform.localScale = new Vector3(1, 1, 1);
             }
-
-
-
-            
         }
     }
     public void QuitIntelWindow()
@@ -105,12 +97,9 @@ public class IntelManager : MonoBehaviour
         //DataBaseManager.옵션창여부 = false;
         IntelWindow.SetActive(false);
     }
-    
-
     public GameObject EventWindow_ON;
     public GameObject CharacterWindow_ON;
     public GameObject PlaceWindow_ON;
-
     public void Open_Character()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -145,12 +134,6 @@ public class IntelManager : MonoBehaviour
         EventWindow.SetActive(false);
         PlaceWindow.SetActive(true);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    
     public void OpenSetting()
     {
         if (DataBaseManager.isActiveDialog1 == false  && DataBaseManager.isDebuff_Dyslexia != true && DataBaseManager.StoryDirecting == false && DataBaseManager.potalWait == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isOpenMap == false)
@@ -158,10 +141,7 @@ public class IntelManager : MonoBehaviour
             SoundManager.Instance.PaperClip_Play();
             DataBaseManager.isOpenUi = true;
             IntelUI.SetActive(true);
-
         }
-
-
     }
     public void CloseSetting()
     {
@@ -178,10 +158,7 @@ public class IntelManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha1) && IntelUI.activeSelf == false)
         {
             OpenSetting();
-
         }
-
-
     }
 
     private static IntelManager instance = null;

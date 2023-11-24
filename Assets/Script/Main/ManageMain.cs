@@ -15,7 +15,6 @@ public class ManageMain : MonoBehaviour
     bool on2 = false;
     bool on3 = false;
     Sequence mySequence;
-
     public void FadeIn()
     {
         SoundManager.Instance.pen_Circle();
@@ -23,31 +22,23 @@ public class ManageMain : MonoBehaviour
         Tween fadeTween = BackGround.DOFade(1, 1.5f);
         fadeTween.OnComplete(Go_SetCharacter);
     }
-
-
     public void Game_Quit()
     {
         SoundManager.Instance.pen_Circle();
         Application.Quit();
     }
-
     public void Go_SetCharacter()
     {
-
         SceneManager.LoadScene("SetCharacter");
     }
-
     public void Open_tile()
     {
-        if(on == false)
+        if (on == false)
         {
             on = true;
             tile.SetActive(true);
         }
-
     }
-
-
     public void Close_tile()
     {
         if (on == true)
@@ -63,10 +54,7 @@ public class ManageMain : MonoBehaviour
             on2 = true;
             tile2.SetActive(true);
         }
-
     }
-
-
     public void Close_tile2()
     {
         if (on2 == true)
@@ -75,7 +63,6 @@ public class ManageMain : MonoBehaviour
             tile2.SetActive(false);
         }
     }
-
     public void Open_tile3()
     {
         if (on3 == false)
@@ -83,10 +70,7 @@ public class ManageMain : MonoBehaviour
             on3 = true;
             tile3.SetActive(true);
         }
-
     }
-
-
     public void Close_tile3()
     {
         if (on3 == true)

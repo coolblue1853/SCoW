@@ -74,19 +74,8 @@ public class IntelCharacterDetail : MonoBehaviour
         Detail_Dave5 = DaveContents.transform.GetChild(4).gameObject;
         Detail_Dave6 = DaveContents.transform.GetChild(5).gameObject;
     }
-
-
-
-
-
-
-
-
-    // Update is called once per frame
     void Update()
     {
-
-
         DaveDetail();
         SewerWorkerDetail();
         DaveDetail();
@@ -97,7 +86,6 @@ public class IntelCharacterDetail : MonoBehaviour
         AlbertDetail();
         MeivDetail();
         BlackWellDetail();
-
 
         if (NextButton_Aiden.activeSelf == true || NextButton_Albert.activeSelf == true || NextButton_BlackWell.activeSelf == true || NextButton_Cane.activeSelf == true || NextButton_Ella.activeSelf == true || NextButton_Meiv.activeSelf == true || NextButton_SewerWorker.activeSelf == true || NextButton_Dave.activeSelf == true || NextButton_Swain.activeSelf == true)    {
             if (Input.GetKeyDown(KeyCode.D))
@@ -113,7 +101,6 @@ public class IntelCharacterDetail : MonoBehaviour
                 PrevPage();
             }
         }
-
 
         if (Ella_Detail.activeSelf == true)
         {
@@ -153,7 +140,6 @@ public class IntelCharacterDetail : MonoBehaviour
         }
 
     }
-
      string NowPage;
 
     //엘라
@@ -275,7 +261,6 @@ public class IntelCharacterDetail : MonoBehaviour
     public GameObject NextButton_Meiv;
     public GameObject PrevButton_Meiv;
 
-
     GameObject Detail_BlackWell1;
     GameObject Detail_BlackWell2;
     GameObject Detail_BlackWell3;
@@ -335,7 +320,6 @@ public class IntelCharacterDetail : MonoBehaviour
     public GameObject NextButton_Dave;
     public GameObject PrevButton_Dave;
 
-
     private static IntelCharacterDetail instance = null;
     private void Awake()
     {
@@ -351,8 +335,6 @@ public class IntelCharacterDetail : MonoBehaviour
         }
     }
 
-
-    //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
     public static IntelCharacterDetail Instance
     {
         get
@@ -364,8 +346,6 @@ public class IntelCharacterDetail : MonoBehaviour
             return instance;
         }
     }
-
-
     void AidenDetail()
     {
         if (ON_Aiden1 == false && DataBaseManager.Intel_Aiden1 == true)
@@ -1850,12 +1830,6 @@ public class IntelCharacterDetail : MonoBehaviour
             }
         }
     }
-
-
-
-
-
-
     void Reset_Ella()
     {
         EllaContents.transform.GetChild(0).gameObject.SetActive(false);

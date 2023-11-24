@@ -24,7 +24,6 @@ public class FadingBackGround : MonoBehaviour
     public GameObject EndMenu;
     public void DemoEnd_FadeIn()
     {
-
         DemoEnd_Back.SetActive(true);
         Tween fadeTween = DemoEnd_BackGround.DOFade(1, 1.5f);
         fadeTween.OnComplete(EndDemo);
@@ -35,18 +34,7 @@ public class FadingBackGround : MonoBehaviour
     }
     Sequence mySequence;
     Sequence mySequence2;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void CastInOut()
     {
         StartCoroutine(CastInOut_IEnumerator());
@@ -63,13 +51,11 @@ public class FadingBackGround : MonoBehaviour
         .SetDelay(0.1f)
         .Append(CastOutBackground.DOFillAmount(0, 0.7f).SetAutoKill());
         yield return mySequence2.WaitForCompletion();
-       DataBaseManager.isDirecting = false;
+        DataBaseManager.isDirecting = false;
         CastOut.SetActive(false);
         CastInBackground.fillAmount = 0;
         CastOutBackground.fillAmount = 1;
     }
-
-
     public void FadeInOut()
     {
         StartCoroutine(FadeInOut_IEnumerator());
@@ -81,7 +67,6 @@ public class FadingBackGround : MonoBehaviour
         .Append(BackGround.DOFade(1, 1f).SetAutoKill());
         yield return mySequence.WaitForCompletion();
         mySequence2 = DOTween.Sequence()
-
         .SetDelay(1f)
         .Append(BackGround.DOFade(0, 1f).SetAutoKill());
         yield return mySequence2.WaitForCompletion();
@@ -93,9 +78,7 @@ public class FadingBackGround : MonoBehaviour
         Back.SetActive(true);
         mySequence = DOTween.Sequence()
         .Append(BackGround.DOFade(1, 1f).SetAutoKill());
-     
     }
-
     public void FadeOut()
     {
         StartCoroutine(FadeOut_IEnumerator());
@@ -113,7 +96,6 @@ public class FadingBackGround : MonoBehaviour
     private static FadingBackGround instance = null;
     private void Awake()
     {
-
         if (null == instance)
         {
             instance = this;
@@ -124,7 +106,6 @@ public class FadingBackGround : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
 
     //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
     public static FadingBackGround Instance

@@ -12,7 +12,6 @@ public class MapManager : MonoBehaviour
     public GameObject Downer;
     float ChInRommSize = 2.383215f; // -이면 왼쪽 +면 오른쪽
 
-
     public GameObject ChaingUi;
     public GameObject Ring1;
     public GameObject Ring2;
@@ -32,7 +31,6 @@ public class MapManager : MonoBehaviour
 
     Vector3 player_BarMeaveMove = new Vector3(-635.9305f, 1.532792f);
     Vector3 Cam_BarMeaveMove = new Vector3(-634.0516f, 1.690001f, -15);
-
 
     Vector3 player_NoonEventMenhole = new Vector3(-976.4003f, 3.074435f);
     Vector3 Cam_NoonEventMenhole = new Vector3(-993.87f, 1.5f, -15);
@@ -54,8 +52,6 @@ public class MapManager : MonoBehaviour
     Vector3 player_Policeoffice = new Vector3(-736.7f, -81f);
     Vector3 Cam_Policeoffice = new Vector3(-721.27f, -81.51f, -15);
 
-
-
     Vector3 player_Univercity = new Vector3(-277f, -81.4f);
     Vector3 Cam_Univercity = new Vector3(-287.6f, -81.61f, -15);
 
@@ -65,18 +61,14 @@ public class MapManager : MonoBehaviour
     Vector3 player_Hospital = new Vector3(-496.1f, -82.5f);
     Vector3 Cam_Hospital = new Vector3(-491.27f, -81.51f, -15);
 
-
     Vector3 player_Slum = new Vector3(-849f, -81f);
     Vector3 Cam_Slum = new Vector3(-860.77f, -81.51f, -15);
-
 
     Vector3 player_Bar = new Vector3(-666.8f, 2.6f);
     Vector3 Cam_Bar = new Vector3(-650.4f, 1.690001f, -15);
 
     Vector3 player_Gunshop = new Vector3(-1036.56f, -82.12f);
     Vector3 Cam_Gunshop = new Vector3(-1056.2f, -82f, -15);
-
-
 
     public GameObject DetectiveOfficeButton;
     public GameObject ClientsHouseButton;
@@ -182,8 +174,6 @@ public class MapManager : MonoBehaviour
             {
                 SewerOfficeButton.SetActive(true);
             }
-
-            
         }
         if ((DataBaseManager.TimeCount % 4) == 2)
         {
@@ -252,8 +242,6 @@ public class MapManager : MonoBehaviour
             {
                 SlumButton.SetActive(true);
             }
-    
-
             if (DataBaseManager.Tightwad == true)
             {
                 GunshopButton.SetActive(false);
@@ -282,8 +270,6 @@ public class MapManager : MonoBehaviour
         if ((DataBaseManager.TimeCount % 4) == 3)
         {
             DetectiveOfficeButton.SetActive(true);
-
-
             ClientsHouseButton.SetActive(false);
             DailyNewsButton.SetActive(false);
             UnivercityButton.SetActive(false);
@@ -292,7 +278,6 @@ public class MapManager : MonoBehaviour
             PoliceofficeButton.SetActive(false);
             SlumButton.SetActive(false);
             GunshopButton.SetActive(false);
-
             if(DataBaseManager.isDebuff_NightPhobia == false)
             {
                 BarButton.SetActive(true);
@@ -314,10 +299,6 @@ public class MapManager : MonoBehaviour
                 SewerOfficeButton.SetActive(false);
                 BarButton.SetActive(false);
             }
-
-
-
-
         }
         if ((DataBaseManager.TimeCount % 4) == 0)
         {
@@ -334,7 +315,6 @@ public class MapManager : MonoBehaviour
                 SlumButton.SetActive(false);
                 GunshopButton.SetActive(false);
                 SewerOfficeButton.SetActive(false);
-
             }
             if (DataBaseManager.nowPlace == "SewerOffice")
             {
@@ -350,12 +330,8 @@ public class MapManager : MonoBehaviour
                 GunshopButton.SetActive(false);
                 SewerOfficeButton.SetActive(false);
             }
-
         }
-
-
     }
-
     public void OpenUpperMap()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -371,7 +347,6 @@ public class MapManager : MonoBehaviour
     private static MapManager instance = null;
     private void Awake()
     {
-
         if (null == instance)
         {
             instance = this;
@@ -382,9 +357,6 @@ public class MapManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
-
-    //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
     public static MapManager Instance
     {
         get
@@ -396,14 +368,6 @@ public class MapManager : MonoBehaviour
             return instance;
         }
     }
-
-    private void Start()
-    {
-
-        //MapOn();
-
-    }
-
     public void OpenMap()
     {
         if(DataBaseManager.nowPlace != "InSewer")
@@ -429,10 +393,7 @@ public class MapManager : MonoBehaviour
                 }
 
             }
-
         }
-
-
     }
     public void CloseMap()
     {
@@ -440,10 +401,8 @@ public class MapManager : MonoBehaviour
         DataBaseManager.isOpenUi = false;
         MapChainingUI.SetActive(false);
     }
-
     public GameObject NomalMap;
     public GameObject SewerMap;
-
     private void Update()
     {
         if(NomalMap.activeSelf == false && DataBaseManager.nowPlace != "InSewer")
@@ -456,9 +415,7 @@ public class MapManager : MonoBehaviour
             NomalMap.SetActive(false);
             SewerMap.SetActive(true);
         }
-
         buttonChecker();
-
         if (DataBaseManager.isActiveDialog1 == false)
         {
             if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -472,7 +429,6 @@ public class MapManager : MonoBehaviour
                 {
                     CloseMap();
                 }
-
             }
             if (Input.GetKeyDown(KeyCode.Escape) && MapChainingUI.activeSelf == true)
             {
@@ -481,8 +437,6 @@ public class MapManager : MonoBehaviour
             }
         }
     }
-
-
     void NoonEvent()
     {
         player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
@@ -493,26 +447,17 @@ public class MapManager : MonoBehaviour
         DataBaseManager.StoryDirecting = true;
         DataBaseManager.snd_Detective_NoonEvent = true;
     }
-
     void BattleDialog()
     {
         DirectingManager.Instance.BeforeBattle();
     }
     bool isNoonEvent = false;
-
     void TimeMinus()
     {
         DataBaseManager.TimeCount -= 1;
     }
-
     public void MapOn()
     {
-
-
-
-
-
-
         DataBaseManager.BGMChangeChecker = true;
 
         if (DataBaseManager.TimeCount == 13 && DataBaseManager.MorningMove_4th == false)
@@ -581,7 +526,6 @@ public class MapManager : MonoBehaviour
             }
             else if(DataBaseManager.AfterBattle == true && DataBaseManager.TimeCount % 4 == 3 && DataBaseManager.nowPlace == "DetectiveOffice")
             {
-                Debug.Log("Check2");
                 FadingBackGround.Instance.FadeInOut();
                 Invoke("OpenSpinUi", 1f);
                 Invoke("SpinRing", 3f);
@@ -589,19 +533,12 @@ public class MapManager : MonoBehaviour
             else if (DataBaseManager.isSewerOffice == true &&(DataBaseManager.TimeCount %4 == 3 || DataBaseManager.TimeCount % 4 == 0) && (DataBaseManager.nowPlace == "DetectiveOffice"|| DataBaseManager.nowPlace == "BattleRoad"))
             {
                 Debug.Log("Check3");
-                /*
-                if(DataBaseManager.TimeCount % 4 == 3)
-                {
-                    DataBaseManager.TimeCount += 1;
-                }
-                */
                 DataBaseManager.isDirecting = true;
                 DataBaseManager.isSewerOffice = false;
                 DataBaseManager.nowPlace = "BattleRoad";
                 DialogDatabaseManager.instance.Check = true;
                 CloseMap();
                 //DirectingManager.Instance.GotoBattle();
-
                 FadingBackGround.Instance.FadeInOut();
                 Invoke("BattleDialog", 1f);
             }
@@ -609,27 +546,20 @@ public class MapManager : MonoBehaviour
             {
                 if ((DataBaseManager.TimeCount % 4) == 0 && DataBaseManager.nowPlace == "BattleRoad")
                 {
-                    Debug.Log("Check4");
-
                     FadingBackGround.Instance.FadeInOut();
                     Invoke("OpenSpinUi", 1f);
                     Invoke("WaitFade", 4f);
                 }
                 else
                 {
-                    Debug.Log("Check5");
                     FadingBackGround.Instance.FadeInOut();
                     Invoke("OpenSpinUi", 1f);
                     Invoke("SpinRing", 3f);
 
                 }
-
             }
         }
-      
     }
-
-
     public void OpenSpinUi()
     {
         ChaingUi.SetActive(true);
@@ -666,7 +596,6 @@ public class MapManager : MonoBehaviour
         }
         Invoke("ChainingDate", 1.5f);
     }
-
     public void ChainingDate()
     {
         ChaingUiAnim.SetBool("Change", true);
@@ -743,7 +672,6 @@ public class MapManager : MonoBehaviour
     }
     Vector2 player_SewerInside = new Vector3(-1363.46f, -78.46f);
     Vector3 Cam_SewerInside = new Vector3(-1374.97f, -81.1f, -15);
-
     public void WindowFabianMove()
     {
         player.transform.localPosition = player_SewerInside;
@@ -758,32 +686,21 @@ public class MapManager : MonoBehaviour
     {
         Invoke("WaitFade", 2f);
     }
-
     void WaitFade()
     {
         FadingBackGround.Instance.FadeInOut();
         Invoke("MoveChar", 1f);
     }
 
-
-
     public void MoveChar()
     {
-        
-
         if(DataBaseManager.TimeCount >=5 && DataBaseManager.TimeCount % 4 == 1 && DataBaseManager.nowPlace == "DetectiveOffice")
         {
             DataBaseManager.secondisDirecting = true;
         }
-
-
-
-
         DataBaseManager.isOpenMap = false;
         DataBaseManager.isOpenUi = false;
         CameraManager.Instance.isCheckEnd = true;
-
-
         if (DataBaseManager.nowPlace == "DetectiveOffice")
         {
             DataBaseManager.TimeCount += 1;
@@ -798,12 +715,9 @@ public class MapManager : MonoBehaviour
             {
                 DataBaseManager.secondisDirecting = true;
             }
-
         }
         else if (DataBaseManager.nowPlace == "Client'shouse")
         {
-         
-
             DataBaseManager.TimeCount += 1;
             player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
             player.transform.localPosition = player_ClientsHouse;
@@ -815,7 +729,6 @@ public class MapManager : MonoBehaviour
                 DataBaseManager.StoryDirecting = true;
                 Invoke("FirstClientsHouseArrive", 2);
             }
-
             DialogDatabaseManager.instance.Check = true;
         }
         else if (DataBaseManager.nowPlace == "DailyNews")
@@ -934,7 +847,6 @@ public class MapManager : MonoBehaviour
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
             DialogDatabaseManager.instance.Check = true;
-
         }
         else if (DataBaseManager.nowPlace == "SewerOffice")
         {
@@ -947,7 +859,6 @@ public class MapManager : MonoBehaviour
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
             DialogDatabaseManager.instance.Check = true;
-
         }
 
         if (DataBaseManager.PanicAttack == true)
@@ -968,9 +879,7 @@ public class MapManager : MonoBehaviour
         {
             DataBaseManager.secondisDirecting = false;
         }
-
     }
-
     public void SuccAnalysis()
     {
         FadingBackGround.Instance.FadeInOut();
@@ -995,9 +904,6 @@ public class MapManager : MonoBehaviour
             InteractionController.Instance.Start_2nd_NoonEvent("Site_analysisSuccAfter");
         }
     }
-
-
-
     void PanicAttack()
     {
         BillowUIManager.Instance.HP_down(5);

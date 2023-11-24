@@ -31,7 +31,6 @@ public class IntelFloating : MonoBehaviour
 
         Destroy(this.gameObject);
     }
-
     IEnumerator 페이드인코루틴()
     {
         float 페이드카운트 = 0;
@@ -47,25 +46,4 @@ public class IntelFloating : MonoBehaviour
 
         StartCoroutine(페이드아웃코루틴());
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(페이드인코루틴());
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
-
-
-
-
-
-    }
-
-
-
 }

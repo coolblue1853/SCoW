@@ -22,24 +22,20 @@ public class Intel_ObtoUI : MonoBehaviour
     bool isKeyword = false;
     public string Active_Dilaog;
     public string Look_Dilaog;
-  //  public string Select_Object;
+    //  public string Select_Object;
 
     public void Update()
     {
-
         if (DataBaseManager.TimeCount == 8 && this.name == "Meave" && isJudge == false)
         {
             isJudge = true;
         }
- 
-
         if (DataBaseManager.TimeCount == 5 && ResetCheck_1 == false)
         {
             ResetCheck_1 = true;
             ResetKeyCount();
         }
-
-        if(this.name == "Aiden Triss")
+        if (this.name == "Aiden Triss")
         {
             Set_Aiden();
         }
@@ -51,15 +47,11 @@ public class Intel_ObtoUI : MonoBehaviour
         {
             Set_BlackWell();
         }
-
-   
         if (DataBaseManager.CancelJudge == true)
         {
             CancelJudge();
         }
-
-        
-        if (DataBaseManager.isActiveDialog2 == true && previousState != DataBaseManager.NowSelecter )
+        if (DataBaseManager.isActiveDialog2 == true && previousState != DataBaseManager.NowSelecter)
         {
             Res();
         }
@@ -69,11 +61,8 @@ public class Intel_ObtoUI : MonoBehaviour
         {
             if (this.transform.name == DataBaseManager.Select_Object)
             {
-
-
                 if (this.name == "Aiden Triss")
                 {
-
                     Arrow.SetActive(true);
                 }
                 else if (this.name == "DeadBody")
@@ -89,13 +78,7 @@ public class Intel_ObtoUI : MonoBehaviour
                 {
                     Arrow.SetActive(false);
                 }
-
-
-
-
-
                 DataBaseManager.workSound = false;
-
                 if (CanJudge == false)
                 {
                     isJudge = false;
@@ -104,18 +87,15 @@ public class Intel_ObtoUI : MonoBehaviour
                 {
                     isJudge = true;
                 }
-
                 if (isJudge == false)
                 {
-                  //  DataBaseManager.isJudge = false;
+                    //  DataBaseManager.isJudge = false;
                 }
                 else if (isJudge == true)
                 {
                     // DataBaseManager.isJudge = true;
                     OnJudge();
                 }
-
-
                 if (CanKeyword == false)
                 {
                     isKeyword = false;
@@ -124,24 +104,19 @@ public class Intel_ObtoUI : MonoBehaviour
                 {
                     isKeyword = true;
                 }
-
                 if (isKeyword == false || KeywordCounter == 0)
                 {
-                //    DataBaseManager.isKeyword = false;
+                    //    DataBaseManager.isKeyword = false;
                 }
                 else if (isKeyword == true)
                 {
                     // DataBaseManager.isKeyword = true;
-
                     Onkeyword();
                 }
                 if (this.name == "GunshopMan")
                 {
                     ShopUI.Instance.OpenShopUI();
-
                 }
-
-
                 if (DataBaseManager.isRollet == false)
                 {
                     if (DataBaseManager.NowSelecter == "Keyword")
@@ -169,7 +144,6 @@ public class Intel_ObtoUI : MonoBehaviour
                             {
                                 InteractionController.Instance.Start_2nd_NoonEvent(Look_Dilaog);
                             }
-
                         }
                         if (DataBaseManager.nowPlace == "DailyNews")
                         {
@@ -177,7 +151,6 @@ public class Intel_ObtoUI : MonoBehaviour
                         }
                         if (DataBaseManager.nowPlace == "University")
                         {
-                            
                             InteractionController.Instance.Start_1st_University(Look_Dilaog);
                         }
                         if (DataBaseManager.nowPlace == "Riverside")
@@ -213,15 +186,11 @@ public class Intel_ObtoUI : MonoBehaviour
                             InteractionController.Instance.InSewerDialog(Look_Dilaog);
                         }
                     }
-
                     else if (DataBaseManager.NowSelecter == "Judge")
                     {
                         DialogManager.Instance.EndDialog();
-
                         SetJudge();
                     }
-               
-
                     else if (DataBaseManager.NowSelecter == "End" && DataBaseManager.isActiveDialog1 == false)
                     {
                         if (DataBaseManager.nowPlace == "DetectiveOffice")
@@ -230,7 +199,7 @@ public class Intel_ObtoUI : MonoBehaviour
                         }
                         if (DataBaseManager.nowPlace == "Client'shouse")
                         {
-                            if(DataBaseManager.TimeCount < 7)
+                            if (DataBaseManager.TimeCount < 7)
                             {
                                 InteractionController.Instance.Start_1st_ClientsHouse(Active_Dilaog);
                             }
@@ -238,7 +207,6 @@ public class Intel_ObtoUI : MonoBehaviour
                             {
                                 InteractionController.Instance.Start_2nd_NoonEvent(Active_Dilaog);
                             }
-                    
                         }
                         if (DataBaseManager.nowPlace == "DailyNews")
                         {
@@ -262,7 +230,6 @@ public class Intel_ObtoUI : MonoBehaviour
                         }
                         if (DataBaseManager.nowPlace == "Slum")
                         {
-  
                             InteractionController.Instance.Start_1st_Slum(Active_Dilaog);
                         }
                         if (DataBaseManager.nowPlace == "Bar")
@@ -275,30 +242,21 @@ public class Intel_ObtoUI : MonoBehaviour
                         }
                         if (DataBaseManager.nowPlace == "SewerOffice")
                         {
-
                             InteractionController.Instance.Start_SewerOffice(Active_Dilaog);
                         }
                         if (DataBaseManager.nowPlace == "InSewer")
                         {
-
                             InteractionController.Instance.InSewerDialog(Active_Dilaog);
                         }
                     }
-        
                 }
-
             }
         }
-     
     }
-
-
     public GameObject JudgeOb;
     public GameObject JudgeBackOb;
     public GameObject KeywordOb;
     public GameObject KeywordBackOb;
-
-    
     public void OnJudge()
     {
         JudgeOb.SetActive(true);
@@ -311,19 +269,14 @@ public class Intel_ObtoUI : MonoBehaviour
         KeywordBackOb.SetActive(true);
         DataBaseManager.isKeyword = true;
     }
-
-
-
     void SetJudge()
     {
-
         if (DataBaseManager.Select_Object == "Sewer")
         {
             CanJudge = false;
             isJudge = true;
             Rollet.Instance.setRollet("Sewer : Picking", "Deftness", DataBaseManager.deftnessPoint, "dialog");
         }
-
         if (DataBaseManager.Select_Object == "NewsPaper_Active")
         {
             CanJudge = false;
@@ -372,8 +325,7 @@ public class Intel_ObtoUI : MonoBehaviour
             isJudge = true;
             Rollet.Instance.setRollet("Police : Persuasion", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
         }
-
-            if (DataBaseManager.Select_Object == "DeadBody")
+        if (DataBaseManager.Select_Object == "DeadBody")
         {
             if (DataBaseManager.DeadBody_medicine == false)
             {
@@ -398,12 +350,10 @@ public class Intel_ObtoUI : MonoBehaviour
         }
         if (DataBaseManager.Select_Object == "Accident Site")
         {
-
-             if (DataBaseManager.Site_Analyzing == false)
+            if (DataBaseManager.Site_Analyzing == false)
             {
                 Rollet.Instance.setRollet("Accident Site : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
             }
- 
         }
         if (DataBaseManager.Select_Object == "Maeve" && DataBaseManager.TimeCount == 8)
         {
@@ -444,23 +394,17 @@ public class Intel_ObtoUI : MonoBehaviour
         }
         if (DataBaseManager.Select_Object == "Symbol")
         {
-            /*
-            CanJudge = false;
-            isJudge = true;
-            */
             Rollet.Instance.setRollet("Symbol : Break", "STR", DataBaseManager.str, "dialog");
         }
     }
     string BlackWellJudge;
     void Set_BlackWell()
     {
-
         if (DataBaseManager.Black_Rhethic == true && DataBaseManager.Black_Deftness == true)
         {
             CanJudge = false;
             isJudge = true;
         }
-
         if (Rollet.Instance.RolletSetUi.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
@@ -472,7 +416,6 @@ public class Intel_ObtoUI : MonoBehaviour
                         BlackWellJudge = "rhetoric";
                         Rollet.Instance.setRollet("Warden : Persuade", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
                     }
-      
                 }
                 else if (BlackWellJudge == "rhetoric")
                 {
@@ -481,21 +424,14 @@ public class Intel_ObtoUI : MonoBehaviour
                         BlackWellJudge = "deftness";
                         Rollet.Instance.setRollet("Warden : Steal", "Deftness", DataBaseManager.deftnessPoint, "dialog");
                     }
-               
                 }
-              
-           
-           
-
-              
             }
         }
     }
     string AidenJudge;
-
     void Set_Aiden()
     {
-        if(DataBaseManager.Aiden_FirstDialog == false)
+        if (DataBaseManager.Aiden_FirstDialog == false)
         {
             Active_Dilaog = "Aiden_FirstDialog";
         }
@@ -504,20 +440,18 @@ public class Intel_ObtoUI : MonoBehaviour
             DataBaseManager.Aiden_FirstDialog = true;
             Active_Dilaog = "Aiden_Dialog1";
         }
-
         if (DataBaseManager.Aiden_medicine == true && DataBaseManager.Aiden_Observation == true && DataBaseManager.Aiden_psychotherapy == true)
         {
             CanJudge = false;
             isJudge = true;
         }
-
-        if(Rollet.Instance.RolletSetUi.activeSelf == true)
+        if (Rollet.Instance.RolletSetUi.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.D))
             {
                 if (AidenJudge == "medicine")
                 {
-                    if(DataBaseManager.Aiden_Observation == false)
+                    if (DataBaseManager.Aiden_Observation == false)
                     {
                         AidenJudge = "Observation";
                         Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
@@ -541,16 +475,15 @@ public class Intel_ObtoUI : MonoBehaviour
                         Rollet.Instance.setRollet("Aiden : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
                 }
-                else if(AidenJudge == "psychotherapy")
+                else if (AidenJudge == "psychotherapy")
                 {
 
-                     if (DataBaseManager.Aiden_medicine == false)
+                    if (DataBaseManager.Aiden_medicine == false)
                     {
                         AidenJudge = "medicine";
                         Rollet.Instance.setRollet("Aiden : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
-
-                    else if(DataBaseManager.Aiden_Observation == false)
+                    else if (DataBaseManager.Aiden_Observation == false)
                     {
                         AidenJudge = "Observation";
                         Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
@@ -560,7 +493,8 @@ public class Intel_ObtoUI : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.A))
             {
                 if (AidenJudge == "medicine")
-                {              if (DataBaseManager.Aiden_psychotherapy == false)
+                {
+                    if (DataBaseManager.Aiden_psychotherapy == false)
                     {
                         AidenJudge = "psychotherapy";
                         Rollet.Instance.setRollet("Aiden : Calming down", "Psychotherapy / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
@@ -570,24 +504,23 @@ public class Intel_ObtoUI : MonoBehaviour
                         AidenJudge = "Observation";
                         Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
                     }
-       
                 }
                 else if (AidenJudge == "Observation")
-                {              if (DataBaseManager.Aiden_medicine == false)
+                {
+                    if (DataBaseManager.Aiden_medicine == false)
                     {
                         AidenJudge = "medicine";
                         Rollet.Instance.setRollet("Aiden : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
-                    else if(DataBaseManager.Aiden_psychotherapy == false)
+                    else if (DataBaseManager.Aiden_psychotherapy == false)
                     {
                         AidenJudge = "psychotherapy";
                         Rollet.Instance.setRollet("Aiden : Calming down", "Psychotherapy / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
                     }
-       
                 }
                 else if (AidenJudge == "psychotherapy")
                 {
-                            if (DataBaseManager.Aiden_Observation == false)
+                    if (DataBaseManager.Aiden_Observation == false)
                     {
                         AidenJudge = "Observation";
                         Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
@@ -597,24 +530,19 @@ public class Intel_ObtoUI : MonoBehaviour
                         AidenJudge = "medicine";
                         Rollet.Instance.setRollet("Aiden : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
-
-             
                 }
             }
         }
     }
 
     string DeadBodyJudge;
-
     void Set_DeadBody()
     {
-   
         if (DataBaseManager.DeadBody_medicine == true && DataBaseManager.DeadBody_observational == true && DataBaseManager.DeadBody_Analyzing == true && DataBaseManager.DeadBody_deftness == true)
         {
             CanJudge = false;
             isJudge = true;
         }
-
         if (Rollet.Instance.RolletSetUi.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.D))
@@ -657,7 +585,6 @@ public class Intel_ObtoUI : MonoBehaviour
                 }
                 else if (DeadBodyJudge == "analysis")
                 {
-
                     if (DataBaseManager.DeadBody_deftness == false)
                     {
                         DeadBodyJudge = "deftness";
@@ -677,13 +604,11 @@ public class Intel_ObtoUI : MonoBehaviour
                 }
                 else if (DeadBodyJudge == "deftness")
                 {
-
                     if (DataBaseManager.DeadBody_medicine == false)
                     {
                         DeadBodyJudge = "medicine";
                         Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
-
                     else if (DataBaseManager.DeadBody_observational == false)
                     {
                         DeadBodyJudge = "Observation";
@@ -715,7 +640,6 @@ public class Intel_ObtoUI : MonoBehaviour
                         DeadBodyJudge = "Observation";
                         Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
                     }
-
                 }
                 else if (DeadBodyJudge == "Observation")
                 {
@@ -734,7 +658,6 @@ public class Intel_ObtoUI : MonoBehaviour
                         DeadBodyJudge = "analysis";
                         Rollet.Instance.setRollet("DeadBody : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
                     }
-
                 }
                 else if (DeadBodyJudge == "analysis")
                 {
@@ -753,7 +676,6 @@ public class Intel_ObtoUI : MonoBehaviour
                         DeadBodyJudge = "deftness";
                         Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
                     }
-
                 }
                 else if (DeadBodyJudge == "deftness")
                 {
@@ -772,7 +694,6 @@ public class Intel_ObtoUI : MonoBehaviour
                         DeadBodyJudge = "medicine";
                         Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
-
                 }
             }
         }
@@ -782,7 +703,6 @@ public class Intel_ObtoUI : MonoBehaviour
         // DataBaseManager.NowSelecter = "End";
         DataBaseManager.isActiveDialog2 = false;
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerInTrigger = true;
@@ -806,27 +726,21 @@ public class Intel_ObtoUI : MonoBehaviour
             BillowUIManager.Instance.ResetIntelUi();
         }
     }
-
-
     public void CancelJudge()
     {
-        if(DataBaseManager.Select_Object == this.transform.name)
+        if (DataBaseManager.Select_Object == this.transform.name)
         {
-
             DataBaseManager.CancelJudge = false;
             isJudge = true;
             CanJudge = true;
         }
     }
-
     bool ResetCheck_1 = false;
 
     public void ResetKeyCount()
     {
-
         isJudge = true;
         CanJudge = true;
-
         if (this.name == "Ella Triss")
         {
             KeywordCounter = 3;
@@ -835,37 +749,30 @@ public class Intel_ObtoUI : MonoBehaviour
         {
             KeywordCounter = 3;
         }
-
         else if (this.name == "Berkeley Swain")
         {
             KeywordCounter = 4;
         }
-
         else if (this.name == "University student")
         {
             KeywordCounter = 3;
         }
-
         else if (this.name == "Kane")
         {
             KeywordCounter = 3;
         }
-
         else if (this.name == "Maeve")
         {
             KeywordCounter = 5;
         }
-
         else if (this.name == "Kate Lizzie")
         {
             KeywordCounter = 4;
         }
-
         else if (this.name == "Alan Parks")
         {
             KeywordCounter = 4;
         }
-
         else if (this.name == "Albert Bradley")
         {
             KeywordCounter = 4;
@@ -878,14 +785,5 @@ public class Intel_ObtoUI : MonoBehaviour
         {
             KeywordCounter = 3;
         }
-
-        
-    }
-
-    private void Awake()
-    {
-
-
-
     }
 }

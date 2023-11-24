@@ -6,12 +6,12 @@ public class Test : MonoBehaviour
 {
     string NowPage;
 
-     GameObject Detail_Wharf1;
-     GameObject Detail_Wharf2;
-     GameObject Detail_Wharf3;
-     GameObject Detail_Wharf4;
-     GameObject Detail_Wharf5;
-     GameObject Detail_Wharf6;
+    GameObject Detail_Wharf1;
+    GameObject Detail_Wharf2;
+    GameObject Detail_Wharf3;
+    GameObject Detail_Wharf4;
+    GameObject Detail_Wharf5;
+    GameObject Detail_Wharf6;
     bool ON_Wharf1;
     bool ON_Wharf2;
     bool ON_Wharf3;
@@ -20,7 +20,7 @@ public class Test : MonoBehaviour
     bool ON_Wharf6;
     int Count_Wharf = 0;
     public GameObject WharfContents;
-    public GameObject Wharf_Detail; 
+    public GameObject Wharf_Detail;
     public static int WharfIntelInt;
     public GameObject NextButton_Wharf;
     public GameObject PrevButton_Wharf;
@@ -69,7 +69,6 @@ public class Test : MonoBehaviour
             Detail_Wharf6.transform.SetAsLastSibling();
             Count_Wharf += 1;
         }
-
         if (Count_Wharf > 2 && DataBaseManager.NowPage_Wharf == 1)
         {
             NextButton_Wharf.SetActive(true);
@@ -82,7 +81,6 @@ public class Test : MonoBehaviour
         {
             NextButton_Wharf.SetActive(false);
         }
-
         if (DataBaseManager.NowPage_Wharf == 2)
         {
             PrevButton_Wharf.SetActive(true);
@@ -96,11 +94,8 @@ public class Test : MonoBehaviour
             PrevButton_Wharf.SetActive(false);
         }
     }
-
-
     public void NextPage()
     {
-
         if (NowPage == "Wharf")
         {
             if (DataBaseManager.NowPage_Wharf == 1)
@@ -147,10 +142,8 @@ public class Test : MonoBehaviour
             }
         }
     }
-
     public void PrevPage()
     {
-     
         if (NowPage == "Wharf")
         {
             if (DataBaseManager.NowPage_Wharf == 2)
@@ -179,7 +172,6 @@ public class Test : MonoBehaviour
                     WharfContents.transform.GetChild(3).gameObject.SetActive(true);
                     WharfContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-
                 DataBaseManager.NowPage_Wharf = 1;
             }
             else if (DataBaseManager.NowPage_Wharf == 3)
@@ -200,9 +192,6 @@ public class Test : MonoBehaviour
             }
         }
     }
-
-
-
     void Reset_Wharf()
     {
         WharfContents.transform.GetChild(0).gameObject.SetActive(false);

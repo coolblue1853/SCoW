@@ -274,7 +274,6 @@ public class IntelPlaceDetail : MonoBehaviour
     {
         setGameObecject();
     }
-
     void setGameObecject()
     {
         Detail_DetectiveOffice1 = DetectiveOfficeContents.transform.GetChild(0).gameObject;
@@ -375,30 +374,22 @@ public class IntelPlaceDetail : MonoBehaviour
         Detail_Wharf5 = WharfContents.transform.GetChild(4).gameObject;
         Detail_Wharf6 = WharfContents.transform.GetChild(5).gameObject;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if(NextButton_Bar.activeSelf == true || NextButton_DetectiveOffice.activeSelf == true || NextButton_Gunsmith.activeSelf == true || NextButton_Hospital.activeSelf == true || NextButton_Newspaper.activeSelf == true || NextButton_PoliceOffice.activeSelf == true || NextButton_QuestHouse.activeSelf == true || NextButton_Sewer.activeSelf == true || NextButton_Riverside.activeSelf == true || NextButton_SewageMaintenanceOffice.activeSelf == true || NextButton_Slum.activeSelf == true || NextButton_Station.activeSelf == true || NextButton_University.activeSelf == true || NextButton_Wharf.activeSelf == true )
+        if (NextButton_Bar.activeSelf == true || NextButton_DetectiveOffice.activeSelf == true || NextButton_Gunsmith.activeSelf == true || NextButton_Hospital.activeSelf == true || NextButton_Newspaper.activeSelf == true || NextButton_PoliceOffice.activeSelf == true || NextButton_QuestHouse.activeSelf == true || NextButton_Sewer.activeSelf == true || NextButton_Riverside.activeSelf == true || NextButton_SewageMaintenanceOffice.activeSelf == true || NextButton_Slum.activeSelf == true || NextButton_Station.activeSelf == true || NextButton_University.activeSelf == true || NextButton_Wharf.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.D))
             {
                 NextPage();
             }
         }
-        if (PrevButton_Bar.activeSelf == true || PrevButton_DetectiveOffice.activeSelf == true || PrevButton_Gunsmith.activeSelf == true || PrevButton_Hospital.activeSelf == true || PrevButton_Newspaper.activeSelf == true || PrevButton_PoliceOffice.activeSelf == true || PrevButton_QuestHouse.activeSelf == true || PrevButton_Sewer.activeSelf == true || PrevButton_Riverside.activeSelf == true || PrevButton_SewageMaintenanceOffice.activeSelf == true || PrevButton_Slum.activeSelf == true || PrevButton_Station.activeSelf == true || PrevButton_University.activeSelf == true || PrevButton_Wharf.activeSelf == true )
+        if (PrevButton_Bar.activeSelf == true || PrevButton_DetectiveOffice.activeSelf == true || PrevButton_Gunsmith.activeSelf == true || PrevButton_Hospital.activeSelf == true || PrevButton_Newspaper.activeSelf == true || PrevButton_PoliceOffice.activeSelf == true || PrevButton_QuestHouse.activeSelf == true || PrevButton_Sewer.activeSelf == true || PrevButton_Riverside.activeSelf == true || PrevButton_SewageMaintenanceOffice.activeSelf == true || PrevButton_Slum.activeSelf == true || PrevButton_Station.activeSelf == true || PrevButton_University.activeSelf == true || PrevButton_Wharf.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
                 PrevPage();
             }
         }
-
         DetectiveOfficeDetail();
         HospitalDetail();
         NewspaperDetail();
@@ -470,10 +461,6 @@ public class IntelPlaceDetail : MonoBehaviour
             NowPage = "Wharf";
         }
     }
-
-
-
-
     void DetectiveOfficeDetail()
     {
         if (ON_DetectiveOffice1 == false && DataBaseManager.Intel_DetectiveOffice1 == true)
@@ -518,7 +505,6 @@ public class IntelPlaceDetail : MonoBehaviour
             Detail_DetectiveOffice6.transform.SetAsLastSibling();
             Count_DetectiveOffice += 1;
         }
-
         if (Count_DetectiveOffice > 2 && DataBaseManager.NowPage_DetectiveOffice == 1)
         {
             NextButton_DetectiveOffice.SetActive(true);
@@ -531,7 +517,6 @@ public class IntelPlaceDetail : MonoBehaviour
         {
             NextButton_DetectiveOffice.SetActive(false);
         }
-
         if (DataBaseManager.NowPage_DetectiveOffice == 2)
         {
             PrevButton_DetectiveOffice.SetActive(true);
@@ -589,7 +574,6 @@ public class IntelPlaceDetail : MonoBehaviour
             Detail_Hospital6.transform.SetAsLastSibling();
             Count_Hospital += 1;
         }
-
         if (Count_Hospital > 2 && DataBaseManager.NowPage_Hospital == 1)
         {
             NextButton_Hospital.SetActive(true);
@@ -602,7 +586,6 @@ public class IntelPlaceDetail : MonoBehaviour
         {
             NextButton_Hospital.SetActive(false);
         }
-
         if (DataBaseManager.NowPage_Hospital == 2)
         {
             PrevButton_Hospital.SetActive(true);
@@ -660,7 +643,6 @@ public class IntelPlaceDetail : MonoBehaviour
             Detail_Newspaper6.transform.SetAsLastSibling();
             Count_Newspaper += 1;
         }
-
         if (Count_Newspaper > 2 && DataBaseManager.NowPage_Newspaper == 1)
         {
             NextButton_Newspaper.SetActive(true);
@@ -2779,7 +2761,6 @@ public class IntelPlaceDetail : MonoBehaviour
             }
         }
     }
-
     void Reset_DetectiveOffice()
     {
         DetectiveOfficeContents.transform.GetChild(0).gameObject.SetActive(false);

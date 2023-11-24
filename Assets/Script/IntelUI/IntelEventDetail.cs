@@ -176,8 +176,6 @@ public class IntelEventDetail : MonoBehaviour
     public GameObject NextButton_CreepyEyes;
     public GameObject PrevButton_CreepyEyes;
 
-   
-
     GameObject Detail_Safe1;
     GameObject Detail_Safe2;
     GameObject Detail_Safe3;
@@ -300,13 +298,7 @@ public class IntelEventDetail : MonoBehaviour
         Detail_MurderCase5 = MurderCaseContents.transform.GetChild(4).gameObject;
         Detail_MurderCase6 = MurderCaseContents.transform.GetChild(5).gameObject;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         PlanetarySequenceDetail();
@@ -318,7 +310,6 @@ public class IntelEventDetail : MonoBehaviour
         FishySmellDetail();
         RiverWaterQualityDetail();
         CreepyEyesDetail();
-
         SafeDetail();
         MurderCaseDetail();
 
@@ -336,9 +327,6 @@ public class IntelEventDetail : MonoBehaviour
                 PrevPage();
             }
         }
-
-
-
         if (PlanetarySequence_Detail.activeSelf == true)
         {
             NowPage = "PlanetarySequence";
@@ -386,10 +374,6 @@ public class IntelEventDetail : MonoBehaviour
         }
 
     }
-
-
-
-
     void PlanetarySequenceDetail()
     {
         if (ON_PlanetarySequence1 == false && DataBaseManager.Intel_PlanetaryParade1 == true)
@@ -589,7 +573,6 @@ public class IntelEventDetail : MonoBehaviour
         {
             NextButton_Paranoia.SetActive(false);
         }
-
         if (DataBaseManager.NowPage_Paranoia == 2)
         {
             PrevButton_Paranoia.SetActive(true);
@@ -1175,8 +1158,6 @@ public class IntelEventDetail : MonoBehaviour
             PrevButton_MurderCase.SetActive(false);
         }
     }
-
-
     public void NextPage()
     {
         if (NowPage == "PlanetarySequence")
@@ -2390,7 +2371,6 @@ public class IntelEventDetail : MonoBehaviour
         FishySmell_Detail.SetActive(false);
         RiverWaterQuality_Detail.SetActive(false);
         CreepyEyes_Detail.SetActive(false);
-
         Safe_Detail.SetActive(false);
         MurderCase_Detail.SetActive(false);
     }

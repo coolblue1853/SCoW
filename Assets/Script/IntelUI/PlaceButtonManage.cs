@@ -4,23 +4,13 @@ using UnityEngine;
 
 public class PlaceButtonManage : MonoBehaviour
 {
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
-
         ButtonUpdate();
         if (ClickDownButton == false)
         {
             ButtonDetail();
         }
-
         if (Upbutton2.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -28,7 +18,6 @@ public class PlaceButtonManage : MonoBehaviour
                 ClickUpButton2();
             }
         }
-
         else if (UPButton.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -36,8 +25,6 @@ public class PlaceButtonManage : MonoBehaviour
                 ClickUpButton();
             }
         }
-
-
         if (DownButton2.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.S))
@@ -45,7 +32,6 @@ public class PlaceButtonManage : MonoBehaviour
                 ClickDownButton_2();
             }
         }
-
         else if (DownButton.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.S))
@@ -57,24 +43,20 @@ public class PlaceButtonManage : MonoBehaviour
 
     public GameObject UPButton;
     public GameObject DownButton;
-
     public GameObject Button_DetectiveOffice;
     public GameObject Button_Hospital;
     public GameObject Button_Newspaper;
     public GameObject Button_QuestHouse;
     public GameObject Button_Station;
-
     public GameObject Button_Restaurant;
     public GameObject Button_University;
     public GameObject Button_Riverside;
     public GameObject Button_Bar;
     public GameObject Button_Slum;
-
     public GameObject Button_PoliceOffice;
     public GameObject Button_Gunsmith;
     public GameObject Button_SewageMaintenanceOffice;
     public GameObject Button_Wharf;
-
     bool ButtonRize_DetectiveOffice = false;
     bool ButtonRize_Hospital = false;
     bool ButtonRize_Newspaper = false;
@@ -89,7 +71,6 @@ public class PlaceButtonManage : MonoBehaviour
     bool ButtonRize_Gunsmith = false;
     bool ButtonRize_SewageMaintenanceOffice = false;
     bool ButtonRize_Wharf = false;
-
     void ButtonUpdate()
     {
         if ((DataBaseManager.Intel_DetectiveOffice1 == true || DataBaseManager.Intel_DetectiveOffice2 == true || DataBaseManager.Intel_DetectiveOffice3 == true || DataBaseManager.Intel_DetectiveOffice4 == true || DataBaseManager.Intel_DetectiveOffice5 == true || DataBaseManager.Intel_DetectiveOffice6 == true) && ButtonRize_DetectiveOffice == false)
@@ -177,12 +158,8 @@ public class PlaceButtonManage : MonoBehaviour
             DataBaseManager.GainPlaceInt += 1;
         }
     }
-
-
-
     void ButtonDetail()
     {
-
         if (DataBaseManager.ButtonCount_DetectiveOffice != -1)
         {
             Button_DetectiveOffice.SetActive(true);
@@ -248,7 +225,6 @@ public class PlaceButtonManage : MonoBehaviour
             Button_SewageMaintenanceOffice.SetActive(true);
             Button_SewageMaintenanceOffice.transform.SetSiblingIndex(DataBaseManager.ButtonCount_SewageMaintenanceOffice);
         }
-
         if (DataBaseManager.ButtonCount_Wharf != -1)
         {
             Button_Wharf.SetActive(true);
@@ -259,11 +235,9 @@ public class PlaceButtonManage : MonoBehaviour
             DownButton.SetActive(true);
         }
     }
-
     public GameObject ButtonRect;
     bool ClickDownButton = false;
     bool ClickDownButton2 = false;
-
     public GameObject Upbutton2;
     public GameObject DownButton2;
     public void ClickUpButton()
@@ -280,7 +254,6 @@ public class PlaceButtonManage : MonoBehaviour
         Upbutton2.SetActive(false);
         DownButton.SetActive(true);
         DownButton2.SetActive(false);
-
         Transform trChild16 = ButtonRect.transform.GetChild(6);
         trChild16.gameObject.SetActive(true);
         Transform trChild7 = ButtonRect.transform.GetChild(7);
@@ -294,7 +267,6 @@ public class PlaceButtonManage : MonoBehaviour
         Transform trChild12 = ButtonRect.transform.GetChild(11);
         trChild12.gameObject.SetActive(true);
     }
-
     public void ClickDownButton_()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -306,21 +278,17 @@ public class PlaceButtonManage : MonoBehaviour
             Transform trChild = ButtonRect.transform.GetChild(i);
             trChild.gameObject.SetActive(false);
         }
-
         if (DataBaseManager.GainPlaceInt == 7)
         {
             Transform trChild16 = ButtonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);
-
         }
-
         else if (DataBaseManager.GainPlaceInt == 8)
         {
             Transform trChild16 = ButtonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);
             Transform trChild7 = ButtonRect.transform.GetChild(7);
             trChild7.gameObject.SetActive(true);
-
         }
         else if (DataBaseManager.GainPlaceInt == 9)
         {
@@ -330,7 +298,6 @@ public class PlaceButtonManage : MonoBehaviour
             trChild7.gameObject.SetActive(true);
             Transform trChild9 = ButtonRect.transform.GetChild(8);
             trChild9.gameObject.SetActive(true);
-
         }
         else if (DataBaseManager.GainPlaceInt == 10)
         {
@@ -342,8 +309,6 @@ public class PlaceButtonManage : MonoBehaviour
             trChild9.gameObject.SetActive(true);
             Transform trChild10 = ButtonRect.transform.GetChild(9);
             trChild10.gameObject.SetActive(true);
-
-
         }
         else if (DataBaseManager.GainPlaceInt == 11)
         {
@@ -378,7 +343,6 @@ public class PlaceButtonManage : MonoBehaviour
             DownButton2.SetActive(true);
         }
     }
-
     public void ClickDownButton_2()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -393,24 +357,10 @@ public class PlaceButtonManage : MonoBehaviour
             Transform trChild = ButtonRect.transform.GetChild(i);
             trChild.gameObject.SetActive(false);
         }
-
         if (DataBaseManager.GainPlaceInt == 13)
         {
             Transform trChild12 = ButtonRect.transform.GetChild(12);
             trChild12.gameObject.SetActive(true);
-
         }
-
-
-
-
     }
-
-
-
-
-
-
-
-
 }
