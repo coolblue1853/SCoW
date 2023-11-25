@@ -6,20 +6,20 @@ using DG.Tweening;
 using UnityEngine.SceneManagement;
 public class ManageMain : MonoBehaviour
 {
-    public GameObject Back;
-    public Image BackGround;
-    public GameObject tile;
-    public GameObject tile2;
-    public GameObject tile3;
-    bool on = false;
-    bool on2 = false;
-    bool on3 = false;
+    public GameObject back;
+    public Image backGroundImg;
+    public GameObject select1;
+    public GameObject select2;
+    public GameObject select3;
+    bool isSelectOn1 = false;
+    bool isSelectOn2 = false;
+    bool isSelectOn3 = false;
     Sequence mySequence;
     public void FadeIn()
     {
         SoundManager.Instance.pen_Circle();
-        Back.SetActive(true);
-        Tween fadeTween = BackGround.DOFade(1, 1.5f);
+        back.SetActive(true);
+        Tween fadeTween = backGroundImg.DOFade(1, 1.5f);
         fadeTween.OnComplete(Go_SetCharacter);
     }
     public void Game_Quit()
@@ -33,50 +33,50 @@ public class ManageMain : MonoBehaviour
     }
     public void Open_tile()
     {
-        if (on == false)
+        if (isSelectOn1 == false)
         {
-            on = true;
-            tile.SetActive(true);
+            isSelectOn1 = true;
+            select1.SetActive(true);
         }
     }
     public void Close_tile()
     {
-        if (on == true)
+        if (isSelectOn1 == true)
         {
-            on = false;
-            tile.SetActive(false);
+            isSelectOn1 = false;
+            select1.SetActive(false);
         }
     }
     public void Open_tile2()
     {
-        if (on2 == false)
+        if (isSelectOn2 == false)
         {
-            on2 = true;
-            tile2.SetActive(true);
+            isSelectOn2 = true;
+            select2.SetActive(true);
         }
     }
     public void Close_tile2()
     {
-        if (on2 == true)
+        if (isSelectOn2 == true)
         {
-            on2 = false;
-            tile2.SetActive(false);
+            isSelectOn2 = false;
+            select2.SetActive(false);
         }
     }
     public void Open_tile3()
     {
-        if (on3 == false)
+        if (isSelectOn3 == false)
         {
-            on3 = true;
-            tile3.SetActive(true);
+            isSelectOn3 = true;
+            select3.SetActive(true);
         }
     }
     public void Close_tile3()
     {
-        if (on3 == true)
+        if (isSelectOn3 == true)
         {
-            on3 = false;
-            tile3.SetActive(false);
+            isSelectOn3 = false;
+            select3.SetActive(false);
         }
     }
 }

@@ -1111,11 +1111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c66e8b1f5be32b4a95302482bc4e91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Back: {fileID: 1211046463}
-  BackGround: {fileID: 1211046465}
-  tile: {fileID: 735729859}
-  tile2: {fileID: 681219113}
-  tile3: {fileID: 574103170}
+  back: {fileID: 1211046463}
+  backGroundImg: {fileID: 1211046465}
+  select1: {fileID: 735729859}
+  select2: {fileID: 681219113}
+  select3: {fileID: 574103170}
 --- !u!114 &762191913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1128,11 +1128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c36ea05cb49ef468cea8124f04bf55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  White_ob: {fileID: 1385953220}
-  RogoImage_ob: {fileID: 1756505329}
-  White: {fileID: 1385953222}
-  RogoImage: {fileID: 1756505331}
-  Rogo: {fileID: 1756505333}
+  whiteOb: {fileID: 1385953220}
+  rogoImageOb: {fileID: 1756505329}
+  white: {fileID: 1385953222}
+  rogoImage: {fileID: 1756505331}
+  rogoAnim: {fileID: 1756505333}
 --- !u!1 &1083747338
 GameObject:
   m_ObjectHideFlags: 0
