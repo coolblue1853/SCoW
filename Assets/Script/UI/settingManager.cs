@@ -36,20 +36,20 @@ public class settingManager : MonoBehaviour
     public void goToMain()
     {
         DataBaseManager.instance.ResetData();
-        Setting.SetActive(false);
+        setting.SetActive(false);
         SceneManager.LoadScene("Insert");
     }
 
-    public GameObject Setting;
+    public GameObject setting;
 
-    public bool 대화창켜야하나 = false;
+    public bool isDalogOn = false;
     public void OpenSetting()
     {
         if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.potalWait == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isOpenMap == false)
         {
             SoundManager.Instance.PaperClip_Play();
             DataBaseManager.isOpenUi = true;
-            Setting.SetActive(true);
+            setting.SetActive(true);
 
         }
     }
@@ -57,9 +57,9 @@ public class settingManager : MonoBehaviour
     {
         SoundManager.Instance.ClickSound_Play();
         DataBaseManager.isOpenUi = false;
-        Setting.SetActive(false);
+        setting.SetActive(false);
         settingUi.SetActive(true);
-        Tutorial.SetActive(false);
+        tutorial.SetActive(false);
         keySetting.SetActive(false);
     }
     public void 게임종료버튼()
@@ -67,68 +67,68 @@ public class settingManager : MonoBehaviour
         Application.Quit();
     }
 
-    public Text 해상도;
-    int 화면체인지인트값 = 1;
-    bool 전체화면 = true;
+    public Text resolution;
+    int changeInt = 1;
+    bool isFullScrean = true;
 
     public void 전체화면온()
     {
         SoundManager.Instance.ClickSound_Play();
-        전체화면 = true;
+        isFullScrean = true;
     }
     public void 전체화면오프()
     {
         SoundManager.Instance.ClickSound_Play();
-        전체화면 = false;
+        isFullScrean = false;
     }
     public void 화면체인저엔터()
     {
         SoundManager.Instance.ClickSound_Play();
-        if (화면체인지인트값 == 0 && 전체화면 == false)
+        if (changeInt == 0 && isFullScrean == false)
         {
             Screen.SetResolution(2560, 1440, false);
         }
-        else if (화면체인지인트값 == 1 && 전체화면 == false)
+        else if (changeInt == 1 && isFullScrean == false)
         {
             Screen.SetResolution(1920, 1080, false);
         }
-        else if (화면체인지인트값 == 2 && 전체화면 == false)
+        else if (changeInt == 2 && isFullScrean == false)
         {
             Screen.SetResolution(1600, 900, false);
         }
-        else if (화면체인지인트값 == 3 && 전체화면 == false)
+        else if (changeInt == 3 && isFullScrean == false)
         {
             Screen.SetResolution(1280, 720, false);
         }
-        else if (화면체인지인트값 == 4 && 전체화면 == false)
+        else if (changeInt == 4 && isFullScrean == false)
         {
             Screen.SetResolution(960, 540, false);
         }
-        else if (화면체인지인트값 == 5 && 전체화면 == false)
+        else if (changeInt == 5 && isFullScrean == false)
         {
             Screen.SetResolution(640, 360, false);
         }
-        if (화면체인지인트값 == 0 && 전체화면 == true)
+        if (changeInt == 0 && isFullScrean == true)
         {
             Screen.SetResolution(2560, 1440, true);
         }
-        else if (화면체인지인트값 == 1 && 전체화면 == true)
+        else if (changeInt == 1 && isFullScrean == true)
         {
             Screen.SetResolution(1920, 1080, true);
         }
-        else if (화면체인지인트값 == 2 && 전체화면 == true)
+        else if (changeInt == 2 && isFullScrean == true)
         {
             Screen.SetResolution(1600, 900, true);
         }
-        else if (화면체인지인트값 == 3 && 전체화면 == true)
+        else if (changeInt == 3 && isFullScrean == true)
         {
             Screen.SetResolution(1280, 720, true);
         }
-        else if (화면체인지인트값 == 4 && 전체화면 == true)
+        else if (changeInt == 4 && isFullScrean == true)
         {
             Screen.SetResolution(960, 540, true);
         }
-        else if (화면체인지인트값 == 5 && 전체화면 == true)
+        else if (changeInt == 5 && isFullScrean == true)
         {
             Screen.SetResolution(640, 360, true);
         }
@@ -136,15 +136,15 @@ public class settingManager : MonoBehaviour
     public void 인트더하기()
     {
         SoundManager.Instance.ClickSound_Play();
-        화면체인지인트값++;
+        changeInt++;
     }
     public void 빼기()
     {
         SoundManager.Instance.ClickSound_Play();
-        화면체인지인트값--;
+        changeInt--;
     }
-    public GameObject 전체레드;
-    public GameObject 창레드;
+    public GameObject fullCheck;
+    public GameObject windowCheck;
     void Update()
     {
         if (SceneManager.GetActiveScene().name == "Insert")
@@ -155,63 +155,63 @@ public class settingManager : MonoBehaviour
         {
             toMainButton.SetActive(true);
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && Setting.activeSelf == true)
+        if (Input.GetKeyDown(KeyCode.Escape) && setting.activeSelf == true)
         {
             CloseSetting();
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && Setting.activeSelf == false)
+        else if (Input.GetKeyDown(KeyCode.Escape) && setting.activeSelf == false)
         {
             OpenSetting();
         }
-        if (전체화면 == true)
+        if (isFullScrean == true)
         {
-            전체레드.SetActive(true);
-            창레드.SetActive(false);
+            fullCheck.SetActive(true);
+            windowCheck.SetActive(false);
         }
-        else if (전체화면 == false)
+        else if (isFullScrean == false)
         {
-            전체레드.SetActive(false);
-            창레드.SetActive(true);
-        }
-
-        if (화면체인지인트값 == 6)
-        {
-            화면체인지인트값 = 0;
+            fullCheck.SetActive(false);
+            windowCheck.SetActive(true);
         }
 
-        if (화면체인지인트값 == 0)
+        if (changeInt == 6)
         {
-            해상도.text = "2560 x 1440";
+            changeInt = 0;
         }
-        else if (화면체인지인트값 == 1)
+
+        if (changeInt == 0)
         {
-            해상도.text = "1920 x 1080";
+            resolution.text = "2560 x 1440";
         }
-        else if (화면체인지인트값 == 2)
+        else if (changeInt == 1)
         {
-            해상도.text = "1600 x 900";
+            resolution.text = "1920 x 1080";
         }
-        else if (화면체인지인트값 == 3)
+        else if (changeInt == 2)
         {
-            해상도.text = "1280 x 720";
+            resolution.text = "1600 x 900";
         }
-        else if (화면체인지인트값 == 4)
+        else if (changeInt == 3)
         {
-            해상도.text = "960 x 540";
+            resolution.text = "1280 x 720";
         }
-        else if (화면체인지인트값 == 5)
+        else if (changeInt == 4)
         {
-            해상도.text = "640 x 360";
+            resolution.text = "960 x 540";
+        }
+        else if (changeInt == 5)
+        {
+            resolution.text = "640 x 360";
         }
     }
     public GameObject settingUi;
-    public GameObject Tutorial;
+    public GameObject tutorial;
     public GameObject keySetting;
     public void OpenTut()
     {
         SoundManager.Instance.ClickSound_Play();
         settingUi.SetActive(false);
-        Tutorial.SetActive(true);
+        tutorial.SetActive(true);
     }
     public void OpenKey()
     {

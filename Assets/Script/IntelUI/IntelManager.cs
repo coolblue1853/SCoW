@@ -28,14 +28,14 @@ public class IntelManager : MonoBehaviour
                 var clone = Instantiate(FloatingTextObject, FloatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
                 clone.GetComponent<IntelFloating>().Text.text = "<color=#1A6800>(" + detail + ")</color> Acquisition".ToString();
                 clone.transform.SetParent(FloatingPlace.transform);
-                clone.transform.localScale = new Vector3(1, 1, 1);
+                clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
             else if(FloatingPlace.transform.childCount == 1)
             {
                 var clone = Instantiate(FloatingTextObject, FloatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
                 clone.GetComponent<IntelFloating>().Text.text = "<color=#1A6800>(" + detail + ")</color> Acquisition".ToString();
                 clone.transform.SetParent(FloatingPlace2.transform);
-                clone.transform.localScale = new Vector3(1, 1, 1);
+                clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
 
         }
@@ -46,14 +46,14 @@ public class IntelManager : MonoBehaviour
                 var clone = Instantiate(FloatingTextObject, FloatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
                 clone.GetComponent<IntelFloating>().Text.text = "<color=#B30000>(" + detail + ")</color> Acquisition".ToString();
                 clone.transform.SetParent(FloatingPlace.transform);
-                clone.transform.localScale = new Vector3(1, 1, 1);
+                clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
             else if (FloatingPlace.transform.childCount == 1)
             {
                 var clone = Instantiate(FloatingTextObject, FloatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
                 clone.GetComponent<IntelFloating>().Text.text = "<color=#B30000>(" + detail + ")</color> Acquisition".ToString();
                 clone.transform.SetParent(FloatingPlace2.transform);
-                clone.transform.localScale = new Vector3(1, 1, 1);
+                clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
         }
         if (Category == "Place")
@@ -63,14 +63,14 @@ public class IntelManager : MonoBehaviour
                 var clone = Instantiate(FloatingTextObject, FloatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
                 clone.GetComponent<IntelFloating>().Text.text = "<color=#0026A9>(" + detail + ")</color> Acquisition".ToString();
                 clone.transform.SetParent(FloatingPlace.transform);
-                clone.transform.localScale = new Vector3(1, 1, 1);
+                clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
             else if (FloatingPlace.transform.childCount == 1)
             {
                 var clone = Instantiate(FloatingTextObject, FloatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
                 clone.GetComponent<IntelFloating>().Text.text = "<color=#0026A9>(" + detail + ")</color> Acquisition".ToString();
                 clone.transform.SetParent(FloatingPlace2.transform);
-                clone.transform.localScale = new Vector3(1, 1, 1);
+                clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
         }
         if (Category == "Item")
@@ -80,14 +80,14 @@ public class IntelManager : MonoBehaviour
                 var clone = Instantiate(FloatingTextObject, FloatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
                 clone.GetComponent<IntelFloating>().Text.text = "(" + detail + ")".ToString();
                 clone.transform.SetParent(FloatingPlace.transform);
-                clone.transform.localScale = new Vector3(1, 1, 1);
+                clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
             else if (FloatingPlace.transform.childCount == 1)
             {
                 var clone = Instantiate(FloatingTextObject, FloatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
                 clone.GetComponent<IntelFloating>().Text.text = "(" + detail + ")".ToString();
                 clone.transform.SetParent(FloatingPlace2.transform);
-                clone.transform.localScale = new Vector3(1, 1, 1);
+                clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
         }
     }

@@ -339,7 +339,7 @@ public class PotalPoint : MonoBehaviour
     }
     void EndIsDerecting()
     {
-        SoundManager.Instance.달리기효과음켜짐 = false;
+        SoundManager.Instance.irRunSoundOn = false;
         DataBaseManager.isDirecting = false;
     }
     void AblePotal()
