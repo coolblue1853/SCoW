@@ -8,17 +8,16 @@ using Febucci.UI.Core;
 using System;
 using System.Linq;
 using UnityEngine.Assertions;
-
 public class DialogManager : MonoBehaviour
 {
-    public GameObject BackGround;
-    public GameObject Image001;
-    public GameObject Image002;
-    public GameObject Image003;
-    public GameObject Image004;
-    public GameObject Image005;
-    public GameObject Image006;
-    public GameObject Image007;
+    public GameObject backGround;
+    public GameObject image001;
+    public GameObject image002;
+    public GameObject image003;
+    public GameObject image004;
+    public GameObject image005;
+    public GameObject image006;
+    public GameObject image007;
     public void ActiveImage(GameObject obj)
     {
         if (obj.activeSelf == false)
@@ -59,43 +58,43 @@ public class DialogManager : MonoBehaviour
             return instance;
         }
     }
-    public GameObject FloatPosition;
+    public GameObject floatPosition;
     // 선택지 등장시  해당변수 활성화로 멈추기
-    public bool ShowChoice = false;
-    public GameObject SkipButton;
-    public GameObject SkipStopButton;
+    public bool showChoice = false;
+    public GameObject skipButton;
+    public GameObject skipStopButton;
     // Start is called before the first frame update
-    public GameObject DialogFace;
-    public GameObject Fabian_1;
+    public GameObject dialogFace;
+    public GameObject fabian1;
     // ⓦ 이건 색깔  , 쉼표는 ' 로  \n으로 해서 작성하면 됨 엑셀
-    public GameObject PlayerChar;
+    public GameObject playerChar;
     public selectionUIManager selectionUIManager;
     public bool isDialogON = false;
-    [SerializeField] GameObject go_dialogBar;
-    [SerializeField] GameObject go_dialogNameBar;
-    [SerializeField] TextMeshProUGUI txt_Dialog;
-    [SerializeField] TextMeshProUGUI txt_name;
+    [SerializeField] GameObject goDialogBar;
+    [SerializeField] GameObject goDialogNameBar;
+    [SerializeField] TextMeshProUGUI txtDialog;
+    [SerializeField] TextMeshProUGUI txtName;
     Dialog[] dialogs;
    // public Mins min;
     bool isDialog = false;
     bool isNext = false; // 특정 키 입력 대기.
     public bool isSelectButton = false;
-    public bool FirstClick = true;
+    public bool firstClick = true;
     int lineCount = 0; // 대화 카운트(사람)
     int contextCount = 0; // 대사 카운트 (줄)
-    //기능판정 대화창
-    public GameObject JudgeDialog;
-    bool z_next2 = true;
-    bool z_next1;
+                          //기능판정 대화창
+    public GameObject judgeDialog;
+    bool zNext2 = true;
+    bool zNext1;
     SpriteManager theSpriteManager;
 
     [Header("텍스트 출력 딜레이.")]
     [SerializeField] float textDelay;
-    public TAnimPlayerBase TypeA;
-    public TextAnimatorPlayer TextAnimatorPlayer;
+    public TAnimPlayerBase typeA;
+    public TextAnimatorPlayer textAnimatorPlayer;
     private void Start()
     {
-        FirstClick = true;
+        firstClick = true;
         isSelectButton = false;
         theSpriteManager = FindObjectOfType<SpriteManager>();
     }
@@ -105,11 +104,11 @@ public class DialogManager : MonoBehaviour
         TextCheker();
         if (Input.GetKeyDown(KeyCode.E) || (Input.GetMouseButtonDown(0)))
         {
-            if (z_next2 == true)
+            if (zNext2 == true)
             {
-                z_next1 = true;
+                zNext1 = true;
             }
-            z_next2 = true;
+            zNext2 = true;
         }
     }
     void TextCheker()
@@ -120,15 +119,15 @@ public class DialogManager : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E) || (Input.GetMouseButtonDown(0) && DataBaseManager.DaveCheck == false ))
                 {
-                    if (FirstClick == true)
+                    if (firstClick == true)
                     {
-                        TypeA.SkipTypewriter();
-                        FirstClick = false;
+                        typeA.SkipTypewriter();
+                        firstClick = false;
                     }
                     else
                     {
                         isNext = false;
-                        txt_Dialog.text = "";
+                        txtDialog.text = "";
                         if (++contextCount < dialogs[lineCount].contexts.Length)
                         {
                             StartCoroutine(TypeWriter());
@@ -155,12 +154,12 @@ public class DialogManager : MonoBehaviour
     {
         if (DataBaseManager.SelectionOn == false)
         {
-            SkipButton.SetActive(false);
-            SkipStopButton.SetActive(true);
+            skipButton.SetActive(false);
+            skipStopButton.SetActive(true);
             DataBaseManager.skipActive = true;
-            TextAnimatorPlayer.waitForNormalChars = 0.003f;
-            TextAnimatorPlayer.waitLong = 0.003f;
-            TextAnimatorPlayer.waitMiddle = 0.003f;
+            textAnimatorPlayer.waitForNormalChars = 0.003f;
+            textAnimatorPlayer.waitLong = 0.003f;
+            textAnimatorPlayer.waitMiddle = 0.003f;
             StartCoroutine(Skip());
         }
         else if (DataBaseManager.SelectionOn == true)
@@ -170,39 +169,39 @@ public class DialogManager : MonoBehaviour
     }
     public void SkipStopON()
     {
-        TextAnimatorPlayer.waitForNormalChars = 0.03f;
-        TextAnimatorPlayer.waitLong = 0.03f;
-        TextAnimatorPlayer.waitMiddle = 0.03f;
+        textAnimatorPlayer.waitForNormalChars = 0.03f;
+        textAnimatorPlayer.waitLong = 0.03f;
+        textAnimatorPlayer.waitMiddle = 0.03f;
         DataBaseManager.skipActive = false;
-        SkipStopButton.SetActive(false);
-        ShowChoice = true;
+        skipStopButton.SetActive(false);
+        showChoice = true;
         StartCoroutine(SkipNomalize());
     }
     IEnumerator SkipNomalize()
     {
         yield return new WaitForSeconds(0.5f);
-        ShowChoice = false;
-        SkipButton.SetActive(true);
+        showChoice = false;
+        skipButton.SetActive(true);
     }
     IEnumerator Skip()
     {
         if(DataBaseManager.SelectionOn == false)
         {
-            z_next1 = true;   //이 부분을 true로 두면  스킵이 엄청 빨라지고 false로 두면 적당해짐
-            z_next2 = true;
+            zNext1 = true;   //이 부분을 true로 두면  스킵이 엄청 빨라지고 false로 두면 적당해짐
+            zNext2 = true;
             yield return new WaitForSeconds(0.08f);
             ChoiceEx_NextPage_t();
             yield return new WaitForSeconds(0.08f);
-            if (go_dialogBar.activeSelf == false)
+            if (goDialogBar.activeSelf == false)
             {
                 SkipStopON();
                 DataBaseManager.skipActive = false;
             }
-            else if (ShowChoice == false)
+            else if (showChoice == false)
             {
                 StartCoroutine(Skip());
             }
-            else if (ShowChoice == true)
+            else if (showChoice == true)
             {
                 DataBaseManager.skipActive = false;
             }
@@ -219,7 +218,7 @@ public class DialogManager : MonoBehaviour
             if (isNext)
             {
                 isNext = false;
-                txt_Dialog.text = "";
+                txtDialog.text = "";
                 if (++contextCount < dialogs[lineCount].contexts.Length)
                 {
                     StartCoroutine(TypeWriter());
@@ -241,16 +240,16 @@ public class DialogManager : MonoBehaviour
     }
     public void ChoiceEx_NextPage()
     {
-        SkipButton.SetActive(true);
-        SkipStopButton.SetActive(false);
+        skipButton.SetActive(true);
+        skipStopButton.SetActive(false);
         DataBaseManager.skipActive = false;
-        ShowChoice = false;
+        showChoice = false;
         if (isDialog)
         {
             if (isNext)
             {
                 isNext = false;
-                txt_Dialog.text = "";
+                txtDialog.text = "";
                 if (++contextCount < dialogs[lineCount].contexts.Length)
                 {
                     StartCoroutine(TypeWriter());
@@ -291,9 +290,9 @@ public class DialogManager : MonoBehaviour
         DataBaseManager.isActiveDialog1 = false;
         DataBaseManager.isJudge = false;
         DataBaseManager.isKeyword = false;
-        FirstClick = true;
+        firstClick = true;
         DataBaseManager.isActiveDialog2 = false;
-        DialogFace.SetActive(false);
+        dialogFace.SetActive(false);
         isDialog = false;
         contextCount = 0;
         lineCount = 0;
@@ -310,10 +309,10 @@ public class DialogManager : MonoBehaviour
     {
         DataBaseManager.isActiveDialog1 = true;
         DataBaseManager.isActiveDialog2 = true;
-        DialogFace.SetActive(true);
+        dialogFace.SetActive(true);
         isDialog = true;
-        txt_Dialog.text = "";
-        txt_name.text = "";
+        txtDialog.text = "";
+        txtName.text = "";
         dialogs = P_dialogs;
         StartCoroutine(TypeWriter());
     }
@@ -322,7 +321,7 @@ public class DialogManager : MonoBehaviour
         SettingUI(true);
         string t_ReplaceText = dialogs[lineCount].contexts[contextCount];
         t_ReplaceText = t_ReplaceText.Replace("^", ",");
-        txt_Dialog.text = t_ReplaceText;
+        txtDialog.text = t_ReplaceText;
         isNext = true;
     }
     IEnumerator TypeWriter()
@@ -976,18 +975,18 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '⑵')
                     {
-                        SkipButton.SetActive(false);
-                        SkipStopButton.SetActive(false);
-                        ShowChoice = true;
+                        skipButton.SetActive(false);
+                        skipStopButton.SetActive(false);
+                        showChoice = true;
                         t_ignore = true;
                         isSelectButton = true;
                         break;
                     }
                     if (t_ReplaceText[i + 1] == '⑶')
                     {
-                        SkipButton.SetActive(false);
-                        SkipStopButton.SetActive(false);
-                        ShowChoice = true;
+                        skipButton.SetActive(false);
+                        skipStopButton.SetActive(false);
+                        showChoice = true;
                         t_ignore = true;
                         isSelectButton = true;
                         break;
@@ -1277,22 +1276,22 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '⑨')
                     {
-                        ActiveImage(Image001);
+                        ActiveImage(image001);
                     }
                     if (t_ReplaceText[i + 1] == '⑩')
                     {
-                        BackGround.SetActive(false);
+                        backGround.SetActive(false);
                     }
                     if (t_ReplaceText[i + 1] == '⑪')
                     {
-                        BackGround.SetActive(true);
+                        backGround.SetActive(true);
                     }
                     t_ignore = true;
                     break;
                 case '▒'://▒①
                     if (t_ReplaceText[i + 1] == '①')
                     {
-                        ActiveImage(Image002);
+                        ActiveImage(image002);
                     }
                     if (t_ReplaceText[i + 1] == '②')
                     {
@@ -1352,7 +1351,6 @@ public class DialogManager : MonoBehaviour
                     if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑨' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트9(); };
                     if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '§') { theSpriteManager.엘라일러스트2(); };
                     if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '①' && t_ReplaceText[i + 5] == '§') { theSpriteManager.엘라일러스트1(); };
-                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '②' && t_ReplaceText[i + 5] == '§') { theSpriteManager.멜리사일러스트(); };
                     if (t_ReplaceText[i + 1] == '엘' && t_ReplaceText[i + 2] == '라' && t_ReplaceText[i + 3] == '1' && t_ReplaceText[i + 4] == '§') { theSpriteManager.엘라일러스트1(); }; t_ignore = true; break; // 표정변경.
 
                 //㉠ ㉡ ㉢ ㉣ ㉤ ㉥ ㉦ ㉧ ㉨ ㉩ ㉪ ㉫ ㉬ ㉭▒
@@ -1412,47 +1410,47 @@ public class DialogManager : MonoBehaviour
                 else if (t_blue) { t_letter = "<color=#0026A9>" + t_letter + "</color>"; }
                 else if (t_green) { t_letter = "<color=#1A6800>" + t_letter + "</color>"; }
                 else if (t_grey) { t_letter = "<i><color=#C8C2C2>" + t_letter + "</color>"; }
-                txt_Dialog.text += t_letter;
+                txtDialog.text += t_letter;
             }
             t_ignore = false;
         }
-        FirstClick = true;
+        firstClick = true;
         isNext = true;
         yield return null;
     }
     public void EndTypeSKip()
     {
         DataBaseManager.endDialogLine = true;
-        FirstClick = false;
+        firstClick = false;
     }
     public void StartTypeSKip()
     {
-        FirstClick = true;
+        firstClick = true;
     }
     void SettingUI(bool P_flag)
     {
-        go_dialogBar.SetActive(P_flag);
+        goDialogBar.SetActive(P_flag);
         if (P_flag)
         {
             if (dialogs[lineCount].name == "")
             {
-                go_dialogNameBar.SetActive(false);
+                goDialogNameBar.SetActive(false);
             }
             else
             {
-                go_dialogNameBar.SetActive(true);
-                txt_name.text = dialogs[lineCount].name;
+                goDialogNameBar.SetActive(true);
+                txtName.text = dialogs[lineCount].name;
             }
         }
     }
     void settingPlayerCon()
     {
-        if (go_dialogBar.activeSelf == true)
+        if (goDialogBar.activeSelf == true)
         {
             // PlayerChar.transform.GetComponent<Mins>().isDialogOnChangeT();
         }
 
-        if (go_dialogBar.activeSelf == false)
+        if (goDialogBar.activeSelf == false)
         {
             // PlayerChar.transform.GetComponent<Mins>().isDialogOnChangeF();
         }

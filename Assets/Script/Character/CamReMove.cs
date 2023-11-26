@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Serialization;
 public class CamReMove : MonoBehaviour
 {
     CameraManager cameraManager;
@@ -17,9 +17,5 @@ public class CamReMove : MonoBehaviour
             cameraManager.CameraMove();
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 }

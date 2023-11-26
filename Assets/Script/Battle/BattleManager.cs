@@ -149,7 +149,7 @@ public class BattleManager : MonoBehaviour
         playerActionUi.SetActive(false);
         uiButton.SetActive(true);
         DataBaseManager.InSewer_StealthSucc = true;
-        DialogDatabaseManager.instance.Check = true;
+        DialogDatabaseManager.instance.check = true;
         DataBaseManager.isDirecting = false;
         DataBaseManager.StoryDirecting = false;
         DataBaseManager.isRollet = false;

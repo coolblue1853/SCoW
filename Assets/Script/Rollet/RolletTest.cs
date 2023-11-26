@@ -181,7 +181,7 @@ public class RolletTest : MonoBehaviour
             cam.transform.position = Cam_Symbol;
             TimeManagere.Instance.MakeSighnLand();
             DataBaseManager.nowPlace = "InSewer";
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
 
         }
 

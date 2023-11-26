@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Serialization;
 public class InteractionController : MonoBehaviour
 {
     public DialogManager theDM;

@@ -2,133 +2,127 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class SpriteManager : MonoBehaviour
 {
-    public GameObject 수1;
-    public GameObject 수2;
-    public GameObject 수3;
-    public GameObject 수4;
-    public GameObject 수5;
-    public GameObject 수6;
+    public GameObject master1;
+    public GameObject master2;
+    public GameObject master3;
+    public GameObject master4;
+    public GameObject master5;
+    public GameObject master6;
+    public GameObject fabian1;
+    public GameObject fabian2;
+    public GameObject fabian3;
+    public GameObject fabian4;
+    public GameObject fabian5;
+    public GameObject fabian6;
+    public GameObject fabian7;
+    public GameObject fabian8;
+    public GameObject fabian9;
+    public GameObject ella1;
+    GameObject beforeImage = null;
+    bool isFirstShow = true;
+    bool isFirstImage = false;
+    public GameObject ella2;
 
-    public GameObject 노아표정1;
-    public GameObject 노아표정2;
-    public GameObject 노아표정3;
-    public GameObject 노아표정4;
-    public GameObject 노아표정5;
-    public GameObject 노아표정6;
-    public GameObject 노아표정7;
-    public GameObject 노아표정8;
-    public GameObject 노아표정9;
-
-    public GameObject 엘라1;
-    GameObject 이전대상 = null;
-    bool isFirstShowILL = true;
-    bool 첫노아1 = false;
     public void 수호자1()
     {
-        일러스트송출(수1);
+        일러스트송출(master1);
     }
     public void 수호자2()
     {
-        일러스트송출(수2);
+        일러스트송출(master2);
     }
     public void 수호자3()
     {
-        일러스트송출(수3);
+        일러스트송출(master3);
     }
     public void 수호자4()
     {
-        일러스트송출(수4);
+        일러스트송출(master4);
     }
     public void 수호자5()
     {
-        일러스트송출(수5);
+        일러스트송출(master5);
     }
     public void 수호자6()
     {
-        일러스트송출(수6);
+        일러스트송출(master6);
     }
     public void 노아일러스트1()
     {
-        일러스트송출(노아표정1);
+        일러스트송출(fabian1);
     }
     public void 노아일러스트2()
     {
 
-        일러스트송출(노아표정2);
+        일러스트송출(fabian2);
     }
     public void 노아일러스트3()
     {
 
-        일러스트송출(노아표정3);
+        일러스트송출(fabian3);
     }
     public void 노아일러스트4()
     {
-        일러스트송출(노아표정4);
+        일러스트송출(fabian4);
     }
     public void 노아일러스트5()
     {
-        일러스트송출(노아표정5);
+        일러스트송출(fabian5);
     }
     public void 노아일러스트6()
     {
-        일러스트송출(노아표정6);
+        일러스트송출(fabian6);
     }
     public void 노아일러스트7()
     {
-        일러스트송출(노아표정7);
+        일러스트송출(fabian7);
     }
     public void 노아일러스트8()
     {
-        일러스트송출(노아표정8);
+        일러스트송출(fabian8);
     }
     public void 노아일러스트9()
     {
-        일러스트송출(노아표정9);
+        일러스트송출(fabian9);
     }
-    public GameObject 엘라2;
-    public GameObject 멜리사1;
+
     public void 엘라일러스트1()
     {
-        일러스트송출(엘라1);
+        일러스트송출(ella1);
     }
     public void 엘라일러스트2()
     {
-        일러스트송출(엘라2);
-    }
-    public void 멜리사일러스트()
-    {
-        일러스트송출(멜리사1);
+        일러스트송출(ella2);
     }
 
     public void allReset()
     {
-        노아표정1.SetActive(false);
-        노아표정2.SetActive(false);
-        노아표정3.SetActive(false);
-        노아표정4.SetActive(false);
-        노아표정5.SetActive(false);
-        노아표정6.SetActive(false);
-        노아표정7.SetActive(false);
-        노아표정8.SetActive(false);
-        노아표정9.SetActive(false);
+        fabian1.SetActive(false);
+        fabian2.SetActive(false);
+        fabian3.SetActive(false);
+        fabian4.SetActive(false);
+        fabian5.SetActive(false);
+        fabian6.SetActive(false);
+        fabian7.SetActive(false);
+        fabian8.SetActive(false);
+        fabian9.SetActive(false);
     }
     void 일러스트송출(GameObject 대상)
     {
-        if (isFirstShowILL)
+        if (isFirstShow)
         {
             대상.SetActive(true);
-            이전대상 = 대상;
-            isFirstShowILL = false;
+            beforeImage = 대상;
+            isFirstShow = false;
         }
 
         else
         {
-            이전대상.SetActive(false);
+            beforeImage.SetActive(false);
             대상.SetActive(true);
-            이전대상 = 대상;
+            beforeImage = 대상;
         }
     }
 }

@@ -330,7 +330,7 @@ public class DirectingManager : MonoBehaviour
         if (DataBaseManager.EndBattle == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.AfterBattle = true;
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
             DataBaseManager.EndBattle = false;
             isGo1stBattle = true;
             DirectingManager.Instance.EndBattle();

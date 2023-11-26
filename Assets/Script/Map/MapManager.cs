@@ -501,7 +501,7 @@ public class MapManager : MonoBehaviour
             isNoonEvent = true;
             DataBaseManager.nowPlace = "NoonEvent";
             DataBaseManager.isDirecting = true;
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
             FadingBackGround.Instance.FadeInOut();
             CloseMap();
             Invoke("NoonEvent", 1f);
@@ -517,7 +517,7 @@ public class MapManager : MonoBehaviour
                 DataBaseManager.isDirecting = true;
                 DataBaseManager.isBar = false;
                 DataBaseManager.nowPlace = "BattleRoad";
-                DialogDatabaseManager.instance.Check = true;
+                DialogDatabaseManager.instance.check = true;
                 CloseMap();
                 //DirectingManager.Instance.GotoBattle();
 
@@ -536,7 +536,7 @@ public class MapManager : MonoBehaviour
                 DataBaseManager.isDirecting = true;
                 DataBaseManager.isSewerOffice = false;
                 DataBaseManager.nowPlace = "BattleRoad";
-                DialogDatabaseManager.instance.Check = true;
+                DialogDatabaseManager.instance.check = true;
                 CloseMap();
                 //DirectingManager.Instance.GotoBattle();
                 FadingBackGround.Instance.FadeInOut();
@@ -709,7 +709,7 @@ public class MapManager : MonoBehaviour
                 camera.transform.localPosition = Cam_DetectiveOffice;
                 MapChainingUI.SetActive(false);
                 MapUI.SetActive(false);
-                DialogDatabaseManager.instance.Check = true;
+                DialogDatabaseManager.instance.check = true;
 
             if (DataBaseManager.TimeCount == 4)
             {
@@ -729,7 +729,7 @@ public class MapManager : MonoBehaviour
                 DataBaseManager.StoryDirecting = true;
                 Invoke("FirstClientsHouseArrive", 2);
             }
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "DailyNews")
         {
@@ -739,7 +739,7 @@ public class MapManager : MonoBehaviour
             camera.transform.localPosition = Cam_DailyNews;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "University")
         {
@@ -749,7 +749,7 @@ public class MapManager : MonoBehaviour
             camera.transform.localPosition = Cam_Univercity;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
 
             if((DataBaseManager.TimeCount % 4) == 3)
             {
@@ -768,7 +768,7 @@ public class MapManager : MonoBehaviour
             camera.transform.localPosition = Cam_RiverSide;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "Hospital")
         {
@@ -778,7 +778,7 @@ public class MapManager : MonoBehaviour
             camera.transform.localPosition = Cam_Hospital;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "Policeoffice")
         {
@@ -788,7 +788,7 @@ public class MapManager : MonoBehaviour
             camera.transform.localPosition = Cam_Policeoffice;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "Slum")
         {
@@ -798,7 +798,7 @@ public class MapManager : MonoBehaviour
             camera.transform.localPosition = Cam_Slum;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "Bar")
         {
@@ -810,7 +810,7 @@ public class MapManager : MonoBehaviour
             camera.transform.localPosition = Cam_Bar;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "Gunshop")
         {
@@ -820,7 +820,7 @@ public class MapManager : MonoBehaviour
             camera.transform.localPosition = Cam_Gunshop;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "BattleRoad")
         {
@@ -835,7 +835,7 @@ public class MapManager : MonoBehaviour
             camera.transform.localPosition = Cam_DetectiveOffice;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
 
         }
         else if (DataBaseManager.nowPlace == "NoonEvent")
@@ -846,7 +846,7 @@ public class MapManager : MonoBehaviour
             camera.transform.localPosition = Cam_ClientsHouse;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "SewerOffice")
         {
@@ -858,7 +858,7 @@ public class MapManager : MonoBehaviour
             camera.transform.localPosition = Cam_SewerOfficeMove;
             MapChainingUI.SetActive(false);
             MapUI.SetActive(false);
-            DialogDatabaseManager.instance.Check = true;
+            DialogDatabaseManager.instance.check = true;
         }
 
         if (DataBaseManager.PanicAttack == true)
