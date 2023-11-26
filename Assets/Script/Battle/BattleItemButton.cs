@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.Serialization;
 public class BattleItemButton : MonoBehaviour
 {
     Image imageComponent;
-    public Sprite NoGuide;
-    public Sprite Guided;
+    public Sprite noGuide;
+    public Sprite guide;
     public void ClickItem()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -26,11 +26,11 @@ public class BattleItemButton : MonoBehaviour
     {
         if (DataBaseManager.BattleWeapon == this.name)
         {
-            imageComponent.sprite = Guided;
+            imageComponent.sprite = guide;
         }
         else
         {
-            imageComponent.sprite = NoGuide;
+            imageComponent.sprite = noGuide;
         }
     }
 }

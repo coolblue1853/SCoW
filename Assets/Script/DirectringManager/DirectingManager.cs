@@ -793,8 +793,8 @@ public class DirectingManager : MonoBehaviour
     }
     public void EndBattleInvoke()
     {
-        BattleManager.Instance.StartBattle = false;
-        BattleManager.Instance.BattleState = "setTrun";
+        BattleManager.Instance.startBattle = false;
+        BattleManager.Instance.battleState = "setTrun";
         EnemyTrunSymbol_1.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
         EnemyTrunSymbol_2.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
         EnemyTrunSymbol_3.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
@@ -810,7 +810,7 @@ public class DirectingManager : MonoBehaviour
     {
         DataBaseManager.ISRoadBattleStart = true;
         DataBaseManager.isDirecting = false;
-        BattleManager.Instance.StartBattle = true;
+        BattleManager.Instance.startBattle = true;
     }
 
     public void KeyConnect()

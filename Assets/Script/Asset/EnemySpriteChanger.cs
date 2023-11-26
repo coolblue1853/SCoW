@@ -1,26 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class EnemySpriteChanger : MonoBehaviour
 {
-    public SpriteRenderer SpriteRenderer;
-
-    public Sprite Stand;
-    public Sprite Hitted;
-    public Sprite DeepOneHybrid_Punch;
-    public Sprite DeepOneHybrid_SanAttack;
-    public Sprite DeepOneHybrid_PosionAttack;
-
-    public GameObject HittedByNife;
-    public GameObject HittedByBat;
-    public GameObject HittedByAxe;
-    public GameObject HittedBySmallPistol;
-    public GameObject HittedByRevolver;
-    public GameObject HittedByRifle;
-    public GameObject HittedByShotgun;
-    public GameObject HittedByRock;
-    public GameObject HittedByMolotov;
+    public SpriteRenderer spriteRenderer;
+    public Sprite stand;
+    public Sprite hitted;
+    public Sprite deepOneHybridPunch;
+    public Sprite deepOneHybridSanAttack;
+    public Sprite deepOneHybridPosionAttack;
+    public GameObject hittedByNife;
+    public GameObject hittedByBat;
+    public GameObject hittedByAxe;
+    public GameObject hittedBySmallPistol;
+    public GameObject hittedByRevolver;
+    public GameObject hittedByRifle;
+    public GameObject hittedByShotgun;
+    public GameObject hittedByRock;
+    public GameObject hittedByMolotov;
 
     void OnSpriteChangeComplete(SpriteRenderer subject, Sprite sprite)
     {
@@ -29,88 +26,88 @@ public class EnemySpriteChanger : MonoBehaviour
     public void StandChange()
     {
         ResetAll();
-        SpriteRenderer.sprite = Stand;
+        spriteRenderer.sprite = stand;
     }
     public void HittedByPunchChange()
     {
-        SpriteRenderer.sprite = Hitted;
+        spriteRenderer.sprite = hitted;
     }
     public void HittedByNifeChange()
     {
-        SpriteRenderer.sprite = Hitted;
+        spriteRenderer.sprite = hitted;
         ResetAll();
-        HittedByNife.SetActive(true);
+        hittedByNife.SetActive(true);
     }
     public void HittedByBatChange()
     {
-        SpriteRenderer.sprite = Hitted;
+        spriteRenderer.sprite = hitted;
         ResetAll();
-        HittedByBat.SetActive(true);
+        hittedByBat.SetActive(true);
     }
     public void HittedByAxeChange()
     {
-        SpriteRenderer.sprite = Hitted;
+        spriteRenderer.sprite = hitted;
         ResetAll();
-        HittedByAxe.SetActive(true);
+        hittedByAxe.SetActive(true);
     }
     public void HittedBySmallPistolChange()
     {
-        SpriteRenderer.sprite = Hitted;
+        spriteRenderer.sprite = hitted;
         ResetAll();
-        HittedBySmallPistol.SetActive(true);
+        hittedBySmallPistol.SetActive(true);
     }
     public void HittedByRevolverChange()
     {
-        SpriteRenderer.sprite = Hitted;
+        spriteRenderer.sprite = hitted;
         ResetAll();
-        HittedByRevolver.SetActive(true);
+        hittedByRevolver.SetActive(true);
     }
     public void HittedByRifleChnage()
     {
-        SpriteRenderer.sprite = Hitted;
+        spriteRenderer.sprite = hitted;
         ResetAll();
-        HittedByRifle.SetActive(true);
+        hittedByRifle.SetActive(true);
     }
     public void HittedByShotgunChange()
     {
-        SpriteRenderer.sprite = Hitted;
+        spriteRenderer.sprite = hitted;
         ResetAll();
-        HittedByShotgun.SetActive(true);
+        hittedByShotgun.SetActive(true);
     }
     public void HittedByRockChange()
     {
-        SpriteRenderer.sprite = Hitted;
+        spriteRenderer.sprite = hitted;
         ResetAll();
-        HittedByRock.SetActive(true);
+        hittedByRock.SetActive(true);
     }
     public void HittedByMolotovChange()
     {
-        SpriteRenderer.sprite = Hitted;
+        spriteRenderer.sprite = hitted;
         ResetAll();
-        HittedByMolotov.SetActive(true);
+        hittedByMolotov.SetActive(true);
     }
     public void DeepOneHybrid_PunchChange()
     {
-        SpriteRenderer.sprite = DeepOneHybrid_Punch;
+        spriteRenderer.sprite = deepOneHybridPunch;
     }
     public void DeepOne_PoisonChange()
     {
-        SpriteRenderer.sprite = DeepOneHybrid_SanAttack;
+        spriteRenderer.sprite = deepOneHybridSanAttack;
     }
     public void DeepOne_SanAttackChange()
     {
-        SpriteRenderer.sprite = DeepOneHybrid_SanAttack;
+        spriteRenderer.sprite = deepOneHybridSanAttack;
     }
     private void ResetAll()
     {
-        HittedByNife.SetActive(false);
-        HittedByBat.SetActive(false);
-        HittedByAxe.SetActive(false);
-        HittedBySmallPistol.SetActive(false);
-        HittedByRevolver.SetActive(false);
-        HittedByRifle.SetActive(false);
-        HittedByShotgun.SetActive(false);
-        HittedByRock.SetActive(false);
-        HittedByMolotov.SetActive(false);
+        hittedByNife.SetActive(false);
+        hittedByBat.SetActive(false);
+        hittedByAxe.SetActive(false);
+        hittedBySmallPistol.SetActive(false);
+        hittedByRevolver.SetActive(false);
+        hittedByRifle.SetActive(false);
+        hittedByShotgun.SetActive(false);
+        hittedByRock.SetActive(false);
+        hittedByMolotov.SetActive(false);
     }
 }

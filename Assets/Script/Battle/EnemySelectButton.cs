@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Serialization;
 public class EnemySelectButton : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
@@ -21,14 +22,14 @@ public class EnemySelectButton : MonoBehaviour
     }
     void Update()
     {
-        if (BattleManager.Instance.BattleState == "setTrun" && isSetTrun == false)
+        if (BattleManager.Instance.battleState == "setTrun" && isSetTrun == false)
         {
             isSelectEnemy1 = false;
             isSelectEnemy2 = false;
             isSetTrun = true;
             spriteRenderer.DOFade(1f, 0.3f).SetAutoKill(true);
         }
-        if (BattleManager.Instance.BattleState == "selectEnemy")
+        if (BattleManager.Instance.battleState == "selectEnemy")
         {
             isSetTrun = false;
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 마우스 위치 가져오기

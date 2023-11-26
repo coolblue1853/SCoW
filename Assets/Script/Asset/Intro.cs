@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 public class Intro : MonoBehaviour
 {
     public GameObject whiteOb;

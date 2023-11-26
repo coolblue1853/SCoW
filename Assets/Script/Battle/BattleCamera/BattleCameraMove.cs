@@ -2,24 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Serialization;
 public class BattleCameraMove : MonoBehaviour
 {
     private static BattleCameraMove instance = null;
-    Transform Cam;
+    Transform cameraTransform;
     Camera camera;
-
-    float UpSide = 122f;
-    float DownSide = 119f;
-    float OriginPoint = 120.1f;
-    float OriginPointx = -774.6f;
-
+    float upSide = 122f;
+    float downSide = 119f;
+    float originPoint = 120.1f;
+    float originPointx = -774.6f;
     bool once = false;
     string nowCam;
-    bool IsSetTurn = false;
+    bool isSetTurn = false;
 
     private void Awake()
     {
-        Cam = this.GetComponent<Transform>();
+        cameraTransform = this.GetComponent<Transform>();
         camera = this.GetComponent<Camera>();
         if (null == instance)
         {
@@ -48,14 +47,14 @@ public class BattleCameraMove : MonoBehaviour
         {
             if (DataBaseManager.nowPlace != "InSewer")
             {
-                if (BattleManager.Instance.BattleState == "setTrun" && IsSetTurn == false)
+                if (BattleManager.Instance.battleState == "setTrun" && isSetTurn == false)
                 {
-                    IsSetTurn = true;
+                    isSetTurn = true;
                     ResetCam();
                 }
-                if (BattleManager.Instance.BattleState == "selectEnemy")
+                if (BattleManager.Instance.battleState == "selectEnemy")
                 {
-                    IsSetTurn = false;
+                    isSetTurn = false;
                     if (BattleManager.Instance.onPointerEnemy == "" && once == false)
                     {
                         once = true;
@@ -93,8 +92,8 @@ public class BattleCameraMove : MonoBehaviour
         if (DataBaseManager.nowPlace != "InSewer")
         {
             camera.DOOrthoSize(11, 1).SetAutoKill(true);
-            Cam.transform.DOMoveY(120.7f, 1).SetAutoKill(true);
-            Cam.transform.DOMoveX(-779.2f, 1).SetAutoKill(true);
+            cameraTransform.transform.DOMoveY(120.7f, 1).SetAutoKill(true);
+            cameraTransform.transform.DOMoveX(-779.2f, 1).SetAutoKill(true);
         }
     }
     public void ZoomDown()
@@ -102,7 +101,7 @@ public class BattleCameraMove : MonoBehaviour
         if (DataBaseManager.nowPlace != "InSewer")
         {
             camera.DOOrthoSize(13, 1).SetAutoKill(true);
-            Cam.transform.DOMoveY(DownSide, 1).SetAutoKill(true);
+            cameraTransform.transform.DOMoveY(downSide, 1).SetAutoKill(true);
         }
     }
     public void ZoomMidle()
@@ -110,7 +109,7 @@ public class BattleCameraMove : MonoBehaviour
         if (DataBaseManager.nowPlace != "InSewer")
         {
             camera.DOOrthoSize(13, 1).SetAutoKill(true);
-            Cam.transform.DOMoveY(OriginPoint, 1).SetAutoKill(true);
+            cameraTransform.transform.DOMoveY(originPoint, 1).SetAutoKill(true);
         }
     }
     public void ZoomUp()
@@ -118,7 +117,7 @@ public class BattleCameraMove : MonoBehaviour
         if (DataBaseManager.nowPlace != "InSewer")
         {
             camera.DOOrthoSize(13, 1).SetAutoKill(true);
-            Cam.transform.DOMoveY(UpSide, 1).SetAutoKill(true);
+            cameraTransform.transform.DOMoveY(upSide, 1).SetAutoKill(true);
         }
     }
     public void ResetCam()
@@ -126,9 +125,9 @@ public class BattleCameraMove : MonoBehaviour
         if (DataBaseManager.nowPlace != "InSewer")
         {
             camera.DOOrthoSize(14.5216f, 1).SetAutoKill(true);
-            Cam.transform.DOMoveX(OriginPointx, 1).SetAutoKill(true);
-            Cam.transform.DOMoveY(OriginPoint, 1).SetAutoKill(true);
-            Cam.transform.DORotate(new Vector3(0, 0, 0), 0.5f);
+            cameraTransform.transform.DOMoveX(originPointx, 1).SetAutoKill(true);
+            cameraTransform.transform.DOMoveY(originPoint, 1).SetAutoKill(true);
+            cameraTransform.transform.DORotate(new Vector3(0, 0, 0), 0.5f);
         }
     }
 }

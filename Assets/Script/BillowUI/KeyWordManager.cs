@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class KeyWordManager : MonoBehaviour
 {
     private static KeyWordManager instance = null;
+    public Text mainSetting;
+    public Text upperSetting;
+    public Text downerSetting;
+    public GameObject dialogWindow;
     public static KeyWordManager Instance
     {
         get
@@ -36,10 +39,7 @@ public class KeyWordManager : MonoBehaviour
     {
         DataBaseManager.ConntectMouse = false;
     }
-    public Text mainSetting;
-    public Text upperSetting;
-    public Text downerSetting;
-    public GameObject DialogWindow;
+
     public void MainRight()
     {
         if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
@@ -181,13 +181,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (InsomniaKeywordCount <= InsomniaKeywordNum)
+                if (insomniaKeywordCount <= insomniaKeywordNum)
                 {
-                    InsomniaKeywordNum = 0;
+                    insomniaKeywordNum = 0;
                 }
                 else
                 {
-                    InsomniaKeywordNum += 1;
+                    insomniaKeywordNum += 1;
                 }
             }
         }
@@ -195,13 +195,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (NightmareKeywordCount <= NightmareKeywordNum)
+                if (nightmareKeywordCount <= nightmareKeywordNum)
                 {
-                    NightmareKeywordNum = 0;
+                    nightmareKeywordNum = 0;
                 }
                 else
                 {
-                    NightmareKeywordNum += 1;
+                    nightmareKeywordNum += 1;
                 }
             }
         }
@@ -209,13 +209,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (ParanoiaKeywordCount <= ParanoiaKeywordNum)
+                if (paranoiaKeywordCount <= paranoiaKeywordNum)
                 {
-                    ParanoiaKeywordNum = 0;
+                    paranoiaKeywordNum = 0;
                 }
                 else
                 {
-                    ParanoiaKeywordNum += 1;
+                    paranoiaKeywordNum += 1;
                 }
             }
         }
@@ -223,13 +223,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (SewerGhostStoryKeywordCount <= SewerGhostStoryKeywordNum)
+                if (sewerGhostStoryKeywordCount <= sewerGhostStoryKeywordNum)
                 {
-                    SewerGhostStoryKeywordNum = 0;
+                    sewerGhostStoryKeywordNum = 0;
                 }
                 else
                 {
-                    SewerGhostStoryKeywordNum += 1;
+                    sewerGhostStoryKeywordNum += 1;
                 }
             }
         }
@@ -238,13 +238,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (AidenKeywordCount <= AidenKeywordNum)
+                if (aidenKeywordCount <= aidenKeywordNum)
                 {
-                    AidenKeywordNum = 0;
+                    aidenKeywordNum = 0;
                 }
                 else
                 {
-                    AidenKeywordNum += 1;
+                    aidenKeywordNum += 1;
                 }
             }
         }
@@ -252,13 +252,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (EllaKeywordCount <= EllaKeywordNum)
+                if (ellaKeywordCount <= ellaKeywordNum)
                 {
-                    EllaKeywordNum = 0;
+                    ellaKeywordNum = 0;
                 }
                 else
                 {
-                    EllaKeywordNum += 1;
+                    ellaKeywordNum += 1;
                 }
             }
         }
@@ -266,13 +266,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (MeivKeywordCount <= MeivKeywordNum)
+                if (meivKeywordCount <= meivKeywordNum)
                 {
-                    MeivKeywordNum = 0;
+                    meivKeywordNum = 0;
                 }
                 else
                 {
-                    MeivKeywordNum += 1;
+                    meivKeywordNum += 1;
                 }
             }
         }
@@ -280,13 +280,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (AlbertKeywordCount <= AlbertKeywordNum)
+                if (albertKeywordCount <= albertKeywordNum)
                 {
-                    AlbertKeywordNum = 0;
+                    albertKeywordNum = 0;
                 }
                 else
                 {
-                    AlbertKeywordNum += 1;
+                    albertKeywordNum += 1;
                 }
             }
         }
@@ -294,13 +294,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (SewerWorkerKeywordCount <= SewerWorkerKeywordNum)
+                if (sewerWorkerKeywordCount <= sewerWorkerKeywordNum)
                 {
-                    SewerWorkerKeywordNum = 0;
+                    sewerWorkerKeywordNum = 0;
                 }
                 else
                 {
-                    SewerWorkerKeywordNum += 1;
+                    sewerWorkerKeywordNum += 1;
                 }
             }
         }
@@ -308,13 +308,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (DaveKeywordCount <= DaveKeywordNum)
+                if (daveKeywordCount <= daveKeywordNum)
                 {
-                    DaveKeywordNum = 0;
+                    daveKeywordNum = 0;
                 }
                 else
                 {
-                    DaveKeywordNum += 1;
+                    daveKeywordNum += 1;
                 }
             }
         }
@@ -322,13 +322,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (MissingPeopleKeywordCount <= MissingPeopleKeywordNum)
+                if (missingPeopleKeywordCount <= missingPeopleKeywordNum)
                 {
-                    MissingPeopleKeywordNum = 0;
+                    missingPeopleKeywordNum = 0;
                 }
                 else
                 {
-                    MissingPeopleKeywordNum += 1;
+                    missingPeopleKeywordNum += 1;
                 }
             }
         }
@@ -337,13 +337,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (WharfKeywordCount <= WharfKeywordNum)
+                if (wharfKeywordCount <= wharfKeywordNum)
                 {
-                    WharfKeywordNum = 0;
+                    wharfKeywordNum = 0;
                 }
                 else
                 {
-                    WharfKeywordNum += 1;
+                    wharfKeywordNum += 1;
                 }
             }
         }
@@ -351,13 +351,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (SewageMaintenanceOfficeKeywordCount <= SewageMaintenanceOfficeKeywordNum)
+                if (sewageMaintenanceOfficeKeywordCount <= sewageMaintenanceOfficeKeywordNum)
                 {
-                    SewageMaintenanceOfficeKeywordNum = 0;
+                    sewageMaintenanceOfficeKeywordNum = 0;
                 }
                 else
                 {
-                    SewageMaintenanceOfficeKeywordNum += 1;
+                    sewageMaintenanceOfficeKeywordNum += 1;
                 }
             }
         }
@@ -365,13 +365,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (SewerKeywordCount <= SewerKeywordNum)
+                if (sewerKeywordCount <= sewerKeywordNum)
                 {
-                    SewerKeywordNum = 0;
+                    sewerKeywordNum = 0;
                 }
                 else
                 {
-                    SewerKeywordNum += 1;
+                    sewerKeywordNum += 1;
                 }
             }
         }
@@ -379,13 +379,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (QuestHouseKeywordCount <= QuestHouseKeywordNum)
+                if (questHouseKeywordCount <= questHouseKeywordNum)
                 {
-                    QuestHouseKeywordNum = 0;
+                    questHouseKeywordNum = 0;
                 }
                 else
                 {
-                    QuestHouseKeywordNum += 1;
+                    questHouseKeywordNum += 1;
                 }
             }
         }
@@ -393,13 +393,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (UniversityKeywordCount <= UniversityKeywordNum)
+                if (universityKeywordCount <= universityKeywordNum)
                 {
-                    UniversityKeywordNum = 0;
+                    universityKeywordNum = 0;
                 }
                 else
                 {
-                    UniversityKeywordNum += 1;
+                    universityKeywordNum += 1;
                 }
             }
         }
@@ -407,13 +407,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (NewspaperKeywordCount <= NewspaperKeywordNum)
+                if (newspaperKeywordCount <= newspaperKeywordNum)
                 {
-                    NewspaperKeywordNum = 0;
+                    newspaperKeywordNum = 0;
                 }
                 else
                 {
-                    NewspaperKeywordNum += 1;
+                    newspaperKeywordNum += 1;
                 }
             }
         }
@@ -421,13 +421,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (SafeKeywordCount <= SafeKeywordNum)
+                if (safeKeywordCount <= safeKeywordNum)
                 {
-                    SafeKeywordNum = 0;
+                    safeKeywordNum = 0;
                 }
                 else
                 {
-                    SafeKeywordNum += 1;
+                    safeKeywordNum += 1;
                 }
             }
         }
@@ -435,13 +435,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (RiverWaterQualityKeywordCount <= RiverWaterQualityKeywordNum)
+                if (riverWaterQualityKeywordCount <= riverWaterQualityKeywordNum)
                 {
-                    RiverWaterQualityKeywordNum = 0;
+                    riverWaterQualityKeywordNum = 0;
                 }
                 else
                 {
-                    RiverWaterQualityKeywordNum += 1;
+                    riverWaterQualityKeywordNum += 1;
                 }
             }
         }
@@ -449,13 +449,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (FishySmellKeywordCount <= FishySmellKeywordNum)
+                if (fishySmellKeywordCount <= fishySmellKeywordNum)
                 {
-                    FishySmellKeywordNum = 0;
+                    fishySmellKeywordNum = 0;
                 }
                 else
                 {
-                    FishySmellKeywordNum += 1;
+                    fishySmellKeywordNum += 1;
                 }
             }
         }
@@ -463,13 +463,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (MurderCaseKeywordCount <= MurderCaseKeywordNum)
+                if (murderCaseKeywordCount <= murderCaseKeywordNum)
                 {
-                    MurderCaseKeywordNum = 0;
+                    murderCaseKeywordNum = 0;
                 }
                 else
                 {
-                    MurderCaseKeywordNum += 1;
+                    murderCaseKeywordNum += 1;
                 }
             }
         }
@@ -480,13 +480,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (InsomniaKeywordNum <= 0)
+                if (insomniaKeywordNum <= 0)
                 {
-                    InsomniaKeywordNum = InsomniaKeywordCount;
+                    insomniaKeywordNum = insomniaKeywordCount;
                 }
                 else
                 {
-                    InsomniaKeywordNum -= 1;
+                    insomniaKeywordNum -= 1;
                 }
             }
         }
@@ -494,13 +494,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (NightmareKeywordNum <= 0)
+                if (nightmareKeywordNum <= 0)
                 {
-                    NightmareKeywordNum = NightmareKeywordCount;
+                    nightmareKeywordNum = nightmareKeywordCount;
                 }
                 else
                 {
-                    NightmareKeywordNum -= 1;
+                    nightmareKeywordNum -= 1;
                 }
             }
         }
@@ -508,13 +508,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (ParanoiaKeywordNum <= 0)
+                if (paranoiaKeywordNum <= 0)
                 {
-                    ParanoiaKeywordNum = ParanoiaKeywordCount;
+                    paranoiaKeywordNum = paranoiaKeywordCount;
                 }
                 else
                 {
-                    ParanoiaKeywordNum -= 1;
+                    paranoiaKeywordNum -= 1;
                 }
             }
         }
@@ -522,13 +522,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (SewerGhostStoryKeywordNum <= 0)
+                if (sewerGhostStoryKeywordNum <= 0)
                 {
-                    SewerGhostStoryKeywordNum = SewerGhostStoryKeywordCount;
+                    sewerGhostStoryKeywordNum = sewerGhostStoryKeywordCount;
                 }
                 else
                 {
-                    SewerGhostStoryKeywordNum -= 1;
+                    sewerGhostStoryKeywordNum -= 1;
                 }
             }
         }
@@ -536,13 +536,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (AidenKeywordNum <= 0)
+                if (aidenKeywordNum <= 0)
                 {
-                    AidenKeywordNum = AidenKeywordCount;
+                    aidenKeywordNum = aidenKeywordCount;
                 }
                 else
                 {
-                    AidenKeywordNum -= 1;
+                    aidenKeywordNum -= 1;
                 }
             }
         }
@@ -550,13 +550,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (EllaKeywordNum <= 0)
+                if (ellaKeywordNum <= 0)
                 {
-                    EllaKeywordNum = EllaKeywordCount;
+                    ellaKeywordNum = ellaKeywordCount;
                 }
                 else
                 {
-                    EllaKeywordNum -= 1;
+                    ellaKeywordNum -= 1;
                 }
             }
         }
@@ -564,13 +564,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (MeivKeywordNum <= 0)
+                if (meivKeywordNum <= 0)
                 {
-                    MeivKeywordNum = MeivKeywordCount;
+                    meivKeywordNum = meivKeywordCount;
                 }
                 else
                 {
-                    MeivKeywordNum -= 1;
+                    meivKeywordNum -= 1;
                 }
             }
         }
@@ -578,13 +578,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (AlbertKeywordNum <= 0)
+                if (albertKeywordNum <= 0)
                 {
-                    AlbertKeywordNum = AlbertKeywordCount;
+                    albertKeywordNum = albertKeywordCount;
                 }
                 else
                 {
-                    AlbertKeywordNum -= 1;
+                    albertKeywordNum -= 1;
                 }
             }
         }
@@ -592,13 +592,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (SewerWorkerKeywordNum <= 0)
+                if (sewerWorkerKeywordNum <= 0)
                 {
-                    SewerWorkerKeywordNum = SewerWorkerKeywordCount;
+                    sewerWorkerKeywordNum = sewerWorkerKeywordCount;
                 }
                 else
                 {
-                    SewerWorkerKeywordNum -= 1;
+                    sewerWorkerKeywordNum -= 1;
                 }
             }
         }
@@ -606,13 +606,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (DaveKeywordNum <= 0)
+                if (daveKeywordNum <= 0)
                 {
-                    DaveKeywordNum = DaveKeywordCount;
+                    daveKeywordNum = daveKeywordCount;
                 }
                 else
                 {
-                    DaveKeywordNum -= 1;
+                    daveKeywordNum -= 1;
                 }
             }
         }
@@ -620,13 +620,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (MissingPeopleKeywordNum <= 0)
+                if (missingPeopleKeywordNum <= 0)
                 {
-                    MissingPeopleKeywordNum = MissingPeopleKeywordCount;
+                    missingPeopleKeywordNum = missingPeopleKeywordCount;
                 }
                 else
                 {
-                    MissingPeopleKeywordNum -= 1;
+                    missingPeopleKeywordNum -= 1;
                 }
             }
         }
@@ -634,13 +634,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (WharfKeywordNum <= 0)
+                if (wharfKeywordNum <= 0)
                 {
-                    WharfKeywordNum = WharfKeywordCount;
+                    wharfKeywordNum = wharfKeywordCount;
                 }
                 else
                 {
-                    WharfKeywordNum -= 1;
+                    wharfKeywordNum -= 1;
                 }
             }
         }
@@ -648,13 +648,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (NewspaperKeywordNum <= 0)
+                if (newspaperKeywordNum <= 0)
                 {
-                    NewspaperKeywordNum = NewspaperKeywordCount;
+                    newspaperKeywordNum = newspaperKeywordCount;
                 }
                 else
                 {
-                    NewspaperKeywordNum -= 1;
+                    newspaperKeywordNum -= 1;
                 }
             }
         }
@@ -662,13 +662,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (QuestHouseKeywordNum <= 0)
+                if (questHouseKeywordNum <= 0)
                 {
-                    QuestHouseKeywordNum = QuestHouseKeywordCount;
+                    questHouseKeywordNum = questHouseKeywordCount;
                 }
                 else
                 {
-                    QuestHouseKeywordNum -= 1;
+                    questHouseKeywordNum -= 1;
                 }
             }
         }
@@ -676,13 +676,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (UniversityKeywordNum <= 0)
+                if (universityKeywordNum <= 0)
                 {
-                    UniversityKeywordNum = UniversityKeywordCount;
+                    universityKeywordNum = universityKeywordCount;
                 }
                 else
                 {
-                    UniversityKeywordNum -= 1;
+                    universityKeywordNum -= 1;
                 }
             }
         }
@@ -690,13 +690,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (SafeKeywordNum <= 0)
+                if (safeKeywordNum <= 0)
                 {
-                    SafeKeywordNum = SafeKeywordCount;
+                    safeKeywordNum = safeKeywordCount;
                 }
                 else
                 {
-                    SafeKeywordNum -= 1;
+                    safeKeywordNum -= 1;
                 }
             }
         }
@@ -704,13 +704,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (SewageMaintenanceOfficeKeywordNum <= 0)
+                if (sewageMaintenanceOfficeKeywordNum <= 0)
                 {
-                    SewageMaintenanceOfficeKeywordNum = SewageMaintenanceOfficeKeywordCount;
+                    sewageMaintenanceOfficeKeywordNum = sewageMaintenanceOfficeKeywordCount;
                 }
                 else
                 {
-                    SewageMaintenanceOfficeKeywordNum -= 1;
+                    sewageMaintenanceOfficeKeywordNum -= 1;
                 }
             }
         }
@@ -718,13 +718,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (SewerKeywordNum <= 0)
+                if (sewerKeywordNum <= 0)
                 {
-                    SewerKeywordNum = SewerKeywordCount;
+                    sewerKeywordNum = sewerKeywordCount;
                 }
                 else
                 {
-                    SewerKeywordNum -= 1;
+                    sewerKeywordNum -= 1;
                 }
             }
         }
@@ -732,13 +732,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (RiverWaterQualityKeywordNum <= 0)
+                if (riverWaterQualityKeywordNum <= 0)
                 {
-                    RiverWaterQualityKeywordNum = RiverWaterQualityKeywordCount;
+                    riverWaterQualityKeywordNum = riverWaterQualityKeywordCount;
                 }
                 else
                 {
-                    RiverWaterQualityKeywordNum -= 1;
+                    riverWaterQualityKeywordNum -= 1;
                 }
             }
         }
@@ -746,13 +746,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (FishySmellKeywordNum <= 0)
+                if (fishySmellKeywordNum <= 0)
                 {
-                    FishySmellKeywordNum = FishySmellKeywordCount;
+                    fishySmellKeywordNum = fishySmellKeywordCount;
                 }
                 else
                 {
-                    FishySmellKeywordNum -= 1;
+                    fishySmellKeywordNum -= 1;
                 }
             }
         }
@@ -760,13 +760,13 @@ public class KeyWordManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
-                if (MurderCaseKeywordNum <= 0)
+                if (murderCaseKeywordNum <= 0)
                 {
-                    MurderCaseKeywordNum = MurderCaseKeywordCount;
+                    murderCaseKeywordNum = murderCaseKeywordCount;
                 }
                 else
                 {
-                    MurderCaseKeywordNum -= 1;
+                    murderCaseKeywordNum -= 1;
                 }
             }
         }
@@ -1047,49 +1047,39 @@ public class KeyWordManager : MonoBehaviour
         }
     }
     // ------------------------------- 사건하위
-    public List<string> PlanetaryParadeList = new List<string>();//string들어가야하고
-    int PlanetaryParadeKeywordCount = 0;
-    public int PlanetaryParadeKeywordNum = 0;
-
-    public List<string> NightmareList = new List<string>();//string들어가야하고
-    int NightmareKeywordCount = 0;
-    public int NightmareKeywordNum = 0;
-
-    public List<string> InsomniaList = new List<string>();//string들어가야하고
-    int InsomniaKeywordCount;
-    public int InsomniaKeywordNum = 0;
-
-    public List<string> ParanoiaList = new List<string>();//string들어가야하고
-    int ParanoiaKeywordCount;
-    public int ParanoiaKeywordNum = 0;
-
-    public List<string> MissingPeopleList = new List<string>();//string들어가야하고
-    int MissingPeopleKeywordCount = 0;
-    public int MissingPeopleKeywordNum = 0;
-
-    public List<string> SewerGhostStoryList = new List<string>();//string들어가야하고
-    int SewerGhostStoryKeywordCount = 0;
-    public int SewerGhostStoryKeywordNum = 0;
-
-    public List<string> FishySmellList = new List<string>();//string들어가야하고
-    int FishySmellKeywordCount = 0;
-    public int FishySmellKeywordNum = 0;
-
-    public List<string> RiverWaterQualityList = new List<string>();//string들어가야하고
-    int RiverWaterQualityKeywordCount = 0;
-    public int RiverWaterQualityKeywordNum = 0;
-
-    public List<string> CreepyEyesList = new List<string>();//string들어가야하고
-    int CreepyEyesKeywordCount = 0;
-    public int CreepyEyesKeywordNum = 0;
-
-    public List<string> MurderCaseList = new List<string>();//string들어가야하고
-    int MurderCaseKeywordCount = 0;
-    public int MurderCaseKeywordNum = 0;
-
-    public List<string> SafeList = new List<string>();//string들어가야하고
-    int SafeKeywordCount = 0;
-    public int SafeKeywordNum = 0;
+    public List<string> planetaryParadeList = new List<string>();//string들어가야하고
+    int planetaryParadeKeywordCount = 0;
+    public int planetaryParadeKeywordNum = 0;
+    public List<string> nightmareList = new List<string>();//string들어가야하고
+    int nightmareKeywordCount = 0;
+    public int nightmareKeywordNum = 0;
+    public List<string> insomniaList = new List<string>();//string들어가야하고
+    int insomniaKeywordCount;
+    public int insomniaKeywordNum = 0;
+    public List<string> paranoiaList = new List<string>();//string들어가야하고
+    int paranoiaKeywordCount;
+    public int paranoiaKeywordNum = 0;
+    public List<string> missingPeopleList = new List<string>();//string들어가야하고
+    int missingPeopleKeywordCount = 0;
+    public int missingPeopleKeywordNum = 0;
+    public List<string> sewerGhostStoryList = new List<string>();//string들어가야하고
+    int sewerGhostStoryKeywordCount = 0;
+    public int sewerGhostStoryKeywordNum = 0;
+    public List<string> fishySmellList = new List<string>();//string들어가야하고
+    int fishySmellKeywordCount = 0;
+    public int fishySmellKeywordNum = 0;
+    public List<string> riverWaterQualityList = new List<string>();//string들어가야하고
+    int riverWaterQualityKeywordCount = 0;
+    public int riverWaterQualityKeywordNum = 0;
+    public List<string> creepyEyesList = new List<string>();//string들어가야하고
+    int creepyEyesKeywordCount = 0;
+    public int creepyEyesKeywordNum = 0;
+    public List<string> murderCaseList = new List<string>();//string들어가야하고
+    int murderCaseKeywordCount = 0;
+    public int murderCaseKeywordNum = 0;
+    public List<string> safeList = new List<string>();//string들어가야하고
+    int safeKeywordCount = 0;
+    public int safeKeywordNum = 0;
     //사건
     bool isPlanetaryParade1Add = false;
     bool isPlanetaryParade2Add = false;
@@ -1127,37 +1117,30 @@ public class KeyWordManager : MonoBehaviour
     bool isSafe1Add = false;
     bool isSafe2Add = false;
     // ------------------------------- 인물하위
-    public List<string> AidenList = new List<string>();//string들어가야하고
-    int AidenKeywordCount = 0;
-    public int AidenKeywordNum = 0;
-
-    public List<string> EllaList = new List<string>();//string들어가야하고
-    int EllaKeywordCount = 0;
-    public int EllaKeywordNum = 0;
-
-    public List<string> SwainList = new List<string>();//string들어가야하고
-    int SwainKeywordCount = 0;
-    public int SwainKeywordNum = 0;
-
-    public List<string> CaneList = new List<string>();//string들어가야하고
-    int CaneKeywordCount = 0;
-    public int CaneKeywordNum = 0;
-
-    public List<string> AlbertList = new List<string>();//string들어가야하고
-    int AlbertKeywordCount = 0;
-    public int AlbertKeywordNum = 0;
-
-    public List<string> MeivList = new List<string>();//string들어가야하고
-    int MeivKeywordCount = 0;
-    public int MeivKeywordNum = 0;
-
-    public List<string> SewerWorkerList = new List<string>();//string들어가야하고
-    int SewerWorkerKeywordCount = 0;
-    public int SewerWorkerKeywordNum = 0;
-
-    public List<string> DaveList = new List<string>();//string들어가야하고
-    int DaveKeywordCount = 0;
-    public int DaveKeywordNum = 0;
+    public List<string> aidenList = new List<string>();//string들어가야하고
+    int aidenKeywordCount = 0;
+    public int aidenKeywordNum = 0;
+    public List<string> ellaList = new List<string>();//string들어가야하고
+    int ellaKeywordCount = 0;
+    public int ellaKeywordNum = 0;
+    public List<string> swainList = new List<string>();//string들어가야하고
+    int swainKeywordCount = 0;
+    public int swainKeywordNum = 0;
+    public List<string> caneList = new List<string>();//string들어가야하고
+    int caneKeywordCount = 0;
+    public int caneKeywordNum = 0;
+    public List<string> albertList = new List<string>();//string들어가야하고
+    int albertKeywordCount = 0;
+    public int albertKeywordNum = 0;
+    public List<string> meivList = new List<string>();//string들어가야하고
+    int meivKeywordCount = 0;
+    public int meivKeywordNum = 0;
+    public List<string> sewerWorkerList = new List<string>();//string들어가야하고
+    int sewerWorkerKeywordCount = 0;
+    public int sewerWorkerKeywordNum = 0;
+    public List<string> daveList = new List<string>();//string들어가야하고
+    int daveKeywordCount = 0;
+    public int daveKeywordNum = 0;
     //사건
     bool isAiden1Add = false;
     bool isAiden2Add = false;
@@ -1176,38 +1159,30 @@ public class KeyWordManager : MonoBehaviour
     bool isSewerWorker4Add = false;
     bool isDave1Add = false;
     // ------------------------------- 장소하위
-    public List<string> HospitalList = new List<string>();//string들어가야하고
-    int HospitalKeywordCount = 0;
-    public int HospitalKeywordNum = 0;
-
-    public List<string> NewspaperList = new List<string>();//string들어가야하고
-    int NewspaperKeywordCount = 0;
-    public int NewspaperKeywordNum = 0;
-
-    public List<string> QuestHouseList = new List<string>();//string들어가야하고
-    int QuestHouseKeywordCount = 0;
-    public int QuestHouseKeywordNum = 0;
-
-    public List<string> RiversideList = new List<string>();//string들어가야하고
-    int RiversideKeywordCount = 0;
-    public int RiversideKeywordNum = 0;
-
-    public List<string> SewageMaintenanceOfficeList = new List<string>();//string들어가야하고
-    int SewageMaintenanceOfficeKeywordCount = 0;
-    public int SewageMaintenanceOfficeKeywordNum = 0;
-
-    public List<string> SewerList = new List<string>();//string들어가야하고
-    int SewerKeywordCount = 0;
-    public int SewerKeywordNum = 0;
-
-
-    public List<string> WharfList = new List<string>();//string들어가야하고
-    int WharfKeywordCount = 0;
-    public int WharfKeywordNum = 0;
-
-    public List<string> UniversityList = new List<string>();//string들어가야하고
-    int UniversityKeywordCount = 0;
-    public int UniversityKeywordNum = 0;
+    public List<string> hospitalList = new List<string>();//string들어가야하고
+    int hospitalKeywordCount = 0;
+    public int hospitalKeywordNum = 0;
+    public List<string> newspaperList = new List<string>();//string들어가야하고
+    int newspaperKeywordCount = 0;
+    public int newspaperKeywordNum = 0;
+    public List<string> questHouseList = new List<string>();//string들어가야하고
+    int questHouseKeywordCount = 0;
+    public int questHouseKeywordNum = 0;
+    public List<string> riversideList = new List<string>();//string들어가야하고
+    int riversideKeywordCount = 0;
+    public int riversideKeywordNum = 0;
+    public List<string> sewageMaintenanceOfficeList = new List<string>();//string들어가야하고
+    int sewageMaintenanceOfficeKeywordCount = 0;
+    public int sewageMaintenanceOfficeKeywordNum = 0;
+    public List<string> sewerList = new List<string>();//string들어가야하고
+    int sewerKeywordCount = 0;
+    public int sewerKeywordNum = 0;
+    public List<string> wharfList = new List<string>();//string들어가야하고
+    int wharfKeywordCount = 0;
+    public int wharfKeywordNum = 0;
+    public List<string> universityList = new List<string>();//string들어가야하고
+    int universityKeywordCount = 0;
+    public int universityKeywordNum = 0;
     //사건
     bool isSewer1Add = false;
     bool isSewer2Add = false;
@@ -1223,91 +1198,91 @@ public class KeyWordManager : MonoBehaviour
     public void downerKeywrodUpdater()
     {
 
-        PlanetaryParadeKeywordCount = PlanetaryParadeList.Count - 1;
-        NightmareKeywordCount = NightmareList.Count - 1;
-        InsomniaKeywordCount = InsomniaList.Count - 1;
-        ParanoiaKeywordCount = ParanoiaList.Count - 1;
-        MissingPeopleKeywordCount = MissingPeopleList.Count - 1;
-        SewerGhostStoryKeywordCount = SewerGhostStoryList.Count - 1;
-        FishySmellKeywordCount = FishySmellList.Count - 1;
-        RiverWaterQualityKeywordCount = RiverWaterQualityList.Count - 1;
-        CreepyEyesKeywordCount = CreepyEyesList.Count - 1;
-        MurderCaseKeywordCount = MurderCaseList.Count - 1;
-        SafeKeywordCount = SafeList.Count - 1;
+        planetaryParadeKeywordCount = planetaryParadeList.Count - 1;
+        nightmareKeywordCount = nightmareList.Count - 1;
+        insomniaKeywordCount = insomniaList.Count - 1;
+        paranoiaKeywordCount = paranoiaList.Count - 1;
+        missingPeopleKeywordCount = missingPeopleList.Count - 1;
+        sewerGhostStoryKeywordCount = sewerGhostStoryList.Count - 1;
+        fishySmellKeywordCount = fishySmellList.Count - 1;
+        riverWaterQualityKeywordCount = riverWaterQualityList.Count - 1;
+        creepyEyesKeywordCount = creepyEyesList.Count - 1;
+        murderCaseKeywordCount = murderCaseList.Count - 1;
+        safeKeywordCount = safeList.Count - 1;
 
-        EllaKeywordCount = EllaList.Count - 1;
-        AidenKeywordCount = AidenList.Count - 1;
-        SwainKeywordCount = SwainList.Count - 1;
-        CaneKeywordCount = CaneList.Count - 1;
-        MeivKeywordCount = MeivList.Count - 1;
-        AlbertKeywordCount = AlbertList.Count - 1;
-        SewerWorkerKeywordCount = SewerWorkerList.Count - 1;
+        ellaKeywordCount = ellaList.Count - 1;
+        aidenKeywordCount = aidenList.Count - 1;
+        swainKeywordCount = swainList.Count - 1;
+        caneKeywordCount = caneList.Count - 1;
+        meivKeywordCount = meivList.Count - 1;
+        albertKeywordCount = albertList.Count - 1;
+        sewerWorkerKeywordCount = sewerWorkerList.Count - 1;
 
-        HospitalKeywordCount = HospitalList.Count - 1;
-        QuestHouseKeywordCount = QuestHouseList.Count - 1;
-        NewspaperKeywordCount = NewspaperList.Count - 1;
-        RiversideKeywordCount = RiversideList.Count - 1;
-        SewageMaintenanceOfficeKeywordCount = SewageMaintenanceOfficeList.Count - 1;
-        SewerKeywordCount = SewerList.Count - 1;
-        WharfKeywordCount = WharfList.Count - 1;
-        UniversityKeywordCount = UniversityList.Count - 1;
+        hospitalKeywordCount = hospitalList.Count - 1;
+        questHouseKeywordCount = questHouseList.Count - 1;
+        newspaperKeywordCount = newspaperList.Count - 1;
+        riversideKeywordCount = riversideList.Count - 1;
+        sewageMaintenanceOfficeKeywordCount = sewageMaintenanceOfficeList.Count - 1;
+        sewerKeywordCount = sewerList.Count - 1;
+        wharfKeywordCount = wharfList.Count - 1;
+        universityKeywordCount = universityList.Count - 1;
 
         // 사건 
 
         // 행성대직렬
-        if (DataBaseManager.keyword_upper == "PlanetaryParade" && PlanetaryParadeKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "PlanetaryParade" && planetaryParadeKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = PlanetaryParadeList[PlanetaryParadeKeywordNum];
+            DataBaseManager.keyword_downer = planetaryParadeList[planetaryParadeKeywordNum];
         }
         if (DataBaseManager.Intel_PlanetaryParade1 == true && isPlanetaryParade1Add == false)
         {
             isPlanetaryParade1Add = true;
-            PlanetaryParadeList.Add("Contents of a Newspaper");
+            planetaryParadeList.Add("Contents of a Newspaper");
         }
         if (DataBaseManager.Intel_PlanetaryParade2 == true && isPlanetaryParade2Add == false)
         {
             isPlanetaryParade2Add = true;
-            PlanetaryParadeList.Add("Meetings");
+            planetaryParadeList.Add("Meetings");
         }
         // 악몽
-        else if (DataBaseManager.keyword_upper == "Nightmare" && NightmareKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "Nightmare" && nightmareKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = NightmareList[NightmareKeywordNum];
+            DataBaseManager.keyword_downer = nightmareList[nightmareKeywordNum];
         }
         if (DataBaseManager.Intel_Nightmare1 == true && isNightmare1Add == false)
         {
             isNightmare1Add = true;
-            NightmareList.Add("Aiden's Nightmare");
+            nightmareList.Add("Aiden's Nightmare");
         }
         if (DataBaseManager.Intel_Nightmare2 == true && isNightmare2Add == false)
         {
             isNightmare2Add = true;
-            NightmareList.Add("Content of a Nightmare");
+            nightmareList.Add("Content of a Nightmare");
         }
         if (DataBaseManager.Intel_Nightmare3 == true && isNightmare3Add == false)
         {
             isNightmare3Add = true;
-            NightmareList.Add("Aiden's Detail");
+            nightmareList.Add("Aiden's Detail");
         }
         if (DataBaseManager.Intel_Nightmare4 == true && isNightmare4Add == false)
         {
             isNightmare4Add = true;
-            NightmareList.Add("Water and Nightmare");
+            nightmareList.Add("Water and Nightmare");
         }
         // 불면증
-        else if (DataBaseManager.keyword_upper == "Insomnia" && InsomniaKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "Insomnia" && insomniaKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = InsomniaList[InsomniaKeywordNum];
+            DataBaseManager.keyword_downer = insomniaList[insomniaKeywordNum];
         }
         if (DataBaseManager.Intel_Insomnia1 == true && isInsomnia1Add == false)
         {
             isInsomnia1Add = true;
-            InsomniaList.Add("Newspaper Article");
+            insomniaList.Add("Newspaper Article");
         }
         if (DataBaseManager.Intel_Insomnia2 == true && isInsomnia2Add == false)
         {
             isInsomnia2Add = true;
-            InsomniaList.Add("Doctor's opinion");
+            insomniaList.Add("Doctor's opinion");
         }
         if (DataBaseManager.Intel_Insomnia3 == true && isInsomnia3Add == false)
         {
@@ -1315,373 +1290,373 @@ public class KeyWordManager : MonoBehaviour
             // InsomniaList.Add("Cause of Insomnia");
         }
         // 편집증
-        else if (DataBaseManager.keyword_upper == "Paranoia" && ParanoiaKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "Paranoia" && paranoiaKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = ParanoiaList[ParanoiaKeywordNum];
+            DataBaseManager.keyword_downer = paranoiaList[paranoiaKeywordNum];
         }
         if (DataBaseManager.Intel_Paranoia1 == true && isParanoia1Add == false)
         {
             isParanoia1Add = true;
-            ParanoiaList.Add("Husband's Condition");
+            paranoiaList.Add("Husband's Condition");
         }
         if (DataBaseManager.Intel_Paranoia2 == true && isParanoia2Add == false)
         {
             isParanoia2Add = true;
-            ParanoiaList.Add("Cause of Paranoia");
+            paranoiaList.Add("Cause of Paranoia");
         }
         // 실종사건
-        else if (DataBaseManager.keyword_upper == "MissingPeople" && MissingPeopleKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "MissingPeople" && missingPeopleKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = MissingPeopleList[MissingPeopleKeywordNum];
+            DataBaseManager.keyword_downer = missingPeopleList[missingPeopleKeywordNum];
         }
         if (DataBaseManager.Intel_MissingPeople1 == true && isMissingPeople1Add == false)
         {
             isMissingPeople1Add = true;
-            MissingPeopleList.Add("Albert's Information");
+            missingPeopleList.Add("Albert's Information");
         }
         if (DataBaseManager.Intel_MissingPeople2 == true && isMissingPeople2Add == false)
         {
             isMissingPeople2Add = true;
-            MissingPeopleList.Add("Reporting by Swain");
+            missingPeopleList.Add("Reporting by Swain");
         }
         if (DataBaseManager.Intel_MissingPeople3 == true && isMissingPeople3Add == false)
         {
             isMissingPeople3Add = true;
-            MissingPeopleList.Add("Kidnap");
+            missingPeopleList.Add("Kidnap");
         }
         // 하수도괴담.
-        else if (DataBaseManager.keyword_upper == "SewerGhostStory" && SewerGhostStoryKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "SewerGhostStory" && sewerGhostStoryKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = SewerGhostStoryList[SewerGhostStoryKeywordNum];
+            DataBaseManager.keyword_downer = sewerGhostStoryList[sewerGhostStoryKeywordNum];
         }
 
         if (DataBaseManager.Intel_SewerGhostStory1 == true && isSewerGhostStory1Add == false)
         {
             isSewerGhostStory1Add = true;
-            SewerGhostStoryList.Add("Contents of a GhostStory");
+            sewerGhostStoryList.Add("Contents of a GhostStory");
         }
         if (DataBaseManager.Intel_SewerGhostStory2 == true && isSewerGhostStory2Add == false)
         {
             isSewerGhostStory2Add = true;
-            SewerGhostStoryList.Add("Truth of a rumor");
+            sewerGhostStoryList.Add("Truth of a rumor");
         }
         // 비릿한냄새
-        else if (DataBaseManager.keyword_upper == "FishySmell" && FishySmellKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "FishySmell" && fishySmellKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = FishySmellList[FishySmellKeywordNum];
+            DataBaseManager.keyword_downer = fishySmellList[fishySmellKeywordNum];
         }
 
         if (DataBaseManager.Intel_FishySmell1 == true && isFishySmell1Add == false)
         {
             isFishySmell1Add = true;
-            FishySmellList.Add("Rumor");
+            fishySmellList.Add("Rumor");
         }
         if (DataBaseManager.Intel_FishySmell2 == true && isFishySmell2Add == false)
         {
             isFishySmell2Add = true;
-            FishySmellList.Add("Source of the smell?");
+            fishySmellList.Add("Source of the smell?");
         }
         if (DataBaseManager.Intel_FishySmell3 == true && isFishySmell3Add == false)
         {
             isFishySmell3Add = true;
-            FishySmellList.Add("Source speculation");
+            fishySmellList.Add("Source speculation");
         }
         if (DataBaseManager.Intel_FishySmell4 == true && isFishySmell4Add == false)
         {
             isFishySmell4Add = true;
-            FishySmellList.Add("Sewer & FishySmell");
+            fishySmellList.Add("Sewer & FishySmell");
         }
         // 강의수질
-        else if (DataBaseManager.keyword_upper == "RiverWaterQuality" && RiverWaterQualityKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "RiverWaterQuality" && riverWaterQualityKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = RiverWaterQualityList[RiverWaterQualityKeywordNum];
+            DataBaseManager.keyword_downer = riverWaterQualityList[riverWaterQualityKeywordNum];
         }
 
         if (DataBaseManager.Intel_RiverWaterQuality1 == true && isRiverWaterQuality1Add == false)
         {
             isRiverWaterQuality1Add = true;
-            RiverWaterQualityList.Add("Strange Point");
+            riverWaterQualityList.Add("Strange Point");
         }
         if (DataBaseManager.Intel_RiverWaterQuality2 == true && isRiverWaterQuality2Add == false)
         {
             isRiverWaterQuality2Add = true;
-            RiverWaterQualityList.Add("Details");
+            riverWaterQualityList.Add("Details");
         }
         if (DataBaseManager.Intel_RiverWaterQuality3 == true && isRiverWaterQuality3Add == false)
         {
             isRiverWaterQuality3Add = true;
-            RiverWaterQualityList.Add("Fishy Slime");
+            riverWaterQualityList.Add("Fishy Slime");
         }
         // 섬뜩한눈
-        else if (DataBaseManager.keyword_upper == "CreepyEyes" && CreepyEyesKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "CreepyEyes" && creepyEyesKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = CreepyEyesList[CreepyEyesKeywordNum];
+            DataBaseManager.keyword_downer = creepyEyesList[creepyEyesKeywordNum];
         }
         if (DataBaseManager.Intel_CreepyEyes1 == true && isCreepyEyes1Add == false)
         {
             isCreepyEyes1Add = true;
-            CreepyEyesList.Add("Saw in the sewer");
+            creepyEyesList.Add("Saw in the sewer");
         }
         // 살인사건
-        else if (DataBaseManager.keyword_upper == "MurderCase" && MurderCaseKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "MurderCase" && murderCaseKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = MurderCaseList[MurderCaseKeywordNum];
+            DataBaseManager.keyword_downer = murderCaseList[murderCaseKeywordNum];
         }
         if (DataBaseManager.Intel_MurderCase1 == true && isMurderCase1Add == false)
         {
             isMurderCase1Add = true;
-            MurderCaseList.Add("Witness Testimony");
+            murderCaseList.Add("Witness Testimony");
         }
         if (DataBaseManager.Intel_MurderCase2 == true && isMurderCase2Add == false)
         {
             isMurderCase2Add = true;
-            MurderCaseList.Add("Missing People & Fishy Smell");
+            murderCaseList.Add("Missing People & Fishy Smell");
         }
         if (DataBaseManager.Intel_MurderCase3 == true && isMurderCase3Add == false)
         {
             isMurderCase3Add = true;
-            MurderCaseList.Add("The Culprit");
+            murderCaseList.Add("The Culprit");
         }
         if (DataBaseManager.Intel_MurderCase4 == true && isMurderCase4Add == false)
         {
             isMurderCase4Add = true;
-            MurderCaseList.Add("Cause of Death");
+            murderCaseList.Add("Cause of Death");
         }
         if (DataBaseManager.Intel_MurderCase5 == true && isMurderCase5Add == false)
         {
             isMurderCase5Add = true;
-            MurderCaseList.Add("Webbed Feet");
+            murderCaseList.Add("Webbed Feet");
         }
         if (DataBaseManager.Intel_MurderCase6 == true && isMurderCase6Add == false)
         {
             isMurderCase6Add = true;
-            MurderCaseList.Add("Way to Escape");
+            murderCaseList.Add("Way to Escape");
         }
         // 금고
-        else if (DataBaseManager.keyword_upper == "Safe" && SafeKeywordCount >= 0)
+        else if (DataBaseManager.keyword_upper == "Safe" && safeKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = SafeList[SafeKeywordNum];
+            DataBaseManager.keyword_downer = safeList[safeKeywordNum];
         }
         if (DataBaseManager.Intel_Safe1 == true && isSafe1Add == false)
         {
             isSafe1Add = true;
-            SafeList.Add("Aiden's Safe");
+            safeList.Add("Aiden's Safe");
         }
         if (DataBaseManager.Intel_Safe2 == true && isSafe2Add == false)
         {
             isSafe2Add = true;
-            SafeList.Add("Acquiring a Safe");
+            safeList.Add("Acquiring a Safe");
         }
         // 인물
         // 에이든
-        if (DataBaseManager.keyword_upper == "Aiden Triss" && AidenKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "Aiden Triss" && aidenKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = AidenList[AidenKeywordNum];
+            DataBaseManager.keyword_downer = aidenList[aidenKeywordNum];
         }
         if (DataBaseManager.Intel_Aiden1 == true && isAiden1Add == false)
         {
             isAiden1Add = true;
-            AidenList.Add("Subject to request");
+            aidenList.Add("Subject to request");
         }
         if (DataBaseManager.Intel_Aiden2 == true && isAiden2Add == false)
         {
             isAiden2Add = true;
-            AidenList.Add("Aiden & Pandemic");
+            aidenList.Add("Aiden & Pandemic");
         }
         if (DataBaseManager.Intel_Aiden3 == true && isAiden3Add == false)
         {
             isAiden3Add = true;
-            AidenList.Add("Missing Subject");
+            aidenList.Add("Missing Subject");
         }
         // 엘라
-        if (DataBaseManager.keyword_upper == "Ella Triss" && EllaKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "Ella Triss" && ellaKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = EllaList[EllaKeywordNum];
+            DataBaseManager.keyword_downer = ellaList[ellaKeywordNum];
         }
         if (DataBaseManager.Intel_Ella1 == true && isElla1Add == false)
         {
             isElla1Add = true;
-            EllaList.Add("Client");
+            ellaList.Add("Client");
         }
         if (DataBaseManager.Intel_Ella2 == true && isElla2Add == false)
         {
             isElla2Add = true;
-            EllaList.Add("Murdered Clients");
+            ellaList.Add("Murdered Clients");
         }
         // 스탠리
-        if (DataBaseManager.keyword_upper == "Berkeley Swain" && SwainKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "Berkeley Swain" && swainKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = SwainList[SwainKeywordNum];
+            DataBaseManager.keyword_downer = swainList[swainKeywordNum];
         }
         if (DataBaseManager.Intel_Swain1 == true && isSwain1Add == false)
         {
             isSwain1Add = true;
-            SwainList.Add("Sewer Survey");
+            swainList.Add("Sewer Survey");
         }
         // 노교수
-        if (DataBaseManager.keyword_upper == "노교수" && CaneKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "노교수" && caneKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = CaneList[CaneKeywordNum];
+            DataBaseManager.keyword_downer = caneList[caneKeywordNum];
         }
         if (DataBaseManager.Intel_Cane1 == true && isCane1Add == false)
         {
             isCane1Add = true;
-            CaneList.Add("신이난 노교수");
+            caneList.Add("신이난 노교수");
         }
         // 메이브
-        if (DataBaseManager.keyword_upper == "Maeve A Rossi" && MeivKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "Maeve A Rossi" && meivKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = MeivList[MeivKeywordNum];
+            DataBaseManager.keyword_downer = meivList[meivKeywordNum];
         }
         if (DataBaseManager.Intel_Meiv1 == true && isMeiv1Add == false)
         {
             isMeiv1Add = true;
-            MeivList.Add("Mafia friend");
+            meivList.Add("Mafia friend");
         }
         if (DataBaseManager.Intel_Meiv2 == true && isMeiv2Add == false)
         {
             isMeiv2Add = true;
-            MeivList.Add("Promise");
+            meivList.Add("Promise");
         }
         // 알버트
-        if (DataBaseManager.keyword_upper == "Albert Bradley" && AlbertKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "Albert Bradley" && albertKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = AlbertList[AlbertKeywordNum];
+            DataBaseManager.keyword_downer = albertList[albertKeywordNum];
         }
         if (DataBaseManager.Intel_Albert1 == true && isAlbert1Add == false)
         {
             isAlbert1Add = true;
-            AlbertList.Add("Police friend");
+            albertList.Add("Police friend");
         }
-        if (DataBaseManager.keyword_upper == "SewerWorker" && SewerWorkerKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "SewerWorker" && sewerWorkerKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = SewerWorkerList[SewerWorkerKeywordNum];
+            DataBaseManager.keyword_downer = sewerWorkerList[sewerWorkerKeywordNum];
         }
         if (DataBaseManager.Intel_SewerWorker1 == true && isSewerWorker1Add == false)
         {
             isSewerWorker1Add = true;
-            SewerWorkerList.Add("Owner of Eye?");
+            sewerWorkerList.Add("Owner of Eye?");
         }
         if (DataBaseManager.Intel_SewerWorker2 == true && isSewerWorker2Add == false)
         {
             isSewerWorker2Add = true;
-            SewerWorkerList.Add("Unfair dismissal");
+            sewerWorkerList.Add("Unfair dismissal");
         }
         if (DataBaseManager.Intel_SewerWorker3 == true && isSewerWorker3Add == false)
         {
             isSewerWorker3Add = true;
-            SewerWorkerList.Add("Cause of Fishy smell");
+            sewerWorkerList.Add("Cause of Fishy smell");
         }
         if (DataBaseManager.Intel_SewerWorker4 == true && isSewerWorker4Add == false)
         {
             isSewerWorker4Add = true;
-            SewerWorkerList.Add("Owner of Uniform");
+            sewerWorkerList.Add("Owner of Uniform");
         }
-        if (DataBaseManager.keyword_upper == "Dave" && DaveKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "Dave" && daveKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = DaveList[DaveKeywordNum];
+            DataBaseManager.keyword_downer = daveList[daveKeywordNum];
         }
         if (DataBaseManager.Intel_Dave1 == true && isDave1Add == false)
         {
             isDave1Add = true;
-            DaveList.Add("Bracelet");
+            daveList.Add("Bracelet");
         }
 
         // 장소 
         // 병원
-        if (DataBaseManager.keyword_upper == "Hospital" && HospitalKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "Hospital" && hospitalKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = HospitalList[HospitalKeywordNum];
+            DataBaseManager.keyword_downer = hospitalList[hospitalKeywordNum];
         }
         if (DataBaseManager.Intel_Hospital1 == true && isHospital1Add == false)
         {
             isHospital1Add = true;
-            HospitalList.Add("State of congestion");
+            hospitalList.Add("State of congestion");
         }
         // 신문사
-        if (DataBaseManager.keyword_upper == "DailyNews" && NewspaperKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "DailyNews" && newspaperKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = NewspaperList[NewspaperKeywordNum];
+            DataBaseManager.keyword_downer = newspaperList[newspaperKeywordNum];
         }
         if (DataBaseManager.Intel_Newspaper1 == true && isNewspaper1Add == false)
         {
             isNewspaper1Add = true;
-            NewspaperList.Add("Husband's job");
+            newspaperList.Add("Husband's job");
         }
         // Client'shouse
-        if (DataBaseManager.keyword_upper == "Client'shouse" && QuestHouseKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "Client'shouse" && questHouseKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = QuestHouseList[QuestHouseKeywordNum];
+            DataBaseManager.keyword_downer = questHouseList[questHouseKeywordNum];
         }
         if (DataBaseManager.Intel_QuestHouse1 == true && isQuestHouse1Add == false)
         {
             isQuestHouse1Add = true;
-            QuestHouseList.Add("Adress");
+            questHouseList.Add("Adress");
         }
         // 강가
-        if (DataBaseManager.keyword_upper == "미스캐토닉 강" && RiversideKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "미스캐토닉 강" && riversideKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = RiversideList[RiversideKeywordNum];
+            DataBaseManager.keyword_downer = riversideList[riversideKeywordNum];
         }
         if (DataBaseManager.Intel_Riverside1 == true && isRiverside1Add == false)
         {
             isRiverside1Add = true;
-            RiversideList.Add("강과 교수");
+            riversideList.Add("강과 교수");
         }
         // 하수정비사무소
-        if (DataBaseManager.keyword_upper == "Sewage MA Office" && SewageMaintenanceOfficeKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "Sewage MA Office" && sewageMaintenanceOfficeKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = SewageMaintenanceOfficeList[SewageMaintenanceOfficeKeywordNum];
+            DataBaseManager.keyword_downer = sewageMaintenanceOfficeList[sewageMaintenanceOfficeKeywordNum];
         }
         if (DataBaseManager.Intel_SewageMaintenanceOffice1 == true && isSewageMaintenanceOffice1Add == false)
         {
             isSewageMaintenanceOffice1Add = true;
-            SewageMaintenanceOfficeList.Add("Location");
+            sewageMaintenanceOfficeList.Add("Location");
         }
         // 하수도
-        if (DataBaseManager.keyword_upper == "Sewer" && SewerKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "Sewer" && sewerKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = SewerList[SewerKeywordNum];
+            DataBaseManager.keyword_downer = sewerList[sewerKeywordNum];
         }
         if (DataBaseManager.Intel_Sewer1 == true && isSewer1Add == false)
         {
             isSewer1Add = true;
-            SewerList.Add("Aiden's warning");
+            sewerList.Add("Aiden's warning");
         }
         if (DataBaseManager.Intel_Sewer2 == true && isSewer2Add == false)
         {
             isSewer2Add = true;
-            SewerList.Add("Root of problem");
+            sewerList.Add("Root of problem");
         }
         if (DataBaseManager.Intel_Sewer3 == true && isSewer3Add == false)
         {
             isSewer3Add = true;
-            SewerList.Add("Manhole");
+            sewerList.Add("Manhole");
         }
         if (DataBaseManager.Intel_Sewer4 == true && isSewer4Add == false)
         {
             isSewer4Add = true;
-            SewerList.Add("Advent");
+            sewerList.Add("Advent");
         }
         // 부두
-        if (DataBaseManager.keyword_upper == "Wharf" && WharfKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "Wharf" && wharfKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = WharfList[WharfKeywordNum];
+            DataBaseManager.keyword_downer = wharfList[wharfKeywordNum];
         }
         if (DataBaseManager.Intel_Wharf1 == true && isWharf1Add == false)
         {
             isWharf1Add = true;
-            WharfList.Add("Work");
+            wharfList.Add("Work");
         }
         // 대학
-        if (DataBaseManager.keyword_upper == "Univ of Miscatonic" && UniversityKeywordCount >= 0)
+        if (DataBaseManager.keyword_upper == "Univ of Miscatonic" && universityKeywordCount >= 0)
         {
-            DataBaseManager.keyword_downer = UniversityList[UniversityKeywordNum];
+            DataBaseManager.keyword_downer = universityList[universityKeywordNum];
         }
         if (DataBaseManager.Intel_University1 == true && isUniversity1Add == false)
         {
             isUniversity1Add = true;
-            UniversityList.Add("Astronomical show");
+            universityList.Add("Astronomical show");
         }
     }
 
@@ -1699,10 +1674,10 @@ public class KeyWordManager : MonoBehaviour
         downerKeywrodUpdater();
         KeywordUpdate();
     }
-    public GameObject DaveIntel_1;
-    public GameObject DaveIntel_2;
-    public GameObject DaveIntel_3;
-    public GameObject DaveIntel_4;
-    public GameObject DaveIntel_5;
-    public GameObject DaveIntel_6;
+    public GameObject daveIntel1;
+    public GameObject daveIntel2;
+    public GameObject daveIntel3;
+    public GameObject daveIntel4;
+    public GameObject daveIntel5;
+    public GameObject daveIntel6;
 }

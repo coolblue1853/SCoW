@@ -72,25 +72,25 @@ public class BattleRollet : MonoBehaviour
         {
             activeCheck = false;
             DataBaseManager.CancelJudge = true;
-            if (BattleManager.Instance.PlayerAction == "PlayerSwords")
+            if (BattleManager.Instance.playerAction == "PlayerSwords")
             {
-                BattleManager.Instance.EnemySelectUI.SetActive(true);
-                BattleManager.Instance.BattleState = "selectEnemy";
+                BattleManager.Instance.enemySelectUI.SetActive(true);
+                BattleManager.Instance.battleState = "selectEnemy";
                 BattleManager.Instance.Player_setSwords();
             }
-            else if (BattleManager.Instance.PlayerAction == "martialarts")
+            else if (BattleManager.Instance.playerAction == "martialarts")
             {
-                BattleManager.Instance.EnemySelectUI.SetActive(true);
-                BattleManager.Instance.BattleState = "selectEnemy";
+                BattleManager.Instance.enemySelectUI.SetActive(true);
+                BattleManager.Instance.battleState = "selectEnemy";
                 BattleManager.Instance.SetAciton("martialarts");
             }
-            else if (BattleManager.Instance.PlayerAction == "evasion")
+            else if (BattleManager.Instance.playerAction == "evasion")
             {
-                BattleManager.Instance.PlayerChoiceUi.SetActive(true);
+                BattleManager.Instance.playerChoiceUi.SetActive(true);
             }
-            else if (BattleManager.Instance.PlayerAction == "counterattack")
+            else if (BattleManager.Instance.playerAction == "counterattack")
             {
-                BattleManager.Instance.PlayerChoiceUi.SetActive(true);
+                BattleManager.Instance.playerChoiceUi.SetActive(true);
             }
             RolletSetUi.SetActive(false);
             DataBaseManager.isRollet = false;
@@ -243,8 +243,8 @@ public class BattleRollet : MonoBehaviour
 
     public void activeRollet()
     {
-        BattleManager.Instance.PlayerMAUI.SetActive(false);
-        BattleManager.Instance.PlayerActionUi.SetActive(false);
+        BattleManager.Instance.playerMAUI.SetActive(false);
+        BattleManager.Instance.playerActionUi.SetActive(false);
         setUI.SetActive(false);
         activeUI.SetActive(true);
         InvokeRepeating("ChangeRollet", 0.5f, 0.05f);

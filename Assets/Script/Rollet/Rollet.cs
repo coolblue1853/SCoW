@@ -60,16 +60,16 @@ public class Rollet : MonoBehaviour
         {
             activeCheck = false;
             DataBaseManager.CancelJudge = true;
-            if (BattleManager.Instance.PlayerAction == "PlayerMarkmen")
+            if (BattleManager.Instance.playerAction == "PlayerMarkmen")
             {
-                BattleManager.Instance.EnemySelectUI.SetActive(true);
-                BattleManager.Instance.BattleState = "selectEnemy";
+                BattleManager.Instance.enemySelectUI.SetActive(true);
+                BattleManager.Instance.battleState = "selectEnemy";
                 BattleManager.Instance.Player_setMarkmens();
             }
-            else if (BattleManager.Instance.PlayerAction == "PlayerDeftness")
+            else if (BattleManager.Instance.playerAction == "PlayerDeftness")
             {
-                BattleManager.Instance.EnemySelectUI.SetActive(true);
-                BattleManager.Instance.BattleState = "selectEnemy";
+                BattleManager.Instance.enemySelectUI.SetActive(true);
+                BattleManager.Instance.battleState = "selectEnemy";
                 BattleManager.Instance.Player_setDeftness();
             }
             RolletSetUi.SetActive(false);

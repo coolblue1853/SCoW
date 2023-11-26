@@ -5,29 +5,29 @@ using UnityEngine.UI;
 using TMPro;
 public class SwordsDetail : MonoBehaviour
 {
-    public TextMeshProUGUI Name;
-    public TextMeshProUGUI Detail;
+    public TextMeshProUGUI name;
+    public TextMeshProUGUI detail;
     void Update()
     {
         if (DataBaseManager.BattleWeapon == "Dagger")
         {
-            Name.text = "Dagger";
-            Detail.text = "Damage:(1D4+2)x5\nSkillPoint:" + DataBaseManager.swordPoint;
+            name.text = "Dagger";
+            detail.text = "Damage:(1D4+2)x5\nSkillPoint:" + DataBaseManager.swordPoint;
         }
         else if (DataBaseManager.BattleWeapon == "Axe")
         {
-            Name.text = "Axe";
-            Detail.text = "Damage:(1D6+2)x5\nSkillPoint:" + DataBaseManager.swordPoint;
+            name.text = "Axe";
+            detail.text = "Damage:(1D6+2)x5\nSkillPoint:" + DataBaseManager.swordPoint;
         }
         else if (DataBaseManager.BattleWeapon == "Bat")
         {
-            Name.text = "Bat";
-            Detail.text = "Damage:(1D8)x5\nSkillPoint:" + DataBaseManager.swordPoint;
+            name.text = "Bat";
+            detail.text = "Damage:(1D8)x5\nSkillPoint:" + DataBaseManager.swordPoint;
         }
         else
         {
-            Name.text = "";
-            Detail.text = "";
+            name.text = "";
+            detail.text = "";
         }
     }
 }

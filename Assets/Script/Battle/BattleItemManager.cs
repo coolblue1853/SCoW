@@ -3,32 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 public class BattleItemManager : MonoBehaviour
 {
-    public GameObject Item_use;
-    public GameObject Item_key;
-    public GameObject Item_Eqip;
+    public GameObject itemUse;
+    public GameObject itemKey;
+    public GameObject itemEqip;
+    public TextMeshProUGUI name;
+    public TextMeshProUGUI detail;
 
-    public TextMeshProUGUI Name;
-    public TextMeshProUGUI Detail;
+    public TextMeshProUGUI useName;
+    public TextMeshProUGUI useDetail;
+    public TextMeshProUGUI keyName;
+    public TextMeshProUGUI keyDetail;
+    public GameObject itemBox;
+    public GameObject useItemBox;
+    public GameObject keyItemBox;
+    public GameObject itemBoxSwords;
+    public GameObject itemBoxMarkmes;
+    public GameObject itemBoxReload;
+    public GameObject itemBoxDeftness;
+    public Image imageComponentUse;
+    public Image imageComponentKey;
+    public Sprite none;
 
-    public TextMeshProUGUI Use_Name;
-    public TextMeshProUGUI Use_Detail;
 
-    public TextMeshProUGUI Key_Name;
-    public TextMeshProUGUI Key_Detail;
-
-    public GameObject ItemBox;
-    public GameObject Use_ItemBox;
-    public GameObject Key_ItemBox;
-    public GameObject ItemBox_Swords;
-    public GameObject ItemBox_Markmes;
-    public GameObject ItemBox_Reload;
-    public GameObject ItemBox_Deftness;
-
-    public Image imageComponent_Use;
-    public Image imageComponent_Key;
-    public Sprite None;
     private static BattleItemManager instance = null;
     public static BattleItemManager Instance
     {
@@ -68,156 +67,154 @@ public class BattleItemManager : MonoBehaviour
     {
         if (DataBaseManager.Dagger > 0)
         {
-            ActivateObjectWithName(ItemBox_Swords, "Dagger");
+            ActivateObjectWithName(itemBoxSwords, "Dagger");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Swords, "Dagger");
+            DeactivateObjectWithName(itemBoxSwords, "Dagger");
         }
         if (DataBaseManager.Bat > 0)
         {
-            ActivateObjectWithName(ItemBox_Swords, "Bat");
+            ActivateObjectWithName(itemBoxSwords, "Bat");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Swords, "Bat");
+            DeactivateObjectWithName(itemBoxSwords, "Bat");
         }
         if (DataBaseManager.Axe > 0)
         {
-            ActivateObjectWithName(ItemBox_Swords, "Axe");
+            ActivateObjectWithName(itemBoxSwords, "Axe");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Swords, "Axe");
+            DeactivateObjectWithName(itemBoxSwords, "Axe");
         }
         if (DataBaseManager.Shotgun > 0 && DataBaseManager.nowShotgun > 0)
         {
-            ActivateObjectWithName(ItemBox_Markmes, "Shotgun");
+            ActivateObjectWithName(itemBoxMarkmes, "Shotgun");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Markmes, "Shotgun");
+            DeactivateObjectWithName(itemBoxMarkmes, "Shotgun");
         }
         if (DataBaseManager.Rifle > 0 && DataBaseManager.nowRifle > 0)
         {
-            ActivateObjectWithName(ItemBox_Markmes, "Rifle");
+            ActivateObjectWithName(itemBoxMarkmes, "Rifle");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Markmes, "Rifle");
+            DeactivateObjectWithName(itemBoxMarkmes, "Rifle");
         }
         if (DataBaseManager.Revolver > 0 && DataBaseManager.nowRevolver > 0)
         {
-            ActivateObjectWithName(ItemBox_Markmes, "Revolver");
+            ActivateObjectWithName(itemBoxMarkmes, "Revolver");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Markmes, "Revolver");
+            DeactivateObjectWithName(itemBoxMarkmes, "Revolver");
         }
         if (DataBaseManager.SmallPistol > 0 && DataBaseManager.nowSmallPistol > 0)
         {
-            ActivateObjectWithName(ItemBox_Markmes, "SmallPistol");
+            ActivateObjectWithName(itemBoxMarkmes, "SmallPistol");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Markmes, "SmallPistol");
+            DeactivateObjectWithName(itemBoxMarkmes, "SmallPistol");
         }
         if (DataBaseManager.Shotgun > 0 && DataBaseManager.nowShotgun < 2 && DataBaseManager.ShotgunAmmo > 0)
         {
-            ActivateObjectWithName(ItemBox_Reload, "Shotgun");
+            ActivateObjectWithName(itemBoxReload, "Shotgun");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Reload, "Shotgun");
+            DeactivateObjectWithName(itemBoxReload, "Shotgun");
         }
         if (DataBaseManager.Rifle > 0 && DataBaseManager.nowRifle < 5 && DataBaseManager.RifleAmmo > 0)
         {
-            ActivateObjectWithName(ItemBox_Reload, "Rifle");
+            ActivateObjectWithName(itemBoxReload, "Rifle");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Reload, "Rifle");
+            DeactivateObjectWithName(itemBoxReload, "Rifle");
         }
         if (DataBaseManager.Revolver > 0 && DataBaseManager.nowRevolver < 6 && DataBaseManager.PistolAmmo > 0)
         {
-            ActivateObjectWithName(ItemBox_Reload, "Revolver");
+            ActivateObjectWithName(itemBoxReload, "Revolver");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Reload, "Revolver");
+            DeactivateObjectWithName(itemBoxReload, "Revolver");
         }
         if (DataBaseManager.SmallPistol > 0 && DataBaseManager.nowSmallPistol < 2 && DataBaseManager.PistolAmmo > 0)
         {
-            ActivateObjectWithName(ItemBox_Reload, "SmallPistol");
+            ActivateObjectWithName(itemBoxReload, "SmallPistol");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Reload, "SmallPistol");
+            DeactivateObjectWithName(itemBoxReload, "SmallPistol");
         }
         if (DataBaseManager.Molotov > 0)
         {
-            ActivateObjectWithName(ItemBox_Deftness, "Molotov");
+            ActivateObjectWithName(itemBoxDeftness, "Molotov");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Deftness, "Molotov");
+            DeactivateObjectWithName(itemBoxDeftness, "Molotov");
         }
     }
     public void OpenItemDetail()
     {
-        if (ItemBox_Swords.activeSelf == true)
+        if (itemBoxSwords.activeSelf == true)
         {
             if (DataBaseManager.BattleWeapon == "")
             {
-                Name.text = "";
-                Detail.text = "";
+                name.text = "";
+                detail.text = "";
             }
             if (DataBaseManager.BattleWeapon == "Bat")
             {
-                Name.text = "Bat";
-                Detail.text = "Skill :\nSwordsmanship\n\nDamage :\n(1D8)x5";
+                name.text = "Bat";
+                detail.text = "Skill :\nSwordsmanship\n\nDamage :\n(1D8)x5";
             }
             if (DataBaseManager.BattleWeapon == "Dagger")
             {
-                Name.text = "Dagger";
-                Detail.text = "Skill :\nSwordsmanship\n\nDamage :\n(1D4 + 2)x5";
+                name.text = "Dagger";
+                detail.text = "Skill :\nSwordsmanship\n\nDamage :\n(1D4 + 2)x5";
             }
             if (DataBaseManager.BattleWeapon == "Axe")
             {
-                Name.text = "Axe";
-                Detail.text = "Skill :\nSwordsmanship\n\nDamage :\n(1D6 + 2)x5";
+                name.text = "Axe";
+                detail.text = "Skill :\nSwordsmanship\n\nDamage :\n(1D6 + 2)x5";
             }
 
             if (DataBaseManager.BattleWeapon == "Molotov")
             {
-                Name.text = "Molotov";
-                Detail.text = "Skill :\nDeftness\n\nDamage :\n(2D6 + 2)x5\n\nPcs : "+DataBaseManager.Molotov;
+                name.text = "Molotov";
+                detail.text = "Skill :\nDeftness\n\nDamage :\n(2D6 + 2)x5\n\nPcs : "+DataBaseManager.Molotov;
             }
 
             if (DataBaseManager.BattleWeapon == "Shotgun")
             {
-                Name.text = "Shotgun";
-                Detail.text = "Skill :\nMarkmanship\n\nDamage :\n(5D4)x5\n\nMagazine :\n2 Bullet";
+                name.text = "Shotgun";
+                detail.text = "Skill :\nMarkmanship\n\nDamage :\n(5D4)x5\n\nMagazine :\n2 Bullet";
             }
             if (DataBaseManager.BattleWeapon == "Rifle")
             {
-                Name.text = "Rifle";
-                Detail.text = "Skill :\nMarkmanship\n\nDamage :\n(2D6 + 2)x5\n\nMagazine :\n5 Bullet";
+                name.text = "Rifle";
+                detail.text = "Skill :\nMarkmanship\n\nDamage :\n(2D6 + 2)x5\n\nMagazine :\n5 Bullet";
             }
             if (DataBaseManager.BattleWeapon == "Revolver")
             {
-                Name.text = "Revolver";
-                Detail.text = "Skill :\nMarkmanship\n\nDamage :\n(1D10 + 2)x5\n\nMagazine :\n6 Bullet";
+                name.text = "Revolver";
+                detail.text = "Skill :\nMarkmanship\n\nDamage :\n(1D10 + 2)x5\n\nMagazine :\n6 Bullet";
             }
             if (DataBaseManager.BattleWeapon == "SmallPistol")
             {
-                Name.text = "Small Pistol";
-                Detail.text = "Skill :\nMarkmanship\n\nDamage :\n(1D6)x5\n\nMagazine :\n2 Bullet";
+                name.text = "Small Pistol";
+                detail.text = "Skill :\nMarkmanship\n\nDamage :\n(1D6)x5\n\nMagazine :\n2 Bullet";
             }
         }
     }
-
-
     public void ActivateObjectWithName(GameObject subject ,string objectName)
     {
         // 자식 오브젝트들을 모두 가져옵니다.

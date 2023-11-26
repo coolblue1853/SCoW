@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-
+using UnityEngine.Serialization;
 /*
 http://forum.unity3d.com/threads/adjustable-character-spacing-free-script.288277/
 Unity 5.4 compatible version
