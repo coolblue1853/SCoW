@@ -11999,10 +11999,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583c205c91e7b8b408c1fae5169643ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Back: {fileID: 350300396}
-  BackGround: {fileID: 350300398}
-  DemoEnd_Back: {fileID: 350300396}
-  DemoEnd_BackGround: {fileID: 350300398}
+  backOb: {fileID: 350300396}
+  backGroundImg: {fileID: 350300398}
+  demoEndBackOb: {fileID: 350300396}
+  demoEndBackGroundImg: {fileID: 350300398}
 --- !u!1 &917990191
 GameObject:
   m_ObjectHideFlags: 0
@@ -12371,46 +12371,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c40d5e3306a33428e1f0772c1ab44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Back: {fileID: 350300396}
-  BackGround: {fileID: 350300398}
+  backButton: {fileID: 350300396}
+  backButtonImg: {fileID: 350300398}
   clickTime: 0
-  strPoint_t: {fileID: 1538952854}
-  intPoint_t: {fileID: 1696394002}
-  dexPoint_t: {fileID: 2073092329}
+  strPointTxt: {fileID: 1538952854}
+  intPointTxt: {fileID: 1696394002}
+  dexPointTxt: {fileID: 2073092329}
   setStatWindow: {fileID: 1673926576}
   setSkillWindow: {fileID: 934547475}
   setStatButton: {fileID: 191594640}
   allRandButton: {fileID: 718392479}
-  martialArtsPoint_t: {fileID: 432871118}
-  gunShotPoint_t: {fileID: 1271081079}
-  swordPoint_t: {fileID: 2065393713}
-  ObservationPoint_t: {fileID: 1449523609}
-  swimingPoint_t: {fileID: 2078980494}
-  martialArtsPoint_g: {fileID: 923712201}
-  gunShotPoint_g: {fileID: 1563614285}
-  swordPoint_g: {fileID: 1366560496}
-  ObservationPoint_g: {fileID: 772756075}
-  swimingPoint_g: {fileID: 1795384465}
-  medicine_t: {fileID: 1447039943}
-  analysis_t: {fileID: 272952081}
-  listening_t: {fileID: 264453683}
-  psychotherapy_t: {fileID: 2131065823}
-  occult_t: {fileID: 1748597092}
-  medicine_g: {fileID: 1913281155}
-  analysis_g: {fileID: 647597997}
-  listening_g: {fileID: 2141241240}
-  psychotherapy_g: {fileID: 1376873031}
-  occult_g: {fileID: 1504583398}
-  evasion_t: {fileID: 1747253200}
-  deftness_t: {fileID: 1631846980}
-  rhetoric_t: {fileID: 390063169}
-  stealth_t: {fileID: 1886333161}
-  Disguise_t: {fileID: 128670826}
-  evasion_g: {fileID: 342291262}
-  deftness_g: {fileID: 292347821}
-  rhetoric_g: {fileID: 350559066}
-  stealth_g: {fileID: 136690298}
-  Disguise_g: {fileID: 451937284}
+  martialArtsPointTxt: {fileID: 432871118}
+  gunShotPointTxt: {fileID: 1271081079}
+  swordPointTxt: {fileID: 2065393713}
+  observationPointTxt: {fileID: 1449523609}
+  swimingPointTxt: {fileID: 2078980494}
+  martialArtsPointImg: {fileID: 923712201}
+  gunShotPointImg: {fileID: 1563614285}
+  swordPointImg: {fileID: 1366560496}
+  observationPointImg: {fileID: 772756075}
+  swimingPointImg: {fileID: 1795384465}
+  medicineTxt: {fileID: 1447039943}
+  analysisTxt: {fileID: 272952081}
+  listeningTxt: {fileID: 264453683}
+  psychotherapyTxt: {fileID: 2131065823}
+  occultTxt: {fileID: 1748597092}
+  medicineImg: {fileID: 1913281155}
+  analysisImg: {fileID: 647597997}
+  listeningImg: {fileID: 2141241240}
+  psychotherapyImg: {fileID: 1376873031}
+  occultImg: {fileID: 1504583398}
+  evasionTxt: {fileID: 1747253200}
+  deftnessTxt: {fileID: 1631846980}
+  rhetoricTxt: {fileID: 390063169}
+  stealthTxt: {fileID: 1886333161}
+  disguiseTxt: {fileID: 128670826}
+  evasionImg: {fileID: 342291262}
+  deftnessImg: {fileID: 292347821}
+  rhetoricImg: {fileID: 350559066}
+  stealthImg: {fileID: 136690298}
+  disguiseImg: {fileID: 451937284}
 --- !u!114 &934547478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22835,31 +22835,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3252d1c9e4c64f4c875cb801b023559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  str_txt: {fileID: 1419650102}
-  intl_txt: {fileID: 492637867}
-  dex_txt: {fileID: 1903390893}
-  hp_txt: {fileID: 214044026}
-  mp_txt: {fileID: 1482191506}
-  san_txt: {fileID: 1900156348}
-  luk_txt: {fileID: 274122102}
-  weal_txt: {fileID: 210728174}
-  str_image: {fileID: 348421199}
-  intl_image: {fileID: 921013457}
-  dex_image: {fileID: 749273616}
-  hp_image: {fileID: 1208362782}
-  mp_image: {fileID: 966730264}
-  san_image: {fileID: 444200019}
-  luk_image: {fileID: 511075748}
-  weal_image: {fileID: 50968107}
-  next_B: {fileID: 418917396}
+  strTxt: {fileID: 1419650102}
+  intlTxt: {fileID: 492637867}
+  dexTxt: {fileID: 1903390893}
+  hpTxt: {fileID: 214044026}
+  mpTxt: {fileID: 1482191506}
+  sanTxt: {fileID: 1900156348}
+  lukTxt: {fileID: 274122102}
+  wealTxt: {fileID: 210728174}
+  strGuage: {fileID: 348421199}
+  intlGuage: {fileID: 921013457}
+  dexGuage: {fileID: 749273616}
+  hpGuage: {fileID: 1208362782}
+  mpGuage: {fileID: 966730264}
+  sanGuage: {fileID: 444200019}
+  lukGuage: {fileID: 511075748}
+  wealGuage: {fileID: 50968107}
+  nextButton: {fileID: 418917396}
   setStatWindow: {fileID: 1673926576}
   setSkillWindow: {fileID: 934547475}
   setStatButton: {fileID: 191594640}
   allRandButton: {fileID: 718392479}
   checkUI: {fileID: 122385269}
-  strPoint_t: {fileID: 1538952854}
-  intPoint_t: {fileID: 1696394002}
-  dexPoint_t: {fileID: 2073092329}
+  strPointTxt: {fileID: 1538952854}
+  intPointTxt: {fileID: 1696394002}
+  dexPointTxt: {fileID: 2073092329}
   setSkill: {fileID: 934547477}
   firstSetStat: 0
 --- !u!114 &1673926579

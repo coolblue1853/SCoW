@@ -4,34 +4,34 @@ using UnityEngine;
 using UnityEngine.UI;
 public class setStat : MonoBehaviour
 {
-    public Text str_txt;
-    public Text intl_txt;
-    public Text dex_txt;
-    public Text hp_txt;
-    public Text mp_txt;
-    public Text san_txt;
-    public Text luk_txt;
-    public Text weal_txt;
+    public Text strTxt;
+    public Text intlTxt;
+    public Text dexTxt;
+    public Text hpTxt;
+    public Text mpTxt;
+    public Text sanTxt;
+    public Text lukTxt;
+    public Text wealTxt;
 
-    public Image str_image;
-    public Image intl_image;
-    public Image dex_image;
-    public Image hp_image;
-    public Image mp_image;
-    public Image san_image;
-    public Image luk_image;
-    public Image weal_image;
+    public Image strGuage;
+    public Image intlGuage;
+    public Image dexGuage;
+    public Image hpGuage;
+    public Image mpGuage;
+    public Image sanGuage;
+    public Image lukGuage;
+    public Image wealGuage;
 
-    public GameObject next_B;
+    public GameObject nextButton;
     public GameObject setStatWindow;
     public GameObject setSkillWindow;
     public GameObject setStatButton;
     public GameObject allRandButton;
     public GameObject checkUI;
 
-    public Text strPoint_t;
-    public Text intPoint_t;
-    public Text dexPoint_t;
+    public Text strPointTxt;
+    public Text intPointTxt;
+    public Text dexPointTxt;
 
     public setSkill setSkill;
 
@@ -44,39 +44,39 @@ public class setStat : MonoBehaviour
 
             firstSetStat = false;
             DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
-            str_txt.text = DataBaseManager.str.ToString();
-            str_image.fillAmount = ((float)DataBaseManager.str / 100);
+            strTxt.text = DataBaseManager.str.ToString();
+            strGuage.fillAmount = ((float)DataBaseManager.str / 100);
             DataBaseManager.strSkillPoint = DataBaseManager.str;
 
             DataBaseManager.intl = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
-            intl_txt.text = DataBaseManager.intl.ToString();
-            intl_image.fillAmount = ((float)DataBaseManager.intl / 100);
+            intlTxt.text = DataBaseManager.intl.ToString();
+            intlGuage.fillAmount = ((float)DataBaseManager.intl / 100);
             DataBaseManager.intSkillPoint = DataBaseManager.intl;
 
             DataBaseManager.dex = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
-            dex_txt.text = DataBaseManager.dex.ToString();
-            dex_image.fillAmount = ((float)DataBaseManager.dex / 100);
+            dexTxt.text = DataBaseManager.dex.ToString();
+            dexGuage.fillAmount = ((float)DataBaseManager.dex / 100);
             DataBaseManager.dexSkillPoint = DataBaseManager.dex;
 
             DataBaseManager.hp = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
-            hp_txt.text = DataBaseManager.hp.ToString();
-            hp_image.fillAmount = ((float)DataBaseManager.hp / 100);
+            hpTxt.text = DataBaseManager.hp.ToString();
+            hpGuage.fillAmount = ((float)DataBaseManager.hp / 100);
 
             DataBaseManager.mp = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
-            mp_txt.text = DataBaseManager.mp.ToString();
-            mp_image.fillAmount = ((float)DataBaseManager.mp / 100);
+            mpTxt.text = DataBaseManager.mp.ToString();
+            mpGuage.fillAmount = ((float)DataBaseManager.mp / 100);
 
             DataBaseManager.san = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
-            san_txt.text = DataBaseManager.san.ToString();
-            san_image.fillAmount = ((float)DataBaseManager.san / 100);
+            sanTxt.text = DataBaseManager.san.ToString();
+            sanGuage.fillAmount = ((float)DataBaseManager.san / 100);
 
             DataBaseManager.luk = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
-            luk_txt.text = DataBaseManager.luk.ToString();
-            luk_image.fillAmount = ((float)DataBaseManager.luk / 100);
+            lukTxt.text = DataBaseManager.luk.ToString();
+            lukGuage.fillAmount = ((float)DataBaseManager.luk / 100);
 
             DataBaseManager.weal = (Random.Range(5, 36));
-            weal_txt.text = DataBaseManager.weal.ToString();
-            weal_image.fillAmount = ((float)DataBaseManager.weal / 35);
+            wealTxt.text = DataBaseManager.weal.ToString();
+            wealGuage.fillAmount = ((float)DataBaseManager.weal / 35);
 
             DataBaseManager.nowHP = DataBaseManager.hp;
             DataBaseManager.nowSan = DataBaseManager.san;
@@ -98,39 +98,39 @@ public class setStat : MonoBehaviour
     {
         SoundManager.Instance.ClickSound_Play();
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
-        str_txt.text = DataBaseManager.str.ToString();
-        str_image.fillAmount = ((float)DataBaseManager.str / 100);
+        strTxt.text = DataBaseManager.str.ToString();
+        strGuage.fillAmount = ((float)DataBaseManager.str / 100);
         DataBaseManager.strSkillPoint = DataBaseManager.str;
 
         DataBaseManager.intl = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
-        intl_txt.text = DataBaseManager.intl.ToString();
-        intl_image.fillAmount = ((float)DataBaseManager.intl / 100);
+        intlTxt.text = DataBaseManager.intl.ToString();
+        intlGuage.fillAmount = ((float)DataBaseManager.intl / 100);
         DataBaseManager.intSkillPoint = DataBaseManager.intl;
 
         DataBaseManager.dex = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
-        dex_txt.text = DataBaseManager.dex.ToString();
-        dex_image.fillAmount = ((float)DataBaseManager.dex / 100);
+        dexTxt.text = DataBaseManager.dex.ToString();
+        dexGuage.fillAmount = ((float)DataBaseManager.dex / 100);
         DataBaseManager.dexSkillPoint = DataBaseManager.dex;
 
         DataBaseManager.hp = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
-        hp_txt.text = DataBaseManager.hp.ToString();
-        hp_image.fillAmount = ((float)DataBaseManager.hp / 100);
+        hpTxt.text = DataBaseManager.hp.ToString();
+        hpGuage.fillAmount = ((float)DataBaseManager.hp / 100);
 
         DataBaseManager.mp = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
-        mp_txt.text = DataBaseManager.mp.ToString();
-        mp_image.fillAmount = ((float)DataBaseManager.mp / 100);
+        mpTxt.text = DataBaseManager.mp.ToString();
+        mpGuage.fillAmount = ((float)DataBaseManager.mp / 100);
 
         DataBaseManager.san = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
-        san_txt.text = DataBaseManager.san.ToString();
-        san_image.fillAmount = ((float)DataBaseManager.san / 100);
+        sanTxt.text = DataBaseManager.san.ToString();
+        sanGuage.fillAmount = ((float)DataBaseManager.san / 100);
 
         DataBaseManager.luk = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
-        luk_txt.text = DataBaseManager.luk.ToString();
-        luk_image.fillAmount = ((float)DataBaseManager.luk / 100);
+        lukTxt.text = DataBaseManager.luk.ToString();
+        lukGuage.fillAmount = ((float)DataBaseManager.luk / 100);
 
         DataBaseManager.weal = (Random.Range(5, 36));
-        weal_txt.text = DataBaseManager.weal.ToString();
-        weal_image.fillAmount = ((float)DataBaseManager.weal / 35);
+        wealTxt.text = DataBaseManager.weal.ToString();
+        wealGuage.fillAmount = ((float)DataBaseManager.weal / 35);
         DataBaseManager.nowHP = DataBaseManager.hp;
         DataBaseManager.nowSan = DataBaseManager.san;
 
@@ -152,9 +152,9 @@ public class setStat : MonoBehaviour
         setStatButton.SetActive(false);
         allRandButton.SetActive(false);
 
-        strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-        intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-        dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
+        strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+        intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+        dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
     }
 
     void Start()
@@ -166,11 +166,11 @@ public class setStat : MonoBehaviour
     {
         if (DataBaseManager.str > 5)
         {
-            next_B.SetActive(true);
+            nextButton.SetActive(true);
         }
         else
         {
-            next_B.SetActive(false);
+            nextButton.SetActive(false);
         }
     }
 

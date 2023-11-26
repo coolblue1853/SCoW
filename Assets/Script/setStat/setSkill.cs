@@ -7,15 +7,15 @@ using UnityEngine.SceneManagement;
 public class setSkill : MonoBehaviour
 {
     Sequence mySequence;
-    public GameObject Back;
-    public Image BackGround;
+    public GameObject backButton;
+    public Image backButtonImg;
     public float clickTime;
     float minClickTime = 0.5f;
     bool isClick = false;
     string nowSkill;
-    public Text strPoint_t;
-    public Text intPoint_t;
-    public Text dexPoint_t;
+    public Text strPointTxt;
+    public Text intPointTxt;
+    public Text dexPointTxt;
 
     public GameObject setStatWindow;
     public GameObject setSkillWindow;
@@ -23,47 +23,47 @@ public class setSkill : MonoBehaviour
     public GameObject allRandButton;
 
     //skill - str
-    public Text martialArtsPoint_t;
-    public Text gunShotPoint_t;
-    public Text swordPoint_t;
-    public Text ObservationPoint_t;
-    public Text swimingPoint_t;
+    public Text martialArtsPointTxt;
+    public Text gunShotPointTxt;
+    public Text swordPointTxt;
+    public Text observationPointTxt;
+    public Text swimingPointTxt;
 
-    public Image martialArtsPoint_g;
-    public Image gunShotPoint_g;
-    public Image swordPoint_g;
-    public Image ObservationPoint_g;
-    public Image swimingPoint_g;
+    public Image martialArtsPointImg;
+    public Image gunShotPointImg;
+    public Image swordPointImg;
+    public Image observationPointImg;
+    public Image swimingPointImg;
 
     //skill - int
-    public Text medicine_t;
-    public Text analysis_t;
-    public Text listening_t;
-    public Text psychotherapy_t;
-    public Text occult_t;
+    public Text medicineTxt;
+    public Text analysisTxt;
+    public Text listeningTxt;
+    public Text psychotherapyTxt;
+    public Text occultTxt;
 
-    public Image medicine_g;
-    public Image analysis_g;
-    public Image listening_g;
-    public Image psychotherapy_g;
-    public Image occult_g;
+    public Image medicineImg;
+    public Image analysisImg;
+    public Image listeningImg;
+    public Image psychotherapyImg;
+    public Image occultImg;
 
     //skill - dex
-    public Text evasion_t;
-    public Text deftness_t;
-    public Text rhetoric_t;
-    public Text stealth_t;
-    public Text Disguise_t;
+    public Text evasionTxt;
+    public Text deftnessTxt;
+    public Text rhetoricTxt;
+    public Text stealthTxt;
+    public Text disguiseTxt;
 
-    public Image evasion_g;
-    public Image deftness_g;
-    public Image rhetoric_g;
-    public Image stealth_g;
-    public Image Disguise_g;
+    public Image evasionImg;
+    public Image deftnessImg;
+    public Image rhetoricImg;
+    public Image stealthImg;
+    public Image disguiseImg;
     public void FadeIn()
     {
-        Back.SetActive(true);
-        Tween fadeTween2 = BackGround.DOFade(1, 1.5f);
+        backButton.SetActive(true);
+        Tween fadeTween2 = backButtonImg.DOFade(1, 1.5f);
         fadeTween2.OnComplete(goToGame);
     }
     public void goToGame()
@@ -86,44 +86,44 @@ public class setSkill : MonoBehaviour
 
     void Start()
     {
-        strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
+        strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
 
-        martialArtsPoint_t.text = DataBaseManager.martialArtsPoint.ToString();
-        martialArtsPoint_g.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
-        gunShotPoint_t.text = DataBaseManager.gunShotPoint.ToString();
-        gunShotPoint_g.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
-        swordPoint_t.text = DataBaseManager.swordPoint.ToString();
-        swordPoint_g.fillAmount = (float)DataBaseManager.swordPoint / 100;
-        ObservationPoint_t.text = DataBaseManager.ObservationPoint.ToString();
-        ObservationPoint_g.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
-        swimingPoint_t.text = DataBaseManager.swimingPoint.ToString();
-        swimingPoint_g.fillAmount = (float)DataBaseManager.swimingPoint / 100;
+        martialArtsPointTxt.text = DataBaseManager.martialArtsPoint.ToString();
+        martialArtsPointImg.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
+        gunShotPointTxt.text = DataBaseManager.gunShotPoint.ToString();
+        gunShotPointImg.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
+        swordPointTxt.text = DataBaseManager.swordPoint.ToString();
+        swordPointImg.fillAmount = (float)DataBaseManager.swordPoint / 100;
+        observationPointTxt.text = DataBaseManager.ObservationPoint.ToString();
+        observationPointImg.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+        swimingPointTxt.text = DataBaseManager.swimingPoint.ToString();
+        swimingPointImg.fillAmount = (float)DataBaseManager.swimingPoint / 100;
 
-        intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
+        intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
 
-        medicine_t.text = DataBaseManager.medicinePoint.ToString();
-        medicine_g.fillAmount = (float)DataBaseManager.medicinePoint / 100;
-        analysis_t.text = DataBaseManager.analysisPoint.ToString();
-        analysis_g.fillAmount = (float)DataBaseManager.analysisPoint / 100;
-        occult_t.text = DataBaseManager.occultPoint.ToString();
-        occult_g.fillAmount = (float)DataBaseManager.occultPoint / 100;
-        listening_t.text = DataBaseManager.listeningPoint.ToString();
-        listening_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
-        psychotherapy_t.text = DataBaseManager.psychotherapyPoint.ToString();
-        psychotherapy_g.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
+        medicineTxt.text = DataBaseManager.medicinePoint.ToString();
+        medicineImg.fillAmount = (float)DataBaseManager.medicinePoint / 100;
+        analysisTxt.text = DataBaseManager.analysisPoint.ToString();
+        analysisImg.fillAmount = (float)DataBaseManager.analysisPoint / 100;
+        occultTxt.text = DataBaseManager.occultPoint.ToString();
+        occultImg.fillAmount = (float)DataBaseManager.occultPoint / 100;
+        listeningTxt.text = DataBaseManager.listeningPoint.ToString();
+        listeningImg.fillAmount = (float)DataBaseManager.listeningPoint / 100;
+        psychotherapyTxt.text = DataBaseManager.psychotherapyPoint.ToString();
+        psychotherapyImg.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
 
-        dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
+        dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
 
-        evasion_t.text = DataBaseManager.evasionPoint.ToString();
-        evasion_g.fillAmount = (float)DataBaseManager.evasionPoint / 100;
-        deftness_t.text = DataBaseManager.deftnessPoint.ToString();
-        deftness_g.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
-        rhetoric_t.text = DataBaseManager.rhetoricPoint.ToString();
-        rhetoric_g.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
-        stealth_t.text = DataBaseManager.stealthPoint.ToString();
-        stealth_g.fillAmount = (float)DataBaseManager.stealthPoint / 100;
-        Disguise_t.text = DataBaseManager.DisguisePoint.ToString();
-        Disguise_g.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
+        evasionTxt.text = DataBaseManager.evasionPoint.ToString();
+        evasionImg.fillAmount = (float)DataBaseManager.evasionPoint / 100;
+        deftnessTxt.text = DataBaseManager.deftnessPoint.ToString();
+        deftnessImg.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
+        rhetoricTxt.text = DataBaseManager.rhetoricPoint.ToString();
+        rhetoricImg.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
+        stealthTxt.text = DataBaseManager.stealthPoint.ToString();
+        stealthImg.fillAmount = (float)DataBaseManager.stealthPoint / 100;
+        disguiseTxt.text = DataBaseManager.DisguisePoint.ToString();
+        disguiseImg.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
     }
     public void AllRand()
     {
@@ -137,9 +137,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.dexSkillPoint -= 5;
                         DataBaseManager.evasionPoint += 5;
-                        evasion_t.text = DataBaseManager.evasionPoint.ToString();
-                        dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-                        evasion_g.fillAmount = (float)DataBaseManager.evasionPoint / 100;
+                        evasionTxt.text = DataBaseManager.evasionPoint.ToString();
+                        dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+                        evasionImg.fillAmount = (float)DataBaseManager.evasionPoint / 100;
                     }
                     break;
                 case 2:
@@ -147,9 +147,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.dexSkillPoint -= 5;
                         DataBaseManager.deftnessPoint += 5;
-                        deftness_t.text = DataBaseManager.deftnessPoint.ToString();
-                        dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-                        deftness_g.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
+                        deftnessTxt.text = DataBaseManager.deftnessPoint.ToString();
+                        dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+                        deftnessImg.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
                     }
                     break;
                 case 3:
@@ -157,9 +157,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.dexSkillPoint -= 5;
                         DataBaseManager.rhetoricPoint += 5;
-                        rhetoric_t.text = DataBaseManager.rhetoricPoint.ToString();
-                        dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-                        rhetoric_g.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
+                        rhetoricTxt.text = DataBaseManager.rhetoricPoint.ToString();
+                        dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+                        rhetoricImg.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
                     }
                     break;
                 case 4:
@@ -167,9 +167,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.dexSkillPoint -= 5;
                         DataBaseManager.stealthPoint += 5;
-                        stealth_t.text = DataBaseManager.stealthPoint.ToString();
-                        dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-                        stealth_g.fillAmount = (float)DataBaseManager.stealthPoint / 100;
+                        stealthTxt.text = DataBaseManager.stealthPoint.ToString();
+                        dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+                        stealthImg.fillAmount = (float)DataBaseManager.stealthPoint / 100;
                     }
                     break;
                 case 5:
@@ -177,9 +177,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.dexSkillPoint -= 5;
                         DataBaseManager.DisguisePoint += 5;
-                        Disguise_t.text = DataBaseManager.DisguisePoint.ToString();
-                        dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-                        Disguise_g.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
+                        disguiseTxt.text = DataBaseManager.DisguisePoint.ToString();
+                        dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+                        disguiseImg.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
                     }
                     break;
             }
@@ -194,9 +194,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.intSkillPoint -= 5;
                         DataBaseManager.medicinePoint += 5;
-                        medicine_t.text = DataBaseManager.medicinePoint.ToString();
-                        intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-                        medicine_g.fillAmount = (float)DataBaseManager.medicinePoint / 100;
+                        medicineTxt.text = DataBaseManager.medicinePoint.ToString();
+                        intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+                        medicineImg.fillAmount = (float)DataBaseManager.medicinePoint / 100;
                     }
                     break;
                 case 2:
@@ -204,9 +204,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.intSkillPoint -= 5;
                         DataBaseManager.analysisPoint += 5;
-                        analysis_t.text = DataBaseManager.analysisPoint.ToString();
-                        intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-                        analysis_g.fillAmount = (float)DataBaseManager.analysisPoint / 100;
+                        analysisTxt.text = DataBaseManager.analysisPoint.ToString();
+                        intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+                        analysisImg.fillAmount = (float)DataBaseManager.analysisPoint / 100;
                     }
                     break;
                 case 3:
@@ -214,9 +214,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.intSkillPoint -= 5;
                         DataBaseManager.occultPoint += 5;
-                        occult_t.text = DataBaseManager.occultPoint.ToString();
-                        intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-                        occult_g.fillAmount = (float)DataBaseManager.occultPoint / 100;
+                        occultTxt.text = DataBaseManager.occultPoint.ToString();
+                        intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+                        occultImg.fillAmount = (float)DataBaseManager.occultPoint / 100;
                     }
                     break;
                 case 4:
@@ -224,9 +224,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.intSkillPoint -= 5;
                         DataBaseManager.listeningPoint += 5;
-                        listening_t.text = DataBaseManager.listeningPoint.ToString();
-                        intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-                        listening_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
+                        listeningTxt.text = DataBaseManager.listeningPoint.ToString();
+                        intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+                        listeningImg.fillAmount = (float)DataBaseManager.listeningPoint / 100;
                     }
                     break;
                 case 5:
@@ -234,9 +234,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.intSkillPoint -= 5;
                         DataBaseManager.psychotherapyPoint += 5;
-                        psychotherapy_t.text = DataBaseManager.psychotherapyPoint.ToString();
-                        intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-                        psychotherapy_g.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
+                        psychotherapyTxt.text = DataBaseManager.psychotherapyPoint.ToString();
+                        intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+                        psychotherapyImg.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
                     }
                     break;
             }
@@ -251,9 +251,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.strSkillPoint -= 5;
                         DataBaseManager.martialArtsPoint += 5;
-                        martialArtsPoint_t.text = DataBaseManager.martialArtsPoint.ToString();
-                        strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-                        martialArtsPoint_g.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
+                        martialArtsPointTxt.text = DataBaseManager.martialArtsPoint.ToString();
+                        strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+                        martialArtsPointImg.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
                     }
                     break;
                 case 2:
@@ -261,9 +261,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.strSkillPoint -= 5;
                         DataBaseManager.gunShotPoint += 5;
-                        gunShotPoint_t.text = DataBaseManager.gunShotPoint.ToString();
-                        strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-                        gunShotPoint_g.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
+                        gunShotPointTxt.text = DataBaseManager.gunShotPoint.ToString();
+                        strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+                        gunShotPointImg.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
                     }
                     break;
                 case 3:
@@ -272,9 +272,9 @@ public class setSkill : MonoBehaviour
 
                         DataBaseManager.strSkillPoint -= 5;
                         DataBaseManager.swordPoint += 5;
-                        swordPoint_t.text = DataBaseManager.swordPoint.ToString();
-                        strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-                        swordPoint_g.fillAmount = (float)DataBaseManager.swordPoint / 100;
+                        swordPointTxt.text = DataBaseManager.swordPoint.ToString();
+                        strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+                        swordPointImg.fillAmount = (float)DataBaseManager.swordPoint / 100;
 
                     }
                     break;
@@ -283,9 +283,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.strSkillPoint -= 5;
                         DataBaseManager.ObservationPoint += 5;
-                        ObservationPoint_t.text = DataBaseManager.ObservationPoint.ToString();
-                        strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-                        ObservationPoint_g.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+                        observationPointTxt.text = DataBaseManager.ObservationPoint.ToString();
+                        strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+                        observationPointImg.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
                     }
                     break;
                 case 5:
@@ -293,9 +293,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.strSkillPoint -= 5;
                         DataBaseManager.swimingPoint += 5;
-                        swimingPoint_t.text = DataBaseManager.swimingPoint.ToString();
-                        strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-                        swimingPoint_g.fillAmount = (float)DataBaseManager.swimingPoint / 100;
+                        swimingPointTxt.text = DataBaseManager.swimingPoint.ToString();
+                        strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+                        swimingPointImg.fillAmount = (float)DataBaseManager.swimingPoint / 100;
                     }
                     break;
             }
@@ -316,9 +316,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.strSkillPoint -= 5;
                         DataBaseManager.martialArtsPoint += 5;
-                        martialArtsPoint_t.text = DataBaseManager.martialArtsPoint.ToString();
-                        strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-                        martialArtsPoint_g.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
+                        martialArtsPointTxt.text = DataBaseManager.martialArtsPoint.ToString();
+                        strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+                        martialArtsPointImg.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
                     }
                     break;
                 case 2:
@@ -326,9 +326,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.strSkillPoint -= 5;
                         DataBaseManager.gunShotPoint += 5;
-                        gunShotPoint_t.text = DataBaseManager.gunShotPoint.ToString();
-                        strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-                        gunShotPoint_g.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
+                        gunShotPointTxt.text = DataBaseManager.gunShotPoint.ToString();
+                        strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+                        gunShotPointImg.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
                     }
                     break;
                 case 3:
@@ -337,9 +337,9 @@ public class setSkill : MonoBehaviour
 
                         DataBaseManager.strSkillPoint -= 5;
                         DataBaseManager.swordPoint += 5;
-                        swordPoint_t.text = DataBaseManager.swordPoint.ToString();
-                        strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-                        swordPoint_g.fillAmount = (float)DataBaseManager.swordPoint / 100;
+                        swordPointTxt.text = DataBaseManager.swordPoint.ToString();
+                        strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+                        swordPointImg.fillAmount = (float)DataBaseManager.swordPoint / 100;
 
                     }
                     break;
@@ -348,9 +348,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.strSkillPoint -= 5;
                         DataBaseManager.ObservationPoint += 5;
-                        ObservationPoint_t.text = DataBaseManager.ObservationPoint.ToString();
-                        strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-                        ObservationPoint_g.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+                        observationPointTxt.text = DataBaseManager.ObservationPoint.ToString();
+                        strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+                        observationPointImg.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
                     }
                     break;
                 case 5:
@@ -358,9 +358,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.strSkillPoint -= 5;
                         DataBaseManager.swimingPoint += 5;
-                        swimingPoint_t.text = DataBaseManager.swimingPoint.ToString();
-                        strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-                        swimingPoint_g.fillAmount = (float)DataBaseManager.swimingPoint / 100;
+                        swimingPointTxt.text = DataBaseManager.swimingPoint.ToString();
+                        strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+                        swimingPointImg.fillAmount = (float)DataBaseManager.swimingPoint / 100;
                     }
                     break;
             }
@@ -370,22 +370,22 @@ public class setSkill : MonoBehaviour
     {
         SoundManager.Instance.ClickSound_Play();
         DataBaseManager.martialArtsPoint = 25;
-        martialArtsPoint_t.text = DataBaseManager.martialArtsPoint.ToString();
-        martialArtsPoint_g.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
+        martialArtsPointTxt.text = DataBaseManager.martialArtsPoint.ToString();
+        martialArtsPointImg.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
         DataBaseManager.gunShotPoint = 15;
-        gunShotPoint_t.text = DataBaseManager.gunShotPoint.ToString();
-        gunShotPoint_g.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
+        gunShotPointTxt.text = DataBaseManager.gunShotPoint.ToString();
+        gunShotPointImg.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
         DataBaseManager.swordPoint = 20;
-        swordPoint_t.text = DataBaseManager.swordPoint.ToString();
-        swordPoint_g.fillAmount = (float)DataBaseManager.swordPoint / 100;
+        swordPointTxt.text = DataBaseManager.swordPoint.ToString();
+        swordPointImg.fillAmount = (float)DataBaseManager.swordPoint / 100;
         DataBaseManager.ObservationPoint = 20;
-        ObservationPoint_t.text = DataBaseManager.ObservationPoint.ToString();
-        ObservationPoint_g.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+        observationPointTxt.text = DataBaseManager.ObservationPoint.ToString();
+        observationPointImg.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
         DataBaseManager.swimingPoint = 10;
-        swimingPoint_t.text = DataBaseManager.swimingPoint.ToString();
-        swimingPoint_g.fillAmount = (float)DataBaseManager.swimingPoint / 100;
+        swimingPointTxt.text = DataBaseManager.swimingPoint.ToString();
+        swimingPointImg.fillAmount = (float)DataBaseManager.swimingPoint / 100;
         DataBaseManager.strSkillPoint = DataBaseManager.str;
-        strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
+        strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
     }
     public void skillUpButton()
     {
@@ -584,9 +584,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.strSkillPoint -= 5;
             DataBaseManager.martialArtsPoint += 5;
-            martialArtsPoint_t.text = DataBaseManager.martialArtsPoint.ToString();
-            strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-            martialArtsPoint_g.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
+            martialArtsPointTxt.text = DataBaseManager.martialArtsPoint.ToString();
+            strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+            martialArtsPointImg.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
             nowSkill = "martialArtsUP";
         }
     }
@@ -598,9 +598,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.strSkillPoint += 5;
             DataBaseManager.martialArtsPoint -= 5;
-            martialArtsPoint_t.text = DataBaseManager.martialArtsPoint.ToString();
-            strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-            martialArtsPoint_g.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
+            martialArtsPointTxt.text = DataBaseManager.martialArtsPoint.ToString();
+            strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+            martialArtsPointImg.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
             nowSkill = "martialArtsDown";
         }
     }
@@ -612,9 +612,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.strSkillPoint -= 5;
             DataBaseManager.gunShotPoint += 5;
-            gunShotPoint_t.text = DataBaseManager.gunShotPoint.ToString();
-            strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-            gunShotPoint_g.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
+            gunShotPointTxt.text = DataBaseManager.gunShotPoint.ToString();
+            strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+            gunShotPointImg.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
             nowSkill = "gunShotUP";
         }
     }
@@ -627,9 +627,9 @@ public class setSkill : MonoBehaviour
 
             DataBaseManager.strSkillPoint += 5;
             DataBaseManager.gunShotPoint -= 5;
-            gunShotPoint_t.text = DataBaseManager.gunShotPoint.ToString();
-            strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-            gunShotPoint_g.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
+            gunShotPointTxt.text = DataBaseManager.gunShotPoint.ToString();
+            strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+            gunShotPointImg.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
             nowSkill = "gunShotDown";
         }
     }
@@ -641,9 +641,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.strSkillPoint -= 5;
             DataBaseManager.swordPoint += 5;
-            swordPoint_t.text = DataBaseManager.swordPoint.ToString();
-            strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-            swordPoint_g.fillAmount = (float)DataBaseManager.swordPoint / 100;
+            swordPointTxt.text = DataBaseManager.swordPoint.ToString();
+            strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+            swordPointImg.fillAmount = (float)DataBaseManager.swordPoint / 100;
             nowSkill = "swordUP";
         }
     }
@@ -655,9 +655,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.strSkillPoint += 5;
             DataBaseManager.swordPoint -= 5;
-            swordPoint_t.text = DataBaseManager.swordPoint.ToString();
-            strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-            swordPoint_g.fillAmount = (float)DataBaseManager.swordPoint / 100;
+            swordPointTxt.text = DataBaseManager.swordPoint.ToString();
+            strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+            swordPointImg.fillAmount = (float)DataBaseManager.swordPoint / 100;
             nowSkill = "swordDown";
         }
     }
@@ -669,9 +669,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.strSkillPoint -= 5;
             DataBaseManager.ObservationPoint += 5;
-            ObservationPoint_t.text = DataBaseManager.ObservationPoint.ToString();
-            strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-            ObservationPoint_g.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+            observationPointTxt.text = DataBaseManager.ObservationPoint.ToString();
+            strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+            observationPointImg.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
             nowSkill = "ObservationUP";
         }
     }
@@ -683,9 +683,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.strSkillPoint += 5;
             DataBaseManager.ObservationPoint -= 5;
-            ObservationPoint_t.text = DataBaseManager.ObservationPoint.ToString();
-            strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-            ObservationPoint_g.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+            observationPointTxt.text = DataBaseManager.ObservationPoint.ToString();
+            strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+            observationPointImg.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
             nowSkill = "ObservationDown";
         }
     }
@@ -697,9 +697,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.strSkillPoint -= 5;
             DataBaseManager.swimingPoint += 5;
-            swimingPoint_t.text = DataBaseManager.swimingPoint.ToString();
-            strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-            swimingPoint_g.fillAmount = (float)DataBaseManager.swimingPoint / 100;
+            swimingPointTxt.text = DataBaseManager.swimingPoint.ToString();
+            strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+            swimingPointImg.fillAmount = (float)DataBaseManager.swimingPoint / 100;
             nowSkill = "swimingUP";
         }
     }
@@ -711,9 +711,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.strSkillPoint += 5;
             DataBaseManager.swimingPoint -= 5;
-            swimingPoint_t.text = DataBaseManager.swimingPoint.ToString();
-            strPoint_t.text = DataBaseManager.strSkillPoint.ToString();
-            swimingPoint_g.fillAmount = (float)DataBaseManager.swimingPoint / 100;
+            swimingPointTxt.text = DataBaseManager.swimingPoint.ToString();
+            strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
+            swimingPointImg.fillAmount = (float)DataBaseManager.swimingPoint / 100;
             nowSkill = "swimingDown";
         }
     }
@@ -730,9 +730,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.intSkillPoint -= 5;
                         DataBaseManager.medicinePoint += 5;
-                        medicine_t.text = DataBaseManager.medicinePoint.ToString();
-                        intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-                        medicine_g.fillAmount = (float)DataBaseManager.medicinePoint / 100;
+                        medicineTxt.text = DataBaseManager.medicinePoint.ToString();
+                        intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+                        medicineImg.fillAmount = (float)DataBaseManager.medicinePoint / 100;
                     }
                     break;
                 case 2:
@@ -740,9 +740,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.intSkillPoint -= 5;
                         DataBaseManager.analysisPoint += 5;
-                        analysis_t.text = DataBaseManager.analysisPoint.ToString();
-                        intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-                        analysis_g.fillAmount = (float)DataBaseManager.analysisPoint / 100;
+                        analysisTxt.text = DataBaseManager.analysisPoint.ToString();
+                        intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+                        analysisImg.fillAmount = (float)DataBaseManager.analysisPoint / 100;
                     }
                     break;
                 case 3:
@@ -750,9 +750,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.intSkillPoint -= 5;
                         DataBaseManager.occultPoint += 5;
-                        occult_t.text = DataBaseManager.occultPoint.ToString();
-                        intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-                        occult_g.fillAmount = (float)DataBaseManager.occultPoint / 100;
+                        occultTxt.text = DataBaseManager.occultPoint.ToString();
+                        intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+                        occultImg.fillAmount = (float)DataBaseManager.occultPoint / 100;
                     }
                     break;
                 case 4:
@@ -760,9 +760,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.intSkillPoint -= 5;
                         DataBaseManager.listeningPoint += 5;
-                        listening_t.text = DataBaseManager.listeningPoint.ToString();
-                        intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-                        listening_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
+                        listeningTxt.text = DataBaseManager.listeningPoint.ToString();
+                        intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+                        listeningImg.fillAmount = (float)DataBaseManager.listeningPoint / 100;
                     }
                     break;
                 case 5:
@@ -770,9 +770,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.intSkillPoint -= 5;
                         DataBaseManager.psychotherapyPoint += 5;
-                        psychotherapy_t.text = DataBaseManager.psychotherapyPoint.ToString();
-                        intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-                        psychotherapy_g.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
+                        psychotherapyTxt.text = DataBaseManager.psychotherapyPoint.ToString();
+                        intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+                        psychotherapyImg.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
                     }
                     break;
             }
@@ -782,22 +782,22 @@ public class setSkill : MonoBehaviour
     {
         SoundManager.Instance.ClickSound_Play();
         DataBaseManager.medicinePoint = 10;
-        medicine_t.text = DataBaseManager.medicinePoint.ToString();
-        medicine_g.fillAmount = (float)DataBaseManager.medicinePoint / 100;
+        medicineTxt.text = DataBaseManager.medicinePoint.ToString();
+        medicineImg.fillAmount = (float)DataBaseManager.medicinePoint / 100;
         DataBaseManager.analysisPoint = 30;
-        analysis_t.text = DataBaseManager.analysisPoint.ToString();
-        analysis_g.fillAmount = (float)DataBaseManager.analysisPoint / 100;
+        analysisTxt.text = DataBaseManager.analysisPoint.ToString();
+        analysisImg.fillAmount = (float)DataBaseManager.analysisPoint / 100;
         DataBaseManager.listeningPoint = 30;
-        listening_t.text = DataBaseManager.listeningPoint.ToString();
-        listening_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
+        listeningTxt.text = DataBaseManager.listeningPoint.ToString();
+        listeningImg.fillAmount = (float)DataBaseManager.listeningPoint / 100;
         DataBaseManager.psychotherapyPoint = 5;
-        psychotherapy_t.text = DataBaseManager.psychotherapyPoint.ToString();
-        psychotherapy_g.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
+        psychotherapyTxt.text = DataBaseManager.psychotherapyPoint.ToString();
+        psychotherapyImg.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
         DataBaseManager.occultPoint = 5;
-        occult_t.text = DataBaseManager.occultPoint.ToString();
-        occult_g.fillAmount = (float)DataBaseManager.occultPoint / 100;
+        occultTxt.text = DataBaseManager.occultPoint.ToString();
+        occultImg.fillAmount = (float)DataBaseManager.occultPoint / 100;
         DataBaseManager.intSkillPoint = DataBaseManager.intl;
-        intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
+        intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
     }
     //int
     public void medicineUP()
@@ -808,9 +808,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.intSkillPoint -= 5;
             DataBaseManager.medicinePoint += 5;
-            medicine_t.text = DataBaseManager.medicinePoint.ToString();
-            intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-            medicine_g.fillAmount = (float)DataBaseManager.medicinePoint / 100;
+            medicineTxt.text = DataBaseManager.medicinePoint.ToString();
+            intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+            medicineImg.fillAmount = (float)DataBaseManager.medicinePoint / 100;
             nowSkill = "medicineUP";
         }
     }
@@ -823,9 +823,9 @@ public class setSkill : MonoBehaviour
 
             DataBaseManager.intSkillPoint += 5;
             DataBaseManager.medicinePoint -= 5;
-            medicine_t.text = DataBaseManager.medicinePoint.ToString();
-            intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-            medicine_g.fillAmount = (float)DataBaseManager.medicinePoint / 100;
+            medicineTxt.text = DataBaseManager.medicinePoint.ToString();
+            intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+            medicineImg.fillAmount = (float)DataBaseManager.medicinePoint / 100;
             nowSkill = "medicineDown";
         }
     }
@@ -837,9 +837,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.intSkillPoint -= 5;
             DataBaseManager.analysisPoint += 5;
-            analysis_t.text = DataBaseManager.analysisPoint.ToString();
-            intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-            analysis_g.fillAmount = (float)DataBaseManager.analysisPoint / 100;
+            analysisTxt.text = DataBaseManager.analysisPoint.ToString();
+            intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+            analysisImg.fillAmount = (float)DataBaseManager.analysisPoint / 100;
             nowSkill = "analysisUP";
         }
     }
@@ -852,9 +852,9 @@ public class setSkill : MonoBehaviour
 
             DataBaseManager.intSkillPoint += 5;
             DataBaseManager.analysisPoint -= 5;
-            analysis_t.text = DataBaseManager.analysisPoint.ToString();
-            intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-            analysis_g.fillAmount = (float)DataBaseManager.analysisPoint / 100;
+            analysisTxt.text = DataBaseManager.analysisPoint.ToString();
+            intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+            analysisImg.fillAmount = (float)DataBaseManager.analysisPoint / 100;
             nowSkill = "analysisDown";
         }
     }
@@ -866,9 +866,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.intSkillPoint -= 5;
             DataBaseManager.occultPoint += 5;
-            occult_t.text = DataBaseManager.occultPoint.ToString();
-            intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-            occult_g.fillAmount = (float)DataBaseManager.occultPoint / 100;
+            occultTxt.text = DataBaseManager.occultPoint.ToString();
+            intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+            occultImg.fillAmount = (float)DataBaseManager.occultPoint / 100;
             nowSkill = "occultUP";
         }
     }
@@ -880,9 +880,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.intSkillPoint += 5;
             DataBaseManager.occultPoint -= 5;
-            occult_t.text = DataBaseManager.occultPoint.ToString();
-            intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-            occult_g.fillAmount = (float)DataBaseManager.occultPoint / 100;
+            occultTxt.text = DataBaseManager.occultPoint.ToString();
+            intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+            occultImg.fillAmount = (float)DataBaseManager.occultPoint / 100;
             nowSkill = "occultDown";
         }
     }
@@ -895,9 +895,9 @@ public class setSkill : MonoBehaviour
 
             DataBaseManager.intSkillPoint -= 5;
             DataBaseManager.listeningPoint += 5;
-            listening_t.text = DataBaseManager.listeningPoint.ToString();
-            intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-            listening_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
+            listeningTxt.text = DataBaseManager.listeningPoint.ToString();
+            intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+            listeningImg.fillAmount = (float)DataBaseManager.listeningPoint / 100;
             nowSkill = "listeningUP";
         }
     }
@@ -909,9 +909,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.intSkillPoint += 5;
             DataBaseManager.listeningPoint -= 5;
-            listening_t.text = DataBaseManager.listeningPoint.ToString();
-            intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-            listening_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
+            listeningTxt.text = DataBaseManager.listeningPoint.ToString();
+            intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+            listeningImg.fillAmount = (float)DataBaseManager.listeningPoint / 100;
             nowSkill = "listeningDown";
         }
     }
@@ -923,9 +923,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.intSkillPoint -= 5;
             DataBaseManager.psychotherapyPoint += 5;
-            psychotherapy_t.text = DataBaseManager.psychotherapyPoint.ToString();
-            intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-            psychotherapy_g.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
+            psychotherapyTxt.text = DataBaseManager.psychotherapyPoint.ToString();
+            intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+            psychotherapyImg.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
             nowSkill = "psychotherapyUP";
         }
     }
@@ -938,9 +938,9 @@ public class setSkill : MonoBehaviour
 
             DataBaseManager.intSkillPoint += 5;
             DataBaseManager.psychotherapyPoint -= 5;
-            psychotherapy_t.text = DataBaseManager.psychotherapyPoint.ToString();
-            intPoint_t.text = DataBaseManager.intSkillPoint.ToString();
-            psychotherapy_g.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
+            psychotherapyTxt.text = DataBaseManager.psychotherapyPoint.ToString();
+            intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
+            psychotherapyImg.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
             nowSkill = "psychotherapyDown";
         }
     }
@@ -958,9 +958,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.dexSkillPoint -= 5;
                         DataBaseManager.evasionPoint += 5;
-                        evasion_t.text = DataBaseManager.evasionPoint.ToString();
-                        dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-                        evasion_g.fillAmount = (float)DataBaseManager.evasionPoint / 100;
+                        evasionTxt.text = DataBaseManager.evasionPoint.ToString();
+                        dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+                        evasionImg.fillAmount = (float)DataBaseManager.evasionPoint / 100;
                     }
                     break;
                 case 2:
@@ -968,9 +968,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.dexSkillPoint -= 5;
                         DataBaseManager.deftnessPoint += 5;
-                        deftness_t.text = DataBaseManager.deftnessPoint.ToString();
-                        dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-                        deftness_g.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
+                        deftnessTxt.text = DataBaseManager.deftnessPoint.ToString();
+                        dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+                        deftnessImg.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
                     }
                     break;
                 case 3:
@@ -978,9 +978,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.dexSkillPoint -= 5;
                         DataBaseManager.rhetoricPoint += 5;
-                        rhetoric_t.text = DataBaseManager.rhetoricPoint.ToString();
-                        dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-                        rhetoric_g.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
+                        rhetoricTxt.text = DataBaseManager.rhetoricPoint.ToString();
+                        dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+                        rhetoricImg.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
                     }
                     break;
                 case 4:
@@ -988,9 +988,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.dexSkillPoint -= 5;
                         DataBaseManager.stealthPoint += 5;
-                        stealth_t.text = DataBaseManager.stealthPoint.ToString();
-                        dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-                        stealth_g.fillAmount = (float)DataBaseManager.stealthPoint / 100;
+                        stealthTxt.text = DataBaseManager.stealthPoint.ToString();
+                        dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+                        stealthImg.fillAmount = (float)DataBaseManager.stealthPoint / 100;
                     }
                     break;
                 case 5:
@@ -998,9 +998,9 @@ public class setSkill : MonoBehaviour
                     {
                         DataBaseManager.dexSkillPoint -= 5;
                         DataBaseManager.DisguisePoint += 5;
-                        Disguise_t.text = DataBaseManager.DisguisePoint.ToString();
-                        dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-                        Disguise_g.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
+                        disguiseTxt.text = DataBaseManager.DisguisePoint.ToString();
+                        dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+                        disguiseImg.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
                     }
                     break;
             }
@@ -1010,22 +1010,22 @@ public class setSkill : MonoBehaviour
     {
         SoundManager.Instance.ClickSound_Play();
         DataBaseManager.evasionPoint = 30;
-        evasion_t.text = DataBaseManager.evasionPoint.ToString();
-        evasion_g.fillAmount = (float)DataBaseManager.evasionPoint / 100;
+        evasionTxt.text = DataBaseManager.evasionPoint.ToString();
+        evasionImg.fillAmount = (float)DataBaseManager.evasionPoint / 100;
         DataBaseManager.deftnessPoint = 20;
-        deftness_t.text = DataBaseManager.deftnessPoint.ToString();
-        deftness_g.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
+        deftnessTxt.text = DataBaseManager.deftnessPoint.ToString();
+        deftnessImg.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
         DataBaseManager.rhetoricPoint = 20;
-        rhetoric_t.text = DataBaseManager.rhetoricPoint.ToString();
-        rhetoric_g.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
+        rhetoricTxt.text = DataBaseManager.rhetoricPoint.ToString();
+        rhetoricImg.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
         DataBaseManager.stealthPoint = 15;
-        stealth_t.text = DataBaseManager.stealthPoint.ToString();
-        stealth_g.fillAmount = (float)DataBaseManager.stealthPoint / 100;
+        stealthTxt.text = DataBaseManager.stealthPoint.ToString();
+        stealthImg.fillAmount = (float)DataBaseManager.stealthPoint / 100;
         DataBaseManager.DisguisePoint = 10;
-        Disguise_t.text = DataBaseManager.DisguisePoint.ToString();
-        Disguise_g.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
+        disguiseTxt.text = DataBaseManager.DisguisePoint.ToString();
+        disguiseImg.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
         DataBaseManager.dexSkillPoint = DataBaseManager.dex;
-        dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
+        dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
     }
 
     //dex
@@ -1037,9 +1037,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.dexSkillPoint -= 5;
             DataBaseManager.evasionPoint += 5;
-            evasion_t.text = DataBaseManager.evasionPoint.ToString();
-            dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-            evasion_g.fillAmount = (float)DataBaseManager.evasionPoint / 100;
+            evasionTxt.text = DataBaseManager.evasionPoint.ToString();
+            dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+            evasionImg.fillAmount = (float)DataBaseManager.evasionPoint / 100;
             nowSkill = "evasionUP";
         }
     }
@@ -1051,9 +1051,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.dexSkillPoint += 5;
             DataBaseManager.evasionPoint -= 5;
-            evasion_t.text = DataBaseManager.evasionPoint.ToString();
-            dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-            evasion_g.fillAmount = (float)DataBaseManager.evasionPoint / 100;
+            evasionTxt.text = DataBaseManager.evasionPoint.ToString();
+            dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+            evasionImg.fillAmount = (float)DataBaseManager.evasionPoint / 100;
             nowSkill = "evasionDown";
         }
     }
@@ -1065,9 +1065,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.dexSkillPoint -= 5;
             DataBaseManager.deftnessPoint += 5;
-            deftness_t.text = DataBaseManager.deftnessPoint.ToString();
-            dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-            deftness_g.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
+            deftnessTxt.text = DataBaseManager.deftnessPoint.ToString();
+            dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+            deftnessImg.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
             nowSkill = "deftnessUP";
         }
     }
@@ -1079,9 +1079,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.dexSkillPoint += 5;
             DataBaseManager.deftnessPoint -= 5;
-            deftness_t.text = DataBaseManager.deftnessPoint.ToString();
-            dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-            deftness_g.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
+            deftnessTxt.text = DataBaseManager.deftnessPoint.ToString();
+            dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+            deftnessImg.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
             nowSkill = "deftnessDown";
         }
     }
@@ -1093,9 +1093,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.dexSkillPoint -= 5;
             DataBaseManager.rhetoricPoint += 5;
-            rhetoric_t.text = DataBaseManager.rhetoricPoint.ToString();
-            dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-            rhetoric_g.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
+            rhetoricTxt.text = DataBaseManager.rhetoricPoint.ToString();
+            dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+            rhetoricImg.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
             nowSkill = "rhetoricUP";
         }
     }
@@ -1107,9 +1107,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.dexSkillPoint += 5;
             DataBaseManager.rhetoricPoint -= 5;
-            rhetoric_t.text = DataBaseManager.rhetoricPoint.ToString();
-            dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-            rhetoric_g.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
+            rhetoricTxt.text = DataBaseManager.rhetoricPoint.ToString();
+            dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+            rhetoricImg.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
             nowSkill = "rhetoricDown";
         }
     }
@@ -1122,9 +1122,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.dexSkillPoint -= 5;
             DataBaseManager.stealthPoint += 5;
-            stealth_t.text = DataBaseManager.stealthPoint.ToString();
-            dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-            stealth_g.fillAmount = (float)DataBaseManager.stealthPoint / 100;
+            stealthTxt.text = DataBaseManager.stealthPoint.ToString();
+            dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+            stealthImg.fillAmount = (float)DataBaseManager.stealthPoint / 100;
             nowSkill = "stealthUP";
         }
     }
@@ -1136,9 +1136,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.dexSkillPoint += 5;
             DataBaseManager.stealthPoint -= 5;
-            stealth_t.text = DataBaseManager.stealthPoint.ToString();
-            dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-            stealth_g.fillAmount = (float)DataBaseManager.stealthPoint / 100;
+            stealthTxt.text = DataBaseManager.stealthPoint.ToString();
+            dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+            stealthImg.fillAmount = (float)DataBaseManager.stealthPoint / 100;
             nowSkill = "stealthDown";
         }
     }
@@ -1150,9 +1150,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.dexSkillPoint -= 5;
             DataBaseManager.DisguisePoint += 5;
-            Disguise_t.text = DataBaseManager.DisguisePoint.ToString();
-            dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-            Disguise_g.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
+            disguiseTxt.text = DataBaseManager.DisguisePoint.ToString();
+            dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+            disguiseImg.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
             nowSkill = "DisguiseUP";
         }
     }
@@ -1164,9 +1164,9 @@ public class setSkill : MonoBehaviour
             isClick = true;
             DataBaseManager.dexSkillPoint += 5;
             DataBaseManager.DisguisePoint -= 5;
-            Disguise_t.text = DataBaseManager.DisguisePoint.ToString();
-            dexPoint_t.text = DataBaseManager.dexSkillPoint.ToString();
-            Disguise_g.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
+            disguiseTxt.text = DataBaseManager.DisguisePoint.ToString();
+            dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
+            disguiseImg.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
             nowSkill = "DisguiseDown";
         }
     }
@@ -1188,51 +1188,51 @@ public class setSkill : MonoBehaviour
     public void resetSkillPoint()
     {
         DataBaseManager.martialArtsPoint = 25;
-        martialArtsPoint_t.text = DataBaseManager.martialArtsPoint.ToString();
-        martialArtsPoint_g.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
+        martialArtsPointTxt.text = DataBaseManager.martialArtsPoint.ToString();
+        martialArtsPointImg.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
         DataBaseManager.gunShotPoint = 15;
-        gunShotPoint_t.text = DataBaseManager.gunShotPoint.ToString();
-        gunShotPoint_g.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
+        gunShotPointTxt.text = DataBaseManager.gunShotPoint.ToString();
+        gunShotPointImg.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
         DataBaseManager.swordPoint = 20;
-        swordPoint_t.text = DataBaseManager.swordPoint.ToString();
-        swordPoint_g.fillAmount = (float)DataBaseManager.swordPoint / 100;
+        swordPointTxt.text = DataBaseManager.swordPoint.ToString();
+        swordPointImg.fillAmount = (float)DataBaseManager.swordPoint / 100;
         DataBaseManager.ObservationPoint = 20;
-        ObservationPoint_t.text = DataBaseManager.ObservationPoint.ToString();
-        ObservationPoint_g.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+        observationPointTxt.text = DataBaseManager.ObservationPoint.ToString();
+        observationPointImg.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
         DataBaseManager.swimingPoint = 10;
-        swimingPoint_t.text = DataBaseManager.swimingPoint.ToString();
-        swimingPoint_g.fillAmount = (float)DataBaseManager.swimingPoint / 100;
+        swimingPointTxt.text = DataBaseManager.swimingPoint.ToString();
+        swimingPointImg.fillAmount = (float)DataBaseManager.swimingPoint / 100;
 
         DataBaseManager.medicinePoint = 10;
-        medicine_t.text = DataBaseManager.medicinePoint.ToString();
-        medicine_g.fillAmount = (float)DataBaseManager.medicinePoint / 100;
+        medicineTxt.text = DataBaseManager.medicinePoint.ToString();
+        medicineImg.fillAmount = (float)DataBaseManager.medicinePoint / 100;
         DataBaseManager.analysisPoint = 30;
-        analysis_t.text = DataBaseManager.analysisPoint.ToString();
-        analysis_g.fillAmount = (float)DataBaseManager.analysisPoint / 100;
+        analysisTxt.text = DataBaseManager.analysisPoint.ToString();
+        analysisImg.fillAmount = (float)DataBaseManager.analysisPoint / 100;
         DataBaseManager.listeningPoint = 30;
-        listening_t.text = DataBaseManager.listeningPoint.ToString();
-        listening_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
+        listeningTxt.text = DataBaseManager.listeningPoint.ToString();
+        listeningImg.fillAmount = (float)DataBaseManager.listeningPoint / 100;
         DataBaseManager.psychotherapyPoint = 5;
-        psychotherapy_t.text = DataBaseManager.psychotherapyPoint.ToString();
-        psychotherapy_g.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
+        psychotherapyTxt.text = DataBaseManager.psychotherapyPoint.ToString();
+        psychotherapyImg.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
         DataBaseManager.occultPoint = 5;
-        occult_t.text = DataBaseManager.occultPoint.ToString();
-        occult_g.fillAmount = (float)DataBaseManager.occultPoint / 100;
+        occultTxt.text = DataBaseManager.occultPoint.ToString();
+        occultImg.fillAmount = (float)DataBaseManager.occultPoint / 100;
 
         DataBaseManager.evasionPoint = 30;
-        evasion_t.text = DataBaseManager.evasionPoint.ToString();
-        evasion_g.fillAmount = (float)DataBaseManager.evasionPoint / 100;
+        evasionTxt.text = DataBaseManager.evasionPoint.ToString();
+        evasionImg.fillAmount = (float)DataBaseManager.evasionPoint / 100;
         DataBaseManager.deftnessPoint = 20;
-        deftness_t.text = DataBaseManager.deftnessPoint.ToString();
-        deftness_g.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
+        deftnessTxt.text = DataBaseManager.deftnessPoint.ToString();
+        deftnessImg.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
         DataBaseManager.rhetoricPoint = 20;
-        rhetoric_t.text = DataBaseManager.rhetoricPoint.ToString();
-        rhetoric_g.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
+        rhetoricTxt.text = DataBaseManager.rhetoricPoint.ToString();
+        rhetoricImg.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
         DataBaseManager.stealthPoint = 15;
-        stealth_t.text = DataBaseManager.stealthPoint.ToString();
-        stealth_g.fillAmount = (float)DataBaseManager.stealthPoint / 100;
+        stealthTxt.text = DataBaseManager.stealthPoint.ToString();
+        stealthImg.fillAmount = (float)DataBaseManager.stealthPoint / 100;
         DataBaseManager.DisguisePoint = 10;
-        Disguise_t.text = DataBaseManager.DisguisePoint.ToString();
-        Disguise_g.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
+        disguiseTxt.text = DataBaseManager.DisguisePoint.ToString();
+        disguiseImg.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
     }
 }

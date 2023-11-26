@@ -5,15 +5,15 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class SetCharacter_ : MonoBehaviour
 {
-    public GameObject Back;
-    public Image BackGround;
-    public GameObject DemoEnd_Back;
-    public Image DemoEnd_BackGround;
+    public GameObject backOb;
+    public Image backGroundImg;
+    public GameObject demoEndBackOb;
+    public Image demoEndBackGroundImg;
     public void DemoEnd_FadeOut()
     {
-        DemoEnd_Back.SetActive(true);
+        demoEndBackOb.SetActive(true);
         mySequence = DOTween.Sequence()
-        .Append(DemoEnd_BackGround.DOFade(0, 1.5f).SetAutoKill());
+        .Append(demoEndBackGroundImg.DOFade(0, 1.5f).SetAutoKill());
     }
     Sequence mySequence;
     Sequence mySequence2;
@@ -29,38 +29,38 @@ public class SetCharacter_ : MonoBehaviour
     }
     IEnumerator FadeInOut_IEnumerator()
     {
-        Back.SetActive(true);
+        backOb.SetActive(true);
         mySequence = DOTween.Sequence()
-        .Append(BackGround.DOFade(1, 1.5f).SetAutoKill());
+        .Append(backGroundImg.DOFade(1, 1.5f).SetAutoKill());
         yield return mySequence.WaitForCompletion();
         mySequence2 = DOTween.Sequence()
         .SetDelay(1.5f)
-        .Append(BackGround.DOFade(0, 1.5f).SetAutoKill());
+        .Append(backGroundImg.DOFade(0, 1.5f).SetAutoKill());
         yield return mySequence2.WaitForCompletion();
-        Back.SetActive(false);
+        backOb.SetActive(false);
     }
     public void FadeIn()
     {
-        Back.SetActive(true);
+        backOb.SetActive(true);
         mySequence = DOTween.Sequence()
-        .Append(BackGround.DOFade(1, 1.5f).SetAutoKill());
+        .Append(backGroundImg.DOFade(1, 1.5f).SetAutoKill());
     }
     public void FadeOut()
     {
-        Back.SetActive(true);
-        Tween fadeTween2 = BackGround.DOFade(0, 1.5f);
+        backOb.SetActive(true);
+        Tween fadeTween2 = backGroundImg.DOFade(0, 1.5f);
         fadeTween2.OnComplete(goToGame);
     }
     IEnumerator FadeOut_IEnumerator()
     {
         mySequence2 = DOTween.Sequence()
         .SetDelay(1.5f)
-        .Append(BackGround.DOFade(0, 1.5f).SetAutoKill());
+        .Append(backGroundImg.DOFade(0, 1.5f).SetAutoKill());
         yield return mySequence2.WaitForCompletion();
-        Back.SetActive(false);
+        backOb.SetActive(false);
     }
     public void goToGame()
     {
-        Back.SetActive(false);
+        backOb.SetActive(false);
     }
 }
