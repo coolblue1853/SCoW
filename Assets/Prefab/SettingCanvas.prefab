@@ -23994,8 +23994,8 @@ MonoBehaviour:
   batReady: {fileID: 8300000, guid: 463fd18e674ed064798576c4a38fe349, type: 3}
   daggerReady: {fileID: 8300000, guid: 4682e2fe593b7374ea90a1508114e44e, type: 3}
   axeReady: {fileID: 8300000, guid: 6e46979281e65ac4297276f4be065846, type: 3}
-  smallPisolReady: {fileID: 8300000, guid: 15ab93f55156d794fa2c5cceb25cd1c4, type: 3}
-  revolverReady: {fileID: 8300000, guid: 5bd503356614c3449892cc1c461a6259, type: 3}
+  smallPisolReady: {fileID: 8300000, guid: 87bf9cfb6f93a024d97e1ab7c89c1546, type: 3}
+  revolverReady: {fileID: 8300000, guid: 4e892f730a8796f459afa41b8fc13a39, type: 3}
   rifleReady: {fileID: 8300000, guid: 4cc8e71dbf9eeb2428e9ab281ae54868, type: 3}
   shotgunReady: {fileID: 8300000, guid: bbbdae1a0f562ad43abccb484fb60ba4, type: 3}
   rockReady: {fileID: 8300000, guid: d447056ccb8299c43b3158224cde5d6d, type: 3}
