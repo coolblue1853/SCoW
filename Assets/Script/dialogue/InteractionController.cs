@@ -1,672 +1,672 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
+
 public class InteractionController : MonoBehaviour
 {
     public DialogManager theDM;
 
     //Item_Box
-    public GameObject Safe_Look;
-    public GameObject Safe_Fail;
-    public GameObject Safe_Succ;
-    public GameObject Bracelet_Look;
-    public GameObject OldMap_Look;
-
-    public GameObject Document_Look;
+    public GameObject safeLook;
+    public GameObject safeFail;
+    public GameObject safeSucc;
+    public GameObject braceletLook;
+    public GameObject oldMapLook;
+    public GameObject documentLook;
     //의뢰자의 집
-    public GameObject Start_1st_Detective;
-    public GameObject NewsPaper;
-    public GameObject NewsPaper_Look;
-    public GameObject NewsPaper_Judege_True;
-    public GameObject NewsPaper_Judege_False;
-    public GameObject Desk;
-    public GameObject Desk_Look;
-    public GameObject Stove;
-    public GameObject Stove_Look;
-    public GameObject Stove_Judge_True;
-    public GameObject Stove_Judge_False;
-    public GameObject Directing_Nock;
-    public GameObject Directing_Door;
-    public GameObject Directing_AfterDoor;
-    public GameObject Select_AboutCrime;
-    public GameObject Select_AboutHospital;
-    public GameObject Select_AboutRunAway;
-    public GameObject Accept_Request;
-    public GameObject Accept_AfterSelectYes;
-    public GameObject Reject_Request;
-    public GameObject Accept_AfterSelectNo;
+    public GameObject start1stDetective;
+    public GameObject newsPaper;
+    public GameObject newsPaperLook;
+    public GameObject newsPaperJudegeTrue;
+    public GameObject newsPaperJudegeFalse;
+    public GameObject desk;
+    public GameObject deskLook;
+    public GameObject stove;
+    public GameObject stoveLook;
+    public GameObject stoveJudgeTrue;
+    public GameObject stoveJudgeFalse;
+    public GameObject directingNock;
+    public GameObject directingDoor;
+    public GameObject directingAfterDoor;
+    public GameObject selectAboutCrime;
+    public GameObject selectAboutHospital;
+    public GameObject selectAboutRunAway;
+    public GameObject acceptRequest;
+    public GameObject acceptAfterSelectYes;
+    public GameObject rejectRequest;
+    public GameObject acceptAfterSelectNo;
     //밤
-    public GameObject Fab_FirstDialog;
-    public GameObject Fab_Aiden1;
-    public GameObject Fab_Safe1;
-    public GameObject Fab_Nightmare1;
-    public GameObject Fab_Nightmare2;
-    public GameObject Fab_Nightmare3;
-    public GameObject Fab_Nightmare4;
-    public GameObject Fab_Insomnia1;
-    public GameObject Fab_Insomnia2;
-    public GameObject Fab_PlanetarySequence1;
-    public GameObject Fab_Univ1;
-    public GameObject Fab_Meiv2;
-    public GameObject Fab_MissingPeople;
-    public GameObject Fab_GhostStory1;
-    public GameObject Fab_GhostStory2;
-    public GameObject Fab_CreepyEye;
-    public GameObject Fab_Worker1;
-    public GameObject Fab_FishySmell1;
-    public GameObject Fab_FishySmell2;
-    public GameObject Fab_FishySmell3;
-    public GameObject Fab_EndDay;
-    public GameObject Fab_Connect;
+    public GameObject fabFirstDialog;
+    public GameObject fabAiden1;
+    public GameObject fabSafe1;
+    public GameObject fabNightmare1;
+    public GameObject fabNightmare2;
+    public GameObject fabNightmare3;
+    public GameObject fabNightmare4;
+    public GameObject fabInsomnia1;
+    public GameObject fabInsomnia2;
+    public GameObject fabPlanetarySequence1;
+    public GameObject fabUniv1;
+    public GameObject fabMeiv2;
+    public GameObject fabMissingPeople;
+    public GameObject fabGhostStory1;
+    public GameObject fabGhostStory2;
+    public GameObject fabCreepyEye;
+    public GameObject fabWorker1;
+    public GameObject fabFishySmell1;
+    public GameObject fabFishySmell2;
+    public GameObject fabFishySmell3;
+    public GameObject fabEndDay;
+    public GameObject fabConnect;
     // 1st Clinet'sOffice
-    public GameObject FirstArrive;
-    public GameObject NockDoor;
-    public GameObject Ella_fistDialog;
-    public GameObject Ella_Dialog1;
-    public GameObject Ella_Dialog2;
-    public GameObject Ella_key_Aiden;
-    public GameObject Ella_key_disable;
-    public GameObject Ella_FirstUpstair;
-    public GameObject into_FirstRoom;
-    public GameObject Aiden_Active;
-    public GameObject Aiden_Look;
-    public GameObject Aiden_LookJudge;
-    public GameObject Aiden_FirstDialog;
-    public GameObject Aiden_Dialog1;
-    public GameObject Aiden_Dialog2;
-    public GameObject Aiden_key_Nightmare1;
-    public GameObject Aiden_key_EllaTriss1;
-    public GameObject Aiden_key_Safe1;
-    public GameObject Aiden_key_Safe_Str;
-    public GameObject Aiden_key_Safe_Str_Sucsses;
-    public GameObject Aiden_key_Safe_Str_Fail;
-    public GameObject Aiden_key_Safe_rhetoric_sucsses;
-    public GameObject Aiden_key_Safe_rhetoric_Fail;
-    public GameObject Aiden_key_Safe_Nothing;
-    public GameObject Aiden_key_Fail1;
-    public GameObject Aiden_key_Fail2;
-    public GameObject Aiden_Judge_medicine_Sucsses;
-    public GameObject Aiden_Judge_medicine_Fail;
-    public GameObject Aiden_Judge_Observation_Sucsses;
-    public GameObject Aiden_Judge_Observation_Fail;
-    public GameObject Aiden_Judge_psychotherapy_Sucsses;
-    public GameObject Aiden_Judge_psychotherapy_Sucsses_Safe;
-    public GameObject Aiden_Judge_psychotherapy_Sucsses_NoSafe;
-    public GameObject Aiden_Judge_psychotherapy_Sucsses_End;
-    public GameObject Aiden_Judge_psychotherapy_Fail;
-    public GameObject Aiden_key_FailForce;
-    public GameObject EllaEnd_NoSafe;
-    public GameObject EllaEnd_GetSafe;
+    public GameObject firstArrive;
+    public GameObject nockDoor;
+    public GameObject ellaFirstDialog;
+    public GameObject ellaDialog1;
+    public GameObject ellaDialog2;
+    public GameObject ellaKeyAiden;
+    public GameObject ellaKeyDisable;
+    public GameObject ellaFirstUpstair;
+    public GameObject intoFirstRoom;
+    public GameObject aidenActive;
+    public GameObject aidenLook;
+    public GameObject aidenLookJudge;
+    public GameObject aidenFirstDialog;
+    public GameObject aidenDialog1;
+    public GameObject aidenDialog2;
+    public GameObject aidenKeyNightmare1;
+    public GameObject aidenkeyEllaTriss1;
+    public GameObject aidenKeySafe1;
+    public GameObject aidenKeySafeStr;
+    public GameObject aidenKeySafeStrSucc;
+    public GameObject aidenKeySafeStrFail;
+    public GameObject aidenkeySafeRhetoricSucc;
+    public GameObject aidenKeySafeRhetoricFail;
+    public GameObject aidenKeySafeNothing;
+    public GameObject aidenKeyFail1;
+    public GameObject aidenKeyFail2;
+    public GameObject aidenJudgeMedicineSucc;
+    public GameObject aidenJudgeMedicineFail;
+    public GameObject aidenJudgeObservationSucc;
+    public GameObject aidenJudgeObservationFail;
+    public GameObject aidenJudgePsychotherapySucc;
+    public GameObject aidenJudgePsychotherapySuccSafe;
+    public GameObject aidenJudgePsychotherapySuccNoSafe;
+    public GameObject aidenJudgePsychotherapySuccEnd;
+    public GameObject aidenJudgePsychotherapyFail;
+    public GameObject aidenKeyFailForce;
+    public GameObject ellaEndNoSafe;
+    public GameObject ellaEndGetSafe;
     //오후 추가
-    public GameObject Aiden_key_CreepyEye1;
-    public GameObject Ella_Key_FishySmell1_noGhosty1;
-    public GameObject Ella_Key_FishySmell1_yesGhosty1;
+    public GameObject aidenKeyCreepyEye1;
+    public GameObject ellaKeyFishySmell1NoGhosty1;
+    public GameObject ellaKeyFishySmell1YesGhosty1;
 
     // 1st DailyNews
-    public GameObject Swain_FirstDialog; //
-    public GameObject Swain_Dialog; //
-    public GameObject Swain_Look; //
-    public GameObject Swain_LookJudge_Sucsses; //
-    public GameObject Swain_LookJudge_Fail; //
-    public GameObject Swain_Key_PlanetarySequence1;//
-    public GameObject Swain_Key_Insomnia1;
-    public GameObject Swain_Key_Nightmare2;
-    public GameObject Swain_Key_Paranoia1;
-    public GameObject Swain_Key_EllaTriss1;
-    public GameObject Swain_Key_AidenTriss1;
-    public GameObject Swain_Key_DailyNews1;
-    public GameObject Swain_Key_Nothing;
+    public GameObject swainFirstDialog;
+    public GameObject swainDialog;
+    public GameObject swainLook;
+    public GameObject swainLookJudgeSucsses;
+    public GameObject swainLookJudgeFail;
+    public GameObject swainKeyPlanetarySequence1;
+    public GameObject swainKeyInsomnia1;
+    public GameObject swainKeyNightmare2;
+    public GameObject swainKeyParanoia1;
+    public GameObject swainKeyEllaTriss1;
+    public GameObject swainKeyAidenTriss1;
+    public GameObject swainKeyDailyNews1;
+    public GameObject swainKeyNothing;
     //오후추가
-    public GameObject Swain_Key_MissingPeople1;
-    public GameObject Swain_Key_FishySmell2;
-    public GameObject Swain_Key_GhostStory1;
-    public GameObject Swain_Key_CreepyEye1;
+    public GameObject swainKeyMissingPeople1;
+    public GameObject swainKeyFishySmell2;
+    public GameObject swainKeyGhostStory1;
+    public GameObject swainKeyCreepyEye1;
 
     // 1st University
-    public GameObject Univ_FirstDialog; //
-    public GameObject Univ_Dialog; //
-    public GameObject Univ_Look; //
-    public GameObject Univ_Key_PlanetarySequence1;//
-    public GameObject Univ_Key_Insomnia1;
-    public GameObject Univ_Key_Nothing;
+    public GameObject univFirstDialog;
+    public GameObject univDialog;
+    public GameObject univLook;
+    public GameObject univKeyPlanetarySequence1;
+    public GameObject univKeyInsomnia1;
+    public GameObject univKeyNothing;
 
     // 1st Riverside
-    public GameObject Kane_FirstDialog; //
-    public GameObject Kane_Dialog; //
-    public GameObject Kane_Look;
-    public GameObject Kane_Nothing;
-    public GameObject Kane_key_waterQuality1_noFishySmell;
-    public GameObject Kane_key_waterQuality1_yesFishySmell;
-
-    public GameObject Sewer_FirstDialog; //
-    public GameObject Sewer_Dialog; //
-    public GameObject Sewer_Look;
-    public GameObject Sewer_Observation_Sucsses;
-    public GameObject Sewer_Observation_SucssesAfter;
-    public GameObject Sewer_Observation_Fail;
-    public GameObject Sewer_Observation_SucssesAfterSanSuc;
+    public GameObject kaneFirstDialog;
+    public GameObject kaneDialog;
+    public GameObject kaneLook;
+    public GameObject kaneNothing;
+    public GameObject kaneKeyWaterQuality1NoFishySmell;
+    public GameObject kaneKeyWaterQuality1YesFishySmell;
+    public GameObject sewerFirstDialog;
+    public GameObject sewerDialog;
+    public GameObject sewerLook;
+    public GameObject sewerObservationSucc;
+    public GameObject sewerObservationSuccAfter;
+    public GameObject sewerObservationFail;
+    public GameObject sewerObservationSuccAfterSanSuc;
 
     // 1st Hospital
-    public GameObject Hospital_NoonFirst; //
-    public GameObject Kate_FirstDialog; //
-    public GameObject Alan_FirstDialog; //
-    public GameObject Alan_Dialog; //
+    public GameObject hospitalNoonFirst;
+    public GameObject kateFirstDialog;
+    public GameObject alanFirstDialog;
+    public GameObject alanDialog;
     //오후
-    public GameObject Kate_NoonFirstDialog;
-    public GameObject Kate_NoonDialog;
-    public GameObject Kate_NoonLook;
-    public GameObject Kate_NoonInsomnia1;
-    public GameObject Kate_NoonNightmare1;
-    public GameObject Kate_NoonParanoia1;
-    public GameObject Kate_NoonHospital1;
-    public GameObject Kate_NoonFishySmell1;
-    public GameObject Kate_NoonNothing;
-    public GameObject Alan_NoonFirstDialog;
-    public GameObject Alan_NoonDialog;
-    public GameObject Alan_NoonLook;
-    public GameObject Alan_NoonNightmare1;
-    public GameObject Alan_NoonNightmare2;
-    public GameObject Alan_NoonNightmare3;
-    public GameObject Alan_NoonInsomnia1;
-    public GameObject Alan_NoonParanoia1;
-    public GameObject Alan_NoonAiden1;
-    public GameObject Alan_NoonNothing;
+    public GameObject kateNoonFirstDialog;
+    public GameObject kateNoonDialog;
+    public GameObject kateNoonLook;
+    public GameObject kateNoonInsomnia1;
+    public GameObject kateNoonNightmare1;
+    public GameObject kateNoonParanoia1;
+    public GameObject kateNoonHospital1;
+    public GameObject kateNoonFishySmell1;
+    public GameObject kateNoonNothing;
+    public GameObject alanNoonFirstDialog;
+    public GameObject alanNoonDialog;
+    public GameObject alanNoonLook;
+    public GameObject alanNoonNightmare1;
+    public GameObject alanNoonNightmare2;
+    public GameObject alanNoonNightmare3;
+    public GameObject alanNoonInsomnia1;
+    public GameObject alanNoonParanoia1;
+    public GameObject alanNoonAiden1;
+    public GameObject alanNoonNothing;
     // 1st PoliceOffice
-    public GameObject A_FirstDialog;
-    public GameObject A_Dialog;
-    public GameObject B_FirstDialog;
-    public GameObject B_Dialog;
-    public GameObject Albert_FirstDialog;
-    public GameObject Albert_Dialog;
-    public GameObject Albert_Key_PlanetarySequence1;
-    public GameObject Albert_Key_Insomnia1;
-    public GameObject Albert_Key_Meiv1;
-    public GameObject Albert_Key_Nothing;
-    public GameObject A_Look;
-    public GameObject B_Look;
-    public GameObject Albert_Look;
+    public GameObject aFirstDialog;
+    public GameObject aDialog;
+    public GameObject bFirstDialog;
+    public GameObject bDialog;
+    public GameObject albertFirstDialog;
+    public GameObject albertDialog;
+    public GameObject albertKeyPlanetarySequence1;
+    public GameObject albertKeyInsomnia1;
+    public GameObject albertKeyMeiv1;
+    public GameObject albertKeyNothing;
+    public GameObject aLook;
+    public GameObject bLook;
+    public GameObject albertLook;
+
     //오후
-    public GameObject Albert_Key_SewerGhostStory1;
-    public GameObject Albert_Key_CreepyEye1;
-    public GameObject Albert_Key_FishySmell1;
-    public GameObject Albert_Key_MissingPeople2;
-    // 1st Slum
-    public GameObject Dave_FirstDialog;
-    public GameObject Dave_Dialog;
-    public GameObject Dave_Ran1;
-    public GameObject Dave_Ran2;
-    public GameObject Dave_Ran3;
-    public GameObject Dave_Ran4;
-    public GameObject Dave_Ran5;
-    public GameObject Dave_Ran6;
-    public GameObject Dave_Ran7;
-    public GameObject Dave_Ran8;
-    public GameObject Dave_NoMoney;
-    public GameObject Dave_RanEnd;
+    public GameObject albertKeySewerGhostStory1;
+    public GameObject albertKeyCreepyEye1;
+    public GameObject albertKeyFishySmell1;
+    public GameObject albertKeyMissingPeople2;
 
     // 1st Slum
-    public GameObject Maeve_FirstDialog_JobO;
-    public GameObject Maeve_FirstDialog_JobX;
-    public GameObject Maeve_Dialog;
-    public GameObject Maeve_Look;
-    public GameObject Maeve_Key_Intel_PlanetarySequence1;
-    public GameObject Maeve_Key_Insomnia1;
-    public GameObject Maeve_Key_Albert1;
-    public GameObject Maeve_Key_MissingPeople;
-    public GameObject Maeve_Key_CreepyEye;
-    public GameObject Maeve_Key_FishySmell1;
-    public GameObject Maeve_Key_FishySmell2;
-    public GameObject Maeve_Key_Aiden1;
-    public GameObject Maeve_Key_Nothing;
-    public GameObject Worker_FirstDialog;
-    public GameObject Worker_Dialog;
-    public GameObject Worker_Look_O;
-    public GameObject Worker_Look_X;
+    public GameObject daveFirstDialog;
+    public GameObject daveDialog;
+    public GameObject daveRand1;
+    public GameObject daveRand2;
+    public GameObject daveRand3;
+    public GameObject daveRand4;
+    public GameObject daveRand5;
+    public GameObject daveRand6;
+    public GameObject daveRand7;
+    public GameObject daveRand8;
+    public GameObject daveNoMoney;
+    public GameObject daveRandEnd;
+
+
+    // 1st Slum
+    public GameObject maeveFirstDialogJobO;
+    public GameObject maeveFirstDialogJobX;
+    public GameObject maeveDialog;
+    public GameObject maeveLook;
+    public GameObject maeveKeyIntelPlanetarySequence1;
+    public GameObject maeveKeyInsomnia1;
+    public GameObject maeveKeyAlbert1;
+    public GameObject maeveKeyMissingPeople;
+    public GameObject maeveKeyCreepyEye;
+    public GameObject maeveKeyFishySmell1;
+    public GameObject maeveKeyFishySmell2;
+    public GameObject maeveKeyAiden1;
+    public GameObject maeveKeyNothing;
+    public GameObject workerFirstDialog;
+    public GameObject workerDialog;
+    public GameObject workerLookO;
+    public GameObject workerLookX;
+
 
     // Update is called once per frame
 
     // 전투
-    public GameObject Battle_StartDialog;
-    public GameObject Battle_SanCheck;
-    public GameObject Battle_SanCheckFail;
-    public GameObject Battle_EndBattle;
+    public GameObject battleStartDialog;
+    public GameObject battleSanCheck;
+    public GameObject battleSanCheckFail;
+    public GameObject battleEndBattle;
     //public GameObject Sewer_Observation_SucssesAfterSanSuc;
 
     //2st 탐정사무소
-    public GameObject Fab_Case1;
-    public GameObject Fab_Case1After;
-    public GameObject Fab_Case2;
-    public GameObject Fab_Case2Succ;
-    public GameObject Fab_Case2SuccAfter;
-    public GameObject Fab_Case2Fail;
-    public GameObject Fab_Case3;
+    public GameObject fabCase1;
+    public GameObject fabCase1After;
+    public GameObject fabCase2;
+    public GameObject fabCase2Succ;
+    public GameObject fabCase2SuccAfter;
+    public GameObject fabCase2Fail;
+    public GameObject fabCase3;
 
     //2st 의뢰자
-    public GameObject Ella_key_ContentsofaNewspaper;
-    public GameObject Ella_key_ContentofaNightmare;
-    public GameObject Ella_key_AidensDetail;
-    public GameObject Ella_key_WaterandNightmare;
-    public GameObject Ella_key_Doctorsopinion;
-    public GameObject Ella_key_AidensSafe;
-    public GameObject Ella_key_AcquiringaSafe;
-    public GameObject Ella_key_AidenandPandemic;
-
-    public GameObject Aiden_key_Missing;
-    public GameObject Aiden_key_FishySmellOrigin;
-    public GameObject Aiden_key_ContentsofaGhostStory;
-    public GameObject Aiden_key_OwnerofEye;
+    public GameObject ellaKeyContentNewspaper;
+    public GameObject ellaKeyContentNightmare;
+    public GameObject ellaKeyAidensDetail;
+    public GameObject ellaKeyWaterNightmare;
+    public GameObject ellaKeyDoctorsOpinion;
+    public GameObject ellaKeyAidenSafe;
+    public GameObject ellaKeyAcquiringaSafe;
+    public GameObject ellaKeyAidenPandemic;
+    public GameObject aidenKeyMissing;
+    public GameObject aidenKeyFishySmellOrigin;
+    public GameObject aidenKeyContentGhostStory;
+    public GameObject aidenKeyOwnerOfEye;
 
     //2st 신문사
-    public GameObject Swain_key_ContentofaNightmare;
-    public GameObject Swain_key_WaterandNightmare;
-    public GameObject Swain_key_FishySmell_Reort;
-    public GameObject Swain_key_FishySmell_None;
-    public GameObject Swain_key_Details;
-    public GameObject Swain_key_AidenandPandemic;
-    public GameObject Swain_key_Unfairdismissal;
+    public GameObject swainKeyContentNightmare;
+    public GameObject swainKeyWaterNightmare;
+    public GameObject swainKeyFishySmellReport;
+    public GameObject swainKeyFishySmellNone;
+    public GameObject swainKeyDetails;
+    public GameObject swainKeyAidenPandemic;
+    public GameObject swainKeyUnfairDismissal;
 
     //2st 대학교
-    public GameObject Student_key_ContentofaNightmare;
-    public GameObject Student_key_WaterandNightmare;
-    public GameObject Student_key_Rumor;
-    public GameObject Student_key_FishySmell;
-    public GameObject Student_key_Details;
+    public GameObject studentKeyContentNightmare;
+    public GameObject studentKeyWaterNightmare;
+    public GameObject studentKeyRumor;
+    public GameObject studentKeyFishySmell;
+    public GameObject studentKeyDetails;
+
 
     //2st 경찰서
-    public GameObject Albert_key_WaterandNightmare;
-    public GameObject Albert_key_FishySmell;
-    public GameObject Albert_key_Details_noOrigin;
-    public GameObject Albert_key_Details_Origin;
-    public GameObject Albert_key_Promise;
-    public GameObject Albert_key_Unfairdismissal;
+    public GameObject albertKeyWaterNightmare;
+    public GameObject albertKeyFishySmell;
+    public GameObject albertKeyDetailsNoOrigin;
+    public GameObject albertKeyDetailsOrigin;
+    public GameObject albertKeyPromise;
+    public GameObject albertKeyUnfairDismissal;
 
     //2st 병원
-    public GameObject Kate_key_ContentsofaGhostStory;
-    public GameObject Kate_key_Sawinthesewer;
-    public GameObject Kate_key_Subjecttorequest;
-    public GameObject Alan_key_Details;
-    public GameObject Alan_key_Stateofcongestion;
+    public GameObject kateKeyContentGhostStory;
+    public GameObject kateKeySawinSewer;
+    public GameObject kateKeySubjectRequest;
+    public GameObject alanKeyDetails;
+    public GameObject alanKeyStateCongestion;
 
     //2st 술집
-    public GameObject Meave_key_WaterandNightmare;
-    public GameObject Meave_key_ContentsofaGhostStory;
-    public GameObject Meave_key_Truthofarumor;
-    public GameObject Meave_key_Details;
+    public GameObject meaveKeyWaterNightmare;
+    public GameObject meaveKeyContentGhostStory;
+    public GameObject meaveKeyTruthRumor;
+    public GameObject meaveKeyDetails;
 
     //2st 강제 이벤트
-    public GameObject NoonEvent_FirstDailog_NoMissing;
-    public GameObject NoonEvent_FirstDailog_MissingPeople;
-    public GameObject NoonEvent_FirstDailog_Noquest;
-    public GameObject NoonEvent_ClientHouse;
-
-    public GameObject NoonEvent_Witness_FirstDialog;
-    public GameObject NoonEvent_Witness_RepeatDialog;
-    public GameObject NoonEvent_Witness_Look;
-    public GameObject NoonEvent_Witness_ListeningFail;
-    public GameObject NoonEvent_Witness_ListeningSucc_Nomal;
-    public GameObject NoonEvent_Witness_ListeningSucc_MissingPeople;
-    public GameObject NoonEvent_Witness_ListeningSucc_NoRequest;
-    public GameObject NoonEvent_DoorPolice_FirstDialog;
-    public GameObject NoonEvent_DoorPolice_RepeatDialog;
-    public GameObject NoonEvent_DoorPolice_Look;
-    public GameObject NoonEvent_DoorPolice_PersuasionSucc;
-    public GameObject NoonEvent_DoorPolice_PersuasionFail;
-    public GameObject NoonEvent_FirstDoor;
-    public GameObject NoonEvent_FirstDoorAfterSan;
-    public GameObject NoonEvent_InsidePolice_FirstDialog;
-    public GameObject NoonEvent_InsidePolice_RepeatDialog;
-    public GameObject NoonEvent_InsidePolice_Look;
-    public GameObject NoonEvent_DeadBody_Dialog;
-    public GameObject NoonEvent_DeadBody_Look_NoRumor;
-    public GameObject NoonEvent_DeadBody_Look_YesRumor;
-    public GameObject NoonEvent_DeadBody_Look_Missing;
-    public GameObject NoonEvent_DeadBody_Look_FishySmell;
-
-    public GameObject NoonEvent_DeadBody_medicineSucc;
-    public GameObject NoonEvent_DeadBody_medicineFail;
-    public GameObject NoonEvent_DeadBody_ObservationSucc;
-    public GameObject NoonEvent_DeadBody_ObservationFail;
-    public GameObject NoonEvent_DeadBody_analysisSucc;
-    public GameObject NoonEvent_DeadBody_analysisSuccAfter;
-    public GameObject NoonEvent_DeadBody_analysisFail;
-    public GameObject NoonEvent_DeadBody_deftnessSucc;
-    public GameObject NoonEvent_DeadBody_deftnessFail;
+    public GameObject noonEventFirstDailogNoMissing;
+    public GameObject noonEventFirstDailogMissingPeople;
+    public GameObject noonEventFirstDailogNoquest;
+    public GameObject noonEventClientHouse;
+    public GameObject noonEventWitnessFirstDialog;
+    public GameObject noonEventWitnessRepeatDialog;
+    public GameObject noonEventWitnessLook;
+    public GameObject noonEventWitnessListeningFail;
+    public GameObject noonEventWitnessListeningSuccNomal;
+    public GameObject noonEventWitnessListeningSuccMissingPeople;
+    public GameObject noonEventWitnessListeningSuccNoRequest;
+    public GameObject noonEventDoorPoliceFirstDialog;
+    public GameObject noonEventDoorPoliceRepeatDialog;
+    public GameObject noonEventDoorPoliceLook;
+    public GameObject noonEventDoorPolicePersuasionSucc;
+    public GameObject noonEventDoorPolicePersuasionFail;
+    public GameObject noonEventFirstDoor;
+    public GameObject noonEventFirstDoorAfterSan;
+    public GameObject noonEventInsidePoliceFirstDialog;
+    public GameObject noonEventInsidePoliceRepeatDialog;
+    public GameObject noonEventInsidePoliceLook;
+    public GameObject noonEventDeadBodyDialog;
+    public GameObject noonEventDeadBodyLookNoRumor;
+    public GameObject noonEventDeadBodyLookYesRumor;
+    public GameObject noonEventDeadBodyLookMissing;
+    public GameObject noonEventDeadBodyLookFishySmell;
+    public GameObject noonEventDeadBodyMedicineSucc;
+    public GameObject noonEventDeadBodyMedicineFail;
+    public GameObject noonEventDeadBodyObservationSucc;
+    public GameObject noonEventDeadBodyObservationFail;
+    public GameObject noonEventDeadBodyAnalysisSucc;
+    public GameObject noonEventDeadBodyAnalysisSuccAfter;
+    public GameObject noonEventDeadBodyAnalysisFail;
+    public GameObject noonEventDeadBodyDeftnessSucc;
+    public GameObject noonEventDeadBodyDeftnessFail;
 
     // 강제 이번트 이후 추가 키워드 
     // 신문사
-    public GameObject Swain_NoContect_FirstDialog;
-    public GameObject Swain_Kidnap;
-    public GameObject Swain_fishySlime;
-    public GameObject Swain_ManholeOrWarn;
-    public GameObject Swain_MurderedElla;
-    public GameObject Swain_MissingAiden_Nomal;
-    public GameObject Swain_MissingAiden_MissingPeopleOk;
-    public GameObject Swain_witness;
-    public GameObject Swain_culprit;
-    public GameObject Swain_MissingandFishy;
-    public GameObject Swain_EllaDeathCause;
-    public GameObject Swain_WebbedFeet;
-    public GameObject Swain_RunawayRoute;
+    public GameObject swainNoContectFirstDialog;
+    public GameObject swainKidnap;
+    public GameObject swainFishySlime;
+    public GameObject swainManholeWarn;
+    public GameObject swainMurderedElla;
+    public GameObject swainMissingAidenNomal;
+    public GameObject swainMissingAidenMissingPeopleOk;
+    public GameObject swainWitness;
+    public GameObject swainCulprit;
+    public GameObject swainMissingFishy;
+    public GameObject swainEllaDeathCause;
+    public GameObject swainWebbedFeet;
+    public GameObject swainRunawayRoute;
 
     // 의뢰자의 집
-    public GameObject Site_Dialog;
-    public GameObject Site_Look;
-    public GameObject Site_analysisSucc;
-    public GameObject Site_analysisSuccAfter;
-    public GameObject Site_analysisFail;
+    public GameObject siteDialog;
+    public GameObject siteLook;
+    public GameObject siteAnalysisSucc;
+    public GameObject siteAnalysisSuccAfter;
+    public GameObject SiteAnalysisFail;
 
     //대학교
-    public GameObject Kane_FirstMeatatSev;
-    public GameObject Kane_DetailOB;
-    public GameObject Kane_AfterSevDilaog;
-    public GameObject Kane_AfterSevLook;
-    public GameObject Kane_FishySlime_CreepyEye;
-    public GameObject Kane_FishySlime_CreepyEyeAfterSans;
-    public GameObject Kane_FishySlime_Nomal;
+    public GameObject kaneFirstMeatSev;
+    public GameObject kaneDetailOb;
+    public GameObject kaneAfterSevDialog;
+    public GameObject kaneAfterSevLook;
+    public GameObject kaneFishySlimeCreepyEye;
+    public GameObject kaneFishySlimeCreepyEyeAfterSans;
+    public GameObject kaneFishySlimeNomal;
 
     //빈민가
-    public GameObject Dave_Rand9;
-    public GameObject Dave_Key_SafeAquire;
-    public GameObject Dave_Key_Breclet;
-    public GameObject Dave_Key_Witness;
-    public GameObject Dave_Key_Fail;
-    public GameObject Dave_Key_BrecletAfter;
-    public GameObject Dave_Key_SafeAfter;
-    public GameObject Dave_Key_OpenSafe;
+    public GameObject daveRand9;
+    public GameObject daveKeySafeAquire;
+    public GameObject daveKeyBreclet;
+    public GameObject daveKeyWitness;
+    public GameObject daveKeyFail;
+    public GameObject daveKeyBrecletAfter;
+    public GameObject daveKeySafeAfter;
+    public GameObject daveKeyOpenSafe;
 
     //병원
-    public GameObject Kate_Key_EllaBody;
-    public GameObject Kate_Key_Witness;
-    public GameObject Alan_Key_EllaBody;
+    public GameObject kateKeyEllaBody;
+    public GameObject kateKeyWitness;
+    public GameObject alanKeyEllaBody;
 
     // 경찰서
-    public GameObject Albert_FirstDialogAfterEvent;
-    public GameObject Albert_FirstDialogNew;
-    public GameObject Albert_Key_WarnOfAiden;
-    public GameObject Albert_Key_Rootofproblem;
-    public GameObject Albert_Key_DeadElla;
-    public GameObject Albert_Key_MissingAiden;
-    public GameObject Albert_Key_Witness;
-    public GameObject Albert_Key_Culprit;
-    public GameObject Albert_Key_CauseOfDeath;
-    public GameObject Albert_Key_WebbedFeet;
-    public GameObject Albert_Key_RunwayMenhole;
+    public GameObject albertFirstDialogAfterEvent;
+    public GameObject albertFirstDialogNew;
+    public GameObject albertKeyWarnAiden;
+    public GameObject albertKeyRootProblem;
+    public GameObject albertKeyDeadElla;
+    public GameObject albertKeyMissingAiden;
+    public GameObject albertKeyWitness;
+    public GameObject albertKeyCulprit;
+    public GameObject albertKeyCauseOfDeath;
+    public GameObject albertKeyWebbedFeet;
+    public GameObject albertKeyRunwayMenhole;
+
 
     // 술집
-    public GameObject Day2Bar_fishysmellO;
-    public GameObject Day2Bar_fishysmellX;
-    public GameObject Day2Bar_1stBarIn;
-    public GameObject Day2Bar_firstBar;
-    public GameObject Meave_key_CauseOfProblem;
-    public GameObject Meave_key_DEllaMAiden;
-    public GameObject Meave_key_Witness;
-    public GameObject Meave_key_MissingFishyCauseX;
-    public GameObject Meave_key_MissingFishyCauseO;
-    public GameObject Meave_Judge_RhetoricSucc;
-    public GameObject Meave_Judge_RhetoricSanAfter;
-    public GameObject Meave_Judge_RhetoricFail;
+    public GameObject day2BarFishysmellO;
+    public GameObject day2BarFishysmellX;
+    public GameObject day2Bar1stBarIn;
+    public GameObject day2BarFirstBar;
+    public GameObject meaveKeyCauseProblem;
+    public GameObject meaveKey_EllaAiden;
+    public GameObject meaveKeyWitness;
+    public GameObject meaveKeyMissingFishyCauseX;
+    public GameObject meaveKeyMissingFishyCauseO;
+    public GameObject meaveJudgeRhetoricSucc;
+    public GameObject meaveJudgeRhetoricSanAfter;
+    public GameObject meaveJudgeRhetoricFail;
 
     //탐정사무소 추가 정리
-    public GameObject Fab_2ndConnectStart;
-    public GameObject Fab_Witness;
-    public GameObject Fab_OwnerofUnifrom;
-    public GameObject Fab_CauseofDeath;
-    public GameObject Fab_WebbedFeet;
-    public GameObject Fab_Runway;
-    public GameObject Fab_FishySmellMissing;
-    public GameObject Fab_TheClupet;
-    public GameObject Fab_Both;
-    public GameObject Fab_WarnOrRoot;
-    public GameObject Fab_SwainSewer;
-    public GameObject SecondDream;
-    public GameObject ThirdDayStartCase1;
-    public GameObject ThirdDayStartCase1AfterSan;
-    public GameObject ThirdDayStartCase2;
+    public GameObject fab2ndConnectStart;
+    public GameObject fabWitness;
+    public GameObject fabOwnerUnifrom;
+    public GameObject fabCauseDeath;
+    public GameObject fabWebbedFeet;
+    public GameObject fabRunway;
+    public GameObject fabFishySmellMissing;
+    public GameObject fabTheClupet;
+    public GameObject fabBoth;
+    public GameObject fabWarnOrRoot;
+    public GameObject fabSwainSewer;
+    public GameObject secondDream;
+    public GameObject thirdDayStartCase1;
+    public GameObject thirdDayStartCase1AfterSan;
+    public GameObject thirdDayStartCase2;
+
 
     // 3일차 추가
     // 경찰서
-    public GameObject Albert_ThirdFirstDialog;
-    public GameObject Albert_Key_OwnerOfOutfit;
-    public GameObject Albert_KeyChange_MissingFishySmell;
-    public GameObject Albert_KeyChange_WebbedFeet;
-    public GameObject PoliceA_NoAlbert;
-    public GameObject PoliceB_NoAlbert;
+    public GameObject albertThirdFirstDialog;
+    public GameObject albertKeyOwnerOfOutfit;
+    public GameObject albertKeyChangeMissingFishySmell;
+    public GameObject albertKeyChangeWebbedFeet;
+    public GameObject policeANoAlbert;
+    public GameObject policeBNoAlbert;
 
     // 병원
-    public GameObject Alan_ThirdFirstDialog;
-    public GameObject Alan_Key_MurderdElla;
-    public GameObject Alan_Key_CauseOfDeath;
-    public GameObject Alan_Key_WebbedFeet;
+    public GameObject alanThirdFirstDialog;
+    public GameObject alanKeyMurderdElla;
+    public GameObject alanKeyCauseOfDeath;
+    public GameObject alanKeyWebbedFeet;
 
     //술집
-    public GameObject Meave_ThirdDay_FirstO;
-    public GameObject Meave_ThirdDay_FirstX;
+    public GameObject meaveThirdDayFirstO;
+    public GameObject meaveThirdDayFirstX;
+
 
     //밤 악몽 연출
-    public GameObject ThirdNightmare;
-    public GameObject Fab_4th_QuestO;
-    public GameObject Fab_4th_QuestO_SanCheck;
-    public GameObject Fab_4thQuestO_HealthCehckSucc;
-    public GameObject Fab_4th_QuestO_HealthCehckFail;
-    public GameObject Fab_4thQuestX;
-    public GameObject Fab_4thQuestX_HealthCehckSucc;
-    public GameObject Fab_4th_QuestX_HealthCehckFail;
+    public GameObject thirdNightmare;
+    public GameObject fab4thQuestO;
+    public GameObject fab4thQuestOSanCheck;
+    public GameObject fab4thQuestOHealthCheckSucc;
+    public GameObject fab4thQuestOHealthCheckFail;
+    public GameObject fab4thQuestX;
+    public GameObject fab4thQuestXHealthCheckSucc;
+    public GameObject fab4thQuestXHealthCheckFail;
+
 
     //하수정비사무소
-    public GameObject SewerDoordialog;
-    public GameObject SewerDoorLook;
-    public GameObject SewerDoorPickSucc;
-    public GameObject SewerDoorPickFail;
-    public GameObject Window_dialog_BFNoon;
-    public GameObject Window_lookBFNoon;
-    public GameObject Window_dialog_AFNoon;
-    public GameObject Window_lookAFNoon;
-    public GameObject Window_JudgeBreakSucc;
-    public GameObject Window_JudgeBreakFail;
-
-    public GameObject Loker_dialog_BFNoon;
-    public GameObject Loker_look_BFNoon;
-    public GameObject Loker_dialog_AFNoon;
-    public GameObject Loker_look_AFNoon;
-    public GameObject Loker_Judge_ObservationSucc;
-    public GameObject Loker_Judge_ObservationFail;
-    public GameObject Map_dialog_BFNoon;
-    public GameObject Map_look_BFNoon;
-    public GameObject Map_dialog_AFNoon;
-    public GameObject Map_look_AFNoon;
-    public GameObject Item_CoatLook;
-    public GameObject Item_DiaguiseSucc;
-    public GameObject Item_DiaguiseFail;
-    public GameObject Item_MapLook;
-    public GameObject BlackWell_FirstDialog;
-    public GameObject BlackWell_Dialog;
-    public GameObject BlackWell_DialogLook;
-    public GameObject BlackWell_Judege_RheticSucc;
-    public GameObject BlackWell_Judege_RheticFail;
-    public GameObject BlackWell_Judege_DeftnessSucc;
-    public GameObject BlackWell_Judege_DeftnessFail;
-    public GameObject BlackWell_Key_WarnRoot;
-    public GameObject BlackWell_Key_Witness;
-    public GameObject BlackWell_Key_runway;
-    public GameObject BlackWell_Key_Fishysmell;
-    public GameObject BlackWell_Key_Fail;
-    public GameObject AfterJudgeLookLocker;
-    public GameObject SewergeKey_Look;
-
-    //하수도 내부
-    public GameObject Sewer_EnemySpawn;
-    public GameObject Sewer_StealthSucc;
-    public GameObject Sewer_StealthFail;
-    public GameObject Sewer_DisgauseFail;
-    public GameObject Sewer_RhethicSucc;
-    public GameObject Sewer_RhethicFail;
-    public GameObject Sewer_MapDialog;
-    public GameObject Sewer_MapLook;
-    public GameObject Sewer_JournalDialog;
-    public GameObject Sewer_JornalLook;
-    public GameObject Sewer_JornalLookSanCheck;
-    public GameObject Sewer_JornalLookAfterSanCheck;
-    public GameObject Sewer_BookDialog;
-    public GameObject Sewer_BookLook;
-    public GameObject Sewer_BookLookSanCheck;
-    public GameObject Sewer_BookLookOccultSucc;
-    public GameObject Sewer_BookLookOccultFail;
-    public GameObject Sewer_BookLookAfterCheck;
-    public GameObject Sewer_SymbolDialog;
-    public GameObject Sewer_SymbolLook_YseJournal;
-    public GameObject Sewer_SymbolLook_NoJournal;
-    public GameObject Sewer_SymbolLook_OccultSucc;
-    public GameObject Sewer_SymbolLook_OccultFail;
-    public GameObject Sewer_JudgeStrSucc;
-    public GameObject Sewer_JudgeStrFail;
-    public GameObject Sewer_SanChecck;
-    public GameObject Sewer_SymbolLook_NoJournalAfterOccult;
-    public GameObject Sewer_SymbolKeyWorkSucc;
-    public GameObject Sewer_SymbolKeyWorkFail;
-    public GameObject AfterDaveDeath;
-    public GameObject RiverDeftnessSucc;
-    public GameObject RiverDeftnessFail;
-    public GameObject Journalist_FirstDialog;
+    public GameObject sewerDoorDialog;
+    public GameObject sewerDoorLook;
+    public GameObject sewerDoorPickSucc;
+    public GameObject sewerDoorPickFail;
+    public GameObject windowDialogBFNoon;
+    public GameObject windowLookBFNoon;
+    public GameObject windowDialogAFNoon;
+    public GameObject windowLookAFNoon;
+    public GameObject windowJudgeBreakSucc;
+    public GameObject windowJudgeBreakFail;
+    public GameObject lockerDialogBFNoon;
+    public GameObject lockerLookBFNoon;
+    public GameObject lockerDialogAFNoon;
+    public GameObject lockerLookAFNoon;
+    public GameObject lockerJudgeObservationSucc;
+    public GameObject lockerJudgeObservationFail;
+    public GameObject mapDialogBFNoon;
+    public GameObject mapLookBFNoon;
+    public GameObject mapDialogAFNoon;
+    public GameObject mapLookAFNoon;
+    public GameObject itemCoatLook;
+    public GameObject itemDiaguiseSucc;
+    public GameObject itemDiaguiseFail;
+    public GameObject itemMapLook;
+    public GameObject blackWellFirstDialog;
+    public GameObject blackWellDialog;
+    public GameObject blackWellDialogLook;
+    public GameObject blackWellJudegeRheticSucc;
+    public GameObject blackWellJudegeRheticFail;
+    public GameObject blackWellJudegeDeftnessSucc;
+    public GameObject blackWellJudegeDeftnessFail;
+    public GameObject blackWellKeyWarnRoot;
+    public GameObject blackWellKeyWitness;
+    public GameObject blackWellKeyRunway;
+    public GameObject blackWellKeyFishysmell;
+    public GameObject blackWellKeyFail;
+    public GameObject afterJudgeLookLocker;
+    public GameObject sewergeKeyLook;
 
     //하수도 내부
-    public GameObject Sewer_FirstIn;
-    public GameObject Sewer_FirstInAfterSan;
-    public GameObject Sewer_FirstDeepOne;
-    public GameObject Sewer_FirstDeepOneAfterSan;
-    public GameObject Sewer_LadderDialog;
-    public GameObject Sewer_LadderUP;
-    public GameObject Sewer_LadderSwin;
-    public GameObject Sewer_LadderSan1;
-    public GameObject Sewer_LadderSan2;
-    public GameObject Sewer_LadderSan3;
-    public GameObject Sewer_LadderSan4;
-    public GameObject Sewer_LadderSan5;
-    public GameObject Sewer_LadderSan6;
-    public GameObject Sewer_LadderSan7;
-    public GameObject Sewer_LadderSan8;
-    public GameObject Sewer_LadderSan9;
-    public GameObject BloodEnding;
-    public GameObject Ending_BreakSymbol;
-    public GameObject Ending_IfGotPromiseAndAblertAlive;
-    public GameObject Ending_IfGotPromiseAndAblertDeath;
-    public GameObject Ending_IfNoPromise;
-    public GameObject Ending_IfNoPromiseAlbertDeath;
-    public GameObject Ending_IfSwainDeath;
-    public GameObject Ending_LastIfGotRequest;
-    public GameObject Ending_LastIfNoRequest;
-    public GameObject Ending_Killing;
-    public GameObject Ending_DoorEnd;
+    public GameObject sewerEnemySpawn;
+    public GameObject sewerStealthSucc;
+    public GameObject sewerStealthFail;
+    public GameObject sewerDisgauseFail;
+    public GameObject sewerRhethicSucc;
+    public GameObject sewerRhethicFail;
+    public GameObject sewerMapDialog;
+    public GameObject sewerMapLook;
+    public GameObject sewerJournalDialog;
+    public GameObject sewerJornalLook;
+    public GameObject sewerJornalLookSanCheck;
+    public GameObject sewerJornalLookAfterSanCheck;
+    public GameObject sewerBookDialog;
+    public GameObject sewerBookLook;
+    public GameObject sewerBookLookSanCheck;
+    public GameObject sewerBookLookOccultSucc;
+    public GameObject sewerBookLookOccultFail;
+    public GameObject sewerBookLookAfterCheck;
+    public GameObject sewerSymbolDialog;
+    public GameObject sewerSymbolLookYseJournal;
+    public GameObject sewerSymbolLookNoJournal;
+    public GameObject sewerSymbolLookOccultSucc;
+    public GameObject sewerSymbolLookOccultFail;
+    public GameObject sewerJudgeStrSucc;
+    public GameObject sewerJudgeStrFail;
+    public GameObject sewerSanChecck;
+    public GameObject sewerSymbolLookNoJournalAfterOccult;
+    public GameObject sewerSymbolKeyWorkSucc;
+    public GameObject sewerSymbolKeyWorkFail;
+    public GameObject afterDaveDeath;
+    public GameObject riverDeftnessSucc;
+    public GameObject riverDeftnessFail;
+    public GameObject journalistFirstDialog;
+
+    //하수도 내부
+    public GameObject sewerFirstIn;
+    public GameObject sewerFirstInAfterSan;
+    public GameObject sewerFirstDeepOne;
+    public GameObject sewerFirstDeepOneAfterSan;
+    public GameObject sewerLadderDialog;
+    public GameObject sewerLadderUP;
+    public GameObject sewerLadderSwim;
+    public GameObject sewerLadderSan1;
+    public GameObject sewerLadderSan2;
+    public GameObject sewerLadderSan3;
+    public GameObject sewerLadderSan4;
+    public GameObject sewerLadderSan5;
+    public GameObject sewerLadderSan6;
+    public GameObject sewerLadderSan7;
+    public GameObject sewerLadderSan8;
+    public GameObject sewerLadderSan9;
+    public GameObject bloodEnding;
+    public GameObject endingBreakSymbol;
+    public GameObject endingIfGotPromiseAndAblertAlive;
+    public GameObject endingIfGotPromiseAndAblertDeath;
+    public GameObject endingIfNoPromise;
+    public GameObject endingIfNoPromiseAlbertDeath;
+    public GameObject endingIfSwainDeath;
+    public GameObject endingLastIfGotRequest;
+    public GameObject endingLastIfNoRequest;
+    public GameObject endingKilling;
+    public GameObject endingDoorEnd;
+
     public void InSewerDialog(string setDialog)
     {
         if (setDialog == "Sewer_LadderUP")
         {
-            theDM.ShowDialog(Sewer_LadderUP.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerLadderUP.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_EnemySpawn")
         {
-            theDM.ShowDialog(Sewer_EnemySpawn.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerEnemySpawn.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_StealthSucc")
         {
-            theDM.ShowDialog(Sewer_StealthSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerStealthSucc.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_StealthFail")
         {
-            theDM.ShowDialog(Sewer_StealthFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerStealthFail.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_DisgauseFail")
         {
-            theDM.ShowDialog(Sewer_DisgauseFail.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerDisgauseFail.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_MapDialog")
         {
-            theDM.ShowDialog(Sewer_MapDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerMapDialog.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_MapLook")
         {
-            theDM.ShowDialog(Sewer_MapLook.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerMapLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
 
         if (setDialog == "Sewer_JournalDialog")
         {
-            theDM.ShowDialog(Sewer_JournalDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerJournalDialog.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_JornalLook")
         {
             if (DataBaseManager.firstLookJournal == false)
             {
                 DataBaseManager.firstLookJournal = true;
-                theDM.ShowDialog(Sewer_JornalLook.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerJornalLook.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Sewer_JornalLookAfterSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerJornalLookAfterSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Sewer_JornalLookAfterSanCheck")
         {
-            theDM.ShowDialog(Sewer_JornalLookAfterSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerJornalLookAfterSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_BookDialog")
         {
-            theDM.ShowDialog(Sewer_BookDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerBookDialog.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_BookLook")
         {
             if (DataBaseManager.BookLookFirst == false)
             {
                 DataBaseManager.BookLookFirst = true;
-                theDM.ShowDialog(Sewer_BookLook.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerBookLook.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Sewer_BookLookAfterCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerBookLookAfterCheck.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Sewer_JornalLookSanCheck")
         {
-            theDM.ShowDialog(Sewer_JornalLookSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerJornalLookSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_SymbolDialog")
         {
-            theDM.ShowDialog(Sewer_SymbolDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerSymbolDialog.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_SymbolLook")
         {
             if (DataBaseManager.JournalFirstSanCheck == true)
             {
-                theDM.ShowDialog(Sewer_SymbolLook_YseJournal.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerSymbolLookYseJournal.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
                 if (DataBaseManager.SymbolOccultFirst == false)
                 {
-                    theDM.ShowDialog(Sewer_SymbolLook_NoJournal.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(sewerSymbolLookNoJournal.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Sewer_SymbolLook_NoJournalAfterOccult.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(sewerSymbolLookNoJournalAfterOccult.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
         }
         if (setDialog == "Sewer_FirstIn")
         {
-            theDM.ShowDialog(Sewer_FirstIn.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerFirstIn.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_FirstDeepOne")
         {
-            theDM.ShowDialog(Sewer_FirstDeepOne.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerFirstDeepOne.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_LadderDialog")
         {
-            theDM.ShowDialog(Sewer_LadderDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerLadderDialog.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Ending_BreakSymbol")
         {
-            theDM.ShowDialog(Ending_BreakSymbol.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(endingBreakSymbol.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Ending_isPromise")
         {
@@ -674,109 +674,109 @@ public class InteractionController : MonoBehaviour
             {
                 if (DataBaseManager.AlbertDeathKeyword == false)
                 {
-                    theDM.ShowDialog(Ending_IfGotPromiseAndAblertAlive.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(endingIfGotPromiseAndAblertAlive.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Ending_IfGotPromiseAndAblertDeath.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(endingIfGotPromiseAndAblertDeath.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else if (DataBaseManager.Intel_Meiv2 == false)
             {
-                theDM.ShowDialog(Ending_IfNoPromise.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(endingIfNoPromise.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Ending_IfNoPromiseAlbertDeath")
         {
-            theDM.ShowDialog(Ending_IfNoPromiseAlbertDeath.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(endingIfNoPromiseAlbertDeath.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Ending_SwainDeathCheck")
         {
-            theDM.ShowDialog(Ending_IfSwainDeath.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(endingIfSwainDeath.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Ending_RequestCheck")
         {
             if (DataBaseManager.IfGotRequset == true)
             {
-                theDM.ShowDialog(Ending_LastIfGotRequest.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(endingLastIfGotRequest.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Ending_LastIfNoRequest.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(endingLastIfNoRequest.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Ending_Killing")
         {
-            theDM.ShowDialog(Ending_Killing.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(endingKilling.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Ending_DoorEnd")
         {
-            theDM.ShowDialog(Ending_DoorEnd.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(endingDoorEnd.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     public void Start_SewerOffice(string setDialog)
     {
         if (setDialog == "SewerDoordialog")
         {
-            theDM.ShowDialog(SewerDoordialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerDoorDialog.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "SewerDoorLook")
         {
-            theDM.ShowDialog(SewerDoorLook.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerDoorLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Window_dialog")
         {
             if (DataBaseManager.TimeCount % 4 == 1 || DataBaseManager.TimeCount % 4 == 2)
             {
-                theDM.ShowDialog(Window_dialog_BFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(windowDialogBFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Window_dialog_AFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(windowDialogAFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Window_look")
         {
             if (DataBaseManager.TimeCount % 4 == 1 || DataBaseManager.TimeCount % 4 == 2)
             {
-                theDM.ShowDialog(Window_lookBFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(windowLookBFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Window_lookAFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(windowLookAFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Map_dialog")
         {
             if (DataBaseManager.TimeCount % 4 == 1 || DataBaseManager.TimeCount % 4 == 2)
             {
-                theDM.ShowDialog(Map_dialog_BFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(mapDialogBFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Map_dialog_AFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(mapDialogAFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Map_look")
         {
             if (DataBaseManager.TimeCount % 4 == 1 || DataBaseManager.TimeCount % 4 == 2)
             {
-                theDM.ShowDialog(Map_look_BFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(mapLookBFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Map_look_AFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(mapLookAFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Locker_dialog")
         {
             if (DataBaseManager.TimeCount % 4 == 1 || DataBaseManager.TimeCount % 4 == 2)
             {
-                theDM.ShowDialog(Loker_dialog_BFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(lockerDialogBFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Loker_dialog_AFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(lockerDialogAFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Locker_look")
@@ -785,16 +785,16 @@ public class InteractionController : MonoBehaviour
             {
                 if (DataBaseManager.Black_RechSucc_CanTalck == true)
                 {
-                    theDM.ShowDialog(AfterJudgeLookLocker.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(afterJudgeLookLocker.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Loker_look_BFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(lockerLookBFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else
             {
-                theDM.ShowDialog(Loker_look_AFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(lockerLookAFNoon.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "BlackWell_dialog")
@@ -802,16 +802,16 @@ public class InteractionController : MonoBehaviour
             if (DataBaseManager.Black_FirstDialog == false)
             {
                 DataBaseManager.Black_FirstDialog = true;
-                theDM.ShowDialog(BlackWell_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(blackWellFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(BlackWell_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(blackWellDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "BlackWell_look")
         {
-            theDM.ShowDialog(BlackWell_DialogLook.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(blackWellDialogLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     public void Start_2nd_NoonEvent(string setDialog)
@@ -820,178 +820,178 @@ public class InteractionController : MonoBehaviour
         {
             if (DataBaseManager.Intel_QuestHouse1 == false)
             {
-                theDM.ShowDialog(NoonEvent_FirstDailog_Noquest.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventFirstDailogNoquest.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.Intel_MissingPeople1 == true || DataBaseManager.Intel_MissingPeople2 == true)
             {
-                theDM.ShowDialog(NoonEvent_FirstDailog_MissingPeople.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventFirstDailogMissingPeople.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(NoonEvent_FirstDailog_NoMissing.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventFirstDailogNoMissing.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "NoonEvent_ClientHouse")
         {
-            theDM.ShowDialog(NoonEvent_ClientHouse.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(noonEventClientHouse.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "NoonEvent_Witness_Dialog")
         {
             if (DataBaseManager.Witness_FirstDailog == false)
             {
                 DataBaseManager.Witness_FirstDailog = true;
-                theDM.ShowDialog(NoonEvent_Witness_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventWitnessFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(NoonEvent_Witness_RepeatDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventWitnessRepeatDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "NoonEvent_Witness_Look")
         {
-            theDM.ShowDialog(NoonEvent_Witness_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(noonEventWitnessLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "NoonEvent_DoorPolice_Dialog")
         {
             if (DataBaseManager.DoorPolice_FirstDailog == false)
             {
                 DataBaseManager.DoorPolice_FirstDailog = true;
-                theDM.ShowDialog(NoonEvent_DoorPolice_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventDoorPoliceFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(NoonEvent_DoorPolice_RepeatDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventDoorPoliceRepeatDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "NoonEvent_DoorPolice_Look")
         {
-            theDM.ShowDialog(NoonEvent_DoorPolice_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(noonEventDoorPoliceLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "NoonEvent_FirstDoor")
         {
-            theDM.ShowDialog(NoonEvent_FirstDoor.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(noonEventFirstDoor.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "NoonEvent_InsidePolice_Dialog")
         {
             if (DataBaseManager.InsidePolice_FirstDailog == false)
             {
                 DataBaseManager.InsidePolice_FirstDailog = true;
-                theDM.ShowDialog(NoonEvent_InsidePolice_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventInsidePoliceFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(NoonEvent_InsidePolice_RepeatDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventInsidePoliceRepeatDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "NoonEvent_InsidePolice_Look")
         {
-            theDM.ShowDialog(NoonEvent_InsidePolice_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(noonEventInsidePoliceLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "NoonEvent_DeadBody_Dialog")
         {
-            theDM.ShowDialog(NoonEvent_DeadBody_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(noonEventDeadBodyDialog.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "NoonEvent_DeadBody_Look")
         {
             DataBaseManager.DeadBodyFirstLook = true;
             if (DataBaseManager.Intel_FishySmell1 == true)
             {
-                theDM.ShowDialog(NoonEvent_DeadBody_Look_YesRumor.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventDeadBodyLookYesRumor.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(NoonEvent_DeadBody_Look_NoRumor.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventDeadBodyLookNoRumor.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "NoonEvent_DeadBody_Look_Missing")
         {
-            theDM.ShowDialog(NoonEvent_DeadBody_Look_Missing.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(noonEventDeadBodyLookMissing.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "NoonEvent_DeadBody_Look_FishySmell")
         {
-            theDM.ShowDialog(NoonEvent_DeadBody_Look_FishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(noonEventDeadBodyLookFishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "NoonEvent_DeadBody_analysisSuccAfter")
         {
-            theDM.ShowDialog(NoonEvent_DeadBody_analysisSuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(noonEventDeadBodyAnalysisSuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Accident Site_Dialog")
         {
-            theDM.ShowDialog(Site_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(siteDialog.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Accident Site_Look")
         {
-            theDM.ShowDialog(Site_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(siteLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Site_analysisSuccAfter")
         {
-            theDM.ShowDialog(Site_analysisSuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(siteAnalysisSuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     public void Start_2nd_DetectiveOffice(string setDialog)
     {
         if (setDialog == "Fab_Case1")
         {
-            theDM.ShowDialog(Fab_Case1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabCase1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Case1After")
         {
-            theDM.ShowDialog(Fab_Case1After.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabCase1After.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Case2")
         {
-            theDM.ShowDialog(Fab_Case2.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabCase2.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Case2Succ")
         {
-            theDM.ShowDialog(Fab_Case2Succ.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabCase2Succ.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Case2SuccAfter")
         {
-            theDM.ShowDialog(Fab_Case2SuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabCase2SuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Case2Fail")
         {
-            theDM.ShowDialog(Fab_Case2Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabCase2Fail.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Case3")
         {
-            theDM.ShowDialog(Fab_Case3.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabCase3.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     public void Start_Safe_Look(string setDialog)
     {
         if (setDialog == "OldMap_Look")
         {
-            theDM.ShowDialog(OldMap_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(oldMapLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Document_Look")
         {
-            theDM.ShowDialog(Document_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(documentLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Safe_Look")
         {
-            theDM.ShowDialog(Safe_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(safeLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Safe_Fail")
         {
-            theDM.ShowDialog(Safe_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(safeFail.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Bracelet_Look")
         {
-            theDM.ShowDialog(Bracelet_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(braceletLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Coat_Look")
         {
-            theDM.ShowDialog(Item_CoatLook.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(itemCoatLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "SewergeKey_Look")
         {
-            theDM.ShowDialog(SewergeKey_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewergeKeyLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Map_Look")
         {
-            theDM.ShowDialog(Item_MapLook.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(itemMapLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     // 1st
@@ -999,236 +999,236 @@ public class InteractionController : MonoBehaviour
     {
         if (setDialog == "start")
         {
-            theDM.ShowDialog(Start_1st_Detective.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(start1stDetective.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "NewsPaper_Active")
         {
-            theDM.ShowDialog(NewsPaper.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(newsPaper.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "NewsPaper_Look")
         {
             DataBaseManager.fst_Detectiv_TimeOn += 1;
-            theDM.ShowDialog(NewsPaper_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(newsPaperLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Desk_Active")
         {
-            theDM.ShowDialog(Desk.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(desk.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Desk_Look")
         {
             DataBaseManager.fst_Detectiv_TimeOn += 1;
-            theDM.ShowDialog(Desk_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(deskLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Stove_Active")
         {
-            theDM.ShowDialog(Stove.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(stove.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Stove_Look")
         {
             DataBaseManager.fst_Detectiv_TimeOn += 1;
-            theDM.ShowDialog(Stove_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(stoveLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Directing_Nock")
         {
             DataBaseManager.fst_Detectiv_TimeOn = -99;
-            theDM.ShowDialog(Directing_Nock.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(directingNock.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Directing_Door")
         {
             DataBaseManager.fst_Detectiv_TimeOn = -999;
-            theDM.ShowDialog(Directing_Door.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(directingDoor.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Directing_AfterDoor")
         {
-            theDM.ShowDialog(Directing_AfterDoor.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(directingAfterDoor.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Select_AboutCrime")
         {
             Debug.Log(4);
-            theDM.ShowDialog(Select_AboutCrime.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(selectAboutCrime.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Select_AboutHospital")
         {
-            theDM.ShowDialog(Select_AboutHospital.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(selectAboutHospital.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Select_AboutRunAway")
         {
-            theDM.ShowDialog(Select_AboutRunAway.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(selectAboutRunAway.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Accept_Request")
         {
-            theDM.ShowDialog(Accept_Request.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(acceptRequest.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Accept_AfterSelectYes")
         {
-            theDM.ShowDialog(Accept_AfterSelectYes.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(acceptAfterSelectYes.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Reject_Request")
         {
-            theDM.ShowDialog(Reject_Request.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(rejectRequest.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Accept_AfterSelectNo")
         {
-            theDM.ShowDialog(Accept_AfterSelectNo.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(acceptAfterSelectNo.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_FirstDialog")
         {
-            theDM.ShowDialog(Fab_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Aiden1")
         {
-            theDM.ShowDialog(Fab_Aiden1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabAiden1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Safe1")
         {
-            theDM.ShowDialog(Fab_Safe1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabSafe1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Nightmare1")
         {
-            theDM.ShowDialog(Fab_Nightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabNightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Nightmare2")
         {
-            theDM.ShowDialog(Fab_Nightmare2.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabNightmare2.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Nightmare3")
         {
-            theDM.ShowDialog(Fab_Nightmare3.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabNightmare3.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Nightmare4")
         {
-            theDM.ShowDialog(Fab_Nightmare4.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabNightmare4.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Insomnia1")
         {
-            theDM.ShowDialog(Fab_Insomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabInsomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Insomnia2")
         {
-            theDM.ShowDialog(Fab_Insomnia2.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabInsomnia2.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_PlanetarySequence1")
         {
-            theDM.ShowDialog(Fab_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabPlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Univ1")
         {
-            theDM.ShowDialog(Fab_Univ1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabUniv1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Meiv2")
         {
-            theDM.ShowDialog(Fab_Meiv2.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabMeiv2.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_MissingPeople")
         {
-            theDM.ShowDialog(Fab_MissingPeople.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabMissingPeople.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_GhostStory1")
         {
-            theDM.ShowDialog(Fab_GhostStory1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabGhostStory1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_GhostStory2")
         {
-            theDM.ShowDialog(Fab_GhostStory2.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabGhostStory2.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_CreepyEye")
         {
-            theDM.ShowDialog(Fab_CreepyEye.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabCreepyEye.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Worker1")
         {
-            theDM.ShowDialog(Fab_Worker1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabWorker1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_FishySmell1")
         {
-            theDM.ShowDialog(Fab_FishySmell1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabFishySmell1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_FishySmell1")
         {
-            theDM.ShowDialog(Fab_FishySmell1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabFishySmell1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_FishySmell2")
         {
-            theDM.ShowDialog(Fab_FishySmell2.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabFishySmell2.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_FishySmell3")
         {
-            theDM.ShowDialog(Fab_FishySmell3.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabFishySmell3.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_EndDay")
         {
-            theDM.ShowDialog(Fab_EndDay.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabEndDay.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Connect")
         {
-            theDM.ShowDialog(Fab_Connect.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabConnect.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Witness")
         {
-            theDM.ShowDialog(Fab_Witness.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabWitness.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_OwnerofUnifrom")
         {
-            theDM.ShowDialog(Fab_OwnerofUnifrom.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabOwnerUnifrom.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_CauseofDeath")
         {
-            theDM.ShowDialog(Fab_CauseofDeath.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabCauseDeath.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_WebbedFeet")
         {
-            theDM.ShowDialog(Fab_WebbedFeet.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabWebbedFeet.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Runway")
         {
-            theDM.ShowDialog(Fab_Runway.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabRunway.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_FishySmellMissing")
         {
-            theDM.ShowDialog(Fab_FishySmellMissing.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabFishySmellMissing.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_TheClupet")
         {
-            theDM.ShowDialog(Fab_TheClupet.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabTheClupet.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_Both")
         {
-            theDM.ShowDialog(Fab_Both.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabBoth.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_WarnOrRoot")
         {
-            theDM.ShowDialog(Fab_WarnOrRoot.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabWarnOrRoot.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_SwainSewer")
         {
-            theDM.ShowDialog(Fab_SwainSewer.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fabSwainSewer.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "Fab_2ndConnectStart")
         {
-            theDM.ShowDialog(Fab_2ndConnectStart.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fab2ndConnectStart.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "SecondDream")
         {
-            theDM.ShowDialog(SecondDream.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(secondDream.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         else if (setDialog == "ThirdNightmare")
         {
-            theDM.ShowDialog(ThirdNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(thirdNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     public void Start_1st_ClientsHouse(string setDialog)
     {
         if (setDialog == "FirstArrive")
         {
-            theDM.ShowDialog(FirstArrive.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(firstArrive.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "NockDoor")
         {
-            theDM.ShowDialog(NockDoor.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(nockDoor.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Ella_fistDialog")
         {
-            theDM.ShowDialog(Ella_fistDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(ellaFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Ella_Dialog1")
         {
@@ -1238,147 +1238,147 @@ public class InteractionController : MonoBehaviour
 
                 if (DataBaseManager.getSafe == false)
                 {
-                    theDM.ShowDialog(EllaEnd_NoSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(ellaEndNoSafe.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(EllaEnd_GetSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(ellaEndGetSafe.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else
             {
-                theDM.ShowDialog(Ella_Dialog1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(ellaDialog1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Ella_Dialog2")
         {
-            theDM.ShowDialog(Ella_Dialog2.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(ellaDialog2.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Ella_FirstUpstair")
         {
-            theDM.ShowDialog(Ella_FirstUpstair.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(ellaFirstUpstair.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         //
         if (setDialog == "into_FirstRoom")
         {
-            theDM.ShowDialog(into_FirstRoom.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(intoFirstRoom.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_FirstDialog")
         {
             DataBaseManager.Aiden_FirstDialog = true;
-            theDM.ShowDialog(Aiden_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_Active")
         {
-            theDM.ShowDialog(Aiden_Active.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenActive.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_Look")
         {
-            theDM.ShowDialog(Aiden_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_LookJudge")
         {
-            theDM.ShowDialog(Aiden_LookJudge.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenLookJudge.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_Dialog1")
         {
-            theDM.ShowDialog(Aiden_Dialog1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenDialog1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_Dialog2")
         {
-            theDM.ShowDialog(Aiden_Dialog2.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenDialog2.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_key_Nightmare1")
         {
-            theDM.ShowDialog(Aiden_key_Nightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenKeyNightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_key_EllaTriss1")
         {
-            theDM.ShowDialog(Aiden_key_EllaTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenkeyEllaTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_key_Safe1")
         {
-            theDM.ShowDialog(Aiden_key_Safe1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenKeySafe1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_key_Safe_Str")
         {
-            theDM.ShowDialog(Aiden_key_Safe_Str.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenKeySafeStr.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_key_Safe_Str_Sucsses")
         {
-            theDM.ShowDialog(Aiden_key_Safe_Str_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenKeySafeStrSucc.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_key_Safe_Str_Fail")
         {
-            theDM.ShowDialog(Ella_FirstUpstair.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(ellaFirstUpstair.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_key_Safe_rhetoric_sucsses")
         {
-            theDM.ShowDialog(Aiden_key_Safe_rhetoric_sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenkeySafeRhetoricSucc.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_key_Safe_rhetoric_Fail")
         {
-            theDM.ShowDialog(Aiden_key_Safe_rhetoric_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenKeySafeRhetoricFail.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_key_Safe_Nothing")
         {
-            theDM.ShowDialog(Aiden_key_Safe_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenKeySafeNothing.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_key_Fail1")
         {
-            theDM.ShowDialog(Aiden_key_Fail1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenKeyFail1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_key_Fail2")
         {
-            theDM.ShowDialog(Aiden_key_Fail2.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenKeyFail2.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_Judge_medicine_Sucsses")
         {
-            theDM.ShowDialog(Aiden_Judge_medicine_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenJudgeMedicineSucc.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_Judge_medicine_Fail")
         {
-            theDM.ShowDialog(Aiden_Judge_medicine_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenJudgeMedicineFail.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_Judge_psychotherapy_Sucsses")
         {
-            theDM.ShowDialog(Aiden_Judge_psychotherapy_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenJudgePsychotherapySucc.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_Judge_psychotherapy_Sucsses_Safe")
         {
-            theDM.ShowDialog(Aiden_Judge_psychotherapy_Sucsses_Safe.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenJudgePsychotherapySuccSafe.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_Judge_psychotherapy_Sucsses_NoSafe")
         {
-            theDM.ShowDialog(Aiden_Judge_psychotherapy_Sucsses_NoSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenJudgePsychotherapySuccNoSafe.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_Judge_psychotherapy_Sucsses_End")
         {
-            theDM.ShowDialog(Aiden_Judge_psychotherapy_Sucsses_End.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenJudgePsychotherapySuccEnd.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_Judge_psychotherapy_Fail")
         {
-            theDM.ShowDialog(Aiden_Judge_psychotherapy_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenJudgePsychotherapyFail.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_Judge_Observation_Sucsses")
         {
-            theDM.ShowDialog(Aiden_Judge_Observation_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenJudgeObservationSucc.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_Judge_Observation_Fail")
         {
-            theDM.ShowDialog(Aiden_Judge_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenJudgeObservationFail.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Aiden_key_FailForce")
         {
-            theDM.ShowDialog(Aiden_key_FailForce.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aidenKeyFailForce.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "EllaEnd_NoSafe")
         {
-            theDM.ShowDialog(EllaEnd_NoSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(ellaEndNoSafe.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "EllaEnd_GetSafe")
         {
-            theDM.ShowDialog(EllaEnd_GetSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(ellaEndGetSafe.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     public void Start_1st_DailyNews(string setDialog)
@@ -1390,65 +1390,65 @@ public class InteractionController : MonoBehaviour
                 DataBaseManager.Aiden_FirstDialog = true;
                 if (DataBaseManager.TimeCount < 6)
                 {
-                    theDM.ShowDialog(Swain_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(swainFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Swain_NoContect_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(swainNoContectFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else
             {
-                theDM.ShowDialog(Swain_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Swain_Look")
         {
-            theDM.ShowDialog(Swain_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(swainLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Swain_LookJudge_Sucsses")
         {
-            theDM.ShowDialog(Swain_LookJudge_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(swainLookJudgeSucsses.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Swain_LookJudge_Fail")
         {
-            theDM.ShowDialog(Swain_LookJudge_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(swainLookJudgeFail.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Swain_Key_PlanetarySequence1")
         {
-            theDM.ShowDialog(Swain_Key_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(swainKeyPlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Swain_Key_Insomnia1")
         {
-            theDM.ShowDialog(Swain_Key_Insomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(swainKeyInsomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Swain_Key_Nightmare2")
         {
-            theDM.ShowDialog(Swain_Key_Nightmare2.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(swainKeyNightmare2.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Swain_Key_Paranoia1")
         {
-            theDM.ShowDialog(Swain_Key_Paranoia1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(swainKeyParanoia1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Swain_Key_EllaTriss1")
         {
-            theDM.ShowDialog(Swain_Key_EllaTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(swainKeyEllaTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Swain_Key_AidenTriss1")
         {
-            theDM.ShowDialog(Swain_Key_AidenTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(swainKeyAidenTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Swain_Key_DailyNews1")
         {
-            theDM.ShowDialog(Swain_Key_DailyNews1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(swainKeyDailyNews1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Swain_Key_Nothing")
         {
-            theDM.ShowDialog(Swain_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(swainKeyNothing.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Journalist_FirstDialog")
         {
-            theDM.ShowDialog(Journalist_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(journalistFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     public void Start_1st_University(string setDialog)
@@ -1458,46 +1458,46 @@ public class InteractionController : MonoBehaviour
             if (DataBaseManager.Univ_FirstDialog == false)
             {
                 DataBaseManager.Univ_FirstDialog = true;
-                theDM.ShowDialog(Univ_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(univFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Univ_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(univDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Univ_Look")
         {
 
-            theDM.ShowDialog(Univ_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(univLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Univ_Key_PlanetarySequence1")
         {
-            theDM.ShowDialog(Univ_Key_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(univKeyPlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Univ_Key_Insomnia1")
         {
-            theDM.ShowDialog(Univ_Key_Insomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(univKeyInsomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Kane_FirstDialog")
         {
             if (DataBaseManager.Kane_FirstDialog == false && DataBaseManager.Intel_RiverWaterQuality2 == true)
             {
                 DataBaseManager.Kane_FirstDialog = true;
-                theDM.ShowDialog(Kane_DetailOB.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kaneDetailOb.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.Kane_FirstDialog == false)
             {
                 DataBaseManager.Kane_FirstDialog = true;
-                theDM.ShowDialog(Kane_FirstMeatatSev.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kaneFirstMeatSev.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Kane_AfterSevDilaog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kaneAfterSevDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Kane_Look")
         {
-            theDM.ShowDialog(Kane_AfterSevLook.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(kaneAfterSevLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     public void Start_1st_Riverside(string setDialog)
@@ -1507,91 +1507,91 @@ public class InteractionController : MonoBehaviour
             if (DataBaseManager.Kane_FirstDialog == false)
             {
                 DataBaseManager.Kane_FirstDialog = true;
-                theDM.ShowDialog(Kane_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kaneFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Kane_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kaneDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Kane_Look")
         {
-            theDM.ShowDialog(Kane_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(kaneLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Kane_Nothing")
         {
-            theDM.ShowDialog(Kane_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(kaneNothing.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_FirstDialog")
         {
             if (DataBaseManager.Sewer_FirstDialog == false)
             {
                 DataBaseManager.Sewer_FirstDialog = true;
-                theDM.ShowDialog(Sewer_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Sewer_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Sewer_Look")
         {
             if (DataBaseManager.Sewer_ObservationEnd == false)
             {
-                theDM.ShowDialog(Sewer_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerLook.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Sewer_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerObservationFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Sewer_Observation_SucssesAfter")
         {
-            theDM.ShowDialog(Sewer_Observation_SucssesAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerObservationSuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_Observation_Sucsses")
         {
-            theDM.ShowDialog(Sewer_Observation_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerObservationSucc.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_Observation_Fail")
         {
-            theDM.ShowDialog(Sewer_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerObservationFail.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Sewer_Observation_SucssesAfterSanSuc")
         {
-            theDM.ShowDialog(Sewer_Observation_SucssesAfterSanSuc.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerObservationSuccAfterSanSuc.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     public void Start_1st_Hospital(string setDialog)
     {
         if (setDialog == "Kate_NoonLook")
         {
-            theDM.ShowDialog(Kate_NoonLook.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(kateNoonLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Alan_NoonLook")
         {
-            theDM.ShowDialog(Alan_NoonLook.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(alanNoonLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Hospital_NoonFirst")
         {
-            theDM.ShowDialog(Hospital_NoonFirst.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(hospitalNoonFirst.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Kate_FirstDialog")
         {
             if ((DataBaseManager.TimeCount % 4) == 2)
             {
-                theDM.ShowDialog(Kate_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kateFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
                 if (DataBaseManager.Kate_NoonFirstDialog == false)
                 {
                     DataBaseManager.Kate_NoonFirstDialog = true;
-                    theDM.ShowDialog(Kate_NoonFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(kateNoonFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Kate_NoonDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(kateNoonDialog.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
 
@@ -1603,11 +1603,11 @@ public class InteractionController : MonoBehaviour
                 if (DataBaseManager.Alan_FirstDialog == false)
                 {
                     DataBaseManager.Alan_FirstDialog = true;
-                    theDM.ShowDialog(Alan_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(alanFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Alan_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(alanDialog.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else
@@ -1616,16 +1616,16 @@ public class InteractionController : MonoBehaviour
                 {
                     DataBaseManager.ThirdDayAlanDialog = true;
                     DataBaseManager.Alan_NoonFirstDialog = true;
-                    theDM.ShowDialog(Alan_ThirdFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(alanThirdFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 if (DataBaseManager.Alan_NoonFirstDialog == false)
                 {
                     DataBaseManager.Alan_NoonFirstDialog = true;
-                    theDM.ShowDialog(Alan_NoonFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(alanNoonFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Alan_NoonDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(alanNoonDialog.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
         }
@@ -1639,16 +1639,16 @@ public class InteractionController : MonoBehaviour
             {
                 DataBaseManager.ThirdDayPoliceADialog = false;
                 DataBaseManager.A_FirstDialog = true;
-                theDM.ShowDialog(PoliceA_NoAlbert.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(policeANoAlbert.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.A_FirstDialog == false)
             {
                 DataBaseManager.A_FirstDialog = true;
-                theDM.ShowDialog(A_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(A_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "B_FirstDialog")
@@ -1657,16 +1657,16 @@ public class InteractionController : MonoBehaviour
             {
                 DataBaseManager.ThirdDayPoliceBDialog = false;
                 DataBaseManager.B_FirstDialog = true;
-                theDM.ShowDialog(PoliceB_NoAlbert.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(policeBNoAlbert.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.B_FirstDialog == false)
             {
                 DataBaseManager.B_FirstDialog = true;
-                theDM.ShowDialog(B_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(bFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(B_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(bDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Albert_FirstDialog")
@@ -1676,11 +1676,11 @@ public class InteractionController : MonoBehaviour
                 if (DataBaseManager.Albert_FirstDialog == false)
                 {
                     DataBaseManager.Albert_FirstDialog = true;
-                    theDM.ShowDialog(Albert_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(albertFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Albert_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(albertDialog.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else if (DataBaseManager.TimeCount > 8)
@@ -1688,11 +1688,11 @@ public class InteractionController : MonoBehaviour
                 if (DataBaseManager.ThirdDayAlbertDialog == false)
                 {
                     DataBaseManager.ThirdDayAlbertDialog = true;
-                    theDM.ShowDialog(Albert_ThirdFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(albertThirdFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Albert_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(albertDialog.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else
@@ -1701,30 +1701,30 @@ public class InteractionController : MonoBehaviour
                 {
                     DataBaseManager.Albert_FirstDialog = true;
                     DataBaseManager.AlbertFirstAfterEvent = true;
-                    theDM.ShowDialog(Albert_FirstDialogAfterEvent.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(albertFirstDialogAfterEvent.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else if (DataBaseManager.AlbertFirstAfterEvent == false)
                 {
                     DataBaseManager.AlbertFirstAfterEvent = true;
-                    theDM.ShowDialog(Albert_FirstDialogNew.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(albertFirstDialogNew.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Albert_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(albertDialog.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
         }
         if (setDialog == "A_Look")
         {
-            theDM.ShowDialog(A_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(aLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "B_Look")
         {
-            theDM.ShowDialog(B_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(bLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Albert_Look")
         {
-            theDM.ShowDialog(Albert_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(albertLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     public void Start_1st_Slum(string setDialog)
@@ -1734,71 +1734,71 @@ public class InteractionController : MonoBehaviour
             if (DataBaseManager.Dave_FirstDialog == false)
             {
                 DataBaseManager.Dave_FirstDialog = true;
-                theDM.ShowDialog(Dave_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(daveFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Dave_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(daveDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Dave_Ran1")
         {
             End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(Dave_Ran1.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(daveRand1.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_Ran2")
         {
             End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(Dave_Ran2.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(daveRand2.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_Ran3")
         {
             End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(Dave_Ran3.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(daveRand3.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_Ran4")
         {
             End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(Dave_Ran4.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(daveRand4.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_Ran5")
         {
             End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(Dave_Ran5.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(daveRand5.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_Ran6")
         {
             End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(Dave_Ran6.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(daveRand6.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_Ran7")
         {
             End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(Dave_Ran7.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(daveRand7.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_Ran8")
         {
             End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(Dave_Ran8.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(daveRand8.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_Ran9")
         {
             End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(Dave_Rand9.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(daveRand9.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_NoMoney")
         {
             End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(Dave_NoMoney.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(daveNoMoney.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Dave_RanEnd")
         {
             End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(Dave_RanEnd.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(daveRandEnd.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "AfterDaveDeath")
         {
-            theDM.ShowDialog(AfterDaveDeath.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(afterDaveDeath.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     public void Start_1st_Bar(string setDialog)
@@ -1812,174 +1812,173 @@ public class InteractionController : MonoBehaviour
                 {
                     if (DataBaseManager.TimeCount == 12)
                     {
-                        theDM.ShowDialog(Meave_ThirdDay_FirstO.transform.GetComponent<interactionEvent>().GetDialogs());
+                        theDM.ShowDialog(meaveThirdDayFirstO.transform.GetComponent<interactionEvent>().GetDialogs());
                     }
                     else
                     {
-                        theDM.ShowDialog(Maeve_FirstDialog_JobO.transform.GetComponent<interactionEvent>().GetDialogs());
+                        theDM.ShowDialog(maeveFirstDialogJobO.transform.GetComponent<interactionEvent>().GetDialogs());
                     }
                 }
                 else
                 {
                     if (DataBaseManager.TimeCount == 12)
                     {
-                        theDM.ShowDialog(Meave_ThirdDay_FirstX.transform.GetComponent<interactionEvent>().GetDialogs());
+                        theDM.ShowDialog(meaveThirdDayFirstX.transform.GetComponent<interactionEvent>().GetDialogs());
                     }
                     else
                     {
-                        theDM.ShowDialog(Maeve_FirstDialog_JobX.transform.GetComponent<interactionEvent>().GetDialogs());
+                        theDM.ShowDialog(maeveFirstDialogJobX.transform.GetComponent<interactionEvent>().GetDialogs());
                     }
                 }
             }
             else
             {
-                theDM.ShowDialog(Maeve_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(maeveDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Maeve_Look")
         {
-            theDM.ShowDialog(Maeve_Look.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(maeveLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "Worker_FirstDialog")
         {
             if (DataBaseManager.Worker_FirstDialog == false)
             {
                 DataBaseManager.Worker_FirstDialog = true;
-                theDM.ShowDialog(Worker_FirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(workerFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Worker_Dialog.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(workerDialog.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Worker_Look")
         {
             if (DataBaseManager.Intel_FishySmell1 == true || DataBaseManager.Intel_FishySmell2 == true || DataBaseManager.Intel_FishySmell3 == true || DataBaseManager.Intel_FishySmell4 == true)
             {
-                theDM.ShowDialog(Worker_Look_O.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(workerLookO.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Worker_Look_X.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(workerLookX.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "BarArrive")
         {
             if (DataBaseManager.Intel_FishySmell1 == true || DataBaseManager.Intel_FishySmell2 == true || DataBaseManager.Intel_FishySmell3 == true || DataBaseManager.Intel_FishySmell4 == true)
             {
-                theDM.ShowDialog(Day2Bar_fishysmellO.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(day2BarFishysmellO.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Day2Bar_fishysmellX.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(day2BarFishysmellX.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Meave2ndDialog")
         {
             if (DataBaseManager.isBar == true)
             {
-                theDM.ShowDialog(Day2Bar_1stBarIn.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(day2Bar1stBarIn.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Day2Bar_firstBar.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(day2BarFirstBar.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
     }
-
     public void KeywordDialog(string setDialog)
     {
         if (setDialog == "Ella Triss")
         {
             if (DataBaseManager.keyword_downer == "Subject to request" && DataBaseManager.Intel_SewerGhostStory1 == false)
             {
-                theDM.ShowDialog(Ella_key_Aiden.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(ellaKeyAiden.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Rumor")
             {
                 if (DataBaseManager.Intel_SewerGhostStory1 == true)
                 {
-                    theDM.ShowDialog(Ella_Key_FishySmell1_yesGhosty1.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(ellaKeyFishySmell1YesGhosty1.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Ella_Key_FishySmell1_noGhosty1.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(ellaKeyFishySmell1NoGhosty1.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else if (DataBaseManager.keyword_downer == "Contents of a Newspaper")
             {
-                theDM.ShowDialog(Ella_key_ContentsofaNewspaper.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(ellaKeyContentNewspaper.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Content of a Nightmare")
             {
-                theDM.ShowDialog(Ella_key_ContentofaNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(ellaKeyContentNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Aiden's Detail")
             {
-                theDM.ShowDialog(Ella_key_AidensDetail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(ellaKeyAidensDetail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Water and Nightmare")
             {
-                theDM.ShowDialog(Ella_key_WaterandNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(ellaKeyWaterNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Doctor's opinion")
             {
-                theDM.ShowDialog(Ella_key_Doctorsopinion.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(ellaKeyDoctorsOpinion.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Aiden's Safe")
             {
-                theDM.ShowDialog(Ella_key_AidensSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(ellaKeyAidenSafe.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Acquiring a Safe")
             {
-                theDM.ShowDialog(Ella_key_AcquiringaSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(ellaKeyAcquiringaSafe.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Aiden & Pandemic")
             {
-                theDM.ShowDialog(Ella_key_AidenandPandemic.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(ellaKeyAidenPandemic.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Ella_key_disable.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(ellaKeyDisable.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Aiden Triss")
         {
             if (DataBaseManager.keyword_downer == "Aiden's Nightmare")
             {
-                theDM.ShowDialog(Aiden_key_Nightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenKeyNightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Client")
             {
-                theDM.ShowDialog(Aiden_key_EllaTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenkeyEllaTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Saw in the sewer")
             {
-                theDM.ShowDialog(Aiden_key_CreepyEye1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenKeyCreepyEye1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Albert's Information" || DataBaseManager.keyword_downer == "Reporting by Swain")
             {
-                theDM.ShowDialog(Aiden_key_Missing.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenKeyMissing.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Contents of a GhostStory")
             {
-                theDM.ShowDialog(Aiden_key_FishySmellOrigin.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenKeyFishySmellOrigin.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Source speculation" || DataBaseManager.keyword_downer == "Sewer & FishySmell" || DataBaseManager.keyword_downer == "Cause of Fishy smell")
             {
-                theDM.ShowDialog(Aiden_key_ContentsofaGhostStory.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenKeyContentGhostStory.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Owner of Eye?")
             {
-                theDM.ShowDialog(Aiden_key_OwnerofEye.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenKeyOwnerOfEye.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Aiden's Safe")
             {
                 if (DataBaseManager.getSafe == false)
-                    theDM.ShowDialog(Aiden_key_Safe1.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(aidenKeySafe1.transform.GetComponent<interactionEvent>().GetDialogs());
                 else
                 {
-                    theDM.ShowDialog(Aiden_Judge_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(aidenJudgeObservationFail.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else
@@ -1987,11 +1986,11 @@ public class InteractionController : MonoBehaviour
                 if (DataBaseManager.AidenKeywordCount == 0)
                 {
                     DataBaseManager.AidenKeywordCount += 1;
-                    theDM.ShowDialog(Aiden_key_Fail1.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(aidenKeyFail1.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Aiden_key_Fail2.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(aidenKeyFail2.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
 
             }
@@ -2000,38 +1999,38 @@ public class InteractionController : MonoBehaviour
         {
             if (DataBaseManager.keyword_downer == "Contents of a Newspaper")
             {
-                theDM.ShowDialog(Swain_Key_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKeyPlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Newspaper Article")
             {
-                theDM.ShowDialog(Swain_Key_Insomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKeyInsomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Aiden's Nightmare")
             {
-                theDM.ShowDialog(Swain_Key_Nightmare2.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKeyNightmare2.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Husband's Condition")
             {
-                theDM.ShowDialog(Swain_Key_Paranoia1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKeyParanoia1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Client")
             {
-                theDM.ShowDialog(Swain_Key_EllaTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKeyEllaTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Subject to request")
             {
-                theDM.ShowDialog(Swain_Key_AidenTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKeyAidenTriss1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Husband's job")
             {
                 if (DataBaseManager.Intel_MissingPeople1 == false || DataBaseManager.Swain_isTalkMissingpeople == false)
                 {
                     DataBaseManager.Swain_isTalkMissingpeople = true;
-                    theDM.ShowDialog(Swain_Key_DailyNews1.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(swainKeyDailyNews1.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Swain_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(swainKeyNothing.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
 
             }
@@ -2040,149 +2039,149 @@ public class InteractionController : MonoBehaviour
                 if (DataBaseManager.Intel_MissingPeople2 == false && DataBaseManager.Swain_isTalkMissingpeople == false)
                 {
                     DataBaseManager.Swain_isTalkMissingpeople = true;
-                    theDM.ShowDialog(Swain_Key_MissingPeople1.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(swainKeyMissingPeople1.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Swain_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(swainKeyNothing.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else if (DataBaseManager.keyword_downer == "Source of the smell?")
             {
-                theDM.ShowDialog(Swain_Key_FishySmell2.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKeyFishySmell2.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Contents of a GhostStory")
             {
-                theDM.ShowDialog(Swain_Key_GhostStory1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKeyGhostStory1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Saw in the sewer")
             {
-                theDM.ShowDialog(Swain_Key_CreepyEye1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKeyCreepyEye1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Content of a Nightmare")
             {
-                theDM.ShowDialog(Swain_key_ContentofaNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKeyContentNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Water and Nightmare")
             {
-                theDM.ShowDialog(Swain_key_WaterandNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKeyWaterNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Source speculation" || DataBaseManager.keyword_downer == "Sewer & FishySmell" || DataBaseManager.keyword_downer == "Cause of Fishy smell")
             {
                 if (DataBaseManager.Intel_MissingPeople2 == true)
                 {
-                    theDM.ShowDialog(Swain_key_FishySmell_Reort.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(swainKeyFishySmellReport.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Swain_key_FishySmell_None.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(swainKeyFishySmellNone.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else if (DataBaseManager.keyword_downer == "Details")
             {
-                theDM.ShowDialog(Swain_key_Details.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKeyDetails.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Aiden & Pandemic")
             {
-                theDM.ShowDialog(Swain_key_AidenandPandemic.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKeyAidenPandemic.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Unfair dismissal")
             {
-                theDM.ShowDialog(Swain_key_Unfairdismissal.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKeyUnfairDismissal.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Kidnap")
             {
-                theDM.ShowDialog(Swain_Kidnap.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKidnap.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Fishy Slime")
             {
-                theDM.ShowDialog(Swain_fishySlime.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainFishySlime.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Manhole" || DataBaseManager.keyword_downer == "Aiden's warning")
             {
                 DataBaseManager.SwainDeathKeyword = true;
-                theDM.ShowDialog(Swain_ManholeOrWarn.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainManholeWarn.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Murdered Clients")
             {
-                theDM.ShowDialog(Swain_MurderedElla.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainMurderedElla.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Missing Subject")
             {
                 if (DataBaseManager.Intel_MissingPeople1 == true || DataBaseManager.Intel_MissingPeople2 == true)
                 {
-                    theDM.ShowDialog(Swain_MissingAiden_MissingPeopleOk.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(swainMissingAidenMissingPeopleOk.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Swain_MissingAiden_Nomal.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(swainMissingAidenNomal.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else if (DataBaseManager.keyword_downer == "Witness Testimony")
             {
                 DataBaseManager.SwainDeathKeyword = true;
-                theDM.ShowDialog(Swain_witness.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainWitness.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "The Culprit")
             {
                 DataBaseManager.SwainDeathKeyword = true;
-                theDM.ShowDialog(Swain_culprit.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainCulprit.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Missing People & Fishy Smell")
             {
-                theDM.ShowDialog(Swain_MissingandFishy.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainMissingFishy.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Cause of Death")
             {
-                theDM.ShowDialog(Swain_EllaDeathCause.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainEllaDeathCause.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Webbed Feet")
             {
-                theDM.ShowDialog(Swain_WebbedFeet.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainWebbedFeet.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Way to Escape")
             {
                 DataBaseManager.SwainDeathKeyword = true;
-                theDM.ShowDialog(Swain_RunawayRoute.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainRunawayRoute.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Swain_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainKeyNothing.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "University student")
         {
             if (DataBaseManager.keyword_downer == "Contents of a Newspaper")
             {
-                theDM.ShowDialog(Univ_Key_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(univKeyPlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Newspaper Article")
             {
-                theDM.ShowDialog(Univ_Key_Insomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(univKeyInsomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Content of a Nightmare")
             {
-                theDM.ShowDialog(Student_key_ContentofaNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(studentKeyContentNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Water and Nightmare")
             {
-                theDM.ShowDialog(Student_key_WaterandNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(studentKeyWaterNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Rumor")
             {
-                theDM.ShowDialog(Student_key_Rumor.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(studentKeyRumor.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Source speculation" || DataBaseManager.keyword_downer == "Sewer & FishySmell" || DataBaseManager.keyword_downer == "Cause of Fishy smell")
             {
-                theDM.ShowDialog(Student_key_FishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(studentKeyFishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Details")
             {
-                theDM.ShowDialog(Student_key_Details.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(studentKeyDetails.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Univ_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(univKeyNothing.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Kane")
@@ -2191,11 +2190,11 @@ public class InteractionController : MonoBehaviour
             {
                 if (DataBaseManager.Intel_FishySmell1 == true)
                 {
-                    theDM.ShowDialog(Kane_key_waterQuality1_yesFishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(kaneKeyWaterQuality1YesFishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Kane_key_waterQuality1_noFishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(kaneKeyWaterQuality1NoFishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
 
@@ -2203,305 +2202,305 @@ public class InteractionController : MonoBehaviour
             {
                 if (DataBaseManager.Intel_CreepyEyes1 == true)
                 {
-                    theDM.ShowDialog(Kane_FishySlime_CreepyEye.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(kaneFishySlimeCreepyEye.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Kane_FishySlime_Nomal.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(kaneFishySlimeNomal.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else
             {
-                theDM.ShowDialog(Kane_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kaneNothing.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Albert Bradley")
         {
             if (DataBaseManager.keyword_downer == "Contents of a Newspaper")
             {
-                theDM.ShowDialog(Albert_Key_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyPlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Newspaper Article")
             {
-                theDM.ShowDialog(Albert_Key_Insomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyInsomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Mafia friend")
             {
-                theDM.ShowDialog(Albert_Key_Meiv1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyMeiv1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Contents of a GhostStory")
             {
-                theDM.ShowDialog(Albert_Key_SewerGhostStory1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeySewerGhostStory1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Rumor")
             {
-                theDM.ShowDialog(Albert_Key_FishySmell1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyFishySmell1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Saw in the sewer")
             {
-                theDM.ShowDialog(Albert_Key_CreepyEye1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyCreepyEye1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Reporting by Swain")
             {
-                theDM.ShowDialog(Albert_Key_MissingPeople2.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyMissingPeople2.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             //2일차 추가
             else if (DataBaseManager.keyword_downer == "Water and Nightmare")
             {
-                theDM.ShowDialog(Albert_key_WaterandNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyWaterNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Source speculation" || DataBaseManager.keyword_downer == "Sewer & FishySmell" || DataBaseManager.keyword_downer == "Cause of Fishy smell")
             {
-                theDM.ShowDialog(Albert_key_FishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyFishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Details")
             {
                 if (DataBaseManager.Intel_FishySmell3 == true || DataBaseManager.Intel_FishySmell4 == true || DataBaseManager.Intel_SewerWorker3 == true)
                 {
-                    theDM.ShowDialog(Albert_key_Details_Origin.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(albertKeyDetailsOrigin.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Albert_key_Details_noOrigin.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(albertKeyDetailsNoOrigin.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else if (DataBaseManager.keyword_downer == "Promise")
             {
-                theDM.ShowDialog(Albert_key_Promise.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyPromise.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Unfair dismissal")
             {
-                theDM.ShowDialog(Albert_key_Unfairdismissal.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyUnfairDismissal.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             // 낮 이벤트 이후 추가
             else if (DataBaseManager.keyword_downer == "Root of problem")
             {
                 DataBaseManager.AlbertDeathKeyword = true;
-                theDM.ShowDialog(Albert_Key_Rootofproblem.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyRootProblem.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Murdered Clients")
             {
-                theDM.ShowDialog(Albert_Key_DeadElla.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyDeadElla.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Missing Subject")
             {
-                theDM.ShowDialog(Albert_Key_MissingAiden.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyMissingAiden.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Witness Testimony")
             {
-                theDM.ShowDialog(Albert_Key_Witness.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyWitness.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "The Culprit")
             {
                 DataBaseManager.AlbertDeathKeyword = true;
-                theDM.ShowDialog(Albert_Key_Culprit.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyCulprit.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Cause of Death")
             {
-                theDM.ShowDialog(Albert_Key_CauseOfDeath.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyCauseOfDeath.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Webbed Feet")
             {
                 if (DataBaseManager.TimeCount > 8)
                 {
-                    theDM.ShowDialog(Albert_KeyChange_WebbedFeet.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(albertKeyChangeWebbedFeet.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Albert_Key_WebbedFeet.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(albertKeyWebbedFeet.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else if (DataBaseManager.keyword_downer == "Way to Escape")
             {
                 DataBaseManager.AlbertDeathKeyword = true;
-                theDM.ShowDialog(Albert_Key_RunwayMenhole.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyRunwayMenhole.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Aiden's warning")
             {
                 DataBaseManager.AlbertDeathKeyword = true;
-                theDM.ShowDialog(Albert_Key_WarnOfAiden.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyWarnAiden.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Owner of Uniform")
             {
                 DataBaseManager.AlbertDeathKeyword = true;
-                theDM.ShowDialog(Albert_Key_OwnerOfOutfit.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyOwnerOfOutfit.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Missing People & Fishy Smell" && DataBaseManager.TimeCount > 8)
             {
-                theDM.ShowDialog(Albert_KeyChange_MissingFishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyChangeMissingFishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
             }
 
             else
             {
-                theDM.ShowDialog(Albert_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(albertKeyNothing.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Kate Lizzie")
         {
             if (DataBaseManager.keyword_downer == "Newspaper Article")
             {
-                theDM.ShowDialog(Kate_NoonInsomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kateNoonInsomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Aiden's Nightmare")
             {
-                theDM.ShowDialog(Kate_NoonNightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kateNoonNightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Husband's Condition")
             {
-                theDM.ShowDialog(Kate_NoonParanoia1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kateNoonParanoia1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "State of congestion")
             {
-                theDM.ShowDialog(Kate_NoonHospital1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kateNoonHospital1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Rumor")
             {
-                theDM.ShowDialog(Kate_NoonFishySmell1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kateNoonFishySmell1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Contents of a GhostStory")
             {
-                theDM.ShowDialog(Kate_key_ContentsofaGhostStory.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kateKeyContentGhostStory.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Saw in the sewer")
             {
-                theDM.ShowDialog(Kate_key_Sawinthesewer.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kateKeySawinSewer.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Subject to request")
             {
-                theDM.ShowDialog(Kate_key_Subjecttorequest.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kateKeySubjectRequest.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Murdered Clients" || DataBaseManager.keyword_downer == "Cause of Death" || DataBaseManager.keyword_downer == "" || DataBaseManager.keyword_downer == "Webbed Feet")
             {
-                theDM.ShowDialog(Kate_Key_EllaBody.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kateKeyEllaBody.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Witness Testimony")
             {
-                theDM.ShowDialog(Kate_Key_Witness.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kateKeyWitness.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Kate_NoonNothing.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(kateNoonNothing.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Alan Parks")
         {
             if (DataBaseManager.keyword_downer == "Aiden's Nightmare")
             {
-                theDM.ShowDialog(Alan_NoonNightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(alanNoonNightmare1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Content of a Nightmare")
             {
-                theDM.ShowDialog(Alan_NoonNightmare2.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(alanNoonNightmare2.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Aiden's Detail")
             {
-                theDM.ShowDialog(Alan_NoonNightmare3.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(alanNoonNightmare3.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Newspaper Article")
             {
-                theDM.ShowDialog(Alan_NoonInsomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(alanNoonInsomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Husband's Condition")
             {
-                theDM.ShowDialog(Alan_NoonParanoia1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(alanNoonParanoia1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Subject to request")
             {
-                theDM.ShowDialog(Alan_NoonAiden1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(alanNoonAiden1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Details")
             {
-                theDM.ShowDialog(Alan_key_Details.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(alanKeyDetails.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "State of congestion")
             {
-                theDM.ShowDialog(Alan_key_Stateofcongestion.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(alanKeyStateCongestion.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Murdered Clients" || DataBaseManager.keyword_downer == "Cause of Death" || DataBaseManager.keyword_downer == "" || DataBaseManager.keyword_downer == "Webbed Feet")
             {
-                theDM.ShowDialog(Alan_Key_EllaBody.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(alanKeyEllaBody.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Alan_NoonNothing.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(alanNoonNothing.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Maeve")
         {
             if (DataBaseManager.keyword_downer == "Contents of a Newspaper" || DataBaseManager.keyword_downer == "Astronomical show")
             {
-                theDM.ShowDialog(Maeve_Key_Intel_PlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(maeveKeyIntelPlanetarySequence1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Newspaper Article")
             {
-                theDM.ShowDialog(Maeve_Key_Insomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(maeveKeyInsomnia1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Police friend")
             {
-                theDM.ShowDialog(Maeve_Key_Albert1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(maeveKeyAlbert1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Reporting by Swain" || DataBaseManager.keyword_downer == "Albert's Information")
             {
-                theDM.ShowDialog(Maeve_Key_MissingPeople.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(maeveKeyMissingPeople.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Saw in the sewer")
             {
-                theDM.ShowDialog(Maeve_Key_CreepyEye.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(maeveKeyCreepyEye.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Rumor")
             {
-                theDM.ShowDialog(Maeve_Key_FishySmell1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(maeveKeyFishySmell1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Source of the smell?")
             {
-                theDM.ShowDialog(Maeve_Key_FishySmell2.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(maeveKeyFishySmell2.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Subject to request")
             {
-                theDM.ShowDialog(Maeve_Key_Aiden1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(maeveKeyAiden1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Water and Nightmare")
             {
-                theDM.ShowDialog(Meave_key_WaterandNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(meaveKeyWaterNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Contents of a GhostStory")
             {
-                theDM.ShowDialog(Meave_key_ContentsofaGhostStory.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(meaveKeyContentGhostStory.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Truth of a rumor")
             {
-                theDM.ShowDialog(Meave_key_Truthofarumor.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(meaveKeyTruthRumor.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Details")
             {
-                theDM.ShowDialog(Meave_key_Details.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(meaveKeyDetails.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Root of problem")
             {
-                theDM.ShowDialog(Meave_key_CauseOfProblem.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(meaveKeyCauseProblem.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Murdered Clients" || DataBaseManager.keyword_downer == "Missing Subject")
             {
-                theDM.ShowDialog(Meave_key_DEllaMAiden.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(meaveKey_EllaAiden.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Witness Testimony")
             {
-                theDM.ShowDialog(Meave_key_Witness.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(meaveKeyWitness.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Missing People & Fishy Smell")
             {
                 if (DataBaseManager.keyword_downer == "Source speculation" || DataBaseManager.keyword_downer == "Sewer & FishySmell" || DataBaseManager.keyword_downer == "Cause of Fishy smell")
                 {
-                    theDM.ShowDialog(Meave_key_MissingFishyCauseO.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(meaveKeyMissingFishyCauseO.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Meave_key_MissingFishyCauseX.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(meaveKeyMissingFishyCauseX.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else
             {
-                theDM.ShowDialog(Maeve_Key_Nothing.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(maeveKeyNothing.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Dusty Dave")
@@ -2509,27 +2508,27 @@ public class InteractionController : MonoBehaviour
             selectionUIManager.Instance.EndDialog();
             if (DataBaseManager.keyword_downer == "Witness Testimony")
             {
-                theDM.ShowDialog(Dave_Key_Witness.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(daveKeyWitness.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "")
             {
-                theDM.ShowDialog(Dave_Key_SafeAquire.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(daveKeySafeAquire.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.keyword_downer == "Acquiring a Safe")
             {
                 if (DataBaseManager.DaveSafeOpen == true)
                 {
-                    theDM.ShowDialog(Dave_Key_OpenSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(daveKeyOpenSafe.transform.GetComponent<interactionEvent>().GetDialogs());
 
                 }
                 else if (DataBaseManager.DaveAfterSafe == false)
                 {
                     DataBaseManager.DaveAfterSafe = true;
-                    theDM.ShowDialog(Dave_Key_SafeAquire.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(daveKeySafeAquire.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Dave_Key_SafeAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(daveKeySafeAfter.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else if (DataBaseManager.keyword_downer == "Bracelet")
@@ -2537,16 +2536,16 @@ public class InteractionController : MonoBehaviour
                 if (DataBaseManager.DaveAfterBreclet == false)
                 {
                     DataBaseManager.DaveAfterBreclet = true;
-                    theDM.ShowDialog(Dave_Key_Breclet.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(daveKeyBreclet.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(Dave_Key_BrecletAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(daveKeyBrecletAfter.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else
             {
-                theDM.ShowDialog(Dave_Key_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(daveKeyFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "BlackWell")
@@ -2555,28 +2554,28 @@ public class InteractionController : MonoBehaviour
             {
                 if (DataBaseManager.keyword_downer == "Source speculation" || DataBaseManager.keyword_downer == "Sewer & FishySmell" || DataBaseManager.keyword_downer == "Cause of Fishy smell")
                 {
-                    theDM.ShowDialog(BlackWell_Key_Fishysmell.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(blackWellKeyFishysmell.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else if (DataBaseManager.keyword_downer == "Root of problem" || DataBaseManager.keyword_downer == "Aiden's warning")
                 {
-                    theDM.ShowDialog(BlackWell_Key_WarnRoot.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(blackWellKeyWarnRoot.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else if (DataBaseManager.keyword_downer == "Witness Testimony")
                 {
-                    theDM.ShowDialog(BlackWell_Key_Witness.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(blackWellKeyWitness.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else if (DataBaseManager.keyword_downer == "Way to Escape")
                 {
-                    theDM.ShowDialog(BlackWell_Key_runway.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(blackWellKeyRunway.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(BlackWell_Key_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(blackWellKeyFail.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else
             {
-                theDM.ShowDialog(BlackWell_Key_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(blackWellKeyFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (setDialog == "Symbol")
@@ -2584,26 +2583,25 @@ public class InteractionController : MonoBehaviour
 
             if (DataBaseManager.keyword_downer == "Advent")
             {
-                theDM.ShowDialog(BloodEnding.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(bloodEnding.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
 
-                theDM.ShowDialog(Sewer_SymbolKeyWorkFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerSymbolKeyWorkFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
     }
-
     //전투
     public void BattleDialog(string setDialog)
     {
         if (setDialog == "start")
         {
-            theDM.ShowDialog(Battle_StartDialog.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(battleStartDialog.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (setDialog == "End")
         {
-            theDM.ShowDialog(Battle_EndBattle.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(battleEndBattle.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     public void RetrunDialogResult(string Sub_Dialog, string result_End, string SanCheck = "")
@@ -2614,11 +2612,11 @@ public class InteractionController : MonoBehaviour
             DataBaseManager.fst_Detectiv_TimeOn += 1;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(NewsPaper_Judege_True.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(newsPaperJudegeTrue.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(NewsPaper_Judege_False.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(newsPaperJudegeFalse.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Stove : Making coffee")
@@ -2627,11 +2625,11 @@ public class InteractionController : MonoBehaviour
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
                 DataBaseManager.Condition = "Good";
-                theDM.ShowDialog(Stove_Judge_True.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(stoveJudgeTrue.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Stove_Judge_False.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(stoveJudgeFalse.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Aiden : Diagnosis")
@@ -2639,11 +2637,11 @@ public class InteractionController : MonoBehaviour
             DataBaseManager.Aiden_medicine = true;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(Aiden_Judge_medicine_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenJudgeMedicineSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Aiden_Judge_medicine_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenJudgeMedicineFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Aiden : Look")
@@ -2651,11 +2649,11 @@ public class InteractionController : MonoBehaviour
             DataBaseManager.Aiden_Observation = true;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(Aiden_Judge_Observation_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenJudgeObservationSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Aiden_Judge_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenJudgeObservationFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Aiden : Calming down")
@@ -2666,19 +2664,19 @@ public class InteractionController : MonoBehaviour
             {
                 if (DataBaseManager.getSafe == false)
                 {
-                    theDM.ShowDialog(Aiden_Judge_psychotherapy_Sucsses_NoSafe.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(aidenJudgePsychotherapySuccNoSafe.transform.GetComponent<interactionEvent>().GetDialogs());
                     DataBaseManager.getSafe = true;
                 }
                 else
                 {
-                    theDM.ShowDialog(Aiden_Judge_psychotherapy_Sucsses_Safe.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(aidenJudgePsychotherapySuccSafe.transform.GetComponent<interactionEvent>().GetDialogs());
                     DataBaseManager.getSafe = true;
                 }
 
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Aiden_Judge_medicine_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenJudgeMedicineFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Aiden : Persuasion")
@@ -2687,11 +2685,11 @@ public class InteractionController : MonoBehaviour
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
                 DataBaseManager.getSafe = true;
-                theDM.ShowDialog(Aiden_key_Safe_rhetoric_sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenkeySafeRhetoricSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Aiden_key_Safe_rhetoric_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenKeySafeRhetoricFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Aiden : TakeAway")
@@ -2699,24 +2697,24 @@ public class InteractionController : MonoBehaviour
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
                 DataBaseManager.getSafe = true;
-                theDM.ShowDialog(Aiden_key_Safe_Str_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenKeySafeStrSucc.transform.GetComponent<interactionEvent>().GetDialogs());
 
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
                 BillowUIManager.Instance.HP_down(5);
-                theDM.ShowDialog(Aiden_key_Safe_Str_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(aidenKeySafeStrFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Swain : Look")
         {
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(Swain_LookJudge_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainLookJudgeSucsses.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Swain_LookJudge_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(swainLookJudgeFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Witness : Eavesdropping")
@@ -2725,32 +2723,32 @@ public class InteractionController : MonoBehaviour
             {
                 if (DataBaseManager.Intel_QuestHouse1 == false)
                 {
-                    theDM.ShowDialog(NoonEvent_Witness_ListeningSucc_NoRequest.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(noonEventWitnessListeningSuccNoRequest.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else if (DataBaseManager.Intel_MissingPeople1 == true || DataBaseManager.Intel_MissingPeople2 == true)
                 {
-                    theDM.ShowDialog(NoonEvent_Witness_ListeningSucc_MissingPeople.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(noonEventWitnessListeningSuccMissingPeople.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else
                 {
-                    theDM.ShowDialog(NoonEvent_Witness_ListeningSucc_Nomal.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(noonEventWitnessListeningSuccNomal.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(NoonEvent_Witness_ListeningFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventWitnessListeningFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Police : Persuasion")
         {
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(NoonEvent_DoorPolice_PersuasionSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventDoorPolicePersuasionSucc.transform.GetComponent<interactionEvent>().GetDialogs());
                 DataBaseManager.NoonEvent_AccessAuthorization = true;
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(NoonEvent_DoorPolice_PersuasionFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventDoorPolicePersuasionFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
 
@@ -2758,25 +2756,25 @@ public class InteractionController : MonoBehaviour
         {
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(Meave_Judge_RhetoricSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(meaveJudgeRhetoricSucc.transform.GetComponent<interactionEvent>().GetDialogs());
                 DataBaseManager.NoonEvent_AccessAuthorization = true;
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Meave_Judge_RhetoricFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(meaveJudgeRhetoricFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Door : Picking doors")
         {
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(SewerDoorPickSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerDoorPickSucc.transform.GetComponent<interactionEvent>().GetDialogs());
                 DataBaseManager.SewerDoorOpenDeftness = true;
                 DataBaseManager.SewerDoorOpenCheck = true;
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(SewerDoorPickFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerDoorPickFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Window : Break")
@@ -2787,12 +2785,12 @@ public class InteractionController : MonoBehaviour
             DataBaseManager.TryBrokenWindow = true;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(Window_JudgeBreakSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(windowJudgeBreakSucc.transform.GetComponent<interactionEvent>().GetDialogs());
                 DataBaseManager.MoveSewerOfficeWindow = true;
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Window_JudgeBreakFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(windowJudgeBreakFail.transform.GetComponent<interactionEvent>().GetDialogs());
                 DataBaseManager.MoveSewerOfficeWindow = true;
             }
         }
@@ -2801,11 +2799,11 @@ public class InteractionController : MonoBehaviour
             DataBaseManager.TryObserLokcer = true;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(Loker_Judge_ObservationSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(lockerJudgeObservationSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Loker_Judge_ObservationFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(lockerJudgeObservationFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         // 2일차 강제이벤트
@@ -2814,11 +2812,11 @@ public class InteractionController : MonoBehaviour
             DataBaseManager.DeadBody_medicine = true;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(NoonEvent_DeadBody_medicineSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventDeadBodyMedicineSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(NoonEvent_DeadBody_medicineFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventDeadBodyMedicineFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "DeadBody : Look")
@@ -2826,11 +2824,11 @@ public class InteractionController : MonoBehaviour
             DataBaseManager.DeadBody_observational = true;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(NoonEvent_DeadBody_ObservationSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventDeadBodyObservationSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(NoonEvent_DeadBody_ObservationFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventDeadBodyObservationFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "DeadBody : Check")
@@ -2838,11 +2836,11 @@ public class InteractionController : MonoBehaviour
             DataBaseManager.DeadBody_Analyzing = true;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(NoonEvent_DeadBody_analysisSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventDeadBodyAnalysisSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(NoonEvent_DeadBody_analysisFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventDeadBodyAnalysisFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "DeadBody : Stealing")
@@ -2850,11 +2848,11 @@ public class InteractionController : MonoBehaviour
             DataBaseManager.DeadBody_deftness = true;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(NoonEvent_DeadBody_deftnessSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventDeadBodyDeftnessSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(NoonEvent_DeadBody_deftnessFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(noonEventDeadBodyDeftnessFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
 
@@ -2863,11 +2861,11 @@ public class InteractionController : MonoBehaviour
             DataBaseManager.Site_Analyzing = true;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(Site_analysisSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(siteAnalysisSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Site_analysisFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(SiteAnalysisFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         // 강가 Sewer : Look
@@ -2877,22 +2875,22 @@ public class InteractionController : MonoBehaviour
             {
                 if (result_End == "Result : Success" || result_End == "Result : Critical Success")
                 {
-                    theDM.ShowDialog(Sewer_Observation_Sucsses.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(sewerObservationSucc.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
                 {
-                    theDM.ShowDialog(Sewer_Observation_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(sewerObservationFail.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
             if (Sub_Dialog == "SAN : Check")
             {
                 if (result_End == "Result : Success" || result_End == "Result : Critical Success")
                 {
-                    theDM.ShowDialog(Sewer_Observation_SucssesAfterSanSuc.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(sewerObservationSuccAfterSanSuc.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
                 {
-                    theDM.ShowDialog(Sewer_Observation_SucssesAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(sewerObservationSuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
         }
@@ -2902,11 +2900,11 @@ public class InteractionController : MonoBehaviour
             {
                 if (result_End == "Result : Success" || result_End == "Result : Critical Success")
                 {
-                    theDM.ShowDialog(Battle_SanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(battleSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
                 else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
                 {
-                    theDM.ShowDialog(Battle_SanCheckFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(battleSanCheckFail.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
         }
@@ -2916,13 +2914,13 @@ public class InteractionController : MonoBehaviour
             {
                 if (Sub_Dialog == "SAN : Check")
                 {
-                    theDM.ShowDialog(Fab_Case1After.transform.GetComponent<interactionEvent>().GetDialogs());
+                    theDM.ShowDialog(fabCase1After.transform.GetComponent<interactionEvent>().GetDialogs());
                 }
             }
         }
         if (SanCheck == "NoonEvent_FirstDoor")
         {
-            theDM.ShowDialog(NoonEvent_FirstDoorAfterSan.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(noonEventFirstDoorAfterSan.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         //Item
         if (Sub_Dialog == "Safe : Open")
@@ -2931,11 +2929,11 @@ public class InteractionController : MonoBehaviour
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
                 DataBaseManager.getSafe = false;
-                theDM.ShowDialog(Safe_Succ.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(safeSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Safe_Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(safeFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Coat : Disguise")
@@ -2944,11 +2942,11 @@ public class InteractionController : MonoBehaviour
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
                 DataBaseManager.WearCoat = true;
-                theDM.ShowDialog(Item_DiaguiseSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(itemDiaguiseSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Item_DiaguiseFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(itemDiaguiseFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         // 이성판정
@@ -2956,133 +2954,133 @@ public class InteractionController : MonoBehaviour
         {
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(Fab_Case2Succ.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(fabCase2Succ.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Fab_Case2Fail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(fabCase2Fail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (SanCheck == "KaneSan")
         {
-            theDM.ShowDialog(Kane_FishySlime_CreepyEyeAfterSans.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(kaneFishySlimeCreepyEyeAfterSans.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (SanCheck == "DrinkSan")
         {
-            theDM.ShowDialog(Meave_Judge_RhetoricSanAfter.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(meaveJudgeRhetoricSanAfter.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (SanCheck == "ThirdDayStartSan")
         {
             if (DataBaseManager.Intel_Nightmare3 == true || DataBaseManager.Intel_Nightmare4 == true)
             {
-                theDM.ShowDialog(ThirdDayStartCase1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(thirdDayStartCase1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(ThirdDayStartCase2.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(thirdDayStartCase2.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (SanCheck == "DayTwoCase2San")
         {
-            theDM.ShowDialog(ThirdDayStartCase1AfterSan.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(thirdDayStartCase1AfterSan.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (SanCheck == "JournalSan")
         {
             DataBaseManager.JournalFirstSanCheck = true;
-            theDM.ShowDialog(Sewer_JornalLookSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerJornalLookSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (SanCheck == "SymbolStrSan")
         {
-            theDM.ShowDialog(Sewer_SanChecck.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerSanChecck.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (SanCheck == "Sewer_FirstInSan")
         {
 
-            theDM.ShowDialog(Sewer_FirstInAfterSan.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerFirstInAfterSan.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (SanCheck == "FourthDayStartSan")
         {
             if (DataBaseManager.Intel_Nightmare3 == true || DataBaseManager.Intel_Nightmare4 == true)
             {
-                theDM.ShowDialog(Fab_4th_QuestO.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(fab4thQuestO.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else
             {
-                theDM.ShowDialog(Fab_4thQuestX.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(fab4thQuestX.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (SanCheck == "Fab_4th_QuestO_SanCheck")
         {
-            theDM.ShowDialog(Fab_4th_QuestO_SanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(fab4thQuestOSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (SanCheck == "Day_4_case1Health")
         {
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(Fab_4thQuestO_HealthCehckSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(fab4thQuestOHealthCheckSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
                 DataBaseManager.MorningMove_4th = true;
                 DataBaseManager.MorningMove_3rd = true;
                 DataBaseManager.MorningMove_2nd = true;
-                theDM.ShowDialog(Fab_4th_QuestO_HealthCehckFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(fab4thQuestOHealthCheckFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (SanCheck == "BookSan")
         {
-            theDM.ShowDialog(Sewer_BookLookSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerBookLookSanCheck.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (SanCheck == "DeepOneFirstSan")
         {
-            theDM.ShowDialog(Sewer_FirstDeepOneAfterSan.transform.GetComponent<interactionEvent>().GetDialogs());
+            theDM.ShowDialog(sewerFirstDeepOneAfterSan.transform.GetComponent<interactionEvent>().GetDialogs());
         }
         if (SanCheck == "EndingLedderSan")
         {
             if (DataBaseManager.Ending_LadderSanInt == 0)
             {
                 DataBaseManager.Ending_LadderSanInt += 1;
-                theDM.ShowDialog(Sewer_LadderSan1.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerLadderSan1.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.Ending_LadderSanInt == 1)
             {
                 DataBaseManager.Ending_LadderSanInt += 1;
-                theDM.ShowDialog(Sewer_LadderSan2.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerLadderSan2.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.Ending_LadderSanInt == 2)
             {
                 DataBaseManager.Ending_LadderSanInt += 1;
-                theDM.ShowDialog(Sewer_LadderSan3.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerLadderSan3.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.Ending_LadderSanInt == 3)
             {
                 DataBaseManager.Ending_LadderSanInt += 1;
-                theDM.ShowDialog(Sewer_LadderSan4.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerLadderSan4.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.Ending_LadderSanInt == 4)
             {
                 DataBaseManager.Ending_LadderSanInt += 1;
-                theDM.ShowDialog(Sewer_LadderSan5.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerLadderSan5.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.Ending_LadderSanInt == 5)
             {
                 DataBaseManager.Ending_LadderSanInt += 1;
-                theDM.ShowDialog(Sewer_LadderSan6.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerLadderSan6.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.Ending_LadderSanInt == 6)
             {
                 DataBaseManager.Ending_LadderSanInt += 1;
-                theDM.ShowDialog(Sewer_LadderSan7.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerLadderSan7.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.Ending_LadderSanInt == 7)
             {
                 DataBaseManager.Ending_LadderSanInt += 1;
-                theDM.ShowDialog(Sewer_LadderSan8.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerLadderSan8.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (DataBaseManager.Ending_LadderSanInt == 8)
             {
                 DataBaseManager.Ending_LadderSanInt += 1;
-                theDM.ShowDialog(Sewer_LadderSan9.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerLadderSan9.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Warden : Steal")
@@ -3090,11 +3088,11 @@ public class InteractionController : MonoBehaviour
             DataBaseManager.Black_Deftness = true;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(BlackWell_Judege_DeftnessSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(blackWellJudegeDeftnessSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(BlackWell_Judege_DeftnessFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(blackWellJudegeDeftnessFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Warden : Persuade")
@@ -3103,11 +3101,11 @@ public class InteractionController : MonoBehaviour
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
                 DataBaseManager.Black_RechSucc_CanTalck = true;
-                theDM.ShowDialog(BlackWell_Judege_RheticSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(blackWellJudegeRheticSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(BlackWell_Judege_RheticFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(blackWellJudegeRheticFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         // 하수도 내부 
@@ -3115,33 +3113,33 @@ public class InteractionController : MonoBehaviour
         {
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(Sewer_StealthSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerStealthSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Sewer_StealthFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerStealthFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "??? : Give Excuse")
         {
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(Sewer_RhethicSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerRhethicSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Sewer_RhethicFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerRhethicFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Book : Decryption")
         {
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(Sewer_BookLookOccultSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerBookLookOccultSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Sewer_BookLookOccultFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerBookLookOccultFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Sewer : Picking")
@@ -3149,11 +3147,11 @@ public class InteractionController : MonoBehaviour
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
                 DataBaseManager.SewerPicingSucc = true;
-                theDM.ShowDialog(RiverDeftnessSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(riverDeftnessSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(RiverDeftnessFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(riverDeftnessFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Symbol : Decryption")
@@ -3161,11 +3159,11 @@ public class InteractionController : MonoBehaviour
             DataBaseManager.SymbolOccultFirst = true;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(Sewer_SymbolLook_OccultSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerSymbolLookOccultSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Sewer_SymbolLook_OccultFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerSymbolLookOccultFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Symbol : Break")
@@ -3173,18 +3171,18 @@ public class InteractionController : MonoBehaviour
             DataBaseManager.StoryDirecting = true;
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(Sewer_JudgeStrSucc.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerJudgeStrSucc.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                theDM.ShowDialog(Sewer_JudgeStrFail.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerJudgeStrFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
         if (Sub_Dialog == "Fabian : Swimming")
         {
             if (result_End == "Result : Success" || result_End == "Result : Critical Success")
             {
-                theDM.ShowDialog(Sewer_LadderSwin.transform.GetComponent<interactionEvent>().GetDialogs());
+                theDM.ShowDialog(sewerLadderSwim.transform.GetComponent<interactionEvent>().GetDialogs());
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
