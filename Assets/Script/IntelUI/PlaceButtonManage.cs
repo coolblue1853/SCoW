@@ -71,6 +71,11 @@ public class PlaceButtonManage : MonoBehaviour
     bool ButtonRize_Gunsmith = false;
     bool ButtonRize_SewageMaintenanceOffice = false;
     bool ButtonRize_Wharf = false;
+    public GameObject ButtonRect;
+    bool ClickDownButton = false;
+    bool ClickDownButton2 = false;
+    public GameObject Upbutton2;
+    public GameObject DownButton2;
     void ButtonUpdate()
     {
         if ((DataBaseManager.Intel_DetectiveOffice1 == true || DataBaseManager.Intel_DetectiveOffice2 == true || DataBaseManager.Intel_DetectiveOffice3 == true || DataBaseManager.Intel_DetectiveOffice4 == true || DataBaseManager.Intel_DetectiveOffice5 == true || DataBaseManager.Intel_DetectiveOffice6 == true) && ButtonRize_DetectiveOffice == false)
@@ -235,11 +240,7 @@ public class PlaceButtonManage : MonoBehaviour
             DownButton.SetActive(true);
         }
     }
-    public GameObject ButtonRect;
-    bool ClickDownButton = false;
-    bool ClickDownButton2 = false;
-    public GameObject Upbutton2;
-    public GameObject DownButton2;
+
     public void ClickUpButton()
     {
         SoundManager.Instance.ClickSound_Play();

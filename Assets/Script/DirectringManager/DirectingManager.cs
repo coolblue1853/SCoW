@@ -6,44 +6,44 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class DirectingManager : MonoBehaviour
 {
-    public GameObject BoxMus;
-    public GameObject BattleM;
+    public GameObject boxHybrid;
+    public GameObject battleMap;
     public CameraManager cameraManager;
-    public GameObject DialogManager;
-    Vector2 player_SewerRight = new Vector3(-1194.19f, -193.57f);
-    Vector3 Cam_SewerRight = new Vector3(-1217.02f, -195f, -15);
-    public GameObject Back;
-    public Image BackGround;
-    public GameObject SewerBattleBackGround;
-    public GameObject RoadBattleBackGround;
+    public GameObject dialogManager;
+    Vector2 playerSewerRight = new Vector3(-1194.19f, -193.57f);
+    Vector3 camSewerRight = new Vector3(-1217.02f, -195f, -15);
+    public GameObject backgroundOb;
+    public Image backGroundImg;
+    public GameObject sewerBattleBackground;
+    public GameObject roadBattleBackground;
     public GameObject battleObject;
-    Vector2 BattlePlayer_Road = new Vector3(-213.58f, 209.2012f);
-    Vector2 BattlePlayer_Sewer = new Vector3(-220.9f, 204.5f);
-    float ChInRommSize = 2.383215f; // -이면 왼쪽 +면 오른쪽
-    Vector2 player_OutsideTo1st = new Vector3(-1217.79f, 2.13f);
-    Vector3 Cam_OutsideTo1st = new Vector3(-1198, 1.5f, -15);
-    Vector2 player_1stTo2st = new Vector3(-1380.6f, 7f);
-    Vector3 Cam_1stTo2st = new Vector3(-1368.6f, 1.5f, -15);
-    Vector2 player_RoomTo2st = new Vector3(-1365.4f, 7f);
-    Vector3 Cam_RoomTo2st = new Vector3(-1368.6f, 1.5f, -15);
-    Vector2 player_StartPos = new Vector3(-797.79f, 1.91f);
-    Vector3 Cam_StartPos = new Vector3(-797.5f, 1.5f, -15);
-    Vector3 Cam_BattlePos = new Vector3(-774.6f, 120.1f, -15);
-    Vector3 Cam_BattleSewerPos = new Vector3(-776.77f, 119.79f, -15);
-
-    bool Thrid;
+    Vector2 battlePlayerRoad = new Vector3(-213.58f, 209.2012f);
+    Vector2 battlePlayerSewer = new Vector3(-220.9f, 204.5f);
+    float chInRommSize = 2.383215f; // -이면 왼쪽 +면 오른쪽
+    Vector2 playerOutsideTo1st = new Vector3(-1217.79f, 2.13f);
+    Vector3 CamOutsideTo1st = new Vector3(-1198, 1.5f, -15);
+    Vector2 player1stTo2st = new Vector3(-1380.6f, 7f);
+    Vector3 Cam1stTo2st = new Vector3(-1368.6f, 1.5f, -15);
+    Vector2 playerRoomTo2st = new Vector3(-1365.4f, 7f);
+    Vector3 camRoomTo2st = new Vector3(-1368.6f, 1.5f, -15);
+    Vector2 playerStartPos = new Vector3(-797.79f, 1.91f);
+    Vector3 camStartPos = new Vector3(-797.5f, 1.5f, -15);
+    Vector3 camBattlePos = new Vector3(-774.6f, 120.1f, -15);
+    Vector3 camBattleSewerPos = new Vector3(-776.77f, 119.79f, -15);
+    bool once = false;
+    bool thrid;
     bool twice;
     private static DirectingManager instance = null;
     public GameObject player;
-    public GameObject Camera;
+    public GameObject camera;
     //병원
-    public GameObject Kate_noon;
+    public GameObject kateNoon;
     //탐정사무소
-    public GameObject sit_player;
-    public GameObject sit_player2;
-    public GameObject sit_NoNewsPaperPlayer;
-    public GameObject sit_Ella;
-    public SpriteRenderer Newspaper;
+    public GameObject sitPlayer;
+    public GameObject sitPlayer2;
+    public GameObject sitNoNewspaperPlayer;
+    public GameObject sitElla;
+    public SpriteRenderer newspaper;
     public static DirectingManager Instance
     {
         get
@@ -69,11 +69,11 @@ public class DirectingManager : MonoBehaviour
         /* -- 다시 활성화 해 주어야 함         */
         if (scene.name == "Main")
         {
-            Back.SetActive(true);
-            Tween fadeTween2 = BackGround.DOFade(0, 1.5f);
+            backgroundOb.SetActive(true);
+            Tween fadeTween2 = backGroundImg.DOFade(0, 1.5f);
             player.SetActive(false);
-            player.transform.position = player_StartPos;
-            Camera.transform.position = Cam_StartPos;
+            player.transform.position = playerStartPos;
+            camera.transform.position = camStartPos;
             DataBaseManager.nowPlace = "DetectiveOffice";
             //원래라면 활성화 해 주어야 함.
             FadingBackGround.Instance.FadeOut();
@@ -104,23 +104,37 @@ public class DirectingManager : MonoBehaviour
         }
 
     }
+
     public GameObject endGame;
     bool isGo1stBattle;
-    public GameObject VisionLessField;
-    public GameObject NoteButton;
+    public GameObject visionLessField;
+    public GameObject noteButton;
+    public GameObject enemy1;
+    public GameObject enemy2;
+    public GameObject enemy3;
+    public GameObject battleUI;
+    public BattleCameraMove cameraMove;
+    public GameObject enemyTrunSymbol1;
+    public GameObject enemyTrunSymbol2;
+    public GameObject enemyTrunSymbol3;
+    public GameObject battleRoadLight;
+    public GameObject sewerEnemy1;
+    public GameObject sewerEnemy2;
+    public GameObject playerTrunSymbol;
+
     void Update()
     {
-        if (DataBaseManager.isDebuff_Dyslexia == true && NoteButton.activeSelf == true)
+        if (DataBaseManager.isDebuff_Dyslexia == true && noteButton.activeSelf == true)
         {
-            NoteButton.SetActive(false);
+            noteButton.SetActive(false);
         }
-        else if (DataBaseManager.isDebuff_Dyslexia == false && NoteButton.activeSelf == false)
+        else if (DataBaseManager.isDebuff_Dyslexia == false && noteButton.activeSelf == false)
         {
-            NoteButton.SetActive(true);
+            noteButton.SetActive(true);
         }
-        if (DataBaseManager.isDebuff_VisionLoss == true && VisionLessField.activeSelf == false)
+        if (DataBaseManager.isDebuff_VisionLoss == true && visionLessField.activeSelf == false)
         {
-            VisionLessField.SetActive(true);
+            visionLessField.SetActive(true);
         }
         if (DataBaseManager.nowHP <= 0 || DataBaseManager.nowSan <= 0)
         {
@@ -228,7 +242,7 @@ public class DirectingManager : MonoBehaviour
             DirectingManager.Instance.OrganizeKeyword();
             once = true;
             player.SetActive(false);
-            sit_NoNewsPaperPlayer.SetActive(true);
+            sitNoNewspaperPlayer.SetActive(true);
             if (DataBaseManager.isBar == true || DataBaseManager.isSewerOffice == true)
             {
                 Invoke("KeyConnect", 12f);
@@ -248,7 +262,7 @@ public class DirectingManager : MonoBehaviour
             DirectingManager.Instance.OrganizeKeyword();
             twice = true;
             player.SetActive(false);
-            sit_NoNewsPaperPlayer.SetActive(true);
+            sitNoNewspaperPlayer.SetActive(true);
             if (DataBaseManager.isBar == true || DataBaseManager.isSewerOffice == true)
             {
                 Invoke("KeyConnect", 12f);
@@ -262,13 +276,13 @@ public class DirectingManager : MonoBehaviour
                 Invoke("KeyConnect", 3f);
             }
         }
-        if ((DataBaseManager.TimeCount == 12 && DataBaseManager.nowPlace == "DetectiveOffice" && Thrid == false))
+        if ((DataBaseManager.TimeCount == 12 && DataBaseManager.nowPlace == "DetectiveOffice" && thrid == false))
         {
             DataBaseManager.StoryDirecting = true;
             DirectingManager.Instance.OrganizeKeyword();
-            Thrid = true;
+            thrid = true;
             player.SetActive(false);
-            sit_NoNewsPaperPlayer.SetActive(true);
+            sitNoNewspaperPlayer.SetActive(true);
             if (DataBaseManager.isBar == true || DataBaseManager.isSewerOffice == true)
             {
                 Invoke("KeyConnect", 12f);
@@ -418,7 +432,7 @@ public class DirectingManager : MonoBehaviour
         }
         if (DataBaseManager.BarArrive == true && DataBaseManager.isActiveDialog1 == false)
         {
-            BoxMus.SetActive(true);
+            boxHybrid.SetActive(true);
             Invoke("ArriveBar2nd", 4f);
             DataBaseManager.BarArrive = false;
             DataBaseManager.StoryDirecting = true;
@@ -519,9 +533,9 @@ public class DirectingManager : MonoBehaviour
         }
         if (DataBaseManager.Ending_isPromise == true && DataBaseManager.isActiveDialog1 == false)
         {
-            Camera.transform.position = new Vector3(-806.7f, 0.3f, -16);
+            camera.transform.position = new Vector3(-806.7f, 0.3f, -16);
             player.SetActive(false);
-            sit_NoNewsPaperPlayer.SetActive(true);
+            sitNoNewspaperPlayer.SetActive(true);
             DataBaseManager.Ending_isPromise = false;
             InteractionController.Instance.InSewerDialog("Ending_isPromise");
         }
@@ -568,7 +582,7 @@ public class DirectingManager : MonoBehaviour
                     else
                     {
                         DataBaseManager.EndingDoorCheck = true;
-                        player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
+                        player.transform.localScale = new Vector3(chInRommSize, chInRommSize, 1);
                         player.transform.position = new Vector3(-796.8f, 2.500006f, -1);
                         SoundManager.Instance.Nock_Sound();
                         Invoke("EndingNockSound", 0.5f);
@@ -578,11 +592,11 @@ public class DirectingManager : MonoBehaviour
             }
         }
     }
-    bool once = false;
+
     void EndingNockSound()
     {
         player.SetActive(true);
-        sit_NoNewsPaperPlayer.SetActive(false);
+        sitNoNewspaperPlayer.SetActive(false);
         DataBaseManager.StoryDirecting = false;
         DataBaseManager.isDirecting = false;
         InteractionController.Instance.InSewerDialog("Ending_Killing");
@@ -600,17 +614,17 @@ public class DirectingManager : MonoBehaviour
     }
     public void BarFabianMove()
     {
-        BoxMus.SetActive(false);
+        boxHybrid.SetActive(false);
         MapManager.Instance.BarFabianMove();
     }
     public void InSewerFabianMove()
     {
         TimeManagere.Instance.MakeSewerMap_Nomal();
         DataBaseManager.isDirecting = false;
-        player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
+        player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
         CameraManager.Instance.isCheckEnd = true;
-        player.transform.localPosition = player_SewerRight;
-        Camera.transform.localPosition = Cam_SewerRight;
+        player.transform.localPosition = playerSewerRight;
+        camera.transform.localPosition = camSewerRight;
         TimeManagere.Instance.DeletRightSewerPotal();
     }
     public void MeaveDialog()
@@ -665,127 +679,120 @@ public class DirectingManager : MonoBehaviour
     {
         Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "FourthDayStartSan");
     }
-    public GameObject Enemy1;
-    public GameObject Enemy2;
-    public GameObject Enemy3;
+
 
     // 1일차
     public void BeforeBattle()
     {
-        battleObject.transform.localPosition = BattlePlayer_Road;
+        battleObject.transform.localPosition = battlePlayerRoad;
         BattleManager.Instance.OriginPointChange();
-        BattleRoadLight.SetActive(true);
+        battleRoadLight.SetActive(true);
         if (DataBaseManager.TimeCount < 5)
         {
-            Enemy1.SetActive(true);
-            Enemy2.SetActive(false);
-            Enemy3.SetActive(false);
-            EnemyTrunSymbol_1.SetActive(true);
-            EnemyTrunSymbol_2.SetActive(false);
-            EnemyTrunSymbol_3.SetActive(false);
+            enemy1.SetActive(true);
+            enemy2.SetActive(false);
+            enemy3.SetActive(false);
+            enemyTrunSymbol1.SetActive(true);
+            enemyTrunSymbol2.SetActive(false);
+            enemyTrunSymbol3.SetActive(false);
             BattleManager.Instance.set_DeepOneHybrid1();
         }
         else if (DataBaseManager.TimeCount < 9)
         {
-            Enemy1.SetActive(true);
-            Enemy2.SetActive(true);
-            Enemy3.SetActive(false);
-            EnemyTrunSymbol_1.SetActive(true);
-            EnemyTrunSymbol_2.SetActive(true);
-            EnemyTrunSymbol_3.SetActive(false);
+            enemy1.SetActive(true);
+            enemy2.SetActive(true);
+            enemy3.SetActive(false);
+            enemyTrunSymbol1.SetActive(true);
+            enemyTrunSymbol2.SetActive(true);
+            enemyTrunSymbol3.SetActive(false);
             BattleManager.Instance.set_DeepOneHybrid1();
             BattleManager.Instance.set_DeepOneHybrid2();
         }
         else
         {
-            Enemy1.SetActive(false);
-            Enemy2.SetActive(true);
-            Enemy3.SetActive(true);
-            EnemyTrunSymbol_1.SetActive(false);
-            EnemyTrunSymbol_2.SetActive(true);
-            EnemyTrunSymbol_3.SetActive(true);
+            enemy1.SetActive(false);
+            enemy2.SetActive(true);
+            enemy3.SetActive(true);
+            enemyTrunSymbol1.SetActive(false);
+            enemyTrunSymbol2.SetActive(true);
+            enemyTrunSymbol3.SetActive(true);
             BattleManager.Instance.set_DeepOneHybrid2();
             BattleManager.Instance.set_DeepOneHybrid3();
         }
         player.SetActive(false);
-        Camera.transform.position = Cam_BattlePos;
+        camera.transform.position = camBattlePos;
         Invoke("BattleDialog", 2f);
     }
-    public GameObject battleUI;
-    public BattleCameraMove cameraMove;
+
     void BattleDialog()
     {
         InteractionController.Instance.BattleDialog("start");
     }
-    public GameObject EnemyTrunSymbol_1;
-    public GameObject EnemyTrunSymbol_2;
-    public GameObject EnemyTrunSymbol_3;
-    public GameObject BattleRoadLight;
+
     //전투 
     public void GotoBattle()
     {
-        RoadBattleBackGround.SetActive(true);
-        SewerBattleBackGround.SetActive(false);
+        roadBattleBackground.SetActive(true);
+        sewerBattleBackground.SetActive(false);
         DataBaseManager.nowPlace = "BattleRoad";
         BattleManager.Instance.startReload();
         battleUI.SetActive(true);
         cameraMove.enabled = true;
         //DialogManager.SetActive(false);
         cameraManager.enabled = false;
-        Camera.transform.position = Cam_BattlePos;
+        camera.transform.position = camBattlePos;
         Invoke("SetBattle", 3);
-        BattleM.SetActive(true);
+        battleMap.SetActive(true);
     }
-    public GameObject SewerEnemy1;
-    public GameObject SewerEnemy2;
+
     public void GotoBattleSewer()
     {
         DataBaseManager.SewerBattleChecker = true;
         DataBaseManager.SewerBattleEndCheck = false;
-        BattleRoadLight.SetActive(false);
-        battleObject.transform.localPosition = BattlePlayer_Sewer;
+        battleRoadLight.SetActive(false);
+        battleObject.transform.localPosition = battlePlayerSewer;
         BattleManager.Instance.OriginPointChange();
         if (DataBaseManager.SewerEnemyCounter == 1)
         {
-            SewerEnemy1.SetActive(true);
-            SewerEnemy2.SetActive(false);
-            EnemyTrunSymbol_1.SetActive(true);
-            EnemyTrunSymbol_2.SetActive(false);
-            EnemyTrunSymbol_3.SetActive(false);
+            sewerEnemy1.SetActive(true);
+            sewerEnemy2.SetActive(false);
+            enemyTrunSymbol1.SetActive(true);
+            enemyTrunSymbol2.SetActive(false);
+            enemyTrunSymbol3.SetActive(false);
             BattleManager.Instance.set_DeepOneHybrid4();
         }
         else if (DataBaseManager.SewerEnemyCounter == 2)
         {
-            SewerEnemy1.SetActive(false);
-            SewerEnemy2.SetActive(true);
-            EnemyTrunSymbol_1.SetActive(false);
-            EnemyTrunSymbol_2.SetActive(true);
-            EnemyTrunSymbol_3.SetActive(false);
+            sewerEnemy1.SetActive(false);
+            sewerEnemy2.SetActive(true);
+            enemyTrunSymbol1.SetActive(false);
+            enemyTrunSymbol2.SetActive(true);
+            enemyTrunSymbol3.SetActive(false);
             BattleManager.Instance.set_DeepOne1();
         }
         else
         {
-            SewerEnemy1.SetActive(true);
-            SewerEnemy2.SetActive(true);
-            EnemyTrunSymbol_1.SetActive(true);
-            EnemyTrunSymbol_2.SetActive(true);
-            EnemyTrunSymbol_3.SetActive(false);
+            sewerEnemy1.SetActive(true);
+            sewerEnemy2.SetActive(true);
+            enemyTrunSymbol1.SetActive(true);
+            enemyTrunSymbol2.SetActive(true);
+            enemyTrunSymbol3.SetActive(false);
             BattleManager.Instance.set_DeepOneHybrid4();
             BattleManager.Instance.set_DeepOne1();
         }
-        RoadBattleBackGround.SetActive(false);
-        SewerBattleBackGround.SetActive(true);
+        roadBattleBackground.SetActive(false);
+        sewerBattleBackground.SetActive(true);
         BattleManager.Instance.startReload();
         battleUI.SetActive(true);
         cameraMove.enabled = false;
         //DialogManager.SetActive(false);
         cameraManager.enabled = false;
-        Camera.transform.position = Cam_BattleSewerPos;
+        camera.transform.position = camBattleSewerPos;
         Invoke("SetBattle", 3);
-        BattleM.SetActive(true);
+        battleMap.SetActive(true);
     }
 
-    public GameObject PlayerTrunSymbol;
+
     public void EndBattle()
     {
         battleUI.SetActive(false);
@@ -795,16 +802,16 @@ public class DirectingManager : MonoBehaviour
     {
         BattleManager.Instance.startBattle = false;
         BattleManager.Instance.battleState = "setTrun";
-        EnemyTrunSymbol_1.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
-        EnemyTrunSymbol_2.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
-        EnemyTrunSymbol_3.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
-        PlayerTrunSymbol.transform.localPosition = new Vector2(EnemyTrunSymbol_1.transform.localPosition.x, -130);
+        enemyTrunSymbol1.transform.localPosition = new Vector2(enemyTrunSymbol1.transform.localPosition.x, -130);
+        enemyTrunSymbol2.transform.localPosition = new Vector2(enemyTrunSymbol1.transform.localPosition.x, -130);
+        enemyTrunSymbol3.transform.localPosition = new Vector2(enemyTrunSymbol1.transform.localPosition.x, -130);
+        playerTrunSymbol.transform.localPosition = new Vector2(enemyTrunSymbol1.transform.localPosition.x, -130);
         DataBaseManager.isRollet = false;
         battleUI.SetActive(false);
         cameraMove.enabled = false;
-        DialogManager.SetActive(true);
+        dialogManager.SetActive(true);
         cameraManager.enabled = true;
-        BattleM.SetActive(false);
+        battleMap.SetActive(false);
     }
     public void SetBattle()
     {
@@ -844,7 +851,7 @@ public class DirectingManager : MonoBehaviour
     }
     public void Kate()
     {
-        Kate_noon.SetActive(false);
+        kateNoon.SetActive(false);
         DataBaseManager.isDirecting = false;
     }
     // 1일차 낮 의뢰자의 집 연출
@@ -858,9 +865,9 @@ public class DirectingManager : MonoBehaviour
     void MoveInside()
     {
         CameraManager.Instance.isCheckEnd = true;
-        player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
-        player.transform.localPosition = player_OutsideTo1st;
-        Camera.transform.localPosition = Cam_OutsideTo1st;
+        player.transform.localScale = new Vector3(chInRommSize, chInRommSize, 1);
+        player.transform.localPosition = playerOutsideTo1st;
+        camera.transform.localPosition = CamOutsideTo1st;
         Invoke("InsiedDialog", 1f);
     }
     void InsiedDialog()
@@ -877,10 +884,10 @@ public class DirectingManager : MonoBehaviour
     }
     void MoveUpsair()
     {
-        player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
+        player.transform.localScale = new Vector3(chInRommSize, chInRommSize, 1);
         CameraManager.Instance.isCheckEnd = true;
-        player.transform.localPosition = player_1stTo2st;
-        Camera.transform.localPosition = Cam_1stTo2st;
+        player.transform.localPosition = player1stTo2st;
+        camera.transform.localPosition = Cam1stTo2st;
         Invoke("UpstairDialog", 1f);
     }
     void UpstairDialog()
@@ -896,8 +903,8 @@ public class DirectingManager : MonoBehaviour
     void Go2stForce()
     {
         CameraManager.Instance.isCheckEnd = true;
-        player.transform.localPosition = player_RoomTo2st;
-        Camera.transform.localPosition = Cam_RoomTo2st;
+        player.transform.localPosition = playerRoomTo2st;
+        camera.transform.localPosition = camRoomTo2st;
         DataBaseManager.isActiveDialog1 = false;
         Invoke("ForceRoom", 1f);
     }
@@ -929,23 +936,23 @@ public class DirectingManager : MonoBehaviour
     }
     public void End_Directing()
     {
-        sit_player.SetActive(false);
-        sit_player2.SetActive(false);
-        player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
+        sitPlayer.SetActive(false);
+        sitPlayer2.SetActive(false);
+        player.transform.localScale = new Vector3(chInRommSize, chInRommSize, 1);
         player.transform.localPosition = new Vector3(-797.556f, 2.183268f);
         player.SetActive(true);
         if (DataBaseManager.TimeCount == 1)
         {
-            Newspaper.DOFade(1, 0.1f);
+            newspaper.DOFade(1, 0.1f);
         }
     }
     public void Nock_Directing()
     {
-        Camera.transform.DOMoveX(-790.3f, 1);
+        camera.transform.DOMoveX(-790.3f, 1);
         player.transform.position = new Vector2(-796.7f, player.transform.position.y);
         player.SetActive(false);
-        sit_NoNewsPaperPlayer.SetActive(true);
-        sit_Ella.SetActive(true);
+        sitNoNewspaperPlayer.SetActive(true);
+        sitElla.SetActive(true);
         Invoke("AfterNockDirecting", 1f);
     }
     void AfterNockDirecting()
@@ -963,8 +970,8 @@ public class DirectingManager : MonoBehaviour
     public void EndSelect_Directing()
     {
         player.SetActive(true);
-        sit_NoNewsPaperPlayer.SetActive(false);
-        sit_Ella.SetActive(false);
+        sitNoNewspaperPlayer.SetActive(false);
+        sitElla.SetActive(false);
         DataBaseManager.isDirecting = false;
     }
 
@@ -983,149 +990,149 @@ public class DirectingManager : MonoBehaviour
         {
             functionList.Add(Fab_FirstDialog);
         }
-        if (DataBaseManager.Intel_Aiden1 == true && Intel_Aiden1KeyCheck == false)
+        if (DataBaseManager.Intel_Aiden1 == true && intelAiden1KeyCheck == false)
         {
-            Intel_Aiden1KeyCheck = true;
+            intelAiden1KeyCheck = true;
             functionList.Add(Fab_Aiden1);
         }
-        if (DataBaseManager.Intel_Safe1 == true && Intel_Safe1KeyCheck == false)
+        if (DataBaseManager.Intel_Safe1 == true && intelSafe1KeyCheck == false)
         {
-            Intel_Safe1KeyCheck = true;
+            intelSafe1KeyCheck = true;
             functionList.Add(Fab_Safe1);
         }
-        if (DataBaseManager.Intel_Nightmare1 == true && Intel_Nightmare1KeyCheck == false)
+        if (DataBaseManager.Intel_Nightmare1 == true && intelNightmare1KeyCheck == false)
         {
-            Intel_Nightmare1KeyCheck = true;
+            intelNightmare1KeyCheck = true;
             functionList.Add(Fab_Nightmare1);
         }
-        if (DataBaseManager.Intel_Nightmare2 == true && Intel_Nightmare2KeyCheck == false)
+        if (DataBaseManager.Intel_Nightmare2 == true && intelNightmare2KeyCheck == false)
         {
-            Intel_Nightmare2KeyCheck = true;
+            intelNightmare2KeyCheck = true;
             functionList.Add(Fab_Nightmare2);
         }
-        if (DataBaseManager.Intel_Nightmare3 == true && Intel_Nightmare3KeyCheck == false)
+        if (DataBaseManager.Intel_Nightmare3 == true && intelNightmare3KeyCheck == false)
         {
-            Intel_Nightmare3KeyCheck = true;
+            intelNightmare3KeyCheck = true;
             functionList.Add(Fab_Nightmare3);
         }
-        if (DataBaseManager.Intel_Nightmare4 == true && Intel_Nightmare4KeyCheck == false)
+        if (DataBaseManager.Intel_Nightmare4 == true && intelNightmare4KeyCheck == false)
         {
-            Intel_Nightmare4KeyCheck = true;
+            intelNightmare4KeyCheck = true;
             functionList.Add(Fab_Nightmare4);
         }
-        if (DataBaseManager.Intel_Insomnia1 == true && Intel_Insomnia1KeyCheck == false)
+        if (DataBaseManager.Intel_Insomnia1 == true && intelInsomnia1KeyCheck == false)
         {
-            Intel_Insomnia1KeyCheck = true;
+            intelInsomnia1KeyCheck = true;
             functionList.Add(Fab_Insomnia1);
         }
-        if (DataBaseManager.Intel_Insomnia2 == true && Intel_Insomnia2KeyCheck == false)
+        if (DataBaseManager.Intel_Insomnia2 == true && intelInsomnia2KeyCheck == false)
         {
-            Intel_Insomnia2KeyCheck = true;
+            intelInsomnia2KeyCheck = true;
             functionList.Add(Fab_Insomnia2);
         }
-        if (DataBaseManager.Intel_PlanetaryParade1 == true && Intel_PlanetaryParade1KeyCheck == false)
+        if (DataBaseManager.Intel_PlanetaryParade1 == true && intelPlanetaryParade1KeyCheck == false)
         {
-            Intel_PlanetaryParade1KeyCheck = true;
+            intelPlanetaryParade1KeyCheck = true;
             functionList.Add(Fab_PlanetarySequence1);
         }
-        if (DataBaseManager.Intel_University1 == true && Intel_University1KeyCheck == false)
+        if (DataBaseManager.Intel_University1 == true && intelUniversity1KeyCheck == false)
         {
-            Intel_University1KeyCheck = true;
+            intelUniversity1KeyCheck = true;
             functionList.Add(Fab_Univ1);
         }
-        if (DataBaseManager.Intel_Meiv2 == true && Intel_Meiv2KeyCheck == false)
+        if (DataBaseManager.Intel_Meiv2 == true && intelMeiv2KeyCheck == false)
         {
-            Intel_Meiv2KeyCheck = true;
+            intelMeiv2KeyCheck = true;
             functionList.Add(Fab_Meiv2);
         }
-        if (DataBaseManager.Intel_MissingPeople1 == true && Intel_MissingPeople1KeyCheck == false)
+        if (DataBaseManager.Intel_MissingPeople1 == true && intelMissingPeople1KeyCheck == false)
         {
-            Intel_MissingPeople1KeyCheck = true;
+            intelMissingPeople1KeyCheck = true;
             functionList.Add(Fab_MissingPeople);
         }
-        if (DataBaseManager.Intel_SewerGhostStory1 == true && Intel_SewerGhostStory1KeyCheck == false)
+        if (DataBaseManager.Intel_SewerGhostStory1 == true && intelSewerGhostStory1KeyCheck == false)
         {
-            Intel_SewerGhostStory1KeyCheck = true;
+            intelSewerGhostStory1KeyCheck = true;
             functionList.Add(Fab_GhostStory1);
         }
-        if (DataBaseManager.Intel_SewerGhostStory2 == true && Intel_SewerGhostStory2KeyCheck == false)
+        if (DataBaseManager.Intel_SewerGhostStory2 == true && intelSewerGhostStory2KeyCheck == false)
         {
-            Intel_SewerGhostStory2KeyCheck = true;
+            intelSewerGhostStory2KeyCheck = true;
             functionList.Add(Fab_GhostStory2);
         }
-        if (DataBaseManager.Intel_CreepyEyes1 == true && Intel_CreepyEyes1KeyCheck == false)
+        if (DataBaseManager.Intel_CreepyEyes1 == true && intelCreepyEyes1KeyCheck == false)
         {
-            Intel_CreepyEyes1KeyCheck = true;
+            intelCreepyEyes1KeyCheck = true;
             functionList.Add(Fab_CreepyEye);
         }
-        if (DataBaseManager.Intel_SewerWorker1 == true && Intel_SewerWorker1KeyCheck == false)
+        if (DataBaseManager.Intel_SewerWorker1 == true && intelSewerWorker1KeyCheck == false)
         {
-            Intel_SewerWorker1KeyCheck = true;
+            intelSewerWorker1KeyCheck = true;
             functionList.Add(Fab_Worker1);
         }
-        if (DataBaseManager.Intel_FishySmell1 == true && Intel_FishySmell1KeyCheck == false)
+        if (DataBaseManager.Intel_FishySmell1 == true && intelFishySmell1KeyCheck == false)
         {
-            Intel_FishySmell1KeyCheck = true;
+            intelFishySmell1KeyCheck = true;
             functionList.Add(Fab_FishySmell1);
         }
-        if (DataBaseManager.Intel_FishySmell2 == true && Intel_FishySmell2KeyCheck == false)
+        if (DataBaseManager.Intel_FishySmell2 == true && intelFishySmell2KeyCheck == false)
         {
-            Intel_FishySmell2KeyCheck = true;
+            intelFishySmell2KeyCheck = true;
             functionList.Add(Fab_FishySmell2);
         }
-        if (DataBaseManager.Intel_FishySmell3 == true && Intel_FishySmell3KeyCheck == false)
+        if (DataBaseManager.Intel_FishySmell3 == true && intelFishySmell3KeyCheck == false)
         {
-            Intel_FishySmell3KeyCheck = true;
+            intelFishySmell3KeyCheck = true;
             functionList.Add(Fab_FishySmell3);
         }
-        if (DataBaseManager.Intel_MurderCase1 == true && Intel_MurderCase1KeyCheck == false)
+        if (DataBaseManager.Intel_MurderCase1 == true && intelMurderCase1KeyCheck == false)
         {
-            Intel_MurderCase1KeyCheck = true;
+            intelMurderCase1KeyCheck = true;
             functionList.Add(Fab_Witness);
         }
-        if (DataBaseManager.Intel_SewerWorker4 == true && Intel_SewerWorker4KeyCheck == false)
+        if (DataBaseManager.Intel_SewerWorker4 == true && intelSewerWorker4KeyCheck == false)
         {
-            Intel_SewerWorker4KeyCheck = true;
+            intelSewerWorker4KeyCheck = true;
             functionList.Add(Fab_OwnerofUnifrom);
         }
-        if (DataBaseManager.Intel_MurderCase4 == true && Intel_MurderCase4KeyCheck == false)
+        if (DataBaseManager.Intel_MurderCase4 == true && intelMurderCase4KeyCheck == false)
         {
-            Intel_MurderCase4KeyCheck = true;
+            intelMurderCase4KeyCheck = true;
             functionList.Add(Fab_CauseofDeath);
         }
-        if (DataBaseManager.Intel_MurderCase5 == true && Intel_MurderCase5KeyCheck == false)
+        if (DataBaseManager.Intel_MurderCase5 == true && intelMurderCase5KeyCheck == false)
         {
-            Intel_MurderCase5KeyCheck = true;
+            intelMurderCase5KeyCheck = true;
             functionList.Add(Fab_WebbedFeet);
         }
-        if (DataBaseManager.Intel_MurderCase6 == true && Intel_MurderCase6KeyCheck == false)
+        if (DataBaseManager.Intel_MurderCase6 == true && intelMurderCase6KeyCheck == false)
         {
-            Intel_MurderCase6KeyCheck = true;
+            intelMurderCase6KeyCheck = true;
             functionList.Add(Fab_Runway);
         }
-        if (DataBaseManager.Intel_MurderCase2 == true && Intel_MurderCase2KeyCheck == false)
+        if (DataBaseManager.Intel_MurderCase2 == true && intelMurderCase2KeyCheck == false)
         {
-            Intel_MurderCase2KeyCheck = true;
+            intelMurderCase2KeyCheck = true;
             functionList.Add(Fab_FishySmellMissing);
         }
-        if (DataBaseManager.Intel_MurderCase3 == true && Intel_MurderCase3KeyCheck == false)
+        if (DataBaseManager.Intel_MurderCase3 == true && intelMurderCase3KeyCheck == false)
         {
-            Intel_MurderCase3KeyCheck = true;
+            intelMurderCase3KeyCheck = true;
             functionList.Add(Fab_TheClupet);
         }
-        if ((DataBaseManager.Intel_MurderCase2 == true || DataBaseManager.Intel_MurderCase3 == true) && BothKeyCheck == false)
+        if ((DataBaseManager.Intel_MurderCase2 == true || DataBaseManager.Intel_MurderCase3 == true) && bothKeyCheck == false)
         {
-            BothKeyCheck = true;
+            bothKeyCheck = true;
             functionList.Add(Fab_Both);
         }
-        if ((DataBaseManager.Intel_Sewer1 == true || DataBaseManager.Intel_Sewer2 == true) && Intel_Sewer2KeyCheck == false)
+        if ((DataBaseManager.Intel_Sewer1 == true || DataBaseManager.Intel_Sewer2 == true) && intelSewer2KeyCheck == false)
         {
-            Intel_Sewer2KeyCheck = true;
+            intelSewer2KeyCheck = true;
             functionList.Add(Fab_WarnOrRoot);
         }
-        if ((DataBaseManager.SwainDeathKeyword == true) && SwainSewerKeyCheck == false)
+        if ((DataBaseManager.SwainDeathKeyword == true) && swainSewerKeyCheck == false)
         {
-            SwainSewerKeyCheck = true;
+            swainSewerKeyCheck = true;
             functionList.Add(Fab_SwainSewer);
         }
     }
@@ -1271,33 +1278,34 @@ public class DirectingManager : MonoBehaviour
     {
         InteractionController.Instance.Start_1st_DetectiveOffice("Fab_SwainSewer");
     }
-    bool Intel_Aiden1KeyCheck = false;
-    bool Intel_Safe1KeyCheck = false;
-    bool Intel_Nightmare1KeyCheck = false;
-    bool Intel_Nightmare2KeyCheck = false;
-    bool Intel_Nightmare3KeyCheck = false;
-    bool Intel_Nightmare4KeyCheck = false;
-    bool Intel_Insomnia1KeyCheck = false;
-    bool Intel_Insomnia2KeyCheck = false;
-    bool Intel_PlanetaryParade1KeyCheck = false;
-    bool Intel_University1KeyCheck = false;
-    bool Intel_Meiv2KeyCheck = false;
-    bool Intel_MissingPeople1KeyCheck = false;
-    bool Intel_SewerGhostStory1KeyCheck = false;
-    bool Intel_SewerGhostStory2KeyCheck = false;
-    bool Intel_CreepyEyes1KeyCheck = false;
-    bool Intel_SewerWorker1KeyCheck = false;
-    bool Intel_FishySmell1KeyCheck = false;
-    bool Intel_FishySmell2KeyCheck = false;
-    bool Intel_FishySmell3KeyCheck = false;
-    bool Intel_MurderCase1KeyCheck = false;
-    bool Intel_SewerWorker4KeyCheck = false;
-    bool Intel_MurderCase4KeyCheck = false;
-    bool Intel_MurderCase5KeyCheck = false;
-    bool Intel_MurderCase6KeyCheck = false;
-    bool Intel_MurderCase2KeyCheck = false;
-    bool Intel_MurderCase3KeyCheck = false;
-    bool BothKeyCheck = false;
-    bool Intel_Sewer2KeyCheck = false;
-    bool SwainSewerKeyCheck = false;
+
+    bool intelAiden1KeyCheck = false;
+    bool intelSafe1KeyCheck = false;
+    bool intelNightmare1KeyCheck = false;
+    bool intelNightmare2KeyCheck = false;
+    bool intelNightmare3KeyCheck = false;
+    bool intelNightmare4KeyCheck = false;
+    bool intelInsomnia1KeyCheck = false;
+    bool intelInsomnia2KeyCheck = false;
+    bool intelPlanetaryParade1KeyCheck = false;
+    bool intelUniversity1KeyCheck = false;
+    bool intelMeiv2KeyCheck = false;
+    bool intelMissingPeople1KeyCheck = false;
+    bool intelSewerGhostStory1KeyCheck = false;
+    bool intelSewerGhostStory2KeyCheck = false;
+    bool intelCreepyEyes1KeyCheck = false;
+    bool intelSewerWorker1KeyCheck = false;
+    bool intelFishySmell1KeyCheck = false;
+    bool intelFishySmell2KeyCheck = false;
+    bool intelFishySmell3KeyCheck = false;
+    bool intelMurderCase1KeyCheck = false;
+    bool intelSewerWorker4KeyCheck = false;
+    bool intelMurderCase4KeyCheck = false;
+    bool intelMurderCase5KeyCheck = false;
+    bool intelMurderCase6KeyCheck = false;
+    bool intelMurderCase2KeyCheck = false;
+    bool intelMurderCase3KeyCheck = false;
+    bool bothKeyCheck = false;
+    bool intelSewer2KeyCheck = false;
+    bool swainSewerKeyCheck = false;
 }

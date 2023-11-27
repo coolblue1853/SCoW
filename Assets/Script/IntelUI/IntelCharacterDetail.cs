@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 public class IntelCharacterDetail : MonoBehaviour
 {
     // Start is called before the first frame update

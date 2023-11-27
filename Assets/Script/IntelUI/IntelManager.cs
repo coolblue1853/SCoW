@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Serialization;
 public class IntelManager : MonoBehaviour
 {
     public GameObject IntelUI;
