@@ -1,142 +1,140 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 public class Test : MonoBehaviour
 {
-    string NowPage;
-
-    GameObject Detail_Wharf1;
-    GameObject Detail_Wharf2;
-    GameObject Detail_Wharf3;
-    GameObject Detail_Wharf4;
-    GameObject Detail_Wharf5;
-    GameObject Detail_Wharf6;
-    bool ON_Wharf1;
-    bool ON_Wharf2;
-    bool ON_Wharf3;
-    bool ON_Wharf4;
-    bool ON_Wharf5;
-    bool ON_Wharf6;
-    int Count_Wharf = 0;
-    public GameObject WharfContents;
-    public GameObject Wharf_Detail;
-    public static int WharfIntelInt;
-    public GameObject NextButton_Wharf;
-    public GameObject PrevButton_Wharf;
+    string nowPage;
+    GameObject detailWharf1;
+    GameObject detailWharf2;
+    GameObject detailWharf3;
+    GameObject detailWharf4;
+    GameObject detailWharf5;
+    GameObject detailWharf6;
+    bool onWharf1;
+    bool onWharf2;
+    bool onWharf3;
+    bool onWharf4;
+    bool onWharf5;
+    bool onWharf6;
+    int countWharf = 0;
+    public GameObject wharfContents;
+    public GameObject wharfDetail;
+    public static int wharfIntelInt;
+    public GameObject nextButtonWharf;
+    public GameObject prevButtonWharf; 
 
     void WharfDetail()
     {
-        if (ON_Wharf1 == false && DataBaseManager.Intel_Wharf1 == true)
+        if (onWharf1 == false && DataBaseManager.Intel_Wharf1 == true)
         {
-            ON_Wharf1 = true;
-            Detail_Wharf1.SetActive(true);
-            Detail_Wharf1.transform.SetAsLastSibling();
-            Count_Wharf += 1;
+            onWharf1 = true;
+            detailWharf1.SetActive(true);
+            detailWharf1.transform.SetAsLastSibling();
+            countWharf += 1;
         }
-        if (ON_Wharf2 == false && DataBaseManager.Intel_Wharf2 == true)
+        if (onWharf2 == false && DataBaseManager.Intel_Wharf2 == true)
         {
-            ON_Wharf2 = true;
-            Detail_Wharf2.SetActive(true);
-            Detail_Wharf2.transform.SetAsLastSibling();
-            Count_Wharf += 1;
+            onWharf2 = true;
+            detailWharf2.SetActive(true);
+            detailWharf2.transform.SetAsLastSibling();
+            countWharf += 1;
         }
-        if (ON_Wharf3 == false && DataBaseManager.Intel_Wharf3 == true)
+        if (onWharf3 == false && DataBaseManager.Intel_Wharf3 == true)
         {
-            ON_Wharf3 = true;
-            Detail_Wharf3.SetActive(true);
-            Detail_Wharf3.transform.SetAsLastSibling();
-            Count_Wharf += 1;
+            onWharf3 = true;
+            detailWharf3.SetActive(true);
+            detailWharf3.transform.SetAsLastSibling();
+            countWharf += 1;
         }
-        if (ON_Wharf4 == false && DataBaseManager.Intel_Wharf4 == true)
+        if (onWharf4 == false && DataBaseManager.Intel_Wharf4 == true)
         {
-            ON_Wharf4 = true;
-            Detail_Wharf4.SetActive(true);
-            Detail_Wharf4.transform.SetAsLastSibling();
-            Count_Wharf += 1;
+            onWharf4 = true;
+            detailWharf4.SetActive(true);
+            detailWharf4.transform.SetAsLastSibling();
+            countWharf += 1;
         }
-        if (ON_Wharf5 == false && DataBaseManager.Intel_Wharf5 == true)
+        if (onWharf5 == false && DataBaseManager.Intel_Wharf5 == true)
         {
-            ON_Wharf5 = true;
-            Detail_Wharf5.SetActive(true);
-            Detail_Wharf5.transform.SetAsLastSibling();
-            Count_Wharf += 1;
+            onWharf5 = true;
+            detailWharf5.SetActive(true);
+            detailWharf5.transform.SetAsLastSibling();
+            countWharf += 1;
         }
-        if (ON_Wharf6 == false && DataBaseManager.Intel_Wharf6 == true)
+        if (onWharf6 == false && DataBaseManager.Intel_Wharf6 == true)
         {
-            ON_Wharf6 = true;
-            Detail_Wharf6.SetActive(true);
-            Detail_Wharf6.transform.SetAsLastSibling();
-            Count_Wharf += 1;
+            onWharf6 = true;
+            detailWharf6.SetActive(true);
+            detailWharf6.transform.SetAsLastSibling();
+            countWharf += 1;
         }
-        if (Count_Wharf > 2 && DataBaseManager.NowPage_Wharf == 1)
+        if (countWharf > 2 && DataBaseManager.NowPage_Wharf == 1)
         {
-            NextButton_Wharf.SetActive(true);
+            nextButtonWharf.SetActive(true);
         }
-        else if (Count_Wharf > 4 && DataBaseManager.NowPage_Wharf == 2)
+        else if (countWharf > 4 && DataBaseManager.NowPage_Wharf == 2)
         {
-            NextButton_Wharf.SetActive(true);
+            nextButtonWharf.SetActive(true);
         }
         else
         {
-            NextButton_Wharf.SetActive(false);
+            nextButtonWharf.SetActive(false);
         }
         if (DataBaseManager.NowPage_Wharf == 2)
         {
-            PrevButton_Wharf.SetActive(true);
+            prevButtonWharf.SetActive(true);
         }
         else if (DataBaseManager.NowPage_Wharf == 3)
         {
-            PrevButton_Wharf.SetActive(true);
+            prevButtonWharf.SetActive(true);
         }
         else
         {
-            PrevButton_Wharf.SetActive(false);
+            prevButtonWharf.SetActive(false);
         }
     }
     public void NextPage()
     {
-        if (NowPage == "Wharf")
+        if (nowPage == "Wharf")
         {
             if (DataBaseManager.NowPage_Wharf == 1)
             {
-                if (Count_Wharf >= 6)
+                if (countWharf >= 6)
                 {
                     Reset_Wharf();
-                    WharfContents.transform.GetChild(2).gameObject.SetActive(true);
-                    WharfContents.transform.GetChild(3).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(2).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Wharf >= 5)
+                else if (countWharf >= 5)
                 {
                     Reset_Wharf();
-                    WharfContents.transform.GetChild(3).gameObject.SetActive(true);
-                    WharfContents.transform.GetChild(4).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(3).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                else if (Count_Wharf >= 4)
+                else if (countWharf >= 4)
                 {
                     Reset_Wharf();
-                    WharfContents.transform.GetChild(4).gameObject.SetActive(true);
-                    WharfContents.transform.GetChild(5).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(4).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Wharf >= 3)
+                else if (countWharf >= 3)
                 {
                     Reset_Wharf();
-                    WharfContents.transform.GetChild(5).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Wharf = 2;
             }
             else if (DataBaseManager.NowPage_Wharf == 2)
             {
-                if (Count_Wharf >= 6)
+                if (countWharf >= 6)
                 {
                     Reset_Wharf();
-                    WharfContents.transform.GetChild(4).gameObject.SetActive(true);
-                    WharfContents.transform.GetChild(5).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(4).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Wharf >= 5)
+                else if (countWharf >= 5)
                 {
                     Reset_Wharf();
-                    WharfContents.transform.GetChild(5).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Wharf = 3;
             }
@@ -144,49 +142,49 @@ public class Test : MonoBehaviour
     }
     public void PrevPage()
     {
-        if (NowPage == "Wharf")
+        if (nowPage == "Wharf")
         {
             if (DataBaseManager.NowPage_Wharf == 2)
             {
-                if (Count_Wharf >= 6)
+                if (countWharf >= 6)
                 {
                     Reset_Wharf();
-                    WharfContents.transform.GetChild(0).gameObject.SetActive(true);
-                    WharfContents.transform.GetChild(1).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(0).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
-                else if (Count_Wharf >= 5)
+                else if (countWharf >= 5)
                 {
                     Reset_Wharf();
-                    WharfContents.transform.GetChild(1).gameObject.SetActive(true);
-                    WharfContents.transform.GetChild(2).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(1).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
-                else if (Count_Wharf >= 4)
+                else if (countWharf >= 4)
                 {
                     Reset_Wharf();
-                    WharfContents.transform.GetChild(2).gameObject.SetActive(true);
-                    WharfContents.transform.GetChild(3).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(2).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Wharf >= 3)
+                else if (countWharf >= 3)
                 {
                     Reset_Wharf();
-                    WharfContents.transform.GetChild(3).gameObject.SetActive(true);
-                    WharfContents.transform.GetChild(4).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(3).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Wharf = 1;
             }
             else if (DataBaseManager.NowPage_Wharf == 3)
             {
-                if (Count_Wharf >= 6)
+                if (countWharf >= 6)
                 {
                     Reset_Wharf();
-                    WharfContents.transform.GetChild(2).gameObject.SetActive(true);
-                    WharfContents.transform.GetChild(3).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(2).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Wharf >= 5)
+                else if (countWharf >= 5)
                 {
                     Reset_Wharf();
-                    WharfContents.transform.GetChild(3).gameObject.SetActive(true);
-                    WharfContents.transform.GetChild(4).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(3).gameObject.SetActive(true);
+                    wharfContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Wharf = 2;
             }
@@ -194,11 +192,11 @@ public class Test : MonoBehaviour
     }
     void Reset_Wharf()
     {
-        WharfContents.transform.GetChild(0).gameObject.SetActive(false);
-        WharfContents.transform.GetChild(1).gameObject.SetActive(false);
-        WharfContents.transform.GetChild(2).gameObject.SetActive(false);
-        WharfContents.transform.GetChild(3).gameObject.SetActive(false);
-        WharfContents.transform.GetChild(4).gameObject.SetActive(false);
-        WharfContents.transform.GetChild(5).gameObject.SetActive(false);
+        wharfContents.transform.GetChild(0).gameObject.SetActive(false);
+        wharfContents.transform.GetChild(1).gameObject.SetActive(false);
+        wharfContents.transform.GetChild(2).gameObject.SetActive(false);
+        wharfContents.transform.GetChild(3).gameObject.SetActive(false);
+        wharfContents.transform.GetChild(4).gameObject.SetActive(false);
+        wharfContents.transform.GetChild(5).gameObject.SetActive(false);
     }
 }

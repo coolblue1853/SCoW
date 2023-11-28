@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Serialization;
 public class IntelCharacterDetail : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -11,69 +10,69 @@ public class IntelCharacterDetail : MonoBehaviour
     void setGameObecject()
     {
         DataBaseManager.Set_IntelCharDetail = true;
-        Detail_Ella1 = EllaContents.transform.GetChild(0).gameObject;
-        Detail_Ella2 = EllaContents.transform.GetChild(1).gameObject;
-        Detail_Ella3 = EllaContents.transform.GetChild(2).gameObject;
-        Detail_Ella4 = EllaContents.transform.GetChild(3).gameObject;
-        Detail_Ella5 = EllaContents.transform.GetChild(4).gameObject;
-        Detail_Ella6 = EllaContents.transform.GetChild(5).gameObject;
+        detailElla1 = ellaContents.transform.GetChild(0).gameObject;
+        detailElla2 = ellaContents.transform.GetChild(1).gameObject;
+        detailElla3 = ellaContents.transform.GetChild(2).gameObject;
+        detailElla4 = ellaContents.transform.GetChild(3).gameObject;
+        detailElla5 = ellaContents.transform.GetChild(4).gameObject;
+        detailElla6 = ellaContents.transform.GetChild(5).gameObject;
 
-        Detail_Aiden1 = AidenContents.transform.GetChild(0).gameObject;
-        Detail_Aiden2 = AidenContents.transform.GetChild(1).gameObject;
-        Detail_Aiden3 = AidenContents.transform.GetChild(2).gameObject;
-        Detail_Aiden4 = AidenContents.transform.GetChild(3).gameObject;
-        Detail_Aiden5 = AidenContents.transform.GetChild(4).gameObject;
-        Detail_Aiden6 = AidenContents.transform.GetChild(5).gameObject;
+        detailAiden1 = aidenContents.transform.GetChild(0).gameObject;
+        detailAiden2 = aidenContents.transform.GetChild(1).gameObject;
+        detailAiden3 = aidenContents.transform.GetChild(2).gameObject;
+        detailAiden4 = aidenContents.transform.GetChild(3).gameObject;
+        detailAiden5 = aidenContents.transform.GetChild(4).gameObject;
+        detailAiden6 = aidenContents.transform.GetChild(5).gameObject;
 
-        Detail_Swain1 = SwainContents.transform.GetChild(0).gameObject;
-        Detail_Swain2 = SwainContents.transform.GetChild(1).gameObject;
-        Detail_Swain3 = SwainContents.transform.GetChild(2).gameObject;
-        Detail_Swain4 = SwainContents.transform.GetChild(3).gameObject;
-        Detail_Swain5 = SwainContents.transform.GetChild(4).gameObject;
-        Detail_Swain6 = SwainContents.transform.GetChild(5).gameObject;
+        detailSwain1 = swainContents.transform.GetChild(0).gameObject;
+        detailSwain2 = swainContents.transform.GetChild(1).gameObject;
+        detailSwain3 = swainContents.transform.GetChild(2).gameObject;
+        detailSwain4 = swainContents.transform.GetChild(3).gameObject;
+        detailSwain5 = swainContents.transform.GetChild(4).gameObject;
+        detailSwain6 = swainContents.transform.GetChild(5).gameObject;
 
-        Detail_Cane1 = CaneContents.transform.GetChild(0).gameObject;
-        Detail_Cane2 = CaneContents.transform.GetChild(1).gameObject;
-        Detail_Cane3 = CaneContents.transform.GetChild(2).gameObject;
-        Detail_Cane4 = CaneContents.transform.GetChild(3).gameObject;
-        Detail_Cane5 = CaneContents.transform.GetChild(4).gameObject;
-        Detail_Cane6 = CaneContents.transform.GetChild(5).gameObject;
+        detailCane1 = caneContents.transform.GetChild(0).gameObject;
+        detailCane2 = caneContents.transform.GetChild(1).gameObject;
+        detailCane3 = caneContents.transform.GetChild(2).gameObject;
+        detailCane4 = caneContents.transform.GetChild(3).gameObject;
+        detailCane5 = caneContents.transform.GetChild(4).gameObject;
+        detailCane6 = caneContents.transform.GetChild(5).gameObject;
 
-        Detail_Albert1 = AlbertContents.transform.GetChild(0).gameObject;
-        Detail_Albert2 = AlbertContents.transform.GetChild(1).gameObject;
-        Detail_Albert3 = AlbertContents.transform.GetChild(2).gameObject;
-        Detail_Albert4 = AlbertContents.transform.GetChild(3).gameObject;
-        Detail_Albert5 = AlbertContents.transform.GetChild(4).gameObject;
-        Detail_Albert6 = AlbertContents.transform.GetChild(5).gameObject;
+        detailAlbert1 = albertContents.transform.GetChild(0).gameObject;
+        detailAlbert2 = albertContents.transform.GetChild(1).gameObject;
+        detailAlbert3 = albertContents.transform.GetChild(2).gameObject;
+        detailAlbert4 = albertContents.transform.GetChild(3).gameObject;
+        detailAlbert5 = albertContents.transform.GetChild(4).gameObject;
+        detailAlbert6 = albertContents.transform.GetChild(5).gameObject;
 
-        Detail_Meiv1 = MeivContents.transform.GetChild(0).gameObject;
-        Detail_Meiv2 = MeivContents.transform.GetChild(1).gameObject;
-        Detail_Meiv3 = MeivContents.transform.GetChild(2).gameObject;
-        Detail_Meiv4 = MeivContents.transform.GetChild(3).gameObject;
-        Detail_Meiv5 = MeivContents.transform.GetChild(4).gameObject;
-        Detail_Meiv6 = MeivContents.transform.GetChild(5).gameObject;
+        detailMeiv1 = meivContents.transform.GetChild(0).gameObject;
+        detailMeiv2 = meivContents.transform.GetChild(1).gameObject;
+        detailMeiv3 = meivContents.transform.GetChild(2).gameObject;
+        detailMeiv4 = meivContents.transform.GetChild(3).gameObject;
+        detailMeiv5 = meivContents.transform.GetChild(4).gameObject;
+        detailMeiv6 = meivContents.transform.GetChild(5).gameObject;
 
-        Detail_BlackWell1 = BlackWellContents.transform.GetChild(0).gameObject;
-        Detail_BlackWell2 = BlackWellContents.transform.GetChild(1).gameObject;
-        Detail_BlackWell3 = BlackWellContents.transform.GetChild(2).gameObject;
-        Detail_BlackWell4 = BlackWellContents.transform.GetChild(3).gameObject;
-        Detail_BlackWell5 = BlackWellContents.transform.GetChild(4).gameObject;
-        Detail_BlackWell6 = BlackWellContents.transform.GetChild(5).gameObject;
+        detailBlackWell1 = blackWellContents.transform.GetChild(0).gameObject;
+        detailBlackWell2 = blackWellContents.transform.GetChild(1).gameObject;
+        detailBlackWell3 = blackWellContents.transform.GetChild(2).gameObject;
+        detailBlackWell4 = blackWellContents.transform.GetChild(3).gameObject;
+        detailBlackWell5 = blackWellContents.transform.GetChild(4).gameObject;
+        detailBlackWell6 = blackWellContents.transform.GetChild(5).gameObject;
 
-        Detail_SewerWorker1 = SewerWorkerContents.transform.GetChild(0).gameObject;
-        Detail_SewerWorker2 = SewerWorkerContents.transform.GetChild(1).gameObject;
-        Detail_SewerWorker3 = SewerWorkerContents.transform.GetChild(2).gameObject;
-        Detail_SewerWorker4 = SewerWorkerContents.transform.GetChild(3).gameObject;
-        Detail_SewerWorker5 = SewerWorkerContents.transform.GetChild(4).gameObject;
-        Detail_SewerWorker6 = SewerWorkerContents.transform.GetChild(5).gameObject;
+        detailSewerWorker1 = sewerWorkerContents.transform.GetChild(0).gameObject;
+        detailSewerWorker2 = sewerWorkerContents.transform.GetChild(1).gameObject;
+        detailSewerWorker3 = sewerWorkerContents.transform.GetChild(2).gameObject;
+        detailSewerWorker4 = sewerWorkerContents.transform.GetChild(3).gameObject;
+        detailSewerWorker5 = sewerWorkerContents.transform.GetChild(4).gameObject;
+        detailSewerWorker6 = sewerWorkerContents.transform.GetChild(5).gameObject;
 
 
-        Detail_Dave1 = DaveContents.transform.GetChild(0).gameObject;
-        Detail_Dave2 = DaveContents.transform.GetChild(1).gameObject;
-        Detail_Dave3 = DaveContents.transform.GetChild(2).gameObject;
-        Detail_Dave4 = DaveContents.transform.GetChild(3).gameObject;
-        Detail_Dave5 = DaveContents.transform.GetChild(4).gameObject;
-        Detail_Dave6 = DaveContents.transform.GetChild(5).gameObject;
+        detailDave1 = daveContents.transform.GetChild(0).gameObject;
+        detailDave2 = daveContents.transform.GetChild(1).gameObject;
+        detailDave3 = daveContents.transform.GetChild(2).gameObject;
+        detailDave4 = daveContents.transform.GetChild(3).gameObject;
+        detailDave5 = daveContents.transform.GetChild(4).gameObject;
+        detailDave6 = daveContents.transform.GetChild(5).gameObject;
     }
     void Update()
     {
@@ -88,14 +87,14 @@ public class IntelCharacterDetail : MonoBehaviour
         MeivDetail();
         BlackWellDetail();
 
-        if (NextButton_Aiden.activeSelf == true || NextButton_Albert.activeSelf == true || NextButton_BlackWell.activeSelf == true || NextButton_Cane.activeSelf == true || NextButton_Ella.activeSelf == true || NextButton_Meiv.activeSelf == true || NextButton_SewerWorker.activeSelf == true || NextButton_Dave.activeSelf == true || NextButton_Swain.activeSelf == true)    {
+        if (nextButtonAiden.activeSelf == true || nextButtonAlbert.activeSelf == true || nextButtonBlackWell.activeSelf == true || nextButtonCane.activeSelf == true || nextButtonElla.activeSelf == true || nextButtonMeiv.activeSelf == true || nextButtonSewerWorker.activeSelf == true || nextButtonDave.activeSelf == true || nextButtonSwain.activeSelf == true)    {
             if (Input.GetKeyDown(KeyCode.D))
             {
                 NextPage();
             }
         }
 
-        if (PrevButton_Aiden.activeSelf == true || PrevButton_Albert.activeSelf == true || PrevButton_BlackWell.activeSelf == true || PrevButton_Cane.activeSelf == true || PrevButton_Ella.activeSelf == true || PrevButton_Meiv.activeSelf == true || PrevButton_SewerWorker.activeSelf == true || NextButton_Dave.activeSelf == true || PrevButton_Swain.activeSelf == true)
+        if (prevButtonAiden.activeSelf == true || prevButtonAlbert.activeSelf == true || prevButtonBlackWell.activeSelf == true || prevButtonCane.activeSelf == true || prevButtonElla.activeSelf == true || prevButtonMeiv.activeSelf == true || prevButtonSewerWorker.activeSelf == true || nextButtonDave.activeSelf == true || prevButtonSwain.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -103,223 +102,224 @@ public class IntelCharacterDetail : MonoBehaviour
             }
         }
 
-        if (Ella_Detail.activeSelf == true)
+        if (ellaDetail.activeSelf == true)
         {
-            NowPage = "Ella";
+            nowPage = "Ella";
         }
-        else if (Aiden_Detail.activeSelf == true)
+        else if (aidenDetail.activeSelf == true)
         {
-            NowPage = "Aiden";
+            nowPage = "Aiden";
         }
-        else if (Swain_Detail.activeSelf == true)
+        else if (swainDetail.activeSelf == true)
         {
-            NowPage = "Swain";
+            nowPage = "Swain";
         }
-        else if (Cane_Detail.activeSelf == true)
+        else if (caneDetail.activeSelf == true)
         {
-            NowPage = "Cane";
+            nowPage = "Cane";
         }
-        else if (Albert_Detail.activeSelf == true)
+        else if (albertDetail.activeSelf == true)
         {
-            NowPage = "Albert";
+            nowPage = "Albert";
         }
-        else if (Meiv_Detail.activeSelf == true)
+        else if (meivDetail.activeSelf == true)
         {
-            NowPage = "Meiv";
+            nowPage = "Meiv";
         }
-        else if (BlackWell_Detail.activeSelf == true)
+        else if (blackWellDetail.activeSelf == true)
         {
-            NowPage = "BlackWell";
+            nowPage = "BlackWell";
         }
-        if (SewerWorker_Detail.activeSelf == true)
+        if (sewerWorkerDetail.activeSelf == true)
         {
-            NowPage = "SewerWorker";
+            nowPage = "SewerWorker";
         }
-        if (Dave_Detail.activeSelf == true)
+        if (daveDetail.activeSelf == true)
         {
-            NowPage = "Dave";
+            nowPage = "Dave";
         }
 
     }
-     string NowPage;
+     string nowPage;
 
     //엘라
-     GameObject Detail_Ella1;
-     GameObject Detail_Ella2;
-     GameObject Detail_Ella3;
-     GameObject Detail_Ella4;
-     GameObject Detail_Ella5;
-     GameObject Detail_Ella6;
-    bool ON_Ella1;
-    bool ON_Ella2;
-    bool ON_Ella3;
-    bool ON_Ella4;
-    bool ON_Ella5;
-    bool ON_Ella6;
-    int Count_Ella = 0;
-    public GameObject EllaContents;
-    public GameObject Ella_Detail;
-    public static int EllaIntelInt;
-    public GameObject NextButton_Ella;
-    public GameObject PrevButton_Ella;
+     GameObject detailElla1;
+     GameObject detailElla2;
+     GameObject detailElla3;
+     GameObject detailElla4;
+     GameObject detailElla5;
+     GameObject detailElla6;
+    bool onElla1;
+    bool onElla2;
+    bool onElla3;
+    bool onElla4;
+    bool onElla5;
+    bool onElla6;
+    int countElla = 0;
+    public GameObject ellaContents;
+    public GameObject ellaDetail;
+    public static int ellaIntelInt;
+    public GameObject nextButtonElla;
+    public GameObject prevButtonElla;
 
     //에이든
-     GameObject Detail_Aiden1;
-     GameObject Detail_Aiden2;
-     GameObject Detail_Aiden3;
-     GameObject Detail_Aiden4;
-     GameObject Detail_Aiden5;
-     GameObject Detail_Aiden6;
-    bool ON_Aiden1;
-    bool ON_Aiden2;
-    bool ON_Aiden3;
-    bool ON_Aiden4;
-    bool ON_Aiden5;
-    bool ON_Aiden6;
-     int Count_Aiden = 0;
-    public GameObject AidenContents;
-    public GameObject Aiden_Detail;
-    public static int AidenIntelInt;
-    public GameObject NextButton_Aiden;
-    public GameObject PrevButton_Aiden;
+     GameObject detailAiden1;
+     GameObject detailAiden2;
+     GameObject detailAiden3;
+     GameObject detailAiden4;
+     GameObject detailAiden5;
+     GameObject detailAiden6;
+    bool onAiden1;
+    bool onAiden2;
+    bool onAiden3;
+    bool onAiden4;
+    bool onAiden5;
+    bool onAiden6;
+     int countAiden = 0;
+    public GameObject aidenContents;
+    public GameObject aidenDetail;
+    public static int aidenIntelInt;
+    public GameObject nextButtonAiden;
+    public GameObject prevButtonAiden;
     //
 
     //스와인
-     GameObject Detail_Swain1;
-     GameObject Detail_Swain2;
-     GameObject Detail_Swain3;
-     GameObject Detail_Swain4;
-     GameObject Detail_Swain5;
-     GameObject Detail_Swain6;
-    bool ON_Swain1;
-    bool ON_Swain2;
-    bool ON_Swain3;
-    bool ON_Swain4;
-    bool ON_Swain5;
-    bool ON_Swain6;
-    int Count_Swain = 0;
-    public GameObject SwainContents;
-    public GameObject Swain_Detail;
-    public static int SwainIntelInt;
-    public GameObject NextButton_Swain;
-    public GameObject PrevButton_Swain;
+     GameObject detailSwain1;
+     GameObject detailSwain2;
+     GameObject detailSwain3;
+     GameObject detailSwain4;
+     GameObject detailSwain5;
+     GameObject detailSwain6;
+    bool onSwain1;
+    bool onSwain2;
+    bool onSwain3;
+    bool onSwain4;
+    bool onSwain5;
+    bool onSwain6;
+    int countSwain = 0;
+    public GameObject swainContents;
+    public GameObject swainDetail;
+    public static int swainIntelInt;
+    public GameObject nextButtonSwain;
+    public GameObject prevButtonSwain;
+
 
     //케인
-     GameObject Detail_Cane1;
-     GameObject Detail_Cane2;
-     GameObject Detail_Cane3;
-     GameObject Detail_Cane4;
-     GameObject Detail_Cane5;
-     GameObject Detail_Cane6;
-    bool ON_Cane1;
-    bool ON_Cane2;
-    bool ON_Cane3;
-    bool ON_Cane4;
-    bool ON_Cane5;
-    bool ON_Cane6;
-    int Count_Cane = 0;
-    public GameObject CaneContents;
-    public GameObject Cane_Detail;
-    public static int CaneIntelInt;
-    public GameObject NextButton_Cane;
-    public GameObject PrevButton_Cane;
+     GameObject detailCane1;
+     GameObject detailCane2;
+     GameObject detailCane3;
+     GameObject detailCane4;
+     GameObject detailCane5;
+     GameObject detailCane6;
+    bool onCane1;
+    bool onCane2;
+    bool onCane3;
+    bool onCane4;
+    bool onCane5;
+    bool onCane6;
+    int countCane = 0;
+    public GameObject caneContents;
+    public GameObject caneDetail;
+    public static int caneIntelInt;
+    public GameObject nextButtonCane;
+    public GameObject prevButtonCane;
 
-     GameObject Detail_Albert1;
-     GameObject Detail_Albert2;
-     GameObject Detail_Albert3;
-     GameObject Detail_Albert4;
-     GameObject Detail_Albert5;
-     GameObject Detail_Albert6;
-    bool ON_Albert1;
-    bool ON_Albert2;
-    bool ON_Albert3;
-    bool ON_Albert4;
-    bool ON_Albert5;
-    bool ON_Albert6;
-    int Count_Albert = 0;
-    public GameObject AlbertContents;
-    public GameObject Albert_Detail;
-    public static int AlbertIntelInt;
-    public GameObject NextButton_Albert;
-    public GameObject PrevButton_Albert;
+     GameObject detailAlbert1;
+     GameObject detailAlbert2;
+     GameObject detailAlbert3;
+     GameObject detailAlbert4;
+     GameObject detailAlbert5;
+     GameObject detailAlbert6;
+    bool onAlbert1;
+    bool onAlbert2;
+    bool onAlbert3;
+    bool onAlbert4;
+    bool onAlbert5;
+    bool onAlbert6;
+    int countAlbert = 0;
+    public GameObject albertContents;
+    public GameObject albertDetail;
+    public static int albertIntelInt;
+    public GameObject nextButtonAlbert;
+    public GameObject prevButtonAlbert;
 
-    GameObject Detail_Meiv1;
-    GameObject Detail_Meiv2;
-    GameObject Detail_Meiv3;
-    GameObject Detail_Meiv4;
-    GameObject Detail_Meiv5;
-    GameObject Detail_Meiv6;
-    bool ON_Meiv1;
-    bool ON_Meiv2;
-    bool ON_Meiv3;
-    bool ON_Meiv4;
-    bool ON_Meiv5;
-    bool ON_Meiv6;
-    int Count_Meiv = 0;
-    public GameObject MeivContents;
-    public GameObject Meiv_Detail;
-    public static int MeivIntelInt;
-    public GameObject NextButton_Meiv;
-    public GameObject PrevButton_Meiv;
+    GameObject detailMeiv1;
+    GameObject detailMeiv2;
+    GameObject detailMeiv3;
+    GameObject detailMeiv4;
+    GameObject detailMeiv5;
+    GameObject detailMeiv6;
+    bool onMeiv1;
+    bool onMeiv2;
+    bool onMeiv3;
+    bool onMeiv4;
+    bool onMeiv5;
+    bool onMeiv6;
+    int countMeiv = 0;
+    public GameObject meivContents;
+    public GameObject meivDetail;
+    public static int meivIntelInt;
+    public GameObject nextButtonMeiv;
+    public GameObject prevButtonMeiv;
 
-    GameObject Detail_BlackWell1;
-    GameObject Detail_BlackWell2;
-    GameObject Detail_BlackWell3;
-    GameObject Detail_BlackWell4;
-    GameObject Detail_BlackWell5;
-    GameObject Detail_BlackWell6;
-    bool ON_BlackWell1;
-    bool ON_BlackWell2;
-    bool ON_BlackWell3;
-    bool ON_BlackWell4;
-    bool ON_BlackWell5;
-    bool ON_BlackWell6;
-    int Count_BlackWell = 0;
-    public GameObject BlackWellContents;
-    public GameObject BlackWell_Detail;
-    public static int BlackWellIntelInt;
-    public GameObject NextButton_BlackWell;
-    public GameObject PrevButton_BlackWell;
+    GameObject detailBlackWell1;
+    GameObject detailBlackWell2;
+    GameObject detailBlackWell3;
+    GameObject detailBlackWell4;
+    GameObject detailBlackWell5;
+    GameObject detailBlackWell6;
+    bool onBlackWell1;
+    bool onBlackWell2;
+    bool onBlackWell3;
+    bool onBlackWell4;
+    bool onBlackWell5;
+    bool onBlackWell6;
+    int countBlackWell = 0;
+    public GameObject blackWellContents;
+    public GameObject blackWellDetail;
+    public static int blackWellIntelInt;
+    public GameObject nextButtonBlackWell;
+    public GameObject prevButtonBlackWell;
 
     //하수도 노동자
-    GameObject Detail_SewerWorker1;
-    GameObject Detail_SewerWorker2;
-    GameObject Detail_SewerWorker3;
-    GameObject Detail_SewerWorker4;
-    GameObject Detail_SewerWorker5;
-    GameObject Detail_SewerWorker6;
-    bool ON_SewerWorker1;
-    bool ON_SewerWorker2;
-    bool ON_SewerWorker3;
-    bool ON_SewerWorker4;
-    bool ON_SewerWorker5;
-    bool ON_SewerWorker6;
-    int Count_SewerWorker = 0;
-    public GameObject SewerWorkerContents;
-    public GameObject SewerWorker_Detail;
-    public static int SewerWorkerIntelInt;
-    public GameObject NextButton_SewerWorker;
-    public GameObject PrevButton_SewerWorker;
+    GameObject detailSewerWorker1;
+    GameObject detailSewerWorker2;
+    GameObject detailSewerWorker3;
+    GameObject detailSewerWorker4;
+    GameObject detailSewerWorker5;
+    GameObject detailSewerWorker6;
+    bool onSewerWorker1;
+    bool onSewerWorker2;
+    bool onSewerWorker3;
+    bool onSewerWorker4;
+    bool onSewerWorker5;
+    bool onSewerWorker6;
+    int countSewerWorker = 0;
+    public GameObject sewerWorkerContents;
+    public GameObject sewerWorkerDetail;
+    public static int sewerWorkerIntelInt;
+    public GameObject nextButtonSewerWorker;
+    public GameObject prevButtonSewerWorker;
 
     //데이브
-    public GameObject Detail_Dave1;
-    public GameObject Detail_Dave2;
-    public GameObject Detail_Dave3;
-    public GameObject Detail_Dave4;
-    public GameObject Detail_Dave5;
-    public GameObject Detail_Dave6;
-    bool ON_Dave1;
-    bool ON_Dave2;
-    bool ON_Dave3;
-    bool ON_Dave4;
-    bool ON_Dave5;
-    bool ON_Dave6;
-    public int Count_Dave = 0;
-    public GameObject DaveContents;
-    public GameObject Dave_Detail;
-    public static int DaveIntelInt;
-    public GameObject NextButton_Dave;
-    public GameObject PrevButton_Dave;
+    public GameObject detailDave1;
+    public GameObject detailDave2;
+    public GameObject detailDave3;
+    public GameObject detailDave4;
+    public GameObject detailDave5;
+    public GameObject detailDave6;
+    bool onDave1;
+    bool onDave2;
+    bool onDave3;
+    bool onDave4;
+    bool onDave5;
+    bool onDave6;
+    public int countDave = 0;
+    public GameObject daveContents;
+    public GameObject daveDetail;
+    public static int daveIntelInt;
+    public GameObject nextButtonDave;
+    public GameObject prevButtonDave;
 
     private static IntelCharacterDetail instance = null;
     private void Awake()
@@ -349,1047 +349,1047 @@ public class IntelCharacterDetail : MonoBehaviour
     }
     void AidenDetail()
     {
-        if (ON_Aiden1 == false && DataBaseManager.Intel_Aiden1 == true)
+        if (onAiden1 == false && DataBaseManager.Intel_Aiden1 == true)
         {
-            ON_Aiden1 = true;
-            Detail_Aiden1.SetActive(true);
-            Detail_Aiden1.transform.SetAsLastSibling();
-            Count_Aiden += 1;
+            onAiden1 = true;
+            detailAiden1.SetActive(true);
+            detailAiden1.transform.SetAsLastSibling();
+            countAiden += 1;
         }
-        if (ON_Aiden2 == false && DataBaseManager.Intel_Aiden2 == true)
+        if (onAiden2 == false && DataBaseManager.Intel_Aiden2 == true)
         {
-            ON_Aiden2 = true;
-            Detail_Aiden2.SetActive(true);
-            Detail_Aiden2.transform.SetAsLastSibling();
-            Count_Aiden += 1;
+            onAiden2 = true;
+            detailAiden2.SetActive(true);
+            detailAiden2.transform.SetAsLastSibling();
+            countAiden += 1;
         }
-        if (ON_Aiden3 == false && DataBaseManager.Intel_Aiden3 == true)
+        if (onAiden3 == false && DataBaseManager.Intel_Aiden3 == true)
         {
-            ON_Aiden3 = true;
-            Detail_Aiden3.SetActive(true);
-            Detail_Aiden3.transform.SetAsLastSibling();
-            Count_Aiden += 1;
+            onAiden3 = true;
+            detailAiden3.SetActive(true);
+            detailAiden3.transform.SetAsLastSibling();
+            countAiden += 1;
         }
-        if (ON_Aiden4 == false && DataBaseManager.Intel_Aiden4 == true)
+        if (onAiden4 == false && DataBaseManager.Intel_Aiden4 == true)
         {
-            ON_Aiden4 = true;
-            Detail_Aiden4.SetActive(true);
-            Detail_Aiden4.transform.SetAsLastSibling();
-            Count_Aiden += 1;
+            onAiden4 = true;
+            detailAiden4.SetActive(true);
+            detailAiden4.transform.SetAsLastSibling();
+            countAiden += 1;
         }
-        if (ON_Aiden5 == false && DataBaseManager.Intel_Aiden5 == true)
+        if (onAiden5 == false && DataBaseManager.Intel_Aiden5 == true)
         {
-            ON_Aiden5 = true;
-            Detail_Aiden5.SetActive(true);
-            Detail_Aiden5.transform.SetAsLastSibling();
-            Count_Aiden += 1;
+            onAiden5 = true;
+            detailAiden5.SetActive(true);
+            detailAiden5.transform.SetAsLastSibling();
+            countAiden += 1;
         }
-        if (ON_Aiden6 == false && DataBaseManager.Intel_Aiden6 == true)
+        if (onAiden6 == false && DataBaseManager.Intel_Aiden6 == true)
         {
-            ON_Aiden6 = true;
-            Detail_Aiden6.SetActive(true);
-            Detail_Aiden6.transform.SetAsLastSibling();
-            Count_Aiden += 1;
+            onAiden6 = true;
+            detailAiden6.SetActive(true);
+            detailAiden6.transform.SetAsLastSibling();
+            countAiden += 1;
         }
 
-        if (Count_Aiden > 2 && DataBaseManager.NowPage_Aiden == 1)
+        if (countAiden > 2 && DataBaseManager.NowPage_Aiden == 1)
         {
-            NextButton_Aiden.SetActive(true);
+            nextButtonAiden.SetActive(true);
         }
-        else if (Count_Aiden > 4 && DataBaseManager.NowPage_Aiden == 2)
+        else if (countAiden > 4 && DataBaseManager.NowPage_Aiden == 2)
         {
-            NextButton_Aiden.SetActive(true);
+            nextButtonAiden.SetActive(true);
         }
         else
         {
-            NextButton_Aiden.SetActive(false);
+            nextButtonAiden.SetActive(false);
         }
 
         if (DataBaseManager.NowPage_Aiden == 2)
         {
-            PrevButton_Aiden.SetActive(true);
+            prevButtonAiden.SetActive(true);
         }
         else if (DataBaseManager.NowPage_Aiden == 3)
         {
-            PrevButton_Aiden.SetActive(true);
+            prevButtonAiden.SetActive(true);
         }
         else
         {
-            PrevButton_Aiden.SetActive(false);
+            prevButtonAiden.SetActive(false);
         }
     }
     void EllaDetail()
     {
-        if (ON_Ella1 == false && DataBaseManager.Intel_Ella1 == true)
+        if (onElla1 == false && DataBaseManager.Intel_Ella1 == true)
         {
-            ON_Ella1 = true;
-            Detail_Ella1.SetActive(true);
-            Detail_Ella1.transform.SetAsLastSibling();
-            Count_Ella += 1;
+            onElla1 = true;
+            detailElla1.SetActive(true);
+            detailElla1.transform.SetAsLastSibling();
+            countElla += 1;
         }
-        if (ON_Ella2 == false && DataBaseManager.Intel_Ella2 == true)
+        if (onElla2 == false && DataBaseManager.Intel_Ella2 == true)
         {
-            ON_Ella2 = true;
-            Detail_Ella2.SetActive(true);
-            Detail_Ella2.transform.SetAsLastSibling();
-            Count_Ella += 1;
+            onElla2 = true;
+            detailElla2.SetActive(true);
+            detailElla2.transform.SetAsLastSibling();
+            countElla += 1;
         }
-        if (ON_Ella3 == false && DataBaseManager.Intel_Ella3 == true)
+        if (onElla3 == false && DataBaseManager.Intel_Ella3 == true)
         {
-            ON_Ella3 = true;
-            Detail_Ella3.SetActive(true);
-            Detail_Ella3.transform.SetAsLastSibling();
-            Count_Ella += 1;
+            onElla3 = true;
+            detailElla3.SetActive(true);
+            detailElla3.transform.SetAsLastSibling();
+            countElla += 1;
         }
-        if (ON_Ella4 == false && DataBaseManager.Intel_Ella4 == true)
+        if (onElla4 == false && DataBaseManager.Intel_Ella4 == true)
         {
-            ON_Ella4 = true;
-            Detail_Ella4.SetActive(true);
-            Detail_Ella4.transform.SetAsLastSibling();
-            Count_Ella += 1;
+            onElla4 = true;
+            detailElla4.SetActive(true);
+            detailElla4.transform.SetAsLastSibling();
+            countElla += 1;
         }
-        if (ON_Ella5 == false && DataBaseManager.Intel_Ella5 == true)
+        if (onElla5 == false && DataBaseManager.Intel_Ella5 == true)
         {
-            ON_Ella5 = true;
-            Detail_Ella5.SetActive(true);
-            Detail_Ella5.transform.SetAsLastSibling();
-            Count_Ella += 1;
+            onElla5 = true;
+            detailElla5.SetActive(true);
+            detailElla5.transform.SetAsLastSibling();
+            countElla += 1;
         }
-        if (ON_Ella6 == false && DataBaseManager.Intel_Ella6 == true)
+        if (onElla6 == false && DataBaseManager.Intel_Ella6 == true)
         {
-            ON_Ella6 = true;
-            Detail_Ella6.SetActive(true);
-            Detail_Ella6.transform.SetAsLastSibling();
-            Count_Ella += 1;
+            onElla6 = true;
+            detailElla6.SetActive(true);
+            detailElla6.transform.SetAsLastSibling();
+            countElla += 1;
         }
 
-        if (Count_Ella > 2 && DataBaseManager.NowPage_Ella == 1)
+        if (countElla > 2 && DataBaseManager.NowPage_Ella == 1)
         {
-            NextButton_Ella.SetActive(true);
+            nextButtonElla.SetActive(true);
         }
-        else if (Count_Ella > 4 && DataBaseManager.NowPage_Ella == 2)
+        else if (countElla > 4 && DataBaseManager.NowPage_Ella == 2)
         {
-            NextButton_Ella.SetActive(true);
+            nextButtonElla.SetActive(true);
         }
         else
         {
-            NextButton_Ella.SetActive(false);
+            nextButtonElla.SetActive(false);
         }
 
         if (DataBaseManager.NowPage_Ella == 2)
         {
-            PrevButton_Ella.SetActive(true);
+            prevButtonElla.SetActive(true);
         }
         else if (DataBaseManager.NowPage_Ella == 3)
         {
-            PrevButton_Ella.SetActive(true);
+            prevButtonElla.SetActive(true);
         }
         else
         {
-            PrevButton_Ella.SetActive(false);
+            prevButtonElla.SetActive(false);
         }
     }
     void SwainDetail()
     {
-        if (ON_Swain1 == false && DataBaseManager.Intel_Swain1 == true)
+        if (onSwain1 == false && DataBaseManager.Intel_Swain1 == true)
         {
-            ON_Swain1 = true;
-            Detail_Swain1.SetActive(true);
-            Detail_Swain1.transform.SetAsLastSibling();
-            Count_Swain += 1;
+            onSwain1 = true;
+            detailSwain1.SetActive(true);
+            detailSwain1.transform.SetAsLastSibling();
+            countSwain += 1;
         }
-        if (ON_Swain2 == false && DataBaseManager.Intel_Swain2 == true)
+        if (onSwain2 == false && DataBaseManager.Intel_Swain2 == true)
         {
-            ON_Swain2 = true;
-            Detail_Swain2.SetActive(true);
-            Detail_Swain2.transform.SetAsLastSibling();
-            Count_Swain += 1;
+            onSwain2 = true;
+            detailSwain2.SetActive(true);
+            detailSwain2.transform.SetAsLastSibling();
+            countSwain += 1;
         }
-        if (ON_Swain3 == false && DataBaseManager.Intel_Swain3 == true)
+        if (onSwain3 == false && DataBaseManager.Intel_Swain3 == true)
         {
-            ON_Swain3 = true;
-            Detail_Swain3.SetActive(true);
-            Detail_Swain3.transform.SetAsLastSibling();
-            Count_Swain += 1;
+            onSwain3 = true;
+            detailSwain3.SetActive(true);
+            detailSwain3.transform.SetAsLastSibling();
+            countSwain += 1;
         }
-        if (ON_Swain4 == false && DataBaseManager.Intel_Swain4 == true)
+        if (onSwain4 == false && DataBaseManager.Intel_Swain4 == true)
         {
-            ON_Swain4 = true;
-            Detail_Swain4.SetActive(true);
-            Detail_Swain4.transform.SetAsLastSibling();
-            Count_Swain += 1;
+            onSwain4 = true;
+            detailSwain4.SetActive(true);
+            detailSwain4.transform.SetAsLastSibling();
+            countSwain += 1;
         }
-        if (ON_Swain5 == false && DataBaseManager.Intel_Swain5 == true)
+        if (onSwain5 == false && DataBaseManager.Intel_Swain5 == true)
         {
-            ON_Swain5 = true;
-            Detail_Swain5.SetActive(true);
-            Detail_Swain5.transform.SetAsLastSibling();
-            Count_Swain += 1;
+            onSwain5 = true;
+            detailSwain5.SetActive(true);
+            detailSwain5.transform.SetAsLastSibling();
+            countSwain += 1;
         }
-        if (ON_Swain6 == false && DataBaseManager.Intel_Swain6 == true)
+        if (onSwain6 == false && DataBaseManager.Intel_Swain6 == true)
         {
-            ON_Swain6 = true;
-            Detail_Swain6.SetActive(true);
-            Detail_Swain6.transform.SetAsLastSibling();
-            Count_Swain += 1;
+            onSwain6 = true;
+            detailSwain6.SetActive(true);
+            detailSwain6.transform.SetAsLastSibling();
+            countSwain += 1;
         }
 
-        if (Count_Swain > 2 && DataBaseManager.NowPage_Swain == 1)
+        if (countSwain > 2 && DataBaseManager.NowPage_Swain == 1)
         {
-            NextButton_Swain.SetActive(true);
+            nextButtonSwain.SetActive(true);
         }
-        else if (Count_Swain > 4 && DataBaseManager.NowPage_Swain == 2)
+        else if (countSwain > 4 && DataBaseManager.NowPage_Swain == 2)
         {
-            NextButton_Swain.SetActive(true);
+            nextButtonSwain.SetActive(true);
         }
         else
         {
-            NextButton_Swain.SetActive(false);
+            nextButtonSwain.SetActive(false);
         }
 
         if (DataBaseManager.NowPage_Swain == 2)
         {
-            PrevButton_Swain.SetActive(true);
+            prevButtonSwain.SetActive(true);
         }
         else if (DataBaseManager.NowPage_Swain == 3)
         {
-            PrevButton_Swain.SetActive(true);
+            prevButtonSwain.SetActive(true);
         }
         else
         {
-            PrevButton_Swain.SetActive(false);
+            prevButtonSwain.SetActive(false);
         }
     }
     void CaneDetail()
     {
-        if (ON_Cane1 == false && DataBaseManager.Intel_Cane1 == true)
+        if (onCane1 == false && DataBaseManager.Intel_Cane1 == true)
         {
-            ON_Cane1 = true;
-            Detail_Cane1.SetActive(true);
-            Detail_Cane1.transform.SetAsLastSibling();
-            Count_Cane += 1;
+            onCane1 = true;
+            detailCane1.SetActive(true);
+            detailCane1.transform.SetAsLastSibling();
+            countCane += 1;
         }
-        if (ON_Cane2 == false && DataBaseManager.Intel_Cane2 == true)
+        if (onCane2 == false && DataBaseManager.Intel_Cane2 == true)
         {
-            ON_Cane2 = true;
-            Detail_Cane2.SetActive(true);
-            Detail_Cane2.transform.SetAsLastSibling();
-            Count_Cane += 1;
+            onCane2 = true;
+            detailCane2.SetActive(true);
+            detailCane2.transform.SetAsLastSibling();
+            countCane += 1;
         }
-        if (ON_Cane3 == false && DataBaseManager.Intel_Cane3 == true)
+        if (onCane3 == false && DataBaseManager.Intel_Cane3 == true)
         {
-            ON_Cane3 = true;
-            Detail_Cane3.SetActive(true);
-            Detail_Cane3.transform.SetAsLastSibling();
-            Count_Cane += 1;
+            onCane3 = true;
+            detailCane3.SetActive(true);
+            detailCane3.transform.SetAsLastSibling();
+            countCane += 1;
         }
-        if (ON_Cane4 == false && DataBaseManager.Intel_Cane4 == true)
+        if (onCane4 == false && DataBaseManager.Intel_Cane4 == true)
         {
-            ON_Cane4 = true;
-            Detail_Cane4.SetActive(true);
-            Detail_Cane4.transform.SetAsLastSibling();
-            Count_Cane += 1;
+            onCane4 = true;
+            detailCane4.SetActive(true);
+            detailCane4.transform.SetAsLastSibling();
+            countCane += 1;
         }
-        if (ON_Cane5 == false && DataBaseManager.Intel_Cane5 == true)
+        if (onCane5 == false && DataBaseManager.Intel_Cane5 == true)
         {
-            ON_Cane5 = true;
-            Detail_Cane5.SetActive(true);
-            Detail_Cane5.transform.SetAsLastSibling();
-            Count_Cane += 1;
+            onCane5 = true;
+            detailCane5.SetActive(true);
+            detailCane5.transform.SetAsLastSibling();
+            countCane += 1;
         }
-        if (ON_Cane6 == false && DataBaseManager.Intel_Cane6 == true)
+        if (onCane6 == false && DataBaseManager.Intel_Cane6 == true)
         {
-            ON_Cane6 = true;
-            Detail_Cane6.SetActive(true);
-            Detail_Cane6.transform.SetAsLastSibling();
-            Count_Cane += 1;
+            onCane6 = true;
+            detailCane6.SetActive(true);
+            detailCane6.transform.SetAsLastSibling();
+            countCane += 1;
         }
 
-        if (Count_Cane > 2 && DataBaseManager.NowPage_Cane == 1)
+        if (countCane > 2 && DataBaseManager.NowPage_Cane == 1)
         {
-            NextButton_Cane.SetActive(true);
+            nextButtonCane.SetActive(true);
         }
-        else if (Count_Cane > 4 && DataBaseManager.NowPage_Cane == 2)
+        else if (countCane > 4 && DataBaseManager.NowPage_Cane == 2)
         {
-            NextButton_Cane.SetActive(true);
+            nextButtonCane.SetActive(true);
         }
         else
         {
-            NextButton_Cane.SetActive(false);
+            nextButtonCane.SetActive(false);
         }
 
         if (DataBaseManager.NowPage_Cane == 2)
         {
-            PrevButton_Cane.SetActive(true);
+            prevButtonCane.SetActive(true);
         }
         else if (DataBaseManager.NowPage_Cane == 3)
         {
-            PrevButton_Cane.SetActive(true);
+            prevButtonCane.SetActive(true);
         }
         else
         {
-            PrevButton_Cane.SetActive(false);
+            prevButtonCane.SetActive(false);
         }
     }
     void AlbertDetail()
     {
-        if (ON_Albert1 == false && DataBaseManager.Intel_Albert1 == true)
+        if (onAlbert1 == false && DataBaseManager.Intel_Albert1 == true)
         {
-            ON_Albert1 = true;
-            Detail_Albert1.SetActive(true);
-            Detail_Albert1.transform.SetAsLastSibling();
-            Count_Albert += 1;
+            onAlbert1 = true;
+            detailAlbert1.SetActive(true);
+            detailAlbert1.transform.SetAsLastSibling();
+            countAlbert += 1;
         }
-        if (ON_Albert2 == false && DataBaseManager.Intel_Albert2 == true)
+        if (onAlbert2 == false && DataBaseManager.Intel_Albert2 == true)
         {
-            ON_Albert2 = true;
-            Detail_Albert2.SetActive(true);
-            Detail_Albert2.transform.SetAsLastSibling();
-            Count_Albert += 1;
+            onAlbert2 = true;
+            detailAlbert2.SetActive(true);
+            detailAlbert2.transform.SetAsLastSibling();
+            countAlbert += 1;
         }
-        if (ON_Albert3 == false && DataBaseManager.Intel_Albert3 == true)
+        if (onAlbert3 == false && DataBaseManager.Intel_Albert3 == true)
         {
-            ON_Albert3 = true;
-            Detail_Albert3.SetActive(true);
-            Detail_Albert3.transform.SetAsLastSibling();
-            Count_Albert += 1;
+            onAlbert3 = true;
+            detailAlbert3.SetActive(true);
+            detailAlbert3.transform.SetAsLastSibling();
+            countAlbert += 1;
         }
-        if (ON_Albert4 == false && DataBaseManager.Intel_Albert4 == true)
+        if (onAlbert4 == false && DataBaseManager.Intel_Albert4 == true)
         {
-            ON_Albert4 = true;
-            Detail_Albert4.SetActive(true);
-            Detail_Albert4.transform.SetAsLastSibling();
-            Count_Albert += 1;
+            onAlbert4 = true;
+            detailAlbert4.SetActive(true);
+            detailAlbert4.transform.SetAsLastSibling();
+            countAlbert += 1;
         }
-        if (ON_Albert5 == false && DataBaseManager.Intel_Albert5 == true)
+        if (onAlbert5 == false && DataBaseManager.Intel_Albert5 == true)
         {
-            ON_Albert5 = true;
-            Detail_Albert5.SetActive(true);
-            Detail_Albert5.transform.SetAsLastSibling();
-            Count_Albert += 1;
+            onAlbert5 = true;
+            detailAlbert5.SetActive(true);
+            detailAlbert5.transform.SetAsLastSibling();
+            countAlbert += 1;
         }
-        if (ON_Albert6 == false && DataBaseManager.Intel_Albert6 == true)
+        if (onAlbert6 == false && DataBaseManager.Intel_Albert6 == true)
         {
-            ON_Albert6 = true;
-            Detail_Albert6.SetActive(true);
-            Detail_Albert6.transform.SetAsLastSibling();
-            Count_Albert += 1;
+            onAlbert6 = true;
+            detailAlbert6.SetActive(true);
+            detailAlbert6.transform.SetAsLastSibling();
+            countAlbert += 1;
         }
 
-        if (Count_Albert > 2 && DataBaseManager.NowPage_Albert == 1)
+        if (countAlbert > 2 && DataBaseManager.NowPage_Albert == 1)
         {
-            NextButton_Albert.SetActive(true);
+            nextButtonAlbert.SetActive(true);
         }
-        else if (Count_Albert > 4 && DataBaseManager.NowPage_Albert == 2)
+        else if (countAlbert > 4 && DataBaseManager.NowPage_Albert == 2)
         {
-            NextButton_Albert.SetActive(true);
+            nextButtonAlbert.SetActive(true);
         }
         else
         {
-            NextButton_Albert.SetActive(false);
+            nextButtonAlbert.SetActive(false);
         }
 
         if (DataBaseManager.NowPage_Albert == 2)
         {
-            PrevButton_Albert.SetActive(true);
+            prevButtonAlbert.SetActive(true);
         }
         else if (DataBaseManager.NowPage_Albert == 3)
         {
-            PrevButton_Albert.SetActive(true);
+            prevButtonAlbert.SetActive(true);
         }
         else
         {
-            PrevButton_Albert.SetActive(false);
+            prevButtonAlbert.SetActive(false);
         }
     }
     void MeivDetail()
     {
-        if (ON_Meiv1 == false && DataBaseManager.Intel_Meiv1 == true)
+        if (onMeiv1 == false && DataBaseManager.Intel_Meiv1 == true)
         {
-            ON_Meiv1 = true;
-            Detail_Meiv1.SetActive(true);
-            Detail_Meiv1.transform.SetAsLastSibling();
-            Count_Meiv += 1;
+            onMeiv1 = true;
+            detailMeiv1.SetActive(true);
+            detailMeiv1.transform.SetAsLastSibling();
+            countMeiv += 1;
         }
-        if (ON_Meiv2 == false && DataBaseManager.Intel_Meiv2 == true)
+        if (onMeiv2 == false && DataBaseManager.Intel_Meiv2 == true)
         {
-            ON_Meiv2 = true;
-            Detail_Meiv2.SetActive(true);
-            Detail_Meiv2.transform.SetAsLastSibling();
-            Count_Meiv += 1;
+            onMeiv2 = true;
+            detailMeiv2.SetActive(true);
+            detailMeiv2.transform.SetAsLastSibling();
+            countMeiv += 1;
         }
-        if (ON_Meiv3 == false && DataBaseManager.Intel_Meiv3 == true)
+        if (onMeiv3 == false && DataBaseManager.Intel_Meiv3 == true)
         {
-            ON_Meiv3 = true;
-            Detail_Meiv3.SetActive(true);
-            Detail_Meiv3.transform.SetAsLastSibling();
-            Count_Meiv += 1;
+            onMeiv3 = true;
+            detailMeiv3.SetActive(true);
+            detailMeiv3.transform.SetAsLastSibling();
+            countMeiv += 1;
         }
-        if (ON_Meiv4 == false && DataBaseManager.Intel_Meiv4 == true)
+        if (onMeiv4 == false && DataBaseManager.Intel_Meiv4 == true)
         {
-            ON_Meiv4 = true;
-            Detail_Meiv4.SetActive(true);
-            Detail_Meiv4.transform.SetAsLastSibling();
-            Count_Meiv += 1;
+            onMeiv4 = true;
+            detailMeiv4.SetActive(true);
+            detailMeiv4.transform.SetAsLastSibling();
+            countMeiv += 1;
         }
-        if (ON_Meiv5 == false && DataBaseManager.Intel_Meiv5 == true)
+        if (onMeiv5 == false && DataBaseManager.Intel_Meiv5 == true)
         {
-            ON_Meiv5 = true;
-            Detail_Meiv5.SetActive(true);
-            Detail_Meiv5.transform.SetAsLastSibling();
-            Count_Meiv += 1;
+            onMeiv5 = true;
+            detailMeiv5.SetActive(true);
+            detailMeiv5.transform.SetAsLastSibling();
+            countMeiv += 1;
         }
-        if (ON_Meiv6 == false && DataBaseManager.Intel_Meiv6 == true)
+        if (onMeiv6 == false && DataBaseManager.Intel_Meiv6 == true)
         {
-            ON_Meiv6 = true;
-            Detail_Meiv6.SetActive(true);
-            Detail_Meiv6.transform.SetAsLastSibling();
-            Count_Meiv += 1;
+            onMeiv6 = true;
+            detailMeiv6.SetActive(true);
+            detailMeiv6.transform.SetAsLastSibling();
+            countMeiv += 1;
         }
 
-        if (Count_Meiv > 2 && DataBaseManager.NowPage_Meiv == 1)
+        if (countMeiv > 2 && DataBaseManager.NowPage_Meiv == 1)
         {
-            NextButton_Meiv.SetActive(true);
+            nextButtonMeiv.SetActive(true);
         }
-        else if (Count_Meiv > 4 && DataBaseManager.NowPage_Meiv == 2)
+        else if (countMeiv > 4 && DataBaseManager.NowPage_Meiv == 2)
         {
-            NextButton_Meiv.SetActive(true);
+            nextButtonMeiv.SetActive(true);
         }
         else
         {
-            NextButton_Meiv.SetActive(false);
+            nextButtonMeiv.SetActive(false);
         }
 
         if (DataBaseManager.NowPage_Meiv == 2)
         {
-            PrevButton_Meiv.SetActive(true);
+            prevButtonMeiv.SetActive(true);
         }
         else if (DataBaseManager.NowPage_Meiv == 3)
         {
-            PrevButton_Meiv.SetActive(true);
+            prevButtonMeiv.SetActive(true);
         }
         else
         {
-            PrevButton_Meiv.SetActive(false);
+            prevButtonMeiv.SetActive(false);
         }
     }
     void BlackWellDetail()
     {
-        if (ON_BlackWell1 == false && DataBaseManager.Intel_BlackWell1 == true)
+        if (onBlackWell1 == false && DataBaseManager.Intel_BlackWell1 == true)
         {
-            ON_BlackWell1 = true;
-            Detail_BlackWell1.SetActive(true);
-            Detail_BlackWell1.transform.SetAsLastSibling();
-            Count_BlackWell += 1;
+            onBlackWell1 = true;
+            detailBlackWell1.SetActive(true);
+            detailBlackWell1.transform.SetAsLastSibling();
+            countBlackWell += 1;
         }
-        if (ON_BlackWell2 == false && DataBaseManager.Intel_BlackWell2 == true)
+        if (onBlackWell2 == false && DataBaseManager.Intel_BlackWell2 == true)
         {
-            ON_BlackWell2 = true;
-            Detail_BlackWell2.SetActive(true);
-            Detail_BlackWell2.transform.SetAsLastSibling();
-            Count_BlackWell += 1;
+            onBlackWell2 = true;
+            detailBlackWell2.SetActive(true);
+            detailBlackWell2.transform.SetAsLastSibling();
+            countBlackWell += 1;
         }
-        if (ON_BlackWell3 == false && DataBaseManager.Intel_BlackWell3 == true)
+        if (onBlackWell3 == false && DataBaseManager.Intel_BlackWell3 == true)
         {
-            ON_BlackWell3 = true;
-            Detail_BlackWell3.SetActive(true);
-            Detail_BlackWell3.transform.SetAsLastSibling();
-            Count_BlackWell += 1;
+            onBlackWell3 = true;
+            detailBlackWell3.SetActive(true);
+            detailBlackWell3.transform.SetAsLastSibling();
+            countBlackWell += 1;
         }
-        if (ON_BlackWell4 == false && DataBaseManager.Intel_BlackWell4 == true)
+        if (onBlackWell4 == false && DataBaseManager.Intel_BlackWell4 == true)
         {
-            ON_BlackWell4 = true;
-            Detail_BlackWell4.SetActive(true);
-            Detail_BlackWell4.transform.SetAsLastSibling();
-            Count_BlackWell += 1;
+            onBlackWell4 = true;
+            detailBlackWell4.SetActive(true);
+            detailBlackWell4.transform.SetAsLastSibling();
+            countBlackWell += 1;
         }
-        if (ON_BlackWell5 == false && DataBaseManager.Intel_BlackWell5 == true)
+        if (onBlackWell5 == false && DataBaseManager.Intel_BlackWell5 == true)
         {
-            ON_BlackWell5 = true;
-            Detail_BlackWell5.SetActive(true);
-            Detail_BlackWell5.transform.SetAsLastSibling();
-            Count_BlackWell += 1;
+            onBlackWell5 = true;
+            detailBlackWell5.SetActive(true);
+            detailBlackWell5.transform.SetAsLastSibling();
+            countBlackWell += 1;
         }
-        if (ON_BlackWell6 == false && DataBaseManager.Intel_BlackWell6 == true)
+        if (onBlackWell6 == false && DataBaseManager.Intel_BlackWell6 == true)
         {
-            ON_BlackWell6 = true;
-            Detail_BlackWell6.SetActive(true);
-            Detail_BlackWell6.transform.SetAsLastSibling();
-            Count_BlackWell += 1;
+            onBlackWell6 = true;
+            detailBlackWell6.SetActive(true);
+            detailBlackWell6.transform.SetAsLastSibling();
+            countBlackWell += 1;
         }
 
-        if (Count_BlackWell > 2 && DataBaseManager.NowPage_BlackWell == 1)
+        if (countBlackWell > 2 && DataBaseManager.NowPage_BlackWell == 1)
         {
-            NextButton_BlackWell.SetActive(true);
+            nextButtonBlackWell.SetActive(true);
         }
-        else if (Count_BlackWell > 4 && DataBaseManager.NowPage_BlackWell == 2)
+        else if (countBlackWell > 4 && DataBaseManager.NowPage_BlackWell == 2)
         {
-            NextButton_BlackWell.SetActive(true);
+            nextButtonBlackWell.SetActive(true);
         }
         else
         {
-            NextButton_BlackWell.SetActive(false);
+            nextButtonBlackWell.SetActive(false);
         }
 
         if (DataBaseManager.NowPage_BlackWell == 2)
         {
-            PrevButton_BlackWell.SetActive(true);
+            prevButtonBlackWell.SetActive(true);
         }
         else if (DataBaseManager.NowPage_BlackWell == 3)
         {
-            PrevButton_BlackWell.SetActive(true);
+            prevButtonBlackWell.SetActive(true);
         }
         else
         {
-            PrevButton_BlackWell.SetActive(false);
+            prevButtonBlackWell.SetActive(false);
         }
     }
     void SewerWorkerDetail()
     {
-        if (ON_SewerWorker1 == false && DataBaseManager.Intel_SewerWorker1 == true)
+        if (onSewerWorker1 == false && DataBaseManager.Intel_SewerWorker1 == true)
         {
-            ON_SewerWorker1 = true;
-            Detail_SewerWorker1.SetActive(true);
-            Detail_SewerWorker1.transform.SetAsLastSibling();
-            Count_SewerWorker += 1;
+            onSewerWorker1 = true;
+            detailSewerWorker1.SetActive(true);
+            detailSewerWorker1.transform.SetAsLastSibling();
+            countSewerWorker += 1;
         }
-        if (ON_SewerWorker2 == false && DataBaseManager.Intel_SewerWorker2 == true)
+        if (onSewerWorker2 == false && DataBaseManager.Intel_SewerWorker2 == true)
         {
-            ON_SewerWorker2 = true;
-            Detail_SewerWorker2.SetActive(true);
-            Detail_SewerWorker2.transform.SetAsLastSibling();
-            Count_SewerWorker += 1;
+            onSewerWorker2 = true;
+            detailSewerWorker2.SetActive(true);
+            detailSewerWorker2.transform.SetAsLastSibling();
+            countSewerWorker += 1;
         }
-        if (ON_SewerWorker3 == false && DataBaseManager.Intel_SewerWorker3 == true)
+        if (onSewerWorker3 == false && DataBaseManager.Intel_SewerWorker3 == true)
         {
-            ON_SewerWorker3 = true;
-            Detail_SewerWorker3.SetActive(true);
-            Detail_SewerWorker3.transform.SetAsLastSibling();
-            Count_SewerWorker += 1;
+            onSewerWorker3 = true;
+            detailSewerWorker3.SetActive(true);
+            detailSewerWorker3.transform.SetAsLastSibling();
+            countSewerWorker += 1;
         }
-        if (ON_SewerWorker4 == false && DataBaseManager.Intel_SewerWorker4 == true)
+        if (onSewerWorker4 == false && DataBaseManager.Intel_SewerWorker4 == true)
         {
-            ON_SewerWorker4 = true;
-            Detail_SewerWorker4.SetActive(true);
-            Detail_SewerWorker4.transform.SetAsLastSibling();
-            Count_SewerWorker += 1;
+            onSewerWorker4 = true;
+            detailSewerWorker4.SetActive(true);
+            detailSewerWorker4.transform.SetAsLastSibling();
+            countSewerWorker += 1;
         }
-        if (ON_SewerWorker5 == false && DataBaseManager.Intel_SewerWorker5 == true)
+        if (onSewerWorker5 == false && DataBaseManager.Intel_SewerWorker5 == true)
         {
-            ON_SewerWorker5 = true;
-            Detail_SewerWorker5.SetActive(true);
-            Detail_SewerWorker5.transform.SetAsLastSibling();
-            Count_SewerWorker += 1;
+            onSewerWorker5 = true;
+            detailSewerWorker5.SetActive(true);
+            detailSewerWorker5.transform.SetAsLastSibling();
+            countSewerWorker += 1;
         }
-        if (ON_SewerWorker6 == false && DataBaseManager.Intel_SewerWorker6 == true)
+        if (onSewerWorker6 == false && DataBaseManager.Intel_SewerWorker6 == true)
         {
-            ON_SewerWorker6 = true;
-            Detail_SewerWorker6.SetActive(true);
-            Detail_SewerWorker6.transform.SetAsLastSibling();
-            Count_SewerWorker += 1;
+            onSewerWorker6 = true;
+            detailSewerWorker6.SetActive(true);
+            detailSewerWorker6.transform.SetAsLastSibling();
+            countSewerWorker += 1;
         }
 
-        if (Count_SewerWorker > 2 && DataBaseManager.NowPage_SewerWorker == 1)
+        if (countSewerWorker > 2 && DataBaseManager.NowPage_SewerWorker == 1)
         {
-            NextButton_SewerWorker.SetActive(true);
+            nextButtonSewerWorker.SetActive(true);
         }
-        else if (Count_SewerWorker > 4 && DataBaseManager.NowPage_SewerWorker == 2)
+        else if (countSewerWorker > 4 && DataBaseManager.NowPage_SewerWorker == 2)
         {
-            NextButton_SewerWorker.SetActive(true);
+            nextButtonSewerWorker.SetActive(true);
         }
         else
         {
-            NextButton_SewerWorker.SetActive(false);
+            nextButtonSewerWorker.SetActive(false);
         }
 
         if (DataBaseManager.NowPage_SewerWorker == 2)
         {
-            PrevButton_SewerWorker.SetActive(true);
+            prevButtonSewerWorker.SetActive(true);
         }
         else if (DataBaseManager.NowPage_SewerWorker == 3)
         {
-            PrevButton_SewerWorker.SetActive(true);
+            prevButtonSewerWorker.SetActive(true);
         }
         else
         {
-            PrevButton_SewerWorker.SetActive(false);
+            prevButtonSewerWorker.SetActive(false);
         }
     }
 
     void DaveDetail()
     {
-        if (ON_Dave1 == false && DataBaseManager.Intel_Dave1 == true)
+        if (onDave1 == false && DataBaseManager.Intel_Dave1 == true)
         {
-            ON_Dave1 = true;
-            Detail_Dave1.SetActive(true);
-            Detail_Dave1.transform.SetAsLastSibling();
-            Count_Dave += 1;
+            onDave1 = true;
+            detailDave1.SetActive(true);
+            detailDave1.transform.SetAsLastSibling();
+            countDave += 1;
         }
-        if (ON_Dave2 == false && DataBaseManager.Intel_Dave2 == true)
+        if (onDave2 == false && DataBaseManager.Intel_Dave2 == true)
         {
-            ON_Dave2 = true;
-            Detail_Dave2.SetActive(true);
-            Detail_Dave2.transform.SetAsLastSibling();
-            Count_Dave += 1;
+            onDave2 = true;
+            detailDave2.SetActive(true);
+            detailDave2.transform.SetAsLastSibling();
+            countDave += 1;
         }
-        if (ON_Dave3 == false && DataBaseManager.Intel_Dave3 == true)
+        if (onDave3 == false && DataBaseManager.Intel_Dave3 == true)
         {
-            ON_Dave3 = true;
-            Detail_Dave3.SetActive(true);
-            Detail_Dave3.transform.SetAsLastSibling();
-            Count_Dave += 1;
+            onDave3 = true;
+            detailDave3.SetActive(true);
+            detailDave3.transform.SetAsLastSibling();
+            countDave += 1;
         }
-        if (ON_Dave4 == false && DataBaseManager.Intel_Dave4 == true)
+        if (onDave4 == false && DataBaseManager.Intel_Dave4 == true)
         {
-            ON_Dave4 = true;
-            Detail_Dave4.SetActive(true);
-            Detail_Dave4.transform.SetAsLastSibling();
-            Count_Dave += 1;
+            onDave4 = true;
+            detailDave4.SetActive(true);
+            detailDave4.transform.SetAsLastSibling();
+            countDave += 1;
         }
-        if (ON_Dave5 == false && DataBaseManager.Intel_Dave5 == true)
+        if (onDave5 == false && DataBaseManager.Intel_Dave5 == true)
         {
-            ON_Dave5 = true;
-            Detail_Dave5.SetActive(true);
-            Detail_Dave5.transform.SetAsLastSibling();
-            Count_Dave += 1;
+            onDave5 = true;
+            detailDave5.SetActive(true);
+            detailDave5.transform.SetAsLastSibling();
+            countDave += 1;
         }
-        if (ON_Dave6 == false && DataBaseManager.Intel_Dave6 == true)
+        if (onDave6 == false && DataBaseManager.Intel_Dave6 == true)
         {
-            ON_Dave6 = true;
-            Detail_Dave6.SetActive(true);
-            Detail_Dave6.transform.SetAsLastSibling();
-            Count_Dave += 1;
+            onDave6 = true;
+            detailDave6.SetActive(true);
+            detailDave6.transform.SetAsLastSibling();
+            countDave += 1;
         }
 
-        if (Count_Dave > 2 && DataBaseManager.NowPage_Dave == 1)
+        if (countDave > 2 && DataBaseManager.NowPage_Dave == 1)
         {
-            NextButton_Dave.SetActive(true);
+            nextButtonDave.SetActive(true);
         }
-        else if (Count_Dave > 4 && DataBaseManager.NowPage_Dave == 2)
+        else if (countDave > 4 && DataBaseManager.NowPage_Dave == 2)
         {
-            NextButton_Dave.SetActive(true);
+            nextButtonDave.SetActive(true);
         }
         else
         {
-            NextButton_Dave.SetActive(false);
+            nextButtonDave.SetActive(false);
         }
 
         if (DataBaseManager.NowPage_Dave == 2)
         {
-            PrevButton_Dave.SetActive(true);
+            prevButtonDave.SetActive(true);
         }
         else if (DataBaseManager.NowPage_Dave == 3)
         {
-            PrevButton_Dave.SetActive(true);
+            prevButtonDave.SetActive(true);
         }
         else
         {
-            PrevButton_Dave.SetActive(false);
+            prevButtonDave.SetActive(false);
         }
     }
     public void NextPage()
     {
-        if(NowPage == "Ella")
+        if(nowPage == "Ella")
         {
             if(DataBaseManager.NowPage_Ella == 1)
             {
-                if (Count_Ella >= 6)
+                if (countElla >= 6)
                 {
                     Reset_Ella();
-                    EllaContents.transform.GetChild(2).gameObject.SetActive(true);
-                    EllaContents.transform.GetChild(3).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(2).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Ella >= 5)
+                else if (countElla >= 5)
                 {
                     Reset_Ella();
-                    EllaContents.transform.GetChild(3).gameObject.SetActive(true);
-                    EllaContents.transform.GetChild(4).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(3).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                else if (Count_Ella >= 4)
+                else if (countElla >= 4)
                 {
                     Reset_Ella();
-                    EllaContents.transform.GetChild(4).gameObject.SetActive(true);
-                    EllaContents.transform.GetChild(5).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(4).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Ella >= 3)
+                else if (countElla >= 3)
                 {
                     Reset_Ella();
-                    EllaContents.transform.GetChild(5).gameObject.SetActive(true);   
+                    ellaContents.transform.GetChild(5).gameObject.SetActive(true);   
                 }
                 DataBaseManager.NowPage_Ella = 2;
             }
             else if (DataBaseManager.NowPage_Ella == 2)
             {
-                if (Count_Ella >= 6)
+                if (countElla >= 6)
                 {
                     Reset_Ella();
-                    EllaContents.transform.GetChild(4).gameObject.SetActive(true);
-                    EllaContents.transform.GetChild(5).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(4).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Ella >= 5)
+                else if (countElla >= 5)
                 {
                     Reset_Ella();
-                    EllaContents.transform.GetChild(5).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Ella = 3;
             }
         }
-        if (NowPage == "Aiden")
+        if (nowPage == "Aiden")
         {
             if (DataBaseManager.NowPage_Aiden == 1)
             {
-                if (Count_Aiden >= 6)
+                if (countAiden >= 6)
                 {
                     Aiden_Ella();
-                    AidenContents.transform.GetChild(2).gameObject.SetActive(true);
-                    AidenContents.transform.GetChild(3).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(2).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Aiden >= 5)
+                else if (countAiden >= 5)
                 {
                     Aiden_Ella();
-                    AidenContents.transform.GetChild(3).gameObject.SetActive(true);
-                    AidenContents.transform.GetChild(4).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(3).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                else if (Count_Aiden >= 4)
+                else if (countAiden >= 4)
                 {
                     Aiden_Ella();
-                    AidenContents.transform.GetChild(4).gameObject.SetActive(true);
-                    AidenContents.transform.GetChild(5).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(4).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Aiden >= 3)
+                else if (countAiden >= 3)
                 {
                     Aiden_Ella();
-                    AidenContents.transform.GetChild(5).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Aiden = 2;
             }
             else if (DataBaseManager.NowPage_Aiden == 2)
             {
-                if (Count_Aiden >= 6)
+                if (countAiden >= 6)
                 {
                     Aiden_Ella();
-                    AidenContents.transform.GetChild(4).gameObject.SetActive(true);
-                    AidenContents.transform.GetChild(5).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(4).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Aiden >= 5)
+                else if (countAiden >= 5)
                 {
                     Aiden_Ella();
-                    AidenContents.transform.GetChild(5).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Aiden = 3;
             }
         }
-        if (NowPage == "Swain")
+        if (nowPage == "Swain")
         {
             if (DataBaseManager.NowPage_Swain == 1)
             {
-                if (Count_Swain >= 6)
+                if (countSwain >= 6)
                 {
                     Reset_Swain();
-                    SwainContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SwainContents.transform.GetChild(3).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(2).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Swain >= 5)
+                else if (countSwain >= 5)
                 {
                     Reset_Swain();
-                    SwainContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SwainContents.transform.GetChild(4).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(3).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                else if (Count_Swain >= 4)
+                else if (countSwain >= 4)
                 {
                     Reset_Swain();
-                    SwainContents.transform.GetChild(4).gameObject.SetActive(true);
-                    SwainContents.transform.GetChild(5).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(4).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Swain >= 3)
+                else if (countSwain >= 3)
                 {
                     Reset_Swain();
-                    SwainContents.transform.GetChild(5).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Swain = 2;
             }
             else if (DataBaseManager.NowPage_Swain == 2)
             {
-                if (Count_Swain >= 6)
+                if (countSwain >= 6)
                 {
                     Reset_Swain();
-                    SwainContents.transform.GetChild(4).gameObject.SetActive(true);
-                    SwainContents.transform.GetChild(5).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(4).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Swain >= 5)
+                else if (countSwain >= 5)
                 {
                     Reset_Swain();
-                    SwainContents.transform.GetChild(5).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Swain = 3;
             }
         }
-        if (NowPage == "Cane")
+        if (nowPage == "Cane")
         {
             if (DataBaseManager.NowPage_Cane == 1)
             {
-                if (Count_Cane >= 6)
+                if (countCane >= 6)
                 {
                     Reset_Cane();
-                    CaneContents.transform.GetChild(2).gameObject.SetActive(true);
-                    CaneContents.transform.GetChild(3).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(2).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Cane >= 5)
+                else if (countCane >= 5)
                 {
                     Reset_Cane();
-                    CaneContents.transform.GetChild(3).gameObject.SetActive(true);
-                    CaneContents.transform.GetChild(4).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(3).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                else if (Count_Cane >= 4)
+                else if (countCane >= 4)
                 {
                     Reset_Cane();
-                    CaneContents.transform.GetChild(4).gameObject.SetActive(true);
-                    CaneContents.transform.GetChild(5).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(4).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Cane >= 3)
+                else if (countCane >= 3)
                 {
                     Reset_Cane();
-                    CaneContents.transform.GetChild(5).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Cane = 2;
             }
             else if (DataBaseManager.NowPage_Cane == 2)
             {
-                if (Count_Cane >= 6)
+                if (countCane >= 6)
                 {
                     Reset_Cane();
-                    CaneContents.transform.GetChild(4).gameObject.SetActive(true);
-                    CaneContents.transform.GetChild(5).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(4).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Cane >= 5)
+                else if (countCane >= 5)
                 {
                     Reset_Cane();
-                    CaneContents.transform.GetChild(5).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Cane = 3;
             }
         }
-        if (NowPage == "Albert")
+        if (nowPage == "Albert")
         {
             if (DataBaseManager.NowPage_Albert == 1)
             {
-                if (Count_Albert >= 6)
+                if (countAlbert >= 6)
                 {
                     Reset_Albert();
-                    AlbertContents.transform.GetChild(2).gameObject.SetActive(true);
-                    AlbertContents.transform.GetChild(3).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(2).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Albert >= 5)
+                else if (countAlbert >= 5)
                 {
                     Reset_Albert();
-                    AlbertContents.transform.GetChild(3).gameObject.SetActive(true);
-                    AlbertContents.transform.GetChild(4).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(3).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                else if (Count_Albert >= 4)
+                else if (countAlbert >= 4)
                 {
                     Reset_Albert();
-                    AlbertContents.transform.GetChild(4).gameObject.SetActive(true);
-                    AlbertContents.transform.GetChild(5).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(4).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Albert >= 3)
+                else if (countAlbert >= 3)
                 {
                     Reset_Albert();
-                    AlbertContents.transform.GetChild(5).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Albert = 2;
             }
             else if (DataBaseManager.NowPage_Albert == 2)
             {
-                if (Count_Albert >= 6)
+                if (countAlbert >= 6)
                 {
                     Reset_Albert();
-                    AlbertContents.transform.GetChild(4).gameObject.SetActive(true);
-                    AlbertContents.transform.GetChild(5).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(4).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Albert >= 5)
+                else if (countAlbert >= 5)
                 {
                     Reset_Albert();
-                    AlbertContents.transform.GetChild(5).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Albert = 3;
             }
         }
-        if (NowPage == "Meiv")
+        if (nowPage == "Meiv")
         {
             if (DataBaseManager.NowPage_Meiv == 1)
             {
-                if (Count_Meiv >= 6)
+                if (countMeiv >= 6)
                 {
                     Reset_Meiv();
-                    MeivContents.transform.GetChild(2).gameObject.SetActive(true);
-                    MeivContents.transform.GetChild(3).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(2).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Meiv >= 5)
+                else if (countMeiv >= 5)
                 {
                     Reset_Meiv();
-                    MeivContents.transform.GetChild(3).gameObject.SetActive(true);
-                    MeivContents.transform.GetChild(4).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(3).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                else if (Count_Meiv >= 4)
+                else if (countMeiv >= 4)
                 {
                     Reset_Meiv();
-                    MeivContents.transform.GetChild(4).gameObject.SetActive(true);
-                    MeivContents.transform.GetChild(5).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(4).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Meiv >= 3)
+                else if (countMeiv >= 3)
                 {
                     Reset_Meiv();
-                    MeivContents.transform.GetChild(5).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Meiv = 2;
             }
             else if (DataBaseManager.NowPage_Meiv == 2)
             {
-                if (Count_Meiv >= 6)
+                if (countMeiv >= 6)
                 {
                     Reset_Meiv();
-                    MeivContents.transform.GetChild(4).gameObject.SetActive(true);
-                    MeivContents.transform.GetChild(5).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(4).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Meiv >= 5)
+                else if (countMeiv >= 5)
                 {
                     Reset_Meiv();
-                    MeivContents.transform.GetChild(5).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Meiv = 3;
             }
         }
-        if (NowPage == "BlackWell")
+        if (nowPage == "BlackWell")
         {
             if (DataBaseManager.NowPage_BlackWell == 1)
             {
-                if (Count_BlackWell >= 6)
+                if (countBlackWell >= 6)
                 {
                     Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(2).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(3).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(2).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 5)
+                else if (countBlackWell >= 5)
                 {
                     Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(3).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(4).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(3).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 4)
+                else if (countBlackWell >= 4)
                 {
                     Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(4).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(5).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(4).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 3)
+                else if (countBlackWell >= 3)
                 {
                     Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(5).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_BlackWell = 2;
             }
             else if (DataBaseManager.NowPage_BlackWell == 2)
             {
-                if (Count_BlackWell >= 6)
+                if (countBlackWell >= 6)
                 {
                     Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(4).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(5).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(4).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 5)
+                else if (countBlackWell >= 5)
                 {
                     Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(5).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_BlackWell = 3;
             }
         }
-        if (NowPage == "SewerWorker")
+        if (nowPage == "SewerWorker")
         {
             if (DataBaseManager.NowPage_SewerWorker == 1)
             {
-                if (Count_SewerWorker >= 6)
+                if (countSewerWorker >= 6)
                 {
                     Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_SewerWorker >= 5)
+                else if (countSewerWorker >= 5)
                 {
                     Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                else if (Count_SewerWorker >= 4)
+                else if (countSewerWorker >= 4)
                 {
                     Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_SewerWorker >= 3)
+                else if (countSewerWorker >= 3)
                 {
                     Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_SewerWorker = 2;
             }
             else if (DataBaseManager.NowPage_SewerWorker == 2)
             {
-                if (Count_SewerWorker >= 6)
+                if (countSewerWorker >= 6)
                 {
                     Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_SewerWorker >= 5)
+                else if (countSewerWorker >= 5)
                 {
                     Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_SewerWorker = 3;
             }
         }
-        if (NowPage == "Dave")
+        if (nowPage == "Dave")
         {
             if (DataBaseManager.NowPage_Dave == 1)
             {
-                if (Count_Dave >= 6)
+                if (countDave >= 6)
                 {
                     Reset_Dave();
-                    DaveContents.transform.GetChild(2).gameObject.SetActive(true);
-                    DaveContents.transform.GetChild(3).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(2).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Dave >= 5)
+                else if (countDave >= 5)
                 {
                     Reset_Dave();
-                    DaveContents.transform.GetChild(3).gameObject.SetActive(true);
-                    DaveContents.transform.GetChild(4).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(3).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                else if (Count_Dave >= 4)
+                else if (countDave >= 4)
                 {
                     Reset_Dave();
-                    DaveContents.transform.GetChild(4).gameObject.SetActive(true);
-                    DaveContents.transform.GetChild(5).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(4).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Dave >= 3)
+                else if (countDave >= 3)
                 {
                     Reset_Dave();
-                    DaveContents.transform.GetChild(5).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Dave = 2;
             }
             else if (DataBaseManager.NowPage_Dave == 2)
             {
-                if (Count_Dave >= 6)
+                if (countDave >= 6)
                 {
                     Reset_Dave();
-                    DaveContents.transform.GetChild(4).gameObject.SetActive(true);
-                    DaveContents.transform.GetChild(5).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(4).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                else if (Count_Dave >= 5)
+                else if (countDave >= 5)
                 {
                     Reset_Dave();
-                    DaveContents.transform.GetChild(5).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Dave = 3;
             }
@@ -1398,434 +1398,434 @@ public class IntelCharacterDetail : MonoBehaviour
 
     public void PrevPage()
     {
-        if (NowPage == "Ella")
+        if (nowPage == "Ella")
         {
             if (DataBaseManager.NowPage_Ella == 2)
             {
-                if (Count_Ella >= 6)
+                if (countElla >= 6)
                 {
                     Reset_Ella();
-                    EllaContents.transform.GetChild(0).gameObject.SetActive(true);
-                    EllaContents.transform.GetChild(1).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(0).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
-                else if (Count_Ella >= 5)
+                else if (countElla >= 5)
                 {
                     Reset_Ella();
-                    EllaContents.transform.GetChild(1).gameObject.SetActive(true);
-                    EllaContents.transform.GetChild(2).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(1).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
-                else if (Count_Ella >= 4)
+                else if (countElla >= 4)
                 {
                     Reset_Ella();
-                    EllaContents.transform.GetChild(2).gameObject.SetActive(true);
-                    EllaContents.transform.GetChild(3).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(2).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Ella >= 3)
+                else if (countElla >= 3)
                 {
                     Reset_Ella();
-                    EllaContents.transform.GetChild(3).gameObject.SetActive(true);
-                    EllaContents.transform.GetChild(4).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(3).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
                 DataBaseManager.NowPage_Ella = 1;
             }
             else if (DataBaseManager.NowPage_Ella == 3)
             {
-                if (Count_Ella >= 6)
+                if (countElla >= 6)
                 {
                     Reset_Ella();
-                    EllaContents.transform.GetChild(2).gameObject.SetActive(true);
-                    EllaContents.transform.GetChild(3).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(2).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Ella >= 5)
+                else if (countElla >= 5)
                 {
                     Reset_Ella();
-                    EllaContents.transform.GetChild(3).gameObject.SetActive(true);
-                    EllaContents.transform.GetChild(4).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(3).gameObject.SetActive(true);
+                    ellaContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Ella = 2;
             }
         }
-        if (NowPage == "Aiden")
+        if (nowPage == "Aiden")
         {
             if (DataBaseManager.NowPage_Aiden == 2)
             {
-                if (Count_Aiden >= 6)
+                if (countAiden >= 6)
                 {
                     Aiden_Ella();
-                    AidenContents.transform.GetChild(0).gameObject.SetActive(true);
-                    AidenContents.transform.GetChild(1).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(0).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
-                else if (Count_Aiden >= 5)
+                else if (countAiden >= 5)
                 {
                     Aiden_Ella();
-                    AidenContents.transform.GetChild(1).gameObject.SetActive(true);
-                    AidenContents.transform.GetChild(2).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(1).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
-                else if (Count_Aiden >= 4)
+                else if (countAiden >= 4)
                 {
                     Aiden_Ella();
-                    AidenContents.transform.GetChild(2).gameObject.SetActive(true);
-                    AidenContents.transform.GetChild(3).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(2).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Aiden >= 3)
+                else if (countAiden >= 3)
                 {
                     Aiden_Ella();
-                    AidenContents.transform.GetChild(3).gameObject.SetActive(true);
-                    AidenContents.transform.GetChild(4).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(3).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
                 DataBaseManager.NowPage_Aiden = 1;
             }
             else if (DataBaseManager.NowPage_Aiden == 3)
             {
-                if (Count_Aiden >= 6)
+                if (countAiden >= 6)
                 {
                     Aiden_Ella();
-                    AidenContents.transform.GetChild(2).gameObject.SetActive(true);
-                    AidenContents.transform.GetChild(3).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(2).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Aiden >= 5)
+                else if (countAiden >= 5)
                 {
                     Aiden_Ella();
-                    AidenContents.transform.GetChild(3).gameObject.SetActive(true);
-                    AidenContents.transform.GetChild(4).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(3).gameObject.SetActive(true);
+                    aidenContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Aiden = 2;
             }
         }
-        if (NowPage == "Swain")
+        if (nowPage == "Swain")
         {
             if (DataBaseManager.NowPage_Swain == 2)
             {
-                if (Count_Swain >= 6)
+                if (countSwain >= 6)
                 {
                     Reset_Swain();
-                    SwainContents.transform.GetChild(0).gameObject.SetActive(true);
-                    SwainContents.transform.GetChild(1).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(0).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
-                else if (Count_Swain >= 5)
+                else if (countSwain >= 5)
                 {
                     Reset_Swain();
-                    SwainContents.transform.GetChild(1).gameObject.SetActive(true);
-                    SwainContents.transform.GetChild(2).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(1).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
-                else if (Count_Swain >= 4)
+                else if (countSwain >= 4)
                 {
                     Reset_Swain();
-                    SwainContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SwainContents.transform.GetChild(3).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(2).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Swain >= 3)
+                else if (countSwain >= 3)
                 {
                     Reset_Swain();
-                    SwainContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SwainContents.transform.GetChild(4).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(3).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
                 DataBaseManager.NowPage_Swain = 1;
             }
             else if (DataBaseManager.NowPage_Swain == 3)
             {
-                if (Count_Swain >= 6)
+                if (countSwain >= 6)
                 {
                     Reset_Swain();
-                    SwainContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SwainContents.transform.GetChild(3).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(2).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Swain >= 5)
+                else if (countSwain >= 5)
                 {
                     Reset_Swain();
-                    SwainContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SwainContents.transform.GetChild(4).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(3).gameObject.SetActive(true);
+                    swainContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Swain = 2;
             }
         }
-        if (NowPage == "Cane")
+        if (nowPage == "Cane")
         {
             if (DataBaseManager.NowPage_Cane == 2)
             {
-                if (Count_Cane >= 6)
+                if (countCane >= 6)
                 {
                     Reset_Cane();
-                    CaneContents.transform.GetChild(0).gameObject.SetActive(true);
-                    CaneContents.transform.GetChild(1).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(0).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
-                else if (Count_Cane >= 5)
+                else if (countCane >= 5)
                 {
                     Reset_Cane();
-                    CaneContents.transform.GetChild(1).gameObject.SetActive(true);
-                    CaneContents.transform.GetChild(2).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(1).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
-                else if (Count_Cane >= 4)
+                else if (countCane >= 4)
                 {
                     Reset_Cane();
-                    CaneContents.transform.GetChild(2).gameObject.SetActive(true);
-                    CaneContents.transform.GetChild(3).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(2).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Cane >= 3)
+                else if (countCane >= 3)
                 {
                     Reset_Cane();
-                    CaneContents.transform.GetChild(3).gameObject.SetActive(true);
-                    CaneContents.transform.GetChild(4).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(3).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
                 DataBaseManager.NowPage_Cane = 1;
             }
             else if (DataBaseManager.NowPage_Cane == 3)
             {
-                if (Count_Cane >= 6)
+                if (countCane >= 6)
                 {
                     Reset_Cane();
-                    CaneContents.transform.GetChild(2).gameObject.SetActive(true);
-                    CaneContents.transform.GetChild(3).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(2).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Cane >= 5)
+                else if (countCane >= 5)
                 {
                     Reset_Cane();
-                    CaneContents.transform.GetChild(3).gameObject.SetActive(true);
-                    CaneContents.transform.GetChild(4).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(3).gameObject.SetActive(true);
+                    caneContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Cane = 2;
             }
         }
-        if (NowPage == "Albert")
+        if (nowPage == "Albert")
         {
             if (DataBaseManager.NowPage_Albert == 2)
             {
-                if (Count_Albert >= 6)
+                if (countAlbert >= 6)
                 {
                     Reset_Albert();
-                    AlbertContents.transform.GetChild(0).gameObject.SetActive(true);
-                    AlbertContents.transform.GetChild(1).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(0).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
-                else if (Count_Albert >= 5)
+                else if (countAlbert >= 5)
                 {
                     Reset_Albert();
-                    AlbertContents.transform.GetChild(1).gameObject.SetActive(true);
-                    AlbertContents.transform.GetChild(2).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(1).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
-                else if (Count_Albert >= 4)
+                else if (countAlbert >= 4)
                 {
                     Reset_Albert();
-                    AlbertContents.transform.GetChild(2).gameObject.SetActive(true);
-                    AlbertContents.transform.GetChild(3).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(2).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Albert >= 3)
+                else if (countAlbert >= 3)
                 {
                     Reset_Albert();
-                    AlbertContents.transform.GetChild(3).gameObject.SetActive(true);
-                    AlbertContents.transform.GetChild(4).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(3).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
                 DataBaseManager.NowPage_Albert = 1;
             }
             else if (DataBaseManager.NowPage_Albert == 3)
             {
-                if (Count_Albert >= 6)
+                if (countAlbert >= 6)
                 {
                     Reset_Albert();
-                    AlbertContents.transform.GetChild(2).gameObject.SetActive(true);
-                    AlbertContents.transform.GetChild(3).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(2).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Albert >= 5)
+                else if (countAlbert >= 5)
                 {
                     Reset_Albert();
-                    AlbertContents.transform.GetChild(3).gameObject.SetActive(true);
-                    AlbertContents.transform.GetChild(4).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(3).gameObject.SetActive(true);
+                    albertContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Albert = 2;
             }
         }
-        if (NowPage == "Meiv")
+        if (nowPage == "Meiv")
         {
             if (DataBaseManager.NowPage_Meiv == 2)
             {
-                if (Count_Meiv >= 6)
+                if (countMeiv >= 6)
                 {
                     Reset_Meiv();
-                    MeivContents.transform.GetChild(0).gameObject.SetActive(true);
-                    MeivContents.transform.GetChild(1).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(0).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
-                else if (Count_Meiv >= 5)
+                else if (countMeiv >= 5)
                 {
                     Reset_Meiv();
-                    MeivContents.transform.GetChild(1).gameObject.SetActive(true);
-                    MeivContents.transform.GetChild(2).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(1).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
-                else if (Count_Meiv >= 4)
+                else if (countMeiv >= 4)
                 {
                     Reset_Meiv();
-                    MeivContents.transform.GetChild(2).gameObject.SetActive(true);
-                    MeivContents.transform.GetChild(3).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(2).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Meiv >= 3)
+                else if (countMeiv >= 3)
                 {
                     Reset_Meiv();
-                    MeivContents.transform.GetChild(3).gameObject.SetActive(true);
-                    MeivContents.transform.GetChild(4).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(3).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
                 DataBaseManager.NowPage_Meiv = 1;
             }
             else if (DataBaseManager.NowPage_Meiv == 3)
             {
-                if (Count_Meiv >= 6)
+                if (countMeiv >= 6)
                 {
                     Reset_Meiv();
-                    MeivContents.transform.GetChild(2).gameObject.SetActive(true);
-                    MeivContents.transform.GetChild(3).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(2).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Meiv >= 5)
+                else if (countMeiv >= 5)
                 {
                     Reset_Meiv();
-                    MeivContents.transform.GetChild(3).gameObject.SetActive(true);
-                    MeivContents.transform.GetChild(4).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(3).gameObject.SetActive(true);
+                    meivContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Meiv = 2;
             }
         }
-        if (NowPage == "BlackWell")
+        if (nowPage == "BlackWell")
         {
             if (DataBaseManager.NowPage_BlackWell == 2)
             {
-                if (Count_BlackWell >= 6)
+                if (countBlackWell >= 6)
                 {
                     Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(0).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(1).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(0).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 5)
+                else if (countBlackWell >= 5)
                 {
                     Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(1).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(2).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(1).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 4)
+                else if (countBlackWell >= 4)
                 {
                     Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(2).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(3).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(2).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 3)
+                else if (countBlackWell >= 3)
                 {
                     Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(3).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(4).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(3).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
                 DataBaseManager.NowPage_BlackWell = 1;
             }
             else if (DataBaseManager.NowPage_BlackWell == 3)
             {
-                if (Count_BlackWell >= 6)
+                if (countBlackWell >= 6)
                 {
                     Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(2).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(3).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(2).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_BlackWell >= 5)
+                else if (countBlackWell >= 5)
                 {
                     Reset_BlackWell();
-                    BlackWellContents.transform.GetChild(3).gameObject.SetActive(true);
-                    BlackWellContents.transform.GetChild(4).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(3).gameObject.SetActive(true);
+                    blackWellContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_BlackWell = 2;
             }
         }
-        if (NowPage == "SewerWorker")
+        if (nowPage == "SewerWorker")
         {
             if (DataBaseManager.NowPage_SewerWorker == 2)
             {
-                if (Count_SewerWorker >= 6)
+                if (countSewerWorker >= 6)
                 {
                     Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(0).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(1).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(0).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
-                else if (Count_SewerWorker >= 5)
+                else if (countSewerWorker >= 5)
                 {
                     Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(1).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(1).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
-                else if (Count_SewerWorker >= 4)
+                else if (countSewerWorker >= 4)
                 {
                     Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_SewerWorker >= 3)
+                else if (countSewerWorker >= 3)
                 {
                     Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
                 DataBaseManager.NowPage_SewerWorker = 1;
             }
             else if (DataBaseManager.NowPage_SewerWorker == 3)
             {
-                if (Count_SewerWorker >= 6)
+                if (countSewerWorker >= 6)
                 {
                     Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_SewerWorker >= 5)
+                else if (countSewerWorker >= 5)
                 {
                     Reset_SewerWorker();
-                    SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
-                    SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
+                    sewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_SewerWorker = 2;
             }
         }
-        if (NowPage == "Dave")
+        if (nowPage == "Dave")
         {
             if (DataBaseManager.NowPage_Dave == 2)
             {
-                if (Count_Dave >= 6)
+                if (countDave >= 6)
                 {
                     Reset_Dave();
-                    DaveContents.transform.GetChild(0).gameObject.SetActive(true);
-                    DaveContents.transform.GetChild(1).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(0).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
-                else if (Count_Dave >= 5)
+                else if (countDave >= 5)
                 {
                     Reset_Dave();
-                    DaveContents.transform.GetChild(1).gameObject.SetActive(true);
-                    DaveContents.transform.GetChild(2).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(1).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
-                else if (Count_Dave >= 4)
+                else if (countDave >= 4)
                 {
                     Reset_Dave();
-                    DaveContents.transform.GetChild(2).gameObject.SetActive(true);
-                    DaveContents.transform.GetChild(3).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(2).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Dave >= 3)
+                else if (countDave >= 3)
                 {
                     Reset_Dave();
-                    DaveContents.transform.GetChild(3).gameObject.SetActive(true);
-                    DaveContents.transform.GetChild(4).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(3).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
                 DataBaseManager.NowPage_Dave = 1;
             }
             else if (DataBaseManager.NowPage_Dave == 3)
             {
-                if (Count_Dave >= 6)
+                if (countDave >= 6)
                 {
                     Reset_Dave();
-                    DaveContents.transform.GetChild(2).gameObject.SetActive(true);
-                    DaveContents.transform.GetChild(3).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(2).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
-                else if (Count_Dave >= 5)
+                else if (countDave >= 5)
                 {
                     Reset_Dave();
-                    DaveContents.transform.GetChild(3).gameObject.SetActive(true);
-                    DaveContents.transform.GetChild(4).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(3).gameObject.SetActive(true);
+                    daveContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 DataBaseManager.NowPage_Dave = 2;
             }
@@ -1833,154 +1833,154 @@ public class IntelCharacterDetail : MonoBehaviour
     }
     void Reset_Ella()
     {
-        EllaContents.transform.GetChild(0).gameObject.SetActive(false);
-        EllaContents.transform.GetChild(1).gameObject.SetActive(false);
-        EllaContents.transform.GetChild(2).gameObject.SetActive(false);
-        EllaContents.transform.GetChild(3).gameObject.SetActive(false);
-        EllaContents.transform.GetChild(4).gameObject.SetActive(false);
-        EllaContents.transform.GetChild(5).gameObject.SetActive(false);
+        ellaContents.transform.GetChild(0).gameObject.SetActive(false);
+        ellaContents.transform.GetChild(1).gameObject.SetActive(false);
+        ellaContents.transform.GetChild(2).gameObject.SetActive(false);
+        ellaContents.transform.GetChild(3).gameObject.SetActive(false);
+        ellaContents.transform.GetChild(4).gameObject.SetActive(false);
+        ellaContents.transform.GetChild(5).gameObject.SetActive(false);
     }
     void Aiden_Ella()
     {
-        AidenContents.transform.GetChild(0).gameObject.SetActive(false);
-        AidenContents.transform.GetChild(1).gameObject.SetActive(false);
-        AidenContents.transform.GetChild(2).gameObject.SetActive(false);
-        AidenContents.transform.GetChild(3).gameObject.SetActive(false);
-        AidenContents.transform.GetChild(4).gameObject.SetActive(false);
-        AidenContents.transform.GetChild(5).gameObject.SetActive(false);
+        aidenContents.transform.GetChild(0).gameObject.SetActive(false);
+        aidenContents.transform.GetChild(1).gameObject.SetActive(false);
+        aidenContents.transform.GetChild(2).gameObject.SetActive(false);
+        aidenContents.transform.GetChild(3).gameObject.SetActive(false);
+        aidenContents.transform.GetChild(4).gameObject.SetActive(false);
+        aidenContents.transform.GetChild(5).gameObject.SetActive(false);
     }
     void Reset_Swain()
     {
-        SwainContents.transform.GetChild(0).gameObject.SetActive(false);
-        SwainContents.transform.GetChild(1).gameObject.SetActive(false);
-        SwainContents.transform.GetChild(2).gameObject.SetActive(false);
-        SwainContents.transform.GetChild(3).gameObject.SetActive(false);
-        SwainContents.transform.GetChild(4).gameObject.SetActive(false);
-        SwainContents.transform.GetChild(5).gameObject.SetActive(false);
+        swainContents.transform.GetChild(0).gameObject.SetActive(false);
+        swainContents.transform.GetChild(1).gameObject.SetActive(false);
+        swainContents.transform.GetChild(2).gameObject.SetActive(false);
+        swainContents.transform.GetChild(3).gameObject.SetActive(false);
+        swainContents.transform.GetChild(4).gameObject.SetActive(false);
+        swainContents.transform.GetChild(5).gameObject.SetActive(false);
     }
     void Reset_Cane()
     {
-        CaneContents.transform.GetChild(0).gameObject.SetActive(false);
-        CaneContents.transform.GetChild(1).gameObject.SetActive(false);
-        CaneContents.transform.GetChild(2).gameObject.SetActive(false);
-        CaneContents.transform.GetChild(3).gameObject.SetActive(false);
-        CaneContents.transform.GetChild(4).gameObject.SetActive(false);
-        CaneContents.transform.GetChild(5).gameObject.SetActive(false);
+        caneContents.transform.GetChild(0).gameObject.SetActive(false);
+        caneContents.transform.GetChild(1).gameObject.SetActive(false);
+        caneContents.transform.GetChild(2).gameObject.SetActive(false);
+        caneContents.transform.GetChild(3).gameObject.SetActive(false);
+        caneContents.transform.GetChild(4).gameObject.SetActive(false);
+        caneContents.transform.GetChild(5).gameObject.SetActive(false);
     }
     void Reset_Albert()
     {
-        AlbertContents.transform.GetChild(0).gameObject.SetActive(false);
-        AlbertContents.transform.GetChild(1).gameObject.SetActive(false);
-        AlbertContents.transform.GetChild(2).gameObject.SetActive(false);
-        AlbertContents.transform.GetChild(3).gameObject.SetActive(false);
-        AlbertContents.transform.GetChild(4).gameObject.SetActive(false);
-        AlbertContents.transform.GetChild(5).gameObject.SetActive(false);
+        albertContents.transform.GetChild(0).gameObject.SetActive(false);
+        albertContents.transform.GetChild(1).gameObject.SetActive(false);
+        albertContents.transform.GetChild(2).gameObject.SetActive(false);
+        albertContents.transform.GetChild(3).gameObject.SetActive(false);
+        albertContents.transform.GetChild(4).gameObject.SetActive(false);
+        albertContents.transform.GetChild(5).gameObject.SetActive(false);
     }
     void Reset_Meiv()
     {
-        MeivContents.transform.GetChild(0).gameObject.SetActive(false);
-        MeivContents.transform.GetChild(1).gameObject.SetActive(false);
-        MeivContents.transform.GetChild(2).gameObject.SetActive(false);
-        MeivContents.transform.GetChild(3).gameObject.SetActive(false);
-        MeivContents.transform.GetChild(4).gameObject.SetActive(false);
-        MeivContents.transform.GetChild(5).gameObject.SetActive(false);
+        meivContents.transform.GetChild(0).gameObject.SetActive(false);
+        meivContents.transform.GetChild(1).gameObject.SetActive(false);
+        meivContents.transform.GetChild(2).gameObject.SetActive(false);
+        meivContents.transform.GetChild(3).gameObject.SetActive(false);
+        meivContents.transform.GetChild(4).gameObject.SetActive(false);
+        meivContents.transform.GetChild(5).gameObject.SetActive(false);
     }
     void Reset_BlackWell()
     {
-        BlackWellContents.transform.GetChild(0).gameObject.SetActive(false);
-        BlackWellContents.transform.GetChild(1).gameObject.SetActive(false);
-        BlackWellContents.transform.GetChild(2).gameObject.SetActive(false);
-        BlackWellContents.transform.GetChild(3).gameObject.SetActive(false);
-        BlackWellContents.transform.GetChild(4).gameObject.SetActive(false);
-        BlackWellContents.transform.GetChild(5).gameObject.SetActive(false);
+        blackWellContents.transform.GetChild(0).gameObject.SetActive(false);
+        blackWellContents.transform.GetChild(1).gameObject.SetActive(false);
+        blackWellContents.transform.GetChild(2).gameObject.SetActive(false);
+        blackWellContents.transform.GetChild(3).gameObject.SetActive(false);
+        blackWellContents.transform.GetChild(4).gameObject.SetActive(false);
+        blackWellContents.transform.GetChild(5).gameObject.SetActive(false);
     }
 
     void Reset_SewerWorker()
     {
-        SewerWorkerContents.transform.GetChild(0).gameObject.SetActive(false);
-        SewerWorkerContents.transform.GetChild(1).gameObject.SetActive(false);
-        SewerWorkerContents.transform.GetChild(2).gameObject.SetActive(false);
-        SewerWorkerContents.transform.GetChild(3).gameObject.SetActive(false);
-        SewerWorkerContents.transform.GetChild(4).gameObject.SetActive(false);
-        SewerWorkerContents.transform.GetChild(5).gameObject.SetActive(false);
+        sewerWorkerContents.transform.GetChild(0).gameObject.SetActive(false);
+        sewerWorkerContents.transform.GetChild(1).gameObject.SetActive(false);
+        sewerWorkerContents.transform.GetChild(2).gameObject.SetActive(false);
+        sewerWorkerContents.transform.GetChild(3).gameObject.SetActive(false);
+        sewerWorkerContents.transform.GetChild(4).gameObject.SetActive(false);
+        sewerWorkerContents.transform.GetChild(5).gameObject.SetActive(false);
     }
 
     void Reset_Dave()
     {
-        DaveContents.transform.GetChild(0).gameObject.SetActive(false);
-        DaveContents.transform.GetChild(1).gameObject.SetActive(false);
-        DaveContents.transform.GetChild(2).gameObject.SetActive(false);
-        DaveContents.transform.GetChild(3).gameObject.SetActive(false);
-        DaveContents.transform.GetChild(4).gameObject.SetActive(false);
-        DaveContents.transform.GetChild(5).gameObject.SetActive(false);
+        daveContents.transform.GetChild(0).gameObject.SetActive(false);
+        daveContents.transform.GetChild(1).gameObject.SetActive(false);
+        daveContents.transform.GetChild(2).gameObject.SetActive(false);
+        daveContents.transform.GetChild(3).gameObject.SetActive(false);
+        daveContents.transform.GetChild(4).gameObject.SetActive(false);
+        daveContents.transform.GetChild(5).gameObject.SetActive(false);
     }
     public void Open_Ella()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
-        Ella_Detail.SetActive(true);
+        ellaDetail.SetActive(true);
     }
     public void Open_Swain()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
-        Swain_Detail.SetActive(true);
+        swainDetail.SetActive(true);
     }
     public void Open_Aiden()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
-        Aiden_Detail.SetActive(true);
+        aidenDetail.SetActive(true);
     }
     public void Open_Cane()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
-        Cane_Detail.SetActive(true);
+        caneDetail.SetActive(true);
     }
     public void Open_Albert()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
-        Albert_Detail.SetActive(true);
+        albertDetail.SetActive(true);
     }
     public void Open_Meiv()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
-        Meiv_Detail.SetActive(true);
+        meivDetail.SetActive(true);
     }
     public void Open_BlackWell()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
-        BlackWell_Detail.SetActive(true);
+        blackWellDetail.SetActive(true);
     }
 
     public void Open_SewerWorker()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
-        SewerWorker_Detail.SetActive(true);
+        sewerWorkerDetail.SetActive(true);
     }
 
     public void Open_Dave()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
-        Dave_Detail.SetActive(true);
+        daveDetail.SetActive(true);
     }
     void CloseAllContents()
     {
-        Ella_Detail.SetActive(false);
-        Aiden_Detail.SetActive(false);
-        Cane_Detail.SetActive(false);
-        Swain_Detail.SetActive(false);
-        Albert_Detail.SetActive(false);
-        Meiv_Detail.SetActive(false);
-        BlackWell_Detail.SetActive(false);
-        SewerWorker_Detail.SetActive(false);
-        Dave_Detail.SetActive(false);
+        ellaDetail.SetActive(false);
+        aidenDetail.SetActive(false);
+        caneDetail.SetActive(false);
+        swainDetail.SetActive(false);
+        albertDetail.SetActive(false);
+        meivDetail.SetActive(false);
+        blackWellDetail.SetActive(false);
+        sewerWorkerDetail.SetActive(false);
+        daveDetail.SetActive(false);
     }
 
 }

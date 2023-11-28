@@ -2,92 +2,91 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Serialization;
 public class IntelManager : MonoBehaviour
 {
-    public GameObject IntelUI;
-
-    public GameObject Character_B;
-    public GameObject Event_B;
-    public GameObject Place_B;
-
-    public GameObject CharacterWindow;
-    public GameObject EventWindow;
-    public GameObject PlaceWindow;
-
-    public GameObject UI;
-    public GameObject IntelWindow;
-    public GameObject FloatingTextObject;
-    public GameObject FloatingPlace;
-    public GameObject FloatingPlace2;
+    public GameObject intelUI;
+    public GameObject characterButton;
+    public GameObject eventButton;
+    public GameObject placeButton;
+    public GameObject characterWindow;
+    public GameObject eventWindow;
+    public GameObject placeWindow;
+    public GameObject uiObject;
+    public GameObject intelWindow;
+    public GameObject floatingTextObject;
+    public GameObject floatingPlace;
+    public GameObject floatingPlace2;
+    public GameObject eventWindowOn;
+    public GameObject characterWindowOn;
+    public GameObject placeWindowOn;
     public void AddIntelFloating( string Category, string detail)
     {
         if (Category == "Character")
         {
-            if(FloatingPlace.transform.childCount == 0)
+            if(floatingPlace.transform.childCount == 0)
             {
-                var clone = Instantiate(FloatingTextObject, FloatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
-                clone.GetComponent<IntelFloating>().Text.text = "<color=#1A6800>(" + detail + ")</color> Acquisition".ToString();
-                clone.transform.SetParent(FloatingPlace.transform);
+                var clone = Instantiate(floatingTextObject, floatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().text.text = "<color=#1A6800>(" + detail + ")</color> Acquisition".ToString();
+                clone.transform.SetParent(floatingPlace.transform);
                 clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
-            else if(FloatingPlace.transform.childCount == 1)
+            else if(floatingPlace.transform.childCount == 1)
             {
-                var clone = Instantiate(FloatingTextObject, FloatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
-                clone.GetComponent<IntelFloating>().Text.text = "<color=#1A6800>(" + detail + ")</color> Acquisition".ToString();
-                clone.transform.SetParent(FloatingPlace2.transform);
+                var clone = Instantiate(floatingTextObject, floatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().text.text = "<color=#1A6800>(" + detail + ")</color> Acquisition".ToString();
+                clone.transform.SetParent(floatingPlace2.transform);
                 clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
 
         }
         if (Category == "Event")
         {
-            if (FloatingPlace.transform.childCount == 0)
+            if (floatingPlace.transform.childCount == 0)
             {
-                var clone = Instantiate(FloatingTextObject, FloatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
-                clone.GetComponent<IntelFloating>().Text.text = "<color=#B30000>(" + detail + ")</color> Acquisition".ToString();
-                clone.transform.SetParent(FloatingPlace.transform);
+                var clone = Instantiate(floatingTextObject, floatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().text.text = "<color=#B30000>(" + detail + ")</color> Acquisition".ToString();
+                clone.transform.SetParent(floatingPlace.transform);
                 clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
-            else if (FloatingPlace.transform.childCount == 1)
+            else if (floatingPlace.transform.childCount == 1)
             {
-                var clone = Instantiate(FloatingTextObject, FloatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
-                clone.GetComponent<IntelFloating>().Text.text = "<color=#B30000>(" + detail + ")</color> Acquisition".ToString();
-                clone.transform.SetParent(FloatingPlace2.transform);
+                var clone = Instantiate(floatingTextObject, floatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().text.text = "<color=#B30000>(" + detail + ")</color> Acquisition".ToString();
+                clone.transform.SetParent(floatingPlace2.transform);
                 clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
         }
         if (Category == "Place")
         {
-            if (FloatingPlace.transform.childCount == 0)
+            if (floatingPlace.transform.childCount == 0)
             {
-                var clone = Instantiate(FloatingTextObject, FloatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
-                clone.GetComponent<IntelFloating>().Text.text = "<color=#0026A9>(" + detail + ")</color> Acquisition".ToString();
-                clone.transform.SetParent(FloatingPlace.transform);
+                var clone = Instantiate(floatingTextObject, floatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().text.text = "<color=#0026A9>(" + detail + ")</color> Acquisition".ToString();
+                clone.transform.SetParent(floatingPlace.transform);
                 clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
-            else if (FloatingPlace.transform.childCount == 1)
+            else if (floatingPlace.transform.childCount == 1)
             {
-                var clone = Instantiate(FloatingTextObject, FloatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
-                clone.GetComponent<IntelFloating>().Text.text = "<color=#0026A9>(" + detail + ")</color> Acquisition".ToString();
-                clone.transform.SetParent(FloatingPlace2.transform);
+                var clone = Instantiate(floatingTextObject, floatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().text.text = "<color=#0026A9>(" + detail + ")</color> Acquisition".ToString();
+                clone.transform.SetParent(floatingPlace2.transform);
                 clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
         }
         if (Category == "Item")
         {
-            if (FloatingPlace.transform.childCount == 0)
+            if (floatingPlace.transform.childCount == 0)
             {
-                var clone = Instantiate(FloatingTextObject, FloatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
-                clone.GetComponent<IntelFloating>().Text.text = "(" + detail + ")".ToString();
-                clone.transform.SetParent(FloatingPlace.transform);
+                var clone = Instantiate(floatingTextObject, floatingPlace.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().text.text = "(" + detail + ")".ToString();
+                clone.transform.SetParent(floatingPlace.transform);
                 clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
-            else if (FloatingPlace.transform.childCount == 1)
+            else if (floatingPlace.transform.childCount == 1)
             {
-                var clone = Instantiate(FloatingTextObject, FloatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
-                clone.GetComponent<IntelFloating>().Text.text = "(" + detail + ")".ToString();
-                clone.transform.SetParent(FloatingPlace2.transform);
+                var clone = Instantiate(floatingTextObject, floatingPlace2.transform.position, Quaternion.Euler(Vector3.zero));
+                clone.GetComponent<IntelFloating>().text.text = "(" + detail + ")".ToString();
+                clone.transform.SetParent(floatingPlace2.transform);
                 clone.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             }
         }
@@ -96,44 +95,42 @@ public class IntelManager : MonoBehaviour
     {
         SoundManager.Instance.ClickSound_Play();
         //DataBaseManager.옵션창여부 = false;
-        IntelWindow.SetActive(false);
+        intelWindow.SetActive(false);
     }
-    public GameObject EventWindow_ON;
-    public GameObject CharacterWindow_ON;
-    public GameObject PlaceWindow_ON;
+
     public void Open_Character()
     {
         SoundManager.Instance.ClickSound_Play();
-        CharacterWindow_ON.SetActive(true);
-        EventWindow_ON.SetActive(false);
-        PlaceWindow_ON.SetActive(false);
+        characterWindowOn.SetActive(true);
+        eventWindowOn.SetActive(false);
+        placeWindowOn.SetActive(false);
 
-        CharacterWindow.SetActive(true);
-        EventWindow.SetActive(false);
-        PlaceWindow.SetActive(false);
+        characterWindow.SetActive(true);
+        eventWindow.SetActive(false);
+        placeWindow.SetActive(false);
     }
 
     public void Open_Event()
     {
         SoundManager.Instance.ClickSound_Play();
-        CharacterWindow_ON.SetActive(false);
-        EventWindow_ON.SetActive(true);
-        PlaceWindow_ON.SetActive(false);
+        characterWindowOn.SetActive(false);
+        eventWindowOn.SetActive(true);
+        placeWindowOn.SetActive(false);
 
-        CharacterWindow.SetActive(false);
-        EventWindow.SetActive(true);
-        PlaceWindow.SetActive(false);
+        characterWindow.SetActive(false);
+        eventWindow.SetActive(true);
+        placeWindow.SetActive(false);
     }
     public void OpenPlace()
     {
         SoundManager.Instance.ClickSound_Play();
-        CharacterWindow_ON.SetActive(false);        
-        EventWindow_ON.SetActive(false);
-        PlaceWindow_ON.SetActive(true);
+        characterWindowOn.SetActive(false);        
+        eventWindowOn.SetActive(false);
+        placeWindowOn.SetActive(true);
 
-        CharacterWindow.SetActive(false);
-        EventWindow.SetActive(false);
-        PlaceWindow.SetActive(true);
+        characterWindow.SetActive(false);
+        eventWindow.SetActive(false);
+        placeWindow.SetActive(true);
     }
     public void OpenSetting()
     {
@@ -141,22 +138,22 @@ public class IntelManager : MonoBehaviour
         {
             SoundManager.Instance.PaperClip_Play();
             DataBaseManager.isOpenUi = true;
-            IntelUI.SetActive(true);
+            intelUI.SetActive(true);
         }
     }
     public void CloseSetting()
     {
         DataBaseManager.isOpenUi = false;
-        IntelUI.SetActive(false);
+        intelUI.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Alpha1)|| Input.GetKeyDown(KeyCode.Escape))  && IntelUI.activeSelf == true)
+        if ((Input.GetKeyDown(KeyCode.Alpha1)|| Input.GetKeyDown(KeyCode.Escape))  && intelUI.activeSelf == true)
         {
             CloseSetting();
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha1) && IntelUI.activeSelf == false)
+        else if (Input.GetKeyDown(KeyCode.Alpha1) && intelUI.activeSelf == false)
         {
             OpenSetting();
         }
