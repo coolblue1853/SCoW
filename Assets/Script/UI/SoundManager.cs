@@ -289,37 +289,37 @@ public class SoundManager : MonoBehaviour
 
     void bgm소리설정()
     {
-        mainBgmSource.volume = DataBaseManager.sound_Volume;
-        effectBgm.volume = DataBaseManager.sfx_Volume;
-        sfxSource.volume = DataBaseManager.sfx_Volume;
-        sfxSecendSource.volume = DataBaseManager.sfx_Volume;
-        sfxGearSource.volume = DataBaseManager.sfx_Volume;
+        mainBgmSource.volume = DataBaseManager.soundVolume;
+        effectBgm.volume = DataBaseManager.sfxVolume;
+        sfxSource.volume = DataBaseManager.sfxVolume;
+        sfxSecendSource.volume = DataBaseManager.sfxVolume;
+        sfxGearSource.volume = DataBaseManager.sfxVolume;
         //  오디오소스_기어.volume = DataBaseManager.sfx_Volume;
     }
 
     public void 슬라이드bgm관리()
     {
-        DataBaseManager.sound_Volume = bgmVolum.value;
+        DataBaseManager.soundVolume = bgmVolum.value;
     }
     public void 슬라이드효과관리()
     {
-        DataBaseManager.sfx_Volume = sfxVolum.value;
+        DataBaseManager.sfxVolume = sfxVolum.value;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        bgmVolum.value = DataBaseManager.sound_Volume;
-        sfxVolum.value = DataBaseManager.sfx_Volume;
+        bgmVolum.value = DataBaseManager.soundVolume;
+        sfxVolum.value = DataBaseManager.sfxVolume;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (DataBaseManager.isDebuff_Deftness == true && (DataBaseManager.sfx_Volume != 0 || DataBaseManager.sound_Volume != 0))
+        if (DataBaseManager.isDebuffDeftness == true && (DataBaseManager.sfxVolume != 0 || DataBaseManager.soundVolume != 0))
         {
-            DataBaseManager.sfx_Volume = 0;
-            DataBaseManager.sound_Volume = 0;
+            DataBaseManager.sfxVolume = 0;
+            DataBaseManager.soundVolume = 0;
             bgmVolum.value = 0;
             sfxVolum.value = 0;
         }
@@ -357,9 +357,9 @@ public class SoundManager : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Main")
         {
-            if (DataBaseManager.BGMChangeChecker == true)
+            if (DataBaseManager.bgmChangeChecker == true)
             {
-                DataBaseManager.BGMChangeChecker = false;
+                DataBaseManager.bgmChangeChecker = false;
                 if (DataBaseManager.nowPlace == "DetectiveOffice" && mainBgmSource.clip != detectiveBgmClip)
                 {
                     if (mainBgmSource.clip == setCharBgmClip)

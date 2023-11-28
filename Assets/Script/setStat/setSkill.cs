@@ -94,8 +94,8 @@ public class setSkill : MonoBehaviour
         gunShotPointImg.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
         swordPointTxt.text = DataBaseManager.swordPoint.ToString();
         swordPointImg.fillAmount = (float)DataBaseManager.swordPoint / 100;
-        observationPointTxt.text = DataBaseManager.ObservationPoint.ToString();
-        observationPointImg.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+        observationPointTxt.text = DataBaseManager.observationPoint.ToString();
+        observationPointImg.fillAmount = (float)DataBaseManager.observationPoint / 100;
         swimingPointTxt.text = DataBaseManager.swimingPoint.ToString();
         swimingPointImg.fillAmount = (float)DataBaseManager.swimingPoint / 100;
 
@@ -122,8 +122,8 @@ public class setSkill : MonoBehaviour
         rhetoricImg.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
         stealthTxt.text = DataBaseManager.stealthPoint.ToString();
         stealthImg.fillAmount = (float)DataBaseManager.stealthPoint / 100;
-        disguiseTxt.text = DataBaseManager.DisguisePoint.ToString();
-        disguiseImg.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
+        disguiseTxt.text = DataBaseManager.disguisePoint.ToString();
+        disguiseImg.fillAmount = (float)DataBaseManager.disguisePoint / 100;
     }
     public void AllRand()
     {
@@ -173,13 +173,13 @@ public class setSkill : MonoBehaviour
                     }
                     break;
                 case 5:
-                    if (DataBaseManager.DisguisePoint < 90 && DataBaseManager.dexSkillPoint >= 5)
+                    if (DataBaseManager.disguisePoint < 90 && DataBaseManager.dexSkillPoint >= 5)
                     {
                         DataBaseManager.dexSkillPoint -= 5;
-                        DataBaseManager.DisguisePoint += 5;
-                        disguiseTxt.text = DataBaseManager.DisguisePoint.ToString();
+                        DataBaseManager.disguisePoint += 5;
+                        disguiseTxt.text = DataBaseManager.disguisePoint.ToString();
                         dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
-                        disguiseImg.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
+                        disguiseImg.fillAmount = (float)DataBaseManager.disguisePoint / 100;
                     }
                     break;
             }
@@ -279,13 +279,13 @@ public class setSkill : MonoBehaviour
                     }
                     break;
                 case 4:
-                    if (DataBaseManager.ObservationPoint < 90 && DataBaseManager.strSkillPoint >= 5)
+                    if (DataBaseManager.observationPoint < 90 && DataBaseManager.strSkillPoint >= 5)
                     {
                         DataBaseManager.strSkillPoint -= 5;
-                        DataBaseManager.ObservationPoint += 5;
-                        observationPointTxt.text = DataBaseManager.ObservationPoint.ToString();
+                        DataBaseManager.observationPoint += 5;
+                        observationPointTxt.text = DataBaseManager.observationPoint.ToString();
                         strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
-                        observationPointImg.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+                        observationPointImg.fillAmount = (float)DataBaseManager.observationPoint / 100;
                     }
                     break;
                 case 5:
@@ -344,13 +344,13 @@ public class setSkill : MonoBehaviour
                     }
                     break;
                 case 4:
-                    if (DataBaseManager.ObservationPoint < 90 && DataBaseManager.strSkillPoint >= 5)
+                    if (DataBaseManager.observationPoint < 90 && DataBaseManager.strSkillPoint >= 5)
                     {
                         DataBaseManager.strSkillPoint -= 5;
-                        DataBaseManager.ObservationPoint += 5;
-                        observationPointTxt.text = DataBaseManager.ObservationPoint.ToString();
+                        DataBaseManager.observationPoint += 5;
+                        observationPointTxt.text = DataBaseManager.observationPoint.ToString();
                         strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
-                        observationPointImg.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+                        observationPointImg.fillAmount = (float)DataBaseManager.observationPoint / 100;
                     }
                     break;
                 case 5:
@@ -378,9 +378,9 @@ public class setSkill : MonoBehaviour
         DataBaseManager.swordPoint = 20;
         swordPointTxt.text = DataBaseManager.swordPoint.ToString();
         swordPointImg.fillAmount = (float)DataBaseManager.swordPoint / 100;
-        DataBaseManager.ObservationPoint = 20;
-        observationPointTxt.text = DataBaseManager.ObservationPoint.ToString();
-        observationPointImg.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+        DataBaseManager.observationPoint = 20;
+        observationPointTxt.text = DataBaseManager.observationPoint.ToString();
+        observationPointImg.fillAmount = (float)DataBaseManager.observationPoint / 100;
         DataBaseManager.swimingPoint = 10;
         swimingPointTxt.text = DataBaseManager.swimingPoint.ToString();
         swimingPointImg.fillAmount = (float)DataBaseManager.swimingPoint / 100;
@@ -663,29 +663,29 @@ public class setSkill : MonoBehaviour
     }
     public void ObservationUP()
     {
-        if (DataBaseManager.ObservationPoint < 90 && DataBaseManager.strSkillPoint >= 5)
+        if (DataBaseManager.observationPoint < 90 && DataBaseManager.strSkillPoint >= 5)
         {
             SoundManager.Instance.ClickSound_Play();
             isClick = true;
             DataBaseManager.strSkillPoint -= 5;
-            DataBaseManager.ObservationPoint += 5;
-            observationPointTxt.text = DataBaseManager.ObservationPoint.ToString();
+            DataBaseManager.observationPoint += 5;
+            observationPointTxt.text = DataBaseManager.observationPoint.ToString();
             strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
-            observationPointImg.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+            observationPointImg.fillAmount = (float)DataBaseManager.observationPoint / 100;
             nowSkill = "ObservationUP";
         }
     }
     public void ObservationDown()
     {
-        if (DataBaseManager.ObservationPoint > 20)
+        if (DataBaseManager.observationPoint > 20)
         {
             SoundManager.Instance.ClickSound_Play();
             isClick = true;
             DataBaseManager.strSkillPoint += 5;
-            DataBaseManager.ObservationPoint -= 5;
-            observationPointTxt.text = DataBaseManager.ObservationPoint.ToString();
+            DataBaseManager.observationPoint -= 5;
+            observationPointTxt.text = DataBaseManager.observationPoint.ToString();
             strPointTxt.text = DataBaseManager.strSkillPoint.ToString();
-            observationPointImg.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+            observationPointImg.fillAmount = (float)DataBaseManager.observationPoint / 100;
             nowSkill = "ObservationDown";
         }
     }
@@ -994,13 +994,13 @@ public class setSkill : MonoBehaviour
                     }
                     break;
                 case 5:
-                    if (DataBaseManager.DisguisePoint < 90 && DataBaseManager.dexSkillPoint >= 5)
+                    if (DataBaseManager.disguisePoint < 90 && DataBaseManager.dexSkillPoint >= 5)
                     {
                         DataBaseManager.dexSkillPoint -= 5;
-                        DataBaseManager.DisguisePoint += 5;
-                        disguiseTxt.text = DataBaseManager.DisguisePoint.ToString();
+                        DataBaseManager.disguisePoint += 5;
+                        disguiseTxt.text = DataBaseManager.disguisePoint.ToString();
                         dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
-                        disguiseImg.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
+                        disguiseImg.fillAmount = (float)DataBaseManager.disguisePoint / 100;
                     }
                     break;
             }
@@ -1021,9 +1021,9 @@ public class setSkill : MonoBehaviour
         DataBaseManager.stealthPoint = 15;
         stealthTxt.text = DataBaseManager.stealthPoint.ToString();
         stealthImg.fillAmount = (float)DataBaseManager.stealthPoint / 100;
-        DataBaseManager.DisguisePoint = 10;
-        disguiseTxt.text = DataBaseManager.DisguisePoint.ToString();
-        disguiseImg.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
+        DataBaseManager.disguisePoint = 10;
+        disguiseTxt.text = DataBaseManager.disguisePoint.ToString();
+        disguiseImg.fillAmount = (float)DataBaseManager.disguisePoint / 100;
         DataBaseManager.dexSkillPoint = DataBaseManager.dex;
         dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
     }
@@ -1144,29 +1144,29 @@ public class setSkill : MonoBehaviour
     }
     public void DisguiseUP()
     {
-        if (DataBaseManager.DisguisePoint < 90 && DataBaseManager.dexSkillPoint >= 5)
+        if (DataBaseManager.disguisePoint < 90 && DataBaseManager.dexSkillPoint >= 5)
         {
             SoundManager.Instance.ClickSound_Play();
             isClick = true;
             DataBaseManager.dexSkillPoint -= 5;
-            DataBaseManager.DisguisePoint += 5;
-            disguiseTxt.text = DataBaseManager.DisguisePoint.ToString();
+            DataBaseManager.disguisePoint += 5;
+            disguiseTxt.text = DataBaseManager.disguisePoint.ToString();
             dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
-            disguiseImg.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
+            disguiseImg.fillAmount = (float)DataBaseManager.disguisePoint / 100;
             nowSkill = "DisguiseUP";
         }
     }
     public void DisguiseDown()
     {
-        if (DataBaseManager.DisguisePoint > 10)
+        if (DataBaseManager.disguisePoint > 10)
         {
             SoundManager.Instance.ClickSound_Play();
             isClick = true;
             DataBaseManager.dexSkillPoint += 5;
-            DataBaseManager.DisguisePoint -= 5;
-            disguiseTxt.text = DataBaseManager.DisguisePoint.ToString();
+            DataBaseManager.disguisePoint -= 5;
+            disguiseTxt.text = DataBaseManager.disguisePoint.ToString();
             dexPointTxt.text = DataBaseManager.dexSkillPoint.ToString();
-            disguiseImg.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
+            disguiseImg.fillAmount = (float)DataBaseManager.disguisePoint / 100;
             nowSkill = "DisguiseDown";
         }
     }
@@ -1196,9 +1196,9 @@ public class setSkill : MonoBehaviour
         DataBaseManager.swordPoint = 20;
         swordPointTxt.text = DataBaseManager.swordPoint.ToString();
         swordPointImg.fillAmount = (float)DataBaseManager.swordPoint / 100;
-        DataBaseManager.ObservationPoint = 20;
-        observationPointTxt.text = DataBaseManager.ObservationPoint.ToString();
-        observationPointImg.fillAmount = (float)DataBaseManager.ObservationPoint / 100;
+        DataBaseManager.observationPoint = 20;
+        observationPointTxt.text = DataBaseManager.observationPoint.ToString();
+        observationPointImg.fillAmount = (float)DataBaseManager.observationPoint / 100;
         DataBaseManager.swimingPoint = 10;
         swimingPointTxt.text = DataBaseManager.swimingPoint.ToString();
         swimingPointImg.fillAmount = (float)DataBaseManager.swimingPoint / 100;
@@ -1231,8 +1231,8 @@ public class setSkill : MonoBehaviour
         DataBaseManager.stealthPoint = 15;
         stealthTxt.text = DataBaseManager.stealthPoint.ToString();
         stealthImg.fillAmount = (float)DataBaseManager.stealthPoint / 100;
-        DataBaseManager.DisguisePoint = 10;
-        disguiseTxt.text = DataBaseManager.DisguisePoint.ToString();
-        disguiseImg.fillAmount = (float)DataBaseManager.DisguisePoint / 100;
+        DataBaseManager.disguisePoint = 10;
+        disguiseTxt.text = DataBaseManager.disguisePoint.ToString();
+        disguiseImg.fillAmount = (float)DataBaseManager.disguisePoint / 100;
     }
 }

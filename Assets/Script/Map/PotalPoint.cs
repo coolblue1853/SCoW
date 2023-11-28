@@ -53,16 +53,16 @@ public class PotalPoint : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F) && DataBaseManager.isDirecting == false && DataBaseManager.isActiveDialog1 == false && DataBaseManager.potalWait == false)
             {
-                if ((DataBaseManager.nowPlace == "Client'shouse" || DataBaseManager.nowPlace == "NoonEvent") && DataBaseManager.TimeCount >= 6)
+                if ((DataBaseManager.nowPlace == "Client'shouse" || DataBaseManager.nowPlace == "NoonEvent") && DataBaseManager.timeCount >= 6)
                 {
-                    if (DataBaseManager.NoonEvent_AccessAuthorization == true)
+                    if (DataBaseManager.noonEventAccessAuthorization == true)
                     {
-                        if (DataBaseManager.TimeCount == 6)
+                        if (DataBaseManager.timeCount == 6)
                         {
-                            if (DataBaseManager.NoonEventFirstDoor == false)
+                            if (DataBaseManager.noonEventFirstDoor == false)
                             {
-                                DataBaseManager.NoonEventFirstDoor = true;
-                                DataBaseManager.StoryDirecting = true;
+                                DataBaseManager.noonEventFirstDoor = true;
+                                DataBaseManager.storyDirecting = true;
                                 Invoke("NoonEventFirstDoor", 3f);
                             }
                         }
@@ -78,13 +78,13 @@ public class PotalPoint : MonoBehaviour
                 {
                     if (DataBaseManager.nowPlace == "Client'shouse" && (DataBaseManager.isFirstDoor == true && DataBaseManager.isFirst2st == true))
                     {
-                        if (this.name == "2sttoRoom" && DataBaseManager.AidenKeywordCount < 2)
+                        if (this.name == "2sttoRoom" && DataBaseManager.aidenKeywordCount < 2)
                         {
                             DataBaseManager.isDirecting = true;
                             FadingBackGround.Instance.FadeInOut();
                             Invoke("MovePlayer", 2);
                         }
-                        else if (this.name == "2sttoRoom" && DataBaseManager.AidenKeywordCount >= 2)
+                        else if (this.name == "2sttoRoom" && DataBaseManager.aidenKeywordCount >= 2)
                         {
                         }
                         else
@@ -106,7 +106,7 @@ public class PotalPoint : MonoBehaviour
                         DataBaseManager.isFirst2st = true;
                         DirectingManager.Instance.FirstUpsair();
                     }
-                    else if (DataBaseManager.nowPlace == "SewerOffice" && this.name == "GoInside" && DataBaseManager.SewerDoorOpenDeftness == false && DataBaseManager.SewerDoorOpen == false)
+                    else if (DataBaseManager.nowPlace == "SewerOffice" && this.name == "GoInside" && DataBaseManager.sewerDoorOpenDeftness == false && DataBaseManager.sewerDoorOpen == false)
                     {
                     }
                     else
@@ -203,7 +203,7 @@ public class PotalPoint : MonoBehaviour
         }
         else if (this.name == "2sttoRoom")
         {
-            if (DataBaseManager.isFirstRoom == true || DataBaseManager.TimeCount >= 6)
+            if (DataBaseManager.isFirstRoom == true || DataBaseManager.timeCount >= 6)
             {
                 DataBaseManager.isDirecting = true;
                 player.transform.localScale = new Vector3(chInRommSize, chInRommSize, 1);
@@ -249,7 +249,7 @@ public class PotalPoint : MonoBehaviour
             TimeManagere.Instance.Sewer_ByRiverSide();
             DataBaseManager.nowPlace = "InSewer";
             DialogDatabaseManager.instance.check = true;
-            DataBaseManager.StoryDirecting = true;
+            DataBaseManager.storyDirecting = true;
             Invoke("FirstSewerIn", 2f);
         }
         else if (this.name == "Sewer_Left" || this.name == "Sewer_Right")
@@ -309,7 +309,7 @@ public class PotalPoint : MonoBehaviour
     }
     public void FirstSewerIn()
     {
-        DataBaseManager.Sewer_FirstIn = true;
+        DataBaseManager.sewerFirstIn = true;
     }
     public void Force_2st()
     {

@@ -5,9 +5,9 @@ public class InSewerEnemy : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && DataBaseManager.IsInsmusMeetSewer == false)
+        if (collision.tag == "Player" && DataBaseManager.isInsmusMeetSewer == false)
         {
-            DataBaseManager.IsInsmusMeetSewer = true;
+            DataBaseManager.isInsmusMeetSewer = true;
             int RandInt = Random.Range(1, 101);
             if (RandInt < 55)
             {

@@ -463,53 +463,53 @@ public class IntelPlaceDetail : MonoBehaviour
     }
     void DetectiveOfficeDetail()
     {
-        if (onDetectiveOffice1 == false && DataBaseManager.Intel_DetectiveOffice1 == true)
+        if (onDetectiveOffice1 == false && DataBaseManager.intelDetectiveOffice1 == true)
         {
             onDetectiveOffice1 = true;
             detailDetectiveOffice1.SetActive(true);
             detailDetectiveOffice1.transform.SetAsLastSibling();
             countDetectiveOffice += 1;
         }
-        if (onDetectiveOffice2 == false && DataBaseManager.Intel_DetectiveOffice2 == true)
+        if (onDetectiveOffice2 == false && DataBaseManager.intelDetectiveOffice2 == true)
         {
             onDetectiveOffice2 = true;
             detailDetectiveOffice2.SetActive(true);
             detailDetectiveOffice2.transform.SetAsLastSibling();
             countDetectiveOffice += 1;
         }
-        if (onDetectiveOffice3 == false && DataBaseManager.Intel_DetectiveOffice3 == true)
+        if (onDetectiveOffice3 == false && DataBaseManager.intelDetectiveOffice3 == true)
         {
             onDetectiveOffice3 = true;
             detailDetectiveOffice3.SetActive(true);
             detailDetectiveOffice3.transform.SetAsLastSibling();
             countDetectiveOffice += 1;
         }
-        if (onDetectiveOffice4 == false && DataBaseManager.Intel_DetectiveOffice4 == true)
+        if (onDetectiveOffice4 == false && DataBaseManager.intelDetectiveOffice4 == true)
         {
             onDetectiveOffice4 = true;
             detailDetectiveOffice4.SetActive(true);
             detailDetectiveOffice4.transform.SetAsLastSibling();
             countDetectiveOffice += 1;
         }
-        if (onDetectiveOffice5 == false && DataBaseManager.Intel_DetectiveOffice5 == true)
+        if (onDetectiveOffice5 == false && DataBaseManager.intelDetectiveOffice5 == true)
         {
             onDetectiveOffice5 = true;
             detailDetectiveOffice5.SetActive(true);
             detailDetectiveOffice5.transform.SetAsLastSibling();
             countDetectiveOffice += 1;
         }
-        if (onDetectiveOffice6 == false && DataBaseManager.Intel_DetectiveOffice6 == true)
+        if (onDetectiveOffice6 == false && DataBaseManager.intelDetectiveOffice6 == true)
         {
             onDetectiveOffice6 = true;
             detailDetectiveOffice6.SetActive(true);
             detailDetectiveOffice6.transform.SetAsLastSibling();
             countDetectiveOffice += 1;
         }
-        if (countDetectiveOffice > 2 && DataBaseManager.NowPage_DetectiveOffice == 1)
+        if (countDetectiveOffice > 2 && DataBaseManager.nowPageDetectiveOffice == 1)
         {
             nextButtonDetectiveOffice.SetActive(true);
         }
-        else if (countDetectiveOffice > 4 && DataBaseManager.NowPage_DetectiveOffice == 2)
+        else if (countDetectiveOffice > 4 && DataBaseManager.nowPageDetectiveOffice == 2)
         {
             nextButtonDetectiveOffice.SetActive(true);
         }
@@ -517,11 +517,11 @@ public class IntelPlaceDetail : MonoBehaviour
         {
             nextButtonDetectiveOffice.SetActive(false);
         }
-        if (DataBaseManager.NowPage_DetectiveOffice == 2)
+        if (DataBaseManager.nowPageDetectiveOffice == 2)
         {
             prevButtonDetectiveOffice.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_DetectiveOffice == 3)
+        else if (DataBaseManager.nowPageDetectiveOffice == 3)
         {
             prevButtonDetectiveOffice.SetActive(true);
         }
@@ -532,53 +532,53 @@ public class IntelPlaceDetail : MonoBehaviour
     }
     void HospitalDetail()
     {
-        if (onHospital1 == false && DataBaseManager.Intel_Hospital1 == true)
+        if (onHospital1 == false && DataBaseManager.intelHospital1 == true)
         {
             onHospital1 = true;
             detailHospital1.SetActive(true);
             detailHospital1.transform.SetAsLastSibling();
             countHospital += 1;
         }
-        if (onHospital2 == false && DataBaseManager.Intel_Hospital2 == true)
+        if (onHospital2 == false && DataBaseManager.intelHospital2 == true)
         {
             onHospital2 = true;
             detailHospital2.SetActive(true);
             detailHospital2.transform.SetAsLastSibling();
             countHospital += 1;
         }
-        if (onHospital3 == false && DataBaseManager.Intel_Hospital3 == true)
+        if (onHospital3 == false && DataBaseManager.intelHospital3 == true)
         {
             onHospital3 = true;
             detailHospital3.SetActive(true);
             detailHospital3.transform.SetAsLastSibling();
             countHospital += 1;
         }
-        if (onHospital4 == false && DataBaseManager.Intel_Hospital4 == true)
+        if (onHospital4 == false && DataBaseManager.intelHospital4 == true)
         {
             onHospital4 = true;
             detailHospital4.SetActive(true);
             detailHospital4.transform.SetAsLastSibling();
             countHospital += 1;
         }
-        if (onHospital5 == false && DataBaseManager.Intel_Hospital5 == true)
+        if (onHospital5 == false && DataBaseManager.intelHospital5 == true)
         {
             onHospital5 = true;
             detailHospital5.SetActive(true);
             detailHospital5.transform.SetAsLastSibling();
             countHospital += 1;
         }
-        if (onHospital6 == false && DataBaseManager.Intel_Hospital6 == true)
+        if (onHospital6 == false && DataBaseManager.intelHospital6 == true)
         {
             onHospital6 = true;
             detailHospital6.SetActive(true);
             detailHospital6.transform.SetAsLastSibling();
             countHospital += 1;
         }
-        if (countHospital > 2 && DataBaseManager.NowPage_Hospital == 1)
+        if (countHospital > 2 && DataBaseManager.nowPageHospital == 1)
         {
             nextButtonHospital.SetActive(true);
         }
-        else if (countHospital > 4 && DataBaseManager.NowPage_Hospital == 2)
+        else if (countHospital > 4 && DataBaseManager.nowPageHospital == 2)
         {
             nextButtonHospital.SetActive(true);
         }
@@ -586,11 +586,11 @@ public class IntelPlaceDetail : MonoBehaviour
         {
             nextButtonHospital.SetActive(false);
         }
-        if (DataBaseManager.NowPage_Hospital == 2)
+        if (DataBaseManager.nowPageHospital == 2)
         {
             prevButtonHospital.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_Hospital == 3)
+        else if (DataBaseManager.nowPageHospital == 3)
         {
             prevButtonHospital.SetActive(true);
         }
@@ -601,53 +601,53 @@ public class IntelPlaceDetail : MonoBehaviour
     }
     void NewspaperDetail()
     {
-        if (onNewspaper1 == false && DataBaseManager.Intel_Newspaper1 == true)
+        if (onNewspaper1 == false && DataBaseManager.intelNewspaper1 == true)
         {
             onNewspaper1 = true;
             detailNewspaper1.SetActive(true);
             detailNewspaper1.transform.SetAsLastSibling();
             countNewspaper += 1;
         }
-        if (onNewspaper2 == false && DataBaseManager.Intel_Newspaper2 == true)
+        if (onNewspaper2 == false && DataBaseManager.intelNewspaper2 == true)
         {
             onNewspaper2 = true;
             detailNewspaper2.SetActive(true);
             detailNewspaper2.transform.SetAsLastSibling();
             countNewspaper += 1;
         }
-        if (onNewspaper3 == false && DataBaseManager.Intel_Newspaper3 == true)
+        if (onNewspaper3 == false && DataBaseManager.intelNewspaper3 == true)
         {
             onNewspaper3 = true;
             detailNewspaper3.SetActive(true);
             detailNewspaper3.transform.SetAsLastSibling();
             countNewspaper += 1;
         }
-        if (onNewspaper4 == false && DataBaseManager.Intel_Newspaper4 == true)
+        if (onNewspaper4 == false && DataBaseManager.intelNewspaper4 == true)
         {
             onNewspaper4 = true;
             detailNewspaper4.SetActive(true);
             detailNewspaper4.transform.SetAsLastSibling();
             countNewspaper += 1;
         }
-        if (onNewspaper5 == false && DataBaseManager.Intel_Newspaper5 == true)
+        if (onNewspaper5 == false && DataBaseManager.intelNewspaper5 == true)
         {
             onNewspaper5 = true;
             detailNewspaper5.SetActive(true);
             detailNewspaper5.transform.SetAsLastSibling();
             countNewspaper += 1;
         }
-        if (onNewspaper6 == false && DataBaseManager.Intel_Newspaper6 == true)
+        if (onNewspaper6 == false && DataBaseManager.intelNewspaper6 == true)
         {
             onNewspaper6 = true;
             detailNewspaper6.SetActive(true);
             detailNewspaper6.transform.SetAsLastSibling();
             countNewspaper += 1;
         }
-        if (countNewspaper > 2 && DataBaseManager.NowPage_Newspaper == 1)
+        if (countNewspaper > 2 && DataBaseManager.nowPageNewspaper == 1)
         {
             nextButtonNewspaper.SetActive(true);
         }
-        else if (countNewspaper > 4 && DataBaseManager.NowPage_Newspaper == 2)
+        else if (countNewspaper > 4 && DataBaseManager.nowPageNewspaper == 2)
         {
             nextButtonNewspaper.SetActive(true);
         }
@@ -656,11 +656,11 @@ public class IntelPlaceDetail : MonoBehaviour
             nextButtonNewspaper.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_Newspaper == 2)
+        if (DataBaseManager.nowPageNewspaper == 2)
         {
             prevButtonNewspaper.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_Newspaper == 3)
+        else if (DataBaseManager.nowPageNewspaper == 3)
         {
             prevButtonNewspaper.SetActive(true);
         }
@@ -671,42 +671,42 @@ public class IntelPlaceDetail : MonoBehaviour
     }
     void QuestHouseDetail()
     {
-        if (onQuestHouse1 == false && DataBaseManager.Intel_QuestHouse1 == true)
+        if (onQuestHouse1 == false && DataBaseManager.intelQuestHouse1 == true)
         {
             onQuestHouse1 = true;
             detailQuestHouse1.SetActive(true);
             detailQuestHouse1.transform.SetAsLastSibling();
             countQuestHouse += 1;
         }
-        if (onQuestHouse2 == false && DataBaseManager.Intel_QuestHouse2 == true)
+        if (onQuestHouse2 == false && DataBaseManager.intelQuestHouse2 == true)
         {
             onQuestHouse2 = true;
             detailQuestHouse2.SetActive(true);
             detailQuestHouse2.transform.SetAsLastSibling();
             countQuestHouse += 1;
         }
-        if (onQuestHouse3 == false && DataBaseManager.Intel_QuestHouse3 == true)
+        if (onQuestHouse3 == false && DataBaseManager.intelQuestHouse3 == true)
         {
             onQuestHouse3 = true;
             detailQuestHouse3.SetActive(true);
             detailQuestHouse3.transform.SetAsLastSibling();
             countQuestHouse += 1;
         }
-        if (onQuestHouse4 == false && DataBaseManager.Intel_QuestHouse4 == true)
+        if (onQuestHouse4 == false && DataBaseManager.intelQuestHouse4 == true)
         {
             onQuestHouse4 = true;
             detailQuestHouse4.SetActive(true);
             detailQuestHouse4.transform.SetAsLastSibling();
             countQuestHouse += 1;
         }
-        if (onQuestHouse5 == false && DataBaseManager.Intel_QuestHouse5 == true)
+        if (onQuestHouse5 == false && DataBaseManager.intelQuestHouse5 == true)
         {
             onQuestHouse5 = true;
             detailQuestHouse5.SetActive(true);
             detailQuestHouse5.transform.SetAsLastSibling();
             countQuestHouse += 1;
         }
-        if (onQuestHouse6 == false && DataBaseManager.Intel_QuestHouse6 == true)
+        if (onQuestHouse6 == false && DataBaseManager.intelQuestHouse6 == true)
         {
             onQuestHouse6 = true;
             detailQuestHouse6.SetActive(true);
@@ -714,11 +714,11 @@ public class IntelPlaceDetail : MonoBehaviour
             countQuestHouse += 1;
         }
 
-        if (countQuestHouse > 2 && DataBaseManager.NowPage_QuestHouse == 1)
+        if (countQuestHouse > 2 && DataBaseManager.nowPageQuestHouse == 1)
         {
             nextButtonQuestHouse.SetActive(true);
         }
-        else if (countQuestHouse > 4 && DataBaseManager.NowPage_QuestHouse == 2)
+        else if (countQuestHouse > 4 && DataBaseManager.nowPageQuestHouse == 2)
         {
             nextButtonQuestHouse.SetActive(true);
         }
@@ -727,11 +727,11 @@ public class IntelPlaceDetail : MonoBehaviour
             nextButtonQuestHouse.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_QuestHouse == 2)
+        if (DataBaseManager.nowPageQuestHouse == 2)
         {
             prevButtonQuestHouse.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_QuestHouse == 3)
+        else if (DataBaseManager.nowPageQuestHouse == 3)
         {
             prevButtonQuestHouse.SetActive(true);
         }
@@ -742,42 +742,42 @@ public class IntelPlaceDetail : MonoBehaviour
     }
     void StationDetail()
     {
-        if (onStation1 == false && DataBaseManager.Intel_Station1 == true)
+        if (onStation1 == false && DataBaseManager.intelStation1 == true)
         {
             onStation1 = true;
             detailStation1.SetActive(true);
             detailStation1.transform.SetAsLastSibling();
             countStation += 1;
         }
-        if (onStation2 == false && DataBaseManager.Intel_Station2 == true)
+        if (onStation2 == false && DataBaseManager.intelStation2 == true)
         {
             onStation2 = true;
             detailStation2.SetActive(true);
             detailStation2.transform.SetAsLastSibling();
             countStation += 1;
         }
-        if (onStation3 == false && DataBaseManager.Intel_Station3 == true)
+        if (onStation3 == false && DataBaseManager.intelStation3 == true)
         {
             onStation3 = true;
             detailStation3.SetActive(true);
             detailStation3.transform.SetAsLastSibling();
             countStation += 1;
         }
-        if (onStation4 == false && DataBaseManager.Intel_Station4 == true)
+        if (onStation4 == false && DataBaseManager.intelStation4 == true)
         {
             onStation4 = true;
             detailStation4.SetActive(true);
             detailStation4.transform.SetAsLastSibling();
             countStation += 1;
         }
-        if (onStation5 == false && DataBaseManager.Intel_Station5 == true)
+        if (onStation5 == false && DataBaseManager.intelStation5 == true)
         {
             onStation5 = true;
             detailStation5.SetActive(true);
             detailStation5.transform.SetAsLastSibling();
             countStation += 1;
         }
-        if (onStation6 == false && DataBaseManager.Intel_Station6 == true)
+        if (onStation6 == false && DataBaseManager.intelStation6 == true)
         {
             onStation6 = true;
             detailStation6.SetActive(true);
@@ -785,11 +785,11 @@ public class IntelPlaceDetail : MonoBehaviour
             countStation += 1;
         }
 
-        if (countStation > 2 && DataBaseManager.NowPage_Station == 1)
+        if (countStation > 2 && DataBaseManager.nowPageStation == 1)
         {
             nextButtonStation.SetActive(true);
         }
-        else if (countStation > 4 && DataBaseManager.NowPage_Station == 2)
+        else if (countStation > 4 && DataBaseManager.nowPageStation == 2)
         {
             nextButtonStation.SetActive(true);
         }
@@ -798,11 +798,11 @@ public class IntelPlaceDetail : MonoBehaviour
             nextButtonStation.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_Station == 2)
+        if (DataBaseManager.nowPageStation == 2)
         {
             prevButtonStation.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_Station == 3)
+        else if (DataBaseManager.nowPageStation == 3)
         {
             prevButtonStation.SetActive(true);
         }
@@ -813,42 +813,42 @@ public class IntelPlaceDetail : MonoBehaviour
     }
     void SewerDetail()
     {
-        if (onSewer1 == false && DataBaseManager.Intel_Sewer1 == true)
+        if (onSewer1 == false && DataBaseManager.intelSewer1 == true)
         {
             onSewer1 = true;
             detailSewer1.SetActive(true);
             detailSewer1.transform.SetAsLastSibling();
             countSewer += 1;
         }
-        if (onSewer2 == false && DataBaseManager.Intel_Sewer2 == true)
+        if (onSewer2 == false && DataBaseManager.intelSewer2 == true)
         {
             onSewer2 = true;
             detailSewer2.SetActive(true);
             detailSewer2.transform.SetAsLastSibling();
             countSewer += 1;
         }
-        if (onSewer3 == false && DataBaseManager.Intel_Sewer3 == true)
+        if (onSewer3 == false && DataBaseManager.intelSewer3 == true)
         {
             onSewer3 = true;
             detailSewer3.SetActive(true);
             detailSewer3.transform.SetAsLastSibling();
             countSewer += 1;
         }
-        if (onSewer4 == false && DataBaseManager.Intel_Sewer4 == true)
+        if (onSewer4 == false && DataBaseManager.intelSewer4 == true)
         {
             onSewer4 = true;
             detailSewer4.SetActive(true);
             detailSewer4.transform.SetAsLastSibling();
             countSewer += 1;
         }
-        if (onSewer5 == false && DataBaseManager.Intel_Sewer5 == true)
+        if (onSewer5 == false && DataBaseManager.intelSewer5 == true)
         {
             onSewer5 = true;
             detailSewer5.SetActive(true);
             detailSewer5.transform.SetAsLastSibling();
             countSewer += 1;
         }
-        if (onSewer6 == false && DataBaseManager.Intel_Sewer6 == true)
+        if (onSewer6 == false && DataBaseManager.intelSewer6 == true)
         {
             onSewer6 = true;
             detailSewer6.SetActive(true);
@@ -856,11 +856,11 @@ public class IntelPlaceDetail : MonoBehaviour
             countSewer += 1;
         }
 
-        if (countSewer > 2 && DataBaseManager.NowPage_Sewer == 1)
+        if (countSewer > 2 && DataBaseManager.nowPageSewer == 1)
         {
             nextButtonSewer.SetActive(true);
         }
-        else if (countSewer > 4 && DataBaseManager.NowPage_Sewer == 2)
+        else if (countSewer > 4 && DataBaseManager.nowPageSewer == 2)
         {
             nextButtonSewer.SetActive(true);
         }
@@ -869,11 +869,11 @@ public class IntelPlaceDetail : MonoBehaviour
             nextButtonSewer.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_Sewer == 2)
+        if (DataBaseManager.nowPageSewer == 2)
         {
             prevButtonSewer.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_Sewer
+        else if (DataBaseManager.nowPageSewer
             == 3)
         {
             prevButtonSewer.SetActive(true);
@@ -885,42 +885,42 @@ public class IntelPlaceDetail : MonoBehaviour
     }
     void UniversityDetail()
     {
-        if (onUniversity1 == false && DataBaseManager.Intel_University1 == true)
+        if (onUniversity1 == false && DataBaseManager.intelUniversity1 == true)
         {
             onUniversity1 = true;
             detailUniversity1.SetActive(true);
             detailUniversity1.transform.SetAsLastSibling();
             countUniversity += 1;
         }
-        if (onUniversity2 == false && DataBaseManager.Intel_University2 == true)
+        if (onUniversity2 == false && DataBaseManager.intelUniversity2 == true)
         {
             onUniversity2 = true;
             detailUniversity2.SetActive(true);
             detailUniversity2.transform.SetAsLastSibling();
             countUniversity += 1;
         }
-        if (onUniversity3 == false && DataBaseManager.Intel_University3 == true)
+        if (onUniversity3 == false && DataBaseManager.intelUniversity3 == true)
         {
             onUniversity3 = true;
             detailUniversity3.SetActive(true);
             detailUniversity3.transform.SetAsLastSibling();
             countUniversity += 1;
         }
-        if (onUniversity4 == false && DataBaseManager.Intel_University4 == true)
+        if (onUniversity4 == false && DataBaseManager.intelUniversity4 == true)
         {
             onUniversity4 = true;
             detailUniversity4.SetActive(true);
             detailUniversity4.transform.SetAsLastSibling();
             countUniversity += 1;
         }
-        if (onUniversity5 == false && DataBaseManager.Intel_University5 == true)
+        if (onUniversity5 == false && DataBaseManager.intelUniversity5 == true)
         {
             onUniversity5 = true;
             detailUniversity5.SetActive(true);
             detailUniversity5.transform.SetAsLastSibling();
             countUniversity += 1;
         }
-        if (onUniversity6 == false && DataBaseManager.Intel_University6 == true)
+        if (onUniversity6 == false && DataBaseManager.intelUniversity6 == true)
         {
             onUniversity6 = true;
             detailUniversity6.SetActive(true);
@@ -928,11 +928,11 @@ public class IntelPlaceDetail : MonoBehaviour
             countUniversity += 1;
         }
 
-        if (countUniversity > 2 && DataBaseManager.NowPage_University == 1)
+        if (countUniversity > 2 && DataBaseManager.nowPageUniversity == 1)
         {
             nextButtonUniversity.SetActive(true);
         }
-        else if (countUniversity > 4 && DataBaseManager.NowPage_University == 2)
+        else if (countUniversity > 4 && DataBaseManager.nowPageUniversity == 2)
         {
             nextButtonUniversity.SetActive(true);
         }
@@ -941,11 +941,11 @@ public class IntelPlaceDetail : MonoBehaviour
             nextButtonUniversity.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_University == 2)
+        if (DataBaseManager.nowPageUniversity == 2)
         {
             prevButtonUniversity.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_University
+        else if (DataBaseManager.nowPageUniversity
             == 3)
         {
             prevButtonUniversity.SetActive(true);
@@ -957,42 +957,42 @@ public class IntelPlaceDetail : MonoBehaviour
     }
     void RiversideDetail()
     {
-        if (onRiverside1 == false && DataBaseManager.Intel_Riverside1 == true)
+        if (onRiverside1 == false && DataBaseManager.intelRiverside1 == true)
         {
             onRiverside1 = true;
             detailRiverside1.SetActive(true);
             detailRiverside1.transform.SetAsLastSibling();
             Count_Riverside += 1;
         }
-        if (onRiverside2 == false && DataBaseManager.Intel_Riverside2 == true)
+        if (onRiverside2 == false && DataBaseManager.intelRiverside2 == true)
         {
             onRiverside2 = true;
             detailRiverside2.SetActive(true);
             detailRiverside2.transform.SetAsLastSibling();
             Count_Riverside += 1;
         }
-        if (onRiverside3 == false && DataBaseManager.Intel_Riverside3 == true)
+        if (onRiverside3 == false && DataBaseManager.intelRiverside3 == true)
         {
             onRiverside3 = true;
             detailRiverside3.SetActive(true);
             detailRiverside3.transform.SetAsLastSibling();
             Count_Riverside += 1;
         }
-        if (onRiverside4 == false && DataBaseManager.Intel_Riverside4 == true)
+        if (onRiverside4 == false && DataBaseManager.intelRiverside4 == true)
         {
             onRiverside4 = true;
             detailRiverside4.SetActive(true);
             detailRiverside4.transform.SetAsLastSibling();
             Count_Riverside += 1;
         }
-        if (onRiverside5 == false && DataBaseManager.Intel_Riverside5 == true)
+        if (onRiverside5 == false && DataBaseManager.intelRiverside5 == true)
         {
             onRiverside5 = true;
             detailRiverside5.SetActive(true);
             detailRiverside5.transform.SetAsLastSibling();
             Count_Riverside += 1;
         }
-        if (onRiverside6 == false && DataBaseManager.Intel_Riverside6 == true)
+        if (onRiverside6 == false && DataBaseManager.intelRiverside6 == true)
         {
             onRiverside6 = true;
             detailRiverside6.SetActive(true);
@@ -1000,11 +1000,11 @@ public class IntelPlaceDetail : MonoBehaviour
             Count_Riverside += 1;
         }
 
-        if (Count_Riverside > 2 && DataBaseManager.NowPage_Riverside == 1)
+        if (Count_Riverside > 2 && DataBaseManager.nowPageRiverside == 1)
         {
             nextButtonRiverside.SetActive(true);
         }
-        else if (Count_Riverside > 4 && DataBaseManager.NowPage_Riverside == 2)
+        else if (Count_Riverside > 4 && DataBaseManager.nowPageRiverside == 2)
         {
             nextButtonRiverside.SetActive(true);
         }
@@ -1013,11 +1013,11 @@ public class IntelPlaceDetail : MonoBehaviour
             nextButtonRiverside.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_Riverside == 2)
+        if (DataBaseManager.nowPageRiverside == 2)
         {
             prevButtonRiverside.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_Riverside
+        else if (DataBaseManager.nowPageRiverside
             == 3)
         {
             prevButtonRiverside.SetActive(true);
@@ -1029,42 +1029,42 @@ public class IntelPlaceDetail : MonoBehaviour
     }
     void BarDetail()
     {
-        if (onBar1 == false && DataBaseManager.Intel_Bar1 == true)
+        if (onBar1 == false && DataBaseManager.intelBar1 == true)
         {
             onBar1 = true;
             detailBar1.SetActive(true);
             detailBar1.transform.SetAsLastSibling();
             countBar += 1;
         }
-        if (onBar2 == false && DataBaseManager.Intel_Bar2 == true)
+        if (onBar2 == false && DataBaseManager.intelBar2 == true)
         {
             onBar2 = true;
             detailBar2.SetActive(true);
             detailBar2.transform.SetAsLastSibling();
             countBar += 1;
         }
-        if (onBar3 == false && DataBaseManager.Intel_Bar3 == true)
+        if (onBar3 == false && DataBaseManager.intelBar3 == true)
         {
             onBar3 = true;
             detailBar3.SetActive(true);
             detailBar3.transform.SetAsLastSibling();
             countBar += 1;
         }
-        if (onBar4 == false && DataBaseManager.Intel_Bar4 == true)
+        if (onBar4 == false && DataBaseManager.intelBar4 == true)
         {
             onBar4 = true;
             detailBar4.SetActive(true);
             detailBar4.transform.SetAsLastSibling();
             countBar += 1;
         }
-        if (onBar5 == false && DataBaseManager.Intel_Bar5 == true)
+        if (onBar5 == false && DataBaseManager.intelBar5 == true)
         {
             onBar5 = true;
             detailBar5.SetActive(true);
             detailBar5.transform.SetAsLastSibling();
             countBar += 1;
         }
-        if (onBar6 == false && DataBaseManager.Intel_Bar6 == true)
+        if (onBar6 == false && DataBaseManager.intelBar6 == true)
         {
             onBar6 = true;
             detailBar6.SetActive(true);
@@ -1072,11 +1072,11 @@ public class IntelPlaceDetail : MonoBehaviour
             countBar += 1;
         }
 
-        if (countBar > 2 && DataBaseManager.NowPage_Bar == 1)
+        if (countBar > 2 && DataBaseManager.nowPageBar == 1)
         {
             nextButtonBar.SetActive(true);
         }
-        else if (countBar > 4 && DataBaseManager.NowPage_Bar == 2)
+        else if (countBar > 4 && DataBaseManager.nowPageBar == 2)
         {
             nextButtonBar.SetActive(true);
         }
@@ -1085,11 +1085,11 @@ public class IntelPlaceDetail : MonoBehaviour
             nextButtonBar.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_Bar == 2)
+        if (DataBaseManager.nowPageBar == 2)
         {
             prevButtonBar.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_Bar == 3)
+        else if (DataBaseManager.nowPageBar == 3)
         {
             prevButtonBar.SetActive(true);
         }
@@ -1100,42 +1100,42 @@ public class IntelPlaceDetail : MonoBehaviour
     }
     void SlumDetail()
     {
-        if (onSlum1 == false && DataBaseManager.Intel_Slum1 == true)
+        if (onSlum1 == false && DataBaseManager.intelSlum1 == true)
         {
             onSlum1 = true;
             detailSlum1.SetActive(true);
             detailSlum1.transform.SetAsLastSibling();
             countSlum += 1;
         }
-        if (onSlum2 == false && DataBaseManager.Intel_Slum2 == true)
+        if (onSlum2 == false && DataBaseManager.intelSlum2 == true)
         {
             onSlum2 = true;
             detailSlum2.SetActive(true);
             detailSlum2.transform.SetAsLastSibling();
             countSlum += 1;
         }
-        if (onSlum3 == false && DataBaseManager.Intel_Slum3 == true)
+        if (onSlum3 == false && DataBaseManager.intelSlum3 == true)
         {
             onSlum3 = true;
             detailSlum3.SetActive(true);
             detailSlum3.transform.SetAsLastSibling();
             countSlum += 1;
         }
-        if (onSlum4 == false && DataBaseManager.Intel_Slum4 == true)
+        if (onSlum4 == false && DataBaseManager.intelSlum4 == true)
         {
             onSlum4 = true;
             detailSlum4.SetActive(true);
             detailSlum4.transform.SetAsLastSibling();
             countSlum += 1;
         }
-        if (onSlum5 == false && DataBaseManager.Intel_Slum5 == true)
+        if (onSlum5 == false && DataBaseManager.intelSlum5 == true)
         {
             onSlum5 = true;
             detailSlum5.SetActive(true);
             detailSlum5.transform.SetAsLastSibling();
             countSlum += 1;
         }
-        if (onSlum6 == false && DataBaseManager.Intel_Slum6 == true)
+        if (onSlum6 == false && DataBaseManager.intelSlum6 == true)
         {
             onSlum6 = true;
             detailSlum6.SetActive(true);
@@ -1143,11 +1143,11 @@ public class IntelPlaceDetail : MonoBehaviour
             countSlum += 1;
         }
 
-        if (countSlum > 2 && DataBaseManager.NowPage_Slum == 1)
+        if (countSlum > 2 && DataBaseManager.nowPageSlum == 1)
         {
             nextButtonSlum.SetActive(true);
         }
-        else if (countSlum > 4 && DataBaseManager.NowPage_Slum == 2)
+        else if (countSlum > 4 && DataBaseManager.nowPageSlum == 2)
         {
             nextButtonSlum.SetActive(true);
         }
@@ -1156,11 +1156,11 @@ public class IntelPlaceDetail : MonoBehaviour
             nextButtonSlum.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_Slum == 2)
+        if (DataBaseManager.nowPageSlum == 2)
         {
             prevButtonSlum.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_Slum == 3)
+        else if (DataBaseManager.nowPageSlum == 3)
         {
             prevButtonSlum.SetActive(true);
         }
@@ -1171,42 +1171,42 @@ public class IntelPlaceDetail : MonoBehaviour
     }
     void PoliceOfficeDetail()
     {
-        if (onPoliceOffice1 == false && DataBaseManager.Intel_PoliceOffice1 == true)
+        if (onPoliceOffice1 == false && DataBaseManager.intelPoliceOffice1 == true)
         {
             onPoliceOffice1 = true;
             detailPoliceOffice1.SetActive(true);
             detailPoliceOffice1.transform.SetAsLastSibling();
             countPoliceOffice += 1;
         }
-        if (onPoliceOffice2 == false && DataBaseManager.Intel_PoliceOffice2 == true)
+        if (onPoliceOffice2 == false && DataBaseManager.intelPoliceOffice2 == true)
         {
             onPoliceOffice2 = true;
             detailPoliceOffice2.SetActive(true);
             detailPoliceOffice2.transform.SetAsLastSibling();
             countPoliceOffice += 1;
         }
-        if (onPoliceOffice3 == false && DataBaseManager.Intel_PoliceOffice3 == true)
+        if (onPoliceOffice3 == false && DataBaseManager.intelPoliceOffice3 == true)
         {
             onPoliceOffice3 = true;
             detailPoliceOffice3.SetActive(true);
             detailPoliceOffice3.transform.SetAsLastSibling();
             countPoliceOffice += 1;
         }
-        if (onPoliceOffice4 == false && DataBaseManager.Intel_PoliceOffice4 == true)
+        if (onPoliceOffice4 == false && DataBaseManager.intelPoliceOffice4 == true)
         {
             onPoliceOffice4 = true;
             detailPoliceOffice4.SetActive(true);
             detailPoliceOffice4.transform.SetAsLastSibling();
             countPoliceOffice += 1;
         }
-        if (onPoliceOffice5 == false && DataBaseManager.Intel_PoliceOffice5 == true)
+        if (onPoliceOffice5 == false && DataBaseManager.intelPoliceOffice5 == true)
         {
             onPoliceOffice5 = true;
             detailPoliceOffice5.SetActive(true);
             detailPoliceOffice5.transform.SetAsLastSibling();
             countPoliceOffice += 1;
         }
-        if (onPoliceOffice6 == false && DataBaseManager.Intel_PoliceOffice6 == true)
+        if (onPoliceOffice6 == false && DataBaseManager.intelPoliceOffice6 == true)
         {
             onPoliceOffice6 = true;
             detailPoliceOffice6.SetActive(true);
@@ -1214,11 +1214,11 @@ public class IntelPlaceDetail : MonoBehaviour
             countPoliceOffice += 1;
         }
 
-        if (countPoliceOffice > 2 && DataBaseManager.NowPage_PoliceOffice == 1)
+        if (countPoliceOffice > 2 && DataBaseManager.nowPagePoliceOffice == 1)
         {
             nextButtonPoliceOffice.SetActive(true);
         }
-        else if (countPoliceOffice > 4 && DataBaseManager.NowPage_PoliceOffice == 2)
+        else if (countPoliceOffice > 4 && DataBaseManager.nowPagePoliceOffice == 2)
         {
             nextButtonPoliceOffice.SetActive(true);
         }
@@ -1227,11 +1227,11 @@ public class IntelPlaceDetail : MonoBehaviour
             nextButtonPoliceOffice.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_PoliceOffice == 2)
+        if (DataBaseManager.nowPagePoliceOffice == 2)
         {
             prevButtonPoliceOffice.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_PoliceOffice == 3)
+        else if (DataBaseManager.nowPagePoliceOffice == 3)
         {
             prevButtonPoliceOffice.SetActive(true);
         }
@@ -1242,42 +1242,42 @@ public class IntelPlaceDetail : MonoBehaviour
     }
     void GunsmithDetail()
     {
-        if (onGunsmith1 == false && DataBaseManager.Intel_Gunsmith1 == true)
+        if (onGunsmith1 == false && DataBaseManager.intelGunsmith1 == true)
         {
             onGunsmith1 = true;
             detailGunsmith1.SetActive(true);
             detailGunsmith1.transform.SetAsLastSibling();
             countGunsmith += 1;
         }
-        if (onGunsmith2 == false && DataBaseManager.Intel_Gunsmith2 == true)
+        if (onGunsmith2 == false && DataBaseManager.intelGunsmith2 == true)
         {
             onGunsmith2 = true;
             detailGunsmith2.SetActive(true);
             detailGunsmith2.transform.SetAsLastSibling();
             countGunsmith += 1;
         }
-        if (onGunsmith3 == false && DataBaseManager.Intel_Gunsmith3 == true)
+        if (onGunsmith3 == false && DataBaseManager.intelGunsmith3 == true)
         {
             onGunsmith3 = true;
             detailGunsmith3.SetActive(true);
             detailGunsmith3.transform.SetAsLastSibling();
             countGunsmith += 1;
         }
-        if (onGunsmith4 == false && DataBaseManager.Intel_Gunsmith4 == true)
+        if (onGunsmith4 == false && DataBaseManager.intelGunsmith4 == true)
         {
             onGunsmith4 = true;
             detailGunsmith4.SetActive(true);
             detailGunsmith4.transform.SetAsLastSibling();
             countGunsmith += 1;
         }
-        if (onGunsmith5 == false && DataBaseManager.Intel_Gunsmith5 == true)
+        if (onGunsmith5 == false && DataBaseManager.intelGunsmith5 == true)
         {
             onGunsmith5 = true;
             detailGunsmith5.SetActive(true);
             detailGunsmith5.transform.SetAsLastSibling();
             countGunsmith += 1;
         }
-        if (onGunsmith6 == false && DataBaseManager.Intel_Gunsmith6 == true)
+        if (onGunsmith6 == false && DataBaseManager.intelGunsmith6 == true)
         {
             onGunsmith6 = true;
             detailGunsmith6.SetActive(true);
@@ -1285,11 +1285,11 @@ public class IntelPlaceDetail : MonoBehaviour
             countGunsmith += 1;
         }
 
-        if (countGunsmith > 2 && DataBaseManager.NowPage_Gunsmith == 1)
+        if (countGunsmith > 2 && DataBaseManager.nowPageGunsmith == 1)
         {
             nextButtonGunsmith.SetActive(true);
         }
-        else if (countGunsmith > 4 && DataBaseManager.NowPage_Gunsmith == 2)
+        else if (countGunsmith > 4 && DataBaseManager.nowPageGunsmith == 2)
         {
             nextButtonGunsmith.SetActive(true);
         }
@@ -1298,11 +1298,11 @@ public class IntelPlaceDetail : MonoBehaviour
             nextButtonGunsmith.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_Gunsmith == 2)
+        if (DataBaseManager.nowPageGunsmith == 2)
         {
             prevButtonGunsmith.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_Gunsmith == 3)
+        else if (DataBaseManager.nowPageGunsmith == 3)
         {
             prevButtonGunsmith.SetActive(true);
         }
@@ -1313,42 +1313,42 @@ public class IntelPlaceDetail : MonoBehaviour
     }
     void SewageMaintenanceOfficeDetail()
     {
-        if (onSewageMaintenanceOffice1 == false && DataBaseManager.Intel_SewageMaintenanceOffice1 == true)
+        if (onSewageMaintenanceOffice1 == false && DataBaseManager.intelSewageMaintenanceOffice1 == true)
         {
             onSewageMaintenanceOffice1 = true;
             detailSewageMaintenanceOffice1.SetActive(true);
             detailSewageMaintenanceOffice1.transform.SetAsLastSibling();
             countSewageMaintenanceOffice += 1;
         }
-        if (onSewageMaintenanceOffice2 == false && DataBaseManager.Intel_SewageMaintenanceOffice2 == true)
+        if (onSewageMaintenanceOffice2 == false && DataBaseManager.intelSewageMaintenanceOffice2 == true)
         {
             onSewageMaintenanceOffice2 = true;
             detailSewageMaintenanceOffice2.SetActive(true);
             detailSewageMaintenanceOffice2.transform.SetAsLastSibling();
             countSewageMaintenanceOffice += 1;
         }
-        if (onSewageMaintenanceOffice3 == false && DataBaseManager.Intel_SewageMaintenanceOffice3 == true)
+        if (onSewageMaintenanceOffice3 == false && DataBaseManager.intelSewageMaintenanceOffice3 == true)
         {
             onSewageMaintenanceOffice3 = true;
             detailSewageMaintenanceOffice3.SetActive(true);
             detailSewageMaintenanceOffice3.transform.SetAsLastSibling();
             countSewageMaintenanceOffice += 1;
         }
-        if (onSewageMaintenanceOffice4 == false && DataBaseManager.Intel_SewageMaintenanceOffice4 == true)
+        if (onSewageMaintenanceOffice4 == false && DataBaseManager.intelSewageMaintenanceOffice4 == true)
         {
             onSewageMaintenanceOffice4 = true;
             detailSewageMaintenanceOffice4.SetActive(true);
             detailSewageMaintenanceOffice4.transform.SetAsLastSibling();
             countSewageMaintenanceOffice += 1;
         }
-        if (onSewageMaintenanceOffice5 == false && DataBaseManager.Intel_SewageMaintenanceOffice5 == true)
+        if (onSewageMaintenanceOffice5 == false && DataBaseManager.intelSewageMaintenanceOffice5 == true)
         {
             onSewageMaintenanceOffice5 = true;
             detailSewageMaintenanceOffice5.SetActive(true);
             detailSewageMaintenanceOffice5.transform.SetAsLastSibling();
             countSewageMaintenanceOffice += 1;
         }
-        if (onSewageMaintenanceOffice6 == false && DataBaseManager.Intel_SewageMaintenanceOffice6 == true)
+        if (onSewageMaintenanceOffice6 == false && DataBaseManager.intelSewageMaintenanceOffice6 == true)
         {
             onSewageMaintenanceOffice6 = true;
             detailSewageMaintenanceOffice6.SetActive(true);
@@ -1356,11 +1356,11 @@ public class IntelPlaceDetail : MonoBehaviour
             countSewageMaintenanceOffice += 1;
         }
 
-        if (countSewageMaintenanceOffice > 2 && DataBaseManager.NowPage_SewageMaintenanceOffice == 1)
+        if (countSewageMaintenanceOffice > 2 && DataBaseManager.nowPageSewageMaintenanceOffice == 1)
         {
             nextButtonSewageMaintenanceOffice.SetActive(true);
         }
-        else if (countSewageMaintenanceOffice > 4 && DataBaseManager.NowPage_SewageMaintenanceOffice == 2)
+        else if (countSewageMaintenanceOffice > 4 && DataBaseManager.nowPageSewageMaintenanceOffice == 2)
         {
             nextButtonSewageMaintenanceOffice.SetActive(true);
         }
@@ -1369,11 +1369,11 @@ public class IntelPlaceDetail : MonoBehaviour
             nextButtonSewageMaintenanceOffice.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_SewageMaintenanceOffice == 2)
+        if (DataBaseManager.nowPageSewageMaintenanceOffice == 2)
         {
             prevButtonSewageMaintenanceOffice.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_SewageMaintenanceOffice == 3)
+        else if (DataBaseManager.nowPageSewageMaintenanceOffice == 3)
         {
             prevButtonSewageMaintenanceOffice.SetActive(true);
         }
@@ -1384,42 +1384,42 @@ public class IntelPlaceDetail : MonoBehaviour
     }
     void WharfDetail()
     {
-        if (onWharf1 == false && DataBaseManager.Intel_Wharf1 == true)
+        if (onWharf1 == false && DataBaseManager.intelWharf1 == true)
         {
             onWharf1 = true;
             detailWharf1.SetActive(true);
             detailWharf1.transform.SetAsLastSibling();
             countWharf += 1;
         }
-        if (onWharf2 == false && DataBaseManager.Intel_Wharf2 == true)
+        if (onWharf2 == false && DataBaseManager.intelWharf2 == true)
         {
             onWharf2 = true;
             detailWharf2.SetActive(true);
             detailWharf2.transform.SetAsLastSibling();
             countWharf += 1;
         }
-        if (onWharf3 == false && DataBaseManager.Intel_Wharf3 == true)
+        if (onWharf3 == false && DataBaseManager.intelWharf3 == true)
         {
             onWharf3 = true;
             detailWharf3.SetActive(true);
             detailWharf3.transform.SetAsLastSibling();
             countWharf += 1;
         }
-        if (onWharf4 == false && DataBaseManager.Intel_Wharf4 == true)
+        if (onWharf4 == false && DataBaseManager.intelWharf4 == true)
         {
             onWharf4 = true;
             detailWharf4.SetActive(true);
             detailWharf4.transform.SetAsLastSibling();
             countWharf += 1;
         }
-        if (onWharf5 == false && DataBaseManager.Intel_Wharf5 == true)
+        if (onWharf5 == false && DataBaseManager.intelWharf5 == true)
         {
             onWharf5 = true;
             detailWharf5.SetActive(true);
             detailWharf5.transform.SetAsLastSibling();
             countWharf += 1;
         }
-        if (onWharf6 == false && DataBaseManager.Intel_Wharf6 == true)
+        if (onWharf6 == false && DataBaseManager.intelWharf6 == true)
         {
             onWharf6 = true;
             detailWharf6.SetActive(true);
@@ -1427,11 +1427,11 @@ public class IntelPlaceDetail : MonoBehaviour
             countWharf += 1;
         }
 
-        if (countWharf > 2 && DataBaseManager.NowPage_Wharf == 1)
+        if (countWharf > 2 && DataBaseManager.nowPageWharf == 1)
         {
             nextButtonWharf.SetActive(true);
         }
-        else if (countWharf > 4 && DataBaseManager.NowPage_Wharf == 2)
+        else if (countWharf > 4 && DataBaseManager.nowPageWharf == 2)
         {
             nextButtonWharf.SetActive(true);
         }
@@ -1440,11 +1440,11 @@ public class IntelPlaceDetail : MonoBehaviour
             nextButtonWharf.SetActive(false);
         }
 
-        if (DataBaseManager.NowPage_Wharf == 2)
+        if (DataBaseManager.nowPageWharf == 2)
         {
             prevButtonWharf.SetActive(true);
         }
-        else if (DataBaseManager.NowPage_Wharf == 3)
+        else if (DataBaseManager.nowPageWharf == 3)
         {
             prevButtonWharf.SetActive(true);
         }
@@ -1457,7 +1457,7 @@ public class IntelPlaceDetail : MonoBehaviour
     {
         if (nowPage == "DetectiveOffice")
         {
-            if (DataBaseManager.NowPage_DetectiveOffice == 1)
+            if (DataBaseManager.nowPageDetectiveOffice == 1)
             {
                 if (countDetectiveOffice >= 6)
                 {
@@ -1482,9 +1482,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_DetectiveOffice();
                     detectiveOfficeContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_DetectiveOffice = 2;
+                DataBaseManager.nowPageDetectiveOffice = 2;
             }
-            else if (DataBaseManager.NowPage_DetectiveOffice == 2)
+            else if (DataBaseManager.nowPageDetectiveOffice == 2)
             {
                 if (countDetectiveOffice >= 6)
                 {
@@ -1497,12 +1497,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_DetectiveOffice();
                     detectiveOfficeContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_DetectiveOffice = 3;
+                DataBaseManager.nowPageDetectiveOffice = 3;
             }
         }
         if (nowPage == "Hospital")
         {
-            if (DataBaseManager.NowPage_Hospital == 1)
+            if (DataBaseManager.nowPageHospital == 1)
             {
                 if (countHospital >= 6)
                 {
@@ -1527,9 +1527,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Hospital();
                     hospitalContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Hospital = 2;
+                DataBaseManager.nowPageHospital = 2;
             }
-            else if (DataBaseManager.NowPage_Hospital == 2)
+            else if (DataBaseManager.nowPageHospital == 2)
             {
                 if (countHospital >= 6)
                 {
@@ -1542,12 +1542,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Hospital();
                     hospitalContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Hospital = 3;
+                DataBaseManager.nowPageHospital = 3;
             }
         }
         if (nowPage == "Newspaper")
         {
-            if (DataBaseManager.NowPage_Newspaper == 1)
+            if (DataBaseManager.nowPageNewspaper == 1)
             {
                 if (countNewspaper >= 6)
                 {
@@ -1572,9 +1572,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Newspaper();
                     newspaperContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Newspaper = 2;
+                DataBaseManager.nowPageNewspaper = 2;
             }
-            else if (DataBaseManager.NowPage_Newspaper == 2)
+            else if (DataBaseManager.nowPageNewspaper == 2)
             {
                 if (countNewspaper >= 6)
                 {
@@ -1587,12 +1587,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Newspaper();
                     newspaperContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Newspaper = 3;
+                DataBaseManager.nowPageNewspaper = 3;
             }
         }
         if (nowPage == "QuestHouse")
         {
-            if (DataBaseManager.NowPage_QuestHouse == 1)
+            if (DataBaseManager.nowPageQuestHouse == 1)
             {
                 if (countQuestHouse >= 6)
                 {
@@ -1617,9 +1617,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_QuestHouse();
                     questHouseContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_QuestHouse = 2;
+                DataBaseManager.nowPageQuestHouse = 2;
             }
-            else if (DataBaseManager.NowPage_QuestHouse == 2)
+            else if (DataBaseManager.nowPageQuestHouse == 2)
             {
                 if (countQuestHouse >= 6)
                 {
@@ -1632,12 +1632,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_QuestHouse();
                     questHouseContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_QuestHouse = 3;
+                DataBaseManager.nowPageQuestHouse = 3;
             }
         }
         if (nowPage == "Station")
         {
-            if (DataBaseManager.NowPage_Station == 1)
+            if (DataBaseManager.nowPageStation == 1)
             {
                 if (countStation >= 6)
                 {
@@ -1662,9 +1662,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Station();
                     stationContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Station = 2;
+                DataBaseManager.nowPageStation = 2;
             }
-            else if (DataBaseManager.NowPage_Station == 2)
+            else if (DataBaseManager.nowPageStation == 2)
             {
                 if (countStation >= 6)
                 {
@@ -1677,12 +1677,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Station();
                     stationContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Station = 3;
+                DataBaseManager.nowPageStation = 3;
             }
         }
         if (nowPage == "Sewer")
         {
-            if (DataBaseManager.NowPage_Sewer == 1)
+            if (DataBaseManager.nowPageSewer == 1)
             {
                 if (countSewer >= 6)
                 {
@@ -1707,9 +1707,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Sewer();
                     sewerContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Sewer = 2;
+                DataBaseManager.nowPageSewer = 2;
             }
-            else if (DataBaseManager.NowPage_Sewer == 2)
+            else if (DataBaseManager.nowPageSewer == 2)
             {
                 if (countSewer >= 6)
                 {
@@ -1722,12 +1722,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Sewer();
                     sewerContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Sewer = 3;
+                DataBaseManager.nowPageSewer = 3;
             }
         }
         if (nowPage == "University")
         {
-            if (DataBaseManager.NowPage_University == 1)
+            if (DataBaseManager.nowPageUniversity == 1)
             {
                 if (countUniversity >= 6)
                 {
@@ -1752,9 +1752,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_University();
                     universityContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_University = 2;
+                DataBaseManager.nowPageUniversity = 2;
             }
-            else if (DataBaseManager.NowPage_University == 2)
+            else if (DataBaseManager.nowPageUniversity == 2)
             {
                 if (countUniversity >= 6)
                 {
@@ -1767,12 +1767,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_University();
                     universityContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_University = 3;
+                DataBaseManager.nowPageUniversity = 3;
             }
         }
         if (nowPage == "Riverside")
         {
-            if (DataBaseManager.NowPage_Riverside == 1)
+            if (DataBaseManager.nowPageRiverside == 1)
             {
                 if (Count_Riverside >= 6)
                 {
@@ -1797,9 +1797,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Riverside();
                     riversideContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Riverside = 2;
+                DataBaseManager.nowPageRiverside = 2;
             }
-            else if (DataBaseManager.NowPage_Riverside == 2)
+            else if (DataBaseManager.nowPageRiverside == 2)
             {
                 if (Count_Riverside >= 6)
                 {
@@ -1812,12 +1812,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Riverside();
                     riversideContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Riverside = 3;
+                DataBaseManager.nowPageRiverside = 3;
             }
         }
         if (nowPage == "Bar")
         {
-            if (DataBaseManager.NowPage_Bar == 1)
+            if (DataBaseManager.nowPageBar == 1)
             {
                 if (countBar >= 6)
                 {
@@ -1842,9 +1842,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Bar();
                     barContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Bar = 2;
+                DataBaseManager.nowPageBar = 2;
             }
-            else if (DataBaseManager.NowPage_Bar == 2)
+            else if (DataBaseManager.nowPageBar == 2)
             {
                 if (countBar >= 6)
                 {
@@ -1857,12 +1857,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Bar();
                     barContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Bar = 3;
+                DataBaseManager.nowPageBar = 3;
             }
         }
         if (nowPage == "Slum")
         {
-            if (DataBaseManager.NowPage_Slum == 1)
+            if (DataBaseManager.nowPageSlum == 1)
             {
                 if (countSlum >= 6)
                 {
@@ -1887,9 +1887,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Slum();
                     slumContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Slum = 2;
+                DataBaseManager.nowPageSlum = 2;
             }
-            else if (DataBaseManager.NowPage_Slum == 2)
+            else if (DataBaseManager.nowPageSlum == 2)
             {
                 if (countSlum >= 6)
                 {
@@ -1902,12 +1902,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Slum();
                     slumContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Slum = 3;
+                DataBaseManager.nowPageSlum = 3;
             }
         }
         if (nowPage == "PoliceOffice")
         {
-            if (DataBaseManager.NowPage_PoliceOffice == 1)
+            if (DataBaseManager.nowPagePoliceOffice == 1)
             {
                 if (countPoliceOffice >= 6)
                 {
@@ -1932,9 +1932,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_PoliceOffice();
                     policeOfficeContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_PoliceOffice = 2;
+                DataBaseManager.nowPagePoliceOffice = 2;
             }
-            else if (DataBaseManager.NowPage_PoliceOffice == 2)
+            else if (DataBaseManager.nowPagePoliceOffice == 2)
             {
                 if (countPoliceOffice >= 6)
                 {
@@ -1947,12 +1947,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_PoliceOffice();
                     policeOfficeContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_PoliceOffice = 3;
+                DataBaseManager.nowPagePoliceOffice = 3;
             }
         }
         if (nowPage == "Gunsmith")
         {
-            if (DataBaseManager.NowPage_Gunsmith == 1)
+            if (DataBaseManager.nowPageGunsmith == 1)
             {
                 if (countGunsmith >= 6)
                 {
@@ -1977,9 +1977,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Gunsmith();
                     gunsmithContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Gunsmith = 2;
+                DataBaseManager.nowPageGunsmith = 2;
             }
-            else if (DataBaseManager.NowPage_Gunsmith == 2)
+            else if (DataBaseManager.nowPageGunsmith == 2)
             {
                 if (countGunsmith >= 6)
                 {
@@ -1992,12 +1992,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Gunsmith();
                     gunsmithContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Gunsmith = 3;
+                DataBaseManager.nowPageGunsmith = 3;
             }
         }
         if (nowPage == "SewageMaintenanceOffice")
         {
-            if (DataBaseManager.NowPage_SewageMaintenanceOffice == 1)
+            if (DataBaseManager.nowPageSewageMaintenanceOffice == 1)
             {
                 if (countSewageMaintenanceOffice >= 6)
                 {
@@ -2022,9 +2022,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_SewageMaintenanceOffice();
                     sewageMaintenanceOfficeContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_SewageMaintenanceOffice = 2;
+                DataBaseManager.nowPageSewageMaintenanceOffice = 2;
             }
-            else if (DataBaseManager.NowPage_SewageMaintenanceOffice == 2)
+            else if (DataBaseManager.nowPageSewageMaintenanceOffice == 2)
             {
                 if (countSewageMaintenanceOffice >= 6)
                 {
@@ -2037,12 +2037,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_SewageMaintenanceOffice();
                     sewageMaintenanceOfficeContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_SewageMaintenanceOffice = 3;
+                DataBaseManager.nowPageSewageMaintenanceOffice = 3;
             }
         }
         if (nowPage == "Wharf")
         {
-            if (DataBaseManager.NowPage_Wharf == 1)
+            if (DataBaseManager.nowPageWharf == 1)
             {
                 if (countWharf >= 6)
                 {
@@ -2067,9 +2067,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Wharf();
                     wharfContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Wharf = 2;
+                DataBaseManager.nowPageWharf = 2;
             }
-            else if (DataBaseManager.NowPage_Wharf == 2)
+            else if (DataBaseManager.nowPageWharf == 2)
             {
                 if (countWharf >= 6)
                 {
@@ -2082,7 +2082,7 @@ public class IntelPlaceDetail : MonoBehaviour
                     Reset_Wharf();
                     wharfContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Wharf = 3;
+                DataBaseManager.nowPageWharf = 3;
             }
         }
     }
@@ -2090,7 +2090,7 @@ public class IntelPlaceDetail : MonoBehaviour
     {
         if (nowPage == "DetectiveOffice")
         {
-            if (DataBaseManager.NowPage_DetectiveOffice == 2)
+            if (DataBaseManager.nowPageDetectiveOffice == 2)
             {
                 if (countDetectiveOffice >= 6)
                 {
@@ -2117,9 +2117,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     detectiveOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_DetectiveOffice = 1;
+                DataBaseManager.nowPageDetectiveOffice = 1;
             }
-            else if (DataBaseManager.NowPage_DetectiveOffice == 3)
+            else if (DataBaseManager.nowPageDetectiveOffice == 3)
             {
                 if (countDetectiveOffice >= 6)
                 {
@@ -2133,12 +2133,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     detectiveOfficeContents.transform.GetChild(3).gameObject.SetActive(true);
                     detectiveOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_DetectiveOffice = 2;
+                DataBaseManager.nowPageDetectiveOffice = 2;
             }
         }
         if (nowPage == "Hospital")
         {
-            if (DataBaseManager.NowPage_Hospital == 2)
+            if (DataBaseManager.nowPageHospital == 2)
             {
                 if (countHospital >= 6)
                 {
@@ -2165,9 +2165,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     hospitalContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_Hospital = 1;
+                DataBaseManager.nowPageHospital = 1;
             }
-            else if (DataBaseManager.NowPage_Hospital == 3)
+            else if (DataBaseManager.nowPageHospital == 3)
             {
                 if (countHospital >= 6)
                 {
@@ -2181,12 +2181,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     hospitalContents.transform.GetChild(3).gameObject.SetActive(true);
                     hospitalContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Hospital = 2;
+                DataBaseManager.nowPageHospital = 2;
             }
         }
         if (nowPage == "Newspaper")
         {
-            if (DataBaseManager.NowPage_Newspaper == 2)
+            if (DataBaseManager.nowPageNewspaper == 2)
             {
                 if (countNewspaper >= 6)
                 {
@@ -2213,9 +2213,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     newspaperContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_Newspaper = 1;
+                DataBaseManager.nowPageNewspaper = 1;
             }
-            else if (DataBaseManager.NowPage_Newspaper == 3)
+            else if (DataBaseManager.nowPageNewspaper == 3)
             {
                 if (countNewspaper >= 6)
                 {
@@ -2229,12 +2229,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     newspaperContents.transform.GetChild(3).gameObject.SetActive(true);
                     newspaperContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Newspaper = 2;
+                DataBaseManager.nowPageNewspaper = 2;
             }
         }
         if (nowPage == "QuestHouse")
         {
-            if (DataBaseManager.NowPage_QuestHouse == 2)
+            if (DataBaseManager.nowPageQuestHouse == 2)
             {
                 if (countQuestHouse >= 6)
                 {
@@ -2261,9 +2261,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     questHouseContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_QuestHouse = 1;
+                DataBaseManager.nowPageQuestHouse = 1;
             }
-            else if (DataBaseManager.NowPage_QuestHouse == 3)
+            else if (DataBaseManager.nowPageQuestHouse == 3)
             {
                 if (countQuestHouse >= 6)
                 {
@@ -2277,12 +2277,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     questHouseContents.transform.GetChild(3).gameObject.SetActive(true);
                     questHouseContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_QuestHouse = 2;
+                DataBaseManager.nowPageQuestHouse = 2;
             }
         }
         if (nowPage == "Station")
         {
-            if (DataBaseManager.NowPage_Station == 2)
+            if (DataBaseManager.nowPageStation == 2)
             {
                 if (countStation >= 6)
                 {
@@ -2309,9 +2309,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     stationContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_Station = 1;
+                DataBaseManager.nowPageStation = 1;
             }
-            else if (DataBaseManager.NowPage_Station == 3)
+            else if (DataBaseManager.nowPageStation == 3)
             {
                 if (countStation >= 6)
                 {
@@ -2325,12 +2325,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     stationContents.transform.GetChild(3).gameObject.SetActive(true);
                     stationContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Station = 2;
+                DataBaseManager.nowPageStation = 2;
             }
         }
         if (nowPage == "Sewer")
         {
-            if (DataBaseManager.NowPage_Sewer == 2)
+            if (DataBaseManager.nowPageSewer == 2)
             {
                 if (countSewer >= 6)
                 {
@@ -2357,9 +2357,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     sewerContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_Sewer = 1;
+                DataBaseManager.nowPageSewer = 1;
             }
-            else if (DataBaseManager.NowPage_Sewer == 3)
+            else if (DataBaseManager.nowPageSewer == 3)
             {
                 if (countSewer >= 6)
                 {
@@ -2373,12 +2373,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     sewerContents.transform.GetChild(3).gameObject.SetActive(true);
                     sewerContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Sewer = 2;
+                DataBaseManager.nowPageSewer = 2;
             }
         }
         if (nowPage == "University")
         {
-            if (DataBaseManager.NowPage_University == 2)
+            if (DataBaseManager.nowPageUniversity == 2)
             {
                 if (countUniversity >= 6)
                 {
@@ -2405,9 +2405,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     universityContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_University = 1;
+                DataBaseManager.nowPageUniversity = 1;
             }
-            else if (DataBaseManager.NowPage_University == 3)
+            else if (DataBaseManager.nowPageUniversity == 3)
             {
                 if (countUniversity >= 6)
                 {
@@ -2421,12 +2421,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     universityContents.transform.GetChild(3).gameObject.SetActive(true);
                     universityContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_University = 2;
+                DataBaseManager.nowPageUniversity = 2;
             }
         }
         if (nowPage == "Riverside")
         {
-            if (DataBaseManager.NowPage_Riverside == 2)
+            if (DataBaseManager.nowPageRiverside == 2)
             {
                 if (Count_Riverside >= 6)
                 {
@@ -2453,9 +2453,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     riversideContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_Riverside = 1;
+                DataBaseManager.nowPageRiverside = 1;
             }
-            else if (DataBaseManager.NowPage_Riverside == 3)
+            else if (DataBaseManager.nowPageRiverside == 3)
             {
                 if (Count_Riverside >= 6)
                 {
@@ -2469,12 +2469,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     riversideContents.transform.GetChild(3).gameObject.SetActive(true);
                     riversideContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Riverside = 2;
+                DataBaseManager.nowPageRiverside = 2;
             }
         }
         if (nowPage == "Bar")
         {
-            if (DataBaseManager.NowPage_Bar == 2)
+            if (DataBaseManager.nowPageBar == 2)
             {
                 if (countBar >= 6)
                 {
@@ -2501,9 +2501,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     barContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_Bar = 1;
+                DataBaseManager.nowPageBar = 1;
             }
-            else if (DataBaseManager.NowPage_Bar == 3)
+            else if (DataBaseManager.nowPageBar == 3)
             {
                 if (countBar >= 6)
                 {
@@ -2517,12 +2517,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     barContents.transform.GetChild(3).gameObject.SetActive(true);
                     barContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Bar = 2;
+                DataBaseManager.nowPageBar = 2;
             }
         }
         if (nowPage == "Slum")
         {
-            if (DataBaseManager.NowPage_Slum == 2)
+            if (DataBaseManager.nowPageSlum == 2)
             {
                 if (countSlum >= 6)
                 {
@@ -2549,9 +2549,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     slumContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_Slum = 1;
+                DataBaseManager.nowPageSlum = 1;
             }
-            else if (DataBaseManager.NowPage_Slum == 3)
+            else if (DataBaseManager.nowPageSlum == 3)
             {
                 if (countSlum >= 6)
                 {
@@ -2565,12 +2565,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     slumContents.transform.GetChild(3).gameObject.SetActive(true);
                     slumContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Slum = 2;
+                DataBaseManager.nowPageSlum = 2;
             }
         }
         if (nowPage == "PoliceOffice")
         {
-            if (DataBaseManager.NowPage_PoliceOffice == 2)
+            if (DataBaseManager.nowPagePoliceOffice == 2)
             {
                 if (countPoliceOffice >= 6)
                 {
@@ -2597,9 +2597,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     policeOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_PoliceOffice = 1;
+                DataBaseManager.nowPagePoliceOffice = 1;
             }
-            else if (DataBaseManager.NowPage_PoliceOffice == 3)
+            else if (DataBaseManager.nowPagePoliceOffice == 3)
             {
                 if (countPoliceOffice >= 6)
                 {
@@ -2613,12 +2613,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     policeOfficeContents.transform.GetChild(3).gameObject.SetActive(true);
                     policeOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_PoliceOffice = 2;
+                DataBaseManager.nowPagePoliceOffice = 2;
             }
         }
         if (nowPage == "Gunsmith")
         {
-            if (DataBaseManager.NowPage_Gunsmith == 2)
+            if (DataBaseManager.nowPageGunsmith == 2)
             {
                 if (countGunsmith >= 6)
                 {
@@ -2645,9 +2645,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     gunsmithContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_Gunsmith = 1;
+                DataBaseManager.nowPageGunsmith = 1;
             }
-            else if (DataBaseManager.NowPage_Gunsmith == 3)
+            else if (DataBaseManager.nowPageGunsmith == 3)
             {
                 if (countGunsmith >= 6)
                 {
@@ -2661,12 +2661,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     gunsmithContents.transform.GetChild(3).gameObject.SetActive(true);
                     gunsmithContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Gunsmith = 2;
+                DataBaseManager.nowPageGunsmith = 2;
             }
         }
         if (nowPage == "SewageMaintenanceOffice")
         {
-            if (DataBaseManager.NowPage_SewageMaintenanceOffice == 2)
+            if (DataBaseManager.nowPageSewageMaintenanceOffice == 2)
             {
                 if (countSewageMaintenanceOffice >= 6)
                 {
@@ -2693,9 +2693,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     sewageMaintenanceOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_SewageMaintenanceOffice = 1;
+                DataBaseManager.nowPageSewageMaintenanceOffice = 1;
             }
-            else if (DataBaseManager.NowPage_SewageMaintenanceOffice == 3)
+            else if (DataBaseManager.nowPageSewageMaintenanceOffice == 3)
             {
                 if (countSewageMaintenanceOffice >= 6)
                 {
@@ -2709,12 +2709,12 @@ public class IntelPlaceDetail : MonoBehaviour
                     sewageMaintenanceOfficeContents.transform.GetChild(3).gameObject.SetActive(true);
                     sewageMaintenanceOfficeContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_SewageMaintenanceOffice = 2;
+                DataBaseManager.nowPageSewageMaintenanceOffice = 2;
             }
         }
         if (nowPage == "Wharf")
         {
-            if (DataBaseManager.NowPage_Wharf == 2)
+            if (DataBaseManager.nowPageWharf == 2)
             {
                 if (countWharf >= 6)
                 {
@@ -2741,9 +2741,9 @@ public class IntelPlaceDetail : MonoBehaviour
                     wharfContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
 
-                DataBaseManager.NowPage_Wharf = 1;
+                DataBaseManager.nowPageWharf = 1;
             }
-            else if (DataBaseManager.NowPage_Wharf == 3)
+            else if (DataBaseManager.nowPageWharf == 3)
             {
                 if (countWharf >= 6)
                 {
@@ -2757,7 +2757,7 @@ public class IntelPlaceDetail : MonoBehaviour
                     wharfContents.transform.GetChild(3).gameObject.SetActive(true);
                     wharfContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
-                DataBaseManager.NowPage_Wharf = 2;
+                DataBaseManager.nowPageWharf = 2;
             }
         }
     }

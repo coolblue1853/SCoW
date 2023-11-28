@@ -8,14 +8,14 @@ public class Directing_Object : MonoBehaviour
     {
         if (collision.tag == "Player" && this.name == "Directing_Nock")
         {
-            if (DataBaseManager.fst_Detectiv_TimeOn < -50 && DataBaseManager.fst_Detectiv_TimeOn > -500)
+            if (DataBaseManager.fstDetectivTimeOn < -50 && DataBaseManager.fstDetectivTimeOn > -500)
             {
                 InteractionController.Instance.Start_1st_DetectiveOffice("Directing_Door");
             }
         }
         if (collision.tag == "Player" && this.name == "Directing_NockEnd")
         {
-            DataBaseManager.StoryDirecting = true;
+            DataBaseManager.storyDirecting = true;
             InteractionController.Instance.InSewerDialog("Ending_DoorEnd");
         }
     }

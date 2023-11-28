@@ -77,20 +77,20 @@ public class ShopUI : MonoBehaviour
             DataBaseManager.isOpenUi = false;
             ShopUI_object.SetActive(false);
         }
-        if (DataBaseManager.SmallPistol > 0 && SO_SmallPistol.activeSelf == false)
+        if (DataBaseManager.smallPistol > 0 && SO_SmallPistol.activeSelf == false)
         {
             SO_SmallPistol.SetActive(true);
         }
         if (ShopUI_object.activeSelf == true)
         {
             WealthText.text = "wealth : " + DataBaseManager.weal;
-            PistolAmmoText.text = "Hold:" + DataBaseManager.PistolAmmo + "Pcs";
-            RifleAmmoText.text = "Hold:" + DataBaseManager.RifleAmmo + "Pcs";
-            ShotgunAmmoText.text = "Hold:" + DataBaseManager.ShotgunAmmo + "Pcs";
-            MolotovText.text = "Hold:" + DataBaseManager.Molotov + "Pcs";
-            BandageText.text = "Hold:" + DataBaseManager.Bandages + "Pcs";
-            AidKitText.text = "Hold:" + DataBaseManager.Firstaidkit + "Pcs";
-            PainkillerText.text = "Hold:" + DataBaseManager.Painkillers + "Pcs";
+            PistolAmmoText.text = "Hold:" + DataBaseManager.pistolAmmo + "Pcs";
+            RifleAmmoText.text = "Hold:" + DataBaseManager.rifleAmmo + "Pcs";
+            ShotgunAmmoText.text = "Hold:" + DataBaseManager.shotgunAmmo + "Pcs";
+            MolotovText.text = "Hold:" + DataBaseManager.molotov + "Pcs";
+            BandageText.text = "Hold:" + DataBaseManager.bandages + "Pcs";
+            AidKitText.text = "Hold:" + DataBaseManager.firstaidkit + "Pcs";
+            PainkillerText.text = "Hold:" + DataBaseManager.painkillers + "Pcs";
         }
     }
     public void ExtravoltON()
@@ -113,21 +113,21 @@ public class ShopUI : MonoBehaviour
     public void BuySmallPistol()
     {
         SoundManager.Instance.ClickSound_Play();
-        if (DataBaseManager.Extravagant == true)
+        if (DataBaseManager.extravagant == true)
         {
-            if (DataBaseManager.weal >= 12 && DataBaseManager.SmallPistol == 0)
+            if (DataBaseManager.weal >= 12 && DataBaseManager.smallPistol == 0)
             {
                 DataBaseManager.weal -= 12;
-                DataBaseManager.SmallPistol = 1;
+                DataBaseManager.smallPistol = 1;
                 SO_SmallPistol.SetActive(true);
             }
         }
         else
         {
-            if (DataBaseManager.weal >= 10 && DataBaseManager.SmallPistol == 0)
+            if (DataBaseManager.weal >= 10 && DataBaseManager.smallPistol == 0)
             {
                 DataBaseManager.weal -= 10;
-                DataBaseManager.SmallPistol = 1;
+                DataBaseManager.smallPistol = 1;
                 SO_SmallPistol.SetActive(true);
             }
         }
@@ -135,21 +135,21 @@ public class ShopUI : MonoBehaviour
     public void BuyRevolver()
     {
         SoundManager.Instance.ClickSound_Play();
-        if (DataBaseManager.Extravagant == true)
+        if (DataBaseManager.extravagant == true)
         {
-            if (DataBaseManager.weal >= 14 && DataBaseManager.Revolver == 0)
+            if (DataBaseManager.weal >= 14 && DataBaseManager.revolver == 0)
             {
                 DataBaseManager.weal -= 14;
-                DataBaseManager.Revolver = 1;
+                DataBaseManager.revolver = 1;
                 SO_Revolver.SetActive(true);
             }
         }
         else
         {
-            if (DataBaseManager.weal >= 12 && DataBaseManager.Revolver == 0)
+            if (DataBaseManager.weal >= 12 && DataBaseManager.revolver == 0)
             {
                 DataBaseManager.weal -= 12;
-                DataBaseManager.Revolver = 1;
+                DataBaseManager.revolver = 1;
                 SO_Revolver.SetActive(true);
             }
         }
@@ -157,21 +157,21 @@ public class ShopUI : MonoBehaviour
     public void BuyRifle()
     {
         SoundManager.Instance.ClickSound_Play();
-        if (DataBaseManager.Extravagant == true)
+        if (DataBaseManager.extravagant == true)
         {
-            if (DataBaseManager.weal >= 22 && DataBaseManager.Rifle == 0)
+            if (DataBaseManager.weal >= 22 && DataBaseManager.rifle == 0)
             {
                 DataBaseManager.weal -= 22;
-                DataBaseManager.Rifle = 1;
+                DataBaseManager.rifle = 1;
                 SO_Rifle.SetActive(true);
             }
         }
         else
         {
-            if (DataBaseManager.weal >= 20 && DataBaseManager.Rifle == 0)
+            if (DataBaseManager.weal >= 20 && DataBaseManager.rifle == 0)
             {
                 DataBaseManager.weal -= 20;
-                DataBaseManager.Rifle = 1;
+                DataBaseManager.rifle = 1;
                 SO_Rifle.SetActive(true);
             }
         }
@@ -179,21 +179,21 @@ public class ShopUI : MonoBehaviour
     public void BuyShotgun()
     {
         SoundManager.Instance.ClickSound_Play();
-        if (DataBaseManager.Extravagant == true)
+        if (DataBaseManager.extravagant == true)
         {
-            if (DataBaseManager.weal >= 20 && DataBaseManager.Shotgun == 0)
+            if (DataBaseManager.weal >= 20 && DataBaseManager.shotgun == 0)
             {
                 DataBaseManager.weal -= 20;
-                DataBaseManager.Shotgun = 1;
+                DataBaseManager.shotgun = 1;
                 SO_Shotgun.SetActive(true);
             }
         }
         else
         {
-            if (DataBaseManager.weal >= 18 && DataBaseManager.Shotgun == 0)
+            if (DataBaseManager.weal >= 18 && DataBaseManager.shotgun == 0)
             {
                 DataBaseManager.weal -= 18;
-                DataBaseManager.Shotgun = 1;
+                DataBaseManager.shotgun = 1;
                 SO_Shotgun.SetActive(true);
             }
         }
@@ -201,12 +201,12 @@ public class ShopUI : MonoBehaviour
     public void BuyPistolAmmo()
     {
         SoundManager.Instance.ClickSound_Play();
-        if (DataBaseManager.Extravagant == true)
+        if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 3)
             {
                 DataBaseManager.weal -= 3;
-                DataBaseManager.PistolAmmo += 12;
+                DataBaseManager.pistolAmmo += 12;
             }
         }
         else
@@ -214,19 +214,19 @@ public class ShopUI : MonoBehaviour
             if (DataBaseManager.weal >= 2)
             {
                 DataBaseManager.weal -= 2;
-                DataBaseManager.PistolAmmo += 12;
+                DataBaseManager.pistolAmmo += 12;
             }
         }
     }
     public void BuyRifleAmmo()
     {
         SoundManager.Instance.ClickSound_Play();
-        if (DataBaseManager.Extravagant == true)
+        if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 3)
             {
                 DataBaseManager.weal -= 3;
-                DataBaseManager.RifleAmmo += 5;
+                DataBaseManager.rifleAmmo += 5;
             }
         }
         else
@@ -234,19 +234,19 @@ public class ShopUI : MonoBehaviour
             if (DataBaseManager.weal >= 2)
             {
                 DataBaseManager.weal -= 2;
-                DataBaseManager.RifleAmmo += 5;
+                DataBaseManager.rifleAmmo += 5;
             }
         }
     }
     public void BuyShotgunAmmo()
     {
         SoundManager.Instance.ClickSound_Play();
-        if (DataBaseManager.Extravagant == true)
+        if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 5)
             {
                 DataBaseManager.weal -= 5;
-                DataBaseManager.ShotgunAmmo += 8;
+                DataBaseManager.shotgunAmmo += 8;
             }
         }
         else
@@ -255,28 +255,28 @@ public class ShopUI : MonoBehaviour
             if (DataBaseManager.weal >= 4)
             {
                 DataBaseManager.weal -= 4;
-                DataBaseManager.ShotgunAmmo += 8;
+                DataBaseManager.shotgunAmmo += 8;
             }
         }
     }
     public void BuyBat()
     {
         SoundManager.Instance.ClickSound_Play();
-        if (DataBaseManager.Extravagant == true)
+        if (DataBaseManager.extravagant == true)
         {
-            if (DataBaseManager.weal >= 7 && DataBaseManager.Bat == 0)
+            if (DataBaseManager.weal >= 7 && DataBaseManager.bat == 0)
             {
                 DataBaseManager.weal -= 7;
-                DataBaseManager.Bat = 1;
+                DataBaseManager.bat = 1;
                 SO_Bat.SetActive(true);
             }
         }
         else
         {
-            if (DataBaseManager.weal >= 5 && DataBaseManager.Bat == 0)
+            if (DataBaseManager.weal >= 5 && DataBaseManager.bat == 0)
             {
                 DataBaseManager.weal -= 5;
-                DataBaseManager.Bat = 1;
+                DataBaseManager.bat = 1;
                 SO_Bat.SetActive(true);
             }
         }
@@ -284,21 +284,21 @@ public class ShopUI : MonoBehaviour
     public void BuyDagger()
     {
         SoundManager.Instance.ClickSound_Play();
-        if (DataBaseManager.Extravagant == true)
+        if (DataBaseManager.extravagant == true)
         {
-            if (DataBaseManager.weal >= 10 && DataBaseManager.Dagger == 0)
+            if (DataBaseManager.weal >= 10 && DataBaseManager.dagger == 0)
             {
                 DataBaseManager.weal -= 10;
-                DataBaseManager.Dagger = 1;
+                DataBaseManager.dagger = 1;
                 SO_Dagger.SetActive(true);
             }
         }
         else
         {
-            if (DataBaseManager.weal >= 8 && DataBaseManager.Dagger == 0)
+            if (DataBaseManager.weal >= 8 && DataBaseManager.dagger == 0)
             {
                 DataBaseManager.weal -= 8;
-                DataBaseManager.Dagger = 1;
+                DataBaseManager.dagger = 1;
                 SO_Dagger.SetActive(true);
             }
         }
@@ -306,21 +306,21 @@ public class ShopUI : MonoBehaviour
     public void BuyAxe()
     {
         SoundManager.Instance.ClickSound_Play();
-        if (DataBaseManager.Extravagant == true)
+        if (DataBaseManager.extravagant == true)
         {
-            if (DataBaseManager.weal >= 12 && DataBaseManager.Axe == 0)
+            if (DataBaseManager.weal >= 12 && DataBaseManager.axe == 0)
             {
                 DataBaseManager.weal -= 12;
-                DataBaseManager.Axe = 1;
+                DataBaseManager.axe = 1;
                 SO_Axe.SetActive(true);
             }
         }
         else
         {
-            if (DataBaseManager.weal >= 10 && DataBaseManager.Axe == 0)
+            if (DataBaseManager.weal >= 10 && DataBaseManager.axe == 0)
             {
                 DataBaseManager.weal -= 10;
-                DataBaseManager.Axe = 1;
+                DataBaseManager.axe = 1;
                 SO_Axe.SetActive(true);
             }
         }
@@ -328,12 +328,12 @@ public class ShopUI : MonoBehaviour
     public void BuyMolotov()
     {
         SoundManager.Instance.ClickSound_Play();
-        if (DataBaseManager.Extravagant == true)
+        if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 4)
             {
                 DataBaseManager.weal -= 4;
-                DataBaseManager.Molotov += 1;
+                DataBaseManager.molotov += 1;
             }
         }
         else
@@ -341,19 +341,19 @@ public class ShopUI : MonoBehaviour
             if (DataBaseManager.weal >= 2)
             {
                 DataBaseManager.weal -= 2;
-                DataBaseManager.Molotov += 1;
+                DataBaseManager.molotov += 1;
             }
         }
     }
     public void BuyBandage()
     {
         SoundManager.Instance.ClickSound_Play();
-        if (DataBaseManager.Extravagant == true)
+        if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 3)
             {
                 DataBaseManager.weal -= 3;
-                DataBaseManager.Bandages += 1;
+                DataBaseManager.bandages += 1;
             }
         }
         else
@@ -361,19 +361,19 @@ public class ShopUI : MonoBehaviour
             if (DataBaseManager.weal >= 2)
             {
                 DataBaseManager.weal -= 2;
-                DataBaseManager.Bandages += 1;
+                DataBaseManager.bandages += 1;
             }
         }
     }
     public void BuyAidkit()
     {
         SoundManager.Instance.ClickSound_Play();
-        if (DataBaseManager.Extravagant == true)
+        if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 6)
             {
                 DataBaseManager.weal -= 6;
-                DataBaseManager.Firstaidkit += 1;
+                DataBaseManager.firstaidkit += 1;
             }
         }
         else
@@ -381,19 +381,19 @@ public class ShopUI : MonoBehaviour
             if (DataBaseManager.weal >= 5)
             {
                 DataBaseManager.weal -= 5;
-                DataBaseManager.Firstaidkit += 1;
+                DataBaseManager.firstaidkit += 1;
             }
         }
     }
     public void BuyPainkiller()
     {
         SoundManager.Instance.ClickSound_Play();
-        if (DataBaseManager.Extravagant == true)
+        if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 4)
             {
                 DataBaseManager.weal -= 4;
-                DataBaseManager.Painkillers += 1;
+                DataBaseManager.painkillers += 1;
             }
         }
         else
@@ -401,7 +401,7 @@ public class ShopUI : MonoBehaviour
             if (DataBaseManager.weal >= 3)
             {
                 DataBaseManager.weal -= 3;
-                DataBaseManager.Painkillers += 1;
+                DataBaseManager.painkillers += 1;
             }
         }
     }

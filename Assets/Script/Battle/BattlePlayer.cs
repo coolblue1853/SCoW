@@ -54,11 +54,11 @@ public class BattlePlayer : MonoBehaviour
     }
     void Update()
     {
-        if (DataBaseManager.PosionDebuff > 0 && posionActive.activeSelf == false)
+        if (DataBaseManager.posionDebuff > 0 && posionActive.activeSelf == false)
         {
             posionActive.SetActive(true);
         }
-        else if (DataBaseManager.PosionDebuff <= 0 && posionActive.activeSelf == true)
+        else if (DataBaseManager.posionDebuff <= 0 && posionActive.activeSelf == true)
         {
             posionActive.SetActive(false);
         }
@@ -66,21 +66,21 @@ public class BattlePlayer : MonoBehaviour
         {
             if (BattleManager.Instance.playerAction == "PlayerSwords")
             {
-                if (DataBaseManager.BattleWeapon == "Dagger" && playerRender.sprite != daggerReady)
+                if (DataBaseManager.battleWeapon == "Dagger" && playerRender.sprite != daggerReady)
                 {
                     SoundManager.Instance.Battle_Sound("Dagger_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
                     BattleManager.Instance.battleState = "selectEnemy";
                     playerRender.sprite = daggerReady;
                 }
-                else if (DataBaseManager.BattleWeapon == "Bat" && playerRender.sprite != batReady)
+                else if (DataBaseManager.battleWeapon == "Bat" && playerRender.sprite != batReady)
                 {
                     SoundManager.Instance.Battle_Sound("Bat_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
                     BattleManager.Instance.battleState = "selectEnemy";
                     playerRender.sprite = batReady;
                 }
-                else if (DataBaseManager.BattleWeapon == "Axe" && playerRender.sprite != axeReady)
+                else if (DataBaseManager.battleWeapon == "Axe" && playerRender.sprite != axeReady)
                 {
                     SoundManager.Instance.Battle_Sound("Axe_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
@@ -90,28 +90,28 @@ public class BattlePlayer : MonoBehaviour
             }
             if (BattleManager.Instance.playerAction == "PlayerMarkmen")
             {
-                if (DataBaseManager.BattleWeapon == "SmallPistol" && playerRender.sprite != smallPistolReady && DataBaseManager.nowSmallPistol > 0)
+                if (DataBaseManager.battleWeapon == "SmallPistol" && playerRender.sprite != smallPistolReady && DataBaseManager.nowSmallPistol > 0)
                 {
                     SoundManager.Instance.Battle_Sound("SmallPisol_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
                     BattleManager.Instance.battleState = "selectEnemy";
                     playerRender.sprite = smallPistolReady;
                 }
-                else if (DataBaseManager.BattleWeapon == "Revolver" && playerRender.sprite != revolverReady && DataBaseManager.nowRevolver > 0)
+                else if (DataBaseManager.battleWeapon == "Revolver" && playerRender.sprite != revolverReady && DataBaseManager.nowRevolver > 0)
                 {
                     SoundManager.Instance.Battle_Sound("Revolver_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
                     BattleManager.Instance.battleState = "selectEnemy";
                     playerRender.sprite = revolverReady;
                 }
-                else if (DataBaseManager.BattleWeapon == "Rifle" && playerRender.sprite != rifleReady && DataBaseManager.nowRifle > 0)
+                else if (DataBaseManager.battleWeapon == "Rifle" && playerRender.sprite != rifleReady && DataBaseManager.nowRifle > 0)
                 {
                     SoundManager.Instance.Battle_Sound("Rifle_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
                     BattleManager.Instance.battleState = "selectEnemy";
                     playerRender.sprite = rifleReady;
                 }
-                else if (DataBaseManager.BattleWeapon == "Shotgun" && playerRender.sprite != shotgunReady && DataBaseManager.nowShotgun > 0)
+                else if (DataBaseManager.battleWeapon == "Shotgun" && playerRender.sprite != shotgunReady && DataBaseManager.nowShotgun > 0)
                 {
                     SoundManager.Instance.Battle_Sound("Shotgun_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
@@ -121,14 +121,14 @@ public class BattlePlayer : MonoBehaviour
             }
             if (BattleManager.Instance.playerAction == "PlayerDeftness")
             {
-                if (DataBaseManager.BattleWeapon == "Rock" && playerRender.sprite != rockReady)
+                if (DataBaseManager.battleWeapon == "Rock" && playerRender.sprite != rockReady)
                 {
                     SoundManager.Instance.Battle_Sound("Rock_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
                     BattleManager.Instance.battleState = "selectEnemy";
                     playerRender.sprite = rockReady;
                 }
-                else if (DataBaseManager.BattleWeapon == "Molotov" && playerRender.sprite != molotovReady && DataBaseManager.Molotov > 0)
+                else if (DataBaseManager.battleWeapon == "Molotov" && playerRender.sprite != molotovReady && DataBaseManager.molotov > 0)
                 {
                     SoundManager.Instance.Battle_Sound("Molotov_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);

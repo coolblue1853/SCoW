@@ -25,7 +25,7 @@ public class LightBulbContorol : MonoBehaviour
 
     void Update()
     {
-        if ((DataBaseManager.TimeCount % 4) == 3 || (DataBaseManager.TimeCount % 4) == 0)
+        if ((DataBaseManager.timeCount % 4) == 3 || (DataBaseManager.timeCount % 4) == 0)
         {
             bulb_1.SetActive(true);
             bulb_2.SetActive(true);

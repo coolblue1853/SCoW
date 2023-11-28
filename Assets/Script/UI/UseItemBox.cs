@@ -20,7 +20,7 @@ public class UseItemBox : MonoBehaviour
     }
     public void ClickYes()
     {
-        if (DataBaseManager.isDebuff_DrugPhobia != true)
+        if (DataBaseManager.isDebuffDrugPhobia != true)
         {
             DataBaseManager.isOpenUi = false;
             UseUI.SetActive(false);
@@ -41,7 +41,7 @@ public class UseItemBox : MonoBehaviour
                     Heal = DataBaseManager.san - DataBaseManager.nowSan;
                 }
                 BillowUIManager.Instance.San_up(Heal);
-                DataBaseManager.Painkillers -= 1;
+                DataBaseManager.painkillers -= 1;
             }
         }
     }
@@ -52,15 +52,15 @@ public class UseItemBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (DataBaseManager.nowItem == "Bandages" && DataBaseManager.Bandages > 0)
+        if (DataBaseManager.nowItem == "Bandages" && DataBaseManager.bandages > 0)
         {
             imageComponent.sprite = Bandages;
         }
-        else if (DataBaseManager.nowItem == "First aid kit" && DataBaseManager.Firstaidkit > 0)
+        else if (DataBaseManager.nowItem == "First aid kit" && DataBaseManager.firstaidkit > 0)
         {
             imageComponent.sprite = Firstaidkit;
         }
-        else if (DataBaseManager.nowItem == "Painkillers" && DataBaseManager.Painkillers > 0)
+        else if (DataBaseManager.nowItem == "Painkillers" && DataBaseManager.painkillers > 0)
         {
             imageComponent.sprite = Painkillers;
         }

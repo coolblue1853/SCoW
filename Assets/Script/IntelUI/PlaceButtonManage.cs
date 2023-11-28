@@ -78,164 +78,164 @@ public class PlaceButtonManage : MonoBehaviour
     
     void ButtonUpdate()
     {
-        if ((DataBaseManager.Intel_DetectiveOffice1 == true || DataBaseManager.Intel_DetectiveOffice2 == true || DataBaseManager.Intel_DetectiveOffice3 == true || DataBaseManager.Intel_DetectiveOffice4 == true || DataBaseManager.Intel_DetectiveOffice5 == true || DataBaseManager.Intel_DetectiveOffice6 == true) && isButtonDetectiveOffice == false)
+        if ((DataBaseManager.intelDetectiveOffice1 == true || DataBaseManager.intelDetectiveOffice2 == true || DataBaseManager.intelDetectiveOffice3 == true || DataBaseManager.intelDetectiveOffice4 == true || DataBaseManager.intelDetectiveOffice5 == true || DataBaseManager.intelDetectiveOffice6 == true) && isButtonDetectiveOffice == false)
         {
             isButtonDetectiveOffice = true;
-            DataBaseManager.ButtonCount_DetectiveOffice = DataBaseManager.GainPlaceInt;
-            DataBaseManager.GainPlaceInt += 1;
+            DataBaseManager.buttonCountDetectiveOffice = DataBaseManager.gainPlaceInt;
+            DataBaseManager.gainPlaceInt += 1;
         }
-        if ((DataBaseManager.Intel_Hospital1 == true || DataBaseManager.Intel_Hospital2 == true || DataBaseManager.Intel_Hospital3 == true || DataBaseManager.Intel_Hospital4 == true || DataBaseManager.Intel_Hospital5 == true || DataBaseManager.Intel_Hospital6 == true) && isButtonHospital == false)
+        if ((DataBaseManager.intelHospital1 == true || DataBaseManager.intelHospital2 == true || DataBaseManager.intelHospital3 == true || DataBaseManager.intelHospital4 == true || DataBaseManager.intelHospital5 == true || DataBaseManager.intelHospital6 == true) && isButtonHospital == false)
         {
             isButtonHospital = true;
-            DataBaseManager.ButtonCount_Hospital = DataBaseManager.GainPlaceInt;
-            DataBaseManager.GainPlaceInt += 1;
+            DataBaseManager.buttonCountHospital = DataBaseManager.gainPlaceInt;
+            DataBaseManager.gainPlaceInt += 1;
         }
-        if ((DataBaseManager.Intel_Newspaper1 == true || DataBaseManager.Intel_Newspaper2 == true || DataBaseManager.Intel_Newspaper3 == true || DataBaseManager.Intel_Newspaper4 == true || DataBaseManager.Intel_Newspaper5 == true || DataBaseManager.Intel_Newspaper6 == true) && isButtonNewspaper == false)
+        if ((DataBaseManager.intelNewspaper1 == true || DataBaseManager.intelNewspaper2 == true || DataBaseManager.intelNewspaper3 == true || DataBaseManager.intelNewspaper4 == true || DataBaseManager.intelNewspaper5 == true || DataBaseManager.intelNewspaper6 == true) && isButtonNewspaper == false)
         {
             isButtonNewspaper = true;
-            DataBaseManager.ButtonCount_Newspaper = DataBaseManager.GainPlaceInt;
-            DataBaseManager.GainPlaceInt += 1;
+            DataBaseManager.buttonCountNewspaper = DataBaseManager.gainPlaceInt;
+            DataBaseManager.gainPlaceInt += 1;
         }
-        if ((DataBaseManager.Intel_QuestHouse1 == true || DataBaseManager.Intel_QuestHouse2 == true || DataBaseManager.Intel_QuestHouse3 == true || DataBaseManager.Intel_QuestHouse4 == true || DataBaseManager.Intel_QuestHouse5 == true || DataBaseManager.Intel_QuestHouse6 == true) && isButtonQuestHouse == false)
+        if ((DataBaseManager.intelQuestHouse1 == true || DataBaseManager.intelQuestHouse2 == true || DataBaseManager.intelQuestHouse3 == true || DataBaseManager.intelQuestHouse4 == true || DataBaseManager.intelQuestHouse5 == true || DataBaseManager.intelQuestHouse6 == true) && isButtonQuestHouse == false)
         {
             isButtonQuestHouse = true;
-            DataBaseManager.ButtonCount_QuestHouse = DataBaseManager.GainPlaceInt;
-            DataBaseManager.GainPlaceInt += 1;
+            DataBaseManager.buttonCountQuestHouse = DataBaseManager.gainPlaceInt;
+            DataBaseManager.gainPlaceInt += 1;
         }
-        if ((DataBaseManager.Intel_Station1 == true || DataBaseManager.Intel_Station2 == true || DataBaseManager.Intel_Station3 == true || DataBaseManager.Intel_Station4 == true || DataBaseManager.Intel_Station5 == true || DataBaseManager.Intel_Station6 == true) && isButtonStation == false)
+        if ((DataBaseManager.intelStation1 == true || DataBaseManager.intelStation2 == true || DataBaseManager.intelStation3 == true || DataBaseManager.intelStation4 == true || DataBaseManager.intelStation5 == true || DataBaseManager.intelStation6 == true) && isButtonStation == false)
         {
             isButtonStation = true;
-            DataBaseManager.ButtonCount_Station = DataBaseManager.GainPlaceInt;
-            DataBaseManager.GainPlaceInt += 1;
+            DataBaseManager.buttonCountStation = DataBaseManager.gainPlaceInt;
+            DataBaseManager.gainPlaceInt += 1;
         }
-        if ((DataBaseManager.Intel_Sewer1 == true || DataBaseManager.Intel_Sewer2 == true || DataBaseManager.Intel_Sewer3 == true || DataBaseManager.Intel_Sewer4 == true || DataBaseManager.Intel_Sewer5 == true || DataBaseManager.Intel_Sewer6 == true) && isButtonRestaurant == false)
+        if ((DataBaseManager.intelSewer1 == true || DataBaseManager.intelSewer2 == true || DataBaseManager.intelSewer3 == true || DataBaseManager.intelSewer4 == true || DataBaseManager.intelSewer5 == true || DataBaseManager.intelSewer6 == true) && isButtonRestaurant == false)
         {
             isButtonRestaurant = true;
-            DataBaseManager.ButtonCount_Sewer = DataBaseManager.GainPlaceInt;
-            DataBaseManager.GainPlaceInt += 1;
+            DataBaseManager.buttonCountSewer = DataBaseManager.gainPlaceInt;
+            DataBaseManager.gainPlaceInt += 1;
         }
-        if ((DataBaseManager.Intel_University1 == true || DataBaseManager.Intel_University2 == true || DataBaseManager.Intel_University3 == true || DataBaseManager.Intel_University4 == true || DataBaseManager.Intel_University5 == true || DataBaseManager.Intel_University6 == true) && isButtonUniversity == false)
+        if ((DataBaseManager.intelUniversity1 == true || DataBaseManager.intelUniversity2 == true || DataBaseManager.intelUniversity3 == true || DataBaseManager.intelUniversity4 == true || DataBaseManager.intelUniversity5 == true || DataBaseManager.intelUniversity6 == true) && isButtonUniversity == false)
         {
             isButtonUniversity = true;
-            DataBaseManager.ButtonCount_University = DataBaseManager.GainPlaceInt;
-            DataBaseManager.GainPlaceInt += 1;
+            DataBaseManager.buttonCountUniversity = DataBaseManager.gainPlaceInt;
+            DataBaseManager.gainPlaceInt += 1;
         }
-        if ((DataBaseManager.Intel_Riverside1 == true || DataBaseManager.Intel_Riverside2 == true || DataBaseManager.Intel_Riverside3 == true || DataBaseManager.Intel_Riverside4 == true || DataBaseManager.Intel_Riverside5 == true || DataBaseManager.Intel_Riverside6 == true) && isButtonRiverside == false)
+        if ((DataBaseManager.intelRiverside1 == true || DataBaseManager.intelRiverside2 == true || DataBaseManager.intelRiverside3 == true || DataBaseManager.intelRiverside4 == true || DataBaseManager.intelRiverside5 == true || DataBaseManager.intelRiverside6 == true) && isButtonRiverside == false)
         {
             isButtonRiverside = true;
-            DataBaseManager.ButtonCount_Riverside = DataBaseManager.GainPlaceInt;
-            DataBaseManager.GainPlaceInt += 1;
+            DataBaseManager.buttonCountRiverside = DataBaseManager.gainPlaceInt;
+            DataBaseManager.gainPlaceInt += 1;
         }
-        if ((DataBaseManager.Intel_Bar1 == true || DataBaseManager.Intel_Bar2 == true || DataBaseManager.Intel_Bar3 == true || DataBaseManager.Intel_Bar4 == true || DataBaseManager.Intel_Bar5 == true || DataBaseManager.Intel_Bar6 == true) && isButtonBar == false)
+        if ((DataBaseManager.intelBar1 == true || DataBaseManager.intelBar2 == true || DataBaseManager.intelBar3 == true || DataBaseManager.intelBar4 == true || DataBaseManager.intelBar5 == true || DataBaseManager.intelBar6 == true) && isButtonBar == false)
         {
             isButtonBar = true;
-            DataBaseManager.ButtonCount_Bar = DataBaseManager.GainPlaceInt;
-            DataBaseManager.GainPlaceInt += 1;
+            DataBaseManager.buttonCountBar = DataBaseManager.gainPlaceInt;
+            DataBaseManager.gainPlaceInt += 1;
         }
-        if ((DataBaseManager.Intel_Slum1 == true || DataBaseManager.Intel_Slum2 == true || DataBaseManager.Intel_Slum3 == true || DataBaseManager.Intel_Slum4 == true || DataBaseManager.Intel_Slum5 == true || DataBaseManager.Intel_Slum6 == true) && isButtonSlum == false)
+        if ((DataBaseManager.intelSlum1 == true || DataBaseManager.intelSlum2 == true || DataBaseManager.intelSlum3 == true || DataBaseManager.intelSlum4 == true || DataBaseManager.intelSlum5 == true || DataBaseManager.intelSlum6 == true) && isButtonSlum == false)
         {
             isButtonSlum = true;
-            DataBaseManager.ButtonCount_Slum = DataBaseManager.GainPlaceInt;
-            DataBaseManager.GainPlaceInt += 1;
+            DataBaseManager.buttonCountSlum = DataBaseManager.gainPlaceInt;
+            DataBaseManager.gainPlaceInt += 1;
         }
-        if ((DataBaseManager.Intel_PoliceOffice1 == true || DataBaseManager.Intel_PoliceOffice2 == true || DataBaseManager.Intel_PoliceOffice3 == true || DataBaseManager.Intel_PoliceOffice4 == true || DataBaseManager.Intel_PoliceOffice5 == true || DataBaseManager.Intel_PoliceOffice6 == true) && isButtonPoliceOffice == false)
+        if ((DataBaseManager.intelPoliceOffice1 == true || DataBaseManager.intelPoliceOffice2 == true || DataBaseManager.intelPoliceOffice3 == true || DataBaseManager.intelPoliceOffice4 == true || DataBaseManager.intelPoliceOffice5 == true || DataBaseManager.intelPoliceOffice6 == true) && isButtonPoliceOffice == false)
         {
             isButtonPoliceOffice = true;
-            DataBaseManager.ButtonCount_PoliceOffice = DataBaseManager.GainPlaceInt;
-            DataBaseManager.GainPlaceInt += 1;
+            DataBaseManager.buttonCountPoliceOffice = DataBaseManager.gainPlaceInt;
+            DataBaseManager.gainPlaceInt += 1;
         }
-        if ((DataBaseManager.Intel_Gunsmith1 == true || DataBaseManager.Intel_Gunsmith2 == true || DataBaseManager.Intel_Gunsmith3 == true || DataBaseManager.Intel_Gunsmith4 == true || DataBaseManager.Intel_Gunsmith5 == true || DataBaseManager.Intel_Gunsmith6 == true) && isButtonGunsmith == false)
+        if ((DataBaseManager.intelGunsmith1 == true || DataBaseManager.intelGunsmith2 == true || DataBaseManager.intelGunsmith3 == true || DataBaseManager.intelGunsmith4 == true || DataBaseManager.intelGunsmith5 == true || DataBaseManager.intelGunsmith6 == true) && isButtonGunsmith == false)
         {
             isButtonGunsmith = true;
-            DataBaseManager.ButtonCount_Gunsmith = DataBaseManager.GainPlaceInt;
-            DataBaseManager.GainPlaceInt += 1;
+            DataBaseManager.buttonCountGunsmith = DataBaseManager.gainPlaceInt;
+            DataBaseManager.gainPlaceInt += 1;
         }
-        if ((DataBaseManager.Intel_SewageMaintenanceOffice1 == true || DataBaseManager.Intel_SewageMaintenanceOffice2 == true || DataBaseManager.Intel_SewageMaintenanceOffice3 == true || DataBaseManager.Intel_SewageMaintenanceOffice4 == true || DataBaseManager.Intel_SewageMaintenanceOffice5 == true || DataBaseManager.Intel_SewageMaintenanceOffice6 == true) && isButtonSewageMaintenanceOffice == false)
+        if ((DataBaseManager.intelSewageMaintenanceOffice1 == true || DataBaseManager.intelSewageMaintenanceOffice2 == true || DataBaseManager.intelSewageMaintenanceOffice3 == true || DataBaseManager.intelSewageMaintenanceOffice4 == true || DataBaseManager.intelSewageMaintenanceOffice5 == true || DataBaseManager.intelSewageMaintenanceOffice6 == true) && isButtonSewageMaintenanceOffice == false)
         {
             isButtonSewageMaintenanceOffice = true;
-            DataBaseManager.ButtonCount_SewageMaintenanceOffice = DataBaseManager.GainPlaceInt;
-            DataBaseManager.GainPlaceInt += 1;
+            DataBaseManager.buttonCountSewageMaintenanceOffice = DataBaseManager.gainPlaceInt;
+            DataBaseManager.gainPlaceInt += 1;
         }
-        if ((DataBaseManager.Intel_Wharf1 == true || DataBaseManager.Intel_Wharf2 == true || DataBaseManager.Intel_Wharf3 == true || DataBaseManager.Intel_Wharf4 == true || DataBaseManager.Intel_Wharf5 == true || DataBaseManager.Intel_Wharf6 == true) && isButtonWharf == false)
+        if ((DataBaseManager.intelWharf1 == true || DataBaseManager.intelWharf2 == true || DataBaseManager.intelWharf3 == true || DataBaseManager.intelWharf4 == true || DataBaseManager.intelWharf5 == true || DataBaseManager.intelWharf6 == true) && isButtonWharf == false)
         {
             isButtonWharf = true;
-            DataBaseManager.ButtonCount_Wharf = DataBaseManager.GainPlaceInt;
-            DataBaseManager.GainPlaceInt += 1;
+            DataBaseManager.buttonCountWharf = DataBaseManager.gainPlaceInt;
+            DataBaseManager.gainPlaceInt += 1;
         }
     }
     void ButtonDetail()
     {
-        if (DataBaseManager.ButtonCount_DetectiveOffice != -1)
+        if (DataBaseManager.buttonCountDetectiveOffice != -1)
         {
             buttonDetectiveOffice.SetActive(true);
-            buttonDetectiveOffice.transform.SetSiblingIndex(DataBaseManager.ButtonCount_DetectiveOffice);
+            buttonDetectiveOffice.transform.SetSiblingIndex(DataBaseManager.buttonCountDetectiveOffice);
         }
-        if (DataBaseManager.ButtonCount_Hospital != -1)
+        if (DataBaseManager.buttonCountHospital != -1)
         {
             buttonHospital.SetActive(true);
-            buttonHospital.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Hospital);
+            buttonHospital.transform.SetSiblingIndex(DataBaseManager.buttonCountHospital);
         }
-        if (DataBaseManager.ButtonCount_Newspaper != -1)
+        if (DataBaseManager.buttonCountNewspaper != -1)
         {
             buttonNewspaper.SetActive(true);
-            buttonNewspaper.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Newspaper);
+            buttonNewspaper.transform.SetSiblingIndex(DataBaseManager.buttonCountNewspaper);
         }
-        if (DataBaseManager.ButtonCount_QuestHouse != -1)
+        if (DataBaseManager.buttonCountQuestHouse != -1)
         {
             buttonQuestHouse.SetActive(true);
-            buttonQuestHouse.transform.SetSiblingIndex(DataBaseManager.ButtonCount_QuestHouse);
+            buttonQuestHouse.transform.SetSiblingIndex(DataBaseManager.buttonCountQuestHouse);
         }
-        if (DataBaseManager.ButtonCount_Station != -1)
+        if (DataBaseManager.buttonCountStation != -1)
         {
             buttonStation.SetActive(true);
-            buttonStation.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Station);
+            buttonStation.transform.SetSiblingIndex(DataBaseManager.buttonCountStation);
         }
-        if (DataBaseManager.ButtonCount_Sewer != -1)
+        if (DataBaseManager.buttonCountSewer != -1)
         {
             buttonRestaurant.SetActive(true);
-            buttonRestaurant.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Sewer);
+            buttonRestaurant.transform.SetSiblingIndex(DataBaseManager.buttonCountSewer);
         }
-        if (DataBaseManager.ButtonCount_University != -1)
+        if (DataBaseManager.buttonCountUniversity != -1)
         {
             buttonUniversity.SetActive(true);
-            buttonUniversity.transform.SetSiblingIndex(DataBaseManager.ButtonCount_University);
+            buttonUniversity.transform.SetSiblingIndex(DataBaseManager.buttonCountUniversity);
         }
-        if (DataBaseManager.ButtonCount_Riverside != -1)
+        if (DataBaseManager.buttonCountRiverside != -1)
         {
             buttonRiverside.SetActive(true);
-            buttonRiverside.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Riverside);
+            buttonRiverside.transform.SetSiblingIndex(DataBaseManager.buttonCountRiverside);
         }
-        if (DataBaseManager.ButtonCount_Bar != -1)
+        if (DataBaseManager.buttonCountBar != -1)
         {
             buttonBar.SetActive(true);
-            buttonBar.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Bar);
+            buttonBar.transform.SetSiblingIndex(DataBaseManager.buttonCountBar);
         }
-        if (DataBaseManager.ButtonCount_Slum != -1)
+        if (DataBaseManager.buttonCountSlum != -1)
         {
             buttonSlum.SetActive(true);
-            buttonSlum.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Slum);
+            buttonSlum.transform.SetSiblingIndex(DataBaseManager.buttonCountSlum);
         }
-        if (DataBaseManager.ButtonCount_PoliceOffice != -1)
+        if (DataBaseManager.buttonCountPoliceOffice != -1)
         {
             buttonPoliceOffice.SetActive(true);
-            buttonPoliceOffice.transform.SetSiblingIndex(DataBaseManager.ButtonCount_PoliceOffice);
+            buttonPoliceOffice.transform.SetSiblingIndex(DataBaseManager.buttonCountPoliceOffice);
         }
-        if (DataBaseManager.ButtonCount_Gunsmith != -1)
+        if (DataBaseManager.buttonCountGunsmith != -1)
         {
             buttonGunsmith.SetActive(true);
-            buttonGunsmith.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Gunsmith);
+            buttonGunsmith.transform.SetSiblingIndex(DataBaseManager.buttonCountGunsmith);
         }
-        if (DataBaseManager.ButtonCount_SewageMaintenanceOffice != -1)
+        if (DataBaseManager.buttonCountSewageMaintenanceOffice != -1)
         {
             buttonSewageMaintenanceOffice.SetActive(true);
-            buttonSewageMaintenanceOffice.transform.SetSiblingIndex(DataBaseManager.ButtonCount_SewageMaintenanceOffice);
+            buttonSewageMaintenanceOffice.transform.SetSiblingIndex(DataBaseManager.buttonCountSewageMaintenanceOffice);
         }
-        if (DataBaseManager.ButtonCount_Wharf != -1)
+        if (DataBaseManager.buttonCountWharf != -1)
         {
             buttonWharf.SetActive(true);
-            buttonWharf.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Wharf);
+            buttonWharf.transform.SetSiblingIndex(DataBaseManager.buttonCountWharf);
         }
-        if (DataBaseManager.GainPlaceInt > 6)
+        if (DataBaseManager.gainPlaceInt > 6)
         {
             downButton.SetActive(true);
         }
@@ -278,19 +278,19 @@ public class PlaceButtonManage : MonoBehaviour
             Transform trChild = buttonRect.transform.GetChild(i);
             trChild.gameObject.SetActive(false);
         }
-        if (DataBaseManager.GainPlaceInt == 7)
+        if (DataBaseManager.gainPlaceInt == 7)
         {
             Transform trChild16 = buttonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);
         }
-        else if (DataBaseManager.GainPlaceInt == 8)
+        else if (DataBaseManager.gainPlaceInt == 8)
         {
             Transform trChild16 = buttonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);
             Transform trChild7 = buttonRect.transform.GetChild(7);
             trChild7.gameObject.SetActive(true);
         }
-        else if (DataBaseManager.GainPlaceInt == 9)
+        else if (DataBaseManager.gainPlaceInt == 9)
         {
             Transform trChild16 = buttonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);
@@ -299,7 +299,7 @@ public class PlaceButtonManage : MonoBehaviour
             Transform trChild9 = buttonRect.transform.GetChild(8);
             trChild9.gameObject.SetActive(true);
         }
-        else if (DataBaseManager.GainPlaceInt == 10)
+        else if (DataBaseManager.gainPlaceInt == 10)
         {
             Transform trChild16 = buttonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);
@@ -310,7 +310,7 @@ public class PlaceButtonManage : MonoBehaviour
             Transform trChild10 = buttonRect.transform.GetChild(9);
             trChild10.gameObject.SetActive(true);
         }
-        else if (DataBaseManager.GainPlaceInt == 11)
+        else if (DataBaseManager.gainPlaceInt == 11)
         {
             Transform trChild16 = buttonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);
@@ -323,7 +323,7 @@ public class PlaceButtonManage : MonoBehaviour
             Transform trChild11 = buttonRect.transform.GetChild(10);
             trChild11.gameObject.SetActive(true);
         }
-        else if (DataBaseManager.GainPlaceInt == 12)
+        else if (DataBaseManager.gainPlaceInt == 12)
         {
             Transform trChild16 = buttonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);
@@ -338,7 +338,7 @@ public class PlaceButtonManage : MonoBehaviour
             Transform trChild12 = buttonRect.transform.GetChild(11);
             trChild12.gameObject.SetActive(true);
         }
-        if (DataBaseManager.GainPlaceInt > 12)
+        if (DataBaseManager.gainPlaceInt > 12)
         {
             downButton2.SetActive(true);
         }
@@ -357,7 +357,7 @@ public class PlaceButtonManage : MonoBehaviour
             Transform trChild = buttonRect.transform.GetChild(i);
             trChild.gameObject.SetActive(false);
         }
-        if (DataBaseManager.GainPlaceInt == 13)
+        if (DataBaseManager.gainPlaceInt == 13)
         {
             Transform trChild12 = buttonRect.transform.GetChild(12);
             trChild12.gameObject.SetActive(true);

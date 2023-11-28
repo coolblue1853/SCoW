@@ -56,138 +56,138 @@ public class EventButtonManage : MonoBehaviour
 
     void ButtonUpdate()
     {
-        if ((DataBaseManager.Intel_PlanetaryParade1 == true || DataBaseManager.Intel_PlanetaryParade2 == true || DataBaseManager.Intel_PlanetaryParade3 == true || DataBaseManager.Intel_PlanetaryParade4 == true || DataBaseManager.Intel_PlanetaryParade5 == true || DataBaseManager.Intel_PlanetaryParade6 == true) && isButtonPlanetarySequence == false)
+        if ((DataBaseManager.intelPlanetaryParade1 == true || DataBaseManager.intelPlanetaryParade2 == true || DataBaseManager.intelPlanetaryParade3 == true || DataBaseManager.intelPlanetaryParade4 == true || DataBaseManager.intelPlanetaryParade5 == true || DataBaseManager.intelPlanetaryParade6 == true) && isButtonPlanetarySequence == false)
         {
             isButtonPlanetarySequence = true;
-            DataBaseManager.ButtonCount_PlanetaryParade = DataBaseManager.GainEventInt;
-            DataBaseManager.GainEventInt += 1;
+            DataBaseManager.buttonCountPlanetaryParade = DataBaseManager.gainEventInt;
+            DataBaseManager.gainEventInt += 1;
         }
-        if ((DataBaseManager.Intel_Nightmare1 == true || DataBaseManager.Intel_Nightmare2 == true || DataBaseManager.Intel_Nightmare3 == true || DataBaseManager.Intel_Nightmare4 == true || DataBaseManager.Intel_Nightmare5 == true || DataBaseManager.Intel_Nightmare6 == true) && isButtonNightmare == false)
+        if ((DataBaseManager.intelNightmare1 == true || DataBaseManager.intelNightmare2 == true || DataBaseManager.intelNightmare3 == true || DataBaseManager.intelNightmare4 == true || DataBaseManager.intelNightmare5 == true || DataBaseManager.intelNightmare6 == true) && isButtonNightmare == false)
         {
             isButtonNightmare = true;
-            DataBaseManager.ButtonCount_Nightmare = DataBaseManager.GainEventInt;
-            DataBaseManager.GainEventInt += 1;
+            DataBaseManager.buttonCountNightmare = DataBaseManager.gainEventInt;
+            DataBaseManager.gainEventInt += 1;
         }
-        if ((DataBaseManager.Intel_Paranoia1 == true || DataBaseManager.Intel_Paranoia2 == true || DataBaseManager.Intel_Paranoia3 == true || DataBaseManager.Intel_Paranoia4 == true || DataBaseManager.Intel_Paranoia5 == true || DataBaseManager.Intel_Paranoia6 == true) && isButtonParanoia == false)
+        if ((DataBaseManager.intelParanoia1 == true || DataBaseManager.intelParanoia2 == true || DataBaseManager.intelParanoia3 == true || DataBaseManager.intelParanoia4 == true || DataBaseManager.intelParanoia5 == true || DataBaseManager.intelParanoia6 == true) && isButtonParanoia == false)
         {
             isButtonParanoia = true;
-            DataBaseManager.ButtonCount_Paranoia = DataBaseManager.GainEventInt;
-            DataBaseManager.GainEventInt += 1;
+            DataBaseManager.buttonCountParanoia = DataBaseManager.gainEventInt;
+            DataBaseManager.gainEventInt += 1;
         }
-        if ((DataBaseManager.Intel_Insomnia1 == true || DataBaseManager.Intel_Insomnia2 == true || DataBaseManager.Intel_Insomnia3 == true || DataBaseManager.Intel_Insomnia4 == true || DataBaseManager.Intel_Insomnia5 == true || DataBaseManager.Intel_Insomnia6 == true) && isButtonInsomnia == false)
+        if ((DataBaseManager.intelInsomnia1 == true || DataBaseManager.intelInsomnia2 == true || DataBaseManager.intelInsomnia3 == true || DataBaseManager.intelInsomnia4 == true || DataBaseManager.intelInsomnia5 == true || DataBaseManager.intelInsomnia6 == true) && isButtonInsomnia == false)
         {
             isButtonInsomnia = true;
-            DataBaseManager.ButtonCount_Insomnia = DataBaseManager.GainEventInt;
-            DataBaseManager.GainEventInt += 1;
+            DataBaseManager.buttonCountInsomnia = DataBaseManager.gainEventInt;
+            DataBaseManager.gainEventInt += 1;
         }
-        if ((DataBaseManager.Intel_SewerGhostStory1 == true || DataBaseManager.Intel_SewerGhostStory2 == true || DataBaseManager.Intel_SewerGhostStory3 == true || DataBaseManager.Intel_SewerGhostStory4 == true || DataBaseManager.Intel_SewerGhostStory5 == true || DataBaseManager.Intel_SewerGhostStory6 == true) && isButtonSewerGhostStory == false)
+        if ((DataBaseManager.intelSewerGhostStory1 == true || DataBaseManager.intelSewerGhostStory2 == true || DataBaseManager.intelSewerGhostStory3 == true || DataBaseManager.intelSewerGhostStory4 == true || DataBaseManager.intelSewerGhostStory5 == true || DataBaseManager.intelSewerGhostStory6 == true) && isButtonSewerGhostStory == false)
         {
             isButtonSewerGhostStory = true;
-            DataBaseManager.ButtonCount_SewerGhostStory = DataBaseManager.GainEventInt;
-            DataBaseManager.GainEventInt += 1;
+            DataBaseManager.buttonCountSewerGhostStory = DataBaseManager.gainEventInt;
+            DataBaseManager.gainEventInt += 1;
         }
-        if ((DataBaseManager.Intel_MissingPeople1 == true || DataBaseManager.Intel_MissingPeople2 == true || DataBaseManager.Intel_MissingPeople3 == true || DataBaseManager.Intel_MissingPeople4 == true || DataBaseManager.Intel_MissingPeople5 == true || DataBaseManager.Intel_MissingPeople6 == true) && isButtonMissingPeople == false)
+        if ((DataBaseManager.intelMissingPeople1 == true || DataBaseManager.intelMissingPeople2 == true || DataBaseManager.intelMissingPeople3 == true || DataBaseManager.intelMissingPeople4 == true || DataBaseManager.intelMissingPeople5 == true || DataBaseManager.intelMissingPeople6 == true) && isButtonMissingPeople == false)
         {
             isButtonMissingPeople = true;
-            DataBaseManager.ButtonCount_MissingPeople = DataBaseManager.GainEventInt;
-            DataBaseManager.GainEventInt += 1;
+            DataBaseManager.buttonCountMissingPeople = DataBaseManager.gainEventInt;
+            DataBaseManager.gainEventInt += 1;
         }
-        if ((DataBaseManager.Intel_FishySmell1 == true || DataBaseManager.Intel_FishySmell2 == true || DataBaseManager.Intel_FishySmell3 == true || DataBaseManager.Intel_FishySmell4 == true || DataBaseManager.Intel_FishySmell5 == true || DataBaseManager.Intel_FishySmell6 == true) && isButtonFishySmell == false)
+        if ((DataBaseManager.intelFishySmell1 == true || DataBaseManager.intelFishySmell2 == true || DataBaseManager.intelFishySmell3 == true || DataBaseManager.intelFishySmell4 == true || DataBaseManager.intelFishySmell5 == true || DataBaseManager.intelFishySmell6 == true) && isButtonFishySmell == false)
         {
             isButtonFishySmell = true;
-            DataBaseManager.ButtonCount_FishySmell = DataBaseManager.GainEventInt;
-            DataBaseManager.GainEventInt += 1;
+            DataBaseManager.buttonCountFishySmell = DataBaseManager.gainEventInt;
+            DataBaseManager.gainEventInt += 1;
         }
-        if ((DataBaseManager.Intel_RiverWaterQuality1 == true || DataBaseManager.Intel_RiverWaterQuality2 == true || DataBaseManager.Intel_RiverWaterQuality3 == true || DataBaseManager.Intel_RiverWaterQuality4 == true || DataBaseManager.Intel_RiverWaterQuality5 == true || DataBaseManager.Intel_RiverWaterQuality6 == true) && isButtonRiverWaterQuality == false)
+        if ((DataBaseManager.intelRiverWaterQuality1 == true || DataBaseManager.intelRiverWaterQuality2 == true || DataBaseManager.intelRiverWaterQuality3 == true || DataBaseManager.intelRiverWaterQuality4 == true || DataBaseManager.intelRiverWaterQuality5 == true || DataBaseManager.intelRiverWaterQuality6 == true) && isButtonRiverWaterQuality == false)
         {
             isButtonRiverWaterQuality = true;
-            DataBaseManager.ButtonCount_RiverWaterQuality = DataBaseManager.GainEventInt;
-            DataBaseManager.GainEventInt += 1;
+            DataBaseManager.buttonCountRiverWaterQuality = DataBaseManager.gainEventInt;
+            DataBaseManager.gainEventInt += 1;
         }
-        if ((DataBaseManager.Intel_CreepyEyes1 == true || DataBaseManager.Intel_CreepyEyes2 == true || DataBaseManager.Intel_CreepyEyes3 == true || DataBaseManager.Intel_CreepyEyes4 == true || DataBaseManager.Intel_CreepyEyes5 == true || DataBaseManager.Intel_CreepyEyes6 == true) && isButtonCreepyEyes == false)
+        if ((DataBaseManager.intelCreepyEyes1 == true || DataBaseManager.intelCreepyEyes2 == true || DataBaseManager.intelCreepyEyes3 == true || DataBaseManager.intelCreepyEyes4 == true || DataBaseManager.intelCreepyEyes5 == true || DataBaseManager.intelCreepyEyes6 == true) && isButtonCreepyEyes == false)
         {
             isButtonCreepyEyes = true;
-            DataBaseManager.ButtonCount_CreepyEyes = DataBaseManager.GainEventInt;
-            DataBaseManager.GainEventInt += 1;
+            DataBaseManager.buttonCountCreepyEyes = DataBaseManager.gainEventInt;
+            DataBaseManager.gainEventInt += 1;
         }
 
-        if ((DataBaseManager.Intel_Safe1 == true || DataBaseManager.Intel_Safe2 == true || DataBaseManager.Intel_Safe3 == true || DataBaseManager.Intel_Safe4 == true || DataBaseManager.Intel_Safe5 == true || DataBaseManager.Intel_Safe6 == true) && isButtonSafe == false)
+        if ((DataBaseManager.intelSafe1 == true || DataBaseManager.intelSafe2 == true || DataBaseManager.intelSafe3 == true || DataBaseManager.intelSafe4 == true || DataBaseManager.intelSafe5 == true || DataBaseManager.intelSafe6 == true) && isButtonSafe == false)
         {
             isButtonSafe = true;
-            DataBaseManager.ButtonCount_Safe = DataBaseManager.GainEventInt;
-            DataBaseManager.GainEventInt += 1;
+            DataBaseManager.buttonCountSafe = DataBaseManager.gainEventInt;
+            DataBaseManager.gainEventInt += 1;
         }
 
-        if ((DataBaseManager.Intel_MurderCase1 == true || DataBaseManager.Intel_MurderCase2 == true || DataBaseManager.Intel_MurderCase3 == true || DataBaseManager.Intel_MurderCase4 == true || DataBaseManager.Intel_MurderCase5 == true || DataBaseManager.Intel_MurderCase6 == true) && isButtonMurderCase == false)
+        if ((DataBaseManager.intelMurderCase1 == true || DataBaseManager.intelMurderCase2 == true || DataBaseManager.intelMurderCase3 == true || DataBaseManager.intelMurderCase4 == true || DataBaseManager.intelMurderCase5 == true || DataBaseManager.intelMurderCase6 == true) && isButtonMurderCase == false)
         {
             isButtonMurderCase = true;
-            DataBaseManager.ButtonCount_MurderCase = DataBaseManager.GainEventInt;
-            DataBaseManager.GainEventInt += 1;
+            DataBaseManager.buttonCountMurderCase = DataBaseManager.gainEventInt;
+            DataBaseManager.gainEventInt += 1;
         }
     }
     void DetailUpdate()
     {
 
-        if (DataBaseManager.ButtonCount_PlanetaryParade != -1)
+        if (DataBaseManager.buttonCountPlanetaryParade != -1)
         {
             buttonPlanetarySequence.SetActive(true);
-            buttonPlanetarySequence.transform.SetSiblingIndex(DataBaseManager.ButtonCount_PlanetaryParade);
+            buttonPlanetarySequence.transform.SetSiblingIndex(DataBaseManager.buttonCountPlanetaryParade);
         }
-        if (DataBaseManager.ButtonCount_Nightmare != -1)
+        if (DataBaseManager.buttonCountNightmare != -1)
         {
             buttonNightmare.SetActive(true);
-            buttonNightmare.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Nightmare);
+            buttonNightmare.transform.SetSiblingIndex(DataBaseManager.buttonCountNightmare);
         }
-        if (DataBaseManager.ButtonCount_Paranoia != -1)
+        if (DataBaseManager.buttonCountParanoia != -1)
         {
             buttonParanoia.SetActive(true);
-            buttonParanoia.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Paranoia);
+            buttonParanoia.transform.SetSiblingIndex(DataBaseManager.buttonCountParanoia);
         }
-        if (DataBaseManager.ButtonCount_Insomnia != -1)
+        if (DataBaseManager.buttonCountInsomnia != -1)
         {
             buttonInsomnia.SetActive(true);
-            buttonInsomnia.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Insomnia);
+            buttonInsomnia.transform.SetSiblingIndex(DataBaseManager.buttonCountInsomnia);
         }
-        if (DataBaseManager.ButtonCount_SewerGhostStory != -1)
+        if (DataBaseManager.buttonCountSewerGhostStory != -1)
         {
             buttonSewerGhostStory.SetActive(true);
-            buttonSewerGhostStory.transform.SetSiblingIndex(DataBaseManager.ButtonCount_SewerGhostStory);
+            buttonSewerGhostStory.transform.SetSiblingIndex(DataBaseManager.buttonCountSewerGhostStory);
         }
-        if (DataBaseManager.ButtonCount_FishySmell != -1)
+        if (DataBaseManager.buttonCountFishySmell != -1)
         {
             buttonFishySmell.SetActive(true);
-            buttonFishySmell.transform.SetSiblingIndex(DataBaseManager.ButtonCount_FishySmell);
+            buttonFishySmell.transform.SetSiblingIndex(DataBaseManager.buttonCountFishySmell);
         }
-        if (DataBaseManager.ButtonCount_MissingPeople != -1)
+        if (DataBaseManager.buttonCountMissingPeople != -1)
         {
             buttonMissingPeople.SetActive(true);
-            buttonMissingPeople.transform.SetSiblingIndex(DataBaseManager.ButtonCount_MissingPeople);
+            buttonMissingPeople.transform.SetSiblingIndex(DataBaseManager.buttonCountMissingPeople);
         }
 
 
-        if (DataBaseManager.ButtonCount_RiverWaterQuality != -1)
+        if (DataBaseManager.buttonCountRiverWaterQuality != -1)
         {
             buttonRiverWaterQuality.SetActive(true);
-            buttonRiverWaterQuality.transform.SetSiblingIndex(DataBaseManager.ButtonCount_RiverWaterQuality);
+            buttonRiverWaterQuality.transform.SetSiblingIndex(DataBaseManager.buttonCountRiverWaterQuality);
         }
-        if (DataBaseManager.ButtonCount_CreepyEyes != -1)
+        if (DataBaseManager.buttonCountCreepyEyes != -1)
         {
             buttonCreepyEyes.SetActive(true);
-            buttonCreepyEyes.transform.SetSiblingIndex(DataBaseManager.ButtonCount_CreepyEyes);
+            buttonCreepyEyes.transform.SetSiblingIndex(DataBaseManager.buttonCountCreepyEyes);
         }
  
-        if (DataBaseManager.ButtonCount_MurderCase != -1)
+        if (DataBaseManager.buttonCountMurderCase != -1)
         {
             buttonMurderCase.SetActive(true);
-            buttonMurderCase.transform.SetSiblingIndex(DataBaseManager.ButtonCount_MurderCase);
+            buttonMurderCase.transform.SetSiblingIndex(DataBaseManager.buttonCountMurderCase);
         }
-        if (DataBaseManager.ButtonCount_Safe != -1)
+        if (DataBaseManager.buttonCountSafe != -1)
         {
             buttonSafe.SetActive(true);
-            buttonSafe.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Safe);
+            buttonSafe.transform.SetSiblingIndex(DataBaseManager.buttonCountSafe);
 
         }
-        if (DataBaseManager.GainEventInt > 6)
+        if (DataBaseManager.gainEventInt > 6)
         {
             downButton.SetActive(true);
         }
@@ -212,13 +212,13 @@ public class EventButtonManage : MonoBehaviour
             Transform trChild = buttonRect.transform.GetChild(i);
             trChild.gameObject.SetActive(false);
         }
-        if (DataBaseManager.GainEventInt == 7)
+        if (DataBaseManager.gainEventInt == 7)
         {
             Transform trChild16 = buttonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);
 
         }
-        else if (DataBaseManager.GainEventInt == 8)
+        else if (DataBaseManager.gainEventInt == 8)
         {
             Transform trChild16 = buttonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);
@@ -226,7 +226,7 @@ public class EventButtonManage : MonoBehaviour
             trChild7.gameObject.SetActive(true);
 
         }
-        else if (DataBaseManager.GainEventInt == 9)
+        else if (DataBaseManager.gainEventInt == 9)
         {
             Transform trChild16 = buttonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);
@@ -235,7 +235,7 @@ public class EventButtonManage : MonoBehaviour
             Transform trChild9 = buttonRect.transform.GetChild(8);
             trChild9.gameObject.SetActive(true);
         }
-        else if (DataBaseManager.GainEventInt == 10)
+        else if (DataBaseManager.gainEventInt == 10)
         {
             Transform trChild16 = buttonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);
@@ -246,7 +246,7 @@ public class EventButtonManage : MonoBehaviour
             Transform trChild10 = buttonRect.transform.GetChild(9);
             trChild10.gameObject.SetActive(true);
         }
-        else if (DataBaseManager.GainEventInt == 11)
+        else if (DataBaseManager.gainEventInt == 11)
         {
             Transform trChild16 = buttonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);
@@ -259,7 +259,7 @@ public class EventButtonManage : MonoBehaviour
             Transform trChild11 = buttonRect.transform.GetChild(10);
             trChild11.gameObject.SetActive(true);
         }
-        else if (DataBaseManager.GainEventInt == 12)
+        else if (DataBaseManager.gainEventInt == 12)
         {
             Transform trChild16 = buttonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);

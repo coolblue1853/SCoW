@@ -74,7 +74,7 @@ public class selectionUIManager : MonoBehaviour
     }
     public void ReciveRequest_SelectionButton(string SelectButton)
     {
-        DataBaseManager.SelectionOn = false;
+        DataBaseManager.selectionOn = false;
         if (SelectButton == "Select_AboutCrime")
         {
             DialogManager.Instance.ChoiceEx_NextPage_t();
@@ -101,7 +101,7 @@ public class selectionUIManager : MonoBehaviour
         }
         if (SelectButton == "Accept_Request")
         {
-            DataBaseManager.IfGotRequset = true;
+            DataBaseManager.ifGotRequset = true;
             DialogManager.Instance.ChoiceEx_NextPage_t();
             select1stDetectiveOiffce2.SetActive(false);
             InteractionController.Instance.Start_1st_DetectiveOffice("Accept_Request");
@@ -137,14 +137,14 @@ public class selectionUIManager : MonoBehaviour
         {
             if (DataBaseManager.weal >= 2)
             {
-                DataBaseManager.DaveCheck = false;
+                DataBaseManager.daveCheck = false;
                 DialogManager.Instance.ChoiceEx_NextPage_t();
                 select1stSlum.SetActive(false);
                 ActivateRandomFunction();
             }
             else
             {
-                DataBaseManager.DaveCheck = false;
+                DataBaseManager.daveCheck = false;
                 DialogManager.Instance.ChoiceEx_NextPage_t();
                 select1stSlum.SetActive(false);
                 InteractionController.Instance.Start_1st_Slum("Dave_NoMoney");
@@ -152,7 +152,7 @@ public class selectionUIManager : MonoBehaviour
         }
         if (SelectButton == "Reject")
         {
-            DataBaseManager.DaveCheck = false;
+            DataBaseManager.daveCheck = false;
             DialogManager.Instance.ChoiceEx_NextPage_t();
             select1stSlum.SetActive(false);
         }
@@ -167,7 +167,7 @@ public class selectionUIManager : MonoBehaviour
         {
             DialogManager.Instance.ChoiceEx_NextPage_t();
             selectSewerEnemy.SetActive(false);
-            DataBaseManager.StartSewerBattle = true;
+            DataBaseManager.startSewerBattle = true;
             // 전투로 이동
         }
         if (SelectButton == "GoOut")
@@ -175,13 +175,13 @@ public class selectionUIManager : MonoBehaviour
             DialogManager.Instance.ChoiceEx_NextPage_t();
             ladderSelectionUI.SetActive(false);
             InteractionController.Instance.InSewerDialog("Sewer_LadderUP");
-            DataBaseManager.StoryDirecting = true;
+            DataBaseManager.storyDirecting = true;
         }
         if (SelectButton == "NotOut")
         {
             DialogManager.Instance.ChoiceEx_NextPage_t();
             ladderSelectionUI.SetActive(false);
-            DataBaseManager.SelectionOn = false;
+            DataBaseManager.selectionOn = false;
         }
     }
     public void EndDialog()

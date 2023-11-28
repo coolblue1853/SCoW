@@ -9,22 +9,22 @@ public class MarkmenDetail : MonoBehaviour
     public TextMeshProUGUI detail;
     void Update()
     {
-        if (DataBaseManager.BattleWeapon == "Revolver")
+        if (DataBaseManager.battleWeapon == "Revolver")
         {
             name.text = "Revolver";
             detail.text = "Damage:(1D10+2)x5\nMagazine:" + DataBaseManager.nowRevolver+ "\nSkillPoint:" + DataBaseManager.gunShotPoint;
         }
-        else if (DataBaseManager.BattleWeapon == "Shotgun")
+        else if (DataBaseManager.battleWeapon == "Shotgun")
         {
             name.text = "Shotgun";
             detail.text = "Damage:(5D4)x5\nMagazine:" + DataBaseManager.nowShotgun + "\nSkillPoint:" + DataBaseManager.gunShotPoint;
         }
-        else if (DataBaseManager.BattleWeapon == "Rifle")
+        else if (DataBaseManager.battleWeapon == "Rifle")
         {
             name.text = "Rifle";
             detail.text = "Damage:(2D6+2)x5\nMagazine:" + DataBaseManager.nowRifle + "\nSkillPoint:" + DataBaseManager.gunShotPoint;
         }
-        else if (DataBaseManager.BattleWeapon == "SmallPistol")
+        else if (DataBaseManager.battleWeapon == "SmallPistol")
         {
             name.text = "Small Pistol";
             detail.text = "Damage:(1D6)x5\nMagazine:" + DataBaseManager.nowSmallPistol + "\nSkillPoint:" + DataBaseManager.gunShotPoint;

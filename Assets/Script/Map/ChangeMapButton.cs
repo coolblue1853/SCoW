@@ -6,7 +6,7 @@ public class ChangeMapButton : MonoBehaviour
 {
     public void ButtonClick()
     {
-        if (DataBaseManager.TimeCount == 5 && DataBaseManager.NoonMorningMove == true)
+        if (DataBaseManager.timeCount == 5 && DataBaseManager.noonMorningMove == true)
         {
             MapManager.Instance.MapOn();
             DataBaseManager.nowPlace = "NoonEvent";
@@ -16,13 +16,13 @@ public class ChangeMapButton : MonoBehaviour
             DataBaseManager.nowPlace = "BattleRoad";
             MapManager.Instance.MapOn();
         }
-        else if (DataBaseManager.isDebuff_CognitiveDisorder == true && DataBaseManager.nowPlace != "BattleRoad")
+        else if (DataBaseManager.isDebuffCognitiveDisorder == true && DataBaseManager.nowPlace != "BattleRoad")
         {
-            if (DataBaseManager.TimeCount % 4 == 1) // 아침
+            if (DataBaseManager.timeCount % 4 == 1) // 아침
             {
                 Debug.Log("인지장애 작동중");
                 List<string> unityList = new List<string> { "Client'shouse", "DailyNews", "University", "Riverside", "Hospital", "Policeoffice", "Slum", "Gunshop" };
-                if (DataBaseManager.Intel_SewageMaintenanceOffice1 == true)
+                if (DataBaseManager.intelSewageMaintenanceOffice1 == true)
                 {
                     unityList.Add("SewerOffice");
                 }
@@ -34,10 +34,10 @@ public class ChangeMapButton : MonoBehaviour
                 string selectedElement = unityList[randomIndex];
                 DataBaseManager.nowPlace = selectedElement;
             }
-            else if (DataBaseManager.TimeCount % 4 == 2) // 낮
+            else if (DataBaseManager.timeCount % 4 == 2) // 낮
             {
                 List<string> unityList = new List<string> { "Client'shouse", "DailyNews", "University", "Riverside", "Hospital", "Policeoffice", "Slum", "Gunshop" };
-                if (DataBaseManager.Intel_SewageMaintenanceOffice1 == true)
+                if (DataBaseManager.intelSewageMaintenanceOffice1 == true)
                 {
                     unityList.Add("SewerOffice");
                 }
@@ -49,10 +49,10 @@ public class ChangeMapButton : MonoBehaviour
                 string selectedElement = unityList[randomIndex];
                 DataBaseManager.nowPlace = selectedElement;
             }
-            else if (DataBaseManager.TimeCount % 4 == 3) // 오후
+            else if (DataBaseManager.timeCount % 4 == 3) // 오후
             {
                 List<string> unityList = new List<string> { "DetectiveOffice", "Bar" };
-                if (DataBaseManager.Intel_SewageMaintenanceOffice1 == true)
+                if (DataBaseManager.intelSewageMaintenanceOffice1 == true)
                 {
                     unityList.Add("SewerOffice");
                 }
@@ -64,7 +64,7 @@ public class ChangeMapButton : MonoBehaviour
                 string selectedElement = unityList[randomIndex];
                 DataBaseManager.nowPlace = selectedElement;
             }
-            else if (DataBaseManager.TimeCount % 4 == 0) // 오후
+            else if (DataBaseManager.timeCount % 4 == 0) // 오후
             {
                 DataBaseManager.nowPlace = "DetectiveOffice";
             }

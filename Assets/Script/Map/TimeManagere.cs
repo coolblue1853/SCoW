@@ -47,11 +47,11 @@ public class TimeManagere : MonoBehaviour
 
     void BulbCheck()
     {
-        if (detectiveNightBulb.activeSelf == false && DataBaseManager.TimeCount % 4 == 0)
+        if (detectiveNightBulb.activeSelf == false && DataBaseManager.timeCount % 4 == 0)
         {
             detectiveNightBulb.SetActive(true);
         }
-        else if (detectiveNightBulb.activeSelf == true && DataBaseManager.TimeCount % 4 != 0)
+        else if (detectiveNightBulb.activeSelf == true && DataBaseManager.timeCount % 4 != 0)
         {
             detectiveNightBulb.SetActive(false);
         }
@@ -137,13 +137,13 @@ public class TimeManagere : MonoBehaviour
     }
     public void EnemySpawn()
     {
-        DataBaseManager.StoryDirecting = true;
+        DataBaseManager.storyDirecting = true;
     }
     public void MakeSewer()
     {
         enemyOb.SetActive(false);
         // 지도가 없다면
-        if (DataBaseManager.GainMap == false)
+        if (DataBaseManager.gainMap == false)
         {
             int RandLuk = Random.Range(1, 101);
             Debug.Log("럭 : " + DataBaseManager.luk + "// 판정값 : " + RandLuk);
@@ -183,12 +183,12 @@ public class TimeManagere : MonoBehaviour
             //실패
             else
             {
-                if (DataBaseManager.SewerEnemyCounter > 2 && DataBaseManager.SewerHouseIn == false)  // 최초로 비밀기지 도착
+                if (DataBaseManager.sewerEnemyCounter > 2 && DataBaseManager.sewerHouseIn == false)  // 최초로 비밀기지 도착
                 {
                     MakeHouseLand();
                     Debug.Log("비밀기지 도착");
                 }
-                else if (DataBaseManager.SewerEnemyCounter > 2)
+                else if (DataBaseManager.sewerEnemyCounter > 2)
                 {
                     int RandInt = Random.Range(0, 3);
                     if (RandInt == 0)
@@ -204,12 +204,12 @@ public class TimeManagere : MonoBehaviour
                 }
                 else
                 {
-                    DataBaseManager.SewerEnemyCounter += 1;
-                    if (DataBaseManager.SewerEnemyCounter == 1)
+                    DataBaseManager.sewerEnemyCounter += 1;
+                    if (DataBaseManager.sewerEnemyCounter == 1)
                     {
                         enemyOb.SetActive(true);
                     }
-                    else if (DataBaseManager.SewerEnemyCounter == 2)
+                    else if (DataBaseManager.sewerEnemyCounter == 2)
                     {
                         enemy2Ob.SetActive(true);
                     }
@@ -221,9 +221,9 @@ public class TimeManagere : MonoBehaviour
                     int RandInt = Random.Range(0, 3);
                     MakeSewerMap_Enemy();
                     Debug.Log("적 등장");
-                    if (DataBaseManager.WearCoat == true)
+                    if (DataBaseManager.wearCoat == true)
                     {
-                        DataBaseManager.IsInsmusMeetSewer = false;
+                        DataBaseManager.isInsmusMeetSewer = false;
                     }
                     else
                     {
@@ -272,12 +272,12 @@ public class TimeManagere : MonoBehaviour
             //실패
             else
             {
-                if (DataBaseManager.SewerEnemyCounter > 2 && DataBaseManager.SewerHouseIn == false)  // 최초로 비밀기지 도착
+                if (DataBaseManager.sewerEnemyCounter > 2 && DataBaseManager.sewerHouseIn == false)  // 최초로 비밀기지 도착
                 {
                     MakeHouseLand();
                     Debug.Log("비밀기지 도착");
                 }
-                else if (DataBaseManager.SewerEnemyCounter > 2)
+                else if (DataBaseManager.sewerEnemyCounter > 2)
                 {
                     int RandInt = Random.Range(0, 3);
                     if (RandInt == 0)
@@ -293,16 +293,16 @@ public class TimeManagere : MonoBehaviour
                 }
                 else
                 {
-                    DataBaseManager.SewerEnemyCounter += 1;
+                    DataBaseManager.sewerEnemyCounter += 1;
                     int RandInt = Random.Range(0, 3);
 
                     MakeSewerMap_Enemy();
                     Debug.Log("적 등장");
 
-                    if (DataBaseManager.WearCoat == true)
+                    if (DataBaseManager.wearCoat == true)
                     {
                         enemyOb.SetActive(true);
-                        DataBaseManager.IsInsmusMeetSewer = false;
+                        DataBaseManager.isInsmusMeetSewer = false;
                     }
                     else
                     {
@@ -315,7 +315,7 @@ public class TimeManagere : MonoBehaviour
     }
     public void PrintBattleDialog()
     {
-        if (DataBaseManager.SewerEnemyCounter == 2)
+        if (DataBaseManager.sewerEnemyCounter == 2)
         {
             InteractionController.Instance.InSewerDialog("Sewer_FirstDeepOne");
         }
@@ -711,37 +711,37 @@ public class TimeManagere : MonoBehaviour
     void Update()
     {
         BulbCheck();
-        if (endDoorDetective.activeSelf == false && DataBaseManager.EndingDoorCheck == true)
+        if (endDoorDetective.activeSelf == false && DataBaseManager.endingDoorCheck == true)
         {
             endDoorDetective.SetActive(true);
         }
-        if (Manhole.activeSelf == false && DataBaseManager.DeadBody_GotoSwere == true)
+        if (Manhole.activeSelf == false && DataBaseManager.deadBodyGotoSwere == true)
         {
             Manhole.SetActive(true);
         }
-        if (riverActive.activeSelf == true && (DataBaseManager.SewerPicingSucc == true || DataBaseManager.SewerageKey == true))
+        if (riverActive.activeSelf == true && (DataBaseManager.sewerPicingSucc == true || DataBaseManager.sewerageKey == true))
         {
             riverPotal.SetActive(true);
             riverActive.SetActive(false);
         }
-        if (DataBaseManager.Black_RechSucc_CanTalck == true && blackWell.canKeyword == false)
+        if (DataBaseManager.blackRechSuccCanTalck == true && blackWell.canKeyword == false)
         {
             blackWell.canKeyword = true;
         }
-        if ((DataBaseManager.TimeCount % 4 == 1) || (DataBaseManager.TimeCount % 4 == 2) && DataBaseManager.SewerDoorOpen == false)
+        if ((DataBaseManager.timeCount % 4 == 1) || (DataBaseManager.timeCount % 4 == 2) && DataBaseManager.sewerDoorOpen == false)
         {
-            DataBaseManager.SewerDoorOpen = true;
+            DataBaseManager.sewerDoorOpen = true;
             sewerDoorPotal.transform.localPosition = new Vector3(-65.10986f, 5, 0);
             sewerDoorDialog.transform.localPosition = new Vector3(-65.10986f, 33, 0);
             blackWellOb.transform.localPosition = new Vector3(-224.6f, 4.08f, 0);
             sewerOfficeWindow.canJudge = false;
             sewerOfficeLocker.canJudge = false;
         }
-        if ((DataBaseManager.TimeCount % 4 == 3) || (DataBaseManager.TimeCount % 4 == 0) && DataBaseManager.SewerDoorOpen == true)
+        if ((DataBaseManager.timeCount % 4 == 3) || (DataBaseManager.timeCount % 4 == 0) && DataBaseManager.sewerDoorOpen == true)
         {
             blackWellOb.transform.localPosition = new Vector3(-224.6f, 29.6f, 0);
-            DataBaseManager.SewerDoorOpen = false;
-            if (DataBaseManager.SewerDoorOpenDeftness == true)
+            DataBaseManager.sewerDoorOpen = false;
+            if (DataBaseManager.sewerDoorOpenDeftness == true)
             {
                 sewerDoorPotal.transform.localPosition = new Vector3(-65.10986f, 5, 0);
                 sewerDoorDialog.transform.localPosition = new Vector3(-65.10986f, 33, 0);
@@ -752,7 +752,7 @@ public class TimeManagere : MonoBehaviour
                 sewerDoorDialog.transform.localPosition = new Vector3(-65.10986f, 5, 0);
             }
 
-            if (DataBaseManager.TryBrokenWindow == true)
+            if (DataBaseManager.tryBrokenWindow == true)
             {
                 sewerOfficeWindow.canJudge = false;
             }
@@ -760,7 +760,7 @@ public class TimeManagere : MonoBehaviour
             {
                 sewerOfficeWindow.canJudge = true;
             }
-            if (DataBaseManager.TryObserLokcer == true)
+            if (DataBaseManager.tryObserLokcer == true)
             {
                 sewerOfficeLocker.canJudge = false;
             }
@@ -769,20 +769,20 @@ public class TimeManagere : MonoBehaviour
                 sewerOfficeLocker.canJudge = true;
             }
         }
-        if (DataBaseManager.SewerDoorOpenCheck == true)
+        if (DataBaseManager.sewerDoorOpenCheck == true)
         {
-            DataBaseManager.SewerDoorOpenCheck = false;
+            DataBaseManager.sewerDoorOpenCheck = false;
             sewerDoorPotal.transform.localPosition = new Vector3(-65.10986f, 5, 0);
             sewerDoorDialog.transform.localPosition = new Vector3(-65.10986f, 33, 0);
         }
 
-        if (DataBaseManager.TimeCount >= 6 && afNoonEvent.transform.localPosition.y > 30)
+        if (DataBaseManager.timeCount >= 6 && afNoonEvent.transform.localPosition.y > 30)
         {
             bfNoonEvent.transform.localPosition = new Vector3(0, 60, 0);
             afNoonEvent.transform.localPosition = new Vector3(0, 0, 0);
             policeLine.transform.localPosition = new Vector3(-65.88f, 4.96f, 0);
         }
-        if (DataBaseManager.TimeCount >= 7 && witness.activeSelf == true)
+        if (DataBaseManager.timeCount >= 7 && witness.activeSelf == true)
         {
             meave.canJudge = true;
             witness.SetActive(false);
@@ -791,44 +791,44 @@ public class TimeManagere : MonoBehaviour
             kane.transform.localPosition = new Vector3(253.27f, -79.6f, 0);
             student.transform.localPosition = new Vector3(-41.67f, 40.9f, 0);
         }
-        if (DataBaseManager.TimeCount >= 11 && meave.canJudge == true)
+        if (DataBaseManager.timeCount >= 11 && meave.canJudge == true)
         {
             meave.canJudge = false;
         }
-        if (DataBaseManager.TimeCount == 8 && barPeople1.activeSelf == true)
+        if (DataBaseManager.timeCount == 8 && barPeople1.activeSelf == true)
         {
             barPeople1.SetActive(false);
             barPeople2.SetActive(false);
         }
-        if (DataBaseManager.AlbertDeathKeyword && albert.activeSelf == true && DataBaseManager.TimeCount % 4 == 0 && DataBaseManager.TimeCount >= 8)
+        if (DataBaseManager.albertDeathKeyword && albert.activeSelf == true && DataBaseManager.timeCount % 4 == 0 && DataBaseManager.timeCount >= 8)
         {
-            DataBaseManager.ThirdDayPoliceADialog = true;
-            DataBaseManager.ThirdDayPoliceBDialog = true;
+            DataBaseManager.thirdDayPoliceADialog = true;
+            DataBaseManager.thirdDayPoliceBDialog = true;
             albert.SetActive(false);
         }
-        if (DataBaseManager.DaveDeathKeyword && dave.activeSelf == true && DataBaseManager.TimeCount % 4 == 0)
+        if (DataBaseManager.daveDeathKeyword && dave.activeSelf == true && DataBaseManager.timeCount % 4 == 0)
         {
-            DataBaseManager.AfterDaveDeathFirstSlum = true;
+            DataBaseManager.afterDaveDeathFirstSlum = true;
             dave.SetActive(false);
         }
-        if (DataBaseManager.SwainDeathKeyword && swain.activeSelf == true && DataBaseManager.TimeCount % 4 == 0)
+        if (DataBaseManager.swainDeathKeyword && swain.activeSelf == true && DataBaseManager.timeCount % 4 == 0)
         {
             journalist.transform.localPosition = new Vector3(-61.37f, 3.4f, 0);
             swain.SetActive(false);
         }
-        if ((DataBaseManager.TimeCount % 4) == 1)
+        if ((DataBaseManager.timeCount % 4) == 1)
         {
             lightColorController.time = 0.2f;
         }
-        if ((DataBaseManager.TimeCount % 4) == 2)
+        if ((DataBaseManager.timeCount % 4) == 2)
         {
             lightColorController.time = 0.4f;
         }
-        if ((DataBaseManager.TimeCount % 4) == 3)
+        if ((DataBaseManager.timeCount % 4) == 3)
         {
             lightColorController.time = 0.64f;
         }
-        if ((DataBaseManager.TimeCount % 4) == 0)
+        if ((DataBaseManager.timeCount % 4) == 0)
         {
             lightColorController.time = 0.9f;
         }

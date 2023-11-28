@@ -11,7 +11,7 @@ public class BattleItemButton : MonoBehaviour
     public void ClickItem()
     {
         SoundManager.Instance.ClickSound_Play();
-        DataBaseManager.BattleWeapon = this.name;
+        DataBaseManager.battleWeapon = this.name;
     }
     public void ReloadItem()
     {
@@ -24,7 +24,7 @@ public class BattleItemButton : MonoBehaviour
     }
     private void Update()
     {
-        if (DataBaseManager.BattleWeapon == this.name)
+        if (DataBaseManager.battleWeapon == this.name)
         {
             imageComponent.sprite = guide;
         }

@@ -82,7 +82,7 @@ public class BillowUIManager : MonoBehaviour
     public void HP_down(int damage)
     {
         CameraManager.Instance.ShakeCam();
-        if (DataBaseManager.Masochism == true)
+        if (DataBaseManager.masochism == true)
         {
             int updamage = damage + 5;
             DamageNumber damageNumber = numberPrefab.Spawn(player.transform.position, updamage);
@@ -101,7 +101,7 @@ public class BillowUIManager : MonoBehaviour
     }
     public void HP_Battledown(int damage)
     {
-        if (DataBaseManager.Masochism == true)
+        if (DataBaseManager.masochism == true)
         {
             int updamage = damage + 5;
             DamageNumber damageNumber = numberPrefab.Spawn(battlePlayer.transform.position, updamage);
@@ -121,7 +121,7 @@ public class BillowUIManager : MonoBehaviour
     public void San_Down(int damage)
     {
         CameraManager.Instance.ShakeCam();
-        if (DataBaseManager.MentalWeakness == true)
+        if (DataBaseManager.mentalWeakness == true)
         {
             damage += 5;
             DataBaseManager.nowSan -= damage;

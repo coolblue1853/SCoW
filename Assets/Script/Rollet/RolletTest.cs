@@ -9,11 +9,11 @@ public class RolletTest : MonoBehaviour
 
     // setRollet(string skill, string point_sting, int point_int)
 
-    Vector2 player_SecretHouse = new Vector3(-1291.44f, -194.02f);
-    Vector3 Cam_SecretHouse = new Vector3(-1303f, -195f, -15);
+    Vector2 playerSecretHouse = new Vector3(-1291.44f, -194.02f);
+    Vector3 camSecretHouse = new Vector3(-1303f, -195f, -15);
 
-    Vector2 player_Symbol = new Vector3(-1203.16f, -192.8f);
-    Vector3 Cam_Symbol = new Vector3(-1217.2f, -195f, -15);
+    Vector2 playerSymbol = new Vector3(-1203.16f, -192.8f);
+    Vector3 camSymbol = new Vector3(-1217.2f, -195f, -15);
     private void Awake()
     {
 
@@ -27,7 +27,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.weal = (Random.Range(5, 26));
         DataBaseManager.nowHP = DataBaseManager.hp;
         DataBaseManager.nowSan = DataBaseManager.san;
-        DataBaseManager.Intel_QuestHouse1 = true;
+        DataBaseManager.intelQuestHouse1 = true;
         DataBaseManager.rhetoricPoint = 80;
 
 
@@ -177,8 +177,8 @@ public class RolletTest : MonoBehaviour
         {
             //   player.transform.position = player_SecretHouse;
             // cam.transform.position = Cam_SecretHouse;
-            player.transform.position = player_Symbol;
-            cam.transform.position = Cam_Symbol;
+            player.transform.position = playerSymbol;
+            cam.transform.position = camSymbol;
             TimeManagere.Instance.MakeSighnLand();
             DataBaseManager.nowPlace = "InSewer";
             DialogDatabaseManager.instance.check = true;
@@ -187,7 +187,7 @@ public class RolletTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F10))
         {
-            DataBaseManager.EndingDeathCheck = true;
+            DataBaseManager.endingDeathCheck = true;
 
             DataBaseManager.nowPlace = "InSewer";
 
@@ -195,7 +195,7 @@ public class RolletTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F7))
         {
             DataBaseManager.nowPlace = "InSewer";
-            DataBaseManager.StartSewerBattle = true;
+            DataBaseManager.startSewerBattle = true;
 
         }
         if (Input.GetKeyDown(KeyCode.F8))
@@ -249,12 +249,12 @@ public class RolletTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            DataBaseManager.Condition = "Worst";
+            DataBaseManager.condition = "Worst";
 
         }
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            DataBaseManager.Tightwad = true;
+            DataBaseManager.tightwad = true;
             // BillowUIManager.Instance.HP_down(5);
         }
         if (Input.GetKeyDown(KeyCode.F3))
@@ -270,24 +270,24 @@ public class RolletTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F5))
         {
 
-            DataBaseManager.Intel_MurderCase1 = true;
-            DataBaseManager.Intel_SewerWorker4 = true;
-            DataBaseManager.Intel_MurderCase5 = true;
-            DataBaseManager.Intel_MurderCase6 = true;
-            DataBaseManager.Intel_MurderCase2 = true;
-            DataBaseManager.Intel_MurderCase3 = true;
-            DataBaseManager.Intel_MurderCase2 = true;
-            DataBaseManager.Intel_Sewer1 = true;
-            DataBaseManager.SwainDeathKeyword = true;
+            DataBaseManager.intelMurderCase1 = true;
+            DataBaseManager.intelSewerWorker4 = true;
+            DataBaseManager.intelMurderCase5 = true;
+            DataBaseManager.intelMurderCase6 = true;
+            DataBaseManager.intelMurderCase2 = true;
+            DataBaseManager.intelMurderCase3 = true;
+            DataBaseManager.intelMurderCase2 = true;
+            DataBaseManager.intelSewer1 = true;
+            DataBaseManager.swainDeathKeyword = true;
 
         }
         if (Input.GetKeyDown(KeyCode.F6))
         {
-            DataBaseManager.WearCoat = true;
+            DataBaseManager.wearCoat = true;
         }
         if (Input.GetKeyDown(KeyCode.F7))
         {
-            DataBaseManager.WearCoat = false;
+            DataBaseManager.wearCoat = false;
         }
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -298,232 +298,232 @@ public class RolletTest : MonoBehaviour
 
     public void One()
     {
-        DataBaseManager.Intel_Ella1 = true;
-        DataBaseManager.Intel_Aiden1 = true;
-        DataBaseManager.Intel_Cane1 = true;
-        DataBaseManager.Intel_Albert1 = true;
-        DataBaseManager.Intel_Meiv1 = true;
-        DataBaseManager.Intel_BlackWell1 = true;
-        DataBaseManager.Intel_Swain1 = true;
+        DataBaseManager.intelElla1 = true;
+        DataBaseManager.intelAiden1 = true;
+        DataBaseManager.intelCane1 = true;
+        DataBaseManager.intelAlbert1 = true;
+        DataBaseManager.intelMeiv1 = true;
+        DataBaseManager.intelBlackWell1 = true;
+        DataBaseManager.intelSwain1 = true;
 
-        DataBaseManager.Intel_PlanetaryParade1 = true;
-        DataBaseManager.Intel_Nightmare1 = true;
-        DataBaseManager.Intel_Paranoia1 = true;
-        DataBaseManager.Intel_Insomnia1 = true;
-        DataBaseManager.Intel_SewerGhostStory1 = true;
-        DataBaseManager.Intel_MissingPeople1 = true;
-        DataBaseManager.Intel_FishySmell1 = true;
-        DataBaseManager.Intel_RiverWaterQuality1 = true;
-        DataBaseManager.Intel_CreepyEyes1 = true;
-        DataBaseManager.Intel_SewerWorker1 = true;
-        DataBaseManager.Intel_Safe1 = true;
+        DataBaseManager.intelPlanetaryParade1 = true;
+        DataBaseManager.intelNightmare1 = true;
+        DataBaseManager.intelParanoia1 = true;
+        DataBaseManager.intelInsomnia1 = true;
+        DataBaseManager.intelSewerGhostStory1 = true;
+        DataBaseManager.intelMissingPeople1 = true;
+        DataBaseManager.intelFishySmell1 = true;
+        DataBaseManager.intelRiverWaterQuality1 = true;
+        DataBaseManager.intelCreepyEyes1 = true;
+        DataBaseManager.intelSewerWorker1 = true;
+        DataBaseManager.intelSafe1 = true;
 
 
-        DataBaseManager.Intel_DetectiveOffice1 = true;
-        DataBaseManager.Intel_Hospital1 = true;
-        DataBaseManager.Intel_Newspaper1 = true;
-        DataBaseManager.Intel_QuestHouse1 = true;
-        DataBaseManager.Intel_Station1 = true;
-        DataBaseManager.Intel_Sewer1 = true;
-        DataBaseManager.Intel_University1 = true;
-        DataBaseManager.Intel_Riverside1 = true;
-        DataBaseManager.Intel_Bar1 = true;
-        DataBaseManager.Intel_Slum1 = true;
-        DataBaseManager.Intel_PoliceOffice1 = true;
-        DataBaseManager.Intel_Gunsmith1 = true;
-        DataBaseManager.Intel_SewageMaintenanceOffice1 = true;
-        DataBaseManager.Intel_Wharf1 = true;
+        DataBaseManager.intelDetectiveOffice1 = true;
+        DataBaseManager.intelHospital1 = true;
+        DataBaseManager.intelNewspaper1 = true;
+        DataBaseManager.intelQuestHouse1 = true;
+        DataBaseManager.intelStation1 = true;
+        DataBaseManager.intelSewer1 = true;
+        DataBaseManager.intelUniversity1 = true;
+        DataBaseManager.intelRiverside1 = true;
+        DataBaseManager.intelBar1 = true;
+        DataBaseManager.intelSlum1 = true;
+        DataBaseManager.intelPoliceOffice1 = true;
+        DataBaseManager.intelGunsmith1 = true;
+        DataBaseManager.intelSewageMaintenanceOffice1 = true;
+        DataBaseManager.intelWharf1 = true;
     }
     public void Two()
     {
-        DataBaseManager.Intel_Ella2 = true;
-        DataBaseManager.Intel_Aiden2 = true;
-        DataBaseManager.Intel_Cane2 = true;
-        DataBaseManager.Intel_Albert2 = true;
-        DataBaseManager.Intel_Meiv2 = true;
-        DataBaseManager.Intel_BlackWell2 = true;
-        DataBaseManager.Intel_Swain2 = true;
+        DataBaseManager.intelElla2 = true;
+        DataBaseManager.intelAiden2 = true;
+        DataBaseManager.intelCane2 = true;
+        DataBaseManager.intelAlbert2 = true;
+        DataBaseManager.intelMeiv2 = true;
+        DataBaseManager.intelBlackWell2 = true;
+        DataBaseManager.intelSwain2 = true;
 
-        DataBaseManager.Intel_PlanetaryParade2 = true;
-        DataBaseManager.Intel_Nightmare2 = true;
-        DataBaseManager.Intel_Paranoia2 = true;
-        DataBaseManager.Intel_Insomnia2 = true;
-        DataBaseManager.Intel_SewerGhostStory2 = true;
-        DataBaseManager.Intel_MissingPeople2 = true;
-        DataBaseManager.Intel_FishySmell2 = true;
-        DataBaseManager.Intel_RiverWaterQuality2 = true;
-        DataBaseManager.Intel_CreepyEyes2 = true;
-        DataBaseManager.Intel_SewerWorker2 = true;
-        DataBaseManager.Intel_Safe2 = true;
+        DataBaseManager.intelPlanetaryParade2 = true;
+        DataBaseManager.intelNightmare2 = true;
+        DataBaseManager.intelParanoia2 = true;
+        DataBaseManager.intelInsomnia2 = true;
+        DataBaseManager.intelSewerGhostStory2 = true;
+        DataBaseManager.intelMissingPeople2 = true;
+        DataBaseManager.intelFishySmell2 = true;
+        DataBaseManager.intelRiverWaterQuality2 = true;
+        DataBaseManager.intelCreepyEyes2 = true;
+        DataBaseManager.intelSewerWorker2 = true;
+        DataBaseManager.intelSafe2 = true;
 
 
-        DataBaseManager.Intel_DetectiveOffice2 = true;
-        DataBaseManager.Intel_Hospital2 = true;
-        DataBaseManager.Intel_Newspaper2 = true;
-        DataBaseManager.Intel_QuestHouse2 = true;
-        DataBaseManager.Intel_Station2 = true;
-        DataBaseManager.Intel_Sewer2 = true;
-        DataBaseManager.Intel_University2 = true;
-        DataBaseManager.Intel_Riverside2 = true;
-        DataBaseManager.Intel_Bar2 = true;
-        DataBaseManager.Intel_Slum2 = true;
-        DataBaseManager.Intel_PoliceOffice2 = true;
-        DataBaseManager.Intel_Gunsmith2 = true;
-        DataBaseManager.Intel_SewageMaintenanceOffice2 = true;
-        DataBaseManager.Intel_Wharf2 = true;
+        DataBaseManager.intelDetectiveOffice2 = true;
+        DataBaseManager.intelHospital2 = true;
+        DataBaseManager.intelNewspaper2 = true;
+        DataBaseManager.intelQuestHouse2 = true;
+        DataBaseManager.intelStation2 = true;
+        DataBaseManager.intelSewer2 = true;
+        DataBaseManager.intelUniversity2 = true;
+        DataBaseManager.intelRiverside2 = true;
+        DataBaseManager.intelBar2 = true;
+        DataBaseManager.intelSlum2 = true;
+        DataBaseManager.intelPoliceOffice2 = true;
+        DataBaseManager.intelGunsmith2 = true;
+        DataBaseManager.intelSewageMaintenanceOffice2 = true;
+        DataBaseManager.intelWharf2 = true;
 
 
     }
     public void Three()
     {
-        DataBaseManager.Intel_Ella3 = true;
-        DataBaseManager.Intel_Aiden3 = true;
-        DataBaseManager.Intel_Cane3 = true;
-        DataBaseManager.Intel_Albert3 = true;
-        DataBaseManager.Intel_Meiv3 = true;
-        DataBaseManager.Intel_BlackWell3 = true;
-        DataBaseManager.Intel_Swain3 = true;
+        DataBaseManager.intelElla3 = true;
+        DataBaseManager.intelAiden3 = true;
+        DataBaseManager.intelCane3 = true;
+        DataBaseManager.intelAlbert3 = true;
+        DataBaseManager.intelMeiv3 = true;
+        DataBaseManager.intelBlackWell3 = true;
+        DataBaseManager.intelSwain3 = true;
 
-        DataBaseManager.Intel_PlanetaryParade3 = true;
-        DataBaseManager.Intel_Nightmare3 = true;
-        DataBaseManager.Intel_Paranoia3 = true;
-        DataBaseManager.Intel_Insomnia3 = true;
-        DataBaseManager.Intel_SewerGhostStory3 = true;
-        DataBaseManager.Intel_MissingPeople3 = true;
-        DataBaseManager.Intel_FishySmell3 = true;
-        DataBaseManager.Intel_RiverWaterQuality3 = true;
-        DataBaseManager.Intel_CreepyEyes3 = true;
-        DataBaseManager.Intel_SewerWorker3 = true;
-        DataBaseManager.Intel_Safe3 = true;
+        DataBaseManager.intelPlanetaryParade3 = true;
+        DataBaseManager.intelNightmare3 = true;
+        DataBaseManager.intelParanoia3 = true;
+        DataBaseManager.intelInsomnia3 = true;
+        DataBaseManager.intelSewerGhostStory3 = true;
+        DataBaseManager.intelMissingPeople3 = true;
+        DataBaseManager.intelFishySmell3 = true;
+        DataBaseManager.intelRiverWaterQuality3 = true;
+        DataBaseManager.intelCreepyEyes3 = true;
+        DataBaseManager.intelSewerWorker3 = true;
+        DataBaseManager.intelSafe3 = true;
 
-        DataBaseManager.Intel_DetectiveOffice3 = true;
-        DataBaseManager.Intel_Hospital3 = true;
-        DataBaseManager.Intel_Newspaper3 = true;
-        DataBaseManager.Intel_QuestHouse3 = true;
-        DataBaseManager.Intel_Station3 = true;
-        DataBaseManager.Intel_Sewer3 = true;
-        DataBaseManager.Intel_University3 = true;
-        DataBaseManager.Intel_Riverside3 = true;
-        DataBaseManager.Intel_Bar3 = true;
-        DataBaseManager.Intel_Slum3 = true;
-        DataBaseManager.Intel_PoliceOffice3 = true;
-        DataBaseManager.Intel_Gunsmith3 = true;
-        DataBaseManager.Intel_SewageMaintenanceOffice3 = true;
-        DataBaseManager.Intel_Wharf3 = true;
+        DataBaseManager.intelDetectiveOffice3 = true;
+        DataBaseManager.intelHospital3 = true;
+        DataBaseManager.intelNewspaper3 = true;
+        DataBaseManager.intelQuestHouse3 = true;
+        DataBaseManager.intelStation3 = true;
+        DataBaseManager.intelSewer3 = true;
+        DataBaseManager.intelUniversity3 = true;
+        DataBaseManager.intelRiverside3 = true;
+        DataBaseManager.intelBar3 = true;
+        DataBaseManager.intelSlum3 = true;
+        DataBaseManager.intelPoliceOffice3 = true;
+        DataBaseManager.intelGunsmith3 = true;
+        DataBaseManager.intelSewageMaintenanceOffice3 = true;
+        DataBaseManager.intelWharf3 = true;
     }
     public void Four()
     {
-        DataBaseManager.Intel_Ella4 = true;
-        DataBaseManager.Intel_Aiden4 = true;
-        DataBaseManager.Intel_Cane4 = true;
-        DataBaseManager.Intel_Albert4 = true;
-        DataBaseManager.Intel_Meiv4 = true;
-        DataBaseManager.Intel_BlackWell4 = true;
-        DataBaseManager.Intel_Swain4 = true;
+        DataBaseManager.intelElla4 = true;
+        DataBaseManager.intelAiden4 = true;
+        DataBaseManager.intelCane4 = true;
+        DataBaseManager.intelAlbert4 = true;
+        DataBaseManager.intelMeiv4 = true;
+        DataBaseManager.intelBlackWell4 = true;
+        DataBaseManager.intelSwain4 = true;
 
-        DataBaseManager.Intel_PlanetaryParade4 = true;
-        DataBaseManager.Intel_Nightmare4 = true;
-        DataBaseManager.Intel_Paranoia4 = true;
-        DataBaseManager.Intel_Insomnia4 = true;
-        DataBaseManager.Intel_SewerGhostStory4 = true;
-        DataBaseManager.Intel_MissingPeople4 = true;
-        DataBaseManager.Intel_FishySmell4 = true;
-        DataBaseManager.Intel_RiverWaterQuality4 = true;
-        DataBaseManager.Intel_CreepyEyes4 = true;
-        DataBaseManager.Intel_SewerWorker4 = true;
-        DataBaseManager.Intel_Safe4 = true;
+        DataBaseManager.intelPlanetaryParade4 = true;
+        DataBaseManager.intelNightmare4 = true;
+        DataBaseManager.intelParanoia4 = true;
+        DataBaseManager.intelInsomnia4 = true;
+        DataBaseManager.intelSewerGhostStory4 = true;
+        DataBaseManager.intelMissingPeople4 = true;
+        DataBaseManager.intelFishySmell4 = true;
+        DataBaseManager.intelRiverWaterQuality4 = true;
+        DataBaseManager.intelCreepyEyes4 = true;
+        DataBaseManager.intelSewerWorker4 = true;
+        DataBaseManager.intelSafe4 = true;
 
-        DataBaseManager.Intel_DetectiveOffice4 = true;
-        DataBaseManager.Intel_Hospital4 = true;
-        DataBaseManager.Intel_Newspaper4 = true;
-        DataBaseManager.Intel_QuestHouse4 = true;
-        DataBaseManager.Intel_Station4 = true;
-        DataBaseManager.Intel_Sewer4 = true;
-        DataBaseManager.Intel_University4 = true;
-        DataBaseManager.Intel_Riverside4 = true;
-        DataBaseManager.Intel_Bar4 = true;
-        DataBaseManager.Intel_Slum4 = true;
-        DataBaseManager.Intel_PoliceOffice4 = true;
-        DataBaseManager.Intel_Gunsmith4 = true;
-        DataBaseManager.Intel_SewageMaintenanceOffice4 = true;
-        DataBaseManager.Intel_Wharf4 = true;
+        DataBaseManager.intelDetectiveOffice4 = true;
+        DataBaseManager.intelHospital4 = true;
+        DataBaseManager.intelNewspaper4 = true;
+        DataBaseManager.intelQuestHouse4 = true;
+        DataBaseManager.intelStation4 = true;
+        DataBaseManager.intelSewer4 = true;
+        DataBaseManager.intelUniversity4 = true;
+        DataBaseManager.intelRiverside4 = true;
+        DataBaseManager.intelBar4 = true;
+        DataBaseManager.intelSlum4 = true;
+        DataBaseManager.intelPoliceOffice4 = true;
+        DataBaseManager.intelGunsmith4 = true;
+        DataBaseManager.intelSewageMaintenanceOffice4 = true;
+        DataBaseManager.intelWharf4 = true;
     }
     public void Five()
     {
-        DataBaseManager.Intel_Ella5 = true;
-        DataBaseManager.Intel_Aiden5 = true;
-        DataBaseManager.Intel_Cane5 = true;
-        DataBaseManager.Intel_Albert5 = true;
-        DataBaseManager.Intel_Meiv5 = true;
-        DataBaseManager.Intel_BlackWell5 = true;
-        DataBaseManager.Intel_Swain5 = true;
+        DataBaseManager.intelElla5 = true;
+        DataBaseManager.intelAiden5 = true;
+        DataBaseManager.intelCane5 = true;
+        DataBaseManager.intelAlbert5 = true;
+        DataBaseManager.intelMeiv5 = true;
+        DataBaseManager.intelBlackWell5 = true;
+        DataBaseManager.intelSwain5 = true;
 
-        DataBaseManager.Intel_PlanetaryParade5 = true;
-        DataBaseManager.Intel_Nightmare5 = true;
-        DataBaseManager.Intel_Paranoia5 = true;
-        DataBaseManager.Intel_Insomnia5 = true;
-        DataBaseManager.Intel_SewerGhostStory5 = true;
-        DataBaseManager.Intel_MissingPeople5 = true;
-        DataBaseManager.Intel_FishySmell5 = true;
-        DataBaseManager.Intel_RiverWaterQuality5 = true;
-        DataBaseManager.Intel_CreepyEyes5 = true;
-        DataBaseManager.Intel_SewerWorker5 = true;
-        DataBaseManager.Intel_Safe5 = true;
+        DataBaseManager.intelPlanetaryParade5 = true;
+        DataBaseManager.intelNightmare5 = true;
+        DataBaseManager.intelParanoia5 = true;
+        DataBaseManager.intelInsomnia5 = true;
+        DataBaseManager.intelSewerGhostStory5 = true;
+        DataBaseManager.intelMissingPeople5 = true;
+        DataBaseManager.intelFishySmell5 = true;
+        DataBaseManager.intelRiverWaterQuality5 = true;
+        DataBaseManager.intelCreepyEyes5 = true;
+        DataBaseManager.intelSewerWorker5 = true;
+        DataBaseManager.intelSafe5 = true;
 
 
-        DataBaseManager.Intel_DetectiveOffice5 = true;
-        DataBaseManager.Intel_Hospital5 = true;
-        DataBaseManager.Intel_Newspaper5 = true;
-        DataBaseManager.Intel_QuestHouse5 = true;
-        DataBaseManager.Intel_Station5 = true;
-        DataBaseManager.Intel_Sewer5 = true;
-        DataBaseManager.Intel_University5 = true;
-        DataBaseManager.Intel_Riverside5 = true;
-        DataBaseManager.Intel_Bar5 = true;
-        DataBaseManager.Intel_Slum5 = true;
-        DataBaseManager.Intel_PoliceOffice5 = true;
-        DataBaseManager.Intel_Gunsmith5 = true;
-        DataBaseManager.Intel_SewageMaintenanceOffice5 = true;
-        DataBaseManager.Intel_Wharf5 = true;
+        DataBaseManager.intelDetectiveOffice5 = true;
+        DataBaseManager.intelHospital5 = true;
+        DataBaseManager.intelNewspaper5 = true;
+        DataBaseManager.intelQuestHouse5 = true;
+        DataBaseManager.intelStation5 = true;
+        DataBaseManager.intelSewer5 = true;
+        DataBaseManager.intelUniversity5 = true;
+        DataBaseManager.intelRiverside5 = true;
+        DataBaseManager.intelBar5 = true;
+        DataBaseManager.intelSlum5 = true;
+        DataBaseManager.intelPoliceOffice5 = true;
+        DataBaseManager.intelGunsmith5 = true;
+        DataBaseManager.intelSewageMaintenanceOffice5 = true;
+        DataBaseManager.intelWharf5 = true;
     }
 
     public void Six()
     {
-        DataBaseManager.Intel_Ella6 = true;
-        DataBaseManager.Intel_Aiden6 = true;
-        DataBaseManager.Intel_Cane6 = true;
-        DataBaseManager.Intel_Albert6 = true;
-        DataBaseManager.Intel_Meiv6 = true;
-        DataBaseManager.Intel_BlackWell6 = true;
-        DataBaseManager.Intel_Swain6 = true;
+        DataBaseManager.intelElla6 = true;
+        DataBaseManager.intelAiden6 = true;
+        DataBaseManager.intelCane6 = true;
+        DataBaseManager.intelAlbert6 = true;
+        DataBaseManager.intelMeiv6 = true;
+        DataBaseManager.intelBlackWell6 = true;
+        DataBaseManager.intelSwain6 = true;
 
-        DataBaseManager.Intel_PlanetaryParade6 = true;
-        DataBaseManager.Intel_Nightmare6 = true;
-        DataBaseManager.Intel_Paranoia6 = true;
-        DataBaseManager.Intel_Insomnia6 = true;
-        DataBaseManager.Intel_SewerGhostStory6 = true;
-        DataBaseManager.Intel_MissingPeople6 = true;
-        DataBaseManager.Intel_FishySmell6 = true;
-        DataBaseManager.Intel_RiverWaterQuality6 = true;
-        DataBaseManager.Intel_CreepyEyes6 = true;
-        DataBaseManager.Intel_SewerWorker6 = true;
-        DataBaseManager.Intel_Safe6 = true;
+        DataBaseManager.intelPlanetaryParade6 = true;
+        DataBaseManager.intelNightmare6 = true;
+        DataBaseManager.intelParanoia6 = true;
+        DataBaseManager.intelInsomnia6 = true;
+        DataBaseManager.intelSewerGhostStory6 = true;
+        DataBaseManager.intelMissingPeople6 = true;
+        DataBaseManager.intelFishySmell6 = true;
+        DataBaseManager.intelRiverWaterQuality6 = true;
+        DataBaseManager.intelCreepyEyes6 = true;
+        DataBaseManager.intelSewerWorker6 = true;
+        DataBaseManager.intelSafe6 = true;
 
 
-        DataBaseManager.Intel_DetectiveOffice6 = true;
-        DataBaseManager.Intel_Hospital6 = true;
-        DataBaseManager.Intel_Newspaper6 = true;
-        DataBaseManager.Intel_QuestHouse6 = true;
-        DataBaseManager.Intel_Station6 = true;
-        DataBaseManager.Intel_Sewer6 = true;
-        DataBaseManager.Intel_University6 = true;
-        DataBaseManager.Intel_Riverside6 = true;
-        DataBaseManager.Intel_Bar6 = true;
-        DataBaseManager.Intel_Slum6 = true;
-        DataBaseManager.Intel_PoliceOffice6 = true;
-        DataBaseManager.Intel_Gunsmith6 = true;
-        DataBaseManager.Intel_SewageMaintenanceOffice6 = true;
-        DataBaseManager.Intel_Wharf6 = true;
+        DataBaseManager.intelDetectiveOffice6 = true;
+        DataBaseManager.intelHospital6 = true;
+        DataBaseManager.intelNewspaper6 = true;
+        DataBaseManager.intelQuestHouse6 = true;
+        DataBaseManager.intelStation6 = true;
+        DataBaseManager.intelSewer6 = true;
+        DataBaseManager.intelUniversity6 = true;
+        DataBaseManager.intelRiverside6 = true;
+        DataBaseManager.intelBar6 = true;
+        DataBaseManager.intelSlum6 = true;
+        DataBaseManager.intelPoliceOffice6 = true;
+        DataBaseManager.intelGunsmith6 = true;
+        DataBaseManager.intelSewageMaintenanceOffice6 = true;
+        DataBaseManager.intelWharf6 = true;
     }
 
 }

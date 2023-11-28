@@ -3,63 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 public class Rollet : MonoBehaviour
 {
     bool activeCheck = false;
     bool activeCheck2 = false;
-    string Subject;
-    string Sub_Dialog;
-    public GameObject RolletSetUi;
-    public GameObject RolletCheckUI;
-    public GameObject RolletRollUI;
-
-    public GameObject Bad_1;
-    public GameObject Bad_10;
-    public GameObject Good_1;
-    public GameObject Good_10;
-    public GameObject Bad_1_Rollet;
-    public GameObject Bad_10_Rollet;
-    public GameObject Good_1_Rollet;
-    public GameObject Good_10_Rollet;
+    string subject;
+    string subDialog;
+    public GameObject rolletSetUi;
+    public GameObject rolletCheckUI;
+    public GameObject rolletRollUI;
+    public GameObject bad1;
+    public GameObject bad10;
+    public GameObject good1;
+    public GameObject good10;
+    public GameObject bad1Rollet;
+    public GameObject bad10Rollet;
+    public GameObject good1Rollet;
+    public GameObject good10Rollet;
 
     public GameObject setUI;
     public GameObject activeUI;
-
-    public float SkillPoint_1;
-    public float SkillPoint_10;
-    public float SuccesProbability;
-
-    public TextMeshProUGUI Skill;
-    public TextMeshProUGUI Point;
-    public TextMeshProUGUI Conditon;
-    public TextMeshProUGUI Expect;
-
-    public TextMeshProUGUI NomalRollet_1t;
-    public TextMeshProUGUI NomalRollet_10t;
-    public TextMeshProUGUI BadRollet_1t;
-    public TextMeshProUGUI BadRollet_10t;
-    public TextMeshProUGUI GoodRollet_1t;
-    public TextMeshProUGUI GoodRollet_10t;
-
+    public float skillPoint1;
+    public float skillPoint10;
+    public float succesProbability;
+    public TextMeshProUGUI skill;
+    public TextMeshProUGUI point;
+    public TextMeshProUGUI conditon;
+    public TextMeshProUGUI expect;
+    public TextMeshProUGUI nomalRollet1Txt;
+    public TextMeshProUGUI nomalRollet10Txt;
+    public TextMeshProUGUI badRollet1Txt;
+    public TextMeshProUGUI badRollet10Txt;
+    public TextMeshProUGUI goodRollet1Txt;
+    public TextMeshProUGUI goodRollet10Txt;
     int skillPoint;
-    int result_int;
-    public TextMeshProUGUI result_string;
-    public TextMeshProUGUI result_End;
-
-    public string EnemySubject;
+    int resultInt;
+    public TextMeshProUGUI resultString;
+    public TextMeshProUGUI resultEnd;
+    public string enemySubject;
     public bool isClick;
     public bool isActiveRollet;
     private static Rollet instance = null;
-
-    public GameObject EndButton;
-    string String;
-    public GameObject RolletUI;
+    public GameObject endButton;
+    string @string;
+    public GameObject rolletUI;
     private void Update()
     {
-        if (RolletUI.activeSelf == true && setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) && (Sub_Dialog != "SAN : Check" || Sub_Dialog != "Fabian : Sneak Out"))
+        if (rolletUI.activeSelf == true && setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) && (subDialog != "SAN : Check" || subDialog != "Fabian : Sneak Out"))
         {
             activeCheck = false;
-            DataBaseManager.CancelJudge = true;
+            DataBaseManager.cancelJudge = true;
             if (BattleManager.Instance.playerAction == "PlayerMarkmen")
             {
                 BattleManager.Instance.enemySelectUI.SetActive(true);
@@ -72,7 +66,7 @@ public class Rollet : MonoBehaviour
                 BattleManager.Instance.battleState = "selectEnemy";
                 BattleManager.Instance.Player_setDeftness();
             }
-            RolletSetUi.SetActive(false);
+            rolletSetUi.SetActive(false);
             DataBaseManager.isRollet = false;
             DataBaseManager.isActiveDialog1 = false;
             DataBaseManager.isDirecting = false;
@@ -83,7 +77,7 @@ public class Rollet : MonoBehaviour
             activeCheck = false;
             activeRollet();
         }
-        if (EndButton.activeSelf == true && Input.GetKeyDown(KeyCode.E))
+        if (endButton.activeSelf == true && Input.GetKeyDown(KeyCode.E))
         {
             EndRollet();
         }
@@ -100,12 +94,12 @@ public class Rollet : MonoBehaviour
                 }
             }
         }
-        if (SanRollet.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck2 == true)
+        if (sanRollet.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck2 == true)
         {
             activeCheck2 = false;
             activeSanRollet();
         }
-        if (EndButton2.activeSelf == true && Input.GetKeyDown(KeyCode.E))
+        if (endButton2.activeSelf == true && Input.GetKeyDown(KeyCode.E))
         {
             EndSanRollet();
         }
@@ -143,92 +137,92 @@ public class Rollet : MonoBehaviour
         {
             point_int = 0;
         }
-        EnemySubject = Enemy;
+        enemySubject = Enemy;
         SoundManager.Instance.PaperClip_Play();
         DataBaseManager.isRollet = true;
         DataBaseManager.isOpenUi = true;
-        Subject = subject;
-        Sub_Dialog = skill; // 나중에 다이얼로그 결과 전송시 사용
+        this.subject = subject;
+        subDialog = skill; // 나중에 다이얼로그 결과 전송시 사용
         ResetString();
-        RolletSetUi.SetActive(true);
-        Skill.text = skill;
+        rolletSetUi.SetActive(true);
+        this.skill.text = skill;
         if (skill != "??? : Deftness")
         {
-            Point.text = point_sting + " : " + point_int;
+            point.text = point_sting + " : " + point_int;
         }
         else
         {
-            Point.text = point_sting + " : ???";
+            point.text = point_sting + " : ???";
         }
         skillPoint = point_int;
-        String = point_sting;
-        if (DataBaseManager.Condition == "Nomal")
+        @string = point_sting;
+        if (DataBaseManager.condition == "Nomal")
         {
             ResetRolletDice();
-            Conditon.text = "Condition : Nomal";
-            SkillPoint_1 = point_int % 10;
-            SkillPoint_10 = point_int / 10;
-            SuccesProbability = SkillPoint_10 * 0.1f + SkillPoint_1 * 0.01f;
+            conditon.text = "Condition : Nomal";
+            skillPoint1 = point_int % 10;
+            skillPoint10 = point_int / 10;
+            succesProbability = skillPoint10 * 0.1f + skillPoint1 * 0.01f;
         }
-        else if (DataBaseManager.Condition == "Good")
+        else if (DataBaseManager.condition == "Good")
         {
             ResetRolletDice();
-            Conditon.text = "Condition : Good";
-            Good_1.SetActive(true);
-            Good_1_Rollet.SetActive(true);
-            SkillPoint_1 = point_int % 10;
-            SkillPoint_10 = point_int / 10;
-            SuccesProbability = SkillPoint_10 * 0.1f + (SkillPoint_1 * SkillPoint_1 + 2 * SkillPoint_1 * (10 - SkillPoint_1)) * 0.001f;
+            conditon.text = "Condition : Good";
+            good1.SetActive(true);
+            good1Rollet.SetActive(true);
+            skillPoint1 = point_int % 10;
+            skillPoint10 = point_int / 10;
+            succesProbability = skillPoint10 * 0.1f + (skillPoint1 * skillPoint1 + 2 * skillPoint1 * (10 - skillPoint1)) * 0.001f;
         }
-        else if (DataBaseManager.Condition == "Best")
+        else if (DataBaseManager.condition == "Best")
         {
             ResetRolletDice();
-            Conditon.text = "Condition : Best";
-            Good_10.SetActive(true);
-            Good_10_Rollet.SetActive(true);
-            SkillPoint_1 = point_int % 10;
-            SkillPoint_10 = point_int / 10;
-            SuccesProbability = (SkillPoint_10 * SkillPoint_10 + 2 * SkillPoint_10 * (10 - SkillPoint_10)) * 0.01f + SkillPoint_1 * 0.001f;
+            conditon.text = "Condition : Best";
+            good10.SetActive(true);
+            good10Rollet.SetActive(true);
+            skillPoint1 = point_int % 10;
+            skillPoint10 = point_int / 10;
+            succesProbability = (skillPoint10 * skillPoint10 + 2 * skillPoint10 * (10 - skillPoint10)) * 0.01f + skillPoint1 * 0.001f;
         }
-        else if (DataBaseManager.Condition == "Bad")
+        else if (DataBaseManager.condition == "Bad")
         {
             ResetRolletDice();
-            Conditon.text = "Condition : Bad";
-            Bad_1.SetActive(true);
-            Bad_1_Rollet.SetActive(true);
-            SkillPoint_1 = point_int % 10;
-            SkillPoint_10 = point_int / 10;
-            SuccesProbability = SkillPoint_10 * 0.1f + SkillPoint_1 * SkillPoint_1 * 0.001f;
+            conditon.text = "Condition : Bad";
+            bad1.SetActive(true);
+            bad1Rollet.SetActive(true);
+            skillPoint1 = point_int % 10;
+            skillPoint10 = point_int / 10;
+            succesProbability = skillPoint10 * 0.1f + skillPoint1 * skillPoint1 * 0.001f;
         }
-        else if (DataBaseManager.Condition == "Worst")
+        else if (DataBaseManager.condition == "Worst")
         {
             ResetRolletDice();
-            Conditon.text = "Condition : Worst";
-            Bad_10.SetActive(true);
-            Bad_10_Rollet.SetActive(true);
-            SkillPoint_1 = point_int % 10;
-            SkillPoint_10 = point_int / 10;
-            SuccesProbability = (SkillPoint_10 * SkillPoint_10 * 0.01f) + SkillPoint_1 * 0.001f;
+            conditon.text = "Condition : Worst";
+            bad10.SetActive(true);
+            bad10Rollet.SetActive(true);
+            skillPoint1 = point_int % 10;
+            skillPoint10 = point_int / 10;
+            succesProbability = (skillPoint10 * skillPoint10 * 0.01f) + skillPoint1 * 0.001f;
         }
-        if (SuccesProbability < 0.20)
+        if (succesProbability < 0.20)
         {
-            Expect.text = "Probability : Very Hard";
+            expect.text = "Probability : Very Hard";
         }
-        else if (SuccesProbability < 0.40)
+        else if (succesProbability < 0.40)
         {
-            Expect.text = "Probability : Hard";
+            expect.text = "Probability : Hard";
         }
-        else if (SuccesProbability < 0.60)
+        else if (succesProbability < 0.60)
         {
-            Expect.text = "Probability : Nomal";
+            expect.text = "Probability : Nomal";
         }
-        else if (SuccesProbability < 0.80)
+        else if (succesProbability < 0.80)
         {
-            Expect.text = "Probability : Easy";
+            expect.text = "Probability : Easy";
         }
-        else if (SuccesProbability < 1)
+        else if (succesProbability < 1)
         {
-            Expect.text = "Probability : Very Easy";
+            expect.text = "Probability : Very Easy";
         }
         Invoke("WaitOneSec", 0.1f);
     }
@@ -250,131 +244,131 @@ public class Rollet : MonoBehaviour
     void ChangeRollet()
     {
         isActiveRollet = true;
-        NomalRollet_1t.text = Random.Range(0, 10).ToString();
+        nomalRollet1Txt.text = Random.Range(0, 10).ToString();
         int nom_10t = (Random.Range(0, 10) * 10);
         if (nom_10t != 0)
         {
-            NomalRollet_10t.text = nom_10t.ToString();
+            nomalRollet10Txt.text = nom_10t.ToString();
         }
         else
         {
-            NomalRollet_10t.text = "00";
+            nomalRollet10Txt.text = "00";
         }
-        BadRollet_1t.text = Random.Range(0, 10).ToString();
+        badRollet1Txt.text = Random.Range(0, 10).ToString();
         int bad_10t = (Random.Range(0, 10) * 10);
         if (bad_10t != 0)
         {
-            BadRollet_10t.text = bad_10t.ToString();
+            badRollet10Txt.text = bad_10t.ToString();
         }
         else
         {
-            BadRollet_10t.text = "00";
+            badRollet10Txt.text = "00";
         }
-        GoodRollet_1t.text = Random.Range(0, 10).ToString();
+        goodRollet1Txt.text = Random.Range(0, 10).ToString();
         int good_10t = (Random.Range(0, 10) * 10);
         if (good_10t != 0)
         {
-            GoodRollet_10t.text = good_10t.ToString();
+            goodRollet10Txt.text = good_10t.ToString();
         }
         else
         {
-            GoodRollet_10t.text = "00";
+            goodRollet10Txt.text = "00";
         }
     }
     void GetIntResult()
     {
         SoundManager.Instance.pen_Line();
-        if (DataBaseManager.Condition == "Nomal")
+        if (DataBaseManager.condition == "Nomal")
         {
-            result_int = int.Parse(NomalRollet_10t.text) + int.Parse(NomalRollet_1t.text);
-            if (result_int == 0)
+            resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
+            if (resultInt == 0)
             {
-                result_int = 100;
+                resultInt = 100;
             }
-            result_string.text = "Dice : " + result_int.ToString();
+            resultString.text = "Dice : " + resultInt.ToString();
         }
-        else if (DataBaseManager.Condition == "Good")
+        else if (DataBaseManager.condition == "Good")
         {
-            if (int.Parse(NomalRollet_1t.text) > int.Parse(GoodRollet_1t.text))
+            if (int.Parse(nomalRollet1Txt.text) > int.Parse(goodRollet1Txt.text))
             {
-                result_int = int.Parse(NomalRollet_10t.text) + int.Parse(GoodRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(goodRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
             else
             {
-                result_int = int.Parse(NomalRollet_10t.text) + int.Parse(NomalRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
         }
-        else if (DataBaseManager.Condition == "Best")
+        else if (DataBaseManager.condition == "Best")
         {
-            if (int.Parse(NomalRollet_10t.text) > int.Parse(GoodRollet_10t.text))
+            if (int.Parse(nomalRollet10Txt.text) > int.Parse(goodRollet10Txt.text))
             {
-                result_int = int.Parse(GoodRollet_10t.text) + int.Parse(NomalRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(goodRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
             else
             {
-                result_int = int.Parse(NomalRollet_10t.text) + int.Parse(NomalRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
         }
-        else if (DataBaseManager.Condition == "Bad")
+        else if (DataBaseManager.condition == "Bad")
         {
-            if (int.Parse(NomalRollet_1t.text) > int.Parse(BadRollet_1t.text))
+            if (int.Parse(nomalRollet1Txt.text) > int.Parse(badRollet1Txt.text))
             {
-                result_int = int.Parse(NomalRollet_10t.text) + int.Parse(NomalRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
             else
             {
-                result_int = int.Parse(NomalRollet_10t.text) + int.Parse(BadRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(badRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
         }
-        else if (DataBaseManager.Condition == "Worst")
+        else if (DataBaseManager.condition == "Worst")
         {
-            if (int.Parse(NomalRollet_10t.text) > int.Parse(BadRollet_10t.text))
+            if (int.Parse(nomalRollet10Txt.text) > int.Parse(badRollet10Txt.text))
             {
-                result_int = int.Parse(NomalRollet_10t.text) + int.Parse(NomalRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
             else
             {
-                result_int = int.Parse(BadRollet_10t.text) + int.Parse(NomalRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(badRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
         }
         Invoke("GetStringResult", 0.5f);
@@ -382,36 +376,36 @@ public class Rollet : MonoBehaviour
     void GetStringResult()
     {
         SoundManager.Instance.pen_Circle();
-        if (result_int >= 95)
+        if (resultInt >= 95)
         {
-            result_End.text = "Result : Fumble";
+            resultEnd.text = "Result : Fumble";
         }
-        else if (result_int <= skillPoint / 3f)
+        else if (resultInt <= skillPoint / 3f)
         {
-            result_End.text = "Result : Critical Success";
+            resultEnd.text = "Result : Critical Success";
         }
-        else if (result_int <= skillPoint)
+        else if (resultInt <= skillPoint)
         {
-            if (DataBaseManager.isDebuff_Perfectionism == true)
+            if (DataBaseManager.isDebuffPerfectionism == true)
             {
-                result_End.text = "Result : Failure";
+                resultEnd.text = "Result : Failure";
             }
             else
             {
-                result_End.text = "Result : Success";
+                resultEnd.text = "Result : Success";
             }
         }
         else
         {
-            result_End.text = "Result : Failure";
+            resultEnd.text = "Result : Failure";
         }
-        if (String == "Sanity")
+        if (@string == "Sanity")
         {
             Invoke("OpenSanRollet", 1f);
         }
         else
         {
-            EndButton.SetActive(true);
+            endButton.SetActive(true);
         }
     }
     public void EndRollet()
@@ -422,342 +416,340 @@ public class Rollet : MonoBehaviour
         activeCheck = false;
         DataBaseManager.isRollet = false;
         isClick = false;
-        RolletSetUi.SetActive(false);
-        RolletCheckUI.SetActive(true);
-        RolletRollUI.SetActive(false);
-        EndButton.SetActive(false);
+        rolletSetUi.SetActive(false);
+        rolletCheckUI.SetActive(true);
+        rolletRollUI.SetActive(false);
+        endButton.SetActive(false);
 
         // 결과값을 전달하는 함수 필요
-        if (Subject == "dialog")
+        if (subject == "dialog")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, EnemySubject);
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, enemySubject);
         }
-        if (Subject == "Item")
+        if (subject == "Item")
         {
             if (DataBaseManager.nowItem == "First aid kit")
             {
-                DataBaseManager.Firstaidkit -= 1;
-                if (result_End.text == "Result : Success")
+                DataBaseManager.firstaidkit -= 1;
+                if (resultEnd.text == "Result : Success")
                 {
                     BillowUIManager.Instance.HP_up((Random.Range(1, 7)) * 5);
                 }
-                else if (result_End.text == "Result : Critical Success")
+                else if (resultEnd.text == "Result : Critical Success")
                 {
                     BillowUIManager.Instance.HP_up((Random.Range(1, 7)) * 5);
                 }
             }
             if (DataBaseManager.nowItem == "Bandages")
             {
-                DataBaseManager.Bandages -= 1;
-                if (result_End.text == "Result : Success")
+                DataBaseManager.bandages -= 1;
+                if (resultEnd.text == "Result : Success")
                 {
                     BillowUIManager.Instance.HP_up((Random.Range(1, 4)) * 5);
                 }
-                else if (result_End.text == "Result : Critical Success")
+                else if (resultEnd.text == "Result : Critical Success")
                 {
                     BillowUIManager.Instance.HP_up((Random.Range(1, 4)) * 5);
                 }
             }
             if (DataBaseManager.nowItem == "Painkillers")
             {
-                DataBaseManager.Painkillers -= 1;
-                if (result_End.text == "Result : Success")
+                DataBaseManager.painkillers -= 1;
+                if (resultEnd.text == "Result : Success")
                 {
                     BillowUIManager.Instance.San_up((Random.Range(1, 4)) * 5);
                 }
-                else if (result_End.text == "Result : Critical Success")
+                else if (resultEnd.text == "Result : Critical Success")
                 {
                     BillowUIManager.Instance.San_up((Random.Range(1, 4)) * 5);
                 }
             }
             if (DataBaseManager.nowItem == "Safe")
             {
-                InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
+                InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text);
             }
             if (DataBaseManager.nowItem == "Coat")
             {
-                InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
+                InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text);
             }
         }
 
-        if (Subject == "MS_attack")
+        if (subject == "MS_attack")
         {
-            if (EnemySubject == "DeepOneHybrid")
+            if (enemySubject == "DeepOneHybrid")
             {
-                BattleManager.Instance.RetrunRolletResult(Subject, result_End.text, EnemySubject);
-                if (DataBaseManager.BattleWeapon == "SmallPistol")
+                BattleManager.Instance.RetrunRolletResult(subject, resultEnd.text, enemySubject);
+                if (DataBaseManager.battleWeapon == "SmallPistol")
                 {
                     DataBaseManager.nowSmallPistol -= 1;
                 }
-                if (DataBaseManager.BattleWeapon == "Rifle")
+                if (DataBaseManager.battleWeapon == "Rifle")
                 {
                     DataBaseManager.nowRifle -= 1;
                 }
-                if (DataBaseManager.BattleWeapon == "Shotgun")
+                if (DataBaseManager.battleWeapon == "Shotgun")
                 {
                     DataBaseManager.nowShotgun -= 1;
                 }
-                if (DataBaseManager.BattleWeapon == "Revolver")
+                if (DataBaseManager.battleWeapon == "Revolver")
                 {
                     DataBaseManager.nowRevolver -= 1;
                 }
             }
-            if (EnemySubject == "DeepOne")
+            if (enemySubject == "DeepOne")
             {
-                BattleManager.Instance.RetrunRolletResult(Subject, result_End.text, EnemySubject);
-                if (DataBaseManager.BattleWeapon == "SmallPistol")
+                BattleManager.Instance.RetrunRolletResult(subject, resultEnd.text, enemySubject);
+                if (DataBaseManager.battleWeapon == "SmallPistol")
                 {
                     DataBaseManager.nowSmallPistol -= 1;
                 }
-                if (DataBaseManager.BattleWeapon == "Rifle")
+                if (DataBaseManager.battleWeapon == "Rifle")
                 {
                     DataBaseManager.nowRifle -= 1;
                 }
-                if (DataBaseManager.BattleWeapon == "Shotgun")
+                if (DataBaseManager.battleWeapon == "Shotgun")
                 {
                     DataBaseManager.nowShotgun -= 1;
                 }
-                if (DataBaseManager.BattleWeapon == "Revolver")
+                if (DataBaseManager.battleWeapon == "Revolver")
                 {
                     DataBaseManager.nowRevolver -= 1;
                 }
             }
         }
-        if (Subject == "Deftness_attack")
+        if (subject == "Deftness_attack")
         {
-            if (EnemySubject == "DeepOneHybrid")
+            if (enemySubject == "DeepOneHybrid")
             {
-                BattleManager.Instance.RetrunRolletResult(Subject, result_End.text, EnemySubject);
-                if (DataBaseManager.BattleWeapon == "Molotov")
+                BattleManager.Instance.RetrunRolletResult(subject, resultEnd.text, enemySubject);
+                if (DataBaseManager.battleWeapon == "Molotov")
                 {
-                    DataBaseManager.Molotov -= 1;
+                    DataBaseManager.molotov -= 1;
                 }
             }
-            if (EnemySubject == "DeepOne")
+            if (enemySubject == "DeepOne")
             {
-                BattleManager.Instance.RetrunRolletResult(Subject, result_End.text, EnemySubject);
-                if (DataBaseManager.BattleWeapon == "Molotov")
+                BattleManager.Instance.RetrunRolletResult(subject, resultEnd.text, enemySubject);
+                if (DataBaseManager.battleWeapon == "Molotov")
                 {
-                    DataBaseManager.Molotov -= 1;
+                    DataBaseManager.molotov -= 1;
                 }
             }
         }
-        if (Subject == "EnemyDeftness")
+        if (subject == "EnemyDeftness")
         {
-            BattleManager.Instance.RetrunRolletResult(Subject, result_End.text, EnemySubject);
+            BattleManager.Instance.RetrunRolletResult(subject, resultEnd.text, enemySubject);
         }
-        if (Subject == "DeepOneDeftness")
+        if (subject == "DeepOneDeftness")
         {
-            BattleManager.Instance.RetrunRolletResult(Subject, result_End.text, EnemySubject);
+            BattleManager.Instance.RetrunRolletResult(subject, resultEnd.text, enemySubject);
         }
-        if (Subject == "Case2IntCheck") // 이성판정 광련
+        if (subject == "Case2IntCheck") // 이성판정 광련
         {
-            InteractionController.Instance.RetrunDialogResult("Case2IntCheck", result_End.text);
+            InteractionController.Instance.RetrunDialogResult("Case2IntCheck", resultEnd.text);
         }
     }
 
-    public GameObject EndButton2;
-    public TextMeshProUGUI SanName;
-    public TextMeshProUGUI Slot1_name;
-    public TextMeshProUGUI Slot1_percent;
-    public TextMeshProUGUI Slot2_name;
-    public TextMeshProUGUI Slot2_percent;
-    public TextMeshProUGUI Slot3_name;
-    public TextMeshProUGUI Slot3_percent;
-    public TextMeshProUGUI SanRolletText;
-    public GameObject SanRollet;
-
-    int slot1_int;
-    int slot2_int;
-    int slot3_int;
-
-    public GameObject SanM10;
-    public GameObject SanM5;
+    public GameObject endButton2;
+    public TextMeshProUGUI sanName;
+    public TextMeshProUGUI slot1Name;
+    public TextMeshProUGUI slot1Percent;
+    public TextMeshProUGUI slot2Name;
+    public TextMeshProUGUI slot2Percent;
+    public TextMeshProUGUI slot3Name;
+    public TextMeshProUGUI slot3Percent;
+    public TextMeshProUGUI sanRolletText;
+    public GameObject sanRollet;
+    int slot1Int;
+    int slot2Int;
+    int slot3Int;
+    public GameObject sanM10;
+    public GameObject sanM5;
 
     //Level - 1 Debuff
-    public GameObject ThinWallets;
-    public GameObject Carelessness;
-    public GameObject Debilitation;
-    public GameObject Dizziness;
-    public GameObject Sprains;
-    public GameObject Unlucky;
-    public GameObject MusclePain;
-    public GameObject Migraines;
-    public GameObject EyeDisease;
+    public GameObject thinWallets;
+    public GameObject carelessness;
+    public GameObject debilitation;
+    public GameObject dizziness;
+    public GameObject sprains;
+    public GameObject unlucky;
+    public GameObject musclePain;
+    public GameObject migraines;
+    public GameObject eyeDisease;
 
     //Level - 2 Debuff
-    public GameObject Masochism;
-    public GameObject Careless;
-    public GameObject MentalWeakness;
-    public GameObject Helplessness;
-    public GameObject Extravagant;
-    public GameObject PanicAttack;
-    public GameObject Medicaldistrust;
-    public GameObject Hallucinations;
-    public GameObject Tightwad;
+    public GameObject masochism;
+    public GameObject careless;
+    public GameObject mentalWeakness;
+    public GameObject helplessness;
+    public GameObject extravagant;
+    public GameObject panicAttack;
+    public GameObject medicaldistrust;
+    public GameObject hallucinations;
+    public GameObject tightwad;
 
     //Level - 3 Debuff
-    public GameObject NightPhobia;
-    public GameObject Deafness;
-    public GameObject VisionLoss;
-    public GameObject ShortTempered;
-    public GameObject Dyslexia;
-    public GameObject DrugPhobia;
-    public GameObject CognitiveDisorder;
-    public GameObject CognitiveBreakdown;
-    public GameObject HomicidalImpulse;
-    public GameObject Perfectionism;
+    public GameObject nightPhobia;
+    public GameObject deafness;
+    public GameObject visionLoss;
+    public GameObject shortTempered;
+    public GameObject dyslexia;
+    public GameObject drugPhobia;
+    public GameObject cognitiveDisorder;
+    public GameObject cognitiveBreakdown;
+    public GameObject homicidalImpulse;
+    public GameObject perfectionism;
 
     //condition
-    public GameObject Best;
-    public GameObject Good;
-    public GameObject Nomal;
-    public GameObject Bad;
-    public GameObject Worst;
-    public TextMeshProUGUI Detail_San;
+    public GameObject best;
+    public GameObject good;
+    public GameObject nomal;
+    public GameObject bad;
+    public GameObject worst;
+    public TextMeshProUGUI detailSan;
     public void OpenSanRollet()
     {
-        ActiveButton.SetActive(true);
+        activeButton.SetActive(true);
         SoundManager.Instance.PaperClip_Play();
-        SanRollet.SetActive(true);
+        sanRollet.SetActive(true);
         Invoke("WaitOneSec2", 0.1f);
-        if (result_End.text == "Result : Fumble" || result_End.text == "Result : Failure")
+        if (resultEnd.text == "Result : Fumble" || resultEnd.text == "Result : Failure")
         {
-            if (DataBaseManager.Debuff == 0)
+            if (DataBaseManager.debuff == 0)
             {
-                if (DataBaseManager.Condition != "Worst")
+                if (DataBaseManager.condition != "Worst")
                 {
-                    SanName.text = "!Sanity check failed!";
-                    Slot1_name.text = "Sanity Decline";
-                    Slot1_percent.text = "50%";
-                    slot1_int = 50;
-                    Slot2_name.text = "Manifest Insanity";
-                    Slot2_percent.text = "30%";
-                    slot2_int = slot1_int + 30;
-                    Slot3_name.text = "Deconditioning";
-                    Slot3_percent.text = "20%";
-                    slot3_int = slot2_int + 20;
+                    sanName.text = "!Sanity check failed!";
+                    slot1Name.text = "Sanity Decline";
+                    slot1Percent.text = "50%";
+                    slot1Int = 50;
+                    slot2Name.text = "Manifest Insanity";
+                    slot2Percent.text = "30%";
+                    slot2Int = slot1Int + 30;
+                    slot3Name.text = "Deconditioning";
+                    slot3Percent.text = "20%";
+                    slot3Int = slot2Int + 20;
                 }
                 else
                 {
-                    SanName.text = "!Sanity check failed!";
-                    Slot1_name.text = "Sanity Decline";
-                    Slot1_percent.text = "50%";
-                    slot1_int = 50;
-                    Slot2_name.text = "Manifest Insanity";
-                    Slot2_percent.text = "50%";
-                    slot2_int = slot1_int + 50;
-                    Slot3_name.text = "Deconditioning";
-                    Slot3_percent.text = "---";
-                    slot3_int = slot2_int + 999;
+                    sanName.text = "!Sanity check failed!";
+                    slot1Name.text = "Sanity Decline";
+                    slot1Percent.text = "50%";
+                    slot1Int = 50;
+                    slot2Name.text = "Manifest Insanity";
+                    slot2Percent.text = "50%";
+                    slot2Int = slot1Int + 50;
+                    slot3Name.text = "Deconditioning";
+                    slot3Percent.text = "---";
+                    slot3Int = slot2Int + 999;
                 }
 
             }
-            else if (DataBaseManager.Debuff == 1)
+            else if (DataBaseManager.debuff == 1)
             {
-                if (DataBaseManager.Condition != "Worst")
+                if (DataBaseManager.condition != "Worst")
                 {
-                    SanName.text = "!Sanity check failed!";
-                    Slot1_name.text = "Sanity Decline";
-                    Slot1_percent.text = "30%";
-                    slot1_int = 30;
-                    Slot2_name.text = "Manifest Insanity";
-                    Slot2_percent.text = "50%";
-                    slot2_int = slot1_int + 50;
-                    Slot3_name.text = "Deconditioning";
-                    Slot3_percent.text = "20%";
-                    slot3_int = slot2_int + 20;
+                    sanName.text = "!Sanity check failed!";
+                    slot1Name.text = "Sanity Decline";
+                    slot1Percent.text = "30%";
+                    slot1Int = 30;
+                    slot2Name.text = "Manifest Insanity";
+                    slot2Percent.text = "50%";
+                    slot2Int = slot1Int + 50;
+                    slot3Name.text = "Deconditioning";
+                    slot3Percent.text = "20%";
+                    slot3Int = slot2Int + 20;
                 }
                 else
                 {
-                    SanName.text = "!Sanity check failed!";
-                    Slot1_name.text = "Sanity Decline";
-                    Slot1_percent.text = "30%";
-                    slot1_int = 30;
-                    Slot2_name.text = "Manifest Insanity";
-                    Slot2_percent.text = "70%";
-                    slot2_int = slot1_int + 70;
-                    Slot3_name.text = "Deconditioning";
-                    Slot3_percent.text = "---";
-                    slot3_int = slot2_int + 999;
+                    sanName.text = "!Sanity check failed!";
+                    slot1Name.text = "Sanity Decline";
+                    slot1Percent.text = "30%";
+                    slot1Int = 30;
+                    slot2Name.text = "Manifest Insanity";
+                    slot2Percent.text = "70%";
+                    slot2Int = slot1Int + 70;
+                    slot3Name.text = "Deconditioning";
+                    slot3Percent.text = "---";
+                    slot3Int = slot2Int + 999;
                 }
             }
-            else if (DataBaseManager.Debuff == 2)
+            else if (DataBaseManager.debuff == 2)
             {
-                if (DataBaseManager.Condition != "Worst")
+                if (DataBaseManager.condition != "Worst")
                 {
-                    SanName.text = "!Sanity check failed!";
-                    Slot1_name.text = "Sanity Decline";
-                    Slot1_percent.text = "20%";
-                    slot1_int = 20;
-                    Slot2_name.text = "Manifest Insanity";
-                    Slot2_percent.text = "60%";
-                    slot2_int = slot1_int + 60;
-                    Slot3_name.text = "Deconditioning";
-                    Slot3_percent.text = "20%";
-                    slot3_int = slot2_int + 20;
+                    sanName.text = "!Sanity check failed!";
+                    slot1Name.text = "Sanity Decline";
+                    slot1Percent.text = "20%";
+                    slot1Int = 20;
+                    slot2Name.text = "Manifest Insanity";
+                    slot2Percent.text = "60%";
+                    slot2Int = slot1Int + 60;
+                    slot3Name.text = "Deconditioning";
+                    slot3Percent.text = "20%";
+                    slot3Int = slot2Int + 20;
                 }
                 else
                 {
-                    SanName.text = "!Sanity check failed!";
-                    Slot1_name.text = "Sanity Decline";
-                    Slot1_percent.text = "20%";
-                    slot1_int = 20;
-                    Slot2_name.text = "Manifest Insanity";
-                    Slot2_percent.text = "80%";
-                    slot2_int = slot1_int + 80;
-                    Slot3_name.text = "Deconditioning";
-                    Slot3_percent.text = "---";
-                    slot3_int = slot2_int + 999;
+                    sanName.text = "!Sanity check failed!";
+                    slot1Name.text = "Sanity Decline";
+                    slot1Percent.text = "20%";
+                    slot1Int = 20;
+                    slot2Name.text = "Manifest Insanity";
+                    slot2Percent.text = "80%";
+                    slot2Int = slot1Int + 80;
+                    slot3Name.text = "Deconditioning";
+                    slot3Percent.text = "---";
+                    slot3Int = slot2Int + 999;
                 }
             }
-            else if (DataBaseManager.Debuff == 3)
+            else if (DataBaseManager.debuff == 3)
             {
-                if (DataBaseManager.Condition != "Worst")
+                if (DataBaseManager.condition != "Worst")
                 {
-                    SanName.text = "!Sanity check failed!";
-                    Slot1_name.text = "Sanity Decline";
-                    Slot1_percent.text = "40%";
-                    slot1_int = 40;
-                    Slot2_name.text = "Manifest Insanity";
-                    Slot2_percent.text = "---";
-                    Slot3_name.text = "Deconditioning";
-                    Slot3_percent.text = "60%";
-                    slot3_int = slot2_int + 60;
+                    sanName.text = "!Sanity check failed!";
+                    slot1Name.text = "Sanity Decline";
+                    slot1Percent.text = "40%";
+                    slot1Int = 40;
+                    slot2Name.text = "Manifest Insanity";
+                    slot2Percent.text = "---";
+                    slot3Name.text = "Deconditioning";
+                    slot3Percent.text = "60%";
+                    slot3Int = slot2Int + 60;
                 }
                 else
                 {
-                    SanName.text = "!Sanity check failed!";
-                    Slot1_name.text = "Sanity Decline";
-                    Slot1_percent.text = "100%";
-                    slot1_int = 100;
-                    Slot2_name.text = "Manifest Insanity";
-                    Slot2_percent.text = "---%";
-                    slot2_int = slot1_int + 999;
-                    Slot3_name.text = "Deconditioning";
-                    Slot3_percent.text = "---";
-                    slot3_int = slot2_int + 999;
+                    sanName.text = "!Sanity check failed!";
+                    slot1Name.text = "Sanity Decline";
+                    slot1Percent.text = "100%";
+                    slot1Int = 100;
+                    slot2Name.text = "Manifest Insanity";
+                    slot2Percent.text = "---%";
+                    slot2Int = slot1Int + 999;
+                    slot3Name.text = "Deconditioning";
+                    slot3Percent.text = "---";
+                    slot3Int = slot2Int + 999;
                 }
             }
         }
         else
         {
-            SanName.text = "Sanity check Success";
-            Slot1_name.text = "No change";
-            Slot1_percent.text = "80%";
-            slot1_int = 80;
-            Slot2_name.text = "Rise sanity";
-            Slot2_percent.text = "15%";
-            slot2_int = 95;
-            Slot3_name.text = "Raise Condition";
-            Slot3_percent.text = "5%";
-            slot3_int = 100;
+            sanName.text = "Sanity check Success";
+            slot1Name.text = "No change";
+            slot1Percent.text = "80%";
+            slot1Int = 80;
+            slot2Name.text = "Rise sanity";
+            slot2Percent.text = "15%";
+            slot2Int = 95;
+            slot3Name.text = "Raise Condition";
+            slot3Percent.text = "5%";
+            slot3Int = 100;
         }
     }
-    public GameObject ActiveButton;
+    public GameObject activeButton;
     public void activeSanRollet()
     {
-        ActiveButton.SetActive(false);
+        activeButton.SetActive(false);
         ChangeSanRollet();
     }
     public void WaitOneSec2()
@@ -767,53 +759,53 @@ public class Rollet : MonoBehaviour
     void ChangeSanRollet()
     {
         SoundManager.Instance.pen_Line();
-        if (SanName.text == "!Sanity check failed!")
+        if (sanName.text == "!Sanity check failed!")
         {
             int SanRollet = (Random.Range(1, 101));
             Debug.Log(SanRollet);
 
-            if (DataBaseManager.Debuff == 3)
+            if (DataBaseManager.debuff == 3)
             {
-                if (SanRollet <= slot1_int && SanRollet <= slot3_int)
+                if (SanRollet <= slot1Int && SanRollet <= slot3Int)
                 {
-                    SanRolletText.text = "Sanity Decline";
+                    sanRolletText.text = "Sanity Decline";
                 }
                 else
                 {
-                    SanRolletText.text = "Deconditioning";
+                    sanRolletText.text = "Deconditioning";
                 }
             }
             else
             {
-                if (SanRollet <= slot1_int && SanRollet <= slot2_int && SanRollet <= slot3_int)
+                if (SanRollet <= slot1Int && SanRollet <= slot2Int && SanRollet <= slot3Int)
                 {
-                    SanRolletText.text = "Sanity Decline";
+                    sanRolletText.text = "Sanity Decline";
                 }
-                else if (SanRollet >= slot1_int && SanRollet <= slot2_int && SanRollet <= slot3_int)
+                else if (SanRollet >= slot1Int && SanRollet <= slot2Int && SanRollet <= slot3Int)
                 {
-                    SanRolletText.text = "Manifest Insanity";
+                    sanRolletText.text = "Manifest Insanity";
                 }
-                else if (SanRollet >= slot1_int && SanRollet >= slot2_int && SanRollet <= slot3_int)
+                else if (SanRollet >= slot1Int && SanRollet >= slot2Int && SanRollet <= slot3Int)
                 {
-                    SanRolletText.text = "Deconditioning";
+                    sanRolletText.text = "Deconditioning";
                 }
             }
         }
-        else if (SanName.text == "Sanity check Success")
+        else if (sanName.text == "Sanity check Success")
         {
             int SanRollet = (Random.Range(1, 101));
             Debug.Log(SanRollet);
-            if (SanRollet <= slot1_int)
+            if (SanRollet <= slot1Int)
             {
-                SanRolletText.text = "No change";
+                sanRolletText.text = "No change";
             }
-            else if (SanRollet <= slot2_int)
+            else if (SanRollet <= slot2Int)
             {
-                SanRolletText.text = "Rise sanity";
+                sanRolletText.text = "Rise sanity";
             }
             else
             {
-                SanRolletText.text = "Raise Condition";
+                sanRolletText.text = "Raise Condition";
             }
         }
         Invoke("ResultRollet", 1);
@@ -821,35 +813,35 @@ public class Rollet : MonoBehaviour
     void ResultRollet()
     {
         SoundManager.Instance.pen_Circle();
-        if (SanRolletText.text == "Sanity Decline")
+        if (sanRolletText.text == "Sanity Decline")
         {
             int SanRollet = (Random.Range(0, 3));
             if (SanRollet == 1)
             {
-                Detail_San.text = "Sanity Decline : 10\n\nThe current sanity reduced by 10 Point.";
+                detailSan.text = "Sanity Decline : 10\n\nThe current sanity reduced by 10 Point.";
                 BillowUIManager.Instance.San_Down(10);
-                SanM10.SetActive(true);
+                sanM10.SetActive(true);
             }
             else
             {
-                Detail_San.text = "Sanity Decline : 5\n\nThe current sanity reduced by 5 Point.";
+                detailSan.text = "Sanity Decline : 5\n\nThe current sanity reduced by 5 Point.";
                 BillowUIManager.Instance.San_Down(5);
-                SanM5.SetActive(true);
+                sanM5.SetActive(true);
             }
         }
-        else if (SanRolletText.text == "Manifest Insanity")
+        else if (sanRolletText.text == "Manifest Insanity")
         {
-            if (DataBaseManager.Debuff == 0)
+            if (DataBaseManager.debuff == 0)
             {
-                DataBaseManager.Debuff += 1;
+                DataBaseManager.debuff += 1;
                 int DebuffRollet = (Random.Range(1, 10));
                 switch (DebuffRollet)
                 {
                     case 1:
-                        Detail_San.text = "Level 1 : ThinWallets\n\nYou lose 5 of your wealth Point.";
-                        DataBaseManager.ThinWallets = true;
+                        detailSan.text = "Level 1 : ThinWallets\n\nYou lose 5 of your wealth Point.";
+                        DataBaseManager.thinWallets = true;
 
-                        ThinWallets.SetActive(true);
+                        thinWallets.SetActive(true);
                         if (DataBaseManager.weal > 5)
                         {
                             DataBaseManager.weal -= 5;
@@ -861,56 +853,56 @@ public class Rollet : MonoBehaviour
                         SIS_UIManager.Instance.ThinWallets_Open();
                         break;
                     case 2:
-                        Carelessness.SetActive(true);
+                        carelessness.SetActive(true);
                         DataBaseManager.hp -= 5;
                         DataBaseManager.nowHP -= 5;
                         BillowUIManager.Instance.resetHP();
                         BillowUIManager.Instance.HP_down(5);
-                        Detail_San.text = "Level 1 : Carelessness\n\nYou lose 5 HP and max HP Point.";
-                        DataBaseManager.Carelessness = true;
+                        detailSan.text = "Level 1 : Carelessness\n\nYou lose 5 HP and max HP Point.";
+                        DataBaseManager.carelessness = true;
                         SIS_UIManager.Instance.Carelessness_Open();
                         break;
                     case 3:
-                        Debilitation.SetActive(true);
+                        debilitation.SetActive(true);
                         DataBaseManager.str -= 10;
-                        Detail_San.text = "Level 1 : Debilitation\n\nYou lose 10 Str Point";
-                        DataBaseManager.Debilitation = true;
+                        detailSan.text = "Level 1 : Debilitation\n\nYou lose 10 Str Point";
+                        DataBaseManager.debilitation = true;
                         SIS_UIManager.Instance.Debilitation_Open();
                         break;
                     case 4:
-                        Dizziness.SetActive(true);
+                        dizziness.SetActive(true);
                         DataBaseManager.intl -= 10;
-                        Detail_San.text = "Level 1 : Dizziness\n\nYou lose 10 Int Point";
-                        DataBaseManager.Dizziness = true;
+                        detailSan.text = "Level 1 : Dizziness\n\nYou lose 10 Int Point";
+                        DataBaseManager.dizziness = true;
                         SIS_UIManager.Instance.Dizziness_Open();
                         break;
                     case 5:
-                        Sprains.SetActive(true);
+                        sprains.SetActive(true);
                         DataBaseManager.dex -= 10;
-                        Detail_San.text = "Level 1 : Sprains\n\nYou lose 10 Dex Point";
-                        DataBaseManager.Sprains = true;
+                        detailSan.text = "Level 1 : Sprains\n\nYou lose 10 Dex Point";
+                        DataBaseManager.sprains = true;
                         SIS_UIManager.Instance.Sprains_Open();
                         break;
                     case 6:
-                        Unlucky.SetActive(true);
+                        unlucky.SetActive(true);
                         DataBaseManager.luk -= 10;
-                        Detail_San.text = "Level 1 : Unlucky\n\nYou lose 10 Luk Point";
-                        DataBaseManager.Unlucky = true;
+                        detailSan.text = "Level 1 : Unlucky\n\nYou lose 10 Luk Point";
+                        DataBaseManager.unlucky = true;
                         SIS_UIManager.Instance.Unlucky_Open();
                         break;
                     case 7:
-                        MusclePain.SetActive(true);
+                        musclePain.SetActive(true);
                         DataBaseManager.gunShotPoint -= 10;
                         DataBaseManager.martialArtsPoint -= 10;
                         DataBaseManager.swimingPoint -= 10;
                         DataBaseManager.swordPoint -= 10;
-                        DataBaseManager.ObservationPoint -= 10;
-                        Detail_San.text = "Level 1 : MusclePain\n\nAll skills based on Str are reduced by 10 Point.";
-                        DataBaseManager.MusclePain = true;
+                        DataBaseManager.observationPoint -= 10;
+                        detailSan.text = "Level 1 : MusclePain\n\nAll skills based on Str are reduced by 10 Point.";
+                        DataBaseManager.musclePain = true;
                         SIS_UIManager.Instance.MusclePain_Open();
                         break;
                     case 8:
-                        Migraines.SetActive(true);
+                        migraines.SetActive(true);
                         DataBaseManager.medicinePoint -= 10;
                         DataBaseManager.analysisPoint -= 10;
                         DataBaseManager.listeningPoint -= 10;
@@ -930,395 +922,394 @@ public class Rollet : MonoBehaviour
                         {
                             DataBaseManager.occultPoint = 0;
                         }
-                        Detail_San.text = "Level 1 : Migraines\n\nAll skills based on Int are reduced by 10 Point.";
-                        DataBaseManager.Migraines = true;
+                        detailSan.text = "Level 1 : Migraines\n\nAll skills based on Int are reduced by 10 Point.";
+                        DataBaseManager.migraines = true;
                         SIS_UIManager.Instance.Migraines_Open();
                         break;
                     case 9:
-                        EyeDisease.SetActive(true);
+                        eyeDisease.SetActive(true);
                         DataBaseManager.evasionPoint -= 10;
                         DataBaseManager.deftnessPoint -= 10;
                         DataBaseManager.rhetoricPoint -= 10;
                         DataBaseManager.stealthPoint -= 10;
-                        DataBaseManager.DisguisePoint -= 10;
-                        Detail_San.text = "Level 1 : EyeDisease\n\nAll skills based on Dex are reduced by 10 Point.";
-                        DataBaseManager.EyeDisease = true;
+                        DataBaseManager.disguisePoint -= 10;
+                        detailSan.text = "Level 1 : EyeDisease\n\nAll skills based on Dex are reduced by 10 Point.";
+                        DataBaseManager.eyeDisease = true;
                         SIS_UIManager.Instance.EyeDisease_Open();
                         break;
                 }
             }
-            else if (DataBaseManager.Debuff == 1)
+            else if (DataBaseManager.debuff == 1)
             {
-                DataBaseManager.Debuff += 1;
+                DataBaseManager.debuff += 1;
                 int DebuffRollet = (Random.Range(1, 8));
                 switch (DebuffRollet)
                 {
                     case 1:
-                        Detail_San.text = "Level 2 : Masochism\n\nThe player takes an additional 5 HP damage when hit.(100%)";
-                        Masochism.SetActive(true);
-                        DataBaseManager.Masochism = true;
+                        detailSan.text = "Level 2 : Masochism\n\nThe player takes an additional 5 HP damage when hit.(100%)";
+                        masochism.SetActive(true);
+                        DataBaseManager.masochism = true;
                         SIS_UIManager.Instance.Masochism_Open();
                         break;
                     case 2:
-                        Detail_San.text = "Level 2 : Careless\n\nYou lose one of the items you're currently carrying.";
-                        Careless.SetActive(true);
+                        detailSan.text = "Level 2 : Careless\n\nYou lose one of the items you're currently carrying.";
+                        careless.SetActive(true);
                         DataBaseManager.nowItem = "";
-                        DataBaseManager.Careless = true;
+                        DataBaseManager.careless = true;
                         SIS_UIManager.Instance.CareLessActive();
                         SIS_UIManager.Instance.Careless_Open();
                         break;
                     case 3:
-                        Detail_San.text = "Level 2 : MentalWeakness\n\nThe player takes an additional 5 SAN damage when hit.(100%)";
-                        MentalWeakness.SetActive(true);
-                        DataBaseManager.MentalWeakness = true;
+                        detailSan.text = "Level 2 : MentalWeakness\n\nThe player takes an additional 5 SAN damage when hit.(100%)";
+                        mentalWeakness.SetActive(true);
+                        DataBaseManager.mentalWeakness = true;
                         SIS_UIManager.Instance.MentalWeakness_Open();
                         break;
                     case 4:
-                        Detail_San.text = "Level 2 : Helplessness\n\nMovement speed is reduced by 30%.";
-                        Helplessness.SetActive(true);
-                        DataBaseManager.Helplessness = true;
+                        detailSan.text = "Level 2 : Helplessness\n\nMovement speed is reduced by 30%.";
+                        helplessness.SetActive(true);
+                        DataBaseManager.helplessness = true;
                         SIS_UIManager.Instance.Helplessness_Open();
                         break;
                     case 5:
-                        Detail_San.text = "Level 2 : Extravagant\n\nThe cost of store purchases increases.";
-                        Extravagant.SetActive(true);
+                        detailSan.text = "Level 2 : Extravagant\n\nThe cost of store purchases increases.";
+                        extravagant.SetActive(true);
                         ShopUI.Instance.ExtravoltON();
-                        DataBaseManager.Extravagant = true;
+                        DataBaseManager.extravagant = true;
                         SIS_UIManager.Instance.Extravagant_Open();
                         break;
                     case 6:
-                        Detail_San.text = "Level 2 : PanicAttack\n\nChance to 5 HP damage when traveling through an area.(50%)";
-                        PanicAttack.SetActive(true);
-                        DataBaseManager.PanicAttack = true;
+                        detailSan.text = "Level 2 : PanicAttack\n\nChance to 5 HP damage when traveling through an area.(50%)";
+                        panicAttack.SetActive(true);
+                        DataBaseManager.panicAttack = true;
                         SIS_UIManager.Instance.PanicAttack_Open();
                         break;
                     case 7:
-                        Detail_San.text = "Level 2 : Tightwad\n\nThe store is no longer available.";
-                        Tightwad.SetActive(true);
-                        DataBaseManager.Tightwad = true;
+                        detailSan.text = "Level 2 : Tightwad\n\nThe store is no longer available.";
+                        tightwad.SetActive(true);
+                        DataBaseManager.tightwad = true;
                         SIS_UIManager.Instance.Tightwad_Open();
                         break;
                     case 8:
-                        Hallucinations.SetActive(true);      // 나중에 연출로 해서 넣기~~~~~~~~~~~~
+                        hallucinations.SetActive(true);      // 나중에 연출로 해서 넣기~~~~~~~~~~~~
                         SIS_UIManager.Instance.Hallucinations_Open();
                         break;
                     case 9:
-                        Medicaldistrust.SetActive(true);   // 나중에 상점 추가된 뒤에 해서 넣기~~~~~~~~~~~~
+                        medicaldistrust.SetActive(true);   // 나중에 상점 추가된 뒤에 해서 넣기~~~~~~~~~~~~
                         SIS_UIManager.Instance.Medicaldistrust_Open();
                         break;
                 }
             }
-            else if (DataBaseManager.Debuff == 2)
+            else if (DataBaseManager.debuff == 2)
             {
-                DataBaseManager.Debuff += 1;
+                DataBaseManager.debuff += 1;
                 int DebuffRollet = (Random.Range(1, 10));
                 switch (DebuffRollet)
                 {
                     case 1:
-                        Detail_San.text = "Level 3 : NightPhobia\n\nThe player can't walk around at night anymore.";
-                        NightPhobia.SetActive(true);
-                        DataBaseManager.isDebuff_NightPhobia = true;
+                        detailSan.text = "Level 3 : NightPhobia\n\nThe player can't walk around at night anymore.";
+                        nightPhobia.SetActive(true);
+                        DataBaseManager.isDebuffNightPhobia = true;
                         SIS_UIManager.Instance.NightPhobia_Open();
                         break;
                     case 2:
-                        Detail_San.text = "Level 3 : Deafness\n\nThe player can no longer hear the sound.";
-                        Deafness.SetActive(true);
-                        DataBaseManager.isDebuff_Deftness = true;
+                        detailSan.text = "Level 3 : Deafness\n\nThe player can no longer hear the sound.";
+                        deafness.SetActive(true);
+                        DataBaseManager.isDebuffDeftness = true;
                         SIS_UIManager.Instance.Deafness_Open();
                         break;
                     case 3:
-                        Detail_San.text = "Level 3 : VisionLoss\n\nThe player narrows the field of view.";
-                        VisionLoss.SetActive(true);
-                        DataBaseManager.isDebuff_VisionLoss = true;
+                        detailSan.text = "Level 3 : VisionLoss\n\nThe player narrows the field of view.";
+                        visionLoss.SetActive(true);
+                        DataBaseManager.isDebuffVisionLoss = true;
                         SIS_UIManager.Instance.VisionLoss_Open();
                         break;
                     case 4:
-                        Detail_San.text = "Level 3 : Short-Tempered\n\nThe player can't run away from the battle.";
-                        ShortTempered.SetActive(true);
-                        DataBaseManager.isDebuff_ShortTempred = true;
+                        detailSan.text = "Level 3 : Short-Tempered\n\nThe player can't run away from the battle.";
+                        shortTempered.SetActive(true);
+                        DataBaseManager.isDebuffShortTempred = true;
                         SIS_UIManager.Instance.ShortTempered_Open();
                         break;
                     case 5:
-                        Detail_San.text = "Level 3 : Dyslexia\n\nThe Detective Notebook is no longer available.";
-                        Dyslexia.SetActive(true);
-                        DataBaseManager.isDebuff_Dyslexia = true;
+                        detailSan.text = "Level 3 : Dyslexia\n\nThe Detective Notebook is no longer available.";
+                        dyslexia.SetActive(true);
+                        DataBaseManager.isDebuffDyslexia = true;
                         SIS_UIManager.Instance.Dyslexia_Open();
                         break;
                     case 6:
-                        Detail_San.text = "Level 3 : DrugPhobia\n\nCure items are no longer available.";
-                        DrugPhobia.SetActive(true);
-                        DataBaseManager.isDebuff_DrugPhobia = true;
+                        detailSan.text = "Level 3 : DrugPhobia\n\nCure items are no longer available.";
+                        drugPhobia.SetActive(true);
+                        DataBaseManager.isDebuffDrugPhobia = true;
                         SIS_UIManager.Instance.DrugPhobia_Open();
                         break;
                     case 7:
-                        Detail_San.text = "Level 3 : CognitiveDisorder\n\nThe player will be taken to a random place when using the map.";
-                        CognitiveDisorder.SetActive(true);
-                        DataBaseManager.isDebuff_CognitiveDisorder = true;
+                        detailSan.text = "Level 3 : CognitiveDisorder\n\nThe player will be taken to a random place when using the map.";
+                        cognitiveDisorder.SetActive(true);
+                        DataBaseManager.isDebuffCognitiveDisorder = true;
                         SIS_UIManager.Instance.CognitiveDisorder_Open();
                         break;
                     case 8:
-                        Detail_San.text = "Level 3 : CognitiveBreakdown\n\nThe Player information is no longer available.";
-                        CognitiveBreakdown.SetActive(true);
+                        detailSan.text = "Level 3 : CognitiveBreakdown\n\nThe Player information is no longer available.";
+                        cognitiveBreakdown.SetActive(true);
                         SIS_UIManager.Instance.CognitiveBreakdown_Open();
-                        DataBaseManager.isDebuff_CognitiveBreakdown = true;
+                        DataBaseManager.isDebuffCognitiveBreakdown = true;
                         break;
                     case 9:
-                        Detail_San.text = "Level 3 : Perfectionism\n\nUnless it's an Critical Success, the judgment will fail.";
-                        Perfectionism.SetActive(true);
+                        detailSan.text = "Level 3 : Perfectionism\n\nUnless it's an Critical Success, the judgment will fail.";
+                        perfectionism.SetActive(true);
                         SIS_UIManager.Instance.Perfectionism_Open();
-                        DataBaseManager.isDebuff_Perfectionism = true;
+                        DataBaseManager.isDebuffPerfectionism = true;
                         break;
                     case 10:
-                        Detail_San.text = "Level 3 : NightPhobia\n\n";
-                        HomicidalImpulse.SetActive(true);
+                        detailSan.text = "Level 3 : NightPhobia\n\n";
+                        homicidalImpulse.SetActive(true);
                         SIS_UIManager.Instance.HomicidalImpulse_Open();
                         break;
                 }
             }
         }
-        else if (SanRolletText.text == "Deconditioning")
+        else if (sanRolletText.text == "Deconditioning")
         {
-            if (DataBaseManager.Condition == "Best")
+            if (DataBaseManager.condition == "Best")
             {
-                Good.SetActive(true);
-                Detail_San.text = "Deconditioning : Good\n\nCondition has dropped to (Good).";
-                DataBaseManager.Condition = "Good";
+                good.SetActive(true);
+                detailSan.text = "Deconditioning : Good\n\nCondition has dropped to (Good).";
+                DataBaseManager.condition = "Good";
             }
-            else if (DataBaseManager.Condition == "Good")
+            else if (DataBaseManager.condition == "Good")
             {
-                Nomal.SetActive(true);
-                Detail_San.text = "Deconditioning : Nomal\n\nCondition has dropped to (Nomal).";
-                DataBaseManager.Condition = "Nomal";
+                nomal.SetActive(true);
+                detailSan.text = "Deconditioning : Nomal\n\nCondition has dropped to (Nomal).";
+                DataBaseManager.condition = "Nomal";
             }
-            else if (DataBaseManager.Condition == "Nomal")
+            else if (DataBaseManager.condition == "Nomal")
             {
-                Bad.SetActive(true);
-                Detail_San.text = "Deconditioning : Bad\n\nCondition has dropped to (Bad).";
-                DataBaseManager.Condition = "Bad";
+                bad.SetActive(true);
+                detailSan.text = "Deconditioning : Bad\n\nCondition has dropped to (Bad).";
+                DataBaseManager.condition = "Bad";
             }
-            else if (DataBaseManager.Condition == "Bad")
+            else if (DataBaseManager.condition == "Bad")
             {
-                Worst.SetActive(true);
-                Detail_San.text = "Deconditioning : Worst   \n\nCondition has dropped to (Worst).";
-                DataBaseManager.Condition = "Worst";
+                worst.SetActive(true);
+                detailSan.text = "Deconditioning : Worst   \n\nCondition has dropped to (Worst).";
+                DataBaseManager.condition = "Worst";
             }
-            else if (DataBaseManager.Condition == "Worst")
+            else if (DataBaseManager.condition == "Worst")
             {
             }
         }
-        else if (SanRolletText.text == "Rise sanity")
+        else if (sanRolletText.text == "Rise sanity")
         {
             int SanRollet = (Random.Range(0, 3));
             if (SanRollet == 1)
             {
-                Detail_San.text = "Rise sanity : 10\n\nThe current sanity rised by 10 Point.";
+                detailSan.text = "Rise sanity : 10\n\nThe current sanity rised by 10 Point.";
                 BillowUIManager.Instance.San_up(10);
-                SanM10.SetActive(true);
+                sanM10.SetActive(true);
             }
             else
             {
-                Detail_San.text = "Rise sanity : 5\n\nThe current sanity rised by 5 Point.";
+                detailSan.text = "Rise sanity : 5\n\nThe current sanity rised by 5 Point.";
                 BillowUIManager.Instance.San_up(5);
-                SanM5.SetActive(true);
+                sanM5.SetActive(true);
             }
         }
-        else if (SanRolletText.text == "Raise Condition")
+        else if (sanRolletText.text == "Raise Condition")
         {
-            if (DataBaseManager.Condition == "Best")
+            if (DataBaseManager.condition == "Best")
             {
             }
-            else if (DataBaseManager.Condition == "Good")
+            else if (DataBaseManager.condition == "Good")
             {
-                Detail_San.text = "Raise Condition : Best\n\nCondition has raised to (Best).";
-                Best.SetActive(true);
-                DataBaseManager.Condition = "Best";
+                detailSan.text = "Raise Condition : Best\n\nCondition has raised to (Best).";
+                best.SetActive(true);
+                DataBaseManager.condition = "Best";
             }
-            else if (DataBaseManager.Condition == "Nomal")
+            else if (DataBaseManager.condition == "Nomal")
             {
-                Detail_San.text = "Raise Condition : Good\n\nCondition has raised to (Good).";
-                Good.SetActive(true);
-                DataBaseManager.Condition = "Good";
+                detailSan.text = "Raise Condition : Good\n\nCondition has raised to (Good).";
+                good.SetActive(true);
+                DataBaseManager.condition = "Good";
             }
-            else if (DataBaseManager.Condition == "Bad")
+            else if (DataBaseManager.condition == "Bad")
             {
-                Detail_San.text = "Raise Condition : Nomal\n\nCondition has raised to (Nomal).";
-                Nomal.SetActive(true);
-                DataBaseManager.Condition = "Nomal";
+                detailSan.text = "Raise Condition : Nomal\n\nCondition has raised to (Nomal).";
+                nomal.SetActive(true);
+                DataBaseManager.condition = "Nomal";
             }
-            else if (DataBaseManager.Condition == "Worst")
+            else if (DataBaseManager.condition == "Worst")
             {
-                Detail_San.text = "Raise Condition : Bad\n\nCondition has raised to (Bad).";
-                Bad.SetActive(true);
-                DataBaseManager.Condition = "Bad";
+                detailSan.text = "Raise Condition : Bad\n\nCondition has raised to (Bad).";
+                bad.SetActive(true);
+                DataBaseManager.condition = "Bad";
             }
         }
-        else if (SanRolletText.text == "No change")
+        else if (sanRolletText.text == "No change")
         {
         }
-        EndButton2.SetActive(true);
+        endButton2.SetActive(true);
     }
-
     public void EndSanRollet()
     {
         SoundManager.Instance.EndDice();
-        RolletSetUi.SetActive(false);
-        RolletCheckUI.SetActive(true);
-        RolletRollUI.SetActive(false);
+        rolletSetUi.SetActive(false);
+        rolletCheckUI.SetActive(true);
+        rolletRollUI.SetActive(false);
 
         activeCheck = false;
         DataBaseManager.isOpenUi = false;
         DataBaseManager.isRollet = false;
         isClick = false;
-        SanRollet.SetActive(false);
-        EndButton2.SetActive(false);
+        sanRollet.SetActive(false);
+        endButton2.SetActive(false);
         resetSanRollet();
         // 결과값을 전달하는 함수 필요
-        if (Subject == "RoadBattle1")
+        if (subject == "RoadBattle1")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text);
         }
-        if (Subject == "Fab_Case1")
+        if (subject == "Fab_Case1")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text);
         }
-        if (Subject == "NoonEvent")
+        if (subject == "NoonEvent")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "NoonEvent_FirstDoor");
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, "NoonEvent_FirstDoor");
         }
-        if (Subject == "KaneSan")
+        if (subject == "KaneSan")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "KaneSan");
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, "KaneSan");
         }
-        if (Subject == "DrinkSan")
+        if (subject == "DrinkSan")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "DrinkSan");
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, "DrinkSan");
         }
-        if (Subject == "ThirdDayStartSan")
+        if (subject == "ThirdDayStartSan")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "ThirdDayStartSan");
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, "ThirdDayStartSan");
         }
-        if (Subject == "DayTwoCase2San")
+        if (subject == "DayTwoCase2San")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "DayTwoCase2San");
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, "DayTwoCase2San");
         }
-        if (Subject == "JournalSan")
+        if (subject == "JournalSan")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "JournalSan");
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, "JournalSan");
         }
-        if (Subject == "BookSan")
+        if (subject == "BookSan")
 
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "BookSan");
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, "BookSan");
         }
-        if (Subject == "FourthDayStartSan")
+        if (subject == "FourthDayStartSan")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "FourthDayStartSan");
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, "FourthDayStartSan");
         }
-        if (Subject == "Fab_4th_QuestO_SanCheck")
+        if (subject == "Fab_4th_QuestO_SanCheck")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "Fab_4th_QuestO_SanCheck");
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, "Fab_4th_QuestO_SanCheck");
         }
-        if (Subject == "SymbolStrSan")
+        if (subject == "SymbolStrSan")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "SymbolStrSan");
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, "SymbolStrSan");
         }
-        if (Subject == "BattleSan_DeepOne1")
+        if (subject == "BattleSan_DeepOne1")
         {
             BattleManager.Instance.EndDeepOneSanAttack();
         }
-        if (Subject == "DeepOneFirstSan")
+        if (subject == "DeepOneFirstSan")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "DeepOneFirstSan");
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, "DeepOneFirstSan");
         }
-        if (Subject == "Sewer_FirstInSan")
+        if (subject == "Sewer_FirstInSan")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "Sewer_FirstInSan");
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, "Sewer_FirstInSan");
         }
-        if (Subject == "EndingLedderSan")
+        if (subject == "EndingLedderSan")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text, "EndingLedderSan");
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, "EndingLedderSan");
         }
     }
     void resetSanRollet()
     {
-        EndButton2.SetActive(false);
-        Detail_San.text = "";
-        SanName.text = "";
-        Slot1_name.text = "";
-        Slot1_percent.text = "";
-        Slot2_name.text = "";
-        Slot2_percent.text = "";
-        Slot3_name.text = "";
-        Slot3_percent.text = "";
-        SanRolletText.text = "";
+        endButton2.SetActive(false);
+        detailSan.text = "";
+        sanName.text = "";
+        slot1Name.text = "";
+        slot1Percent.text = "";
+        slot2Name.text = "";
+        slot2Percent.text = "";
+        slot3Name.text = "";
+        slot3Percent.text = "";
+        sanRolletText.text = "";
 
-        slot1_int = 0;
-        slot2_int = 0;
-        slot3_int = 0;
+        slot1Int = 0;
+        slot2Int = 0;
+        slot3Int = 0;
 
-        SanM10.SetActive(false);
-        SanM5.SetActive(false);
+        sanM10.SetActive(false);
+        sanM5.SetActive(false);
 
         //Level - 1 Debuff
-        ThinWallets.SetActive(false);
-        Carelessness.SetActive(false);
-        Debilitation.SetActive(false);
-        Dizziness.SetActive(false);
-        Sprains.SetActive(false);
-        Unlucky.SetActive(false);
-        MusclePain.SetActive(false);
-        Migraines.SetActive(false);
-        EyeDisease.SetActive(false);
+        thinWallets.SetActive(false);
+        carelessness.SetActive(false);
+        debilitation.SetActive(false);
+        dizziness.SetActive(false);
+        sprains.SetActive(false);
+        unlucky.SetActive(false);
+        musclePain.SetActive(false);
+        migraines.SetActive(false);
+        eyeDisease.SetActive(false);
 
-        Masochism.SetActive(false);
-        Careless.SetActive(false);
-        MentalWeakness.SetActive(false);
-        Helplessness.SetActive(false);
-        Extravagant.SetActive(false);
-        PanicAttack.SetActive(false);
-        Medicaldistrust.SetActive(false);
-        Hallucinations.SetActive(false);
-        Tightwad.SetActive(false);
+        masochism.SetActive(false);
+        careless.SetActive(false);
+        mentalWeakness.SetActive(false);
+        helplessness.SetActive(false);
+        extravagant.SetActive(false);
+        panicAttack.SetActive(false);
+        medicaldistrust.SetActive(false);
+        hallucinations.SetActive(false);
+        tightwad.SetActive(false);
 
         //Level - 3 Debuff
-        NightPhobia.SetActive(false);
-        Deafness.SetActive(false);
-        VisionLoss.SetActive(false);
-        ShortTempered.SetActive(false);
-        Dyslexia.SetActive(false);
-        DrugPhobia.SetActive(false);
-        CognitiveDisorder.SetActive(false);
-        CognitiveBreakdown.SetActive(false);
-        HomicidalImpulse.SetActive(false);
-        Perfectionism.SetActive(false);
-        Best.SetActive(false);
-        Good.SetActive(false);
-        Nomal.SetActive(false);
-        Bad.SetActive(false);
-        Worst.SetActive(false);
+        nightPhobia.SetActive(false);
+        deafness.SetActive(false);
+        visionLoss.SetActive(false);
+        shortTempered.SetActive(false);
+        dyslexia.SetActive(false);
+        drugPhobia.SetActive(false);
+        cognitiveDisorder.SetActive(false);
+        cognitiveBreakdown.SetActive(false);
+        homicidalImpulse.SetActive(false);
+        perfectionism.SetActive(false);
+        best.SetActive(false);
+        good.SetActive(false);
+        nomal.SetActive(false);
+        bad.SetActive(false);
+        worst.SetActive(false);
     }
 
     // 중요!!!!!!!
     private void ResetString()
     {
-        NomalRollet_1t.text = "-";
-        NomalRollet_10t.text = "--";
-        BadRollet_1t.text = "-";
-        BadRollet_10t.text = "--";
-        GoodRollet_1t.text = "-";
-        GoodRollet_10t.text = "--";
-        result_string.text = "Dice : --";
-        result_End.text = "Result : --";
+        nomalRollet1Txt.text = "-";
+        nomalRollet10Txt.text = "--";
+        badRollet1Txt.text = "-";
+        badRollet10Txt.text = "--";
+        goodRollet1Txt.text = "-";
+        goodRollet10Txt.text = "--";
+        resultString.text = "Dice : --";
+        resultEnd.text = "Result : --";
     }
     private void ResetRolletDice()
     {
-        Good_1.SetActive(false);
-        Good_10.SetActive(false);
-        Bad_1.SetActive(false);
-        Bad_10.SetActive(false);
-        Good_1_Rollet.SetActive(false);
-        Good_10_Rollet.SetActive(false);
-        Bad_1_Rollet.SetActive(false);
-        Bad_10_Rollet.SetActive(false);
+        good1.SetActive(false);
+        good10.SetActive(false);
+        bad1.SetActive(false);
+        bad10.SetActive(false);
+        good1Rollet.SetActive(false);
+        good10Rollet.SetActive(false);
+        bad1Rollet.SetActive(false);
+        bad10Rollet.SetActive(false);
     }
 }

@@ -47,7 +47,7 @@ public class settingManager : MonoBehaviour
     public bool isDalogOn = false;
     public void OpenSetting()
     {
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.potalWait == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isOpenMap == false)
+        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.storyDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.potalWait == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isOpenMap == false)
         {
             SoundManager.Instance.PaperClip_Play();
             DataBaseManager.isOpenUi = true;

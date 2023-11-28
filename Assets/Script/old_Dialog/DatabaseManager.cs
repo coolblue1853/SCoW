@@ -4,244 +4,244 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
-    public static bool EndingDoorCheck = false;
-    public static bool EndingDeathCheck = false;
-    public static int EnemyDeathCount = 0;
-    public static bool Ending_RequestCheck = false;
-    public static bool Ending_SwainDeathCheck = false;
-    public static bool Ending_AfterPromiseDialog = false;
-    public static bool Ending_isPromise = false;
-    public static bool Ending_BreakSymbol = false;
+    public static bool endingDoorCheck = false;
+    public static bool endingDeathCheck = false;
+    public static int enemyDeathCount = 0;
+    public static bool endingRequestCheck = false;
+    public static bool endingSwainDeathCheck = false;
+    public static bool endingAfterPromiseDialog = false;
+    public static bool endingisPromise = false;
+    public static bool endingBreakSymbol = false;
 
-    public static int Ending_LadderSanInt = 0;
-    public static bool Ending_LadderSan;
-    public static bool Ending_Swin;
+    public static int endingLadderSanInt = 0;
+    public static bool endingLadderSan;
+    public static bool endingSwin;
 
     public static bool sewerMap;
-    public static bool IfGotRequset = false;
+    public static bool ifGotRequset = false;
     //디버프 3단계
-    public static bool Sewer_FirstIn;
-    public static bool Sewer_FirstInSanCheck;
-    public static bool Sewer_DeepOneFirstSanCheck;
+    public static bool sewerFirstIn;
+    public static bool sewerFirstInSanCheck;
+    public static bool sewerDeepOneFirstSanCheck;
 
-    public static bool isDebuff_NightPhobia = false;
-    public static bool isDebuff_Deftness = false;
-    public static bool isDebuff_VisionLoss = false;
-    public static bool isDebuff_ShortTempred = false;
-    public static bool isDebuff_Dyslexia = false;
-    public static bool isDebuff_DrugPhobia = false;
-    public static bool isDebuff_CognitiveDisorder = false;
-    public static bool isDebuff_CognitiveBreakdown = false;
-    public static bool isDebuff_Perfectionism = false;
+    public static bool isDebuffNightPhobia = false;
+    public static bool isDebuffDeftness = false;
+    public static bool isDebuffVisionLoss = false;
+    public static bool isDebuffShortTempred = false;
+    public static bool isDebuffDyslexia = false;
+    public static bool isDebuffDrugPhobia = false;
+    public static bool isDebuffCognitiveDisorder = false;
+    public static bool isDebuffCognitiveBreakdown = false;
+    public static bool isDebuffPerfectionism = false;
 
-    public static bool SewerPicingSucc = false;
+    public static bool sewerPicingSucc = false;
 
-    public static bool IsMorningMapMove = false;
-    public static bool AfterDaveDeathFirstSlum = false;
+    public static bool isMorningMapMove = false;
+    public static bool afterDaveDeathFirstSlum = false;
 
-    public static bool ISRoadBattleStart = false;
+    public static bool iSRoadBattleStart = false;
 
-    public static bool BGMChangeChecker = true;
-    public static bool SewerBattleChecker = false;
-    public static int PosionDebuff = 0;
+    public static bool bgmChangeChecker = true;
+    public static bool sewerBattleChecker = false;
+    public static int posionDebuff = 0;
 
-    public static bool SymbolStrSanCheck = false;
+    public static bool symbolStrSanCheck = false;
 
-    public static bool SymbolOccultFirst = false;
-    public static bool SewerSymbolOccultCheck = false;
+    public static bool symbolOccultFirst = false;
+    public static bool sewerSymbolOccultCheck = false;
 
-    public static bool BookLookFirst = false;
-    public static bool SewerBookOccultCheck = false;
-    public static bool SewerBookSanCheck = false;
+    public static bool bookLookFirst = false;
+    public static bool sewerBookOccultCheck = false;
+    public static bool sewerBookSanCheck = false;
 
-    public static bool JournalFirstSanCheck = false;
-    public static bool JournalSanCheck = false;
+    public static bool journalFirstSanCheck = false;
+    public static bool journalSanCheck = false;
     public static bool firstLookJournal = false;
 
-    public static bool GainOldMap = false;
+    public static bool gainOldMap = false;
 
-    public static bool SafeDocument = false;
-    public static bool InsmusRhtoric = false;
-    public static bool IsInsmusMeetSewer = false;
+    public static bool safeDocument = false;
+    public static bool insmusRhtoric = false;
+    public static bool isInsmusMeetSewer = false;
 
-    public static bool SewerBattleEndCheck = false;
-    public static bool InSewer_StealthFail = false;
-    public static bool InSewer_StealthSucc = false;
-    public static bool StartSewerBattle = false;
+    public static bool sewerBattleEndCheck = false;
+    public static bool inSewerStealthFail = false;
+    public static bool inSewerStealthSucc = false;
+    public static bool startSewerBattle = false;
 
-    public static bool SewerHouseIn = false;
-    public static int SewerEnemyCounter = 0;
+    public static bool sewerHouseIn = false;
+    public static int sewerEnemyCounter = 0;
 
     public static bool potalWait = false;
-    public static bool Black_RechSucc_CanTalck = false;
-    public static bool Black_Deftness = false;
-    public static bool Black_Rhethic = false;
+    public static bool blackRechSuccCanTalck = false;
+    public static bool blackDeftness = false;
+    public static bool blackRhethic = false;
 
-    public static bool Black_FirstDialog = false;
-    public static bool Map_Looked = false;
-    public static bool Map_FirstDialog = false;
-    public static bool SewerageKey = false;
+    public static bool blackFirstDialog = false;
+    public static bool mapLooked = false;
+    public static bool mapFirstDialog = false;
+    public static bool sewerageKey = false;
     public static bool isTest = false;
-    public static bool JudgeSafe_TryOpen = false;
-    public static bool JudgeCoat_TryDisguise = false;
-    public static bool GainCoat = false;
-    public static bool GainMap = false;
-    public static bool WearCoat = false;
-    public static bool Set_IntelCharDetail = false;
+    public static bool judgeSafeTryOpen = false;
+    public static bool judgeCoatTryDisguise = false;
+    public static bool gainCoat = false;
+    public static bool gainMap = false;
+    public static bool wearCoat = false;
+    public static bool setIntelCharDetail = false;
 
     public static bool isOpenMap = false;
     public static bool secondisDirecting = false;
-    public static bool StoryDirecting = false;
+    public static bool storyDirecting = false;
 
     public static bool isSewerOffice = false;
     public static bool isSewerOfficeBrokenWindow = false;
-    public static bool TryBrokenWindow = false;
-    public static bool TryObserLokcer = false;
-    public static bool MoveSewerOfficeWindow = false;
+    public static bool tryBrokenWindow = false;
+    public static bool tryObserLokcer = false;
+    public static bool moveSewerOfficeWindow = false;
 
     // 4일차MorningMove_2nd
     public static int battleEnemyCount = 0;
-    public static bool MorningMove_2nd = false;
-    public static bool MorningMove_4th = false;
-    public static bool Day_4_case1San = false;
-    public static bool Day_4_case1Health = false;
+    public static bool morningMove2nd = false;
+    public static bool morningMove4th = false;
+    public static bool day4Case1San = false;
+    public static bool day4Case1Health = false;
 
-    public static bool SewerDoorOpen = false;
-    public static bool SewerDoorOpenDeftness = false;
-    public static bool SewerDoorOpenCheck = false;
+    public static bool sewerDoorOpen = false;
+    public static bool sewerDoorOpenDeftness = false;
+    public static bool sewerDoorOpenCheck = false;
     //
-    public static bool MorningMove_3rd = false;
-    public static bool ThirdDayDreamSan = false;
-    public static bool ThirdDayAlbertDialog = false;
-    public static bool ThirdDayPoliceADialog = false;
-    public static bool ThirdDayPoliceBDialog = false;
-    public static bool ThirdDayAlanDialog = false;
+    public static bool morningMove_3rd = false;
+    public static bool thirdDayDreamSan = false;
+    public static bool thirdDayAlbertDialog = false;
+    public static bool thirdDayPoliceADialog = false;
+    public static bool thirdDayPoliceBDialog = false;
+    public static bool thirdDayAlanDialog = false;
     //2일차
-    public static bool BarDrinkSanCheck = false;
-    public static bool BarMove = false;
-    public static bool BarArrive = false;
+    public static bool barDrinkSanCheck = false;
+    public static bool barMove = false;
+    public static bool barArrive = false;
 
-    public static bool DaveDeathKeyword = false;
-    public static bool AlbertDeathKeyword = false;
-    public static bool SwainDeathKeyword = false;
+    public static bool daveDeathKeyword = false;
+    public static bool albertDeathKeyword = false;
+    public static bool swainDeathKeyword = false;
 
-    public static bool AlbertFirstAfterEvent = false;
+    public static bool albertFirstAfterEvent = false;
 
-    public static bool DaveSafeOpen = false;
-    public static bool DaveAfterSafe = false;
-    public static bool DaveAfterBreclet = false;
-    public static bool DaveCheck = false;
+    public static bool daveSafeOpen = false;
+    public static bool daveAfterSafe = false;
+    public static bool daveAfterBreclet = false;
+    public static bool daveCheck = false;
 
-    public static bool SecondDayDialog = false;
+    public static bool secondDayDialog = false;
 
-    public static bool AfterSanCheck = false;
-    public static bool Case2IntCheck = false;
-    public static bool Case2SanCheck = false;
+    public static bool afterSanCheck = false;
+    public static bool case2IntCheck = false;
+    public static bool case2SanCheck = false;
 
-    public static bool SwainDIE = false;
-    public static bool KaneSlimeSan = false;
+    public static bool swainDie = false;
+    public static bool kaneSlimeSan = false;
 
     //낮 강제 이벤트
-    public static bool NoonMorningMove = false;
-    public static bool snd_Detective_NoonEvent = false;
-    public static bool NoonEvent_MovetoClient = false;
-    public static bool NoonEvent_ClientsFirst = false;
-    public static bool NoonEvent_AccessAuthorization = false;
-    public static bool Witness_FirstDailog = false;
-    public static bool DoorPolice_FirstDailog = false;
-    public static bool NoonEventFirstDoor = false;
-    public static bool NoonEventSanCheck = false;
-    public static bool InsidePolice_FirstDailog = false;
-    public static bool DeadBodyFirstLook = false;
-    public static bool DeadBodyLook_MissingDialog = false;
-    public static bool DeadBodyLook_FishySmellDialog = false;
+    public static bool noonMorningMove = false;
+    public static bool secondDetectiveNoonEvent = false;
+    public static bool noonEventMovetoClient = false;
+    public static bool noonEventClientsFirst = false;
+    public static bool noonEventAccessAuthorization = false;
+    public static bool witnessFirstDailog = false;
+    public static bool doorPoliceFirstDailog = false;
+    public static bool noonEventFirstDoor = false;
+    public static bool noonEventSanCheck = false;
+    public static bool insidePoliceFirstDailog = false;
+    public static bool deadBodyFirstLook = false;
+    public static bool deadBodyLookMissingDialog = false;
+    public static bool deadBodyLookFishySmellDialog = false;
 
-    public static bool DeadBody_medicine = false;
-    public static bool DeadBody_observational = false;
-    public static bool DeadBody_Analyzing = false;
-    public static bool DeadBody_deftness = false;
-    public static bool DeadBody_GotoSwere = false;
+    public static bool deadBodyMedicine = false;
+    public static bool deadBodyObservational = false;
+    public static bool deadBodyAnalyzing = false;
+    public static bool deadBodyDeftness = false;
+    public static bool deadBodyGotoSwere = false;
 
-    public static bool Site_Analyzing = false;
+    public static bool siteAnalyzing = false;
     //Sanity
-    public static int Debuff = 0;
-    public static bool ThinWallets = false;
-    public static bool Carelessness = false;
-    public static bool Debilitation = false;
-    public static bool Dizziness = false;
-    public static bool Sprains = false;
-    public static bool Unlucky = false;
-    public static bool MusclePain = false;
-    public static bool Migraines = false;
-    public static bool EyeDisease = false;
+    public static int debuff = 0;
+    public static bool thinWallets = false;
+    public static bool carelessness = false;
+    public static bool debilitation = false;
+    public static bool dizziness = false;
+    public static bool sprains = false;
+    public static bool unlucky = false;
+    public static bool musclePain = false;
+    public static bool migraines = false;
+    public static bool eyeDisease = false;
 
-    public static bool Masochism = false;
-    public static bool Careless = false;
-    public static bool MentalWeakness = false;
-    public static bool Helplessness = false;
-    public static bool Extravagant = false;
-    public static bool PanicAttack = false;
-    public static bool Medicaldistrust = false;
-    public static bool Hallucinations = false;
-    public static bool Tightwad = false;
+    public static bool masochism = false;
+    public static bool careless = false;
+    public static bool mentalWeakness = false;
+    public static bool helplessness = false;
+    public static bool extravagant = false;
+    public static bool panicAttack = false;
+    public static bool medicaldistrust = false;
+    public static bool hallucinations = false;
+    public static bool tightwad = false;
 
-    public static bool NightPhobia = false;
-    public static bool Deafness = false;
-    public static bool VisionLoss = false;
-    public static bool Short_Tempered = false;
-    public static bool Dyslexia = false;
-    public static bool DrugPhobia = false;
-    public static bool CognitiveDisorder = false;
-    public static bool CognitiveBreakdown = false;
-    public static bool HomicidalImpulse = false;
-    public static bool Perfectionism = false;
+    public static bool nightPhobia = false;
+    public static bool deafness = false;
+    public static bool visionLoss = false;
+    public static bool shortTempered = false;
+    public static bool dyslexia = false;
+    public static bool drugPhobia = false;
+    public static bool cognitiveDisorder = false;
+    public static bool cognitiveBreakdown = false;
+    public static bool homicidalImpulse = false;
+    public static bool perfectionism = false;
 
     //Inventory
     public static bool isItemUI = false;
     public static bool isUseSafe = false;
 
     public static string nowItem = "";
-    public static int Bullet = 0;
-    public static int Shotgun = 0;
-    public static int Rifle = 0;
-    public static int Revolver = 0;
-    public static int SmallPistol = 0;
-    public static int Bat = 0;
-    public static int Axe = 0;
-    public static int Molotov = 0;
-    public static int Dagger = 0;
+    public static int bullet = 0;
+    public static int shotgun = 0;
+    public static int rifle = 0;
+    public static int revolver = 0;
+    public static int smallPistol = 0;
+    public static int bat = 0;
+    public static int axe = 0;
+    public static int molotov = 0;
+    public static int dagger = 0;
 
-    public static int PistolAmmo = 0;
-    public static int RifleAmmo = 0;
-    public static int ShotgunAmmo = 0;
+    public static int pistolAmmo = 0;
+    public static int rifleAmmo = 0;
+    public static int shotgunAmmo = 0;
 
-    public static int Firstaidkit = 0;
-    public static int Bandages = 0;
-    public static int Painkillers = 0;
+    public static int firstaidkit = 0;
+    public static int bandages = 0;
+    public static int painkillers = 0;
 
-    public static bool ConntectMouse = false;
+    public static bool conntectMouse = false;
 
     //SoundManager
-    public static float sound_Volume = 0.5f;
-    public static float sfx_Volume = 0.5f;
+    public static float soundVolume = 0.5f;
+    public static float sfxVolume = 0.5f;
     public static bool workSound = false;
 
     //Battle
-    public static bool Battle_San = false;
+    public static bool battleSan = false;
     public static bool isBattleBeforeDialog = false;
-    public static bool AfterBattle = false;
+    public static bool afterBattle = false;
     public static bool isBattleRollet = false;
-    public static bool EndBattle = false;
-    public static bool RoadBattleEnd = false;
+    public static bool endBattle = false;
+    public static bool roadBattleEnd = false;
 
     // Map
     public static string nowPlace = "DetectiveOffice";
-    public static string PotalPlace = "";
+    public static string potalPlace = "";
 
     //keyword
-    public static string keyword_main;
-    public static string keyword_upper;
-    public static string keyword_downer;
+    public static string keywordMain;
+    public static string keywordUpper;
+    public static string keywordDowner;
 
     //Directing
     public static bool isDirecting = false;
@@ -250,69 +250,69 @@ public class DataBaseManager : MonoBehaviour
 
     //1일차 술집
     public static bool isBar = false;
-    public static bool Maeve_FirstDialog = false;
-    public static bool Worker_FirstDialog = false;
+    public static bool maeveFirstDialog = false;
+    public static bool workerFirstDialog = false;
 
     //1일차 빈민가
-    public static bool Dave_FirstDialog = false;
+    public static bool daveFirstDialog = false;
 
     //1일차 경찰서
-    public static bool A_FirstDialog = false;
-    public static bool B_FirstDialog = false;
-    public static bool Albert_FirstDialog = false;
+    public static bool aFirstDialog = false;
+    public static bool bFirstDialog = false;
+    public static bool albertFirstDialog = false;
 
     //1일차 병원
-    public static bool Alan_FirstDialog = false;
-    public static bool Kate_Disapear = false;
-    public static bool Kate_NoonFirstDialog = false;
-    public static bool Alan_NoonFirstDialog = false;
+    public static bool alanFirstDialog = false;
+    public static bool kateDisapear = false;
+    public static bool kateNoonFirstDialog = false;
+    public static bool alanNoonFirstDialog = false;
 
     //1일차 강가
-    public static bool Kane_FirstDialog = false;
-    public static bool Sewer_FirstDialog = false;
-    public static bool Sewer_Observation = false;
-    public static bool Sewer_ObservationEnd = false;
-    public static bool Sewer_San = false;
+    public static bool kaneFirstDialog = false;
+    public static bool sewerFirstDialog = false;
+    public static bool sewerObservation = false;
+    public static bool sewerObservationEnd = false;
+    public static bool sewerSan = false;
 
     //1일차 대학
-    public static bool Univ_FirstDialog = false;
+    public static bool univFirstDialog = false;
 
     //1일차 신문사
-    public static bool Swain_FirstDialog = false;
-    public static bool Swain_isTalkMissingpeople = false;
+    public static bool swainFirstDialog = false;
+    public static bool isSwainTalkMissingpeople = false;
 
     //1일차 의뢰자의 집
-    public static bool Aiden_FirstDialog = false;
-    public static bool Aiden_Observation = false;
-    public static bool Aiden_medicine = false;
-    public static bool Aiden_psychotherapy = false;
-    public static bool Ella_EndDialog = false;
+    public static bool aidenFirstDialog = false;
+    public static bool aidenObservation = false;
+    public static bool aidenMedicine = false;
+    public static bool aidenPsychotherapy = false;
+    public static bool ellaEndDialog = false;
     public static bool isFirstDoor = false;
     public static bool isFirst2st = false;
     public static bool isFirstRoom = false;
     public static bool getSafe = false;
-    public static bool StrDialogOn = false;
-    public static int AidenKeywordCount = 0;
-    public static bool FailTwoKeyword = false;
+    public static bool strDialogOn = false;
+    public static int aidenKeywordCount = 0;
+    public static bool failTwoKeyword = false;
 
     //1일차 오전 탐정사무소
-    public static bool EndDemo = false;
-    public static bool EndDay = false;
-    public static bool ConnectKey = false;
-    public static bool fst_Detective_EndFirstDialog;
-    public static bool fst_Detective_NockDialog;
-    public static bool fst_Detective_AfterSelect;
-    public static bool fst_Detective_AfterSelectNo;
-    public static bool fst_Detective_EndSelect;
+    public static bool endDemo = false;
+    public static bool endDay = false;
+    public static bool connectKey = false;
+    public static bool fstDetectiveEndFirstDialog;
+    public static bool fstDetectiveNockDialog;
+    public static bool fstDetectiveAfterSelect;
+    public static bool fstDetectiveAfterSelectNo;
+    public static bool fstDetectiveEndSelect;
 
     //Select
-    public static bool SelectionOn = false;
+    public static bool selectionOn = false;
 
     //Judge
-    public static bool fst_Detective_isNewspaper = false;
+    public static bool fstDetectiveNewspaper = false;
 
     //Battle
-    public static string BattleWeapon = "";
+    public static string battleWeapon = "";
     public static int nowSmallPistol = 0;
     public static int nowRevolver = 0;
     public static int nowRifle = 0;
@@ -320,21 +320,21 @@ public class DataBaseManager : MonoBehaviour
     public static bool isOpenUi = false;
 
     //Map
-    public static int TimeCount = 1;
-    public static int fst_Detectiv_TimeOn = 0;
+    public static int timeCount = 1;
+    public static int fstDetectivTimeOn = 0;
 
     //Rollet
     public static bool isRollet;
-    public static string Condition = "Nomal";
+    public static string condition = "Nomal";
 
     //dialog
-    public static string Select_Object;
+    public static string selectObject;
     public static bool isSelect;
-    public static bool CancelJudge;
+    public static bool cancelJudge;
     public static bool isKeyword;
     public static bool isJudge;
-    public static string LookObject = "";
-    public static string NowSelecter = "End"; // End_Look_Judge 존재
+    public static string lookObject = "";
+    public static string nowSelecter = "End"; // End_Look_Judge 존재
     public static bool isScene;
     public static bool isPresentation;
     public static bool isOption;
@@ -361,7 +361,7 @@ public class DataBaseManager : MonoBehaviour
     public static int martialArtsPoint = 25;
     public static int gunShotPoint = 15;
     public static int swordPoint = 20;
-    public static int ObservationPoint = 20;
+    public static int observationPoint = 20;
     public static int swimingPoint = 10;
 
     //skill -int
@@ -378,9 +378,9 @@ public class DataBaseManager : MonoBehaviour
     public static int deftnessPoint = 20;
     public static int rhetoricPoint = 20;
     public static int stealthPoint = 15;
-    public static int DisguisePoint = 10;
+    public static int disguisePoint = 10;
 
-    [SerializeField] string csv_FileName;
+    [SerializeField] string csvFileName;
     Dictionary<int, Dialog> dialogDic = new Dictionary<int, Dialog>();
     public static bool isFinish;
     static public DataBaseManager instance;
@@ -399,10 +399,10 @@ public class DataBaseManager : MonoBehaviour
 
     }
 
-    public string[] var_name;
+    public string[] varName;
     public float[] var;
 
-    public string[] switch_name;
+    public string[] switchName;
     public bool[] switches;
 
     //Event
@@ -410,366 +410,366 @@ public class DataBaseManager : MonoBehaviour
     // 행성대직렬 현재 페이지
     //행성대직렬 정보
     //인물정보
-    public static int NowPage_Ella = 1;
-    public static int NowPage_Aiden = 1;
-    public static int NowPage_Cane = 1;
-    public static int NowPage_Albert = 1;
-    public static int NowPage_Meiv = 1;
-    public static int NowPage_BlackWell = 1;
-    public static int NowPage_Swain = 1;
+    public static int nowPageElla = 1;
+    public static int nowPageAiden = 1;
+    public static int nowPageCane = 1;
+    public static int nowPageAlbert = 1;
+    public static int nowPageMeiv = 1;
+    public static int nowPageBlackWell = 1;
+    public static int nowPageSwain = 1;
 
-    public static int GainCharacterInt = 0;
+    public static int gainCharacterInt = 0;
 
-    public static int ButtonCount_Ella = -1;
-    public static int ButtonCount_Aiden = -1;
-    public static int ButtonCount_Cane = -1;
-    public static int ButtonCount_Albert = -1;
-    public static int ButtonCount_Meiv = -1;
-    public static int ButtonCount_BlackWell = -1;
-    public static int ButtonCount_Swain = -1;
+    public static int buttonCountElla = -1;
+    public static int buttonCountAiden = -1;
+    public static int buttonCountCane = -1;
+    public static int buttonCountAlbert = -1;
+    public static int buttonCountMeiv = -1;
+    public static int buttonCountBlackWell = -1;
+    public static int buttonCountSwain = -1;
 
-    public static bool Intel_Aiden1 = false;
-    public static bool Intel_Aiden2 = false;
-    public static bool Intel_Aiden3 = false;
-    public static bool Intel_Aiden4 = false;
-    public static bool Intel_Aiden5 = false;
-    public static bool Intel_Aiden6 = false;
+    public static bool intelAiden1 = false;
+    public static bool intelAiden2 = false;
+    public static bool intelAiden3 = false;
+    public static bool intelAiden4 = false;
+    public static bool intelAiden5 = false;
+    public static bool intelAiden6 = false;
 
-    public static bool Intel_Ella1 = false;
-    public static bool Intel_Ella2 = false;
-    public static bool Intel_Ella3 = false;
-    public static bool Intel_Ella4 = false;
-    public static bool Intel_Ella5 = false;
-    public static bool Intel_Ella6 = false;
+    public static bool intelElla1 = false;
+    public static bool intelElla2 = false;
+    public static bool intelElla3 = false;
+    public static bool intelElla4 = false;
+    public static bool intelElla5 = false;
+    public static bool intelElla6 = false;
 
-    public static bool Intel_Swain1 = false;
-    public static bool Intel_Swain2 = false;
-    public static bool Intel_Swain3 = false;
-    public static bool Intel_Swain4 = false;
-    public static bool Intel_Swain5 = false;
-    public static bool Intel_Swain6 = false;
+    public static bool intelSwain1 = false;
+    public static bool intelSwain2 = false;
+    public static bool intelSwain3 = false;
+    public static bool intelSwain4 = false;
+    public static bool intelSwain5 = false;
+    public static bool intelSwain6 = false;
 
-    public static bool Intel_Cane1 = false;
-    public static bool Intel_Cane2 = false;
-    public static bool Intel_Cane3 = false;
-    public static bool Intel_Cane4 = false;
-    public static bool Intel_Cane5 = false;
-    public static bool Intel_Cane6 = false;
+    public static bool intelCane1 = false;
+    public static bool intelCane2 = false;
+    public static bool intelCane3 = false;
+    public static bool intelCane4 = false;
+    public static bool intelCane5 = false;
+    public static bool intelCane6 = false;
 
-    public static bool Intel_Albert1 = false;
-    public static bool Intel_Albert2 = false;
-    public static bool Intel_Albert3 = false;
-    public static bool Intel_Albert4 = false;
-    public static bool Intel_Albert5 = false;
-    public static bool Intel_Albert6 = false;
+    public static bool intelAlbert1 = false;
+    public static bool intelAlbert2 = false;
+    public static bool intelAlbert3 = false;
+    public static bool intelAlbert4 = false;
+    public static bool intelAlbert5 = false;
+    public static bool intelAlbert6 = false;
 
-    public static bool Intel_Meiv1 = false;
-    public static bool Intel_Meiv2 = false;
-    public static bool Intel_Meiv3 = false;
-    public static bool Intel_Meiv4 = false;
-    public static bool Intel_Meiv5 = false;
-    public static bool Intel_Meiv6 = false;
+    public static bool intelMeiv1 = false;
+    public static bool intelMeiv2 = false;
+    public static bool intelMeiv3 = false;
+    public static bool intelMeiv4 = false;
+    public static bool intelMeiv5 = false;
+    public static bool intelMeiv6 = false;
 
-    public static bool Intel_BlackWell1 = false;
-    public static bool Intel_BlackWell2 = false;
-    public static bool Intel_BlackWell3 = false;
-    public static bool Intel_BlackWell4 = false;
-    public static bool Intel_BlackWell5 = false;
-    public static bool Intel_BlackWell6 = false;
+    public static bool intelBlackWell1 = false;
+    public static bool intelBlackWell2 = false;
+    public static bool intelBlackWell3 = false;
+    public static bool intelBlackWell4 = false;
+    public static bool intelBlackWell5 = false;
+    public static bool intelBlackWell6 = false;
 
     //사건 정보
-    public static int NowPage_PlanetaryParade = 1;
-    public static int NowPage_Nightmare = 1;
-    public static int NowPage_Paranoia = 1;
-    public static int NowPage_Insomnia = 1;
-    public static int NowPage_SewerGhostStory = 1;
-    public static int NowPage_MissingPeople = 1;
-    public static int NowPage_FishySmell = 1;
-    public static int NowPage_RiverWaterQuality = 1;
-    public static int NowPage_CreepyEyes = 1;
-    public static int NowPage_SewerWorker = 1;
-    public static int NowPage_Dave = 1;
-    public static int NowPage_Safe = 1;
-    public static int NowPage_MurderCase = 1;
+    public static int nowPagePlanetaryParade = 1;
+    public static int nowPageNightmare = 1;
+    public static int nowPageParanoia = 1;
+    public static int nowPageInsomnia = 1;
+    public static int nowPageSewerGhostStory = 1;
+    public static int nowPageMissingPeople = 1;
+    public static int nowPageFishySmell = 1;
+    public static int nowPageRiverWaterQuality = 1;
+    public static int nowPageCreepyEyes = 1;
+    public static int nowPageSewerWorker = 1;
+    public static int nowPageDave = 1;
+    public static int nowPageSafe = 1;
+    public static int nowPageMurderCase = 1;
 
-    public static int GainEventInt = 0;
+    public static int gainEventInt = 0;
 
-    public static int ButtonCount_PlanetaryParade = -1;
-    public static int ButtonCount_Nightmare = -1;
-    public static int ButtonCount_Paranoia = -1;
-    public static int ButtonCount_Insomnia = -1;
-    public static int ButtonCount_SewerGhostStory = -1;
-    public static int ButtonCount_MissingPeople = -1;
-    public static int ButtonCount_FishySmell = -1;
-    public static int ButtonCount_RiverWaterQuality = -1;
-    public static int ButtonCount_CreepyEyes = -1;
-    public static int ButtonCount_SewerWorker = -1;
-    public static int ButtonCount_Dave = -1;
-    public static int ButtonCount_Safe = -1;
-    public static int ButtonCount_MurderCase = -1;
+    public static int buttonCountPlanetaryParade = -1;
+    public static int buttonCountNightmare = -1;
+    public static int buttonCountParanoia = -1;
+    public static int buttonCountInsomnia = -1;
+    public static int buttonCountSewerGhostStory = -1;
+    public static int buttonCountMissingPeople = -1;
+    public static int buttonCountFishySmell = -1;
+    public static int buttonCountRiverWaterQuality = -1;
+    public static int buttonCountCreepyEyes = -1;
+    public static int buttonCountSewerWorker = -1;
+    public static int buttonCountDave = -1;
+    public static int buttonCountSafe = -1;
+    public static int buttonCountMurderCase = -1;
 
-    public static bool Intel_PlanetaryParade1 = false;
-    public static bool Intel_PlanetaryParade2 = false;
-    public static bool Intel_PlanetaryParade3 = false;
-    public static bool Intel_PlanetaryParade4 = false;
-    public static bool Intel_PlanetaryParade5 = false;
-    public static bool Intel_PlanetaryParade6 = false;
+    public static bool intelPlanetaryParade1 = false;
+    public static bool intelPlanetaryParade2 = false;
+    public static bool intelPlanetaryParade3 = false;
+    public static bool intelPlanetaryParade4 = false;
+    public static bool intelPlanetaryParade5 = false;
+    public static bool intelPlanetaryParade6 = false;
 
-    public static bool Intel_Nightmare1 = false;
-    public static bool Intel_Nightmare2 = false;
-    public static bool Intel_Nightmare3 = false;
-    public static bool Intel_Nightmare4 = false;
-    public static bool Intel_Nightmare5 = false;
-    public static bool Intel_Nightmare6 = false;
+    public static bool intelNightmare1 = false;
+    public static bool intelNightmare2 = false;
+    public static bool intelNightmare3 = false;
+    public static bool intelNightmare4 = false;
+    public static bool intelNightmare5 = false;
+    public static bool intelNightmare6 = false;
 
-    public static bool Intel_Paranoia1 = false;
-    public static bool Intel_Paranoia2 = false;
-    public static bool Intel_Paranoia3 = false;
-    public static bool Intel_Paranoia4 = false;
-    public static bool Intel_Paranoia5 = false;
-    public static bool Intel_Paranoia6 = false;
+    public static bool intelParanoia1 = false;
+    public static bool intelParanoia2 = false;
+    public static bool intelParanoia3 = false;
+    public static bool intelParanoia4 = false;
+    public static bool intelParanoia5 = false;
+    public static bool intelParanoia6 = false;
 
-    public static bool Intel_Insomnia1 = false;
-    public static bool Intel_Insomnia2 = false;
-    public static bool Intel_Insomnia3 = false;
-    public static bool Intel_Insomnia4 = false;
-    public static bool Intel_Insomnia5 = false;
-    public static bool Intel_Insomnia6 = false;
+    public static bool intelInsomnia1 = false;
+    public static bool intelInsomnia2 = false;
+    public static bool intelInsomnia3 = false;
+    public static bool intelInsomnia4 = false;
+    public static bool intelInsomnia5 = false;
+    public static bool intelInsomnia6 = false;
 
-    public static bool Intel_SewerGhostStory1 = false;
-    public static bool Intel_SewerGhostStory2 = false;
-    public static bool Intel_SewerGhostStory3 = false;
-    public static bool Intel_SewerGhostStory4 = false;
-    public static bool Intel_SewerGhostStory5 = false;
-    public static bool Intel_SewerGhostStory6 = false;
+    public static bool intelSewerGhostStory1 = false;
+    public static bool intelSewerGhostStory2 = false;
+    public static bool intelSewerGhostStory3 = false;
+    public static bool intelSewerGhostStory4 = false;
+    public static bool intelSewerGhostStory5 = false;
+    public static bool intelSewerGhostStory6 = false;
 
-    public static bool Intel_MissingPeople1 = false;
-    public static bool Intel_MissingPeople2 = false;
-    public static bool Intel_MissingPeople3 = false;
-    public static bool Intel_MissingPeople4 = false;
-    public static bool Intel_MissingPeople5 = false;
-    public static bool Intel_MissingPeople6 = false;
+    public static bool intelMissingPeople1 = false;
+    public static bool intelMissingPeople2 = false;
+    public static bool intelMissingPeople3 = false;
+    public static bool intelMissingPeople4 = false;
+    public static bool intelMissingPeople5 = false;
+    public static bool intelMissingPeople6 = false;
 
-    public static bool Intel_FishySmell1 = false;
-    public static bool Intel_FishySmell2 = false;
-    public static bool Intel_FishySmell3 = false;
-    public static bool Intel_FishySmell4 = false;
-    public static bool Intel_FishySmell5 = false;
-    public static bool Intel_FishySmell6 = false;
+    public static bool intelFishySmell1 = false;
+    public static bool intelFishySmell2 = false;
+    public static bool intelFishySmell3 = false;
+    public static bool intelFishySmell4 = false;
+    public static bool intelFishySmell5 = false;
+    public static bool intelFishySmell6 = false;
 
-    public static bool Intel_RiverWaterQuality1 = false;
-    public static bool Intel_RiverWaterQuality2 = false;
-    public static bool Intel_RiverWaterQuality3 = false;
-    public static bool Intel_RiverWaterQuality4 = false;
-    public static bool Intel_RiverWaterQuality5 = false;
-    public static bool Intel_RiverWaterQuality6 = false;
+    public static bool intelRiverWaterQuality1 = false;
+    public static bool intelRiverWaterQuality2 = false;
+    public static bool intelRiverWaterQuality3 = false;
+    public static bool intelRiverWaterQuality4 = false;
+    public static bool intelRiverWaterQuality5 = false;
+    public static bool intelRiverWaterQuality6 = false;
 
-    public static bool Intel_CreepyEyes1 = false;
-    public static bool Intel_CreepyEyes2 = false;
-    public static bool Intel_CreepyEyes3 = false;
-    public static bool Intel_CreepyEyes4 = false;
-    public static bool Intel_CreepyEyes5 = false;
-    public static bool Intel_CreepyEyes6 = false;
+    public static bool intelCreepyEyes1 = false;
+    public static bool intelCreepyEyes2 = false;
+    public static bool intelCreepyEyes3 = false;
+    public static bool intelCreepyEyes4 = false;
+    public static bool intelCreepyEyes5 = false;
+    public static bool intelCreepyEyes6 = false;
 
-    public static bool Intel_SewerWorker1 = false;
-    public static bool Intel_SewerWorker2 = false;
-    public static bool Intel_SewerWorker3 = false;
-    public static bool Intel_SewerWorker4 = false;
-    public static bool Intel_SewerWorker5 = false;
-    public static bool Intel_SewerWorker6 = false;
+    public static bool intelSewerWorker1 = false;
+    public static bool intelSewerWorker2 = false;
+    public static bool intelSewerWorker3 = false;
+    public static bool intelSewerWorker4 = false;
+    public static bool intelSewerWorker5 = false;
+    public static bool intelSewerWorker6 = false;
 
-    public static bool Intel_Dave1 = false;
-    public static bool Intel_Dave2 = false;
-    public static bool Intel_Dave3 = false;
-    public static bool Intel_Dave4 = false;
-    public static bool Intel_Dave5 = false;
-    public static bool Intel_Dave6 = false;
+    public static bool intelDave1 = false;
+    public static bool intelDave2 = false;
+    public static bool intelDave3 = false;
+    public static bool intelDave4 = false;
+    public static bool intelDave5 = false;
+    public static bool intelDave6 = false;
 
-    public static bool Intel_Safe1 = false;
-    public static bool Intel_Safe2 = false;
-    public static bool Intel_Safe3 = false;
-    public static bool Intel_Safe4 = false;
-    public static bool Intel_Safe5 = false;
-    public static bool Intel_Safe6 = false;
+    public static bool intelSafe1 = false;
+    public static bool intelSafe2 = false;
+    public static bool intelSafe3 = false;
+    public static bool intelSafe4 = false;
+    public static bool intelSafe5 = false;
+    public static bool intelSafe6 = false;
 
-    public static bool Intel_MurderCase1 = false;
-    public static bool Intel_MurderCase2 = false;
-    public static bool Intel_MurderCase3 = false;
-    public static bool Intel_MurderCase4 = false;
-    public static bool Intel_MurderCase5 = false;
-    public static bool Intel_MurderCase6 = false;
+    public static bool intelMurderCase1 = false;
+    public static bool intelMurderCase2 = false;
+    public static bool intelMurderCase3 = false;
+    public static bool intelMurderCase4 = false;
+    public static bool intelMurderCase5 = false;
+    public static bool intelMurderCase6 = false;
 
     //장소정보
-    public static int ButtonCount_DetectiveOffice = -1;
-    public static int ButtonCount_Hospital = -1;
-    public static int ButtonCount_Newspaper = -1;
-    public static int ButtonCount_QuestHouse = -1;
-    public static int ButtonCount_Station = -1;
-    public static int ButtonCount_Sewer = -1;
-    public static int ButtonCount_University = -1;
-    public static int ButtonCount_Riverside = -1;
-    public static int ButtonCount_Bar = -1;
-    public static int ButtonCount_Slum = -1;
-    public static int ButtonCount_PoliceOffice = -1;
-    public static int ButtonCount_Gunsmith = -1;
-    public static int ButtonCount_SewageMaintenanceOffice = -1;
-    public static int ButtonCount_Wharf = -1;
+    public static int buttonCountDetectiveOffice = -1;
+    public static int buttonCountHospital = -1;
+    public static int buttonCountNewspaper = -1;
+    public static int buttonCountQuestHouse = -1;
+    public static int buttonCountStation = -1;
+    public static int buttonCountSewer = -1;
+    public static int buttonCountUniversity = -1;
+    public static int buttonCountRiverside = -1;
+    public static int buttonCountBar = -1;
+    public static int buttonCountSlum = -1;
+    public static int buttonCountPoliceOffice = -1;
+    public static int buttonCountGunsmith = -1;
+    public static int buttonCountSewageMaintenanceOffice = -1;
+    public static int buttonCountWharf = -1;
 
-    public static int GainPlaceInt = 0;
+    public static int gainPlaceInt = 0;
 
-    public static int NowPage_DetectiveOffice = 1;
-    public static int NowPage_Hospital = 1;
-    public static int NowPage_Newspaper = 1;
-    public static int NowPage_QuestHouse = 1;
-    public static int NowPage_Station = 1;
-    public static int NowPage_Sewer = 1;
-    public static int NowPage_University = 1;
-    public static int NowPage_Riverside = 1;
-    public static int NowPage_Bar = 1;
-    public static int NowPage_Slum = 1;
-    public static int NowPage_PoliceOffice = 1;
-    public static int NowPage_Gunsmith = 1;
-    public static int NowPage_SewageMaintenanceOffice = 1;
-    public static int NowPage_Wharf = 1;
+    public static int nowPageDetectiveOffice = 1;
+    public static int nowPageHospital = 1;
+    public static int nowPageNewspaper = 1;
+    public static int nowPageQuestHouse = 1;
+    public static int nowPageStation = 1;
+    public static int nowPageSewer = 1;
+    public static int nowPageUniversity = 1;
+    public static int nowPageRiverside = 1;
+    public static int nowPageBar = 1;
+    public static int nowPageSlum = 1;
+    public static int nowPagePoliceOffice = 1;
+    public static int nowPageGunsmith = 1;
+    public static int nowPageSewageMaintenanceOffice = 1;
+    public static int nowPageWharf = 1;
 
-    public static bool Intel_DetectiveOffice1 = false;
-    public static bool Intel_DetectiveOffice2 = false;
-    public static bool Intel_DetectiveOffice3 = false;
-    public static bool Intel_DetectiveOffice4 = false;
-    public static bool Intel_DetectiveOffice5 = false;
-    public static bool Intel_DetectiveOffice6 = false;
+    public static bool intelDetectiveOffice1 = false;
+    public static bool intelDetectiveOffice2 = false;
+    public static bool intelDetectiveOffice3 = false;
+    public static bool intelDetectiveOffice4 = false;
+    public static bool intelDetectiveOffice5 = false;
+    public static bool intelDetectiveOffice6 = false;
 
-    public static bool Intel_Hospital1 = false;
-    public static bool Intel_Hospital2 = false;
-    public static bool Intel_Hospital3 = false;
-    public static bool Intel_Hospital4 = false;
-    public static bool Intel_Hospital5 = false;
-    public static bool Intel_Hospital6 = false;
+    public static bool intelHospital1 = false;
+    public static bool intelHospital2 = false;
+    public static bool intelHospital3 = false;
+    public static bool intelHospital4 = false;
+    public static bool intelHospital5 = false;
+    public static bool intelHospital6 = false;
 
-    public static bool Intel_Newspaper1 = false;
-    public static bool Intel_Newspaper2 = false;
-    public static bool Intel_Newspaper3 = false;
-    public static bool Intel_Newspaper4 = false;
-    public static bool Intel_Newspaper5 = false;
-    public static bool Intel_Newspaper6 = false;
+    public static bool intelNewspaper1 = false;
+    public static bool intelNewspaper2 = false;
+    public static bool intelNewspaper3 = false;
+    public static bool intelNewspaper4 = false;
+    public static bool intelNewspaper5 = false;
+    public static bool intelNewspaper6 = false;
 
-    public static bool Intel_QuestHouse1 = false;
-    public static bool Intel_QuestHouse2 = false;
-    public static bool Intel_QuestHouse3 = false;
-    public static bool Intel_QuestHouse4 = false;
-    public static bool Intel_QuestHouse5 = false;
-    public static bool Intel_QuestHouse6 = false;
+    public static bool intelQuestHouse1 = false;
+    public static bool intelQuestHouse2 = false;
+    public static bool intelQuestHouse3 = false;
+    public static bool intelQuestHouse4 = false;
+    public static bool intelQuestHouse5 = false;
+    public static bool intelQuestHouse6 = false;
 
-    public static bool Intel_Station1 = false;
-    public static bool Intel_Station2 = false;
-    public static bool Intel_Station3 = false;
-    public static bool Intel_Station4 = false;
-    public static bool Intel_Station5 = false;
-    public static bool Intel_Station6 = false;
+    public static bool intelStation1 = false;
+    public static bool intelStation2 = false;
+    public static bool intelStation3 = false;
+    public static bool intelStation4 = false;
+    public static bool intelStation5 = false;
+    public static bool intelStation6 = false;
 
-    public static bool Intel_Sewer1 = false;
-    public static bool Intel_Sewer2 = false;
-    public static bool Intel_Sewer3 = false;
-    public static bool Intel_Sewer4 = false;
-    public static bool Intel_Sewer5 = false;
-    public static bool Intel_Sewer6 = false;
+    public static bool intelSewer1 = false;
+    public static bool intelSewer2 = false;
+    public static bool intelSewer3 = false;
+    public static bool intelSewer4 = false;
+    public static bool intelSewer5 = false;
+    public static bool intelSewer6 = false;
 
-    public static bool Intel_University1 = false;
-    public static bool Intel_University2 = false;
-    public static bool Intel_University3 = false;
-    public static bool Intel_University4 = false;
-    public static bool Intel_University5 = false;
-    public static bool Intel_University6 = false;
+    public static bool intelUniversity1 = false;
+    public static bool intelUniversity2 = false;
+    public static bool intelUniversity3 = false;
+    public static bool intelUniversity4 = false;
+    public static bool intelUniversity5 = false;
+    public static bool intelUniversity6 = false;
 
-    public static bool Intel_Riverside1 = false;
-    public static bool Intel_Riverside2 = false;
-    public static bool Intel_Riverside3 = false;
-    public static bool Intel_Riverside4 = false;
-    public static bool Intel_Riverside5 = false;
-    public static bool Intel_Riverside6 = false;
+    public static bool intelRiverside1 = false;
+    public static bool intelRiverside2 = false;
+    public static bool intelRiverside3 = false;
+    public static bool intelRiverside4 = false;
+    public static bool intelRiverside5 = false;
+    public static bool intelRiverside6 = false;
 
-    public static bool Intel_Bar1 = false;
-    public static bool Intel_Bar2 = false;
-    public static bool Intel_Bar3 = false;
-    public static bool Intel_Bar4 = false;
-    public static bool Intel_Bar5 = false;
-    public static bool Intel_Bar6 = false;
+    public static bool intelBar1 = false;
+    public static bool intelBar2 = false;
+    public static bool intelBar3 = false;
+    public static bool intelBar4 = false;
+    public static bool intelBar5 = false;
+    public static bool intelBar6 = false;
 
-    public static bool Intel_Slum1 = false;
-    public static bool Intel_Slum2 = false;
-    public static bool Intel_Slum3 = false;
-    public static bool Intel_Slum4 = false;
-    public static bool Intel_Slum5 = false;
-    public static bool Intel_Slum6 = false;
+    public static bool intelSlum1 = false;
+    public static bool intelSlum2 = false;
+    public static bool intelSlum3 = false;
+    public static bool intelSlum4 = false;
+    public static bool intelSlum5 = false;
+    public static bool intelSlum6 = false;
 
-    public static bool Intel_PoliceOffice1 = false;
-    public static bool Intel_PoliceOffice2 = false;
-    public static bool Intel_PoliceOffice3 = false;
-    public static bool Intel_PoliceOffice4 = false;
-    public static bool Intel_PoliceOffice5 = false;
-    public static bool Intel_PoliceOffice6 = false;
+    public static bool intelPoliceOffice1 = false;
+    public static bool intelPoliceOffice2 = false;
+    public static bool intelPoliceOffice3 = false;
+    public static bool intelPoliceOffice4 = false;
+    public static bool intelPoliceOffice5 = false;
+    public static bool intelPoliceOffice6 = false;
 
-    public static bool Intel_Gunsmith1 = false;
-    public static bool Intel_Gunsmith2 = false;
-    public static bool Intel_Gunsmith3 = false;
-    public static bool Intel_Gunsmith4 = false;
-    public static bool Intel_Gunsmith5 = false;
-    public static bool Intel_Gunsmith6 = false;
+    public static bool intelGunsmith1 = false;
+    public static bool intelGunsmith2 = false;
+    public static bool intelGunsmith3 = false;
+    public static bool intelGunsmith4 = false;
+    public static bool intelGunsmith5 = false;
+    public static bool intelGunsmith6 = false;
 
-    public static bool Intel_SewageMaintenanceOffice1 = false;
-    public static bool Intel_SewageMaintenanceOffice2 = false;
-    public static bool Intel_SewageMaintenanceOffice3 = false;
-    public static bool Intel_SewageMaintenanceOffice4 = false;
-    public static bool Intel_SewageMaintenanceOffice5 = false;
-    public static bool Intel_SewageMaintenanceOffice6 = false;
+    public static bool intelSewageMaintenanceOffice1 = false;
+    public static bool intelSewageMaintenanceOffice2 = false;
+    public static bool intelSewageMaintenanceOffice3 = false;
+    public static bool intelSewageMaintenanceOffice4 = false;
+    public static bool intelSewageMaintenanceOffice5 = false;
+    public static bool intelSewageMaintenanceOffice6 = false;
 
-    public static bool Intel_Wharf1 = false;
-    public static bool Intel_Wharf2 = false;
-    public static bool Intel_Wharf3 = false;
-    public static bool Intel_Wharf4 = false;
-    public static bool Intel_Wharf5 = false;
-    public static bool Intel_Wharf6 = false;
+    public static bool intelWharf1 = false;
+    public static bool intelWharf2 = false;
+    public static bool intelWharf3 = false;
+    public static bool intelWharf4 = false;
+    public static bool intelWharf5 = false;
+    public static bool intelWharf6 = false;
     public void ResetData()
     {
-        Debuff = 0;
-        Masochism = false;
-        MentalWeakness = false;
-        Helplessness = false;
-        Extravagant = false;
-        PanicAttack = false;
-        Medicaldistrust = false;
-        Hallucinations = false;
-        Tightwad = false;
+        debuff = 0;
+        masochism = false;
+        mentalWeakness = false;
+        helplessness = false;
+        extravagant = false;
+        panicAttack = false;
+        medicaldistrust = false;
+        hallucinations = false;
+        tightwad = false;
         //battle
         isItemUI = false;
         isUseSafe = false;
 
         nowItem = "";
-        Bullet = 0;
-        Shotgun = 0;
-        Rifle = 0;
-        Revolver = 0;
-        SmallPistol = 0;
-        Bat = 0;
-        Axe = 0;
-        Molotov = 0;
-        Dagger = 0;
+        bullet = 0;
+        shotgun = 0;
+        rifle = 0;
+        revolver = 0;
+        smallPistol = 0;
+        bat = 0;
+        axe = 0;
+        molotov = 0;
+        dagger = 0;
 
-        PistolAmmo = 0;
-        RifleAmmo = 0;
-        ShotgunAmmo = 0;
+        pistolAmmo = 0;
+        rifleAmmo = 0;
+        shotgunAmmo = 0;
 
-        Firstaidkit = 0;
-        Bandages = 0;
-        Painkillers = 0;
+        firstaidkit = 0;
+        bandages = 0;
+        painkillers = 0;
 
-        ConntectMouse = false;
+        conntectMouse = false;
 
-        Battle_San = false;
+        battleSan = false;
         isBattleBeforeDialog = false;
-        AfterBattle = false;
+        afterBattle = false;
         isBattleRollet = false;
-        EndBattle = false;
+        endBattle = false;
         //SoundManager
 
         workSound = false;
@@ -778,87 +778,87 @@ public class DataBaseManager : MonoBehaviour
 
         // Map
         nowPlace = "DetectiveOffice";
-        PotalPlace = "";
+        potalPlace = "";
 
         //Directing
         isDirecting = false;
         firstClientsHouse = false;
         //1일차 술집
         isBar = false;
-        Maeve_FirstDialog = false;
-        Worker_FirstDialog = false;
+        maeveFirstDialog = false;
+        workerFirstDialog = false;
         //1일차 빈민가
-        Dave_FirstDialog = false;
+        daveFirstDialog = false;
 
         //1일차 경찰서
-        A_FirstDialog = false;
-        B_FirstDialog = false;
-        Albert_FirstDialog = false;
+        aFirstDialog = false;
+        bFirstDialog = false;
+        albertFirstDialog = false;
         //1일차 병원
-        Alan_FirstDialog = false;
-        Kate_Disapear = false;
-        Kate_NoonFirstDialog = false;
-        Alan_NoonFirstDialog = false;
+        alanFirstDialog = false;
+        kateDisapear = false;
+        kateNoonFirstDialog = false;
+        alanNoonFirstDialog = false;
         //1일차 강가
-        Kane_FirstDialog = false;
-        Sewer_FirstDialog = false;
-        Sewer_Observation = false;
-        Sewer_ObservationEnd = false;
-        Sewer_San = false;
+        kaneFirstDialog = false;
+        sewerFirstDialog = false;
+        sewerObservation = false;
+        sewerObservationEnd = false;
+        sewerSan = false;
         //1일차 대학
-        Univ_FirstDialog = false;
+        univFirstDialog = false;
         //1일차 신문사
-        Swain_FirstDialog = false;
-        Swain_isTalkMissingpeople = false;
+        swainFirstDialog = false;
+        isSwainTalkMissingpeople = false;
         //1일차 의뢰자의 집
-        Aiden_FirstDialog = false;
-        Aiden_Observation = false;
-        Aiden_medicine = false;
-        Aiden_psychotherapy = false;
-        Ella_EndDialog = false;
+        aidenFirstDialog = false;
+        aidenObservation = false;
+        aidenMedicine = false;
+        aidenPsychotherapy = false;
+        ellaEndDialog = false;
         isFirstDoor = false;
         isFirst2st = false;
         isFirstRoom = false;
         getSafe = false;
-        StrDialogOn = false;
-        AidenKeywordCount = 0;
-        FailTwoKeyword = false;
+        strDialogOn = false;
+        aidenKeywordCount = 0;
+        failTwoKeyword = false;
 
         //1일차 오전 탐정사무소
-        EndDemo = false;
-        EndDay = false;
-        ConnectKey = false;
-        fst_Detective_EndFirstDialog = false;
-        fst_Detective_NockDialog = false;
-        fst_Detective_AfterSelect = false;
-        fst_Detective_AfterSelectNo = false;
-        fst_Detective_EndSelect = false;
+        endDemo = false;
+        endDay = false;
+        connectKey = false;
+        fstDetectiveEndFirstDialog = false;
+        fstDetectiveNockDialog = false;
+        fstDetectiveAfterSelect = false;
+        fstDetectiveAfterSelectNo = false;
+        fstDetectiveEndSelect = false;
         //Select
-        SelectionOn = false;
+        selectionOn = false;
 
         //Judge
-        fst_Detective_isNewspaper = false;
+        fstDetectiveNewspaper = false;
 
 
         //Battle
         isOpenUi = false;
 
         //Map
-        TimeCount = 1;
-        fst_Detectiv_TimeOn = 0;
+        timeCount = 1;
+        fstDetectivTimeOn = 0;
 
         //Rollet
         isRollet = false;
-        Condition = "Nomal";
+        condition = "Nomal";
 
         //dialog
-        Select_Object = "";
+        selectObject = "";
         isSelect = false;
-        CancelJudge = false;
+        cancelJudge = false;
         isKeyword = false;
         isJudge = false;
-        LookObject = "";
-        NowSelecter = "End"; // End_Look_Judge 존재
+        lookObject = "";
+        nowSelecter = "End"; // End_Look_Judge 존재
         isScene = false;
         isPresentation = false;
         isOption = false;
@@ -887,7 +887,7 @@ public class DataBaseManager : MonoBehaviour
         martialArtsPoint = 25;
         gunShotPoint = 15;
         swordPoint = 20;
-        ObservationPoint = 20;
+        observationPoint = 20;
         swimingPoint = 10;
 
         //skill -int
@@ -904,326 +904,326 @@ public class DataBaseManager : MonoBehaviour
         deftnessPoint = 20;
         rhetoricPoint = 20;
         stealthPoint = 15;
-        DisguisePoint = 10;
+        disguisePoint = 10;
 
-        NowPage_Ella = 1;
-        NowPage_Aiden = 1;
-        NowPage_Cane = 1;
-        NowPage_Albert = 1;
-        NowPage_Meiv = 1;
-        NowPage_BlackWell = 1;
-        NowPage_Swain = 1;
+        nowPageElla = 1;
+        nowPageAiden = 1;
+        nowPageCane = 1;
+        nowPageAlbert = 1;
+        nowPageMeiv = 1;
+        nowPageBlackWell = 1;
+        nowPageSwain = 1;
 
-        GainCharacterInt = 0;
+        gainCharacterInt = 0;
 
-        ButtonCount_Ella = -1;
-        ButtonCount_Aiden = -1;
-        ButtonCount_Cane = -1;
-        ButtonCount_Albert = -1;
-        ButtonCount_Meiv = -1;
-        ButtonCount_BlackWell = -1;
-        ButtonCount_Swain = -1;
+        buttonCountElla = -1;
+        buttonCountAiden = -1;
+        buttonCountCane = -1;
+        buttonCountAlbert = -1;
+        buttonCountMeiv = -1;
+        buttonCountBlackWell = -1;
+        buttonCountSwain = -1;
 
-        Intel_Aiden1 = false;
-        Intel_Aiden2 = false;
-        Intel_Aiden3 = false;
-        Intel_Aiden4 = false;
-        Intel_Aiden5 = false;
-        Intel_Aiden6 = false;
+        intelAiden1 = false;
+        intelAiden2 = false;
+        intelAiden3 = false;
+        intelAiden4 = false;
+        intelAiden5 = false;
+        intelAiden6 = false;
 
-        Intel_Ella1 = false;
-        Intel_Ella2 = false;
-        Intel_Ella3 = false;
-        Intel_Ella4 = false;
-        Intel_Ella5 = false;
-        Intel_Ella6 = false;
+        intelElla1 = false;
+        intelElla2 = false;
+        intelElla3 = false;
+        intelElla4 = false;
+        intelElla5 = false;
+        intelElla6 = false;
 
-        Intel_Swain1 = false;
-        Intel_Swain2 = false;
-        Intel_Swain3 = false;
-        Intel_Swain4 = false;
-        Intel_Swain5 = false;
-        Intel_Swain6 = false;
+        intelSwain1 = false;
+        intelSwain2 = false;
+        intelSwain3 = false;
+        intelSwain4 = false;
+        intelSwain5 = false;
+        intelSwain6 = false;
 
-        Intel_Cane1 = false;
-        Intel_Cane2 = false;
-        Intel_Cane3 = false;
-        Intel_Cane4 = false;
-        Intel_Cane5 = false;
-        Intel_Cane6 = false;
+        intelCane1 = false;
+        intelCane2 = false;
+        intelCane3 = false;
+        intelCane4 = false;
+        intelCane5 = false;
+        intelCane6 = false;
 
-        Intel_Albert1 = false;
-        Intel_Albert2 = false;
-        Intel_Albert3 = false;
-        Intel_Albert4 = false;
-        Intel_Albert5 = false;
-        Intel_Albert6 = false;
+        intelAlbert1 = false;
+        intelAlbert2 = false;
+        intelAlbert3 = false;
+        intelAlbert4 = false;
+        intelAlbert5 = false;
+        intelAlbert6 = false;
 
-        Intel_Meiv1 = false;
-        Intel_Meiv2 = false;
-        Intel_Meiv3 = false;
-        Intel_Meiv4 = false;
-        Intel_Meiv5 = false;
-        Intel_Meiv6 = false;
+        intelMeiv1 = false;
+        intelMeiv2 = false;
+        intelMeiv3 = false;
+        intelMeiv4 = false;
+        intelMeiv5 = false;
+        intelMeiv6 = false;
 
-        Intel_BlackWell1 = false;
-        Intel_BlackWell2 = false;
-        Intel_BlackWell3 = false;
-        Intel_BlackWell4 = false;
-        Intel_BlackWell5 = false;
-        Intel_BlackWell6 = false;
+        intelBlackWell1 = false;
+        intelBlackWell2 = false;
+        intelBlackWell3 = false;
+        intelBlackWell4 = false;
+        intelBlackWell5 = false;
+        intelBlackWell6 = false;
 
         //사건 정보
-        NowPage_PlanetaryParade = 1;
-        NowPage_Nightmare = 1;
-        NowPage_Paranoia = 1;
-        NowPage_Insomnia = 1;
-        NowPage_SewerGhostStory = 1;
-        NowPage_MissingPeople = 1;
-        NowPage_FishySmell = 1;
-        NowPage_RiverWaterQuality = 1;
-        NowPage_CreepyEyes = 1;
-        NowPage_SewerWorker = 1;
-        NowPage_Dave = 1;
-        NowPage_Safe = 1;
-        NowPage_MurderCase = 1;
+        nowPagePlanetaryParade = 1;
+        nowPageNightmare = 1;
+        nowPageParanoia = 1;
+        nowPageInsomnia = 1;
+        nowPageSewerGhostStory = 1;
+        nowPageMissingPeople = 1;
+        nowPageFishySmell = 1;
+        nowPageRiverWaterQuality = 1;
+        nowPageCreepyEyes = 1;
+        nowPageSewerWorker = 1;
+        nowPageDave = 1;
+        nowPageSafe = 1;
+        nowPageMurderCase = 1;
 
-        GainEventInt = 0;
+        gainEventInt = 0;
 
-        ButtonCount_PlanetaryParade = -1;
-        ButtonCount_Nightmare = -1;
-        ButtonCount_Paranoia = -1;
-        ButtonCount_Insomnia = -1;
-        ButtonCount_SewerGhostStory = -1;
-        ButtonCount_MissingPeople = -1;
-        ButtonCount_FishySmell = -1;
-        ButtonCount_RiverWaterQuality = -1;
-        ButtonCount_CreepyEyes = -1;
-        ButtonCount_SewerWorker = -1;
-        ButtonCount_Dave = -1;
-        ButtonCount_Safe = -1;
-        ButtonCount_MurderCase = -1;
+        buttonCountPlanetaryParade = -1;
+        buttonCountNightmare = -1;
+        buttonCountParanoia = -1;
+        buttonCountInsomnia = -1;
+        buttonCountSewerGhostStory = -1;
+        buttonCountMissingPeople = -1;
+        buttonCountFishySmell = -1;
+        buttonCountRiverWaterQuality = -1;
+        buttonCountCreepyEyes = -1;
+        buttonCountSewerWorker = -1;
+        buttonCountDave = -1;
+        buttonCountSafe = -1;
+        buttonCountMurderCase = -1;
 
-        Intel_PlanetaryParade1 = false;
-        Intel_PlanetaryParade2 = false;
-        Intel_PlanetaryParade3 = false;
-        Intel_PlanetaryParade4 = false;
-        Intel_PlanetaryParade5 = false;
-        Intel_PlanetaryParade6 = false;
+        intelPlanetaryParade1 = false;
+        intelPlanetaryParade2 = false;
+        intelPlanetaryParade3 = false;
+        intelPlanetaryParade4 = false;
+        intelPlanetaryParade5 = false;
+        intelPlanetaryParade6 = false;
 
-        Intel_Nightmare1 = false;
-        Intel_Nightmare2 = false;
-        Intel_Nightmare3 = false;
-        Intel_Nightmare4 = false;
-        Intel_Nightmare5 = false;
-        Intel_Nightmare6 = false;
+        intelNightmare1 = false;
+        intelNightmare2 = false;
+        intelNightmare3 = false;
+        intelNightmare4 = false;
+        intelNightmare5 = false;
+        intelNightmare6 = false;
 
-        Intel_Paranoia1 = false;
-        Intel_Paranoia2 = false;
-        Intel_Paranoia3 = false;
-        Intel_Paranoia4 = false;
-        Intel_Paranoia5 = false;
-        Intel_Paranoia6 = false;
+        intelParanoia1 = false;
+        intelParanoia2 = false;
+        intelParanoia3 = false;
+        intelParanoia4 = false;
+        intelParanoia5 = false;
+        intelParanoia6 = false;
 
-        Intel_Insomnia1 = false;
-        Intel_Insomnia2 = false;
-        Intel_Insomnia3 = false;
-        Intel_Insomnia4 = false;
-        Intel_Insomnia5 = false;
-        Intel_Insomnia6 = false;
+        intelInsomnia1 = false;
+        intelInsomnia2 = false;
+        intelInsomnia3 = false;
+        intelInsomnia4 = false;
+        intelInsomnia5 = false;
+        intelInsomnia6 = false;
 
-        Intel_SewerGhostStory1 = false;
-        Intel_SewerGhostStory2 = false;
-        Intel_SewerGhostStory3 = false;
-        Intel_SewerGhostStory4 = false;
-        Intel_SewerGhostStory5 = false;
-        Intel_SewerGhostStory6 = false;
+        intelSewerGhostStory1 = false;
+        intelSewerGhostStory2 = false;
+        intelSewerGhostStory3 = false;
+        intelSewerGhostStory4 = false;
+        intelSewerGhostStory5 = false;
+        intelSewerGhostStory6 = false;
 
-        Intel_MissingPeople1 = false;
-        Intel_MissingPeople2 = false;
-        Intel_MissingPeople3 = false;
-        Intel_MissingPeople4 = false;
-        Intel_MissingPeople5 = false;
-        Intel_MissingPeople6 = false;
+        intelMissingPeople1 = false;
+        intelMissingPeople2 = false;
+        intelMissingPeople3 = false;
+        intelMissingPeople4 = false;
+        intelMissingPeople5 = false;
+        intelMissingPeople6 = false;
 
-        Intel_FishySmell1 = false;
-        Intel_FishySmell2 = false;
-        Intel_FishySmell3 = false;
-        Intel_FishySmell4 = false;
-        Intel_FishySmell5 = false;
-        Intel_FishySmell6 = false;
+        intelFishySmell1 = false;
+        intelFishySmell2 = false;
+        intelFishySmell3 = false;
+        intelFishySmell4 = false;
+        intelFishySmell5 = false;
+        intelFishySmell6 = false;
 
-        Intel_RiverWaterQuality1 = false;
-        Intel_RiverWaterQuality2 = false;
-        Intel_RiverWaterQuality3 = false;
-        Intel_RiverWaterQuality4 = false;
-        Intel_RiverWaterQuality5 = false;
-        Intel_RiverWaterQuality6 = false;
+        intelRiverWaterQuality1 = false;
+        intelRiverWaterQuality2 = false;
+        intelRiverWaterQuality3 = false;
+        intelRiverWaterQuality4 = false;
+        intelRiverWaterQuality5 = false;
+        intelRiverWaterQuality6 = false;
 
-        Intel_CreepyEyes1 = false;
-        Intel_CreepyEyes2 = false;
-        Intel_CreepyEyes3 = false;
-        Intel_CreepyEyes4 = false;
-        Intel_CreepyEyes5 = false;
-        Intel_CreepyEyes6 = false;
+        intelCreepyEyes1 = false;
+        intelCreepyEyes2 = false;
+        intelCreepyEyes3 = false;
+        intelCreepyEyes4 = false;
+        intelCreepyEyes5 = false;
+        intelCreepyEyes6 = false;
 
-        Intel_SewerWorker1 = false;
-        Intel_SewerWorker2 = false;
-        Intel_SewerWorker3 = false;
-        Intel_SewerWorker4 = false;
-        Intel_SewerWorker5 = false;
-        Intel_SewerWorker6 = false;
+        intelSewerWorker1 = false;
+        intelSewerWorker2 = false;
+        intelSewerWorker3 = false;
+        intelSewerWorker4 = false;
+        intelSewerWorker5 = false;
+        intelSewerWorker6 = false;
 
-        Intel_Dave1 = false;
-        Intel_Dave2 = false;
-        Intel_Dave3 = false;
-        Intel_Dave4 = false;
-        Intel_Dave5 = false;
-        Intel_Dave6 = false;
+        intelDave1 = false;
+        intelDave2 = false;
+        intelDave3 = false;
+        intelDave4 = false;
+        intelDave5 = false;
+        intelDave6 = false;
 
-        Intel_Safe1 = false;
-        Intel_Safe2 = false;
-        Intel_Safe3 = false;
-        Intel_Safe4 = false;
-        Intel_Safe5 = false;
-        Intel_Safe6 = false;
+        intelSafe1 = false;
+        intelSafe2 = false;
+        intelSafe3 = false;
+        intelSafe4 = false;
+        intelSafe5 = false;
+        intelSafe6 = false;
 
-        Intel_MurderCase1 = false;
-        Intel_MurderCase2 = false;
-        Intel_MurderCase3 = false;
-        Intel_MurderCase4 = false;
-        Intel_MurderCase5 = false;
-        Intel_MurderCase6 = false;
+        intelMurderCase1 = false;
+        intelMurderCase2 = false;
+        intelMurderCase3 = false;
+        intelMurderCase4 = false;
+        intelMurderCase5 = false;
+        intelMurderCase6 = false;
 
         //장소정보
-        ButtonCount_DetectiveOffice = -1;
-        ButtonCount_Hospital = -1;
-        ButtonCount_Newspaper = -1;
-        ButtonCount_QuestHouse = -1;
-        ButtonCount_Station = -1;
-        ButtonCount_Sewer = -1;
-        ButtonCount_University = -1;
-        ButtonCount_Riverside = -1;
-        ButtonCount_Bar = -1;
-        ButtonCount_Slum = -1;
-        ButtonCount_PoliceOffice = -1;
-        ButtonCount_Gunsmith = -1;
-        ButtonCount_SewageMaintenanceOffice = -1;
-        ButtonCount_Wharf = -1;
+        buttonCountDetectiveOffice = -1;
+        buttonCountHospital = -1;
+        buttonCountNewspaper = -1;
+        buttonCountQuestHouse = -1;
+        buttonCountStation = -1;
+        buttonCountSewer = -1;
+        buttonCountUniversity = -1;
+        buttonCountRiverside = -1;
+        buttonCountBar = -1;
+        buttonCountSlum = -1;
+        buttonCountPoliceOffice = -1;
+        buttonCountGunsmith = -1;
+        buttonCountSewageMaintenanceOffice = -1;
+        buttonCountWharf = -1;
 
-        GainPlaceInt = 0;
+        gainPlaceInt = 0;
 
-        NowPage_DetectiveOffice = 1;
-        NowPage_Hospital = 1;
-        NowPage_Newspaper = 1;
-        NowPage_QuestHouse = 1;
-        NowPage_Station = 1;
-        NowPage_Sewer = 1;
-        NowPage_University = 1;
-        NowPage_Riverside = 1;
-        NowPage_Bar = 1;
-        NowPage_Slum = 1;
-        NowPage_PoliceOffice = 1;
-        NowPage_Gunsmith = 1;
-        NowPage_SewageMaintenanceOffice = 1;
-        NowPage_Wharf = 1;
+        nowPageDetectiveOffice = 1;
+        nowPageHospital = 1;
+        nowPageNewspaper = 1;
+        nowPageQuestHouse = 1;
+        nowPageStation = 1;
+        nowPageSewer = 1;
+        nowPageUniversity = 1;
+        nowPageRiverside = 1;
+        nowPageBar = 1;
+        nowPageSlum = 1;
+        nowPagePoliceOffice = 1;
+        nowPageGunsmith = 1;
+        nowPageSewageMaintenanceOffice = 1;
+        nowPageWharf = 1;
 
-        Intel_DetectiveOffice1 = false;
-        Intel_DetectiveOffice2 = false;
-        Intel_DetectiveOffice3 = false;
-        Intel_DetectiveOffice4 = false;
-        Intel_DetectiveOffice5 = false;
-        Intel_DetectiveOffice6 = false;
+        intelDetectiveOffice1 = false;
+        intelDetectiveOffice2 = false;
+        intelDetectiveOffice3 = false;
+        intelDetectiveOffice4 = false;
+        intelDetectiveOffice5 = false;
+        intelDetectiveOffice6 = false;
 
-        Intel_Hospital1 = false;
-        Intel_Hospital2 = false;
-        Intel_Hospital3 = false;
-        Intel_Hospital4 = false;
-        Intel_Hospital5 = false;
-        Intel_Hospital6 = false;
+        intelHospital1 = false;
+        intelHospital2 = false;
+        intelHospital3 = false;
+        intelHospital4 = false;
+        intelHospital5 = false;
+        intelHospital6 = false;
 
-        Intel_Newspaper1 = false;
-        Intel_Newspaper2 = false;
-        Intel_Newspaper3 = false;
-        Intel_Newspaper4 = false;
-        Intel_Newspaper5 = false;
-        Intel_Newspaper6 = false;
+        intelNewspaper1 = false;
+        intelNewspaper2 = false;
+        intelNewspaper3 = false;
+        intelNewspaper4 = false;
+        intelNewspaper5 = false;
+        intelNewspaper6 = false;
 
-        Intel_QuestHouse1 = false;
-        Intel_QuestHouse2 = false;
-        Intel_QuestHouse3 = false;
-        Intel_QuestHouse4 = false;
-        Intel_QuestHouse5 = false;
-        Intel_QuestHouse6 = false;
+        intelQuestHouse1 = false;
+        intelQuestHouse2 = false;
+        intelQuestHouse3 = false;
+        intelQuestHouse4 = false;
+        intelQuestHouse5 = false;
+        intelQuestHouse6 = false;
 
-        Intel_Station1 = false;
-        Intel_Station2 = false;
-        Intel_Station3 = false;
-        Intel_Station4 = false;
-        Intel_Station5 = false;
-        Intel_Station6 = false;
+        intelStation1 = false;
+        intelStation2 = false;
+        intelStation3 = false;
+        intelStation4 = false;
+        intelStation5 = false;
+        intelStation6 = false;
 
-        Intel_Sewer1 = false;
-        Intel_Sewer2 = false;
-        Intel_Sewer3 = false;
-        Intel_Sewer4 = false;
-        Intel_Sewer5 = false;
-        Intel_Sewer6 = false;
+        intelSewer1 = false;
+        intelSewer2 = false;
+        intelSewer3 = false;
+        intelSewer4 = false;
+        intelSewer5 = false;
+        intelSewer6 = false;
 
-        Intel_University1 = false;
-        Intel_University2 = false;
-        Intel_University3 = false;
-        Intel_University4 = false;
-        Intel_University5 = false;
-        Intel_University6 = false;
+        intelUniversity1 = false;
+        intelUniversity2 = false;
+        intelUniversity3 = false;
+        intelUniversity4 = false;
+        intelUniversity5 = false;
+        intelUniversity6 = false;
 
-        Intel_Riverside1 = false;
-        Intel_Riverside2 = false;
-        Intel_Riverside3 = false;
-        Intel_Riverside4 = false;
-        Intel_Riverside5 = false;
-        Intel_Riverside6 = false;
+        intelRiverside1 = false;
+        intelRiverside2 = false;
+        intelRiverside3 = false;
+        intelRiverside4 = false;
+        intelRiverside5 = false;
+        intelRiverside6 = false;
 
-        Intel_Bar1 = false;
-        Intel_Bar2 = false;
-        Intel_Bar3 = false;
-        Intel_Bar4 = false;
-        Intel_Bar5 = false;
-        Intel_Bar6 = false;
+        intelBar1 = false;
+        intelBar2 = false;
+        intelBar3 = false;
+        intelBar4 = false;
+        intelBar5 = false;
+        intelBar6 = false;
 
-        Intel_Slum1 = false;
-        Intel_Slum2 = false;
-        Intel_Slum3 = false;
-        Intel_Slum4 = false;
-        Intel_Slum5 = false;
-        Intel_Slum6 = false;
+        intelSlum1 = false;
+        intelSlum2 = false;
+        intelSlum3 = false;
+        intelSlum4 = false;
+        intelSlum5 = false;
+        intelSlum6 = false;
 
-        Intel_PoliceOffice1 = false;
-        Intel_PoliceOffice2 = false;
-        Intel_PoliceOffice3 = false;
-        Intel_PoliceOffice4 = false;
-        Intel_PoliceOffice5 = false;
-        Intel_PoliceOffice6 = false;
+        intelPoliceOffice1 = false;
+        intelPoliceOffice2 = false;
+        intelPoliceOffice3 = false;
+        intelPoliceOffice4 = false;
+        intelPoliceOffice5 = false;
+        intelPoliceOffice6 = false;
 
-        Intel_Gunsmith1 = false;
-        Intel_Gunsmith2 = false;
-        Intel_Gunsmith3 = false;
-        Intel_Gunsmith4 = false;
-        Intel_Gunsmith5 = false;
-        Intel_Gunsmith6 = false;
+        intelGunsmith1 = false;
+        intelGunsmith2 = false;
+        intelGunsmith3 = false;
+        intelGunsmith4 = false;
+        intelGunsmith5 = false;
+        intelGunsmith6 = false;
 
-        Intel_SewageMaintenanceOffice1 = false;
-        Intel_SewageMaintenanceOffice2 = false;
-        Intel_SewageMaintenanceOffice3 = false;
-        Intel_SewageMaintenanceOffice4 = false;
-        Intel_SewageMaintenanceOffice5 = false;
-        Intel_SewageMaintenanceOffice6 = false;
+        intelSewageMaintenanceOffice1 = false;
+        intelSewageMaintenanceOffice2 = false;
+        intelSewageMaintenanceOffice3 = false;
+        intelSewageMaintenanceOffice4 = false;
+        intelSewageMaintenanceOffice5 = false;
+        intelSewageMaintenanceOffice6 = false;
 
-        Intel_Wharf1 = false;
-        Intel_Wharf2 = false;
-        Intel_Wharf3 = false;
-        Intel_Wharf4 = false;
-        Intel_Wharf5 = false;
-        Intel_Wharf6 = false;
+        intelWharf1 = false;
+        intelWharf2 = false;
+        intelWharf3 = false;
+        intelWharf4 = false;
+        intelWharf5 = false;
+        intelWharf6 = false;
     }
 }

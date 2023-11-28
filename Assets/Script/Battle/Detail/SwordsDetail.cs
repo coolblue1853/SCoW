@@ -9,17 +9,17 @@ public class SwordsDetail : MonoBehaviour
     public TextMeshProUGUI detail;
     void Update()
     {
-        if (DataBaseManager.BattleWeapon == "Dagger")
+        if (DataBaseManager.battleWeapon == "Dagger")
         {
             name.text = "Dagger";
             detail.text = "Damage:(1D4+2)x5\nSkillPoint:" + DataBaseManager.swordPoint;
         }
-        else if (DataBaseManager.BattleWeapon == "Axe")
+        else if (DataBaseManager.battleWeapon == "Axe")
         {
             name.text = "Axe";
             detail.text = "Damage:(1D6+2)x5\nSkillPoint:" + DataBaseManager.swordPoint;
         }
-        else if (DataBaseManager.BattleWeapon == "Bat")
+        else if (DataBaseManager.battleWeapon == "Bat")
         {
             name.text = "Bat";
             detail.text = "Damage:(1D8)x5\nSkillPoint:" + DataBaseManager.swordPoint;

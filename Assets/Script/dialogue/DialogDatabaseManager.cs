@@ -17,7 +17,7 @@ public class DialogDatabaseManager : MonoBehaviour
             }
             else if (DataBaseManager.nowPlace == "Client'shouse" && check == true)
             {
-                if (DataBaseManager.TimeCount < 6)
+                if (DataBaseManager.timeCount < 6)
                 {
                     check = false;
                     csvFileName = "1st_Client'sHouse";

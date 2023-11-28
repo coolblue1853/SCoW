@@ -52,111 +52,111 @@ public class CharacterButtonManage : MonoBehaviour
     
     void ButtonUpdate()
     {
-        if ((DataBaseManager.Intel_Ella1 == true || DataBaseManager.Intel_Ella2 == true || DataBaseManager.Intel_Ella3 == true || DataBaseManager.Intel_Ella4 == true || DataBaseManager.Intel_Ella5 == true || DataBaseManager.Intel_Ella6 == true) && isButtonElla == false)
+        if ((DataBaseManager.intelElla1 == true || DataBaseManager.intelElla2 == true || DataBaseManager.intelElla3 == true || DataBaseManager.intelElla4 == true || DataBaseManager.intelElla5 == true || DataBaseManager.intelElla6 == true) && isButtonElla == false)
         {
             isButtonElla = true;
-            DataBaseManager.ButtonCount_Ella = DataBaseManager.GainCharacterInt;
-            DataBaseManager.GainCharacterInt += 1;
+            DataBaseManager.buttonCountElla = DataBaseManager.gainCharacterInt;
+            DataBaseManager.gainCharacterInt += 1;
         }
-        if ((DataBaseManager.Intel_Aiden1 == true || DataBaseManager.Intel_Aiden2 == true || DataBaseManager.Intel_Aiden3 == true || DataBaseManager.Intel_Aiden4 == true || DataBaseManager.Intel_Aiden5 == true || DataBaseManager.Intel_Aiden6 == true) && isButtonAiden == false)
+        if ((DataBaseManager.intelAiden1 == true || DataBaseManager.intelAiden2 == true || DataBaseManager.intelAiden3 == true || DataBaseManager.intelAiden4 == true || DataBaseManager.intelAiden5 == true || DataBaseManager.intelAiden6 == true) && isButtonAiden == false)
         {
             isButtonAiden = true;
-            DataBaseManager.ButtonCount_Aiden = DataBaseManager.GainCharacterInt;
-            DataBaseManager.GainCharacterInt += 1;
+            DataBaseManager.buttonCountAiden = DataBaseManager.gainCharacterInt;
+            DataBaseManager.gainCharacterInt += 1;
         }
-        if ((DataBaseManager.Intel_Cane1 == true || DataBaseManager.Intel_Cane2 == true || DataBaseManager.Intel_Cane3 == true || DataBaseManager.Intel_Cane4 == true || DataBaseManager.Intel_Cane5 == true || DataBaseManager.Intel_Cane6 == true) && isButtonCane == false)
+        if ((DataBaseManager.intelCane1 == true || DataBaseManager.intelCane2 == true || DataBaseManager.intelCane3 == true || DataBaseManager.intelCane4 == true || DataBaseManager.intelCane5 == true || DataBaseManager.intelCane6 == true) && isButtonCane == false)
         {
             isButtonCane = true;
-            DataBaseManager.ButtonCount_Cane = DataBaseManager.GainCharacterInt;
-            DataBaseManager.GainCharacterInt += 1;
+            DataBaseManager.buttonCountCane = DataBaseManager.gainCharacterInt;
+            DataBaseManager.gainCharacterInt += 1;
         }
-        if ((DataBaseManager.Intel_Albert1 == true || DataBaseManager.Intel_Albert2 == true || DataBaseManager.Intel_Albert3 == true || DataBaseManager.Intel_Albert4 == true || DataBaseManager.Intel_Albert5 == true || DataBaseManager.Intel_Albert6 == true) && isButtonAlbert == false)
+        if ((DataBaseManager.intelAlbert1 == true || DataBaseManager.intelAlbert2 == true || DataBaseManager.intelAlbert3 == true || DataBaseManager.intelAlbert4 == true || DataBaseManager.intelAlbert5 == true || DataBaseManager.intelAlbert6 == true) && isButtonAlbert == false)
         {
             isButtonAlbert = true;
-            DataBaseManager.ButtonCount_Albert = DataBaseManager.GainCharacterInt;
-            DataBaseManager.GainCharacterInt += 1;
+            DataBaseManager.buttonCountAlbert = DataBaseManager.gainCharacterInt;
+            DataBaseManager.gainCharacterInt += 1;
         }
-        if ((DataBaseManager.Intel_Meiv1 == true || DataBaseManager.Intel_Meiv2 == true || DataBaseManager.Intel_Meiv3 == true || DataBaseManager.Intel_Meiv4 == true || DataBaseManager.Intel_Meiv5 == true || DataBaseManager.Intel_Meiv6 == true) && isButtonMeiv == false)
+        if ((DataBaseManager.intelMeiv1 == true || DataBaseManager.intelMeiv2 == true || DataBaseManager.intelMeiv3 == true || DataBaseManager.intelMeiv4 == true || DataBaseManager.intelMeiv5 == true || DataBaseManager.intelMeiv6 == true) && isButtonMeiv == false)
         {
             isButtonMeiv = true;
-            DataBaseManager.ButtonCount_Meiv = DataBaseManager.GainCharacterInt;
-            DataBaseManager.GainCharacterInt += 1;
+            DataBaseManager.buttonCountMeiv = DataBaseManager.gainCharacterInt;
+            DataBaseManager.gainCharacterInt += 1;
         }
-        if ((DataBaseManager.Intel_Swain1 == true || DataBaseManager.Intel_Swain2 == true || DataBaseManager.Intel_Swain3 == true || DataBaseManager.Intel_Swain4 == true || DataBaseManager.Intel_Swain5 == true || DataBaseManager.Intel_Swain6 == true) && isButtonSwain == false)
+        if ((DataBaseManager.intelSwain1 == true || DataBaseManager.intelSwain2 == true || DataBaseManager.intelSwain3 == true || DataBaseManager.intelSwain4 == true || DataBaseManager.intelSwain5 == true || DataBaseManager.intelSwain6 == true) && isButtonSwain == false)
         {
             isButtonSwain = true;
-            DataBaseManager.ButtonCount_Swain = DataBaseManager.GainCharacterInt;
-            DataBaseManager.GainCharacterInt += 1;
+            DataBaseManager.buttonCountSwain = DataBaseManager.gainCharacterInt;
+            DataBaseManager.gainCharacterInt += 1;
         }
-        if ((DataBaseManager.Intel_BlackWell1 == true || DataBaseManager.Intel_BlackWell2 == true || DataBaseManager.Intel_BlackWell3 == true || DataBaseManager.Intel_BlackWell4 == true || DataBaseManager.Intel_BlackWell5 == true || DataBaseManager.Intel_BlackWell5 == true) && isButtonBlackWell == false)
+        if ((DataBaseManager.intelBlackWell1 == true || DataBaseManager.intelBlackWell2 == true || DataBaseManager.intelBlackWell3 == true || DataBaseManager.intelBlackWell4 == true || DataBaseManager.intelBlackWell5 == true || DataBaseManager.intelBlackWell5 == true) && isButtonBlackWell == false)
         {
             isButtonBlackWell = true;
-            DataBaseManager.ButtonCount_BlackWell = DataBaseManager.GainCharacterInt;
-            DataBaseManager.GainCharacterInt += 1;
+            DataBaseManager.buttonCountBlackWell = DataBaseManager.gainCharacterInt;
+            DataBaseManager.gainCharacterInt += 1;
         }
-        if ((DataBaseManager.Intel_SewerWorker1 == true || DataBaseManager.Intel_SewerWorker2 == true || DataBaseManager.Intel_SewerWorker3 == true || DataBaseManager.Intel_SewerWorker4 == true || DataBaseManager.Intel_SewerWorker5 == true || DataBaseManager.Intel_SewerWorker6 == true) && isButtonSewerWorker == false)
+        if ((DataBaseManager.intelSewerWorker1 == true || DataBaseManager.intelSewerWorker2 == true || DataBaseManager.intelSewerWorker3 == true || DataBaseManager.intelSewerWorker4 == true || DataBaseManager.intelSewerWorker5 == true || DataBaseManager.intelSewerWorker6 == true) && isButtonSewerWorker == false)
         {
             isButtonSewerWorker = true;
-            DataBaseManager.ButtonCount_SewerWorker = DataBaseManager.GainEventInt;
-            DataBaseManager.GainEventInt += 1;
+            DataBaseManager.buttonCountSewerWorker = DataBaseManager.gainEventInt;
+            DataBaseManager.gainEventInt += 1;
         }
-        if ((DataBaseManager.Intel_Dave1 == true || DataBaseManager.Intel_Dave2 == true || DataBaseManager.Intel_Dave3 == true || DataBaseManager.Intel_Dave4 == true || DataBaseManager.Intel_Dave5 == true || DataBaseManager.Intel_Dave6 == true) && isButtonDave == false)
+        if ((DataBaseManager.intelDave1 == true || DataBaseManager.intelDave2 == true || DataBaseManager.intelDave3 == true || DataBaseManager.intelDave4 == true || DataBaseManager.intelDave5 == true || DataBaseManager.intelDave6 == true) && isButtonDave == false)
         {
             isButtonDave = true;
-            DataBaseManager.ButtonCount_Dave = DataBaseManager.GainEventInt;
-            DataBaseManager.GainEventInt += 1;
+            DataBaseManager.buttonCountDave = DataBaseManager.gainEventInt;
+            DataBaseManager.gainEventInt += 1;
         }
     }
     void ButtonManage()
     {
-        if (DataBaseManager.ButtonCount_Aiden != -1)
+        if (DataBaseManager.buttonCountAiden != -1)
         {
             buttonAiden.SetActive(true);
-            buttonAiden.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Aiden);
+            buttonAiden.transform.SetSiblingIndex(DataBaseManager.buttonCountAiden);
         }
-        if (DataBaseManager.ButtonCount_Ella != -1)
+        if (DataBaseManager.buttonCountElla != -1)
         {
             buttonElla.SetActive(true);
-            buttonElla.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Ella);
+            buttonElla.transform.SetSiblingIndex(DataBaseManager.buttonCountElla);
         }
-        if (DataBaseManager.ButtonCount_Cane != -1)
+        if (DataBaseManager.buttonCountCane != -1)
         {
             buttonCane.SetActive(true);
-            buttonCane.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Cane);
+            buttonCane.transform.SetSiblingIndex(DataBaseManager.buttonCountCane);
         }
-        if (DataBaseManager.ButtonCount_Meiv != -1)
+        if (DataBaseManager.buttonCountMeiv != -1)
         {
             buttonMeiv.SetActive(true);
-            buttonMeiv.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Meiv);
+            buttonMeiv.transform.SetSiblingIndex(DataBaseManager.buttonCountMeiv);
         }
-        if (DataBaseManager.ButtonCount_Albert != -1)
+        if (DataBaseManager.buttonCountAlbert != -1)
         {
             buttonAlbert.SetActive(true);
-            buttonAlbert.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Albert);
+            buttonAlbert.transform.SetSiblingIndex(DataBaseManager.buttonCountAlbert);
         }
-        if (DataBaseManager.ButtonCount_BlackWell != -1)
+        if (DataBaseManager.buttonCountBlackWell != -1)
         {
             buttonBlackWell.SetActive(true);
-            buttonBlackWell.transform.SetSiblingIndex(DataBaseManager.ButtonCount_BlackWell);
+            buttonBlackWell.transform.SetSiblingIndex(DataBaseManager.buttonCountBlackWell);
         }
-        if (DataBaseManager.ButtonCount_Swain != -1)
+        if (DataBaseManager.buttonCountSwain != -1)
         {
             buttonSwain.SetActive(true);
-            buttonSwain.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Swain);
+            buttonSwain.transform.SetSiblingIndex(DataBaseManager.buttonCountSwain);
         }
-        if (DataBaseManager.GainCharacterInt > 6)
+        if (DataBaseManager.gainCharacterInt > 6)
         {
             downButton.SetActive(true);
         }
-        if (DataBaseManager.ButtonCount_SewerWorker != -1)
+        if (DataBaseManager.buttonCountSewerWorker != -1)
         {
             buttonSewerWorker.SetActive(true);
-            buttonSewerWorker.transform.SetSiblingIndex(DataBaseManager.ButtonCount_SewerWorker);
+            buttonSewerWorker.transform.SetSiblingIndex(DataBaseManager.buttonCountSewerWorker);
         }
-        if (DataBaseManager.ButtonCount_Dave != -1)
+        if (DataBaseManager.buttonCountDave != -1)
         {
             buttonDave.SetActive(true);
-            buttonDave.transform.SetSiblingIndex(DataBaseManager.ButtonCount_Dave);
+            buttonDave.transform.SetSiblingIndex(DataBaseManager.buttonCountDave);
         }
     }
     public void ClickUPButton()
@@ -176,7 +176,7 @@ public class CharacterButtonManage : MonoBehaviour
             trChild.gameObject.SetActive(false);
         }
 
-        if (DataBaseManager.GainCharacterInt == 7)
+        if (DataBaseManager.gainCharacterInt == 7)
         {
             Transform trChild16 = buttonRect.transform.GetChild(6);
             trChild16.gameObject.SetActive(true);

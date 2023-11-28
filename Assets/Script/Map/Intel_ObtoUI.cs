@@ -23,11 +23,11 @@ public class Intel_ObtoUI : MonoBehaviour
 
     public void Update()
     {
-        if (DataBaseManager.TimeCount == 8 && this.name == "Meave" && isJudge == false)
+        if (DataBaseManager.timeCount == 8 && this.name == "Meave" && isJudge == false)
         {
             isJudge = true;
         }
-        if (DataBaseManager.TimeCount == 5 && resetCheck == false)
+        if (DataBaseManager.timeCount == 5 && resetCheck == false)
         {
             resetCheck = true;
             ResetKeyCount();
@@ -44,19 +44,19 @@ public class Intel_ObtoUI : MonoBehaviour
         {
             Set_BlackWell();
         }
-        if (DataBaseManager.CancelJudge == true)
+        if (DataBaseManager.cancelJudge == true)
         {
             CancelJudge();
         }
-        if (DataBaseManager.isActiveDialog2 == true && previousState != DataBaseManager.NowSelecter)
+        if (DataBaseManager.isActiveDialog2 == true && previousState != DataBaseManager.nowSelecter)
         {
             Res();
         }
-        previousState = DataBaseManager.NowSelecter;
+        previousState = DataBaseManager.nowSelecter;
 
-        if ((Input.GetKeyDown(KeyCode.E) && DataBaseManager.isActiveDialog2 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.isOpenUi == false))
+        if ((Input.GetKeyDown(KeyCode.E) && DataBaseManager.isActiveDialog2 == false && DataBaseManager.storyDirecting == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.isOpenUi == false))
         {
-            if (this.transform.name == DataBaseManager.Select_Object)
+            if (this.transform.name == DataBaseManager.selectObject)
             {
                 if (this.name == "Aiden Triss")
                 {
@@ -116,14 +116,14 @@ public class Intel_ObtoUI : MonoBehaviour
                 }
                 if (DataBaseManager.isRollet == false)
                 {
-                    if (DataBaseManager.NowSelecter == "Keyword")
+                    if (DataBaseManager.nowSelecter == "Keyword")
                     {
                         DialogManager.Instance.ChoiceEx_NextPage();
                         keywordCounter -= 1;
                         DataBaseManager.isSelect = true;
                         InteractionController.Instance.KeywordDialog(this.name);
                     }
-                    else if (DataBaseManager.NowSelecter == "Look")
+                    else if (DataBaseManager.nowSelecter == "Look")
                     {
                         DialogManager.Instance.ChoiceEx_NextPage();
                         DataBaseManager.isSelect = true;
@@ -133,7 +133,7 @@ public class Intel_ObtoUI : MonoBehaviour
                         }
                         if (DataBaseManager.nowPlace == "Client'shouse")
                         {
-                            if (DataBaseManager.TimeCount < 7)
+                            if (DataBaseManager.timeCount < 7)
                             {
                                 InteractionController.Instance.Start_1st_ClientsHouse(lookDilaog);
                             }
@@ -183,12 +183,12 @@ public class Intel_ObtoUI : MonoBehaviour
                             InteractionController.Instance.InSewerDialog(lookDilaog);
                         }
                     }
-                    else if (DataBaseManager.NowSelecter == "Judge")
+                    else if (DataBaseManager.nowSelecter == "Judge")
                     {
                         DialogManager.Instance.EndDialog();
                         SetJudge();
                     }
-                    else if (DataBaseManager.NowSelecter == "End" && DataBaseManager.isActiveDialog1 == false)
+                    else if (DataBaseManager.nowSelecter == "End" && DataBaseManager.isActiveDialog1 == false)
                     {
                         if (DataBaseManager.nowPlace == "DetectiveOffice")
                         {
@@ -196,7 +196,7 @@ public class Intel_ObtoUI : MonoBehaviour
                         }
                         if (DataBaseManager.nowPlace == "Client'shouse")
                         {
-                            if (DataBaseManager.TimeCount < 7)
+                            if (DataBaseManager.timeCount < 7)
                             {
                                 InteractionController.Instance.Start_1st_ClientsHouse(activeDilaog);
                             }
@@ -268,128 +268,128 @@ public class Intel_ObtoUI : MonoBehaviour
     }
     void SetJudge()
     {
-        if (DataBaseManager.Select_Object == "Sewer")
+        if (DataBaseManager.selectObject == "Sewer")
         {
             canJudge = false;
             isJudge = true;
             Rollet.Instance.setRollet("Sewer : Picking", "Deftness", DataBaseManager.deftnessPoint, "dialog");
         }
-        if (DataBaseManager.Select_Object == "NewsPaper_Active")
+        if (DataBaseManager.selectObject == "NewsPaper_Active")
         {
             canJudge = false;
             isJudge = true;
             Rollet.Instance.setRollet("Newspaper : Read", "Analysis", DataBaseManager.analysisPoint, "dialog");
         }
-        if (DataBaseManager.Select_Object == "Stove_Active")
+        if (DataBaseManager.selectObject == "Stove_Active")
         {
             canJudge = false;
             isJudge = true;
             Rollet.Instance.setRollet("Stove : Making coffee", "Luck", DataBaseManager.luk, "dialog");
         }
-        if (DataBaseManager.Select_Object == "Aiden Triss")
+        if (DataBaseManager.selectObject == "Aiden Triss")
         {
-            if (DataBaseManager.Aiden_medicine == false)
+            if (DataBaseManager.aidenMedicine == false)
             {
                 aidenJudge = "medicine";
                 Rollet.Instance.setRollet("Aiden : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
             }
-            else if (DataBaseManager.Aiden_Observation == false)
+            else if (DataBaseManager.aidenObservation == false)
             {
                 aidenJudge = "Observation";
-                Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.observationPoint, "dialog");
             }
-            else if (DataBaseManager.Aiden_psychotherapy == false)
+            else if (DataBaseManager.aidenPsychotherapy == false)
             {
                 aidenJudge = "psychotherapy";
                 Rollet.Instance.setRollet("Aiden : Calming down", "Psychotherapy / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
             }
         }
-        if (DataBaseManager.Select_Object == "Berkeley Swain")
+        if (DataBaseManager.selectObject == "Berkeley Swain")
         {
             canJudge = false;
             isJudge = true;
-            Rollet.Instance.setRollet("Swain : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+            Rollet.Instance.setRollet("Swain : Look", "Observation", DataBaseManager.observationPoint, "dialog");
         }
-        if (DataBaseManager.Select_Object == "Witness")
+        if (DataBaseManager.selectObject == "Witness")
         {
             canJudge = false;
             isJudge = true;
             Rollet.Instance.setRollet("Witness : Eavesdropping", "Listening", DataBaseManager.listeningPoint, "dialog");
         }
-        if (DataBaseManager.Select_Object == "DoorPolice")
+        if (DataBaseManager.selectObject == "DoorPolice")
         {
             canJudge = false;
             isJudge = true;
             Rollet.Instance.setRollet("Police : Persuasion", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
         }
-        if (DataBaseManager.Select_Object == "DeadBody")
+        if (DataBaseManager.selectObject == "DeadBody")
         {
-            if (DataBaseManager.DeadBody_medicine == false)
+            if (DataBaseManager.deadBodyMedicine == false)
             {
                 deadBodyJudge = "medicine";
                 Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
             }
-            else if (DataBaseManager.DeadBody_observational == false)
+            else if (DataBaseManager.deadBodyObservational == false)
             {
                 deadBodyJudge = "Observation";
-                Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.observationPoint, "dialog");
             }
-            else if (DataBaseManager.DeadBody_Analyzing == false)
+            else if (DataBaseManager.deadBodyAnalyzing == false)
             {
                 deadBodyJudge = "analysis";
                 Rollet.Instance.setRollet("DeadBody : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
             }
-            else if (DataBaseManager.DeadBody_deftness == false)
+            else if (DataBaseManager.deadBodyDeftness == false)
             {
                 deadBodyJudge = "deftness";
                 Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
             }
         }
-        if (DataBaseManager.Select_Object == "Accident Site")
+        if (DataBaseManager.selectObject == "Accident Site")
         {
-            if (DataBaseManager.Site_Analyzing == false)
+            if (DataBaseManager.siteAnalyzing == false)
             {
                 Rollet.Instance.setRollet("Accident Site : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
             }
         }
-        if (DataBaseManager.Select_Object == "Maeve" && DataBaseManager.TimeCount == 8)
+        if (DataBaseManager.selectObject == "Maeve" && DataBaseManager.timeCount == 8)
         {
             canJudge = false;
             isJudge = true;
             Rollet.Instance.setRollet("Maeve : Persuasion", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
         }
-        if (DataBaseManager.Select_Object == "GoInside_Dialog")
+        if (DataBaseManager.selectObject == "GoInside_Dialog")
         {
             canJudge = false;
             isJudge = true;
             Rollet.Instance.setRollet("Door : Picking doors", "Deftness", DataBaseManager.deftnessPoint, "dialog");
         }
-        if (DataBaseManager.Select_Object == "Window")
+        if (DataBaseManager.selectObject == "Window")
         {
             canJudge = false;
             isJudge = true;
             Rollet.Instance.setRollet("Window : Break", "STR", DataBaseManager.str, "dialog");
         }
-        if (DataBaseManager.Select_Object == "Locker")
+        if (DataBaseManager.selectObject == "Locker")
         {
             canJudge = false;
             isJudge = true;
-            Rollet.Instance.setRollet("Locker : Take a Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+            Rollet.Instance.setRollet("Locker : Take a Look", "Observation", DataBaseManager.observationPoint, "dialog");
         }
-        if (DataBaseManager.Select_Object == "BlackWell")
+        if (DataBaseManager.selectObject == "BlackWell")
         {
-            if (DataBaseManager.Black_Deftness == false)
+            if (DataBaseManager.blackDeftness == false)
             {
                 blackWellJudge = "deftness";
                 Rollet.Instance.setRollet("Warden : Steal", "Deftness", DataBaseManager.deftnessPoint, "dialog");
             }
-            else if (DataBaseManager.Black_Rhethic == false)
+            else if (DataBaseManager.blackRhethic == false)
             {
                 blackWellJudge = "rhetoric";
                 Rollet.Instance.setRollet("Warden : Persuade", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
             }
         }
-        if (DataBaseManager.Select_Object == "Symbol")
+        if (DataBaseManager.selectObject == "Symbol")
         {
             Rollet.Instance.setRollet("Symbol : Break", "STR", DataBaseManager.str, "dialog");
         }
@@ -397,18 +397,18 @@ public class Intel_ObtoUI : MonoBehaviour
     string blackWellJudge;
     void Set_BlackWell()
     {
-        if (DataBaseManager.Black_Rhethic == true && DataBaseManager.Black_Deftness == true)
+        if (DataBaseManager.blackRhethic == true && DataBaseManager.blackDeftness == true)
         {
             canJudge = false;
             isJudge = true;
         }
-        if (Rollet.Instance.RolletSetUi.activeSelf == true)
+        if (Rollet.Instance.rolletSetUi.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
             {
                 if (blackWellJudge == "deftness")
                 {
-                    if (DataBaseManager.Black_Rhethic == false)
+                    if (DataBaseManager.blackRhethic == false)
                     {
                         blackWellJudge = "rhetoric";
                         Rollet.Instance.setRollet("Warden : Persuade", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
@@ -416,7 +416,7 @@ public class Intel_ObtoUI : MonoBehaviour
                 }
                 else if (blackWellJudge == "rhetoric")
                 {
-                    if (DataBaseManager.Black_Deftness == false)
+                    if (DataBaseManager.blackDeftness == false)
                     {
                         blackWellJudge = "deftness";
                         Rollet.Instance.setRollet("Warden : Steal", "Deftness", DataBaseManager.deftnessPoint, "dialog");
@@ -428,32 +428,32 @@ public class Intel_ObtoUI : MonoBehaviour
     string aidenJudge;
     void Set_Aiden()
     {
-        if (DataBaseManager.Aiden_FirstDialog == false)
+        if (DataBaseManager.aidenFirstDialog == false)
         {
             activeDilaog = "Aiden_FirstDialog";
         }
         else
         {
-            DataBaseManager.Aiden_FirstDialog = true;
+            DataBaseManager.aidenFirstDialog = true;
             activeDilaog = "Aiden_Dialog1";
         }
-        if (DataBaseManager.Aiden_medicine == true && DataBaseManager.Aiden_Observation == true && DataBaseManager.Aiden_psychotherapy == true)
+        if (DataBaseManager.aidenMedicine == true && DataBaseManager.aidenObservation == true && DataBaseManager.aidenPsychotherapy == true)
         {
             canJudge = false;
             isJudge = true;
         }
-        if (Rollet.Instance.RolletSetUi.activeSelf == true)
+        if (Rollet.Instance.rolletSetUi.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.D))
             {
                 if (aidenJudge == "medicine")
                 {
-                    if (DataBaseManager.Aiden_Observation == false)
+                    if (DataBaseManager.aidenObservation == false)
                     {
                         aidenJudge = "Observation";
-                        Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                        Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.observationPoint, "dialog");
                     }
-                    else if (DataBaseManager.Aiden_psychotherapy == false)
+                    else if (DataBaseManager.aidenPsychotherapy == false)
                     {
                         aidenJudge = "psychotherapy";
                         Rollet.Instance.setRollet("Aiden : Calming down", "Psychotherapy / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
@@ -461,12 +461,12 @@ public class Intel_ObtoUI : MonoBehaviour
                 }
                 else if (aidenJudge == "Observation")
                 {
-                    if (DataBaseManager.Aiden_psychotherapy == false)
+                    if (DataBaseManager.aidenPsychotherapy == false)
                     {
                         aidenJudge = "psychotherapy";
                         Rollet.Instance.setRollet("Aiden : Calming down", "Psychotherapy / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
                     }
-                    else if (DataBaseManager.Aiden_medicine == false)
+                    else if (DataBaseManager.aidenMedicine == false)
                     {
                         aidenJudge = "medicine";
                         Rollet.Instance.setRollet("Aiden : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
@@ -475,15 +475,15 @@ public class Intel_ObtoUI : MonoBehaviour
                 else if (aidenJudge == "psychotherapy")
                 {
 
-                    if (DataBaseManager.Aiden_medicine == false)
+                    if (DataBaseManager.aidenMedicine == false)
                     {
                         aidenJudge = "medicine";
                         Rollet.Instance.setRollet("Aiden : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
-                    else if (DataBaseManager.Aiden_Observation == false)
+                    else if (DataBaseManager.aidenObservation == false)
                     {
                         aidenJudge = "Observation";
-                        Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                        Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.observationPoint, "dialog");
                     }
                 }
             }
@@ -491,25 +491,25 @@ public class Intel_ObtoUI : MonoBehaviour
             {
                 if (aidenJudge == "medicine")
                 {
-                    if (DataBaseManager.Aiden_psychotherapy == false)
+                    if (DataBaseManager.aidenPsychotherapy == false)
                     {
                         aidenJudge = "psychotherapy";
                         Rollet.Instance.setRollet("Aiden : Calming down", "Psychotherapy / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
                     }
-                    else if (DataBaseManager.Aiden_Observation == false)
+                    else if (DataBaseManager.aidenObservation == false)
                     {
                         aidenJudge = "Observation";
-                        Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                        Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.observationPoint, "dialog");
                     }
                 }
                 else if (aidenJudge == "Observation")
                 {
-                    if (DataBaseManager.Aiden_medicine == false)
+                    if (DataBaseManager.aidenMedicine == false)
                     {
                         aidenJudge = "medicine";
                         Rollet.Instance.setRollet("Aiden : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
-                    else if (DataBaseManager.Aiden_psychotherapy == false)
+                    else if (DataBaseManager.aidenPsychotherapy == false)
                     {
                         aidenJudge = "psychotherapy";
                         Rollet.Instance.setRollet("Aiden : Calming down", "Psychotherapy / 2", (DataBaseManager.psychotherapyPoint / 2), "dialog");
@@ -517,12 +517,12 @@ public class Intel_ObtoUI : MonoBehaviour
                 }
                 else if (aidenJudge == "psychotherapy")
                 {
-                    if (DataBaseManager.Aiden_Observation == false)
+                    if (DataBaseManager.aidenObservation == false)
                     {
                         aidenJudge = "Observation";
-                        Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                        Rollet.Instance.setRollet("Aiden : Look", "Observation", DataBaseManager.observationPoint, "dialog");
                     }
-                    else if (DataBaseManager.Aiden_medicine == false)
+                    else if (DataBaseManager.aidenMedicine == false)
                     {
                         aidenJudge = "medicine";
                         Rollet.Instance.setRollet("Aiden : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
@@ -534,28 +534,28 @@ public class Intel_ObtoUI : MonoBehaviour
     string deadBodyJudge;
     void Set_DeadBody()
     {
-        if (DataBaseManager.DeadBody_medicine == true && DataBaseManager.DeadBody_observational == true && DataBaseManager.DeadBody_Analyzing == true && DataBaseManager.DeadBody_deftness == true)
+        if (DataBaseManager.deadBodyMedicine == true && DataBaseManager.deadBodyObservational == true && DataBaseManager.deadBodyAnalyzing == true && DataBaseManager.deadBodyDeftness == true)
         {
             canJudge = false;
             isJudge = true;
         }
-        if (Rollet.Instance.RolletSetUi.activeSelf == true)
+        if (Rollet.Instance.rolletSetUi.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.D))
             {
                 if (deadBodyJudge == "medicine")
                 {
-                    if (DataBaseManager.DeadBody_observational == false)
+                    if (DataBaseManager.deadBodyObservational == false)
                     {
                         deadBodyJudge = "Observation";
-                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.observationPoint, "dialog");
                     }
-                    else if (DataBaseManager.DeadBody_Analyzing == false)
+                    else if (DataBaseManager.deadBodyAnalyzing == false)
                     {
                         deadBodyJudge = "analysis";
                         Rollet.Instance.setRollet("DeadBody : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
                     }
-                    else if (DataBaseManager.DeadBody_deftness == false)
+                    else if (DataBaseManager.deadBodyDeftness == false)
                     {
                         deadBodyJudge = "deftness";
                         Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
@@ -563,17 +563,17 @@ public class Intel_ObtoUI : MonoBehaviour
                 }
                 else if (deadBodyJudge == "Observation")
                 {
-                    if (DataBaseManager.DeadBody_Analyzing == false)
+                    if (DataBaseManager.deadBodyAnalyzing == false)
                     {
                         deadBodyJudge = "analysis";
                         Rollet.Instance.setRollet("DeadBody : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
                     }
-                    else if (DataBaseManager.DeadBody_deftness == false)
+                    else if (DataBaseManager.deadBodyDeftness == false)
                     {
                         deadBodyJudge = "deftness";
                         Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
                     }
-                    else if (DataBaseManager.DeadBody_medicine == false)
+                    else if (DataBaseManager.deadBodyMedicine == false)
                     {
                         deadBodyJudge = "medicine";
                         Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
@@ -581,36 +581,36 @@ public class Intel_ObtoUI : MonoBehaviour
                 }
                 else if (deadBodyJudge == "analysis")
                 {
-                    if (DataBaseManager.DeadBody_deftness == false)
+                    if (DataBaseManager.deadBodyDeftness == false)
                     {
                         deadBodyJudge = "deftness";
                         Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
                     }
 
-                    else if (DataBaseManager.DeadBody_medicine == false)
+                    else if (DataBaseManager.deadBodyMedicine == false)
                     {
                         deadBodyJudge = "medicine";
                         Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
-                    else if (DataBaseManager.DeadBody_observational == false)
+                    else if (DataBaseManager.deadBodyObservational == false)
                     {
                         deadBodyJudge = "Observation";
-                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.observationPoint, "dialog");
                     }
                 }
                 else if (deadBodyJudge == "deftness")
                 {
-                    if (DataBaseManager.DeadBody_medicine == false)
+                    if (DataBaseManager.deadBodyMedicine == false)
                     {
                         deadBodyJudge = "medicine";
                         Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
-                    else if (DataBaseManager.DeadBody_observational == false)
+                    else if (DataBaseManager.deadBodyObservational == false)
                     {
                         deadBodyJudge = "Observation";
-                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.observationPoint, "dialog");
                     }
-                    else if (DataBaseManager.DeadBody_Analyzing == false)
+                    else if (DataBaseManager.deadBodyAnalyzing == false)
                     {
                         deadBodyJudge = "analysis";
                         Rollet.Instance.setRollet("DeadBody : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
@@ -621,35 +621,35 @@ public class Intel_ObtoUI : MonoBehaviour
             {
                 if (deadBodyJudge == "medicine")
                 {
-                    if (DataBaseManager.DeadBody_deftness == false)
+                    if (DataBaseManager.deadBodyDeftness == false)
                     {
                         deadBodyJudge = "deftness";
                         Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
                     }
-                    else if (DataBaseManager.DeadBody_Analyzing == false)
+                    else if (DataBaseManager.deadBodyAnalyzing == false)
                     {
                         deadBodyJudge = "analysis";
                         Rollet.Instance.setRollet("DeadBody : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
                     }
-                    else if (DataBaseManager.DeadBody_observational == false)
+                    else if (DataBaseManager.deadBodyObservational == false)
                     {
                         deadBodyJudge = "Observation";
-                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.observationPoint, "dialog");
                     }
                 }
                 else if (deadBodyJudge == "Observation")
                 {
-                    if (DataBaseManager.DeadBody_medicine == false)
+                    if (DataBaseManager.deadBodyMedicine == false)
                     {
                         deadBodyJudge = "medicine";
                         Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
-                    else if (DataBaseManager.DeadBody_deftness == false)
+                    else if (DataBaseManager.deadBodyDeftness == false)
                     {
                         deadBodyJudge = "deftness";
                         Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
                     }
-                    else if (DataBaseManager.DeadBody_Analyzing == false)
+                    else if (DataBaseManager.deadBodyAnalyzing == false)
                     {
                         deadBodyJudge = "analysis";
                         Rollet.Instance.setRollet("DeadBody : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
@@ -657,17 +657,17 @@ public class Intel_ObtoUI : MonoBehaviour
                 }
                 else if (deadBodyJudge == "analysis")
                 {
-                    if (DataBaseManager.DeadBody_observational == false)
+                    if (DataBaseManager.deadBodyObservational == false)
                     {
                         deadBodyJudge = "Observation";
-                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.observationPoint, "dialog");
                     }
-                    else if (DataBaseManager.DeadBody_medicine == false)
+                    else if (DataBaseManager.deadBodyMedicine == false)
                     {
                         deadBodyJudge = "medicine";
                         Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
                     }
-                    else if (DataBaseManager.DeadBody_deftness == false)
+                    else if (DataBaseManager.deadBodyDeftness == false)
                     {
                         deadBodyJudge = "deftness";
                         Rollet.Instance.setRollet("DeadBody : Stealing", "Deftness", (DataBaseManager.deftnessPoint), "dialog");
@@ -675,17 +675,17 @@ public class Intel_ObtoUI : MonoBehaviour
                 }
                 else if (deadBodyJudge == "deftness")
                 {
-                    if (DataBaseManager.DeadBody_Analyzing == false)
+                    if (DataBaseManager.deadBodyAnalyzing == false)
                     {
                         deadBodyJudge = "analysis";
                         Rollet.Instance.setRollet("DeadBody : Check", "Analysis", (DataBaseManager.analysisPoint), "dialog");
                     }
-                    else if (DataBaseManager.DeadBody_observational == false)
+                    else if (DataBaseManager.deadBodyObservational == false)
                     {
                         deadBodyJudge = "Observation";
-                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+                        Rollet.Instance.setRollet("DeadBody : Look", "Observation", DataBaseManager.observationPoint, "dialog");
                     }
-                    else if (DataBaseManager.DeadBody_medicine == false)
+                    else if (DataBaseManager.deadBodyMedicine == false)
                     {
                         deadBodyJudge = "medicine";
                         Rollet.Instance.setRollet("DeadBody : Diagnosis", "Medicine", DataBaseManager.medicinePoint, "dialog");
@@ -704,7 +704,7 @@ public class Intel_ObtoUI : MonoBehaviour
         playerInTrigger = true;
         if (collision.tag == "Player")
         {
-            DataBaseManager.Select_Object = this.transform.name;
+            DataBaseManager.selectObject = this.transform.name;
             BillowUIManager.Instance.SetIntelUi(name, detail);
         }
     }
@@ -718,15 +718,15 @@ public class Intel_ObtoUI : MonoBehaviour
         playerInTrigger = false;
         if (collision.tag == "Player")
         {
-            DataBaseManager.Select_Object = "";
+            DataBaseManager.selectObject = "";
             BillowUIManager.Instance.ResetIntelUi();
         }
     }
     public void CancelJudge()
     {
-        if (DataBaseManager.Select_Object == this.transform.name)
+        if (DataBaseManager.selectObject == this.transform.name)
         {
-            DataBaseManager.CancelJudge = false;
+            DataBaseManager.cancelJudge = false;
             isJudge = true;
             canJudge = true;
         }

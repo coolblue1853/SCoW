@@ -1,16 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Serialization;
 public class DialogAutoClose : MonoBehaviour
 {
-    public GameObject NameText;
-    public GameObject Text;
+    public GameObject nameText;
+    public GameObject text;
     void Update()
     {
-        if (Text.activeSelf == false)
+        if (text.activeSelf == false)
         {
-            NameText.SetActive(false);
+            nameText.SetActive(false);
         }
     }
 }

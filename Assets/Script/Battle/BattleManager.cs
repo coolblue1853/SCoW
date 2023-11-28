@@ -95,11 +95,11 @@ public class BattleManager : MonoBehaviour
     }
     void Update()
     {
-        if (runAwayButton.activeSelf == true && DataBaseManager.isDebuff_ShortTempred == true)
+        if (runAwayButton.activeSelf == true && DataBaseManager.isDebuffShortTempred == true)
         {
             runAwayButton.SetActive(false);
         }
-        else if (runAwayButton.activeSelf == false && DataBaseManager.isDebuff_ShortTempred == false)
+        else if (runAwayButton.activeSelf == false && DataBaseManager.isDebuffShortTempred == false)
         {
             runAwayButton.SetActive(true);
         }
@@ -111,20 +111,20 @@ public class BattleManager : MonoBehaviour
         }
         if (DataBaseManager.nowPlace == "BattleRoad")
         {
-            if (enemyTrunSymbol1.activeSelf == false && enemyTrunSymbol2.activeSelf == false && enemyTrunSymbol3.activeSelf == false && DataBaseManager.RoadBattleEnd == false && DataBaseManager.ISRoadBattleStart == true)
+            if (enemyTrunSymbol1.activeSelf == false && enemyTrunSymbol2.activeSelf == false && enemyTrunSymbol3.activeSelf == false && DataBaseManager.roadBattleEnd == false && DataBaseManager.iSRoadBattleStart == true)
             {
-                DataBaseManager.ISRoadBattleStart = false;
+                DataBaseManager.iSRoadBattleStart = false;
                 DataBaseManager.isDirecting = true;
-                DataBaseManager.RoadBattleEnd = true;
+                DataBaseManager.roadBattleEnd = true;
                 FadingBackGround.Instance.FadeIn();
                 Invoke("EndRoadBattle", 1f);
             }
         }
-        if (enemyTrunSymbol1.activeSelf == false && enemyTrunSymbol2.activeSelf == false && enemyTrunSymbol3.activeSelf == false && DataBaseManager.SewerBattleChecker == true && DataBaseManager.nowPlace == "InSewer" && DataBaseManager.SewerBattleEndCheck == false)
+        if (enemyTrunSymbol1.activeSelf == false && enemyTrunSymbol2.activeSelf == false && enemyTrunSymbol3.activeSelf == false && DataBaseManager.sewerBattleChecker == true && DataBaseManager.nowPlace == "InSewer" && DataBaseManager.sewerBattleEndCheck == false)
         {
-            DataBaseManager.SewerBattleChecker = false;
-            DataBaseManager.SewerBattleEndCheck = true;
-            DataBaseManager.StoryDirecting = false;
+            DataBaseManager.sewerBattleChecker = false;
+            DataBaseManager.sewerBattleEndCheck = true;
+            DataBaseManager.storyDirecting = false;
             FadingBackGround.Instance.FadeInOut();
             Invoke("EndSewerBattle", 1f);
         }
@@ -148,12 +148,12 @@ public class BattleManager : MonoBehaviour
     {
         playerActionUi.SetActive(false);
         uiButton.SetActive(true);
-        DataBaseManager.InSewer_StealthSucc = true;
+        DataBaseManager.inSewerStealthSucc = true;
         DialogDatabaseManager.instance.check = true;
         DataBaseManager.isDirecting = false;
-        DataBaseManager.StoryDirecting = false;
+        DataBaseManager.storyDirecting = false;
         DataBaseManager.isRollet = false;
-        DataBaseManager.EndBattle = false;
+        DataBaseManager.endBattle = false;
         DirectingManager.Instance.EndBattle();
     }
     public static BattleManager Instance
@@ -169,7 +169,7 @@ public class BattleManager : MonoBehaviour
     }
     public void Ex_BattleEnd()
     {
-        DataBaseManager.RoadBattleEnd = true;
+        DataBaseManager.roadBattleEnd = true;
         FadingBackGround.Instance.FadeIn();
         Invoke("EndRoadBattle", 1f);
     }
@@ -325,9 +325,9 @@ public class BattleManager : MonoBehaviour
         }
         if (battleState == "PlayerTrun")
         {
-            if (DataBaseManager.PosionDebuff > 0)
+            if (DataBaseManager.posionDebuff > 0)
             {
-                DataBaseManager.PosionDebuff -= 1;
+                DataBaseManager.posionDebuff -= 1;
                 OnDamageObject("player", Random.Range(1, 2) * 5);
             }
             BattleItemManager.Instance.ManageItem();
@@ -428,41 +428,41 @@ public class BattleManager : MonoBehaviour
     }
     public void startReload()
     {
-        while (DataBaseManager.PistolAmmo > 0)
+        while (DataBaseManager.pistolAmmo > 0)
         {
             if (DataBaseManager.nowSmallPistol == 2)
             {
                 break;
             }
             DataBaseManager.nowSmallPistol += 1;
-            DataBaseManager.PistolAmmo -= 1;
+            DataBaseManager.pistolAmmo -= 1;
         }
-        while (DataBaseManager.PistolAmmo > 0)
+        while (DataBaseManager.pistolAmmo > 0)
         {
             if (DataBaseManager.nowRevolver == 6)
             {
                 break;
             }
             DataBaseManager.nowRevolver += 1;
-            DataBaseManager.PistolAmmo -= 1;
+            DataBaseManager.pistolAmmo -= 1;
         }
-        while (DataBaseManager.RifleAmmo > 0)
+        while (DataBaseManager.rifleAmmo > 0)
         {
             if (DataBaseManager.nowRifle == 5)
             {
                 break;
             }
             DataBaseManager.nowRifle += 1;
-            DataBaseManager.RifleAmmo -= 1;
+            DataBaseManager.rifleAmmo -= 1;
         }
-        while (DataBaseManager.ShotgunAmmo > 0)
+        while (DataBaseManager.shotgunAmmo > 0)
         {
             if (DataBaseManager.nowShotgun == 2)
             {
                 break;
             }
             DataBaseManager.nowShotgun += 1;
-            DataBaseManager.ShotgunAmmo -= 1;
+            DataBaseManager.shotgunAmmo -= 1;
         }
     }
 
@@ -473,14 +473,14 @@ public class BattleManager : MonoBehaviour
         if (nowReloadWeapon == "SmallPistol")
         {
             SoundManager.Instance.Battle_Sound("SmallPisol_Reload");
-            while (DataBaseManager.PistolAmmo > 0)
+            while (DataBaseManager.pistolAmmo > 0)
             {
                 if (DataBaseManager.nowSmallPistol == 2)
                 {
                     break;
                 }
                 DataBaseManager.nowSmallPistol += 1;
-                DataBaseManager.PistolAmmo -= 1;
+                DataBaseManager.pistolAmmo -= 1;
             }
             Sequence sequence = DOTween.Sequence()
             .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolReload))
@@ -492,14 +492,14 @@ public class BattleManager : MonoBehaviour
         if (nowReloadWeapon == "Revolver")
         {
             SoundManager.Instance.Battle_Sound("Revolver_Reload");
-            while (DataBaseManager.PistolAmmo > 0)
+            while (DataBaseManager.pistolAmmo > 0)
             {
                 if (DataBaseManager.nowRevolver == 6)
                 {
                     break;
                 }
                 DataBaseManager.nowRevolver += 1;
-                DataBaseManager.PistolAmmo -= 1;
+                DataBaseManager.pistolAmmo -= 1;
             }
             Sequence sequence = DOTween.Sequence()
             .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverReload))
@@ -511,14 +511,14 @@ public class BattleManager : MonoBehaviour
         if (nowReloadWeapon == "Rifle")
         {
             SoundManager.Instance.Battle_Sound("Rifle_Reload");
-            while (DataBaseManager.RifleAmmo > 0)
+            while (DataBaseManager.rifleAmmo > 0)
             {
                 if (DataBaseManager.nowRifle == 5)
                 {
                     break;
                 }
                 DataBaseManager.nowRifle += 1;
-                DataBaseManager.RifleAmmo -= 1;
+                DataBaseManager.rifleAmmo -= 1;
             }
             Sequence sequence = DOTween.Sequence()
             .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleReload))
@@ -530,14 +530,14 @@ public class BattleManager : MonoBehaviour
         if (nowReloadWeapon == "Shotgun")
         {
             SoundManager.Instance.Battle_Sound("Shotgun_Reload");
-            while (DataBaseManager.ShotgunAmmo > 0)
+            while (DataBaseManager.shotgunAmmo > 0)
             {
                 if (DataBaseManager.nowShotgun == 2)
                 {
                     break;
                 }
                 DataBaseManager.nowShotgun += 1;
-                DataBaseManager.ShotgunAmmo -= 1;
+                DataBaseManager.shotgunAmmo -= 1;
             }
             Sequence sequence = DOTween.Sequence()
             .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunReload))
@@ -1541,20 +1541,20 @@ public class BattleManager : MonoBehaviour
                 GameObject obj = deepOneHybrid1Ob;
                 if (Success == "Success")
                 {
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         playerRender.sprite = daggerReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         playerRender.sprite = batReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         playerRender.sprite = axeReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
@@ -1573,7 +1573,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
@@ -1592,7 +1592,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
@@ -1614,20 +1614,20 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         playerRender.sprite = daggerReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         playerRender.sprite = batReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         playerRender.sprite = axeReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         Sequence sequence = DOTween.Sequence()
                    .Append(player.transform.DOMove(new Vector3(deepOneHybrid1Ob.transform.position.x - 3.5f, deepOneHybrid1Ob.transform.position.y - 0.2f, -1), 0.5f))
@@ -1650,7 +1650,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(originPoint, 0.5f))
                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         Sequence sequence = DOTween.Sequence()
                    .Append(player.transform.DOMove(new Vector3(deepOneHybrid1Ob.transform.position.x - 3.5f, deepOneHybrid1Ob.transform.position.y - 0.2f, -1), 0.5f))
@@ -1673,7 +1673,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(originPoint, 0.5f))
                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         Sequence sequence = DOTween.Sequence()
                    .Append(player.transform.DOMove(new Vector3(deepOneHybrid1Ob.transform.position.x - 3.5f, deepOneHybrid1Ob.transform.position.y - 0.2f, -1), 0.5f))
@@ -1705,20 +1705,20 @@ public class BattleManager : MonoBehaviour
                 GameObject obj = deepOneHybrid2Ob;
                 if (Success == "Success")
                 {
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         playerRender.sprite = daggerReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         playerRender.sprite = batReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         playerRender.sprite = axeReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
@@ -1737,7 +1737,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
@@ -1756,7 +1756,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
@@ -1778,20 +1778,20 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         playerRender.sprite = daggerReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         playerRender.sprite = batReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         playerRender.sprite = axeReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         Sequence sequence = DOTween.Sequence()
                    .Append(player.transform.DOMove(new Vector3(deepOneHybrid2Ob.transform.position.x - 3.5f, deepOneHybrid2Ob.transform.position.y - 0.2f, -1), 0.5f))
@@ -1815,7 +1815,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(originPoint, 0.5f))
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         Sequence sequence = DOTween.Sequence()
                    .Append(player.transform.DOMove(new Vector3(deepOneHybrid2Ob.transform.position.x - 3.5f, deepOneHybrid2Ob.transform.position.y - 0.2f, -1), 0.5f))
@@ -1839,7 +1839,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(originPoint, 0.5f))
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         Sequence sequence = DOTween.Sequence()
                    .Append(player.transform.DOMove(new Vector3(deepOneHybrid2Ob.transform.position.x - 3.5f, deepOneHybrid2Ob.transform.position.y - 0.2f, -1), 0.5f))
@@ -1872,20 +1872,20 @@ public class BattleManager : MonoBehaviour
                 GameObject obj = deepOneHybrid3Ob;
                 if (Success == "Success")
                 {
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         playerRender.sprite = daggerReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         playerRender.sprite = batReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         playerRender.sprite = axeReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
@@ -1904,7 +1904,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
@@ -1923,7 +1923,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
@@ -1945,20 +1945,20 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         playerRender.sprite = daggerReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         playerRender.sprite = batReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         playerRender.sprite = axeReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         Sequence sequence = DOTween.Sequence()
                    .Append(player.transform.DOMove(new Vector3(deepOneHybrid3Ob.transform.position.x - 3.5f, deepOneHybrid3Ob.transform.position.y - 0.2f, -1), 0.5f))
@@ -1981,7 +1981,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(originPoint, 0.5f))
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         Sequence sequence = DOTween.Sequence()
                    .Append(player.transform.DOMove(new Vector3(deepOneHybrid3Ob.transform.position.x - 3.5f, deepOneHybrid3Ob.transform.position.y - 0.2f, -1), 0.5f))
@@ -2004,7 +2004,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(originPoint, 0.5f))
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         Sequence sequence = DOTween.Sequence()
                    .Append(player.transform.DOMove(new Vector3(deepOneHybrid3Ob.transform.position.x - 3.5f, deepOneHybrid3Ob.transform.position.y - 0.2f, -1), 0.5f))
@@ -2036,21 +2036,21 @@ public class BattleManager : MonoBehaviour
                 GameObject obj = deepOneHybrid4Ob;
                 if (Success == "Success")
                 {
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         playerRender.sprite = daggerReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         playerRender.sprite = batReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         playerRender.sprite = axeReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
 
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
@@ -2070,7 +2070,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
@@ -2090,7 +2090,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
@@ -2113,20 +2113,20 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         playerRender.sprite = daggerReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         playerRender.sprite = batReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         playerRender.sprite = axeReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         Sequence sequence = DOTween.Sequence()
                    .Append(player.transform.DOMove(new Vector3(deepOneHybrid4Ob.transform.position.x - 3.5f, deepOneHybrid4Ob.transform.position.y - 0.2f, -1), 0.5f))
@@ -2151,7 +2151,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(originPoint, 0.5f))
                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         Sequence sequence = DOTween.Sequence()
                    .Append(player.transform.DOMove(new Vector3(deepOneHybrid4Ob.transform.position.x - 3.5f, deepOneHybrid4Ob.transform.position.y - 0.2f, -1), 0.5f))
@@ -2176,7 +2176,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(originPoint, 0.5f))
                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         Sequence sequence = DOTween.Sequence()
                    .Append(player.transform.DOMove(new Vector3(deepOneHybrid4Ob.transform.position.x - 3.5f, deepOneHybrid4Ob.transform.position.y - 0.2f, -1), 0.5f))
@@ -2209,20 +2209,20 @@ public class BattleManager : MonoBehaviour
                 GameObject obj = deepOne1Ob;
                 if (Success == "Success")
                 {
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         playerRender.sprite = daggerReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         playerRender.sprite = batReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         playerRender.sprite = axeReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
@@ -2242,7 +2242,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
@@ -2262,7 +2262,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
@@ -2285,20 +2285,20 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         playerRender.sprite = daggerReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         playerRender.sprite = batReady;
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         playerRender.sprite = axeReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Dagger")
+                    if (DataBaseManager.battleWeapon == "Dagger")
                     {
                         Sequence sequence = DOTween.Sequence()
                    .Append(player.transform.DOMove(new Vector3(deepOne1Ob.transform.position.x - 3.5f, deepOne1Ob.transform.position.y - 0.2f, -1), 0.5f))
@@ -2323,7 +2323,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(originPoint, 0.5f))
                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Bat")
+                    else if (DataBaseManager.battleWeapon == "Bat")
                     {
                         Sequence sequence = DOTween.Sequence()
                    .Append(player.transform.DOMove(new Vector3(deepOne1Ob.transform.position.x - 3.5f, deepOne1Ob.transform.position.y - 0.2f, -1), 0.5f))
@@ -2348,7 +2348,7 @@ public class BattleManager : MonoBehaviour
                    .Append(player.transform.DOMove(originPoint, 0.5f))
                    .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    else if (DataBaseManager.BattleWeapon == "Axe")
+                    else if (DataBaseManager.battleWeapon == "Axe")
                     {
                         Sequence sequence = DOTween.Sequence()
                    .Append(player.transform.DOMove(new Vector3(deepOne1Ob.transform.position.x - 3.5f, deepOne1Ob.transform.position.y - 0.2f, -1), 0.5f))
@@ -2386,24 +2386,24 @@ public class BattleManager : MonoBehaviour
                 GameObject obj = deepOneHybrid1Ob;
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
-                    if (DataBaseManager.BattleWeapon == "SmallPistoll")
+                    if (DataBaseManager.battleWeapon == "SmallPistoll")
                     {
                         playerRender.sprite = smallPistolReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         playerRender.sprite = revolverReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         playerRender.sprite = rifleReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         playerRender.sprite = shotgunReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "SmallPistol")
+                    if (DataBaseManager.battleWeapon == "SmallPistol")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid1SC.HittedBySmallPistolChange())
@@ -2422,7 +2422,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid1SC.HittedByRevolverChange())
@@ -2441,7 +2441,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid1SC.HittedByRifleChnage())
@@ -2460,7 +2460,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid1SC.HittedByShotgunChange())
@@ -2482,24 +2482,24 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (DataBaseManager.BattleWeapon == "SmallPistoll")
+                    if (DataBaseManager.battleWeapon == "SmallPistoll")
                     {
                         playerRender.sprite = smallPistolReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         playerRender.sprite = revolverReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         playerRender.sprite = rifleReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         playerRender.sprite = shotgunReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "SmallPistol")
+                    if (DataBaseManager.battleWeapon == "SmallPistol")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
@@ -2512,7 +2512,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverAttack))
@@ -2525,7 +2525,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleAttack))
@@ -2538,7 +2538,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunAttack))
@@ -2561,24 +2561,24 @@ public class BattleManager : MonoBehaviour
                 GameObject obj = deepOneHybrid2Ob;
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
-                    if (DataBaseManager.BattleWeapon == "SmallPistoll")
+                    if (DataBaseManager.battleWeapon == "SmallPistoll")
                     {
                         playerRender.sprite = smallPistolReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         playerRender.sprite = revolverReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         playerRender.sprite = rifleReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         playerRender.sprite = shotgunReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "SmallPistol")
+                    if (DataBaseManager.battleWeapon == "SmallPistol")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid2SC.HittedBySmallPistolChange())
@@ -2597,7 +2597,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid2SC.HittedByRevolverChange())
@@ -2616,7 +2616,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid2SC.HittedByRifleChnage())
@@ -2635,7 +2635,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid2SC.HittedByShotgunChange())
@@ -2657,24 +2657,24 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (DataBaseManager.BattleWeapon == "SmallPistoll")
+                    if (DataBaseManager.battleWeapon == "SmallPistoll")
                     {
                         playerRender.sprite = smallPistolReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         playerRender.sprite = revolverReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         playerRender.sprite = rifleReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         playerRender.sprite = shotgunReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "SmallPistol")
+                    if (DataBaseManager.battleWeapon == "SmallPistol")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
@@ -2687,7 +2687,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverAttack))
@@ -2700,7 +2700,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleAttack))
@@ -2713,7 +2713,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunAttack))
@@ -2736,24 +2736,24 @@ public class BattleManager : MonoBehaviour
                 GameObject obj = deepOneHybrid3Ob;
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
-                    if (DataBaseManager.BattleWeapon == "SmallPistoll")
+                    if (DataBaseManager.battleWeapon == "SmallPistoll")
                     {
                         playerRender.sprite = smallPistolReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         playerRender.sprite = revolverReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         playerRender.sprite = rifleReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         playerRender.sprite = shotgunReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "SmallPistol")
+                    if (DataBaseManager.battleWeapon == "SmallPistol")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid3SC.HittedBySmallPistolChange())
@@ -2771,7 +2771,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid3SC.HittedByRevolverChange())
@@ -2790,7 +2790,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid3SC.HittedByRifleChnage())
@@ -2809,7 +2809,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid3SC.HittedByShotgunChange())
@@ -2831,24 +2831,24 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (DataBaseManager.BattleWeapon == "SmallPistoll")
+                    if (DataBaseManager.battleWeapon == "SmallPistoll")
                     {
                         playerRender.sprite = smallPistolReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         playerRender.sprite = revolverReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         playerRender.sprite = rifleReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         playerRender.sprite = shotgunReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "SmallPistol")
+                    if (DataBaseManager.battleWeapon == "SmallPistol")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
@@ -2861,7 +2861,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverAttack))
@@ -2874,7 +2874,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleAttack))
@@ -2887,7 +2887,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunAttack))
@@ -2910,24 +2910,24 @@ public class BattleManager : MonoBehaviour
                 GameObject obj = deepOneHybrid4Ob;
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
-                    if (DataBaseManager.BattleWeapon == "SmallPistoll")
+                    if (DataBaseManager.battleWeapon == "SmallPistoll")
                     {
                         playerRender.sprite = smallPistolReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         playerRender.sprite = revolverReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         playerRender.sprite = rifleReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         playerRender.sprite = shotgunReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "SmallPistol")
+                    if (DataBaseManager.battleWeapon == "SmallPistol")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid4SC.HittedBySmallPistolChange())
@@ -2946,7 +2946,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid4SC.HittedByRevolverChange())
@@ -2966,7 +2966,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid4SC.HittedByRifleChnage())
@@ -2986,7 +2986,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid4SC.HittedByShotgunChange())
@@ -3009,25 +3009,25 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (DataBaseManager.BattleWeapon == "SmallPistoll")
+                    if (DataBaseManager.battleWeapon == "SmallPistoll")
                     {
                         playerRender.sprite = smallPistolReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         playerRender.sprite = revolverReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         playerRender.sprite = rifleReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         playerRender.sprite = shotgunReady;
                     }
 
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "SmallPistol")
+                    if (DataBaseManager.battleWeapon == "SmallPistol")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
@@ -3041,7 +3041,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverAttack))
@@ -3055,7 +3055,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleAttack))
@@ -3069,7 +3069,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunAttack))
@@ -3092,24 +3092,24 @@ public class BattleManager : MonoBehaviour
                 GameObject obj = deepOne1Ob;
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
-                    if (DataBaseManager.BattleWeapon == "SmallPistoll")
+                    if (DataBaseManager.battleWeapon == "SmallPistoll")
                     {
                         playerRender.sprite = smallPistolReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         playerRender.sprite = revolverReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         playerRender.sprite = rifleReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         playerRender.sprite = shotgunReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "SmallPistol")
+                    if (DataBaseManager.battleWeapon == "SmallPistol")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOne1SC.HittedBySmallPistolChange())
@@ -3129,7 +3129,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOne1SC.HittedByRevolverChange())
@@ -3149,7 +3149,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOne1SC.HittedByRifleChnage())
@@ -3169,7 +3169,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOne1SC.HittedByShotgunChange())
@@ -3192,24 +3192,24 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (DataBaseManager.BattleWeapon == "SmallPistoll")
+                    if (DataBaseManager.battleWeapon == "SmallPistoll")
                     {
                         playerRender.sprite = smallPistolReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         playerRender.sprite = revolverReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         playerRender.sprite = rifleReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         playerRender.sprite = shotgunReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "SmallPistol")
+                    if (DataBaseManager.battleWeapon == "SmallPistol")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
@@ -3223,7 +3223,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Revolver")
+                    if (DataBaseManager.battleWeapon == "Revolver")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverAttack))
@@ -3237,7 +3237,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Rifle")
+                    if (DataBaseManager.battleWeapon == "Rifle")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleAttack))
@@ -3251,7 +3251,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Shotgun")
+                    if (DataBaseManager.battleWeapon == "Shotgun")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunAttack))
@@ -3278,16 +3278,16 @@ public class BattleManager : MonoBehaviour
                 GameObject obj = deepOneHybrid1Ob;
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         playerRender.sprite = rockReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         playerRender.sprite = molotovReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid1SC.HittedByShotgunChange())
@@ -3305,7 +3305,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid1SC.HittedByMolotovChange())
@@ -3326,16 +3326,16 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         playerRender.sprite = rockReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         playerRender.sprite = molotovReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
@@ -3348,7 +3348,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
@@ -3372,16 +3372,16 @@ public class BattleManager : MonoBehaviour
 
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         playerRender.sprite = rockReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         playerRender.sprite = molotovReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid2SC.HittedByShotgunChange())
@@ -3399,7 +3399,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid2SC.HittedByMolotovChange())
@@ -3420,16 +3420,16 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         playerRender.sprite = rockReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         playerRender.sprite = molotovReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
@@ -3442,7 +3442,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
@@ -3465,16 +3465,16 @@ public class BattleManager : MonoBehaviour
                 GameObject obj = deepOneHybrid3Ob;
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         playerRender.sprite = rockReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         playerRender.sprite = molotovReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid3SC.HittedByShotgunChange())
@@ -3492,7 +3492,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid3SC.HittedByMolotovChange())
@@ -3513,16 +3513,16 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         playerRender.sprite = rockReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         playerRender.sprite = molotovReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
@@ -3535,7 +3535,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
@@ -3558,16 +3558,16 @@ public class BattleManager : MonoBehaviour
                 GameObject obj = deepOneHybrid4Ob;
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         playerRender.sprite = rockReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         playerRender.sprite = molotovReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid3SC.HittedByShotgunChange())
@@ -3586,7 +3586,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid4SC.HittedByMolotovChange())
@@ -3608,16 +3608,16 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         playerRender.sprite = rockReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         playerRender.sprite = molotovReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
@@ -3631,7 +3631,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
@@ -3654,16 +3654,16 @@ public class BattleManager : MonoBehaviour
                 GameObject obj = deepOne1Ob;
                 if (Success == "Result : Success" || Success == "Result : Critical Success")
                 {
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         playerRender.sprite = rockReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         playerRender.sprite = molotovReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOne1SC.HittedByShotgunChange())
@@ -3682,7 +3682,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOne1SC.HittedByMolotovChange())
@@ -3704,16 +3704,16 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         playerRender.sprite = rockReady;
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         playerRender.sprite = molotovReady;
                     }
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
-                    if (DataBaseManager.BattleWeapon == "Rock")
+                    if (DataBaseManager.battleWeapon == "Rock")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
@@ -3727,7 +3727,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(originPoint, 0.5f))
                         .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                     }
-                    if (DataBaseManager.BattleWeapon == "Molotov")
+                    if (DataBaseManager.battleWeapon == "Molotov")
                     {
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
@@ -3803,7 +3803,7 @@ public class BattleManager : MonoBehaviour
                 // ¿¬Ãâ »ðÀÔ
                 Sequence sequence = DOTween.Sequence()
                 .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                .AppendCallback(() => DataBaseManager.PosionDebuff = 3)
+                .AppendCallback(() => DataBaseManager.posionDebuff = 3)
                 .AppendCallback(() => battlePlayer.PlayerHittedPosion())
                 .AppendCallback(() => SoundManager.Instance.Battle_Sound("Posion_Attack"))
                 .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -3865,7 +3865,7 @@ public class BattleManager : MonoBehaviour
         }
         if (subject == "player")
         {
-            if (DataBaseManager.Masochism == true)
+            if (DataBaseManager.masochism == true)
             {
                 BillowUIManager.Instance.HP_Battledown(damage);
             }
@@ -3890,31 +3890,31 @@ public class BattleManager : MonoBehaviour
         {
             deepOneHybrid1Ob.SetActive(false);
             enemyTrunSymbol1.SetActive(false);
-            DataBaseManager.EnemyDeathCount += 1;
+            DataBaseManager.enemyDeathCount += 1;
         }
         if (deepOneHybrid2.nowHP <= 0 && battleState == "setTrun")
         {
             deepOneHybrid2Ob.SetActive(false);
             enemyTrunSymbol2.SetActive(false);
-            DataBaseManager.EnemyDeathCount += 1;
+            DataBaseManager.enemyDeathCount += 1;
         }
         if (deepOneHybrid3.nowHP <= 0 && battleState == "setTrun")
         {
             deepOneHybrid3Ob.SetActive(false);
             enemyTrunSymbol3.SetActive(false);
-            DataBaseManager.EnemyDeathCount += 1;
+            DataBaseManager.enemyDeathCount += 1;
         }
         if (deepOneHybrid4.nowHP <= 0 && battleState == "setTrun")
         {
             deepOneHybrid4Ob.SetActive(false);
             enemyTrunSymbol1.SetActive(false);
-            DataBaseManager.EnemyDeathCount += 1;
+            DataBaseManager.enemyDeathCount += 1;
         }
         if (deepOne1.nowHP <= 0 && battleState == "setTrun")
         {
             deepOne1Ob.SetActive(false);
             enemyTrunSymbol2.SetActive(false);
-            DataBaseManager.EnemyDeathCount += 1;
+            DataBaseManager.enemyDeathCount += 1;
         }
     }
     public void CloseRoundObject()
@@ -3929,7 +3929,7 @@ public class BattleManager : MonoBehaviour
     }
     public void TurnEnd()
     {
-        DataBaseManager.BattleWeapon = "";
+        DataBaseManager.battleWeapon = "";
         battleResetUI.EndTrun_Reset();
         onPointerEnemy = "";
         playerAction = "";
@@ -3988,17 +3988,17 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "PlayerSwords")
             {
                 playerSwordsUi.SetActive(false);
-                if (DataBaseManager.BattleWeapon == "Dagger")
+                if (DataBaseManager.battleWeapon == "Dagger")
                 {
                     battleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid1.deepOneHybridMatialArts);
                 }
-                if (DataBaseManager.BattleWeapon == "Bat")
+                if (DataBaseManager.battleWeapon == "Bat")
                 {
                     battleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid1.deepOneHybridMatialArts);
                 }
-                if (DataBaseManager.BattleWeapon == "Axe")
+                if (DataBaseManager.battleWeapon == "Axe")
                 {
                     battleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid1.deepOneHybridMatialArts);
@@ -4007,22 +4007,22 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "PlayerMarkmen")
             {
                 playerMarkmenUi.SetActive(false);
-                if (DataBaseManager.BattleWeapon == "SmallPistol")
+                if (DataBaseManager.battleWeapon == "SmallPistol")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Rifle")
+                if (DataBaseManager.battleWeapon == "Rifle")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Revolver")
+                if (DataBaseManager.battleWeapon == "Revolver")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Shotgun")
+                if (DataBaseManager.battleWeapon == "Shotgun")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
@@ -4031,12 +4031,12 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "PlayerDeftness")
             {
                 playerDeftnessUi.SetActive(false);
-                if (DataBaseManager.BattleWeapon == "Rock")
+                if (DataBaseManager.battleWeapon == "Rock")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Molotov")
+                if (DataBaseManager.battleWeapon == "Molotov")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
@@ -4054,17 +4054,17 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "PlayerSwords")
             {
                 playerSwordsUi.SetActive(false);
-                if (DataBaseManager.BattleWeapon == "Dagger")
+                if (DataBaseManager.battleWeapon == "Dagger")
                 {
                     battleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid2.deepOneHybridMatialArts);
                 }
-                if (DataBaseManager.BattleWeapon == "Bat")
+                if (DataBaseManager.battleWeapon == "Bat")
                 {
                     battleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid2.deepOneHybridMatialArts);
                 }
-                if (DataBaseManager.BattleWeapon == "Axe")
+                if (DataBaseManager.battleWeapon == "Axe")
                 {
                     battleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid2.deepOneHybridMatialArts);
@@ -4073,22 +4073,22 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "PlayerMarkmen")
             {
                 playerMarkmenUi.SetActive(false);
-                if (DataBaseManager.BattleWeapon == "SmallPistol")
+                if (DataBaseManager.battleWeapon == "SmallPistol")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Rifle")
+                if (DataBaseManager.battleWeapon == "Rifle")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Revolver")
+                if (DataBaseManager.battleWeapon == "Revolver")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Shotgun")
+                if (DataBaseManager.battleWeapon == "Shotgun")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
@@ -4097,12 +4097,12 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "PlayerDeftness")
             {
                 playerDeftnessUi.SetActive(false);
-                if (DataBaseManager.BattleWeapon == "Rock")
+                if (DataBaseManager.battleWeapon == "Rock")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Molotov")
+                if (DataBaseManager.battleWeapon == "Molotov")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
@@ -4119,17 +4119,17 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "PlayerSwords")
             {
                 playerSwordsUi.SetActive(false);
-                if (DataBaseManager.BattleWeapon == "Dagger")
+                if (DataBaseManager.battleWeapon == "Dagger")
                 {
                     battleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid3.deepOneHybridMatialArts);
                 }
-                if (DataBaseManager.BattleWeapon == "Bat")
+                if (DataBaseManager.battleWeapon == "Bat")
                 {
                     battleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid3.deepOneHybridMatialArts);
                 }
-                if (DataBaseManager.BattleWeapon == "Axe")
+                if (DataBaseManager.battleWeapon == "Axe")
                 {
                     battleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid3.deepOneHybridMatialArts);
@@ -4138,22 +4138,22 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "PlayerMarkmen")
             {
                 playerMarkmenUi.SetActive(false);
-                if (DataBaseManager.BattleWeapon == "SmallPistol")
+                if (DataBaseManager.battleWeapon == "SmallPistol")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Rifle")
+                if (DataBaseManager.battleWeapon == "Rifle")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Revolver")
+                if (DataBaseManager.battleWeapon == "Revolver")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Shotgun")
+                if (DataBaseManager.battleWeapon == "Shotgun")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
@@ -4162,12 +4162,12 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "PlayerDeftness")
             {
                 playerDeftnessUi.SetActive(false);
-                if (DataBaseManager.BattleWeapon == "Rock")
+                if (DataBaseManager.battleWeapon == "Rock")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Molotov")
+                if (DataBaseManager.battleWeapon == "Molotov")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
@@ -4185,17 +4185,17 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "PlayerSwords")
             {
                 playerSwordsUi.SetActive(false);
-                if (DataBaseManager.BattleWeapon == "Dagger")
+                if (DataBaseManager.battleWeapon == "Dagger")
                 {
                     battleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid4.deepOneHybridMatialArts);
                 }
-                if (DataBaseManager.BattleWeapon == "Bat")
+                if (DataBaseManager.battleWeapon == "Bat")
                 {
                     battleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid4.deepOneHybridMatialArts);
                 }
-                if (DataBaseManager.BattleWeapon == "Axe")
+                if (DataBaseManager.battleWeapon == "Axe")
                 {
                     battleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid4.deepOneHybridMatialArts);
@@ -4204,22 +4204,22 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "PlayerMarkmen")
             {
                 playerMarkmenUi.SetActive(false);
-                if (DataBaseManager.BattleWeapon == "SmallPistol")
+                if (DataBaseManager.battleWeapon == "SmallPistol")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Rifle")
+                if (DataBaseManager.battleWeapon == "Rifle")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Revolver")
+                if (DataBaseManager.battleWeapon == "Revolver")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Shotgun")
+                if (DataBaseManager.battleWeapon == "Shotgun")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
@@ -4228,12 +4228,12 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "PlayerDeftness")
             {
                 playerDeftnessUi.SetActive(false);
-                if (DataBaseManager.BattleWeapon == "Rock")
+                if (DataBaseManager.battleWeapon == "Rock")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
                 }
-                if (DataBaseManager.BattleWeapon == "Molotov")
+                if (DataBaseManager.battleWeapon == "Molotov")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
@@ -4253,17 +4253,17 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "PlayerSwords")
             {
                 playerSwordsUi.SetActive(false);
-                if (DataBaseManager.BattleWeapon == "Dagger")
+                if (DataBaseManager.battleWeapon == "Dagger")
                 {
                     battleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOne", "??? : CounterAttack", "CounterAttack", deepOne1.deepOneMatialArts);
                 }
-                if (DataBaseManager.BattleWeapon == "Bat")
+                if (DataBaseManager.battleWeapon == "Bat")
                 {
                     battleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOne", "??? : CounterAttack", "CounterAttack", deepOne1.deepOneMatialArts);
                 }
-                if (DataBaseManager.BattleWeapon == "Axe")
+                if (DataBaseManager.battleWeapon == "Axe")
                 {
                     battleState = "Rollet";
                     BattleRollet.Instance.setBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOne", "??? : CounterAttack", "CounterAttack", deepOne1.deepOneMatialArts);
@@ -4272,22 +4272,22 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "PlayerMarkmen")
             {
                 playerMarkmenUi.SetActive(false);
-                if (DataBaseManager.BattleWeapon == "SmallPistol")
+                if (DataBaseManager.battleWeapon == "SmallPistol")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOne");
                 }
-                if (DataBaseManager.BattleWeapon == "Rifle")
+                if (DataBaseManager.battleWeapon == "Rifle")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOne");
                 }
-                if (DataBaseManager.BattleWeapon == "Revolver")
+                if (DataBaseManager.battleWeapon == "Revolver")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOne");
                 }
-                if (DataBaseManager.BattleWeapon == "Shotgun")
+                if (DataBaseManager.battleWeapon == "Shotgun")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOne");
@@ -4296,12 +4296,12 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "PlayerDeftness")
             {
                 playerDeftnessUi.SetActive(false);
-                if (DataBaseManager.BattleWeapon == "Rock")
+                if (DataBaseManager.battleWeapon == "Rock")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOne");
                 }
-                if (DataBaseManager.BattleWeapon == "Molotov")
+                if (DataBaseManager.battleWeapon == "Molotov")
                 {
                     battleState = "Rollet";
                     Rollet.Instance.setRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOne");

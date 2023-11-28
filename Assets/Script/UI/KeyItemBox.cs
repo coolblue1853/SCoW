@@ -80,16 +80,16 @@ public class KeyItemBox : MonoBehaviour
     }
     public void UseButton()
     {
-        if (DataBaseManager.nowItem == "Safe" && DataBaseManager.JudgeSafe_TryOpen == false)
+        if (DataBaseManager.nowItem == "Safe" && DataBaseManager.judgeSafeTryOpen == false)
         {
             DataBaseManager.isOpenUi = false;
             Rollet.Instance.setRollet("Safe : Open", "Deftness-20", DataBaseManager.deftnessPoint - 20, "Item");
             SISUI.SetActive(false);
         }
-        if (DataBaseManager.nowItem == "Coat" && DataBaseManager.JudgeCoat_TryDisguise == false)
+        if (DataBaseManager.nowItem == "Coat" && DataBaseManager.judgeCoatTryDisguise == false)
         {
             DataBaseManager.isOpenUi = false;
-            Rollet.Instance.setRollet("Coat : Disguise", "Disguise", DataBaseManager.DisguisePoint, "Item");
+            Rollet.Instance.setRollet("Coat : Disguise", "Disguise", DataBaseManager.disguisePoint, "Item");
             SISUI.SetActive(false);
         }
         //오래된 지도 -> 사용하면 아예 지도창으로 바로 보내주기.
@@ -122,7 +122,7 @@ public class KeyItemBox : MonoBehaviour
         else if (DataBaseManager.nowItem == "Coat")
         {
             imageComponent.sprite = Coat;
-            if (DataBaseManager.JudgeCoat_TryDisguise == true)
+            if (DataBaseManager.judgeCoatTryDisguise == true)
             {
                 Use_B.SetActive(false);
             }

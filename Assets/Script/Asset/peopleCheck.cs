@@ -7,7 +7,7 @@ public class peopleCheck : MonoBehaviour
     public GameObject people;
     void Update()
     {
-        if ((DataBaseManager.TimeCount % 4) == 2)
+        if ((DataBaseManager.timeCount % 4) == 2)
         {
             people.SetActive(true);
         }

@@ -6,72 +6,67 @@ using TMPro;
 public class BattleRollet : MonoBehaviour
 {
     bool activeCheck = false;
-    string Subject;
-    string Sub_Dialog;
-    public GameObject RolletSetUi;
-    public GameObject RolletCheckUI;
-    public GameObject RolletRollUI;
-
-    public GameObject Bad_1;
-    public GameObject Bad_10;
-    public GameObject Good_1;
-    public GameObject Good_10;
-    public GameObject Bad_1_Rollet;
-    public GameObject Bad_10_Rollet;
-    public GameObject Good_1_Rollet;
-    public GameObject Good_10_Rollet;
+    string subject;
+    string subDialog;
+    public GameObject rolletSetUi;
+    public GameObject rolletCheckUI;
+    public GameObject rolletRollUI;
+    public GameObject bad1;
+    public GameObject bad10;
+    public GameObject good1;
+    public GameObject good10;
+    public GameObject bad1Rollet;
+    public GameObject bad10Rollet;
+    public GameObject good1Rollet;
+    public GameObject good10Rollet;
 
     public GameObject setUI;
     public GameObject activeUI;
+    public float skillPoint1;
+    public float skillPoint10;
+    public float succesProbability;
+    public TextMeshProUGUI skill;
+    public TextMeshProUGUI point;
+    public TextMeshProUGUI conditon;
+    public TextMeshProUGUI expect;
+    public TextMeshProUGUI nomalRollet1Txt;
+    public TextMeshProUGUI nomalRollet10Txt;
+    public TextMeshProUGUI badRollet1Txt;
+    public TextMeshProUGUI badRollet10Txt;
+    public TextMeshProUGUI goodRollet1Txt;
+    public TextMeshProUGUI goodRollet10Txt;
 
-    public float SkillPoint_1;
-    public float SkillPoint_10;
-    public float SuccesProbability;
-
-    public TextMeshProUGUI Skill;
-    public TextMeshProUGUI Point;
-    public TextMeshProUGUI Conditon;
-    public TextMeshProUGUI Expect;
-
-    public TextMeshProUGUI NomalRollet_1t;
-    public TextMeshProUGUI NomalRollet_10t;
-    public TextMeshProUGUI BadRollet_1t;
-    public TextMeshProUGUI BadRollet_10t;
-    public TextMeshProUGUI GoodRollet_1t;
-    public TextMeshProUGUI GoodRollet_10t;
 
     int skillPoint;
-    int result_int;
-    public TextMeshProUGUI result_string;
-    public TextMeshProUGUI result_End;
+    int resultInt;
+    public TextMeshProUGUI resultString;
+    public TextMeshProUGUI resultEnd;
 
     public bool isClick;
     public bool isActiveRollet;
     private static BattleRollet instance = null;
-
-    public GameObject EndButton;
+    public GameObject endButton;
 
     // 적 칸
-    public string EnemySubject;
-    public TextMeshProUGUI E_Skill;
-    public TextMeshProUGUI E_Point;
-    public TextMeshProUGUI E_Expect;
-    public TextMeshProUGUI E_NomalRollet_1t;
-    public TextMeshProUGUI E_NomalRollet_10t;
+    public string enemySubject;
+    public TextMeshProUGUI enemySkill;
+    public TextMeshProUGUI enemyPoint;
+    public TextMeshProUGUI enemyExpect;
+    public TextMeshProUGUI enemyNomalRollet1Txt;
+    public TextMeshProUGUI enemyNomalRollet10Txt;
 
-    int E_skillPoint;
-    int E_result_int;
-
-    public TextMeshProUGUI E_result_string;
-    public TextMeshProUGUI E_result_End;
-    public GameObject RolletUI;
+    int enemySkillPoint;
+    int enemyResultInt;
+    public TextMeshProUGUI enemyResultString;
+    public TextMeshProUGUI enemyResultEnd;
+    public GameObject rolletUI;
 
     private void Update()
     {
-        if (RolletUI.activeSelf == true && setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) && Sub_Dialog != "SAN : Check")
+        if (rolletUI.activeSelf == true && setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) && subDialog != "SAN : Check")
         {
             activeCheck = false;
-            DataBaseManager.CancelJudge = true;
+            DataBaseManager.cancelJudge = true;
             if (BattleManager.Instance.playerAction == "PlayerSwords")
             {
                 BattleManager.Instance.enemySelectUI.SetActive(true);
@@ -92,7 +87,7 @@ public class BattleRollet : MonoBehaviour
             {
                 BattleManager.Instance.playerChoiceUi.SetActive(true);
             }
-            RolletSetUi.SetActive(false);
+            rolletSetUi.SetActive(false);
             DataBaseManager.isRollet = false;
         }
         if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck == true)
@@ -100,7 +95,7 @@ public class BattleRollet : MonoBehaviour
             activeCheck = false;
             activeRollet();
         }
-        if (EndButton.activeSelf == true && Input.GetKeyDown(KeyCode.E))
+        if (endButton.activeSelf == true && Input.GetKeyDown(KeyCode.E))
         {
             EndRollet();
         }
@@ -151,92 +146,92 @@ public class BattleRollet : MonoBehaviour
     {
         SoundManager.Instance.PaperClip_Play();
         DataBaseManager.isRollet = true;
-        Subject = subject;
-        Sub_Dialog = skill; // 나중에 다이얼로그 Result 전송시 사용
+        this.subject = subject;
+        subDialog = skill; // 나중에 다이얼로그 Result 전송시 사용
         ResetString();
-        RolletSetUi.SetActive(true);
+        rolletSetUi.SetActive(true);
         //플레이어
-        Skill.text = skill;
-        Point.text = point_sting + " : " + point_int;
+        this.skill.text = skill;
+        point.text = point_sting + " : " + point_int;
         //적
-        EnemySubject = EnemyName;
-        E_Skill.text = E_skill;
-        E_Point.text = E_point_string + " :  ??";
+        enemySubject = EnemyName;
+        enemySkill.text = E_skill;
+        enemyPoint.text = E_point_string + " :  ??";
 
         skillPoint = point_int;
-        E_skillPoint = E_Point_int;
-        if (DataBaseManager.Condition == "Nomal")
+        enemySkillPoint = E_Point_int;
+        if (DataBaseManager.condition == "Nomal")
         {
             ResetRolletDice();
-            Conditon.text = "Condition: Nomal";
+            conditon.text = "Condition: Nomal";
 
-            SkillPoint_1 = point_int % 10;
-            SkillPoint_10 = point_int / 10;
-            SuccesProbability = SkillPoint_10 * 0.1f + SkillPoint_1 * 0.01f;
+            skillPoint1 = point_int % 10;
+            skillPoint10 = point_int / 10;
+            succesProbability = skillPoint10 * 0.1f + skillPoint1 * 0.01f;
         }
-        else if (DataBaseManager.Condition == "Good")
+        else if (DataBaseManager.condition == "Good")
         {
             ResetRolletDice();
-            Conditon.text = "Condition: Good";
-            Good_1.SetActive(true);
-            Good_1_Rollet.SetActive(true);
-            SkillPoint_1 = point_int % 10;
-            SkillPoint_10 = point_int / 10;
-            SuccesProbability = SkillPoint_10 * 0.1f + (SkillPoint_1 * SkillPoint_1 + 2 * SkillPoint_1 * (10 - SkillPoint_1)) * 0.001f;
+            conditon.text = "Condition: Good";
+            good1.SetActive(true);
+            good1Rollet.SetActive(true);
+            skillPoint1 = point_int % 10;
+            skillPoint10 = point_int / 10;
+            succesProbability = skillPoint10 * 0.1f + (skillPoint1 * skillPoint1 + 2 * skillPoint1 * (10 - skillPoint1)) * 0.001f;
         }
-        else if (DataBaseManager.Condition == "Best")
+        else if (DataBaseManager.condition == "Best")
         {
             ResetRolletDice();
-            Conditon.text = "Condition: Best";
-            Good_10.SetActive(true);
-            Good_10_Rollet.SetActive(true);
-            SkillPoint_1 = point_int % 10;
-            SkillPoint_10 = point_int / 10;
-            SuccesProbability = (SkillPoint_10 * SkillPoint_10 + 2 * SkillPoint_10 * (10 - SkillPoint_10)) * 0.01f + SkillPoint_1 * 0.001f;
+            conditon.text = "Condition: Best";
+            good10.SetActive(true);
+            good10Rollet.SetActive(true);
+            skillPoint1 = point_int % 10;
+            skillPoint10 = point_int / 10;
+            succesProbability = (skillPoint10 * skillPoint10 + 2 * skillPoint10 * (10 - skillPoint10)) * 0.01f + skillPoint1 * 0.001f;
         }
-        else if (DataBaseManager.Condition == "Bad")
+        else if (DataBaseManager.condition == "Bad")
         {
             ResetRolletDice();
-            Conditon.text = "Condition: Bad";
-            Bad_1.SetActive(true);
-            Bad_1_Rollet.SetActive(true);
-            SkillPoint_1 = point_int % 10;
-            SkillPoint_10 = point_int / 10;
-            SuccesProbability = SkillPoint_10 * 0.1f + SkillPoint_1 * SkillPoint_1 * 0.001f;
+            conditon.text = "Condition: Bad";
+            bad1.SetActive(true);
+            bad1Rollet.SetActive(true);
+            skillPoint1 = point_int % 10;
+            skillPoint10 = point_int / 10;
+            succesProbability = skillPoint10 * 0.1f + skillPoint1 * skillPoint1 * 0.001f;
         }
-        else if (DataBaseManager.Condition == "Worst")
+        else if (DataBaseManager.condition == "Worst")
         {
             ResetRolletDice();
-            Conditon.text = "Condition: Worst";
-            Bad_10.SetActive(true);
-            Bad_10_Rollet.SetActive(true);
-            SkillPoint_1 = point_int % 10;
-            SkillPoint_10 = point_int / 10;
-            SuccesProbability = (SkillPoint_10 * SkillPoint_10 * 0.01f) + SkillPoint_1 * 0.001f;
+            conditon.text = "Condition: Worst";
+            bad10.SetActive(true);
+            bad10Rollet.SetActive(true);
+            skillPoint1 = point_int % 10;
+            skillPoint10 = point_int / 10;
+            succesProbability = (skillPoint10 * skillPoint10 * 0.01f) + skillPoint1 * 0.001f;
         }
 
         // 적 확률 계산.
-        E_Expect.text = "Probability : ???";
+        enemyExpect.text = "Probability : ???";
 
-        if (SuccesProbability < 0.20)
+        if (succesProbability < 0.20)
         {
-            Expect.text = "Probability : Very Hard";
+            expect.text = "Probability : Very Hard";
         }
-        else if (SuccesProbability < 0.40)
+        else if (succesProbability < 0.40)
         {
-            Expect.text = "Probability : Hard";
+            expect.text = "Probability : Hard";
         }
-        else if (SuccesProbability < 0.60)
+        else if (succesProbability < 0.60)
         {
-            Expect.text = "Probability : Nomal";
+            expect.text = "Probability : Nomal";
         }
-        else if (SuccesProbability < 0.80)
+        else if (succesProbability < 0.80)
         {
-            Expect.text = "Probability : Easy";
+            expect.text = "Probability : Easy";
         }
-        else if (SuccesProbability < 1)
+        else if (succesProbability < 1)
         {
-            Expect.text = "Probability : Very Easy";
+            expect.text = "Probability : Very Easy";
         }
         Invoke("WaitOneSec", 0.1f);
     }
@@ -257,464 +252,465 @@ public class BattleRollet : MonoBehaviour
     void ChangeRollet()
     {
         isActiveRollet = true;
-        NomalRollet_1t.text = Random.Range(0, 10).ToString();
+        nomalRollet1Txt.text = Random.Range(0, 10).ToString();
         int nom_10t = (Random.Range(0, 10) * 10);
         if (nom_10t != 0)
         {
-            NomalRollet_10t.text = nom_10t.ToString();
+            nomalRollet10Txt.text = nom_10t.ToString();
         }
         else
         {
-            NomalRollet_10t.text = "00";
+            nomalRollet10Txt.text = "00";
         }
-        BadRollet_1t.text = Random.Range(0, 10).ToString();
+        badRollet1Txt.text = Random.Range(0, 10).ToString();
         int bad_10t = (Random.Range(0, 10) * 10);
         if (bad_10t != 0)
         {
-            BadRollet_10t.text = bad_10t.ToString();
+            badRollet10Txt.text = bad_10t.ToString();
         }
         else
         {
-            BadRollet_10t.text = "00";
+            badRollet10Txt.text = "00";
         }
-        GoodRollet_1t.text = Random.Range(0, 10).ToString();
+        goodRollet1Txt.text = Random.Range(0, 10).ToString();
         int good_10t = (Random.Range(0, 10) * 10);
         if (good_10t != 0)
         {
-            GoodRollet_10t.text = good_10t.ToString();
+            goodRollet10Txt.text = good_10t.ToString();
         }
         else
         {
-            GoodRollet_10t.text = "00";
+            goodRollet10Txt.text = "00";
         }
         //적
-        E_NomalRollet_1t.text = Random.Range(0, 10).ToString();
+        enemyNomalRollet1Txt.text = Random.Range(0, 10).ToString();
         int E_nom_10t = (Random.Range(0, 10) * 10);
         if (E_nom_10t != 0)
         {
-            E_NomalRollet_10t.text = E_nom_10t.ToString();
+            enemyNomalRollet10Txt.text = E_nom_10t.ToString();
         }
         else
         {
-            E_NomalRollet_10t.text = "00";
+            enemyNomalRollet10Txt.text = "00";
         }
     }
     void GetIntResult()
     {
         SoundManager.Instance.pen_Line();
-        if (DataBaseManager.Condition == "Nomal")
+        if (DataBaseManager.condition == "Nomal")
         {
-            result_int = int.Parse(NomalRollet_10t.text) + int.Parse(NomalRollet_1t.text);
-            if (result_int == 0)
+            resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
+            if (resultInt == 0)
             {
-                result_int = 100;
+                resultInt = 100;
             }
-            result_string.text = "Dice : " + result_int.ToString();
+            resultString.text = "Dice : " + resultInt.ToString();
         }
-        else if (DataBaseManager.Condition == "Good")
+        else if (DataBaseManager.condition == "Good")
         {
-            if (int.Parse(NomalRollet_1t.text) > int.Parse(GoodRollet_1t.text))
+            if (int.Parse(nomalRollet1Txt.text) > int.Parse(goodRollet1Txt.text))
             {
-                result_int = int.Parse(NomalRollet_10t.text) + int.Parse(GoodRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(goodRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
             else
             {
-                result_int = int.Parse(NomalRollet_10t.text) + int.Parse(NomalRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
         }
-        else if (DataBaseManager.Condition == "Best")
+        else if (DataBaseManager.condition == "Best")
         {
-            if (int.Parse(NomalRollet_10t.text) > int.Parse(GoodRollet_10t.text))
+            if (int.Parse(nomalRollet10Txt.text) > int.Parse(goodRollet10Txt.text))
             {
-                result_int = int.Parse(GoodRollet_10t.text) + int.Parse(NomalRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(goodRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
             else
             {
-                result_int = int.Parse(NomalRollet_10t.text) + int.Parse(NomalRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
         }
-        else if (DataBaseManager.Condition == "Bad")
+        else if (DataBaseManager.condition == "Bad")
         {
-            if (int.Parse(NomalRollet_1t.text) > int.Parse(BadRollet_1t.text))
+            if (int.Parse(nomalRollet1Txt.text) > int.Parse(badRollet1Txt.text))
             {
-                result_int = int.Parse(NomalRollet_10t.text) + int.Parse(NomalRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
             else
             {
-                result_int = int.Parse(NomalRollet_10t.text) + int.Parse(BadRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(badRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
         }
-        else if (DataBaseManager.Condition == "Worst")
+        else if (DataBaseManager.condition == "Worst")
         {
-            if (int.Parse(NomalRollet_10t.text) > int.Parse(BadRollet_10t.text))
+            if (int.Parse(nomalRollet10Txt.text) > int.Parse(badRollet10Txt.text))
             {
-                result_int = int.Parse(NomalRollet_10t.text) + int.Parse(NomalRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
             else
             {
-                result_int = int.Parse(BadRollet_10t.text) + int.Parse(NomalRollet_1t.text);
-                if (result_int == 0)
+                resultInt = int.Parse(badRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
+                if (resultInt == 0)
                 {
-                    result_int = 100;
+                    resultInt = 100;
                 }
-                result_string.text = "Dice : " + result_int.ToString();
+                resultString.text = "Dice : " + resultInt.ToString();
             }
         }
         //적 관련
-        E_result_int = int.Parse(E_NomalRollet_10t.text) + int.Parse(E_NomalRollet_1t.text);
-        if (E_result_int == 0)
+        enemyResultInt = int.Parse(enemyNomalRollet10Txt.text) + int.Parse(enemyNomalRollet1Txt.text);
+        if (enemyResultInt == 0)
         {
-            E_result_int = 100;
+            enemyResultInt = 100;
         }
-        E_result_string.text = "Dice : " + E_result_int.ToString();
+        enemyResultString.text = "Dice : " + enemyResultInt.ToString();
         Invoke("GetStringResult", 0.5f);
     }
     void GetStringResult()
     {
         SoundManager.Instance.pen_Circle();
-        if (result_int >= 95)
+        if (resultInt >= 95)
         {
-            result_End.text = "Result : Fumble";
+            resultEnd.text = "Result : Fumble";
         }
-        else if (result_int <= skillPoint / 3f)
+        else if (resultInt <= skillPoint / 3f)
         {
-            result_End.text = "Result : Critical Success";
+            resultEnd.text = "Result : Critical Success";
         }
-        else if (result_int <= skillPoint)
+        else if (resultInt <= skillPoint)
         {
-            if (DataBaseManager.isDebuff_Perfectionism == true)
+            if (DataBaseManager.isDebuffPerfectionism == true)
             {
-                result_End.text = "Result : Failure";
+                resultEnd.text = "Result : Failure";
             }
             else
             {
-                result_End.text = "Result : Success";
+                resultEnd.text = "Result : Success";
             }
         }
         else
         {
-            result_End.text = "Result : Failure";
+            resultEnd.text = "Result : Failure";
         }
-        if (E_result_int >= 95)
+        if (enemyResultInt >= 95)
         {
-            E_result_End.text = "Result : Fumble";
+            enemyResultEnd.text = "Result : Fumble";
         }
-        else if (E_result_int <= E_skillPoint / 3f)
+        else if (enemyResultInt <= enemySkillPoint / 3f)
         {
-            E_result_End.text = "Result : Critical Success";
+            enemyResultEnd.text = "Result : Critical Success";
         }
-        else if (E_result_int <= E_skillPoint)
+        else if (enemyResultInt <= enemySkillPoint)
         {
-            E_result_End.text = "Result : Success";
+            enemyResultEnd.text = "Result : Success";
         }
         else
         {
-            E_result_End.text = "Result : Failure";
+            enemyResultEnd.text = "Result : Failure";
         }
         Invoke("GetFinalResult", 0.5f);
     }
-    public string FinalResult;
-    public TextMeshProUGUI FinalResult_t;
+
+    public string finalResult;
+    public TextMeshProUGUI finalResultTxt;
     void GetFinalResult()
     {
-        if (Subject == "evasion")
+        if (subject == "evasion")
         {
-            if (result_End.text == "Result : Critical Success")
+            if (resultEnd.text == "Result : Critical Success")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Evasion : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Evasion : " + finalResult;
             }
-            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Success")
+            else if (resultEnd.text == "Result : Success" && enemyResultEnd.text == "Result : Success")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Evasion : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Evasion : " + finalResult;
             }
-            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Failure")
+            else if (resultEnd.text == "Result : Success" && enemyResultEnd.text == "Result : Failure")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Evasion : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Evasion : " + finalResult;
             }
-            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Fumble")
+            else if (resultEnd.text == "Result : Success" && enemyResultEnd.text == "Result : Fumble")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Evasion : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Evasion : " + finalResult;
             }
-            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Failure")
+            else if (resultEnd.text == "Result : Failure" && enemyResultEnd.text == "Result : Failure")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Evasion : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Evasion : " + finalResult;
             }
-            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Fumble")
+            else if (resultEnd.text == "Result : Failure" && enemyResultEnd.text == "Result : Fumble")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Evasion : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Evasion : " + finalResult;
             }
-            else if (result_End.text == "Result : Fumble" && E_result_End.text == "Result : Fumble")
+            else if (resultEnd.text == "Result : Fumble" && enemyResultEnd.text == "Result : Fumble")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Evasion : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Evasion : " + finalResult;
             }
             else
             {
-                FinalResult = "Failure";
-                FinalResult_t.text = "Evasion : " + FinalResult;
+                finalResult = "Failure";
+                finalResultTxt.text = "Evasion : " + finalResult;
             }
         } // 유리Result 예제
-        if (Subject == "counterattack")
+        if (subject == "counterattack")
         {
-            if (result_End.text == "Result : Critical Success" && E_result_End.text != "Result : Critical Success")
+            if (resultEnd.text == "Result : Critical Success" && enemyResultEnd.text != "Result : Critical Success")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "CounterAttack : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "CounterAttack : " + finalResult;
             }
-            else if (result_End.text == "Result : Success" && E_result_End.text != "Result : Critical Success" && E_result_End.text != "Result : Success")
+            else if (resultEnd.text == "Result : Success" && enemyResultEnd.text != "Result : Critical Success" && enemyResultEnd.text != "Result : Success")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "CounterAttack : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "CounterAttack : " + finalResult;
             }
-            else if (result_End.text == "Result : Failure" && E_result_End.text != "Result : Critical Success" && E_result_End.text != "Result : Success" && E_result_End.text != "Result : Failure")
+            else if (resultEnd.text == "Result : Failure" && enemyResultEnd.text != "Result : Critical Success" && enemyResultEnd.text != "Result : Success" && enemyResultEnd.text != "Result : Failure")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "CounterAttack : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "CounterAttack : " + finalResult;
             }
             else
             {
-                FinalResult = "Failure";
-                FinalResult_t.text = "CounterAttack : " + FinalResult;
+                finalResult = "Failure";
+                finalResultTxt.text = "CounterAttack : " + finalResult;
             }
         } //불리Result 예제
         // 플레이어행동
-        if (Subject == "MA_attack_Counter")
+        if (subject == "MA_attack_Counter")
         {
-            if (result_End.text == "Result : Critical Success")
+            if (resultEnd.text == "Result : Critical Success")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "MartialArt : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "MartialArt : " + finalResult;
             }
-            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Success")
+            else if (resultEnd.text == "Result : Success" && enemyResultEnd.text == "Result : Success")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "MartialArt : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "MartialArt : " + finalResult;
             }
-            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Failure")
+            else if (resultEnd.text == "Result : Success" && enemyResultEnd.text == "Result : Failure")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "MartialArt : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "MartialArt : " + finalResult;
             }
-            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Fumble")
+            else if (resultEnd.text == "Result : Success" && enemyResultEnd.text == "Result : Fumble")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "MartialArt : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "MartialArt : " + finalResult;
             }
-            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Failure")
+            else if (resultEnd.text == "Result : Failure" && enemyResultEnd.text == "Result : Failure")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "MartialArt : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "MartialArt : " + finalResult;
             }
-            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Fumble")
+            else if (resultEnd.text == "Result : Failure" && enemyResultEnd.text == "Result : Fumble")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "MartialArt : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "MartialArt : " + finalResult;
             }
-            else if (result_End.text == "Result : Fumble" && E_result_End.text == "Result : Fumble")
+            else if (resultEnd.text == "Result : Fumble" && enemyResultEnd.text == "Result : Fumble")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "MartialArt : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "MartialArt : " + finalResult;
             }
             else
             {
-                FinalResult = "Failure";
-                FinalResult_t.text = "MartialArt : " + FinalResult;
+                finalResult = "Failure";
+                finalResultTxt.text = "MartialArt : " + finalResult;
             }
         }
-        if (Subject == "SS_attack_Counter")
+        if (subject == "SS_attack_Counter")
         {
-            if (result_End.text == "Result : Critical Success")
+            if (resultEnd.text == "Result : Critical Success")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Swordsmanship : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Swordsmanship : " + finalResult;
             }
-            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Success")
+            else if (resultEnd.text == "Result : Success" && enemyResultEnd.text == "Result : Success")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Swordsmanship : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Swordsmanship : " + finalResult;
             }
-            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Failure")
+            else if (resultEnd.text == "Result : Success" && enemyResultEnd.text == "Result : Failure")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Swordsmanship : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Swordsmanship : " + finalResult;
             }
-            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Fumble")
+            else if (resultEnd.text == "Result : Success" && enemyResultEnd.text == "Result : Fumble")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Swordsmanship : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Swordsmanship : " + finalResult;
             }
-            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Failure")
+            else if (resultEnd.text == "Result : Failure" && enemyResultEnd.text == "Result : Failure")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Swordsmanship : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Swordsmanship : " + finalResult;
             }
-            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Fumble")
+            else if (resultEnd.text == "Result : Failure" && enemyResultEnd.text == "Result : Fumble")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Swordsmanship : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Swordsmanship : " + finalResult;
             }
-            else if (result_End.text == "Result : Fumble" && E_result_End.text == "Result : Fumble")
+            else if (resultEnd.text == "Result : Fumble" && enemyResultEnd.text == "Result : Fumble")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Swordsmanship : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Swordsmanship : " + finalResult;
             }
             else
             {
-                FinalResult = "Failure";
-                FinalResult_t.text = "Swordsmanship : " + FinalResult;
+                finalResult = "Failure";
+                finalResultTxt.text = "Swordsmanship : " + finalResult;
             }
         }
-        if (Subject == "RunAway")
+        if (subject == "RunAway")
         {
-            if (result_End.text == "Result : Critical Success")
+            if (resultEnd.text == "Result : Critical Success")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Runaway : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Runaway : " + finalResult;
             }
-            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Success")
+            else if (resultEnd.text == "Result : Success" && enemyResultEnd.text == "Result : Success")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Runaway : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Runaway : " + finalResult;
             }
-            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Failure")
+            else if (resultEnd.text == "Result : Success" && enemyResultEnd.text == "Result : Failure")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Runaway : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Runaway : " + finalResult;
             }
-            else if (result_End.text == "Result : Success" && E_result_End.text == "Result : Fumble")
+            else if (resultEnd.text == "Result : Success" && enemyResultEnd.text == "Result : Fumble")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Runaway : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Runaway : " + finalResult;
             }
-            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Failure")
+            else if (resultEnd.text == "Result : Failure" && enemyResultEnd.text == "Result : Failure")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Runaway : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Runaway : " + finalResult;
             }
-            else if (result_End.text == "Result : Failure" && E_result_End.text == "Result : Fumble")
+            else if (resultEnd.text == "Result : Failure" && enemyResultEnd.text == "Result : Fumble")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Runaway : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Runaway : " + finalResult;
             }
-            else if (result_End.text == "Result : Fumble" && E_result_End.text == "Result : Fumble")
+            else if (resultEnd.text == "Result : Fumble" && enemyResultEnd.text == "Result : Fumble")
             {
-                FinalResult = "Success";
-                FinalResult_t.text = "Runaway : " + FinalResult;
+                finalResult = "Success";
+                finalResultTxt.text = "Runaway : " + finalResult;
             }
             else
             {
-                FinalResult = "Failure";
-                FinalResult_t.text = "Runaway : " + FinalResult;
+                finalResult = "Failure";
+                finalResultTxt.text = "Runaway : " + finalResult;
             }
         }
-        EndButton.SetActive(true);
+        endButton.SetActive(true);
     }
     public void EndRollet()
     {
         activeCheck = false;
         isClick = false;
-        RolletSetUi.SetActive(false);
-        RolletCheckUI.SetActive(true);
-        RolletRollUI.SetActive(false);
-        EndButton.SetActive(false);
+        rolletSetUi.SetActive(false);
+        rolletCheckUI.SetActive(true);
+        rolletRollUI.SetActive(false);
+        endButton.SetActive(false);
 
-        if (Subject == "evasion")
+        if (subject == "evasion")
         {
-            if (EnemySubject == "DeepOneHybrid")
+            if (enemySubject == "DeepOneHybrid")
             {
-                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
+                BattleManager.Instance.RetrunRolletResult(subject, finalResult, enemySubject);
             }
-            else if (EnemySubject == "DeepOne")
+            else if (enemySubject == "DeepOne")
             {
-                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
+                BattleManager.Instance.RetrunRolletResult(subject, finalResult, enemySubject);
             }
         }
-        if (Subject == "counterattack")
+        if (subject == "counterattack")
         {
-            if (EnemySubject == "DeepOneHybrid")
+            if (enemySubject == "DeepOneHybrid")
             {
-                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
+                BattleManager.Instance.RetrunRolletResult(subject, finalResult, enemySubject);
             }
-            else if (EnemySubject == "DeepOne")
+            else if (enemySubject == "DeepOne")
             {
-                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
+                BattleManager.Instance.RetrunRolletResult(subject, finalResult, enemySubject);
             }
         }
 
         //플레이어행동
-        if (Subject == "MA_attack_Counter")
+        if (subject == "MA_attack_Counter")
         {
-            if (EnemySubject == "DeepOneHybrid")
+            if (enemySubject == "DeepOneHybrid")
             {
-                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
+                BattleManager.Instance.RetrunRolletResult(subject, finalResult, enemySubject);
             }
-            else if (EnemySubject == "DeepOne")
+            else if (enemySubject == "DeepOne")
             {
-                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
+                BattleManager.Instance.RetrunRolletResult(subject, finalResult, enemySubject);
             }
         }
-        if (Subject == "SS_attack_Counter")
+        if (subject == "SS_attack_Counter")
         {
-            if (EnemySubject == "DeepOneHybrid")
+            if (enemySubject == "DeepOneHybrid")
             {
-                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
+                BattleManager.Instance.RetrunRolletResult(subject, finalResult, enemySubject);
             }
-            else if (EnemySubject == "DeepOne")
+            else if (enemySubject == "DeepOne")
             {
-                BattleManager.Instance.RetrunRolletResult(Subject, FinalResult, EnemySubject);
+                BattleManager.Instance.RetrunRolletResult(subject, finalResult, enemySubject);
             }
         }
 
-        if (Subject == "dialog")
+        if (subject == "dialog")
         {
-            InteractionController.Instance.RetrunDialogResult(Sub_Dialog, result_End.text);
+            InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text);
             // 여기에 Dialog함수 적용   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
             // DilaogManager에서는 해당 함수에 interacitionMager를 연결해서 받은 주제와 Result값에 따른 문자를 출력하도록 함
         }
-        if (Subject == "RunAway")
+        if (subject == "RunAway")
         {
-            if (FinalResult == "Success")
+            if (finalResult == "Success")
             {
                 if (DataBaseManager.nowPlace != "InSewer")
                 {
@@ -736,29 +732,29 @@ public class BattleRollet : MonoBehaviour
     // 중요!!!!!!!
     private void ResetString()
     {
-        E_NomalRollet_1t.text = "-";
-        E_NomalRollet_10t.text = "--";
-        NomalRollet_1t.text = "-";
-        NomalRollet_10t.text = "--";
-        BadRollet_1t.text = "-";
-        BadRollet_10t.text = "--";
-        GoodRollet_1t.text = "-";
-        GoodRollet_10t.text = "--";
-        result_string.text = "Dice : --";
-        result_End.text = "Result : --";
-        E_result_string.text = "Dice : --";
-        E_result_End.text = "Result : --";
-        FinalResult_t.text = "---";
+        enemyNomalRollet1Txt.text = "-";
+        enemyNomalRollet10Txt.text = "--";
+        nomalRollet1Txt.text = "-";
+        nomalRollet10Txt.text = "--";
+        badRollet1Txt.text = "-";
+        badRollet10Txt.text = "--";
+        goodRollet1Txt.text = "-";
+        goodRollet10Txt.text = "--";
+        resultString.text = "Dice : --";
+        resultEnd.text = "Result : --";
+        enemyResultString.text = "Dice : --";
+        enemyResultEnd.text = "Result : --";
+        finalResultTxt.text = "---";
     }
     private void ResetRolletDice()
     {
-        Good_1.SetActive(false);
-        Good_10.SetActive(false);
-        Bad_1.SetActive(false);
-        Bad_10.SetActive(false);
-        Good_1_Rollet.SetActive(false);
-        Good_10_Rollet.SetActive(false);
-        Bad_1_Rollet.SetActive(false);
-        Bad_10_Rollet.SetActive(false);
+        good1.SetActive(false);
+        good10.SetActive(false);
+        bad1.SetActive(false);
+        bad10.SetActive(false);
+        good1Rollet.SetActive(false);
+        good10Rollet.SetActive(false);
+        bad1Rollet.SetActive(false);
+        bad10Rollet.SetActive(false);
     }
 }

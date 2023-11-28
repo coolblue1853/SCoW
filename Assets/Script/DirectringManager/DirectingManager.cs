@@ -100,7 +100,7 @@ public class DirectingManager : MonoBehaviour
         }
         else
         {
-            DataBaseManager.fst_Detective_EndFirstDialog = true;
+            DataBaseManager.fstDetectiveEndFirstDialog = true;
         }
 
     }
@@ -124,15 +124,15 @@ public class DirectingManager : MonoBehaviour
 
     void Update()
     {
-        if (DataBaseManager.isDebuff_Dyslexia == true && noteButton.activeSelf == true)
+        if (DataBaseManager.isDebuffDyslexia == true && noteButton.activeSelf == true)
         {
             noteButton.SetActive(false);
         }
-        else if (DataBaseManager.isDebuff_Dyslexia == false && noteButton.activeSelf == false)
+        else if (DataBaseManager.isDebuffDyslexia == false && noteButton.activeSelf == false)
         {
             noteButton.SetActive(true);
         }
-        if (DataBaseManager.isDebuff_VisionLoss == true && visionLessField.activeSelf == false)
+        if (DataBaseManager.isDebuffVisionLoss == true && visionLessField.activeSelf == false)
         {
             visionLessField.SetActive(true);
         }
@@ -144,7 +144,7 @@ public class DirectingManager : MonoBehaviour
         {
             endGame.SetActive(false);
         }
-        if (DataBaseManager.fst_Detectiv_TimeOn >= 2)
+        if (DataBaseManager.fstDetectivTimeOn >= 2)
         {
             DataBaseManager.isDirecting = true;
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
@@ -155,89 +155,89 @@ public class DirectingManager : MonoBehaviour
                 Invoke("AfterNockSound", 1);
             }
         }
-        if (DataBaseManager.fst_Detective_EndFirstDialog == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.fstDetectiveEndFirstDialog == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.fst_Detective_EndFirstDialog = false;
+            DataBaseManager.fstDetectiveEndFirstDialog = false;
             fst_DetectiveOffice_FadeIn("End_Directing");
         }
-        if (DataBaseManager.fst_Detective_NockDialog == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.fstDetectiveNockDialog == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.fst_Detective_NockDialog = false;
+            DataBaseManager.fstDetectiveNockDialog = false;
             fst_DetectiveOffice_FadeIn("Nock_Directing");
         }
-        if (DataBaseManager.fst_Detective_AfterSelect == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.fstDetectiveAfterSelect == true && DataBaseManager.isActiveDialog1 == false)
         {
             SoundManager.Instance.Door_Sound();
-            DataBaseManager.fst_Detective_AfterSelect = false;
+            DataBaseManager.fstDetectiveAfterSelect = false;
             fst_DetectiveOffice_Fade("AfterSelect_Directing");
         }
-        if (DataBaseManager.fst_Detective_AfterSelectNo == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.fstDetectiveAfterSelectNo == true && DataBaseManager.isActiveDialog1 == false)
         {
             SoundManager.Instance.Door_Sound();
-            DataBaseManager.fst_Detective_AfterSelectNo = false;
+            DataBaseManager.fstDetectiveAfterSelectNo = false;
             fst_DetectiveOffice_Fade("Accept_AfterSelectNo");
         }
-        if (DataBaseManager.fst_Detective_EndSelect == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.fstDetectiveEndSelect == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.fst_Detective_EndSelect = false;
+            DataBaseManager.fstDetectiveEndSelect = false;
             fst_DetectiveOffice_FadeOut("EndSelect_Directing");
         }
         // 의뢰자의 집
-        if (DataBaseManager.firstClientsHouse == true && DataBaseManager.TimeCount < 6)
+        if (DataBaseManager.firstClientsHouse == true && DataBaseManager.timeCount < 6)
         {
             DataBaseManager.firstClientsHouse = false;
             DataBaseManager.firstClientsHouseEnd = true;
             InteractionController.Instance.Start_1st_ClientsHouse("FirstArrive");
         }
-        if (DataBaseManager.StrDialogOn == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.strDialogOn == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.StrDialogOn = false;
+            DataBaseManager.strDialogOn = false;
             Rollet.Instance.setRollet("Aiden : TakeAway", "Str", DataBaseManager.str, "dialog");
         }
-        if (DataBaseManager.FailTwoKeyword == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.failTwoKeyword == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.FailTwoKeyword = false;
+            DataBaseManager.failTwoKeyword = false;
             DataBaseManager.isDirecting = true;
             DataBaseManager.isActiveDialog1 = true;
-            DataBaseManager.AidenKeywordCount = 2;
+            DataBaseManager.aidenKeywordCount = 2;
             fst_DetectiveOffice_FadeIn("Go2stForce");
         }
         //강가
-        if (DataBaseManager.Sewer_Observation == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.sewerObservation == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.Sewer_Observation = false;
-            Rollet.Instance.setRollet("Sewer : Look", "Observation", DataBaseManager.ObservationPoint, "dialog");
+            DataBaseManager.sewerObservation = false;
+            Rollet.Instance.setRollet("Sewer : Look", "Observation", DataBaseManager.observationPoint, "dialog");
         }
-        if (DataBaseManager.Sewer_San == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.sewerSan == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.Sewer_San = false;
+            DataBaseManager.sewerSan = false;
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "dialog");
         }
         //병원
-        if (DataBaseManager.Kate_Disapear == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.kateDisapear == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.Kate_Disapear = false;
+            DataBaseManager.kateDisapear = false;
             Kate_Disapear();
         }
-        if (DataBaseManager.ConnectKey == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.connectKey == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.ConnectKey = false;
+            DataBaseManager.connectKey = false;
             Invoke("KeyConnect", 0.5f);
         }
-        if (DataBaseManager.EndDay == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.endDay == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.StoryDirecting = true;
-            DataBaseManager.EndDay = false;
+            DataBaseManager.storyDirecting = true;
+            DataBaseManager.endDay = false;
             FadingBackGround.Instance.FadeIn();
             Invoke("EndDay", 2f);
         }
-        if (DataBaseManager.EndDemo == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.endDemo == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.EndDemo = false;
+            DataBaseManager.endDemo = false;
             // FadingBackGround.Instance.DemoEnd_FadeIn();
             MapManager.Instance.MapOn();
         }
-        if ((DataBaseManager.TimeCount == 4) && DataBaseManager.nowPlace == "DetectiveOffice" && once == false)
+        if ((DataBaseManager.timeCount == 4) && DataBaseManager.nowPlace == "DetectiveOffice" && once == false)
         {
             DirectingManager.Instance.OrganizeKeyword();
             once = true;
@@ -247,7 +247,7 @@ public class DirectingManager : MonoBehaviour
             {
                 Invoke("KeyConnect", 12f);
             }
-            else if (DataBaseManager.AfterBattle == true)
+            else if (DataBaseManager.afterBattle == true)
             {
                 Invoke("KeyConnect", 3f);
             }
@@ -256,9 +256,9 @@ public class DirectingManager : MonoBehaviour
                 Invoke("KeyConnect", 3f);
             }
         }
-        if ((DataBaseManager.TimeCount == 8 && DataBaseManager.nowPlace == "DetectiveOffice" && twice == false))
+        if ((DataBaseManager.timeCount == 8 && DataBaseManager.nowPlace == "DetectiveOffice" && twice == false))
         {
-            DataBaseManager.StoryDirecting = true;
+            DataBaseManager.storyDirecting = true;
             DirectingManager.Instance.OrganizeKeyword();
             twice = true;
             player.SetActive(false);
@@ -267,7 +267,7 @@ public class DirectingManager : MonoBehaviour
             {
                 Invoke("KeyConnect", 12f);
             }
-            else if (DataBaseManager.AfterBattle == true)
+            else if (DataBaseManager.afterBattle == true)
             {
                 Invoke("KeyConnect", 3f);
             }
@@ -276,9 +276,9 @@ public class DirectingManager : MonoBehaviour
                 Invoke("KeyConnect", 3f);
             }
         }
-        if ((DataBaseManager.TimeCount == 12 && DataBaseManager.nowPlace == "DetectiveOffice" && thrid == false))
+        if ((DataBaseManager.timeCount == 12 && DataBaseManager.nowPlace == "DetectiveOffice" && thrid == false))
         {
-            DataBaseManager.StoryDirecting = true;
+            DataBaseManager.storyDirecting = true;
             DirectingManager.Instance.OrganizeKeyword();
             thrid = true;
             player.SetActive(false);
@@ -287,7 +287,7 @@ public class DirectingManager : MonoBehaviour
             {
                 Invoke("KeyConnect", 12f);
             }
-            else if (DataBaseManager.AfterBattle == true)
+            else if (DataBaseManager.afterBattle == true)
             {
                 Invoke("KeyConnect", 3f);
             }
@@ -296,41 +296,41 @@ public class DirectingManager : MonoBehaviour
                 Invoke("KeyConnect", 3f);
             }
         }
-        if (DataBaseManager.TimeCount == 5 && DataBaseManager.SecondDayDialog == false && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.timeCount == 5 && DataBaseManager.secondDayDialog == false && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.SecondDayDialog = true;
+            DataBaseManager.secondDayDialog = true;
             Invoke("ScendDayStartDialog", 3f);
         }
-        if (DataBaseManager.TimeCount == 9 && DataBaseManager.SecondDayDialog == false && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.timeCount == 9 && DataBaseManager.secondDayDialog == false && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.SecondDayDialog = true;
+            DataBaseManager.secondDayDialog = true;
             Invoke("ThirdDayStartDialog", 3f);
         }
-        if (DataBaseManager.TimeCount == 13 && DataBaseManager.SecondDayDialog == false && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.timeCount == 13 && DataBaseManager.secondDayDialog == false && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.SecondDayDialog = true;
+            DataBaseManager.secondDayDialog = true;
             Invoke("FourthDayStartDialog", 3f);
         }
-        if (DataBaseManager.AfterSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.afterSanCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.AfterSanCheck = false;
+            DataBaseManager.afterSanCheck = false;
             DataBaseManager.secondisDirecting = false;
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "Fab_Case1");
         }
-        if (DataBaseManager.Case2IntCheck == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.case2IntCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.Case2IntCheck = false;
+            DataBaseManager.case2IntCheck = false;
             Rollet.Instance.setRollet("INT : Check", "Association", DataBaseManager.intl, "Case2IntCheck");
         }
-        if (DataBaseManager.DaveCheck == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.daveCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.DaveCheck = false;
+            DataBaseManager.daveCheck = false;
             selectionUIManager.Instance.EndDialog();
         }
         //전투
-        if (DataBaseManager.Battle_San == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.battleSan == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.Battle_San = false;
+            DataBaseManager.battleSan = false;
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "RoadBattle1");
         }
         if (DataBaseManager.isBattleBeforeDialog == true && DataBaseManager.isActiveDialog1 == false)
@@ -341,138 +341,138 @@ public class DirectingManager : MonoBehaviour
             BattleManager.Instance.CloseButtonUI();
         }
 
-        if (DataBaseManager.EndBattle == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.endBattle == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.AfterBattle = true;
+            DataBaseManager.afterBattle = true;
             DialogDatabaseManager.instance.check = true;
-            DataBaseManager.EndBattle = false;
+            DataBaseManager.endBattle = false;
             isGo1stBattle = true;
             DirectingManager.Instance.EndBattle();
             MapManager.Instance.MapOn();
         }
         //하수도 
-        if (DataBaseManager.StartSewerBattle == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.startSewerBattle == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.StartSewerBattle = false;
+            DataBaseManager.startSewerBattle = false;
             FadingBackGround.Instance.FadeInOut();
             Invoke("GotoBattleSewer", 1.1f);
             BattleManager.Instance.CloseButtonUI();
         }
-        if (DataBaseManager.InSewer_StealthSucc == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.inSewerStealthSucc == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.InSewer_StealthSucc = false;
+            DataBaseManager.inSewerStealthSucc = false;
             FadingBackGround.Instance.FadeInOut(); // 이거 문제 체크
             Invoke("InSewerFabianMove", 1.1f);
         }
-        if (DataBaseManager.InSewer_StealthFail == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.inSewerStealthFail == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.InSewer_StealthFail = false;
+            DataBaseManager.inSewerStealthFail = false;
             FadingBackGround.Instance.FadeInOut();
             Invoke("GotoBattleSewer", 1.1f);
             BattleManager.Instance.CloseButtonUI();
         }
-        if (DataBaseManager.Sewer_FirstIn == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.sewerFirstIn == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.StoryDirecting = true;
-            DataBaseManager.Sewer_FirstIn = false;
+            DataBaseManager.storyDirecting = true;
+            DataBaseManager.sewerFirstIn = false;
             InteractionController.Instance.InSewerDialog("Sewer_FirstIn");
         }
-        if (DataBaseManager.Sewer_FirstInSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.sewerFirstInSanCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.StoryDirecting = false;
-            DataBaseManager.Sewer_FirstInSanCheck = false;
+            DataBaseManager.storyDirecting = false;
+            DataBaseManager.sewerFirstInSanCheck = false;
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "Sewer_FirstInSan");
         }
-        if (DataBaseManager.Sewer_DeepOneFirstSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.sewerDeepOneFirstSanCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.Sewer_DeepOneFirstSanCheck = false;
+            DataBaseManager.sewerDeepOneFirstSanCheck = false;
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "DeepOneFirstSan");
         }
 
         //2일차 낮 강제 이벤트
-        if (DataBaseManager.snd_Detective_NoonEvent == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.secondDetectiveNoonEvent == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.snd_Detective_NoonEvent = false;
+            DataBaseManager.secondDetectiveNoonEvent = false;
             Invoke("NoonEventPhoneCall", 1f);
         }
-        if (DataBaseManager.NoonEvent_MovetoClient == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.noonEventMovetoClient == true && DataBaseManager.isActiveDialog1 == false)
         {
             Invoke("NoonEventClientsFirst", 12f);
-            DataBaseManager.NoonEvent_MovetoClient = false;
+            DataBaseManager.noonEventMovetoClient = false;
             Invoke("MoveToClient", 0.7f);
         }
-        if (DataBaseManager.NoonEventSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.noonEventSanCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.NoonEventSanCheck = false;
+            DataBaseManager.noonEventSanCheck = false;
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "NoonEvent");
         }
-        if (DataBaseManager.DeadBodyFirstLook == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.deadBodyFirstLook == true && DataBaseManager.isActiveDialog1 == false)
         {
-            if ((DataBaseManager.Intel_MissingPeople1 == true || DataBaseManager.Intel_MissingPeople2 == true) && DataBaseManager.DeadBodyLook_MissingDialog == false)
+            if ((DataBaseManager.intelMissingPeople1 == true || DataBaseManager.intelMissingPeople2 == true) && DataBaseManager.deadBodyLookMissingDialog == false)
             {
-                DataBaseManager.DeadBodyLook_MissingDialog = true;
+                DataBaseManager.deadBodyLookMissingDialog = true;
                 InteractionController.Instance.Start_2nd_NoonEvent("NoonEvent_DeadBody_Look_Missing");
             }
-            else if ((DataBaseManager.Intel_FishySmell3 == true || DataBaseManager.Intel_FishySmell4 == true || DataBaseManager.Intel_SewerWorker3 == true) && DataBaseManager.DeadBodyLook_FishySmellDialog == false)
+            else if ((DataBaseManager.intelFishySmell3 == true || DataBaseManager.intelFishySmell4 == true || DataBaseManager.intelSewerWorker3 == true) && DataBaseManager.deadBodyLookFishySmellDialog == false)
             {
-                DataBaseManager.DeadBodyLook_FishySmellDialog = true;
+                DataBaseManager.deadBodyLookFishySmellDialog = true;
                 InteractionController.Instance.Start_2nd_NoonEvent("NoonEvent_DeadBody_Look_FishySmell");
             }
         }
-        if (DataBaseManager.DeadBody_GotoSwere == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.deadBodyGotoSwere == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.DeadBody_GotoSwere = false;
-            DataBaseManager.StoryDirecting = true;
+            DataBaseManager.deadBodyGotoSwere = false;
+            DataBaseManager.storyDirecting = true;
             MapManager.Instance.SuccAnalysis();
         }
-        if (DataBaseManager.KaneSlimeSan == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.kaneSlimeSan == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.KaneSlimeSan = false;
+            DataBaseManager.kaneSlimeSan = false;
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "KaneSan");
         }
-        if (DataBaseManager.BarArrive == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.barArrive == true && DataBaseManager.isActiveDialog1 == false)
         {
             boxHybrid.SetActive(true);
             Invoke("ArriveBar2nd", 4f);
-            DataBaseManager.BarArrive = false;
-            DataBaseManager.StoryDirecting = true;
-            DataBaseManager.Maeve_FirstDialog = true;
+            DataBaseManager.barArrive = false;
+            DataBaseManager.storyDirecting = true;
+            DataBaseManager.maeveFirstDialog = true;
         }
-        if (DataBaseManager.BarMove == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.barMove == true && DataBaseManager.isActiveDialog1 == false)
         {
             Invoke("BarMove", 0.3f);
-            DataBaseManager.BarMove = false;
+            DataBaseManager.barMove = false;
         }
-        if (DataBaseManager.BarDrinkSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.barDrinkSanCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.BarDrinkSanCheck = false;
+            DataBaseManager.barDrinkSanCheck = false;
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "DrinkSan");
         }
-        if (DataBaseManager.ThirdDayDreamSan == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.thirdDayDreamSan == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.ThirdDayDreamSan = false;
+            DataBaseManager.thirdDayDreamSan = false;
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "DayTwoCase2San");
         }
-        if (DataBaseManager.Day_4_case1San == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.day4Case1San == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.Day_4_case1San = false;
+            DataBaseManager.day4Case1San = false;
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "Fab_4th_QuestO_SanCheck");
         }
-        if (DataBaseManager.Day_4_case1Health == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.day4Case1Health == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.Day_4_case1Health = false;
+            DataBaseManager.day4Case1Health = false;
             Rollet.Instance.setRollet("Health : Check", "Health", DataBaseManager.hp, "dialog", "Day_4_case1Health");
         }
-        if (DataBaseManager.MoveSewerOfficeWindow == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.moveSewerOfficeWindow == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.MoveSewerOfficeWindow = false;
+            DataBaseManager.moveSewerOfficeWindow = false;
             Invoke("WindowMove", 1.5f);
             FadingBackGround.Instance.FadeInOut();
         }
-        if (DataBaseManager.AfterDaveDeathFirstSlum == true && DataBaseManager.nowPlace == "Slum" && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.afterDaveDeathFirstSlum == true && DataBaseManager.nowPlace == "Slum" && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.AfterDaveDeathFirstSlum = false;
-            if ((DataBaseManager.TimeCount == 13 && DataBaseManager.IsMorningMapMove == true) || (DataBaseManager.TimeCount == 9 && DataBaseManager.IsMorningMapMove == true) || (DataBaseManager.TimeCount == 5 && DataBaseManager.IsMorningMapMove == true))
+            DataBaseManager.afterDaveDeathFirstSlum = false;
+            if ((DataBaseManager.timeCount == 13 && DataBaseManager.isMorningMapMove == true) || (DataBaseManager.timeCount == 9 && DataBaseManager.isMorningMapMove == true) || (DataBaseManager.timeCount == 5 && DataBaseManager.isMorningMapMove == true))
             {
                 Invoke("AfterDaveDeathDailog", 6f);
             }
@@ -482,72 +482,72 @@ public class DirectingManager : MonoBehaviour
             }
         }
         //하수도 내부
-        if (DataBaseManager.InsmusRhtoric == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.insmusRhtoric == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.InsmusRhtoric = false;
+            DataBaseManager.insmusRhtoric = false;
             Rollet.Instance.setRollet("??? : Give Excuse", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
         }
-        if (DataBaseManager.JournalSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.journalSanCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.JournalSanCheck = false;
+            DataBaseManager.journalSanCheck = false;
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "JournalSan");
         }
-        if (DataBaseManager.SewerBookSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.sewerBookSanCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.SewerBookSanCheck = false;
+            DataBaseManager.sewerBookSanCheck = false;
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "BookSan");
         }
-        if (DataBaseManager.SewerBookOccultCheck == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.sewerBookOccultCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.SewerBookOccultCheck = false;
+            DataBaseManager.sewerBookOccultCheck = false;
             Rollet.Instance.setRollet("Book : Decryption", "Occult", DataBaseManager.occultPoint, "dialog");
         }
-        if (DataBaseManager.SewerSymbolOccultCheck == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.sewerSymbolOccultCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.SewerSymbolOccultCheck = false;
+            DataBaseManager.sewerSymbolOccultCheck = false;
             Rollet.Instance.setRollet("Symbol : Decryption", "Occult", DataBaseManager.occultPoint, "dialog");
         }
-        if (DataBaseManager.SymbolStrSanCheck == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.symbolStrSanCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.SymbolStrSanCheck = false;
+            DataBaseManager.symbolStrSanCheck = false;
         }
-        if (DataBaseManager.nowHP <= 0 && DataBaseManager.TimeCount > 1)
+        if (DataBaseManager.nowHP <= 0 && DataBaseManager.timeCount > 1)
         {
             //죽었을때
             //DataBaseManager.EndDemo = true;
         }
-        if (DataBaseManager.Ending_Swin == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.endingSwin == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.Ending_Swin = false;
+            DataBaseManager.endingSwin = false;
             Rollet.Instance.setRollet("Fabian : Swimming", "Swin", DataBaseManager.swimingPoint, "dialog");
         }
-        if (DataBaseManager.Ending_LadderSan == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.endingLadderSan == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.Ending_LadderSan = false;
+            DataBaseManager.endingLadderSan = false;
             Rollet.Instance.setRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "EndingLedderSan");
         }
-        if (DataBaseManager.Ending_BreakSymbol == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.endingBreakSymbol == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.Ending_BreakSymbol = false;
+            DataBaseManager.endingBreakSymbol = false;
             InteractionController.Instance.InSewerDialog("Ending_BreakSymbol");
         }
-        if (DataBaseManager.Ending_isPromise == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.endingisPromise == true && DataBaseManager.isActiveDialog1 == false)
         {
             camera.transform.position = new Vector3(-806.7f, 0.3f, -16);
             player.SetActive(false);
             sitNoNewspaperPlayer.SetActive(true);
-            DataBaseManager.Ending_isPromise = false;
+            DataBaseManager.endingisPromise = false;
             InteractionController.Instance.InSewerDialog("Ending_isPromise");
         }
-        if (DataBaseManager.Ending_AfterPromiseDialog == true && DataBaseManager.isActiveDialog1 == false && DataBaseManager.AlbertDeathKeyword == true)
+        if (DataBaseManager.endingAfterPromiseDialog == true && DataBaseManager.isActiveDialog1 == false && DataBaseManager.albertDeathKeyword == true)
         {
-            DataBaseManager.Ending_AfterPromiseDialog = false;
+            DataBaseManager.endingAfterPromiseDialog = false;
             InteractionController.Instance.InSewerDialog("Ending_IfNoPromiseAlbertDeath");
         }
-        if (DataBaseManager.Ending_SwainDeathCheck == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.endingSwainDeathCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.Ending_SwainDeathCheck = false;
-            if (DataBaseManager.SwainDeathKeyword == true)
+            DataBaseManager.endingSwainDeathCheck = false;
+            if (DataBaseManager.swainDeathKeyword == true)
             {
                 InteractionController.Instance.InSewerDialog("Ending_SwainDeathCheck");
             }
@@ -557,22 +557,22 @@ public class DirectingManager : MonoBehaviour
             }
 
         }
-        if (DataBaseManager.Ending_RequestCheck == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.endingRequestCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.Ending_RequestCheck = false;
+            DataBaseManager.endingRequestCheck = false;
             InteractionController.Instance.InSewerDialog("Ending_RequestCheck");
         }
-        if (DataBaseManager.EndingDeathCheck == true && DataBaseManager.isActiveDialog1 == false)
+        if (DataBaseManager.endingDeathCheck == true && DataBaseManager.isActiveDialog1 == false)
         {
-            DataBaseManager.EndingDeathCheck = false;
-            if (DataBaseManager.EnemyDeathCount == 0)
+            DataBaseManager.endingDeathCheck = false;
+            if (DataBaseManager.enemyDeathCount == 0)
             {
                 // 결말 장면 삽입
             }
             else
             {
-                int DeathCheck = Random.Range(1, DataBaseManager.EnemyDeathCount * 5);
-                if (DeathCheck <= DataBaseManager.EnemyDeathCount * 5)
+                int DeathCheck = Random.Range(1, DataBaseManager.enemyDeathCount * 5);
+                if (DeathCheck <= DataBaseManager.enemyDeathCount * 5)
                 {
                     int LuckInt = Random.Range(1, DataBaseManager.luk);
                     if (LuckInt <= DataBaseManager.luk)
@@ -581,7 +581,7 @@ public class DirectingManager : MonoBehaviour
                     }
                     else
                     {
-                        DataBaseManager.EndingDoorCheck = true;
+                        DataBaseManager.endingDoorCheck = true;
                         player.transform.localScale = new Vector3(chInRommSize, chInRommSize, 1);
                         player.transform.position = new Vector3(-796.8f, 2.500006f, -1);
                         SoundManager.Instance.Nock_Sound();
@@ -597,7 +597,7 @@ public class DirectingManager : MonoBehaviour
     {
         player.SetActive(true);
         sitNoNewspaperPlayer.SetActive(false);
-        DataBaseManager.StoryDirecting = false;
+        DataBaseManager.storyDirecting = false;
         DataBaseManager.isDirecting = false;
         InteractionController.Instance.InSewerDialog("Ending_Killing");
     }
@@ -642,7 +642,7 @@ public class DirectingManager : MonoBehaviour
     public void NoonEventClientsFirst()
     {
         InteractionController.Instance.Start_2nd_NoonEvent("NoonEvent_ClientHouse");
-        DataBaseManager.StoryDirecting = false;
+        DataBaseManager.storyDirecting = false;
     }
     // 강제 이벤트
     public void MoveToClient()
@@ -658,11 +658,11 @@ public class DirectingManager : MonoBehaviour
     //2일차
     public void ScendDayStartDialog()
     {
-        if (DataBaseManager.Intel_Nightmare3 == true || DataBaseManager.Intel_Nightmare3 == true)
+        if (DataBaseManager.intelNightmare3 == true || DataBaseManager.intelNightmare3 == true)
         {
             InteractionController.Instance.Start_2nd_DetectiveOffice("Fab_Case1");
         }
-        else if (DataBaseManager.Intel_QuestHouse1 == true)
+        else if (DataBaseManager.intelQuestHouse1 == true)
         {
             InteractionController.Instance.Start_2nd_DetectiveOffice("Fab_Case2");
         }
@@ -687,7 +687,7 @@ public class DirectingManager : MonoBehaviour
         battleObject.transform.localPosition = battlePlayerRoad;
         BattleManager.Instance.OriginPointChange();
         battleRoadLight.SetActive(true);
-        if (DataBaseManager.TimeCount < 5)
+        if (DataBaseManager.timeCount < 5)
         {
             enemy1.SetActive(true);
             enemy2.SetActive(false);
@@ -697,7 +697,7 @@ public class DirectingManager : MonoBehaviour
             enemyTrunSymbol3.SetActive(false);
             BattleManager.Instance.set_DeepOneHybrid1();
         }
-        else if (DataBaseManager.TimeCount < 9)
+        else if (DataBaseManager.timeCount < 9)
         {
             enemy1.SetActive(true);
             enemy2.SetActive(true);
@@ -747,12 +747,12 @@ public class DirectingManager : MonoBehaviour
 
     public void GotoBattleSewer()
     {
-        DataBaseManager.SewerBattleChecker = true;
-        DataBaseManager.SewerBattleEndCheck = false;
+        DataBaseManager.sewerBattleChecker = true;
+        DataBaseManager.sewerBattleEndCheck = false;
         battleRoadLight.SetActive(false);
         battleObject.transform.localPosition = battlePlayerSewer;
         BattleManager.Instance.OriginPointChange();
-        if (DataBaseManager.SewerEnemyCounter == 1)
+        if (DataBaseManager.sewerEnemyCounter == 1)
         {
             sewerEnemy1.SetActive(true);
             sewerEnemy2.SetActive(false);
@@ -761,7 +761,7 @@ public class DirectingManager : MonoBehaviour
             enemyTrunSymbol3.SetActive(false);
             BattleManager.Instance.set_DeepOneHybrid4();
         }
-        else if (DataBaseManager.SewerEnemyCounter == 2)
+        else if (DataBaseManager.sewerEnemyCounter == 2)
         {
             sewerEnemy1.SetActive(false);
             sewerEnemy2.SetActive(true);
@@ -815,7 +815,7 @@ public class DirectingManager : MonoBehaviour
     }
     public void SetBattle()
     {
-        DataBaseManager.ISRoadBattleStart = true;
+        DataBaseManager.iSRoadBattleStart = true;
         DataBaseManager.isDirecting = false;
         BattleManager.Instance.startBattle = true;
     }
@@ -828,15 +828,15 @@ public class DirectingManager : MonoBehaviour
     {
         DataBaseManager.isRollet = false;
         DataBaseManager.secondisDirecting = false;
-        if (DataBaseManager.TimeCount == 4)
+        if (DataBaseManager.timeCount == 4)
         {
             InteractionController.Instance.Start_1st_DetectiveOffice("Fab_EndDay");
         }
-        else if (DataBaseManager.TimeCount == 8)
+        else if (DataBaseManager.timeCount == 8)
         {
             InteractionController.Instance.Start_1st_DetectiveOffice("SecondDream");
         }
-        else if (DataBaseManager.TimeCount == 12)
+        else if (DataBaseManager.timeCount == 12)
         {
             InteractionController.Instance.Start_1st_DetectiveOffice("ThirdNightmare");
         }
@@ -941,7 +941,7 @@ public class DirectingManager : MonoBehaviour
         player.transform.localScale = new Vector3(chInRommSize, chInRommSize, 1);
         player.transform.localPosition = new Vector3(-797.556f, 2.183268f);
         player.SetActive(true);
-        if (DataBaseManager.TimeCount == 1)
+        if (DataBaseManager.timeCount == 1)
         {
             newspaper.DOFade(1, 0.1f);
         }
@@ -978,159 +978,159 @@ public class DirectingManager : MonoBehaviour
     private List<System.Action> functionList = new List<System.Action>();
     public void OrganizeKeyword()
     {
-        if (DataBaseManager.TimeCount == 4)
+        if (DataBaseManager.timeCount == 4)
         {
             functionList.Add(Fab_FirstDialog);
         }
-        else if (DataBaseManager.TimeCount == 8)
+        else if (DataBaseManager.timeCount == 8)
         {
             functionList.Add(Fab_2ndConnectStart);
         }
-        else if (DataBaseManager.TimeCount == 12)
+        else if (DataBaseManager.timeCount == 12)
         {
             functionList.Add(Fab_FirstDialog);
         }
-        if (DataBaseManager.Intel_Aiden1 == true && intelAiden1KeyCheck == false)
+        if (DataBaseManager.intelAiden1 == true && intelAiden1KeyCheck == false)
         {
             intelAiden1KeyCheck = true;
             functionList.Add(Fab_Aiden1);
         }
-        if (DataBaseManager.Intel_Safe1 == true && intelSafe1KeyCheck == false)
+        if (DataBaseManager.intelSafe1 == true && intelSafe1KeyCheck == false)
         {
             intelSafe1KeyCheck = true;
             functionList.Add(Fab_Safe1);
         }
-        if (DataBaseManager.Intel_Nightmare1 == true && intelNightmare1KeyCheck == false)
+        if (DataBaseManager.intelNightmare1 == true && intelNightmare1KeyCheck == false)
         {
             intelNightmare1KeyCheck = true;
             functionList.Add(Fab_Nightmare1);
         }
-        if (DataBaseManager.Intel_Nightmare2 == true && intelNightmare2KeyCheck == false)
+        if (DataBaseManager.intelNightmare2 == true && intelNightmare2KeyCheck == false)
         {
             intelNightmare2KeyCheck = true;
             functionList.Add(Fab_Nightmare2);
         }
-        if (DataBaseManager.Intel_Nightmare3 == true && intelNightmare3KeyCheck == false)
+        if (DataBaseManager.intelNightmare3 == true && intelNightmare3KeyCheck == false)
         {
             intelNightmare3KeyCheck = true;
             functionList.Add(Fab_Nightmare3);
         }
-        if (DataBaseManager.Intel_Nightmare4 == true && intelNightmare4KeyCheck == false)
+        if (DataBaseManager.intelNightmare4 == true && intelNightmare4KeyCheck == false)
         {
             intelNightmare4KeyCheck = true;
             functionList.Add(Fab_Nightmare4);
         }
-        if (DataBaseManager.Intel_Insomnia1 == true && intelInsomnia1KeyCheck == false)
+        if (DataBaseManager.intelInsomnia1 == true && intelInsomnia1KeyCheck == false)
         {
             intelInsomnia1KeyCheck = true;
             functionList.Add(Fab_Insomnia1);
         }
-        if (DataBaseManager.Intel_Insomnia2 == true && intelInsomnia2KeyCheck == false)
+        if (DataBaseManager.intelInsomnia2 == true && intelInsomnia2KeyCheck == false)
         {
             intelInsomnia2KeyCheck = true;
             functionList.Add(Fab_Insomnia2);
         }
-        if (DataBaseManager.Intel_PlanetaryParade1 == true && intelPlanetaryParade1KeyCheck == false)
+        if (DataBaseManager.intelPlanetaryParade1 == true && intelPlanetaryParade1KeyCheck == false)
         {
             intelPlanetaryParade1KeyCheck = true;
             functionList.Add(Fab_PlanetarySequence1);
         }
-        if (DataBaseManager.Intel_University1 == true && intelUniversity1KeyCheck == false)
+        if (DataBaseManager.intelUniversity1 == true && intelUniversity1KeyCheck == false)
         {
             intelUniversity1KeyCheck = true;
             functionList.Add(Fab_Univ1);
         }
-        if (DataBaseManager.Intel_Meiv2 == true && intelMeiv2KeyCheck == false)
+        if (DataBaseManager.intelMeiv2 == true && intelMeiv2KeyCheck == false)
         {
             intelMeiv2KeyCheck = true;
             functionList.Add(Fab_Meiv2);
         }
-        if (DataBaseManager.Intel_MissingPeople1 == true && intelMissingPeople1KeyCheck == false)
+        if (DataBaseManager.intelMissingPeople1 == true && intelMissingPeople1KeyCheck == false)
         {
             intelMissingPeople1KeyCheck = true;
             functionList.Add(Fab_MissingPeople);
         }
-        if (DataBaseManager.Intel_SewerGhostStory1 == true && intelSewerGhostStory1KeyCheck == false)
+        if (DataBaseManager.intelSewerGhostStory1 == true && intelSewerGhostStory1KeyCheck == false)
         {
             intelSewerGhostStory1KeyCheck = true;
             functionList.Add(Fab_GhostStory1);
         }
-        if (DataBaseManager.Intel_SewerGhostStory2 == true && intelSewerGhostStory2KeyCheck == false)
+        if (DataBaseManager.intelSewerGhostStory2 == true && intelSewerGhostStory2KeyCheck == false)
         {
             intelSewerGhostStory2KeyCheck = true;
             functionList.Add(Fab_GhostStory2);
         }
-        if (DataBaseManager.Intel_CreepyEyes1 == true && intelCreepyEyes1KeyCheck == false)
+        if (DataBaseManager.intelCreepyEyes1 == true && intelCreepyEyes1KeyCheck == false)
         {
             intelCreepyEyes1KeyCheck = true;
             functionList.Add(Fab_CreepyEye);
         }
-        if (DataBaseManager.Intel_SewerWorker1 == true && intelSewerWorker1KeyCheck == false)
+        if (DataBaseManager.intelSewerWorker1 == true && intelSewerWorker1KeyCheck == false)
         {
             intelSewerWorker1KeyCheck = true;
             functionList.Add(Fab_Worker1);
         }
-        if (DataBaseManager.Intel_FishySmell1 == true && intelFishySmell1KeyCheck == false)
+        if (DataBaseManager.intelFishySmell1 == true && intelFishySmell1KeyCheck == false)
         {
             intelFishySmell1KeyCheck = true;
             functionList.Add(Fab_FishySmell1);
         }
-        if (DataBaseManager.Intel_FishySmell2 == true && intelFishySmell2KeyCheck == false)
+        if (DataBaseManager.intelFishySmell2 == true && intelFishySmell2KeyCheck == false)
         {
             intelFishySmell2KeyCheck = true;
             functionList.Add(Fab_FishySmell2);
         }
-        if (DataBaseManager.Intel_FishySmell3 == true && intelFishySmell3KeyCheck == false)
+        if (DataBaseManager.intelFishySmell3 == true && intelFishySmell3KeyCheck == false)
         {
             intelFishySmell3KeyCheck = true;
             functionList.Add(Fab_FishySmell3);
         }
-        if (DataBaseManager.Intel_MurderCase1 == true && intelMurderCase1KeyCheck == false)
+        if (DataBaseManager.intelMurderCase1 == true && intelMurderCase1KeyCheck == false)
         {
             intelMurderCase1KeyCheck = true;
             functionList.Add(Fab_Witness);
         }
-        if (DataBaseManager.Intel_SewerWorker4 == true && intelSewerWorker4KeyCheck == false)
+        if (DataBaseManager.intelSewerWorker4 == true && intelSewerWorker4KeyCheck == false)
         {
             intelSewerWorker4KeyCheck = true;
             functionList.Add(Fab_OwnerofUnifrom);
         }
-        if (DataBaseManager.Intel_MurderCase4 == true && intelMurderCase4KeyCheck == false)
+        if (DataBaseManager.intelMurderCase4 == true && intelMurderCase4KeyCheck == false)
         {
             intelMurderCase4KeyCheck = true;
             functionList.Add(Fab_CauseofDeath);
         }
-        if (DataBaseManager.Intel_MurderCase5 == true && intelMurderCase5KeyCheck == false)
+        if (DataBaseManager.intelMurderCase5 == true && intelMurderCase5KeyCheck == false)
         {
             intelMurderCase5KeyCheck = true;
             functionList.Add(Fab_WebbedFeet);
         }
-        if (DataBaseManager.Intel_MurderCase6 == true && intelMurderCase6KeyCheck == false)
+        if (DataBaseManager.intelMurderCase6 == true && intelMurderCase6KeyCheck == false)
         {
             intelMurderCase6KeyCheck = true;
             functionList.Add(Fab_Runway);
         }
-        if (DataBaseManager.Intel_MurderCase2 == true && intelMurderCase2KeyCheck == false)
+        if (DataBaseManager.intelMurderCase2 == true && intelMurderCase2KeyCheck == false)
         {
             intelMurderCase2KeyCheck = true;
             functionList.Add(Fab_FishySmellMissing);
         }
-        if (DataBaseManager.Intel_MurderCase3 == true && intelMurderCase3KeyCheck == false)
+        if (DataBaseManager.intelMurderCase3 == true && intelMurderCase3KeyCheck == false)
         {
             intelMurderCase3KeyCheck = true;
             functionList.Add(Fab_TheClupet);
         }
-        if ((DataBaseManager.Intel_MurderCase2 == true || DataBaseManager.Intel_MurderCase3 == true) && bothKeyCheck == false)
+        if ((DataBaseManager.intelMurderCase2 == true || DataBaseManager.intelMurderCase3 == true) && bothKeyCheck == false)
         {
             bothKeyCheck = true;
             functionList.Add(Fab_Both);
         }
-        if ((DataBaseManager.Intel_Sewer1 == true || DataBaseManager.Intel_Sewer2 == true) && intelSewer2KeyCheck == false)
+        if ((DataBaseManager.intelSewer1 == true || DataBaseManager.intelSewer2 == true) && intelSewer2KeyCheck == false)
         {
             intelSewer2KeyCheck = true;
             functionList.Add(Fab_WarnOrRoot);
         }
-        if ((DataBaseManager.SwainDeathKeyword == true) && swainSewerKeyCheck == false)
+        if ((DataBaseManager.swainDeathKeyword == true) && swainSewerKeyCheck == false)
         {
             swainSewerKeyCheck = true;
             functionList.Add(Fab_SwainSewer);
@@ -1149,7 +1149,7 @@ public class DirectingManager : MonoBehaviour
         }
         else
         {
-            DataBaseManager.EndDay = true;
+            DataBaseManager.endDay = true;
         }
         // 함수 리스트에서 무작위로 함수 선택
     }

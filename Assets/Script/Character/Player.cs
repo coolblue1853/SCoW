@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (DataBaseManager.WearCoat == true && coatCheckOff == false)
+        if (DataBaseManager.wearCoat == true && coatCheckOff == false)
         {
             Debug.Log("ssddff22");
             coatCheckOn = false;
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
             anime.SetBool("IsChange", true);
             anime.SetBool("Coat", true);
         }
-        if (DataBaseManager.WearCoat == false && coatCheckOn == false)
+        if (DataBaseManager.wearCoat == false && coatCheckOn == false)
         {
             Debug.Log("ssddff");
             coatCheckOn = true;
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
             anime.SetBool("Nomal", true);
             anime.SetBool("IsChange", false);
         }
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.StoryDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false)
+        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.storyDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false)
         {
             anime.SetBool("Dialog", false);
             runAndWalkChanger();
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
         {
             anime.SetBool("Dialog", true);
         }
-        if (DataBaseManager.Helplessness == true && runPower == 14f)
+        if (DataBaseManager.helplessness == true && runPower == 14f)
         {
             runPower = 9.8f;
         }
