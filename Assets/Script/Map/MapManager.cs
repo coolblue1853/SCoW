@@ -7,342 +7,340 @@ using UnityEngine.Animations;
 public class MapManager : MonoBehaviour
 {
     public TextMeshProUGUI text;
-    public Animator ChaingUiAnim;
-    public GameObject Upper;
-    public GameObject Downer;
-    float ChInRommSize = 2.383215f; // -이면 왼쪽 +면 오른쪽
-
-    public GameObject ChaingUi;
-    public GameObject Ring1;
-    public GameObject Ring2;
-    public GameObject Ring3;
-    public GameObject Ring4;
-    
+    public Animator chaingUiAnim;
+    public GameObject upper;
+    public GameObject downer;
+    float chInRommSize = 2.383215f; // -이면 왼쪽 +면 오른쪽
+    public GameObject chaingUi;
+    public GameObject ring1;
+    public GameObject ring2;
+    public GameObject ring3;
+    public GameObject ring4;
     public GameObject player;
     public GameObject camera;
-    public GameObject MapChainingUI;
-    public GameObject MapUI;
+    public GameObject mapChainingUI;
+    public GameObject mapUI;
 
     //대학교
-    public GameObject Student;
+    public GameObject student;
 
-    Vector3 player_SewerOfficeMove = new Vector3(-1202.4f, -81f);
-    Vector3 Cam_SewerOfficeMove = new Vector3(-1215.2f, -81.1f, -15);
+    Vector3 playerSewerOfficeMove = new Vector3(-1202.4f, -81f);
+    Vector3 camSewerOfficeMove = new Vector3(-1215.2f, -81.1f, -15);
 
-    Vector3 player_BarMeaveMove = new Vector3(-635.9305f, 1.532792f);
-    Vector3 Cam_BarMeaveMove = new Vector3(-634.0516f, 1.690001f, -15);
+    Vector3 playerBarMeaveMove = new Vector3(-635.9305f, 1.532792f);
+    Vector3 camBarMeaveMove = new Vector3(-634.0516f, 1.690001f, -15);
 
-    Vector3 player_NoonEventMenhole = new Vector3(-976.4003f, 3.074435f);
-    Vector3 Cam_NoonEventMenhole = new Vector3(-993.87f, 1.5f, -15);
+    Vector3 playerNoonEventMenhole = new Vector3(-976.4003f, 3.074435f);
+    Vector3 camNoonEventMenhole = new Vector3(-993.87f, 1.5f, -15);
 
-    Vector3 player_NoonEvent = new Vector3(-818.0412f, 2.183268f);
-    Vector3 Cam_NoonEvent = new Vector3(-814.3779f, 1.5f, -15);
+    Vector3 playerNoonEvent = new Vector3(-818.0412f, 2.183268f);
+    Vector3 camNoonEvent = new Vector3(-814.3779f, 1.5f, -15);
 
-    Vector3 player_DetectiveOffice = new Vector3(-774.2f, 2.6f);
-    Vector3 Cam_DetectiveOffice = new Vector3(-797.2f, 1.690001f, -15);
+    Vector3 playerDetectiveOffice = new Vector3(-774.2f, 2.6f);
+    Vector3 camDetectiveOffice = new Vector3(-797.2f, 1.690001f, -15);
 
-    Vector3 player_NoonEventFirst = new Vector3(-981.2974f, 2.86f);
+    Vector3 playerNoonEventFirst = new Vector3(-981.2974f, 2.86f);
 
-    Vector3 player_ClientsHouse = new Vector3(-990.2f, 2.86f);
-    Vector3 Cam_ClientsHouse = new Vector3(-993.87f, 1.5f, -15);
+    Vector3 playerClientsHouse = new Vector3(-990.2f, 2.86f);
+    Vector3 camClientsHouse = new Vector3(-993.87f, 1.5f, -15);
 
-    Vector3 player_DailyNews = new Vector3(-117.6f, -81f);
-    Vector3 Cam_DailyNews = new Vector3(-135.7f, -81.21f, -15);
+    Vector3 playerDailyNews = new Vector3(-117.6f, -81f);
+    Vector3 camDailyNews = new Vector3(-135.7f, -81.21f, -15);
 
-    Vector3 player_Policeoffice = new Vector3(-736.7f, -81f);
-    Vector3 Cam_Policeoffice = new Vector3(-721.27f, -81.51f, -15);
+    Vector3 playerPoliceoffice = new Vector3(-736.7f, -81f);
+    Vector3 camPoliceoffice = new Vector3(-721.27f, -81.51f, -15);
 
-    Vector3 player_Univercity = new Vector3(-277f, -81.4f);
-    Vector3 Cam_Univercity = new Vector3(-287.6f, -81.61f, -15);
+    Vector3 playerUnivercity = new Vector3(-277f, -81.4f);
+    Vector3 camUnivercity = new Vector3(-287.6f, -81.61f, -15);
 
-    Vector3 player_RiverSide = new Vector3(-298.34f, 1.77f);
-    Vector3 Cam_RiverSide = new Vector3(-313.2f, 1.5f, -16);
+    Vector3 playerRiverSide = new Vector3(-298.34f, 1.77f);
+    Vector3 camRiverSide = new Vector3(-313.2f, 1.5f, -16);
 
-    Vector3 player_Hospital = new Vector3(-496.1f, -82.5f);
-    Vector3 Cam_Hospital = new Vector3(-491.27f, -81.51f, -15);
+    Vector3 playerHospital = new Vector3(-496.1f, -82.5f);
+    Vector3 camHospital = new Vector3(-491.27f, -81.51f, -15);
 
-    Vector3 player_Slum = new Vector3(-849f, -81f);
-    Vector3 Cam_Slum = new Vector3(-860.77f, -81.51f, -15);
+    Vector3 playerSlum = new Vector3(-849f, -81f);
+    Vector3 camSlum = new Vector3(-860.77f, -81.51f, -15);
 
-    Vector3 player_Bar = new Vector3(-666.8f, 2.6f);
-    Vector3 Cam_Bar = new Vector3(-650.4f, 1.690001f, -15);
+    Vector3 playerBar = new Vector3(-666.8f, 2.6f);
+    Vector3 camBar = new Vector3(-650.4f, 1.690001f, -15);
 
-    Vector3 player_Gunshop = new Vector3(-1036.56f, -82.12f);
-    Vector3 Cam_Gunshop = new Vector3(-1056.2f, -82f, -15);
-
-    public GameObject DetectiveOfficeButton;
-    public GameObject ClientsHouseButton;
-    public GameObject DailyNewsButton;
-    public GameObject PoliceofficeButton;
-    public GameObject UnivercityButton;
-    public GameObject RiverSideButton;
-    public GameObject HospitalButton;
-    public GameObject SlumButton;
-    public GameObject BarButton;
-    public GameObject GunshopButton;
-    public GameObject SewerOfficeButton;
+    Vector3 playerGunshop = new Vector3(-1036.56f, -82.12f);
+    Vector3 camGunshop = new Vector3(-1056.2f, -82f, -15);
+    public GameObject detectiveOfficeButton;
+    public GameObject clientsHouseButton;
+    public GameObject dailyNewsButton;
+    public GameObject policeofficeButton;
+    public GameObject univercityButton;
+    public GameObject riverSideButton;
+    public GameObject hospitalButton;
+    public GameObject slumButton;
+    public GameObject barButton;
+    public GameObject gunshopButton;
+    public GameObject sewerOfficeButton;
+    
     private void buttonChecker() 
     {
         if ((DataBaseManager.TimeCount % 4) == 1)
         {
-            DetectiveOfficeButton.SetActive(false);
-            BarButton.SetActive(false);
+            detectiveOfficeButton.SetActive(false);
+            barButton.SetActive(false);
             if (DataBaseManager.nowPlace == "Client'shouse")
             {
-                ClientsHouseButton.SetActive(false);
+                clientsHouseButton.SetActive(false);
             }
             else
             {
                 if (DataBaseManager.Intel_QuestHouse1 == true)
                 {
-                    ClientsHouseButton.SetActive(true);
+                    clientsHouseButton.SetActive(true);
                 }
                 else
                 {
-                    ClientsHouseButton.SetActive(false);
+                    clientsHouseButton.SetActive(false);
                 }
             }
             if (DataBaseManager.nowPlace == "DailyNews")
             {
-                DailyNewsButton.SetActive(false);
+                dailyNewsButton.SetActive(false);
             }
             else
             {
-                DailyNewsButton.SetActive(true);
+                dailyNewsButton.SetActive(true);
             }
             if (DataBaseManager.nowPlace == "University")
             {
-                UnivercityButton.SetActive(false);
+                univercityButton.SetActive(false);
             }
             else
             {
-                UnivercityButton.SetActive(true);
+                univercityButton.SetActive(true);
             }
             if (DataBaseManager.nowPlace == "Riverside")
             {
-                RiverSideButton.SetActive(false);
+                riverSideButton.SetActive(false);
             }
             else
             {
-                RiverSideButton.SetActive(true);
+                riverSideButton.SetActive(true);
             }
             if (DataBaseManager.nowPlace == "Hospital")
             {
-                HospitalButton.SetActive(false);
+                hospitalButton.SetActive(false);
             }
             else
             {
-                HospitalButton.SetActive(true);
+                hospitalButton.SetActive(true);
             }
             if (DataBaseManager.nowPlace == "Policeoffice")
             {
-                PoliceofficeButton.SetActive(false);
+                policeofficeButton.SetActive(false);
             }
             else
             {
-                PoliceofficeButton.SetActive(true);
+                policeofficeButton.SetActive(true);
             }
             if (DataBaseManager.nowPlace == "Slum")
             {
-                SlumButton.SetActive(false);
+                slumButton.SetActive(false);
             }
             else
             {
-                SlumButton.SetActive(true);
+                slumButton.SetActive(true);
             }
             if (DataBaseManager.Tightwad == true)
             {
-                GunshopButton.SetActive(false);
+                gunshopButton.SetActive(false);
             }
             else if (DataBaseManager.nowPlace == "Gunshop")
             {
-                GunshopButton.SetActive(false);
+                gunshopButton.SetActive(false);
             }
             else
             {
-                GunshopButton.SetActive(true);
+                gunshopButton.SetActive(true);
             }
             if (DataBaseManager.Intel_SewageMaintenanceOffice1 == false)
             {
-                SewerOfficeButton.SetActive(false);
+                sewerOfficeButton.SetActive(false);
             }
             else if (DataBaseManager.nowPlace == "SewerOffice")
             {
-                SewerOfficeButton.SetActive(false);
+                sewerOfficeButton.SetActive(false);
             }
             else
             {
-                SewerOfficeButton.SetActive(true);
+                sewerOfficeButton.SetActive(true);
             }
         }
         if ((DataBaseManager.TimeCount % 4) == 2)
         {
-            DetectiveOfficeButton.SetActive(false);
-            BarButton.SetActive(false);
+            detectiveOfficeButton.SetActive(false);
+            barButton.SetActive(false);
             if (DataBaseManager.nowPlace == "Client'shouse")
             {
-                ClientsHouseButton.SetActive(false);
+                clientsHouseButton.SetActive(false);
             }
             else
             {
                 if(DataBaseManager.Intel_QuestHouse1 == true)
                 {
-                    ClientsHouseButton.SetActive(true);
+                    clientsHouseButton.SetActive(true);
                 }
                 else
                 {
-                    ClientsHouseButton.SetActive(false);
+                    clientsHouseButton.SetActive(false);
                 }
             }
             if (DataBaseManager.nowPlace == "DailyNews")
             {
-                DailyNewsButton.SetActive(false);
+                dailyNewsButton.SetActive(false);
             }
             else
             {
-                DailyNewsButton.SetActive(true);
+                dailyNewsButton.SetActive(true);
             }
             if (DataBaseManager.nowPlace == "University")
             {
-                UnivercityButton.SetActive(false);
+                univercityButton.SetActive(false);
             }
             else
             {
-                UnivercityButton.SetActive(true);
+                univercityButton.SetActive(true);
             }
             if (DataBaseManager.nowPlace == "Riverside")
             {
-                RiverSideButton.SetActive(false);
+                riverSideButton.SetActive(false);
             }
             else
             {
-                RiverSideButton.SetActive(true);
+                riverSideButton.SetActive(true);
             }
             if (DataBaseManager.nowPlace == "Hospital")
             {
-                HospitalButton.SetActive(false);
+                hospitalButton.SetActive(false);
             }
             else
             {
-                HospitalButton.SetActive(true);
+                hospitalButton.SetActive(true);
             }
             if (DataBaseManager.nowPlace == "Policeoffice")
             {
-                PoliceofficeButton.SetActive(false);
+                policeofficeButton.SetActive(false);
             }
             else
             {
-                PoliceofficeButton.SetActive(true);
+                policeofficeButton.SetActive(true);
             }
             if (DataBaseManager.nowPlace == "Slum")
             {
-                SlumButton.SetActive(false);
+                slumButton.SetActive(false);
             }
             else
             {
-                SlumButton.SetActive(true);
+                slumButton.SetActive(true);
             }
             if (DataBaseManager.Tightwad == true)
             {
-                GunshopButton.SetActive(false);
+                gunshopButton.SetActive(false);
             }
             else if (DataBaseManager.nowPlace == "Gunshop")
             {
-                GunshopButton.SetActive(false);
+                gunshopButton.SetActive(false);
             }
             else
             {
-                GunshopButton.SetActive(true);
+                gunshopButton.SetActive(true);
             }
             if (DataBaseManager.Intel_SewageMaintenanceOffice1 == false)
             {
-                SewerOfficeButton.SetActive(false);
+                sewerOfficeButton.SetActive(false);
             }
             else if (DataBaseManager.nowPlace == "SewerOffice")
             {
-                SewerOfficeButton.SetActive(false);
+                sewerOfficeButton.SetActive(false);
             }
             else
             {
-                SewerOfficeButton.SetActive(true);
+                sewerOfficeButton.SetActive(true);
             }
         }
         if ((DataBaseManager.TimeCount % 4) == 3)
         {
-            DetectiveOfficeButton.SetActive(true);
-            ClientsHouseButton.SetActive(false);
-            DailyNewsButton.SetActive(false);
-            UnivercityButton.SetActive(false);
-            RiverSideButton.SetActive(false);
-            HospitalButton.SetActive(false);
-            PoliceofficeButton.SetActive(false);
-            SlumButton.SetActive(false);
-            GunshopButton.SetActive(false);
+            detectiveOfficeButton.SetActive(true);
+            clientsHouseButton.SetActive(false);
+            dailyNewsButton.SetActive(false);
+            univercityButton.SetActive(false);
+            riverSideButton.SetActive(false);
+            hospitalButton.SetActive(false);
+            policeofficeButton.SetActive(false);
+            slumButton.SetActive(false);
+            gunshopButton.SetActive(false);
             if(DataBaseManager.isDebuff_NightPhobia == false)
             {
-                BarButton.SetActive(true);
+                barButton.SetActive(true);
                 if (DataBaseManager.Intel_SewageMaintenanceOffice1 == false)
                 {
-                    SewerOfficeButton.SetActive(false);
+                    sewerOfficeButton.SetActive(false);
                 }
                 else if (DataBaseManager.nowPlace == "SewerOffice")
                 {
-                    SewerOfficeButton.SetActive(false);
+                    sewerOfficeButton.SetActive(false);
                 }
                 else
                 {
-                    SewerOfficeButton.SetActive(true);
+                    sewerOfficeButton.SetActive(true);
                 }
             }
             else
             {
-                SewerOfficeButton.SetActive(false);
-                BarButton.SetActive(false);
+                sewerOfficeButton.SetActive(false);
+                barButton.SetActive(false);
             }
         }
         if ((DataBaseManager.TimeCount % 4) == 0)
         {
             if(DataBaseManager.nowPlace == "Bar")
             {
-                DetectiveOfficeButton.SetActive(true);
-                BarButton.SetActive(false);
-                ClientsHouseButton.SetActive(false);
-                DailyNewsButton.SetActive(false);
-                UnivercityButton.SetActive(false);
-                RiverSideButton.SetActive(false);
-                HospitalButton.SetActive(false);
-                PoliceofficeButton.SetActive(false);
-                SlumButton.SetActive(false);
-                GunshopButton.SetActive(false);
-                SewerOfficeButton.SetActive(false);
+                detectiveOfficeButton.SetActive(true);
+                barButton.SetActive(false);
+                clientsHouseButton.SetActive(false);
+                dailyNewsButton.SetActive(false);
+                univercityButton.SetActive(false);
+                riverSideButton.SetActive(false);
+                hospitalButton.SetActive(false);
+                policeofficeButton.SetActive(false);
+                slumButton.SetActive(false);
+                gunshopButton.SetActive(false);
+                sewerOfficeButton.SetActive(false);
             }
             if (DataBaseManager.nowPlace == "SewerOffice")
             {
-                DetectiveOfficeButton.SetActive(true);
-                BarButton.SetActive(false);
-                ClientsHouseButton.SetActive(false);
-                DailyNewsButton.SetActive(false);
-                UnivercityButton.SetActive(false);
-                RiverSideButton.SetActive(false);
-                HospitalButton.SetActive(false);
-                PoliceofficeButton.SetActive(false);
-                SlumButton.SetActive(false);
-                GunshopButton.SetActive(false);
-                SewerOfficeButton.SetActive(false);
+                detectiveOfficeButton.SetActive(true);
+                barButton.SetActive(false);
+                clientsHouseButton.SetActive(false);
+                dailyNewsButton.SetActive(false);
+                univercityButton.SetActive(false);
+                riverSideButton.SetActive(false);
+                hospitalButton.SetActive(false);
+                policeofficeButton.SetActive(false);
+                slumButton.SetActive(false);
+                gunshopButton.SetActive(false);
+                sewerOfficeButton.SetActive(false);
             }
         }
     }
     public void OpenUpperMap()
     {
         SoundManager.Instance.ClickSound_Play();
-        Upper.SetActive(true);
-        Downer.SetActive(false);
+        upper.SetActive(true);
+        downer.SetActive(false);
     }
     public void OpenDownMap()
     {
         SoundManager.Instance.ClickSound_Play();
-        Upper.SetActive(false);
-        Downer.SetActive(true);
+        upper.SetActive(false);
+        downer.SetActive(true);
     }
     private static MapManager instance = null;
     private void Awake()
@@ -377,7 +375,7 @@ public class MapManager : MonoBehaviour
                 SoundManager.Instance.PaperClip_Play();
                 DataBaseManager.workSound = false;
                 DataBaseManager.isOpenUi = true;
-                MapChainingUI.SetActive(true);
+                mapChainingUI.SetActive(true);
             }
         }
         else
@@ -389,7 +387,7 @@ public class MapManager : MonoBehaviour
                     SoundManager.Instance.PaperClip_Play();
                     DataBaseManager.workSound = false;
                     DataBaseManager.isOpenUi = true;
-                    MapChainingUI.SetActive(true);
+                    mapChainingUI.SetActive(true);
                 }
 
             }
@@ -399,7 +397,7 @@ public class MapManager : MonoBehaviour
     {
         SoundManager.Instance.ClickSound_Play();
         DataBaseManager.isOpenUi = false;
-        MapChainingUI.SetActive(false);
+        mapChainingUI.SetActive(false);
     }
     public GameObject NomalMap;
     public GameObject SewerMap;
@@ -420,30 +418,30 @@ public class MapManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                if(MapChainingUI.activeSelf == false)
+                if(mapChainingUI.activeSelf == false)
                 {
                     DataBaseManager.workSound = false;
                     OpenMap();
                 }
-                else if (MapChainingUI.activeSelf == true)
+                else if (mapChainingUI.activeSelf == true)
                 {
                     CloseMap();
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Escape) && MapChainingUI.activeSelf == true)
+            if (Input.GetKeyDown(KeyCode.Escape) && mapChainingUI.activeSelf == true)
             {
                 DataBaseManager.isOpenUi = false;
-                MapChainingUI.SetActive(false);
+                mapChainingUI.SetActive(false);
             }
         }
     }
     void NoonEvent()
     {
-        player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
-        player.transform.localPosition = player_NoonEvent;
-        camera.transform.localPosition = Cam_NoonEvent;
-        MapChainingUI.SetActive(false);
-        MapUI.SetActive(false);
+        player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
+        player.transform.localPosition = playerNoonEvent;
+        camera.transform.localPosition = camNoonEvent;
+        mapChainingUI.SetActive(false);
+        mapUI.SetActive(false);
         DataBaseManager.StoryDirecting = true;
         DataBaseManager.snd_Detective_NoonEvent = true;
     }
@@ -562,43 +560,43 @@ public class MapManager : MonoBehaviour
     }
     public void OpenSpinUi()
     {
-        ChaingUi.SetActive(true);
+        chaingUi.SetActive(true);
     }
     void SpinRing()
     {
         if ((DataBaseManager.TimeCount % 4) == 1)
         {
-            Ring1.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 1f).SetAutoKill();
-            Ring2.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 2.5f).SetAutoKill();
-            Ring3.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 1.5f).SetAutoKill();
-            Ring4.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 2f).SetAutoKill();
+            ring1.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 1f).SetAutoKill();
+            ring2.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 2.5f).SetAutoKill();
+            ring3.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 1.5f).SetAutoKill();
+            ring4.transform.DORotate(new Vector3(0f, 0, 360f + 360f), 2f).SetAutoKill();
         }
         if ((DataBaseManager.TimeCount % 4) == 2)
         {
-            Ring1.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 1f).SetAutoKill();
-            Ring2.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 2.5f).SetAutoKill();
-            Ring3.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 1.5f).SetAutoKill();
-            Ring4.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 2f).SetAutoKill();
+            ring1.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 1f).SetAutoKill();
+            ring2.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 2.5f).SetAutoKill();
+            ring3.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 1.5f).SetAutoKill();
+            ring4.transform.DORotate(new Vector3(0f, 0, 90f + 360f), 2f).SetAutoKill();
         }
         if ((DataBaseManager.TimeCount % 4) == 3)
         {
-            Ring1.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 1f).SetAutoKill();
-            Ring2.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 2.5f).SetAutoKill();
-            Ring3.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 1.5f).SetAutoKill();
-            Ring4.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 2f).SetAutoKill();
+            ring1.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 1f).SetAutoKill();
+            ring2.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 2.5f).SetAutoKill();
+            ring3.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 1.5f).SetAutoKill();
+            ring4.transform.DORotate(new Vector3(0f, 0, 180f + 360f), 2f).SetAutoKill();
         }
         if ((DataBaseManager.TimeCount % 4) == 0)
         {
-            Ring1.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 1f).SetAutoKill();
-            Ring2.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 2.5f).SetAutoKill();
-            Ring3.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 1.5f).SetAutoKill();
-            Ring4.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 2f).SetAutoKill();
+            ring1.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 1f).SetAutoKill();
+            ring2.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 2.5f).SetAutoKill();
+            ring3.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 1.5f).SetAutoKill();
+            ring4.transform.DORotate(new Vector3(0f, 0, 270f + 360f), 2f).SetAutoKill();
         }
         Invoke("ChainingDate", 1.5f);
     }
     public void ChainingDate()
     {
-        ChaingUiAnim.SetBool("Change", true);
+        chaingUiAnim.SetBool("Change", true);
         Invoke("ChainingDate2", 1f);
         Invoke("EndEvent", 1f);
     }
@@ -679,8 +677,8 @@ public class MapManager : MonoBehaviour
     }
     public void BarFabianMove()
     {
-        player.transform.localPosition = player_BarMeaveMove;
-        camera.transform.localPosition = Cam_BarMeaveMove;
+        player.transform.localPosition = playerBarMeaveMove;
+        camera.transform.localPosition = camBarMeaveMove;
     }
     public void EndEvent()
     {
@@ -704,11 +702,11 @@ public class MapManager : MonoBehaviour
         if (DataBaseManager.nowPlace == "DetectiveOffice")
         {
             DataBaseManager.TimeCount += 1;
-            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
-                player.transform.localPosition = player_DetectiveOffice;
-                camera.transform.localPosition = Cam_DetectiveOffice;
-                MapChainingUI.SetActive(false);
-                MapUI.SetActive(false);
+            player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
+                player.transform.localPosition = playerDetectiveOffice;
+                camera.transform.localPosition = camDetectiveOffice;
+                mapChainingUI.SetActive(false);
+                mapUI.SetActive(false);
                 DialogDatabaseManager.instance.check = true;
 
             if (DataBaseManager.TimeCount == 4)
@@ -719,11 +717,11 @@ public class MapManager : MonoBehaviour
         else if (DataBaseManager.nowPlace == "Client'shouse")
         {
             DataBaseManager.TimeCount += 1;
-            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
-            player.transform.localPosition = player_ClientsHouse;
-            camera.transform.localPosition = Cam_ClientsHouse;
-            MapChainingUI.SetActive(false);
-            MapUI.SetActive(false);
+            player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
+            player.transform.localPosition = playerClientsHouse;
+            camera.transform.localPosition = camClientsHouse;
+            mapChainingUI.SetActive(false);
+            mapUI.SetActive(false);
             if(DataBaseManager.firstClientsHouseEnd == false && DataBaseManager.TimeCount <6)
             {
                 DataBaseManager.StoryDirecting = true;
@@ -734,70 +732,70 @@ public class MapManager : MonoBehaviour
         else if (DataBaseManager.nowPlace == "DailyNews")
         {
             DataBaseManager.TimeCount += 1;
-            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
-            player.transform.localPosition = player_DailyNews;
-            camera.transform.localPosition = Cam_DailyNews;
-            MapChainingUI.SetActive(false);
-            MapUI.SetActive(false);
+            player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
+            player.transform.localPosition = playerDailyNews;
+            camera.transform.localPosition = camDailyNews;
+            mapChainingUI.SetActive(false);
+            mapUI.SetActive(false);
             DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "University")
         {
             DataBaseManager.TimeCount += 1;
-            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
-            player.transform.localPosition = player_Univercity;
-            camera.transform.localPosition = Cam_Univercity;
-            MapChainingUI.SetActive(false);
-            MapUI.SetActive(false);
+            player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
+            player.transform.localPosition = playerUnivercity;
+            camera.transform.localPosition = camUnivercity;
+            mapChainingUI.SetActive(false);
+            mapUI.SetActive(false);
             DialogDatabaseManager.instance.check = true;
 
             if((DataBaseManager.TimeCount % 4) == 3)
             {
-                Student.SetActive(false);
+                student.SetActive(false);
             }
             else
             {
-                Student.SetActive(true);
+                student.SetActive(true);
             }
         }
         else if (DataBaseManager.nowPlace == "Riverside")
         {
             DataBaseManager.TimeCount += 1;
-            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
-            player.transform.localPosition = player_RiverSide;
-            camera.transform.localPosition = Cam_RiverSide;
-            MapChainingUI.SetActive(false);
-            MapUI.SetActive(false);
+            player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
+            player.transform.localPosition = playerRiverSide;
+            camera.transform.localPosition = camRiverSide;
+            mapChainingUI.SetActive(false);
+            mapUI.SetActive(false);
             DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "Hospital")
         {
             DataBaseManager.TimeCount += 1;
-            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
-            player.transform.localPosition = player_Hospital;
-            camera.transform.localPosition = Cam_Hospital;
-            MapChainingUI.SetActive(false);
-            MapUI.SetActive(false);
+            player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
+            player.transform.localPosition = playerHospital;
+            camera.transform.localPosition = camHospital;
+            mapChainingUI.SetActive(false);
+            mapUI.SetActive(false);
             DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "Policeoffice")
         {
             DataBaseManager.TimeCount += 1;
-            player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
-            player.transform.localPosition = player_Policeoffice;
-            camera.transform.localPosition = Cam_Policeoffice;
-            MapChainingUI.SetActive(false);
-            MapUI.SetActive(false);
+            player.transform.localScale = new Vector3(chInRommSize, chInRommSize, 1);
+            player.transform.localPosition = playerPoliceoffice;
+            camera.transform.localPosition = camPoliceoffice;
+            mapChainingUI.SetActive(false);
+            mapUI.SetActive(false);
             DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "Slum")
         {
             DataBaseManager.TimeCount += 1;
-            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
-            player.transform.localPosition = player_Slum;
-            camera.transform.localPosition = Cam_Slum;
-            MapChainingUI.SetActive(false);
-            MapUI.SetActive(false);
+            player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
+            player.transform.localPosition = playerSlum;
+            camera.transform.localPosition = camSlum;
+            mapChainingUI.SetActive(false);
+            mapUI.SetActive(false);
             DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "Bar")
@@ -805,21 +803,21 @@ public class MapManager : MonoBehaviour
             DataBaseManager.battleEnemyCount += 1;
             DataBaseManager.TimeCount += 1;
             DataBaseManager.isBar = true;
-            player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
-            player.transform.localPosition = player_Bar;
-            camera.transform.localPosition = Cam_Bar;
-            MapChainingUI.SetActive(false);
-            MapUI.SetActive(false);
+            player.transform.localScale = new Vector3(chInRommSize, chInRommSize, 1);
+            player.transform.localPosition = playerBar;
+            camera.transform.localPosition = camBar;
+            mapChainingUI.SetActive(false);
+            mapUI.SetActive(false);
             DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "Gunshop")
         {
             DataBaseManager.TimeCount += 1;
-            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
-            player.transform.localPosition = player_Gunshop;
-            camera.transform.localPosition = Cam_Gunshop;
-            MapChainingUI.SetActive(false);
-            MapUI.SetActive(false);
+            player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
+            player.transform.localPosition = playerGunshop;
+            camera.transform.localPosition = camGunshop;
+            mapChainingUI.SetActive(false);
+            mapUI.SetActive(false);
             DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "BattleRoad")
@@ -830,22 +828,22 @@ public class MapManager : MonoBehaviour
             }
             DataBaseManager.secondisDirecting = true;
             DataBaseManager.nowPlace = "DetectiveOffice";
-            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
-            player.transform.localPosition = player_DetectiveOffice;
-            camera.transform.localPosition = Cam_DetectiveOffice;
-            MapChainingUI.SetActive(false);
-            MapUI.SetActive(false);
+            player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
+            player.transform.localPosition = playerDetectiveOffice;
+            camera.transform.localPosition = camDetectiveOffice;
+            mapChainingUI.SetActive(false);
+            mapUI.SetActive(false);
             DialogDatabaseManager.instance.check = true;
 
         }
         else if (DataBaseManager.nowPlace == "NoonEvent")
         {
             DataBaseManager.TimeCount += 1;
-            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
-            player.transform.localPosition = player_NoonEventFirst;
-            camera.transform.localPosition = Cam_ClientsHouse;
-            MapChainingUI.SetActive(false);
-            MapUI.SetActive(false);
+            player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
+            player.transform.localPosition = playerNoonEventFirst;
+            camera.transform.localPosition = camClientsHouse;
+            mapChainingUI.SetActive(false);
+            mapUI.SetActive(false);
             DialogDatabaseManager.instance.check = true;
         }
         else if (DataBaseManager.nowPlace == "SewerOffice")
@@ -853,11 +851,11 @@ public class MapManager : MonoBehaviour
             DataBaseManager.battleEnemyCount += 1;
             DataBaseManager.TimeCount += 1;
             DataBaseManager.isSewerOffice = true;
-            player.transform.localScale = new Vector3(-ChInRommSize, ChInRommSize, 1);
-            player.transform.localPosition = player_SewerOfficeMove;
-            camera.transform.localPosition = Cam_SewerOfficeMove;
-            MapChainingUI.SetActive(false);
-            MapUI.SetActive(false);
+            player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
+            player.transform.localPosition = playerSewerOfficeMove;
+            camera.transform.localPosition = camSewerOfficeMove;
+            mapChainingUI.SetActive(false);
+            mapUI.SetActive(false);
             DialogDatabaseManager.instance.check = true;
         }
 
@@ -887,10 +885,10 @@ public class MapManager : MonoBehaviour
     }
     public void MoveToSewer()
     {
-        player.transform.localScale = new Vector3(ChInRommSize, ChInRommSize, 1);
+        player.transform.localScale = new Vector3(chInRommSize, chInRommSize, 1);
         CameraManager.Instance.isCheckEnd = true;
-        player.transform.localPosition = player_NoonEventMenhole;
-        camera.transform.localPosition = Cam_NoonEventMenhole;
+        player.transform.localPosition = playerNoonEventMenhole;
+        camera.transform.localPosition = camNoonEventMenhole;
         Invoke("SewerDialog", 1f);
     }
     public void SewerDialog()

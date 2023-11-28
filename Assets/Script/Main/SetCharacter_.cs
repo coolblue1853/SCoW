@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+
 public class SetCharacter_ : MonoBehaviour
 {
     public GameObject backOb;

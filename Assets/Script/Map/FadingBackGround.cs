@@ -6,31 +6,29 @@ using DG.Tweening;
 using UnityEngine.SceneManagement;
 public class FadingBackGround : MonoBehaviour
 {
-    public GameObject Back;
-    public Image BackGround;
-
-    public GameObject CastIn;
-    public Image CastInBackground;
-    public GameObject CastOut;
-    public Image CastOutBackground;
+    public GameObject backgroundOb;
+    public Image backGroundImg;
+    public GameObject castIn;
+    public Image castInBackground;
+    public GameObject castOut;
+    public Image castOutBackground;
     public void goToMain()
     {
         DataBaseManager.instance.ResetData();
         SceneManager.LoadScene("Insert");
     }
-    public GameObject DemoEnd_Back;
-    public Image DemoEnd_BackGround;
-
-    public GameObject EndMenu;
+    public GameObject demoEndBack;
+    public Image demoEndBackGround;
+    public GameObject endMenu;
     public void DemoEnd_FadeIn()
     {
-        DemoEnd_Back.SetActive(true);
-        Tween fadeTween = DemoEnd_BackGround.DOFade(1, 1.5f);
+        demoEndBack.SetActive(true);
+        Tween fadeTween = demoEndBackGround.DOFade(1, 1.5f);
         fadeTween.OnComplete(EndDemo);
     }
     private void EndDemo()
     {
-        EndMenu.SetActive(true);
+        endMenu.SetActive(true);
     }
     Sequence mySequence;
     Sequence mySequence2;
@@ -41,20 +39,20 @@ public class FadingBackGround : MonoBehaviour
     }
     IEnumerator CastInOut_IEnumerator()
     {
-        CastIn.SetActive(true);
+        castIn.SetActive(true);
         mySequence = DOTween.Sequence()
-        .Append(CastInBackground.DOFillAmount(1, 0.7f).SetAutoKill());
+        .Append(castInBackground.DOFillAmount(1, 0.7f).SetAutoKill());
         yield return mySequence.WaitForCompletion();
-        CastIn.SetActive(false);
-        CastOut.SetActive(true);
+        castIn.SetActive(false);
+        castOut.SetActive(true);
         mySequence2 = DOTween.Sequence()
         .SetDelay(0.1f)
-        .Append(CastOutBackground.DOFillAmount(0, 0.7f).SetAutoKill());
+        .Append(castOutBackground.DOFillAmount(0, 0.7f).SetAutoKill());
         yield return mySequence2.WaitForCompletion();
         DataBaseManager.isDirecting = false;
-        CastOut.SetActive(false);
-        CastInBackground.fillAmount = 0;
-        CastOutBackground.fillAmount = 1;
+        castOut.SetActive(false);
+        castInBackground.fillAmount = 0;
+        castOutBackground.fillAmount = 1;
     }
     public void FadeInOut()
     {
@@ -62,22 +60,22 @@ public class FadingBackGround : MonoBehaviour
     }
     IEnumerator FadeInOut_IEnumerator()
     {
-        Back.SetActive(true);
+        backgroundOb.SetActive(true);
         mySequence = DOTween.Sequence()
-        .Append(BackGround.DOFade(1, 1f).SetAutoKill());
+        .Append(backGroundImg.DOFade(1, 1f).SetAutoKill());
         yield return mySequence.WaitForCompletion();
         mySequence2 = DOTween.Sequence()
         .SetDelay(1f)
-        .Append(BackGround.DOFade(0, 1f).SetAutoKill());
+        .Append(backGroundImg.DOFade(0, 1f).SetAutoKill());
         yield return mySequence2.WaitForCompletion();
         DataBaseManager.isDirecting = false;
-        Back.SetActive(false);
+        backgroundOb.SetActive(false);
     }
     public void FadeIn()
     {
-        Back.SetActive(true);
+        backgroundOb.SetActive(true);
         mySequence = DOTween.Sequence()
-        .Append(BackGround.DOFade(1, 1f).SetAutoKill());
+        .Append(backGroundImg.DOFade(1, 1f).SetAutoKill());
     }
     public void FadeOut()
     {
@@ -87,10 +85,10 @@ public class FadingBackGround : MonoBehaviour
     {
         mySequence2 = DOTween.Sequence()
         .SetDelay(1.5f)
-        .Append(BackGround.DOFade(0, 1f).SetAutoKill());
+        .Append(backGroundImg.DOFade(0, 1f).SetAutoKill());
         yield return mySequence2.WaitForCompletion();
         DataBaseManager.isDirecting = false;
-        Back.SetActive(false);
+        backgroundOb.SetActive(false);
 
     }
     private static FadingBackGround instance = null;

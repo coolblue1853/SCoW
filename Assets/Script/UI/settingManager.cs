@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Serialization;
 
 public class settingManager : MonoBehaviour
 {
@@ -33,7 +33,9 @@ public class settingManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    public void goToMain()
+
+
+    public void GoToMain()
     {
         DataBaseManager.instance.ResetData();
         setting.SetActive(false);
@@ -62,10 +64,7 @@ public class settingManager : MonoBehaviour
         tutorial.SetActive(false);
         keySetting.SetActive(false);
     }
-    public void 게임종료버튼()
-    {
-        Application.Quit();
-    }
+
 
     public Text resolution;
     int changeInt = 1;
