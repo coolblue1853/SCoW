@@ -4,14 +4,14 @@ using UnityEngine;
 using TMPro;
 public class SIS_Debuff : MonoBehaviour
 {
-    public GameObject DetailObject;
+    public GameObject detailObject;
     public TextMeshProUGUI detailText;
 
     public void Open_Detail()
     {
-        if (DetailObject.activeSelf == false)
+        if (detailObject.activeSelf == false)
         {
-            DetailObject.SetActive(true);
+            detailObject.SetActive(true);
             if (this.name == "Health -5")
             {
                 detailText.text = "Carelessness\n\nYou lose 5 HP and max HP Point.";
@@ -124,7 +124,7 @@ public class SIS_Debuff : MonoBehaviour
     }
     public void closeDetail()
     {
-        DetailObject.SetActive(false);
+        detailObject.SetActive(false);
         detailText.text = "";
     }
 }

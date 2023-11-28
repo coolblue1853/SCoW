@@ -6,89 +6,113 @@ using TMPro;
 public class SIS_UIManager : MonoBehaviour
 {
     public GameObject debuffDetail;
-    public GameObject SIS_UI;
-    public GameObject Stat_UI;
-    public GameObject Inventory_UI;
-    public GameObject Skill_UI;
-    public GameObject Item_use;
-    public GameObject Item_key;
-    public GameObject Item_Eqip;
-
-    public TextMeshProUGUI Name;
-    public TextMeshProUGUI Detail;
-
-    public TextMeshProUGUI Use_Name;
-    public TextMeshProUGUI Use_Detail;
-
-    public TextMeshProUGUI Key_Name;
-    public TextMeshProUGUI Key_Detail;
-
-    public GameObject ItemBox;
-    public GameObject Use_ItemBox;
-    public GameObject Key_ItemBox;
-
-    public Text str_txt;
-    public Text intl_txt;
-    public Text dex_txt;
-    public Text hp_txt;
-    public Text mp_txt;
-    public Text san_txt;
-    public Text luk_txt;
-    public Text weal_txt;
-
-    public Image str_image;
-    public Image intl_image;
-    public Image dex_image;
-    public Image hp_image;
-    public Image mp_image;
-    public Image san_image;
-    public Image luk_image;
-    public Image weal_image;
+    public GameObject sisUI;
+    public GameObject statUI;
+    public GameObject inventoryUI;
+    public GameObject skillUI;
+    public GameObject itemuse;
+    public GameObject itemKey;
+    public GameObject itemEqip;
+    public TextMeshProUGUI name;
+    public TextMeshProUGUI detail;
+    public TextMeshProUGUI useName;
+    public TextMeshProUGUI useDetail;
+    public TextMeshProUGUI keyName;
+    public TextMeshProUGUI keyDetail;
+    public GameObject itemBox;
+    public GameObject useItemBox;
+    public GameObject keyItemBox;
+    public Text strTxt;
+    public Text intlTxt;
+    public Text dexTxt;
+    public Text hpTxt;
+    public Text mpTxt;
+    public Text sanTxt;
+    public Text lukTxt;
+    public Text wealTxt;
+    public Image strImage;
+    public Image intlImage;
+    public Image dexImage;
+    public Image hpImage;
+    public Image mpImage;
+    public Image sanImage;
+    public Image lukImage;
+    public Image wealImage;
 
     //skill - str
-    public Text martialArtsPoint_t;
-    public Text gunShotPoint_t;
-    public Text swordPoint_t;
-    public Text ObservationPoint_t;
-    public Text swimingPoint_t;
-
-    public Image martialArtsPoint_g;
-    public Image gunShotPoint_g;
-    public Image swordPoint_g;
-    public Image ObservationPoint_g;
-    public Image swimingPoint_g;
+    public Text martialArtsPointTxt;
+    public Text gunShotPointTxt;
+    public Text swordPointTxt;
+    public Text ObservationPointTxt;
+    public Text swimingPointTxt;
+    public Image martialArtsPointImg;
+    public Image gunShotPointImg;
+    public Image swordPointImg;
+    public Image ObservationPointImg;
+    public Image swimingPointImg;
 
     //skill - int
-    public Text medicine_t;
-    public Text analysis_t;
-    public Text listening_t;
-    public Text psychotherapy_t;
-    public Text occult_t;
-
-    public Image medicine_g;
-    public Image analysis_g;
-    public Image listening_g;
-    public Image psychotherapy_g;
-    public Image occult_g;
+    public Text medicineTxt;
+    public Text analysisTxt;
+    public Text listeningTxt;
+    public Text psychotherapyTxt;
+    public Text occultTxt;
+    public Image medicineImg;
+    public Image analysisImg;
+    public Image listeningImg;
+    public Image psychotherapyImg;
+    public Image occultImg;
 
     //skill - dex
-    public Text evasion_t;
-    public Text deftness_t;
-    public Text rhetoric_t;
-    public Text stealth_t;
-    public Text Disguise_t;
-
-    public Image evasion_g;
-    public Image deftness_g;
-    public Image rhetoric_g;
-    public Image stealth_g;
-    public Image Disguise_g;
-
-    public Image imageComponent_Eqip;
-    public Image imageComponent_Use;
-    public Image imageComponent_Key;
-    public Sprite None;
-
+    public Text evasionTxt;
+    public Text deftnessTxt;
+    public Text rhetoricTxt;
+    public Text stealthTxt;
+    public Text DisguiseTxt;
+    public Image evasionImg;
+    public Image deftnessImg;
+    public Image rhetoricImg;
+    public Image stealthImg;
+    public Image DisguiseImg;
+    public Image imageComponentEqip;
+    public Image imageComponentUse;
+    public Image imageComponentKey;
+    public Sprite none;
+    public GameObject disorder;
+    public GameObject disorder2;
+    public GameObject disorder3;
+    public GameObject itemBoxNomal;
+    string inputString; // 사용자가 입력한 문자열
+    string[] resultArray; // 문자열을 저장할 배열
+    int arrayInt = 0;
+    public GameObject visionLoss;
+    public GameObject thinWallets;
+    public GameObject carelessness;
+    public GameObject debilitation;
+    public GameObject sprains;
+    public GameObject musclePain;
+    public GameObject dizziness;
+    public GameObject unlucky;
+    public GameObject migraines;
+    public GameObject eyeDisease;
+    public GameObject masochism;
+    public GameObject careless;
+    public GameObject mentalWeakness;
+    public GameObject helplessness;
+    public GameObject extravagant;
+    public GameObject panicAttack;
+    public GameObject medicaldistrust;
+    public GameObject hallucinations;
+    public GameObject nightPhobia;
+    public GameObject deafness;
+    public GameObject shortTempered;
+    public GameObject dyslexia;
+    public GameObject drugPhobia;
+    public GameObject cognitiveDisorder;
+    public GameObject cognitiveBreakdown;
+    public GameObject homicidalImpulse;
+    public GameObject perfectionism;
+    public GameObject tightwad;
     private static SIS_UIManager instance = null;
     public static SIS_UIManager Instance
     {
@@ -116,40 +140,40 @@ public class SIS_UIManager : MonoBehaviour
     {
         SoundManager.Instance.ClickSound_Play();
         DataBaseManager.nowItem = "";
-        Item_use.transform.SetSiblingIndex(-1);
+        itemuse.transform.SetSiblingIndex(-1);
     }
     public void Open_KeyItemUI()
     {
         SoundManager.Instance.ClickSound_Play();
         DataBaseManager.nowItem = "";
-        Item_key.transform.SetSiblingIndex(-1);
+        itemKey.transform.SetSiblingIndex(-1);
     }
     public void Open_NomalItemUI()
     {
         SoundManager.Instance.ClickSound_Play();
         DataBaseManager.nowItem = "";
-        Item_Eqip.transform.SetSiblingIndex(-1);
+        itemEqip.transform.SetSiblingIndex(-1);
     }
     public void Open_StatUI()
     {
         SoundManager.Instance.ClickSound_Play();
-        Stat_UI.SetActive(true);
-        Inventory_UI.SetActive(false);
-        Skill_UI.SetActive(false);
+        statUI.SetActive(true);
+        inventoryUI.SetActive(false);
+        skillUI.SetActive(false);
     }
     public void Open_InventoryUI()
     {
         SoundManager.Instance.ClickSound_Play();
-        Stat_UI.SetActive(false);
-        Inventory_UI.SetActive(true);
-        Skill_UI.SetActive(false);
+        statUI.SetActive(false);
+        inventoryUI.SetActive(true);
+        skillUI.SetActive(false);
     }
     public void Open_SkillUI()
     {
         SoundManager.Instance.ClickSound_Play();
-        Stat_UI.SetActive(false);
-        Inventory_UI.SetActive(false);
-        Skill_UI.SetActive(true);
+        statUI.SetActive(false);
+        inventoryUI.SetActive(false);
+        skillUI.SetActive(true);
     }
     // Update is called once per frame
     public void OpenMap()
@@ -161,20 +185,20 @@ public class SIS_UIManager : MonoBehaviour
             OpenItemDetail();
             DataBaseManager.workSound = false;
             DataBaseManager.isOpenUi = true;
-            SIS_UI.SetActive(true);
+            sisUI.SetActive(true);
         }
     }
     public void ResetDetail()
     {
-        imageComponent_Eqip.sprite = None;
-        imageComponent_Use.sprite = None;
-        imageComponent_Key.sprite = None;
-        Key_Name.text = "";
-        Key_Detail.text = "";
-        Name.text = "";
-        Detail.text = "";
-        Use_Name.text = "";
-        Use_Detail.text = "";
+        imageComponentEqip.sprite = none;
+        imageComponentUse.sprite = none;
+        imageComponentKey.sprite = none;
+        keyName.text = "";
+        keyDetail.text = "";
+        name.text = "";
+        detail.text = "";
+        useName.text = "";
+        useDetail.text = "";
     }
     public void CloseMap()
     {
@@ -183,514 +207,510 @@ public class SIS_UIManager : MonoBehaviour
         debuffDetail.SetActive(false);
         DataBaseManager.isItemUI = false;
         DataBaseManager.isOpenUi = false;
-        SIS_UI.SetActive(false);
+        sisUI.SetActive(false);
     }
-    public GameObject Disorder;
-    public GameObject Disorder2;
-    public GameObject Disorder3;
+
     private void Update()
     {
-        if (DataBaseManager.isDebuffCognitiveBreakdown == true && Disorder.activeSelf == false)
+        if (DataBaseManager.isDebuffCognitiveBreakdown == true && disorder.activeSelf == false)
         {
-            Disorder.SetActive(true);
-            Disorder2.SetActive(true);
-            Disorder3.SetActive(true);
+            disorder.SetActive(true);
+            disorder2.SetActive(true);
+            disorder3.SetActive(true);
         }
         ManageItem();
         if (DataBaseManager.nowItem == "")
         {
-            Name.text = "";
-            Detail.text = "";
-            Use_Name.text = "";
-            Use_Detail.text = "";
-            Key_Name.text = "";
-            Key_Detail.text = "";
+            name.text = "";
+            detail.text = "";
+            useName.text = "";
+            useDetail.text = "";
+            keyName.text = "";
+            keyDetail.text = "";
         }
         if (DataBaseManager.isActiveDialog1 == false)
         {
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                if (SIS_UI.activeSelf == false)
+                if (sisUI.activeSelf == false)
                 {
                     Okay2CheckUI();
                     DataBaseManager.workSound = false;
                     OpenMap();
                 }
-                else if (SIS_UI.activeSelf == true)
+                else if (sisUI.activeSelf == true)
                 {
                     CloseMap();
                 }
 
             }
-            if (Input.GetKeyDown(KeyCode.Escape) && SIS_UI.activeSelf == true)
+            if (Input.GetKeyDown(KeyCode.Escape) && sisUI.activeSelf == true)
             {
                 CloseMap();
             }
-            if (SIS_UI.activeSelf == false && Key_Name.text != "" && Name.text != "" && Use_Name.text != "")
+            if (sisUI.activeSelf == false && keyName.text != "" && name.text != "" && useName.text != "")
             {
-                imageComponent_Eqip.sprite = None;
-                imageComponent_Use.sprite = None;
-                imageComponent_Key.sprite = None;
-                Key_Name.text = "";
-                Key_Detail.text = "";
-                Name.text = "";
-                Detail.text = "";
-                Use_Name.text = "";
-                Use_Detail.text = "";
+                imageComponentEqip.sprite = none;
+                imageComponentUse.sprite = none;
+                imageComponentKey.sprite = none;
+                keyName.text = "";
+                keyDetail.text = "";
+                name.text = "";
+                detail.text = "";
+                useName.text = "";
+                useDetail.text = "";
             }
         }
     }
     public void Okay2CheckUI()
     {
-        str_txt.text = DataBaseManager.str.ToString();
-        str_image.fillAmount = ((float)DataBaseManager.str / 100);
+        strTxt.text = DataBaseManager.str.ToString();
+        strImage.fillAmount = ((float)DataBaseManager.str / 100);
 
-        intl_txt.text = DataBaseManager.intl.ToString();
-        intl_image.fillAmount = ((float)DataBaseManager.intl / 100);
+        intlTxt.text = DataBaseManager.intl.ToString();
+        intlImage.fillAmount = ((float)DataBaseManager.intl / 100);
 
-        dex_txt.text = DataBaseManager.dex.ToString();
-        dex_image.fillAmount = ((float)DataBaseManager.dex / 100);
+        dexTxt.text = DataBaseManager.dex.ToString();
+        dexImage.fillAmount = ((float)DataBaseManager.dex / 100);
 
-        hp_txt.text = DataBaseManager.hp.ToString();
-        hp_image.fillAmount = ((float)DataBaseManager.hp / 100);
+        hpTxt.text = DataBaseManager.hp.ToString();
+        hpImage.fillAmount = ((float)DataBaseManager.hp / 100);
 
-        mp_txt.text = DataBaseManager.mp.ToString();
-        mp_image.fillAmount = ((float)DataBaseManager.mp / 100);
+        mpTxt.text = DataBaseManager.mp.ToString();
+        mpImage.fillAmount = ((float)DataBaseManager.mp / 100);
 
-        san_txt.text = DataBaseManager.san.ToString();
-        san_image.fillAmount = ((float)DataBaseManager.san / 100);
+        sanTxt.text = DataBaseManager.san.ToString();
+        sanImage.fillAmount = ((float)DataBaseManager.san / 100);
 
-        luk_txt.text = DataBaseManager.luk.ToString();
-        luk_image.fillAmount = ((float)DataBaseManager.luk / 100);
+        lukTxt.text = DataBaseManager.luk.ToString();
+        lukImage.fillAmount = ((float)DataBaseManager.luk / 100);
 
-        weal_txt.text = DataBaseManager.weal.ToString();
-        weal_image.fillAmount = ((float)DataBaseManager.weal / 25);
+        wealTxt.text = DataBaseManager.weal.ToString();
+        wealImage.fillAmount = ((float)DataBaseManager.weal / 25);
 
-        martialArtsPoint_t.text = DataBaseManager.martialArtsPoint.ToString();
-        martialArtsPoint_g.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
-        gunShotPoint_t.text = DataBaseManager.gunShotPoint.ToString();
-        gunShotPoint_g.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
-        swordPoint_t.text = DataBaseManager.swordPoint.ToString();
-        swordPoint_g.fillAmount = (float)DataBaseManager.swordPoint / 100;
-        ObservationPoint_t.text = DataBaseManager.observationPoint.ToString();
-        ObservationPoint_g.fillAmount = (float)DataBaseManager.observationPoint / 100;
-        swimingPoint_t.text = DataBaseManager.swimingPoint.ToString();
-        swimingPoint_g.fillAmount = (float)DataBaseManager.swimingPoint / 100;
+        martialArtsPointTxt.text = DataBaseManager.martialArtsPoint.ToString();
+        martialArtsPointImg.fillAmount = (float)DataBaseManager.martialArtsPoint / 100;
+        gunShotPointTxt.text = DataBaseManager.gunShotPoint.ToString();
+        gunShotPointImg.fillAmount = (float)DataBaseManager.gunShotPoint / 100;
+        swordPointTxt.text = DataBaseManager.swordPoint.ToString();
+        swordPointImg.fillAmount = (float)DataBaseManager.swordPoint / 100;
+        ObservationPointTxt.text = DataBaseManager.observationPoint.ToString();
+        ObservationPointImg.fillAmount = (float)DataBaseManager.observationPoint / 100;
+        swimingPointTxt.text = DataBaseManager.swimingPoint.ToString();
+        swimingPointImg.fillAmount = (float)DataBaseManager.swimingPoint / 100;
 
-        medicine_t.text = DataBaseManager.medicinePoint.ToString();
-        medicine_g.fillAmount = (float)DataBaseManager.medicinePoint / 100;
-        analysis_t.text = DataBaseManager.analysisPoint.ToString();
-        analysis_g.fillAmount = (float)DataBaseManager.analysisPoint / 100;
-        occult_t.text = DataBaseManager.occultPoint.ToString();
-        occult_g.fillAmount = (float)DataBaseManager.occultPoint / 100;
-        listening_t.text = DataBaseManager.listeningPoint.ToString();
-        listening_g.fillAmount = (float)DataBaseManager.listeningPoint / 100;
-        psychotherapy_t.text = DataBaseManager.psychotherapyPoint.ToString();
-        psychotherapy_g.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
+        medicineTxt.text = DataBaseManager.medicinePoint.ToString();
+        medicineImg.fillAmount = (float)DataBaseManager.medicinePoint / 100;
+        analysisTxt.text = DataBaseManager.analysisPoint.ToString();
+        analysisImg.fillAmount = (float)DataBaseManager.analysisPoint / 100;
+        occultTxt.text = DataBaseManager.occultPoint.ToString();
+        occultImg.fillAmount = (float)DataBaseManager.occultPoint / 100;
+        listeningTxt.text = DataBaseManager.listeningPoint.ToString();
+        listeningImg.fillAmount = (float)DataBaseManager.listeningPoint / 100;
+        psychotherapyTxt.text = DataBaseManager.psychotherapyPoint.ToString();
+        psychotherapyImg.fillAmount = (float)DataBaseManager.psychotherapyPoint / 100;
 
-        evasion_t.text = DataBaseManager.evasionPoint.ToString();
-        evasion_g.fillAmount = (float)DataBaseManager.evasionPoint / 100;
-        deftness_t.text = DataBaseManager.deftnessPoint.ToString();
-        deftness_g.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
-        rhetoric_t.text = DataBaseManager.rhetoricPoint.ToString();
-        rhetoric_g.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
-        stealth_t.text = DataBaseManager.stealthPoint.ToString();
-        stealth_g.fillAmount = (float)DataBaseManager.stealthPoint / 100;
-        Disguise_t.text = DataBaseManager.disguisePoint.ToString();
-        Disguise_g.fillAmount = (float)DataBaseManager.disguisePoint / 100;
+        evasionTxt.text = DataBaseManager.evasionPoint.ToString();
+        evasionImg.fillAmount = (float)DataBaseManager.evasionPoint / 100;
+        deftnessTxt.text = DataBaseManager.deftnessPoint.ToString();
+        deftnessImg.fillAmount = (float)DataBaseManager.deftnessPoint / 100;
+        rhetoricTxt.text = DataBaseManager.rhetoricPoint.ToString();
+        rhetoricImg.fillAmount = (float)DataBaseManager.rhetoricPoint / 100;
+        stealthTxt.text = DataBaseManager.stealthPoint.ToString();
+        stealthImg.fillAmount = (float)DataBaseManager.stealthPoint / 100;
+        DisguiseTxt.text = DataBaseManager.disguisePoint.ToString();
+        DisguiseImg.fillAmount = (float)DataBaseManager.disguisePoint / 100;
     }
-
-    public GameObject ItemBox_Nomal;
 
     public void ManageItem()
     {
         if (DataBaseManager.shotgun > 0)
         {
-            ActivateObjectWithName(ItemBox_Nomal, "Shotgun");
+            ActivateObjectWithName(itemBoxNomal, "Shotgun");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Nomal, "Shotgun");
+            DeactivateObjectWithName(itemBoxNomal, "Shotgun");
         }
         if (DataBaseManager.rifle > 0)
         {
-            ActivateObjectWithName(ItemBox_Nomal, "Rifle");
+            ActivateObjectWithName(itemBoxNomal, "Rifle");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Nomal, "Rifle");
+            DeactivateObjectWithName(itemBoxNomal, "Rifle");
         }
         if (DataBaseManager.revolver > 0)
         {
-            ActivateObjectWithName(ItemBox_Nomal, "Revolver");
+            ActivateObjectWithName(itemBoxNomal, "Revolver");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Nomal, "Revolver");
+            DeactivateObjectWithName(itemBoxNomal, "Revolver");
         }
         if (DataBaseManager.smallPistol > 0)
         {
-            ActivateObjectWithName(ItemBox_Nomal, "SmallPistol");
+            ActivateObjectWithName(itemBoxNomal, "SmallPistol");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Nomal, "SmallPistol");
+            DeactivateObjectWithName(itemBoxNomal, "SmallPistol");
         }
         if (DataBaseManager.bat > 0)
         {
-            ActivateObjectWithName(ItemBox_Nomal, "Bat");
+            ActivateObjectWithName(itemBoxNomal, "Bat");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Nomal, "Bat");
+            DeactivateObjectWithName(itemBoxNomal, "Bat");
         }
         if (DataBaseManager.axe > 0)
         {
-            ActivateObjectWithName(ItemBox_Nomal, "Axe");
+            ActivateObjectWithName(itemBoxNomal, "Axe");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Nomal, "Axe");
+            DeactivateObjectWithName(itemBoxNomal, "Axe");
         }
         if (DataBaseManager.molotov > 0)
         {
-            ActivateObjectWithName(ItemBox_Nomal, "Molotov");
+            ActivateObjectWithName(itemBoxNomal, "Molotov");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Nomal, "Molotov");
+            DeactivateObjectWithName(itemBoxNomal, "Molotov");
         }
         if (DataBaseManager.dagger > 0)
         {
-            ActivateObjectWithName(ItemBox_Nomal, "Dagger");
+            ActivateObjectWithName(itemBoxNomal, "Dagger");
         }
         else
         {
-            DeactivateObjectWithName(ItemBox_Nomal, "Dagger");
+            DeactivateObjectWithName(itemBoxNomal, "Dagger");
         }
         if (DataBaseManager.pistolAmmo > 0)
         {
-            ActivateObjectWithName(ItemBox_Nomal, "PistolAmmo");
+            ActivateObjectWithName(itemBoxNomal, "PistolAmmo");
         }
         else
         {
             if (DataBaseManager.nowItem == "PistolAmmo")
             {
                 DataBaseManager.nowItem = "";
-                Use_Name.text = "";
-                Use_Detail.text = "";
+                useName.text = "";
+                useDetail.text = "";
             }
-            DeactivateObjectWithName(ItemBox_Nomal, "PistolAmmo");
+            DeactivateObjectWithName(itemBoxNomal, "PistolAmmo");
         }
         if (DataBaseManager.rifleAmmo > 0)
         {
 
-            ActivateObjectWithName(ItemBox_Nomal, "RifleAmmo");
+            ActivateObjectWithName(itemBoxNomal, "RifleAmmo");
         }
         else
         {
             if (DataBaseManager.nowItem == "RifleAmmo")
             {
                 DataBaseManager.nowItem = "";
-                Use_Name.text = "";
-                Use_Detail.text = "";
+                useName.text = "";
+                useDetail.text = "";
             }
-            DeactivateObjectWithName(ItemBox_Nomal, "RifleAmmo");
+            DeactivateObjectWithName(itemBoxNomal, "RifleAmmo");
         }
         if (DataBaseManager.shotgunAmmo > 0)
         {
-            ActivateObjectWithName(ItemBox_Nomal, "ShotgunAmmo");
+            ActivateObjectWithName(itemBoxNomal, "ShotgunAmmo");
         }
         else
         {
             if (DataBaseManager.nowItem == "ShotgunAmmo")
             {
                 DataBaseManager.nowItem = "";
-                Use_Name.text = "";
-                Use_Detail.text = "";
+                useName.text = "";
+                useDetail.text = "";
             }
-            DeactivateObjectWithName(ItemBox_Nomal, "ShotgunAmmo");
+            DeactivateObjectWithName(itemBoxNomal, "ShotgunAmmo");
         }
         if (DataBaseManager.firstaidkit > 0)
         {
-            ActivateObjectWithName(Use_ItemBox, "First aid kit");
+            ActivateObjectWithName(useItemBox, "First aid kit");
         }
         else
         {
             if (DataBaseManager.nowItem == "First aid kit")
             {
-                imageComponent_Use.sprite = None;
+                imageComponentUse.sprite = none;
                 DataBaseManager.nowItem = "";
-                Use_Name.text = "";
-                Use_Detail.text = "";
+                useName.text = "";
+                useDetail.text = "";
             }
-            DeactivateObjectWithName(Use_ItemBox, "First aid kit");
+            DeactivateObjectWithName(useItemBox, "First aid kit");
         }
         if (DataBaseManager.bandages > 0)
         {
-            ActivateObjectWithName(Use_ItemBox, "Bandages");
+            ActivateObjectWithName(useItemBox, "Bandages");
         }
         else
         {
             if (DataBaseManager.nowItem == "Bandages")
             {
-                imageComponent_Use.sprite = None;
+                imageComponentUse.sprite = none;
                 DataBaseManager.nowItem = "";
-                Use_Name.text = "";
-                Use_Detail.text = "";
+                useName.text = "";
+                useDetail.text = "";
             }
-            DeactivateObjectWithName(Use_ItemBox, "Bandages");
+            DeactivateObjectWithName(useItemBox, "Bandages");
         }
         if (DataBaseManager.painkillers > 0)
         {
-            ActivateObjectWithName(Use_ItemBox, "Painkillers");
+            ActivateObjectWithName(useItemBox, "Painkillers");
         }
         else
         {
             if (DataBaseManager.nowItem == "Painkillers")
             {
-                imageComponent_Use.sprite = None;
+                imageComponentUse.sprite = none;
                 DataBaseManager.nowItem = "";
-                Use_Name.text = "";
-                Use_Detail.text = "";
+                useName.text = "";
+                useDetail.text = "";
             }
-            DeactivateObjectWithName(Use_ItemBox, "Painkillers");
+            DeactivateObjectWithName(useItemBox, "Painkillers");
         }
         if (DataBaseManager.getSafe == true)
         {
-            ActivateObjectWithName(Key_ItemBox, "Safe");
+            ActivateObjectWithName(keyItemBox, "Safe");
         }
         else
         {
             if (DataBaseManager.nowItem == "Safe")
             {
-                imageComponent_Key.sprite = None;
+                imageComponentKey.sprite = none;
                 DataBaseManager.nowItem = "";
-                Use_Name.text = "";
-                Use_Detail.text = "";
+                useName.text = "";
+                useDetail.text = "";
             }
-            DeactivateObjectWithName(Key_ItemBox, "Safe");
+            DeactivateObjectWithName(keyItemBox, "Safe");
         }
         if (DataBaseManager.gainOldMap == true)
         {
-            ActivateObjectWithName(Key_ItemBox, "OldMap");
+            ActivateObjectWithName(keyItemBox, "OldMap");
         }
         else
         {
             if (DataBaseManager.nowItem == "OldMap")
             {
-                imageComponent_Key.sprite = None;
+                imageComponentKey.sprite = none;
                 DataBaseManager.nowItem = "";
-                Use_Name.text = "";
-                Use_Detail.text = "";
+                useName.text = "";
+                useDetail.text = "";
             }
-            DeactivateObjectWithName(Key_ItemBox, "OldMap");
+            DeactivateObjectWithName(keyItemBox, "OldMap");
         }
         if (DataBaseManager.safeDocument == true)
         {
-            ActivateObjectWithName(Key_ItemBox, "Document");
+            ActivateObjectWithName(keyItemBox, "Document");
         }
         else
         {
             if (DataBaseManager.nowItem == "Document")
             {
-                imageComponent_Key.sprite = None;
+                imageComponentKey.sprite = none;
                 DataBaseManager.nowItem = "";
-                Use_Name.text = "";
-                Use_Detail.text = "";
+                useName.text = "";
+                useDetail.text = "";
             }
-            DeactivateObjectWithName(Key_ItemBox, "Document");
+            DeactivateObjectWithName(keyItemBox, "Document");
         }
         if (DataBaseManager.gainMap == true)
         {
-            ActivateObjectWithName(Key_ItemBox, "Map");
+            ActivateObjectWithName(keyItemBox, "Map");
         }
         else
         {
             if (DataBaseManager.nowItem == "Map")
             {
-                imageComponent_Key.sprite = None;
+                imageComponentKey.sprite = none;
                 DataBaseManager.nowItem = "";
-                Use_Name.text = "";
-                Use_Detail.text = "";
+                useName.text = "";
+                useDetail.text = "";
             }
-            DeactivateObjectWithName(Key_ItemBox, "Map");
+            DeactivateObjectWithName(keyItemBox, "Map");
         }
         if (DataBaseManager.sewerageKey == true)
         {
-            ActivateObjectWithName(Key_ItemBox, "Sewerge Key");
+            ActivateObjectWithName(keyItemBox, "Sewerge Key");
         }
         else
         {
             if (DataBaseManager.nowItem == "Sewerge Key")
             {
-                imageComponent_Key.sprite = None;
+                imageComponentKey.sprite = none;
                 DataBaseManager.nowItem = "";
-                Use_Name.text = "";
-                Use_Detail.text = "";
+                useName.text = "";
+                useDetail.text = "";
             }
-            DeactivateObjectWithName(Key_ItemBox, "Sewerge Key");
+            DeactivateObjectWithName(keyItemBox, "Sewerge Key");
         }
         if (DataBaseManager.intelDave1 == true)
         {
-            ActivateObjectWithName(Key_ItemBox, "Bracelet");
+            ActivateObjectWithName(keyItemBox, "Bracelet");
         }
         else
         {
             if (DataBaseManager.nowItem == "Bracelet")
             {
-                imageComponent_Key.sprite = None;
+                imageComponentKey.sprite = none;
                 DataBaseManager.nowItem = "";
-                Use_Name.text = "";
-                Use_Detail.text = "";
+                useName.text = "";
+                useDetail.text = "";
             }
-            DeactivateObjectWithName(Key_ItemBox, "Bracelet");
+            DeactivateObjectWithName(keyItemBox, "Bracelet");
         }
         if (DataBaseManager.gainCoat == true)
         {
-            ActivateObjectWithName(Key_ItemBox, "Coat");
+            ActivateObjectWithName(keyItemBox, "Coat");
         }
         else
         {
             if (DataBaseManager.nowItem == "Coat")
             {
-                imageComponent_Key.sprite = None;
+                imageComponentKey.sprite = none;
                 DataBaseManager.nowItem = "";
-                Use_Name.text = "";
-                Use_Detail.text = "";
+                useName.text = "";
+                useDetail.text = "";
             }
-            DeactivateObjectWithName(Key_ItemBox, "Coat");
+            DeactivateObjectWithName(keyItemBox, "Coat");
         }
     }
     public void OpenItemDetail()
     {
-        if (ItemBox_Nomal.activeSelf == true)
+        if (itemBoxNomal.activeSelf == true)
         {
             if (DataBaseManager.nowItem == "")
             {
-                Name.text = "";
-                Detail.text = "";
+                name.text = "";
+                detail.text = "";
             }
             if (DataBaseManager.nowItem == "Bat")
             {
-                Name.text = "Bat";
-                Detail.text = "Skill :\nSwordsmanship\n\nDamage :\n(1D8)x5";
+                name.text = "Bat";
+                detail.text = "Skill :\nSwordsmanship\n\nDamage :\n(1D8)x5";
             }
             if (DataBaseManager.nowItem == "Dagger")
             {
-                Name.text = "Dagger";
-                Detail.text = "Skill :\nSwordsmanship\n\nDamage :\n(1D4 + 2)x5";
+                name.text = "Dagger";
+                detail.text = "Skill :\nSwordsmanship\n\nDamage :\n(1D4 + 2)x5";
             }
             if (DataBaseManager.nowItem == "Axe")
             {
-                Name.text = "Axe";
-                Detail.text = "Skill :\nSwordsmanship\n\nDamage :\n(1D6 + 2)x5";
+                name.text = "Axe";
+                detail.text = "Skill :\nSwordsmanship\n\nDamage :\n(1D6 + 2)x5";
             }
             if (DataBaseManager.nowItem == "Molotov")
             {
-                Name.text = "Molotov";
-                Detail.text = "Skill :\nDeftness\n\nDamage :\n(2D6 + 2)x5\n\nPcs : " + DataBaseManager.molotov;
+                name.text = "Molotov";
+                detail.text = "Skill :\nDeftness\n\nDamage :\n(2D6 + 2)x5\n\nPcs : " + DataBaseManager.molotov;
             }
             if (DataBaseManager.nowItem == "Shotgun")
             {
-                Name.text = "Shotgun";
-                Detail.text = "Skill :\nMarkmanship\n\nDamage :\n(5D4)x5\n\nMagazine :\n2 Bullet";
+                name.text = "Shotgun";
+                detail.text = "Skill :\nMarkmanship\n\nDamage :\n(5D4)x5\n\nMagazine :\n2 Bullet";
             }
             if (DataBaseManager.nowItem == "Rifle")
             {
-                Name.text = "Rifle";
-                Detail.text = "Skill :\nMarkmanship\n\nDamage :\n(2D6 + 2)x5\n\nMagazine :\n5 Bullet";
+                name.text = "Rifle";
+                detail.text = "Skill :\nMarkmanship\n\nDamage :\n(2D6 + 2)x5\n\nMagazine :\n5 Bullet";
             }
             if (DataBaseManager.nowItem == "Revolver")
             {
-                Name.text = "Revolver";
-                Detail.text = "Skill :\nMarkmanship\n\nDamage :\n(1D10 + 2)x5\n\nMagazine :\n6 Bullet";
+                name.text = "Revolver";
+                detail.text = "Skill :\nMarkmanship\n\nDamage :\n(1D10 + 2)x5\n\nMagazine :\n6 Bullet";
             }
             if (DataBaseManager.nowItem == "SmallPistol")
             {
-                Name.text = "Small Pistol";
-                Detail.text = "Skill :\nMarkmanship\n\nDamage :\n(1D6)x5\n\nMagazine :\n2 Bullet";
+                name.text = "Small Pistol";
+                detail.text = "Skill :\nMarkmanship\n\nDamage :\n(1D6)x5\n\nMagazine :\n2 Bullet";
             }
             if (DataBaseManager.nowItem == "PistolAmmo")
             {
-                Name.text = "PistolAmmo";
-                Detail.text = "Used for :\nRevolver\nSmallPistol\n\nPcs : " + DataBaseManager.pistolAmmo;
+                name.text = "PistolAmmo";
+                detail.text = "Used for :\nRevolver\nSmallPistol\n\nPcs : " + DataBaseManager.pistolAmmo;
             }
             if (DataBaseManager.nowItem == "RifleAmmo")
             {
-                Name.text = "RifleAmmo";
-                Detail.text = "Used for :\nRifle\n\nPcs : " + DataBaseManager.rifleAmmo;
+                name.text = "RifleAmmo";
+                detail.text = "Used for :\nRifle\n\nPcs : " + DataBaseManager.rifleAmmo;
             }
             if (DataBaseManager.nowItem == "ShotgunAmmo")
             {
-                Name.text = "ShotgunAmmo";
-                Detail.text = "Used for :\nShotgun\n\nPcs : " + DataBaseManager.shotgunAmmo;
+                name.text = "ShotgunAmmo";
+                detail.text = "Used for :\nShotgun\n\nPcs : " + DataBaseManager.shotgunAmmo;
             }
         }
-        if (Use_ItemBox.activeSelf == true)
+        if (useItemBox.activeSelf == true)
         {
             if (DataBaseManager.nowItem == "")
             {
-                Use_Name.text = "";
-                Use_Detail.text = "";
+                useName.text = "";
+                useDetail.text = "";
             }
             if (DataBaseManager.nowItem == "First aid kit" && DataBaseManager.firstaidkit > 0)
             {
-                Use_Name.text = "First aid kit";
-                Use_Detail.text = "Skill :\nMedicine+20\n\nEffects:\nSuccessful Function checks restore(1D6)x5 HP points.\n\nPcs : " + DataBaseManager.firstaidkit;
+                useName.text = "First aid kit";
+                useDetail.text = "Skill :\nMedicine+20\n\nEffects:\nSuccessful Function checks restore(1D6)x5 HP points.\n\nPcs : " + DataBaseManager.firstaidkit;
             }
             if (DataBaseManager.nowItem == "Bandages" && DataBaseManager.bandages > 0)
             {
-                Use_Name.text = "Bandages";
-                Use_Detail.text = "Skill :\nMedicine+20\n\nEffects:\nSuccessful Function checks restore(1D3)x5 HP points.\n\nPcs : " + DataBaseManager.bandages;
+                useName.text = "Bandages";
+                useDetail.text = "Skill :\nMedicine+20\n\nEffects:\nSuccessful Function checks restore(1D3)x5 HP points.\n\nPcs : " + DataBaseManager.bandages;
             }
             if (DataBaseManager.nowItem == "Painkillers" && DataBaseManager.painkillers > 0)
             {
-                Use_Name.text = "Painkillers";
-                Use_Detail.text = "Skill :\nNoSkill\n\nEffects:\nSuccessful Function checks restore(1D3)x5 SAN points.\n\nPcs : " + DataBaseManager.painkillers;
+                useName.text = "Painkillers";
+                useDetail.text = "Skill :\nNoSkill\n\nEffects:\nSuccessful Function checks restore(1D3)x5 SAN points.\n\nPcs : " + DataBaseManager.painkillers;
             }
         }
-        if (Key_ItemBox.activeSelf == true)
+        if (keyItemBox.activeSelf == true)
         {
             if (DataBaseManager.nowItem == "")
             {
-                Key_Name.text = "";
-                Key_Detail.text = "";
+                keyName.text = "";
+                keyDetail.text = "";
             }
             if (DataBaseManager.nowItem == "Safe" && DataBaseManager.getSafe == true)
             {
-                Key_Name.text = "Safe";
-                Key_Detail.text = "Skill :\nDeftness-20\n\nDetail:\nAiden's safe. It's locked solidly.";
+                keyName.text = "Safe";
+                keyDetail.text = "Skill :\nDeftness-20\n\nDetail:\nAiden's safe. It's locked solidly.";
             }
             if (DataBaseManager.nowItem == "OldMap" && DataBaseManager.gainOldMap == true)
             {
-                Key_Name.text = "Old Map";
-                Key_Detail.text = "Detail:\nAn old map picked up from inside a sewer.";
+                keyName.text = "Old Map";
+                keyDetail.text = "Detail:\nAn old map picked up from inside a sewer.";
             }
             if (DataBaseManager.nowItem == "Document" && DataBaseManager.safeDocument == true)
             {
-                Key_Name.text = "Document";
-                Key_Detail.text = "Detail:\nThe documents in Aiden's safe.";
+                keyName.text = "Document";
+                keyDetail.text = "Detail:\nThe documents in Aiden's safe.";
             }
             if (DataBaseManager.nowItem == "Map" && DataBaseManager.gainMap == true)
             {
-                Key_Name.text = "Map";
-                Key_Detail.text = "Detail:\nMap of the sewer interior.";
+                keyName.text = "Map";
+                keyDetail.text = "Detail:\nMap of the sewer interior.";
             }
             if (DataBaseManager.nowItem == "Bracelet" && DataBaseManager.intelDave1 == true)
             {
-                Key_Name.text = "Bracelet";
-                Key_Detail.text = "Detail:\nElla's Bracelet.\nIt seems to be expensive.";
+                keyName.text = "Bracelet";
+                keyDetail.text = "Detail:\nElla's Bracelet.\nIt seems to be expensive.";
             }
             if (DataBaseManager.nowItem == "Sewerge Key" && DataBaseManager.sewerageKey == true)
             {
-                Key_Name.text = "Sewerge Key";
-                Key_Detail.text = "Detail:\nKeys used in sewer maintenance facilities.)";
+                keyName.text = "Sewerge Key";
+                keyDetail.text = "Detail:\nKeys used in sewer maintenance facilities.)";
             }
             if (DataBaseManager.nowItem == "Coat" && DataBaseManager.gainCoat == true)
             {
-                Key_Name.text = "Coat";
-                Key_Detail.text = "Skill :\nDisguise\n\nDetail:\nA sewer worker's Outfit.";
+                keyName.text = "Coat";
+                keyDetail.text = "Skill :\nDisguise\n\nDetail:\nA sewer worker's Outfit.";
             }
         }
     }
@@ -733,9 +753,6 @@ public class SIS_UIManager : MonoBehaviour
         Debug.LogError("Object with name " + objectName + " not found in children.");
     }
 
-    string inputString; // 사용자가 입력한 문자열
-    string[] resultArray; // 문자열을 저장할 배열
-    int arrayInt = 0;
     public void CareLessActive()
     {
         // 배열 초기화
@@ -878,148 +895,135 @@ public class SIS_UIManager : MonoBehaviour
             DataBaseManager.painkillers -= 1;
         }
     }
-    public GameObject VisionLoss;
-
-    public GameObject ThinWallets;
     public void ThinWallets_Open()
     {
-        ThinWallets.SetActive(true);
+        thinWallets.SetActive(true);
     }
-    public GameObject Carelessness;
+
     public void Carelessness_Open()
     {
-        Carelessness.SetActive(true);
+        carelessness.SetActive(true);
     }
-    public GameObject Debilitation;
+
     public void Debilitation_Open()
     {
-        Debilitation.SetActive(true);
+        debilitation.SetActive(true);
     }
-    public GameObject Dizziness;
+
     public void Dizziness_Open()
     {
-        Dizziness.SetActive(true);
+        dizziness.SetActive(true);
     }
-    public GameObject Sprains;
     public void Sprains_Open()
     {
-        Sprains.SetActive(true);
+        sprains.SetActive(true);
     }
-    public GameObject Unlucky;
+
     public void Unlucky_Open()
     {
-        Unlucky.SetActive(true);
+        unlucky.SetActive(true);
     }
-    public GameObject MusclePain;
+
     public void MusclePain_Open()
     {
-        MusclePain.SetActive(true);
+        musclePain.SetActive(true);
     }
-    public GameObject Migraines;
+
     public void Migraines_Open()
     {
-        Migraines.SetActive(true);
+        migraines.SetActive(true);
     }
-    public GameObject EyeDisease;
+
     public void EyeDisease_Open()
     {
-        EyeDisease.SetActive(true);
+        eyeDisease.SetActive(true);
     }
 
     //Level - 2 Debuff
-    public GameObject Masochism;
+
     public void Masochism_Open()
     {
-        Masochism.SetActive(true);
+        masochism.SetActive(true);
     }
-    public GameObject Careless;
+
     public void Careless_Open()
     {
-        Careless.SetActive(true);
+        careless.SetActive(true);
     }
-    public GameObject MentalWeakness;
+
     public void MentalWeakness_Open()
     {
-        MentalWeakness.SetActive(true);
+        mentalWeakness.SetActive(true);
     }
-    public GameObject Helplessness;
+
     public void Helplessness_Open()
     {
-        Helplessness.SetActive(true);
+        helplessness.SetActive(true);
     }
-    public GameObject Extravagant;
+
     public void Extravagant_Open()
     {
-        Extravagant.SetActive(true);
+        extravagant.SetActive(true);
     }
-    public GameObject PanicAttack;
+
     public void PanicAttack_Open()
     {
-        PanicAttack.SetActive(true);
+        panicAttack.SetActive(true);
     }
-    public GameObject Medicaldistrust;
+
     public void Medicaldistrust_Open()
     {
-        Medicaldistrust.SetActive(true);
+        medicaldistrust.SetActive(true);
     }
-    public GameObject Hallucinations;
+
     public void Hallucinations_Open()
     {
-        Hallucinations.SetActive(true);
+        hallucinations.SetActive(true);
     }
-    public GameObject Tightwad;
+
     public void Tightwad_Open()
     {
-        Tightwad.SetActive(true);
+        tightwad.SetActive(true);
     }
     //Level - 3 Debuff
-    public GameObject NightPhobia;
     public void NightPhobia_Open()
     {
-        NightPhobia.SetActive(true);
+        nightPhobia.SetActive(true);
     }
-    public GameObject Deafness;
     public void Deafness_Open()
     {
-        Deafness.SetActive(true);
+        deafness.SetActive(true);
     }
     public void VisionLoss_Open()
     {
-        VisionLoss.SetActive(true);
+        visionLoss.SetActive(true);
     }
-    public GameObject ShortTempered;
     public void ShortTempered_Open()
     {
-        ShortTempered.SetActive(true);
+        shortTempered.SetActive(true);
     }
-    public GameObject Dyslexia;
     public void Dyslexia_Open()
     {
-        Dyslexia.SetActive(true);
+        dyslexia.SetActive(true);
     }
-    public GameObject DrugPhobia;
     public void DrugPhobia_Open()
     {
-        DrugPhobia.SetActive(true);
+        drugPhobia.SetActive(true);
     }
-    public GameObject CognitiveDisorder;
     public void CognitiveDisorder_Open()
     {
-        CognitiveDisorder.SetActive(true);
+        cognitiveDisorder.SetActive(true);
     }
-    public GameObject CognitiveBreakdown;
     public void CognitiveBreakdown_Open()
     {
-        CognitiveBreakdown.SetActive(true);
+        cognitiveBreakdown.SetActive(true);
     }
-    public GameObject HomicidalImpulse;
     public void HomicidalImpulse_Open()
     {
-        HomicidalImpulse.SetActive(true);
+        homicidalImpulse.SetActive(true);
     }
-    public GameObject Perfectionism;
     public void Perfectionism_Open()
     {
-        Perfectionism.SetActive(true);
+        perfectionism.SetActive(true);
     }
 }

@@ -5,19 +5,18 @@ using UnityEngine.UI;
 public class SelectedItemBox : MonoBehaviour
 {
     Image imageComponent;
-    public Sprite Shotgun;
-    public Sprite Rifle;
-    public Sprite Revolver;
-    public Sprite SmallPistol;
-    public Sprite Bat;
-    public Sprite Axe;
-    public Sprite Molotov;
-    public Sprite Dagger;
-    public Sprite None;
-
-    public Sprite PistolAmmo;
-    public Sprite RifleAmmo;
-    public Sprite ShotgunAmmo;
+    public Sprite shotgun;
+    public Sprite rifle;
+    public Sprite revolver;
+    public Sprite smallPistol;
+    public Sprite bat;
+    public Sprite axe;
+    public Sprite molotov;
+    public Sprite dagger;
+    public Sprite none;
+    public Sprite pistolAmmo;
+    public Sprite rifleAmmo;
+    public Sprite shotgunAmmo;
     private void Start()
     {
         imageComponent = this.GetComponent<Image>();
@@ -27,51 +26,51 @@ public class SelectedItemBox : MonoBehaviour
     {
         if (DataBaseManager.nowItem == "Shotgun")
         {
-            imageComponent.sprite = Shotgun;
+            imageComponent.sprite = shotgun;
         }
         else if (DataBaseManager.nowItem == "Rifle")
         {
-            imageComponent.sprite = Rifle;
+            imageComponent.sprite = rifle;
         }
         else if (DataBaseManager.nowItem == "Revolver")
         {
-            imageComponent.sprite = Revolver;
+            imageComponent.sprite = revolver;
         }
         else if (DataBaseManager.nowItem == "SmallPistol")
         {
-            imageComponent.sprite = SmallPistol;
+            imageComponent.sprite = smallPistol;
         }
         else if (DataBaseManager.nowItem == "Bat")
         {
-            imageComponent.sprite = Bat;
+            imageComponent.sprite = bat;
         }
         else if (DataBaseManager.nowItem == "Axe")
         {
-            imageComponent.sprite = Axe;
+            imageComponent.sprite = axe;
         }
         else if (DataBaseManager.nowItem == "Molotov")
         {
-            imageComponent.sprite = Molotov;
+            imageComponent.sprite = molotov;
         }
         else if (DataBaseManager.nowItem == "Dagger")
         {
-            imageComponent.sprite = Dagger;
+            imageComponent.sprite = dagger;
         }
         else if (DataBaseManager.nowItem == "PistolAmmo")
         {
-            imageComponent.sprite = PistolAmmo;
+            imageComponent.sprite = pistolAmmo;
         }
         else if (DataBaseManager.nowItem == "RifleAmmo")
         {
-            imageComponent.sprite = RifleAmmo;
+            imageComponent.sprite = rifleAmmo;
         }
         else if (DataBaseManager.nowItem == "ShotgunAmmo")
         {
-            imageComponent.sprite = ShotgunAmmo;
+            imageComponent.sprite = shotgunAmmo;
         }
         else
         {
-            imageComponent.sprite = None;
+            imageComponent.sprite = none;
         }
     }
 }

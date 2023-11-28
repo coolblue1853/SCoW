@@ -4,75 +4,75 @@ using UnityEngine;
 using TMPro;
 public class UpperUiChecker : MonoBehaviour
 {
-    public TextMeshProUGUI conditionText;
-    public TextMeshProUGUI DateText;
+    public TextMeshProUGUI conditionTxt;
+    public TextMeshProUGUI dateTxt;
 
     void Update()
     {
-        conditionText.text = "Condition : " + DataBaseManager.condition;
-        if (DataBaseManager.timeCount == 1 && DateText.text != "Day1-Morning")
+        conditionTxt.text = "Condition : " + DataBaseManager.condition;
+        if (DataBaseManager.timeCount == 1 && dateTxt.text != "Day1-Morning")
         {
-            DateText.text = "Day1-Morning";
+            dateTxt.text = "Day1-Morning";
         }
-        else if (DataBaseManager.timeCount == 2 && DateText.text != "Day1-Noon")
+        else if (DataBaseManager.timeCount == 2 && dateTxt.text != "Day1-Noon")
         {
-            DateText.text = "Day1-Noon";
+            dateTxt.text = "Day1-Noon";
         }
-        else if (DataBaseManager.timeCount == 3 && DateText.text != "Day1-Afternoon")
+        else if (DataBaseManager.timeCount == 3 && dateTxt.text != "Day1-Afternoon")
         {
-            DateText.text = "Day1-Afternoon";
+            dateTxt.text = "Day1-Afternoon";
         }
-        else if (DataBaseManager.timeCount == 4 && DateText.text != "Day1-Night")
+        else if (DataBaseManager.timeCount == 4 && dateTxt.text != "Day1-Night")
         {
-            DateText.text = "Day1-Night";
+            dateTxt.text = "Day1-Night";
         }
-        else if (DataBaseManager.timeCount == 5 && DateText.text != "Day2-Morning")
+        else if (DataBaseManager.timeCount == 5 && dateTxt.text != "Day2-Morning")
         {
-            DateText.text = "Day2-Morning";
+            dateTxt.text = "Day2-Morning";
         }
-        else if (DataBaseManager.timeCount == 6 && DateText.text != "Day2-Noon")
+        else if (DataBaseManager.timeCount == 6 && dateTxt.text != "Day2-Noon")
         {
-            DateText.text = "Day2-Noon";
+            dateTxt.text = "Day2-Noon";
         }
-        else if (DataBaseManager.timeCount == 7 && DateText.text != "Day2-Afternoon")
+        else if (DataBaseManager.timeCount == 7 && dateTxt.text != "Day2-Afternoon")
         {
-            DateText.text = "Day2-Afternoon";
+            dateTxt.text = "Day2-Afternoon";
         }
-        else if (DataBaseManager.timeCount == 8 && DateText.text != "Day2-Night")
+        else if (DataBaseManager.timeCount == 8 && dateTxt.text != "Day2-Night")
         {
-            DateText.text = "Day2-Night";
+            dateTxt.text = "Day2-Night";
         }
-        else if (DataBaseManager.timeCount == 9 && DateText.text != "Day3-Morning")
+        else if (DataBaseManager.timeCount == 9 && dateTxt.text != "Day3-Morning")
         {
-            DateText.text = "Day3-Morning";
+            dateTxt.text = "Day3-Morning";
         }
-        else if (DataBaseManager.timeCount == 10 && DateText.text != "Day3-Noon")
+        else if (DataBaseManager.timeCount == 10 && dateTxt.text != "Day3-Noon")
         {
-            DateText.text = "Day3-Noon";
+            dateTxt.text = "Day3-Noon";
         }
-        else if (DataBaseManager.timeCount == 11 && DateText.text != "Day3-Afternoon")
+        else if (DataBaseManager.timeCount == 11 && dateTxt.text != "Day3-Afternoon")
         {
-            DateText.text = "Day3-Afternoon";
+            dateTxt.text = "Day3-Afternoon";
         }
-        else if (DataBaseManager.timeCount == 12 && DateText.text != "Day3-Night")
+        else if (DataBaseManager.timeCount == 12 && dateTxt.text != "Day3-Night")
         {
-            DateText.text = "Day3-Night";
+            dateTxt.text = "Day3-Night";
         }
-        else if (DataBaseManager.timeCount == 13 && DateText.text != "Day4-Morning")
+        else if (DataBaseManager.timeCount == 13 && dateTxt.text != "Day4-Morning")
         {
-            DateText.text = "Day4-Morning";
+            dateTxt.text = "Day4-Morning";
         }
-        else if (DataBaseManager.timeCount == 14 && DateText.text != "Day4-Noon")
+        else if (DataBaseManager.timeCount == 14 && dateTxt.text != "Day4-Noon")
         {
-            DateText.text = "Day4-Noon";
+            dateTxt.text = "Day4-Noon";
         }
-        else if (DataBaseManager.timeCount == 15 && DateText.text != "Day4-Afternoon")
+        else if (DataBaseManager.timeCount == 15 && dateTxt.text != "Day4-Afternoon")
         {
-            DateText.text = "Day4-Afternoon";
+            dateTxt.text = "Day4-Afternoon";
         }
-        else if (DataBaseManager.timeCount == 16 && DateText.text != "Day4-Night")
+        else if (DataBaseManager.timeCount == 16 && dateTxt.text != "Day4-Night")
         {
-            DateText.text = "Day4-Night";
+            dateTxt.text = "Day4-Night";
         }
     }
 }

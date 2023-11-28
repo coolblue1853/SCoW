@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.Serialization;
 public class ItemButton : MonoBehaviour
 {
     Image imageComponent;
-    public Sprite NoGuide;
-    public Sprite Guided;
+    public Sprite noGuide;
+    public Sprite guided;
     public void ClickItem()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -22,11 +22,11 @@ public class ItemButton : MonoBehaviour
     {
         if (DataBaseManager.nowItem == this.name)
         {
-            imageComponent.sprite = Guided;
+            imageComponent.sprite = guided;
         }
         else
         {
-            imageComponent.sprite = NoGuide;
+            imageComponent.sprite = noGuide;
         }
     }
 }

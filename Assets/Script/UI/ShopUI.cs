@@ -4,47 +4,41 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ShopUI : MonoBehaviour
 {
-    public GameObject ShopUI_object;
-
-    public GameObject Firearm_Page;
-    public GameObject Ammo_Page;
-    public GameObject Swords_Page;
-    public GameObject Throwable_Page;
-    public GameObject AidKit_Page;
-
-    public GameObject SO_SmallPistol;
-    public GameObject SO_Revolver;
-    public GameObject SO_Shotgun;
-    public GameObject SO_Rifle;
-
-    public GameObject SO_Dagger;
-    public GameObject SO_Axe;
-    public GameObject SO_Bat;
-
-    public Text WealthText;
-
-    public Text PistolAmmoText;
-    public Text RifleAmmoText;
-    public Text ShotgunAmmoText;
-    public Text MolotovText;
-    public Text BandageText;
-    public Text AidKitText;
-    public Text PainkillerText;
-
-    public Text SmallPistolPrice;
-    public Text RevolverPrice;
-    public Text ShotgunPrice;
-    public Text RiflePrice;
-    public Text DaggerPrice;
-    public Text AxePrice;
-    public Text BatPrice;
-    public Text PistolAmmoPrice;
-    public Text RifleAmmoPrice;
-    public Text ShotgunAmmoPrice;
-    public Text MolotovPrice;
-    public Text BandagePrice;
-    public Text AidKitPrice;
-    public Text PainkillerPrice;
+    public GameObject shopUIOb;
+    public GameObject fireArmPage;
+    public GameObject ammoPage;
+    public GameObject swordsPage;
+    public GameObject throwablePage;
+    public GameObject aidKitPage;
+    public GameObject smallPistolSoldOut;
+    public GameObject revolverSoldOut;
+    public GameObject shotgunSoldOut;
+    public GameObject rifleSoldOut;
+    public GameObject daggerSoldOut;
+    public GameObject axeSoldOut;
+    public GameObject batSoldOut;
+    public Text wealthTxt;
+    public Text pistolAmmoTxt;
+    public Text rifleAmmoTxt;
+    public Text shotgunAmmoTxt;
+    public Text molotovTxt;
+    public Text bandageTxt;
+    public Text aidKitTxt;
+    public Text painkillerTxt;
+    public Text smallPistolPrice;
+    public Text revolverPrice;
+    public Text shotgunPrice;
+    public Text riflePrice;
+    public Text daggerPrice;
+    public Text axePrice;
+    public Text batPrice;
+    public Text pistolAmmoPrice;
+    public Text rifleAmmoPrice;
+    public Text shotgunAmmoPrice;
+    public Text molotovPrice;
+    public Text bandagePrice;
+    public Text aidKitPrice;
+    public Text painkillerPrice;
 
     private static ShopUI instance = null;
     public static ShopUI Instance
@@ -71,44 +65,44 @@ public class ShopUI : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && ShopUI_object.activeSelf == true)
+        if (Input.GetKeyDown(KeyCode.Escape) && shopUIOb.activeSelf == true)
         {
             SoundManager.Instance.ClickSound_Play();
             DataBaseManager.isOpenUi = false;
-            ShopUI_object.SetActive(false);
+            shopUIOb.SetActive(false);
         }
-        if (DataBaseManager.smallPistol > 0 && SO_SmallPistol.activeSelf == false)
+        if (DataBaseManager.smallPistol > 0 && smallPistolSoldOut.activeSelf == false)
         {
-            SO_SmallPistol.SetActive(true);
+            smallPistolSoldOut.SetActive(true);
         }
-        if (ShopUI_object.activeSelf == true)
+        if (shopUIOb.activeSelf == true)
         {
-            WealthText.text = "wealth : " + DataBaseManager.weal;
-            PistolAmmoText.text = "Hold:" + DataBaseManager.pistolAmmo + "Pcs";
-            RifleAmmoText.text = "Hold:" + DataBaseManager.rifleAmmo + "Pcs";
-            ShotgunAmmoText.text = "Hold:" + DataBaseManager.shotgunAmmo + "Pcs";
-            MolotovText.text = "Hold:" + DataBaseManager.molotov + "Pcs";
-            BandageText.text = "Hold:" + DataBaseManager.bandages + "Pcs";
-            AidKitText.text = "Hold:" + DataBaseManager.firstaidkit + "Pcs";
-            PainkillerText.text = "Hold:" + DataBaseManager.painkillers + "Pcs";
+            wealthTxt.text = "wealth : " + DataBaseManager.weal;
+            pistolAmmoTxt.text = "Hold:" + DataBaseManager.pistolAmmo + "Pcs";
+            rifleAmmoTxt.text = "Hold:" + DataBaseManager.rifleAmmo + "Pcs";
+            shotgunAmmoTxt.text = "Hold:" + DataBaseManager.shotgunAmmo + "Pcs";
+            molotovTxt.text = "Hold:" + DataBaseManager.molotov + "Pcs";
+            bandageTxt.text = "Hold:" + DataBaseManager.bandages + "Pcs";
+            aidKitTxt.text = "Hold:" + DataBaseManager.firstaidkit + "Pcs";
+            painkillerTxt.text = "Hold:" + DataBaseManager.painkillers + "Pcs";
         }
     }
     public void ExtravoltON()
     {
-        SmallPistolPrice.text = "Price : 12$";
-        RevolverPrice.text = "Price : 14$";
-        ShotgunPrice.text = "Price : 20$";
-        RiflePrice.text = "Price : 22$";
-        DaggerPrice.text = "Price : 10$";
-        AxePrice.text = "Price : 12$";
-        BatPrice.text = "Price : 7$";
-        PistolAmmoPrice.text = "Price : 3$";
-        RifleAmmoPrice.text = "Price : 3$";
-        ShotgunAmmoPrice.text = "Price : 5$";
-        MolotovPrice.text = "Price : 4$";
-        BandagePrice.text = "Price : 3$";
-        AidKitPrice.text = "Price : 6$";
-        PainkillerPrice.text = "Price : 4$";
+        smallPistolPrice.text = "Price : 12$";
+        revolverPrice.text = "Price : 14$";
+        shotgunPrice.text = "Price : 20$";
+        riflePrice.text = "Price : 22$";
+        daggerPrice.text = "Price : 10$";
+        axePrice.text = "Price : 12$";
+        batPrice.text = "Price : 7$";
+        pistolAmmoPrice.text = "Price : 3$";
+        rifleAmmoPrice.text = "Price : 3$";
+        shotgunAmmoPrice.text = "Price : 5$";
+        molotovPrice.text = "Price : 4$";
+        bandagePrice.text = "Price : 3$";
+        aidKitPrice.text = "Price : 6$";
+        painkillerPrice.text = "Price : 4$";
     }
     public void BuySmallPistol()
     {
@@ -119,7 +113,7 @@ public class ShopUI : MonoBehaviour
             {
                 DataBaseManager.weal -= 12;
                 DataBaseManager.smallPistol = 1;
-                SO_SmallPistol.SetActive(true);
+                smallPistolSoldOut.SetActive(true);
             }
         }
         else
@@ -128,7 +122,7 @@ public class ShopUI : MonoBehaviour
             {
                 DataBaseManager.weal -= 10;
                 DataBaseManager.smallPistol = 1;
-                SO_SmallPistol.SetActive(true);
+                smallPistolSoldOut.SetActive(true);
             }
         }
     }
@@ -141,7 +135,7 @@ public class ShopUI : MonoBehaviour
             {
                 DataBaseManager.weal -= 14;
                 DataBaseManager.revolver = 1;
-                SO_Revolver.SetActive(true);
+                revolverSoldOut.SetActive(true);
             }
         }
         else
@@ -150,7 +144,7 @@ public class ShopUI : MonoBehaviour
             {
                 DataBaseManager.weal -= 12;
                 DataBaseManager.revolver = 1;
-                SO_Revolver.SetActive(true);
+                revolverSoldOut.SetActive(true);
             }
         }
     }
@@ -163,7 +157,7 @@ public class ShopUI : MonoBehaviour
             {
                 DataBaseManager.weal -= 22;
                 DataBaseManager.rifle = 1;
-                SO_Rifle.SetActive(true);
+                rifleSoldOut.SetActive(true);
             }
         }
         else
@@ -172,7 +166,7 @@ public class ShopUI : MonoBehaviour
             {
                 DataBaseManager.weal -= 20;
                 DataBaseManager.rifle = 1;
-                SO_Rifle.SetActive(true);
+                rifleSoldOut.SetActive(true);
             }
         }
     }
@@ -185,7 +179,7 @@ public class ShopUI : MonoBehaviour
             {
                 DataBaseManager.weal -= 20;
                 DataBaseManager.shotgun = 1;
-                SO_Shotgun.SetActive(true);
+                shotgunSoldOut.SetActive(true);
             }
         }
         else
@@ -194,7 +188,7 @@ public class ShopUI : MonoBehaviour
             {
                 DataBaseManager.weal -= 18;
                 DataBaseManager.shotgun = 1;
-                SO_Shotgun.SetActive(true);
+                shotgunSoldOut.SetActive(true);
             }
         }
     }
@@ -268,7 +262,7 @@ public class ShopUI : MonoBehaviour
             {
                 DataBaseManager.weal -= 7;
                 DataBaseManager.bat = 1;
-                SO_Bat.SetActive(true);
+                batSoldOut.SetActive(true);
             }
         }
         else
@@ -277,7 +271,7 @@ public class ShopUI : MonoBehaviour
             {
                 DataBaseManager.weal -= 5;
                 DataBaseManager.bat = 1;
-                SO_Bat.SetActive(true);
+                batSoldOut.SetActive(true);
             }
         }
     }
@@ -290,7 +284,7 @@ public class ShopUI : MonoBehaviour
             {
                 DataBaseManager.weal -= 10;
                 DataBaseManager.dagger = 1;
-                SO_Dagger.SetActive(true);
+                daggerSoldOut.SetActive(true);
             }
         }
         else
@@ -299,7 +293,7 @@ public class ShopUI : MonoBehaviour
             {
                 DataBaseManager.weal -= 8;
                 DataBaseManager.dagger = 1;
-                SO_Dagger.SetActive(true);
+                daggerSoldOut.SetActive(true);
             }
         }
     }
@@ -312,7 +306,7 @@ public class ShopUI : MonoBehaviour
             {
                 DataBaseManager.weal -= 12;
                 DataBaseManager.axe = 1;
-                SO_Axe.SetActive(true);
+                axeSoldOut.SetActive(true);
             }
         }
         else
@@ -321,7 +315,7 @@ public class ShopUI : MonoBehaviour
             {
                 DataBaseManager.weal -= 10;
                 DataBaseManager.axe = 1;
-                SO_Axe.SetActive(true);
+                axeSoldOut.SetActive(true);
             }
         }
     }
@@ -409,47 +403,47 @@ public class ShopUI : MonoBehaviour
     public void OpenPage_Firearm()
     {
         SoundManager.Instance.ClickSound_Play();
-        Firearm_Page.SetActive(true);
-        Ammo_Page.SetActive(false);
-        Swords_Page.SetActive(false);
-        Throwable_Page.SetActive(false);
-        AidKit_Page.SetActive(false);
+        fireArmPage.SetActive(true);
+        ammoPage.SetActive(false);
+        swordsPage.SetActive(false);
+        throwablePage.SetActive(false);
+        aidKitPage.SetActive(false);
     }
     public void OpenPage_Ammo()
     {
         SoundManager.Instance.ClickSound_Play();
-        Firearm_Page.SetActive(false);
-        Ammo_Page.SetActive(true);
-        Swords_Page.SetActive(false);
-        Throwable_Page.SetActive(false);
-        AidKit_Page.SetActive(false);
+        fireArmPage.SetActive(false);
+        ammoPage.SetActive(true);
+        swordsPage.SetActive(false);
+        throwablePage.SetActive(false);
+        aidKitPage.SetActive(false);
     }
     public void OpenPage_Sowrds()
     {
         SoundManager.Instance.ClickSound_Play();
-        Firearm_Page.SetActive(false);
-        Ammo_Page.SetActive(false);
-        Swords_Page.SetActive(true);
-        Throwable_Page.SetActive(false);
-        AidKit_Page.SetActive(false);
+        fireArmPage.SetActive(false);
+        ammoPage.SetActive(false);
+        swordsPage.SetActive(true);
+        throwablePage.SetActive(false);
+        aidKitPage.SetActive(false);
     }
     public void OpenPage_AidKit()
     {
         SoundManager.Instance.ClickSound_Play();
-        Firearm_Page.SetActive(false);
-        Ammo_Page.SetActive(false);
-        Swords_Page.SetActive(false);
-        Throwable_Page.SetActive(false);
-        AidKit_Page.SetActive(true);
+        fireArmPage.SetActive(false);
+        ammoPage.SetActive(false);
+        swordsPage.SetActive(false);
+        throwablePage.SetActive(false);
+        aidKitPage.SetActive(true);
     }
     public void OpenPage_Throwable()
     {
         SoundManager.Instance.ClickSound_Play();
-        Firearm_Page.SetActive(false);
-        Ammo_Page.SetActive(false);
-        Swords_Page.SetActive(false);
-        Throwable_Page.SetActive(true);
-        AidKit_Page.SetActive(false);
+        fireArmPage.SetActive(false);
+        ammoPage.SetActive(false);
+        swordsPage.SetActive(false);
+        throwablePage.SetActive(true);
+        aidKitPage.SetActive(false);
     }
     public void OpenShopUI()
     {
@@ -458,12 +452,12 @@ public class ShopUI : MonoBehaviour
             SoundManager.Instance.PaperClip_Play();
             DataBaseManager.workSound = false;
             DataBaseManager.isOpenUi = true;
-            ShopUI_object.SetActive(true);
+            shopUIOb.SetActive(true);
         }
     }
     public void CloseShop()
     {
         DataBaseManager.isOpenUi = false;
-        ShopUI_object.SetActive(false);
+        shopUIOb.SetActive(false);
     }
 }

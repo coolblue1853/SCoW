@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class KeywordButton : MonoBehaviour
 {
     string input;
-    string A;
-    string B;
-
-    int index_upper;
-    int index_down;
+    string subjectUpper;
+    string subjectDetail;
+    int indexUpper;
+    int indexDetail;
     public void SeparateString()
     {
         SoundManager.Instance.ClickSound_Play();
@@ -18,230 +16,230 @@ public class KeywordButton : MonoBehaviour
         string[] parts = input.Split('_');
         if (parts.Length == 2)
         {
-            A = parts[0];
-            B = parts[1];
+            subjectUpper = parts[0];
+            subjectDetail = parts[1];
         }
         // 키워드 - EVENT
-        if (A == "PlanetaryParade")
+        if (subjectUpper == "PlanetaryParade")
         {
             DataBaseManager.keywordMain = "Event";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.planetaryParadeList, B);
-            KeyWordManager.Instance.planetaryParadeKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.planetaryParadeList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.planetaryParadeList, subjectDetail);
+            KeyWordManager.Instance.planetaryParadeKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.planetaryParadeList[indexDetail];
         }
-        if (A == "Paranoia")
+        if (subjectUpper == "Paranoia")
         {
             DataBaseManager.keywordMain = "Event";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.paranoiaList, B);
-            KeyWordManager.Instance.paranoiaKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.paranoiaList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.paranoiaList, subjectDetail);
+            KeyWordManager.Instance.paranoiaKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.paranoiaList[indexDetail];
         }
-        if (A == "Insomnia")
+        if (subjectUpper == "Insomnia")
         {
             DataBaseManager.keywordMain = "Event";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.insomniaList, B);
-            KeyWordManager.Instance.insomniaKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.insomniaList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.insomniaList, subjectDetail);
+            KeyWordManager.Instance.insomniaKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.insomniaList[indexDetail];
         }
-        if (A == "Nightmare")
+        if (subjectUpper == "Nightmare")
         {
             DataBaseManager.keywordMain = "Event";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.nightmareList, B);
-            KeyWordManager.Instance.nightmareKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.nightmareList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.nightmareList, subjectDetail);
+            KeyWordManager.Instance.nightmareKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.nightmareList[indexDetail];
         }
-        if (A == "FishySmell")
+        if (subjectUpper == "FishySmell")
         {
             DataBaseManager.keywordMain = "Event";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.fishySmellList, B);
-            KeyWordManager.Instance.fishySmellKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.fishySmellList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.fishySmellList, subjectDetail);
+            KeyWordManager.Instance.fishySmellKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.fishySmellList[indexDetail];
         }
-        if (A == "MissingPeople")
+        if (subjectUpper == "MissingPeople")
         {
             DataBaseManager.keywordMain = "Event";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.missingPeopleList, B);
-            KeyWordManager.Instance.missingPeopleKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.missingPeopleList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.missingPeopleList, subjectDetail);
+            KeyWordManager.Instance.missingPeopleKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.missingPeopleList[indexDetail];
         }
-        if (A == "SewerGhostStory")
+        if (subjectUpper == "SewerGhostStory")
         {
             DataBaseManager.keywordMain = "Event";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.sewerGhostStoryList, B);
-            KeyWordManager.Instance.sewerGhostStoryKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.sewerGhostStoryList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.sewerGhostStoryList, subjectDetail);
+            KeyWordManager.Instance.sewerGhostStoryKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.sewerGhostStoryList[indexDetail];
         }
-        if (A == "Safe")
+        if (subjectUpper == "Safe")
         {
             DataBaseManager.keywordMain = "Event";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.safeList, B);
-            KeyWordManager.Instance.safeKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.safeList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.safeList, subjectDetail);
+            KeyWordManager.Instance.safeKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.safeList[indexDetail];
         }
-        if (A == "CreepyEyes")
+        if (subjectUpper == "CreepyEyes")
         {
             DataBaseManager.keywordMain = "Event";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.creepyEyesList, B);
-            KeyWordManager.Instance.creepyEyesKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.creepyEyesList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.creepyEyesList, subjectDetail);
+            KeyWordManager.Instance.creepyEyesKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.creepyEyesList[indexDetail];
         }
-        if (A == "RiverWaterQuality")
+        if (subjectUpper == "RiverWaterQuality")
         {
             DataBaseManager.keywordMain = "Event";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.riverWaterQualityList, B);
-            KeyWordManager.Instance.riverWaterQualityKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.riverWaterQualityList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.riverWaterQualityList, subjectDetail);
+            KeyWordManager.Instance.riverWaterQualityKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.riverWaterQualityList[indexDetail];
         }
-        if (A == "MurderCase")
+        if (subjectUpper == "MurderCase")
         {
             DataBaseManager.keywordMain = "Event";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.murderCaseList, B);
-            KeyWordManager.Instance.murderCaseKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.murderCaseList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperEventKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperEventKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.murderCaseList, subjectDetail);
+            KeyWordManager.Instance.murderCaseKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.murderCaseList[indexDetail];
         }
 
         // 키워드 - PLACE
-        if (A == "Wharf")
+        if (subjectUpper == "Wharf")
         {
             DataBaseManager.keywordMain = "Place";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.wharfList, B);
-            KeyWordManager.Instance.wharfKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.wharfList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperPlaceKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.wharfList, subjectDetail);
+            KeyWordManager.Instance.wharfKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.wharfList[indexDetail];
         }
-        if (A == "QuestHouse")
+        if (subjectUpper == "QuestHouse")
         {
-            A = "Client'shouse";
+            subjectUpper = "Client'shouse";
             DataBaseManager.keywordMain = "Place";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.questHouseList, B);
-            KeyWordManager.Instance.questHouseKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.questHouseList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperPlaceKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.questHouseList, subjectDetail);
+            KeyWordManager.Instance.questHouseKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.questHouseList[indexDetail];
         }
-        if (A == "DailyNews")
+        if (subjectUpper == "DailyNews")
         {
             DataBaseManager.keywordMain = "Place";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.newspaperList, B);
-            KeyWordManager.Instance.newspaperKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.newspaperList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperPlaceKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.newspaperList, subjectDetail);
+            KeyWordManager.Instance.newspaperKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.newspaperList[indexDetail];
         }
-        if (A == "Hospital")
+        if (subjectUpper == "Hospital")
         {
             DataBaseManager.keywordMain = "Place";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.hospitalList, B);
-            KeyWordManager.Instance.hospitalKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.hospitalList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperPlaceKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.hospitalList, subjectDetail);
+            KeyWordManager.Instance.hospitalKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.hospitalList[indexDetail];
         }
-        if (A == "Univ of Miscatonic")
+        if (subjectUpper == "Univ of Miscatonic")
         {
             DataBaseManager.keywordMain = "Place";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.universityList, B);
-            KeyWordManager.Instance.universityKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.universityList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperPlaceKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.universityList, subjectDetail);
+            KeyWordManager.Instance.universityKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.universityList[indexDetail];
         }
-        if (A == "Sewage MA Office")
+        if (subjectUpper == "Sewage MA Office")
         {
             DataBaseManager.keywordMain = "Place";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.sewageMaintenanceOfficeList, B);
-            KeyWordManager.Instance.sewageMaintenanceOfficeKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.sewageMaintenanceOfficeList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperPlaceKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.sewageMaintenanceOfficeList, subjectDetail);
+            KeyWordManager.Instance.sewageMaintenanceOfficeKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.sewageMaintenanceOfficeList[indexDetail];
         }
-        if (A == "Sewer")
+        if (subjectUpper == "Sewer")
         {
             DataBaseManager.keywordMain = "Place";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperPlaceKeywordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.sewerList, B);
-            KeyWordManager.Instance.sewerKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.sewerList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperPlaceKeywordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperPlaceKeywordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.sewerList, subjectDetail);
+            KeyWordManager.Instance.sewerKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.sewerList[indexDetail];
         }
 
         // 키워드 - Character
-        if (A == "Ella Triss")
+        if (subjectUpper == "Ella Triss")
         {
             DataBaseManager.keywordMain = "Character";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.ellaList, B);
-            KeyWordManager.Instance.ellaKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.ellaList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperCharacterKewordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.ellaList, subjectDetail);
+            KeyWordManager.Instance.ellaKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.ellaList[indexDetail];
         }
-        if (A == "Aiden Triss")
+        if (subjectUpper == "Aiden Triss")
         {
             DataBaseManager.keywordMain = "Character";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.aidenList, B);
-            KeyWordManager.Instance.aidenKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.aidenList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperCharacterKewordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.aidenList, subjectDetail);
+            KeyWordManager.Instance.aidenKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.aidenList[indexDetail];
         }
-        if (A == "Albert Bradley")
+        if (subjectUpper == "Albert Bradley")
         {
             DataBaseManager.keywordMain = "Character";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.albertList, B);
-            KeyWordManager.Instance.albertKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.albertList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperCharacterKewordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.albertList, subjectDetail);
+            KeyWordManager.Instance.albertKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.albertList[indexDetail];
         }
-        if (A == "Maeve A Rossi")
+        if (subjectUpper == "Maeve A Rossi")
         {
             DataBaseManager.keywordMain = "Character";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.meivList, B);
-            KeyWordManager.Instance.meivKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.meivList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperCharacterKewordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.meivList, subjectDetail);
+            KeyWordManager.Instance.meivKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.meivList[indexDetail];
         }
-        if (A == "SewerWorker")
+        if (subjectUpper == "SewerWorker")
         {
             DataBaseManager.keywordMain = "Character";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.sewerWorkerList, B);
-            KeyWordManager.Instance.sewerWorkerKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.sewerWorkerList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperCharacterKewordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.sewerWorkerList, subjectDetail);
+            KeyWordManager.Instance.sewerWorkerKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.sewerWorkerList[indexDetail];
         }
-        if (A == "Dave")
+        if (subjectUpper == "Dave")
         {
             DataBaseManager.keywordMain = "Character";
-            index_upper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, A);
-            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperCharacterKewordList[index_upper];
-            index_down = FindStringIndex(KeyWordManager.Instance.daveList, B);
-            KeyWordManager.Instance.daveKeywordNum = index_down;
-            DataBaseManager.keywordDowner = KeyWordManager.Instance.daveList[index_down];
+            indexUpper = FindStringIndex(KeyWordManager.Instance.upperCharacterKewordList, subjectUpper);
+            DataBaseManager.keywordUpper = KeyWordManager.Instance.upperCharacterKewordList[indexUpper];
+            indexDetail = FindStringIndex(KeyWordManager.Instance.daveList, subjectDetail);
+            KeyWordManager.Instance.daveKeywordNum = indexDetail;
+            DataBaseManager.keywordDowner = KeyWordManager.Instance.daveList[indexDetail];
         }
     }
     int FindStringIndex(List<string> list, string target)

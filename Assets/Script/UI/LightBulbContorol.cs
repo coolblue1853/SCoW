@@ -1,69 +1,68 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class LightBulbContorol : MonoBehaviour
 {
-    public GameObject bulb_1;
-    public GameObject bulb_2;
-    public GameObject bulb_3;
-    public GameObject bulb_4;
-    public GameObject bulb_5;
-    public GameObject bulb_6;
-    public GameObject bulb_7;
-    public GameObject bulb_8;
-    public GameObject bulb_9;
-    public GameObject bulb_10;
-    public GameObject bulb_11;
-    public GameObject bulb_12;
-    public GameObject bulb_13;
-    public GameObject bulb_14;
-    public GameObject bulb_15;
-    public GameObject bulb_16;
-    public GameObject bulb_17;
-    public GameObject bulb_18;
-
+    public GameObject bulb1;
+    public GameObject bulb2;
+    public GameObject bulb3;
+    public GameObject bulb4;
+    public GameObject bulb5;
+    public GameObject bulb6;
+    public GameObject bulb7;
+    public GameObject bulb8;
+    public GameObject bulb9;
+    public GameObject bulb10;
+    public GameObject bulb11;
+    public GameObject bulb12;
+    public GameObject bulb13;
+    public GameObject bulb14;
+    public GameObject bulb15;
+    public GameObject bulb16;
+    public GameObject bulb17;
+    public GameObject bulb18;
+    
     void Update()
     {
         if ((DataBaseManager.timeCount % 4) == 3 || (DataBaseManager.timeCount % 4) == 0)
         {
-            bulb_1.SetActive(true);
-            bulb_2.SetActive(true);
-            bulb_3.SetActive(true);
-            bulb_4.SetActive(true);
-            bulb_5.SetActive(true);
-            bulb_6.SetActive(true);
-            bulb_7.SetActive(true);
-            bulb_8.SetActive(true);
-            bulb_9.SetActive(true);
-            bulb_10.SetActive(true);
-            bulb_12.SetActive(true);
-            bulb_13.SetActive(true);
-            bulb_14.SetActive(true);
-            bulb_15.SetActive(true);
-            bulb_16.SetActive(true);
-            bulb_17.SetActive(true);
-            bulb_18.SetActive(true);
+            bulb1.SetActive(true);
+            bulb2.SetActive(true);
+            bulb3.SetActive(true);
+            bulb4.SetActive(true);
+            bulb5.SetActive(true);
+            bulb6.SetActive(true);
+            bulb7.SetActive(true);
+            bulb8.SetActive(true);
+            bulb9.SetActive(true);
+            bulb10.SetActive(true);
+            bulb12.SetActive(true);
+            bulb13.SetActive(true);
+            bulb14.SetActive(true);
+            bulb15.SetActive(true);
+            bulb16.SetActive(true);
+            bulb17.SetActive(true);
+            bulb18.SetActive(true);
         }
         else
         {
-            bulb_1.SetActive(false);
-            bulb_2.SetActive(false);
-            bulb_3.SetActive(false);
-            bulb_4.SetActive(false);
-            bulb_5.SetActive(false);
-            bulb_6.SetActive(false);
-            bulb_7.SetActive(false);
-            bulb_8.SetActive(false);
-            bulb_9.SetActive(false);
-            bulb_10.SetActive(false);
-            bulb_12.SetActive(false);
-            bulb_13.SetActive(false);
-            bulb_14.SetActive(false);
-            bulb_15.SetActive(false);
-            bulb_16.SetActive(false);
-            bulb_17.SetActive(false);
-            bulb_18.SetActive(false);
+            bulb1.SetActive(false);
+            bulb2.SetActive(false);
+            bulb3.SetActive(false);
+            bulb4.SetActive(false);
+            bulb5.SetActive(false);
+            bulb6.SetActive(false);
+            bulb7.SetActive(false);
+            bulb8.SetActive(false);
+            bulb9.SetActive(false);
+            bulb10.SetActive(false);
+            bulb12.SetActive(false);
+            bulb13.SetActive(false);
+            bulb14.SetActive(false);
+            bulb15.SetActive(false);
+            bulb16.SetActive(false);
+            bulb17.SetActive(false);
+            bulb18.SetActive(false);
         }
     }
 }

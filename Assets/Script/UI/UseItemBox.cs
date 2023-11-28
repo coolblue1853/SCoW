@@ -6,14 +6,13 @@ using TMPro;
 public class UseItemBox : MonoBehaviour
 {
     Image imageComponent;
-    public Sprite Bandages;
-    public Sprite Firstaidkit;
-    public Sprite Painkillers;
-    public Sprite None;
-
-    public GameObject UseUI;
-    public GameObject SISUI;
-    public TextMeshProUGUI UseUI_Text;
+    public Sprite bandages;
+    public Sprite firstaidkit;
+    public Sprite painkillers;
+    public Sprite none;
+    public GameObject useUI;
+    public GameObject sisUI;
+    public TextMeshProUGUI useUITet;
     private void Start()
     {
         imageComponent = this.GetComponent<Image>();
@@ -23,8 +22,8 @@ public class UseItemBox : MonoBehaviour
         if (DataBaseManager.isDebuffDrugPhobia != true)
         {
             DataBaseManager.isOpenUi = false;
-            UseUI.SetActive(false);
-            SISUI.SetActive(false);
+            useUI.SetActive(false);
+            sisUI.SetActive(false);
             if (DataBaseManager.nowItem == "First aid kit")
             {
                 Rollet.Instance.setRollet("Fabian : Medicines", "Medicine+20", DataBaseManager.medicinePoint + 20, "Item");
@@ -54,19 +53,19 @@ public class UseItemBox : MonoBehaviour
     {
         if (DataBaseManager.nowItem == "Bandages" && DataBaseManager.bandages > 0)
         {
-            imageComponent.sprite = Bandages;
+            imageComponent.sprite = bandages;
         }
         else if (DataBaseManager.nowItem == "First aid kit" && DataBaseManager.firstaidkit > 0)
         {
-            imageComponent.sprite = Firstaidkit;
+            imageComponent.sprite = firstaidkit;
         }
         else if (DataBaseManager.nowItem == "Painkillers" && DataBaseManager.painkillers > 0)
         {
-            imageComponent.sprite = Painkillers;
+            imageComponent.sprite = painkillers;
         }
         else
         {
-            imageComponent.sprite = None;
+            imageComponent.sprite = none;
         }
     }
 }

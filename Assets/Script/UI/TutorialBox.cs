@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Serialization;
 public class TutorialBox : MonoBehaviour
 {
     public GameObject[] childObjects; // 자식 오브젝트들을 배열로 저장합니다.
