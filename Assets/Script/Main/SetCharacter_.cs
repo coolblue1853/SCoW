@@ -10,7 +10,7 @@ public class SetCharacter_ : MonoBehaviour
     public Image backGroundImg;
     public GameObject demoEndBackOb;
     public Image demoEndBackGroundImg;
-    public void DemoEnd_FadeOut()
+    public void DemoEndFadeOut()
     {
         demoEndBackOb.SetActive(true);
         mySequence = DOTween.Sequence()
@@ -26,9 +26,9 @@ public class SetCharacter_ : MonoBehaviour
 
     public void FadeInOut()
     {
-        StartCoroutine(FadeInOut_IEnumerator());
+        StartCoroutine(FadeInOutIEnumerator());
     }
-    IEnumerator FadeInOut_IEnumerator()
+    IEnumerator FadeInOutIEnumerator()
     {
         backOb.SetActive(true);
         mySequence = DOTween.Sequence()
@@ -50,9 +50,9 @@ public class SetCharacter_ : MonoBehaviour
     {
         backOb.SetActive(true);
         Tween fadeTween2 = backGroundImg.DOFade(0, 1.5f);
-        fadeTween2.OnComplete(goToGame);
+        fadeTween2.OnComplete(GoToGame);
     }
-    IEnumerator FadeOut_IEnumerator()
+    IEnumerator FadeOutIEnumerator()
     {
         mySequence2 = DOTween.Sequence()
         .SetDelay(1.5f)
@@ -60,7 +60,7 @@ public class SetCharacter_ : MonoBehaviour
         yield return mySequence2.WaitForCompletion();
         backOb.SetActive(false);
     }
-    public void goToGame()
+    public void GoToGame()
     {
         backOb.SetActive(false);
     }

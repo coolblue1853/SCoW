@@ -79,7 +79,7 @@ public class MapManager : MonoBehaviour
     public GameObject gunshopButton;
     public GameObject sewerOfficeButton;
     
-    private void buttonChecker() 
+    private void ButtonChecker() 
     {
         if ((DataBaseManager.timeCount % 4) == 1)
         {
@@ -332,13 +332,13 @@ public class MapManager : MonoBehaviour
     }
     public void OpenUpperMap()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         upper.SetActive(true);
         downer.SetActive(false);
     }
     public void OpenDownMap()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         upper.SetActive(false);
         downer.SetActive(true);
     }
@@ -372,7 +372,7 @@ public class MapManager : MonoBehaviour
         {
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.storyDirecting == false && DataBaseManager.potalWait == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad" && DataBaseManager.isOpenMap == false)
             {
-                SoundManager.Instance.PaperClip_Play();
+                SoundManager.Instance.PaperClipPlay();
                 DataBaseManager.workSound = false;
                 DataBaseManager.isOpenUi = true;
                 mapChainingUI.SetActive(true);
@@ -384,7 +384,7 @@ public class MapManager : MonoBehaviour
             {
                 if (DataBaseManager.sewerMap == true)
                 {
-                    SoundManager.Instance.PaperClip_Play();
+                    SoundManager.Instance.PaperClipPlay();
                     DataBaseManager.workSound = false;
                     DataBaseManager.isOpenUi = true;
                     mapChainingUI.SetActive(true);
@@ -395,7 +395,7 @@ public class MapManager : MonoBehaviour
     }
     public void CloseMap()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         DataBaseManager.isOpenUi = false;
         mapChainingUI.SetActive(false);
     }
@@ -413,7 +413,7 @@ public class MapManager : MonoBehaviour
             NomalMap.SetActive(false);
             SewerMap.SetActive(true);
         }
-        buttonChecker();
+        ButtonChecker();
         if (DataBaseManager.isActiveDialog1 == false)
         {
             if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -624,7 +624,7 @@ public class MapManager : MonoBehaviour
         }
         else if (DataBaseManager.timeCount == 6)
         {
-            selectionUIManager.Instance.Ex_AddFunc9();
+            selectionUIManager.Instance.ExAddFunc9();
             text.text = "12/7/1921-Afternoon";
         }
         else if (DataBaseManager.timeCount == 7)
@@ -895,16 +895,16 @@ public class MapManager : MonoBehaviour
     {
         if(DataBaseManager.timeCount < 7)
         {
-            InteractionController.Instance.Start_2nd_NoonEvent("NoonEvent_DeadBody_analysisSuccAfter");
+            InteractionController.Instance.Start2ndNoonEvent("NoonEvent_DeadBody_analysisSuccAfter");
         }
         else
         {
-            InteractionController.Instance.Start_2nd_NoonEvent("Site_analysisSuccAfter");
+            InteractionController.Instance.Start2ndNoonEvent("Site_analysisSuccAfter");
         }
     }
     void PanicAttack()
     {
-        BillowUIManager.Instance.HP_down(5);
+        BillowUIManager.Instance.HpDown(5);
     }
     void FirstClientsHouseArrive()
     {

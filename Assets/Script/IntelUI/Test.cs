@@ -100,25 +100,25 @@ public class Test : MonoBehaviour
             {
                 if (countWharf >= 6)
                 {
-                    Reset_Wharf();
+                    ResetWharf();
                     wharfContents.transform.GetChild(2).gameObject.SetActive(true);
                     wharfContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countWharf >= 5)
                 {
-                    Reset_Wharf();
+                    ResetWharf();
                     wharfContents.transform.GetChild(3).gameObject.SetActive(true);
                     wharfContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countWharf >= 4)
                 {
-                    Reset_Wharf();
+                    ResetWharf();
                     wharfContents.transform.GetChild(4).gameObject.SetActive(true);
                     wharfContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countWharf >= 3)
                 {
-                    Reset_Wharf();
+                    ResetWharf();
                     wharfContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageWharf = 2;
@@ -127,13 +127,13 @@ public class Test : MonoBehaviour
             {
                 if (countWharf >= 6)
                 {
-                    Reset_Wharf();
+                    ResetWharf();
                     wharfContents.transform.GetChild(4).gameObject.SetActive(true);
                     wharfContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countWharf >= 5)
                 {
-                    Reset_Wharf();
+                    ResetWharf();
                     wharfContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageWharf = 3;
@@ -148,25 +148,25 @@ public class Test : MonoBehaviour
             {
                 if (countWharf >= 6)
                 {
-                    Reset_Wharf();
+                    ResetWharf();
                     wharfContents.transform.GetChild(0).gameObject.SetActive(true);
                     wharfContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countWharf >= 5)
                 {
-                    Reset_Wharf();
+                    ResetWharf();
                     wharfContents.transform.GetChild(1).gameObject.SetActive(true);
                     wharfContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countWharf >= 4)
                 {
-                    Reset_Wharf();
+                    ResetWharf();
                     wharfContents.transform.GetChild(2).gameObject.SetActive(true);
                     wharfContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countWharf >= 3)
                 {
-                    Reset_Wharf();
+                    ResetWharf();
                     wharfContents.transform.GetChild(3).gameObject.SetActive(true);
                     wharfContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -176,13 +176,13 @@ public class Test : MonoBehaviour
             {
                 if (countWharf >= 6)
                 {
-                    Reset_Wharf();
+                    ResetWharf();
                     wharfContents.transform.GetChild(2).gameObject.SetActive(true);
                     wharfContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countWharf >= 5)
                 {
-                    Reset_Wharf();
+                    ResetWharf();
                     wharfContents.transform.GetChild(3).gameObject.SetActive(true);
                     wharfContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -190,7 +190,7 @@ public class Test : MonoBehaviour
             }
         }
     }
-    void Reset_Wharf()
+    void ResetWharf()
     {
         wharfContents.transform.GetChild(0).gameObject.SetActive(false);
         wharfContents.transform.GetChild(1).gameObject.SetActive(false);

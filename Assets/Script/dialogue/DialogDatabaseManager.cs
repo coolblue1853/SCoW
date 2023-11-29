@@ -13,7 +13,7 @@ public class DialogDatabaseManager : MonoBehaviour
             {
                 check = false;
                 csvFileName = "1st_DetectiveOffice";
-                setDialog();
+                SetDialog();
             }
             else if (DataBaseManager.nowPlace == "Client'shouse" && check == true)
             {
@@ -21,80 +21,80 @@ public class DialogDatabaseManager : MonoBehaviour
                 {
                     check = false;
                     csvFileName = "1st_Client'sHouse";
-                    setDialog();
+                    SetDialog();
                 }
                 else
                 {
                     check = false;
                     csvFileName = "2nd_NoonEvent";
-                    setDialog();
+                    SetDialog();
                 }
             }
             else if (DataBaseManager.nowPlace == "DailyNews" && check == true)
             {
                 check = false;
                 csvFileName = "1st_DailyNews";
-                setDialog();
+                SetDialog();
             }
             else if (DataBaseManager.nowPlace == "SewerOffice" && check == true)
             {
                 check = false;
                 csvFileName = "SewerOffice";
-                setDialog();
+                SetDialog();
             }
             else if (DataBaseManager.nowPlace == "University" && check == true)
             {
                 check = false;
                 csvFileName = "1st_University";
-                setDialog();
+                SetDialog();
             }
             else if (DataBaseManager.nowPlace == "Riverside" && check == true)
             {
                 check = false;
                 csvFileName = "1st_Riverside";
-                setDialog();
+                SetDialog();
             }
             else if (DataBaseManager.nowPlace == "Hospital" && check == true)
             {
                 check = false;
                 csvFileName = "1st_Hospital";
-                setDialog();
+                SetDialog();
             }
             else if (DataBaseManager.nowPlace == "Policeoffice" && check == true)
             {
                 check = false;
                 csvFileName = "1st_PoliceOffice";
-                setDialog();
+                SetDialog();
             }
             else if (DataBaseManager.nowPlace == "Slum" && check == true)
             {
                 check = false;
                 csvFileName = "1st_Slum";
-                setDialog();
+                SetDialog();
             }
             else if (DataBaseManager.nowPlace == "Bar" && check == true)
             {
                 check = false;
                 csvFileName = "1st_Bar";
-                setDialog();
+                SetDialog();
             }
             else if (DataBaseManager.nowPlace == "InSewer" && check == true)
             {
                 check = false;
                 csvFileName = "InSewer";
-                setDialog();
+                SetDialog();
             }
             else if (DataBaseManager.nowPlace == "BattleRoad" && check == true)
             {
                 check = false;
                 csvFileName = "1st_Battle";
-                setDialog();
+                SetDialog();
             }
             else if (DataBaseManager.nowPlace == "NoonEvent" && check == true)
             {
                 check = false;
                 csvFileName = "2nd_NoonEvent";
-                setDialog();
+                SetDialog();
             }
         }
         else
@@ -103,12 +103,12 @@ public class DialogDatabaseManager : MonoBehaviour
             {
                 check = true;
                 csvFileName = "1st_Item";
-                setDialog();
+                SetDialog();
             }
         }
     }
     Dialog[] dialogs;
-    void setDialog()
+    void SetDialog()
     {
         dialogs = new Dialog[0];
         dialogDic.Clear();
@@ -169,7 +169,7 @@ public class DialogDatabaseManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            setDialog();
+            SetDialog();
             isFinish = true;
         }
     }

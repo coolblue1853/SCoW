@@ -41,7 +41,7 @@ public class setStat : MonoBehaviour
     {
         if ((DataBaseManager.strSkillPoint == DataBaseManager.str && DataBaseManager.intSkillPoint == DataBaseManager.intl && DataBaseManager.dexSkillPoint == DataBaseManager.dex) || firstSetStat == true)
         {
-            SoundManager.Instance.ClickSound_Play();
+            SoundManager.Instance.ClickSoundPlay();
 
             firstSetStat = false;
             DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
@@ -81,23 +81,23 @@ public class setStat : MonoBehaviour
 
             DataBaseManager.nowHP = DataBaseManager.hp;
             DataBaseManager.nowSan = DataBaseManager.san;
-            setSkill.resetSkillPoint();
+            setSkill.ResetSkillPoint();
         }
         else
         {
-            SoundManager.Instance.ClickSound_Play();
+            SoundManager.Instance.ClickSoundPlay();
             checkUI.SetActive(true);
         }
     }
     public void CloseCheckUI()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         isAll = false;
         checkUI.SetActive(false);
     }
     public void Okay2CheckUI()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
         strTxt.text = DataBaseManager.str.ToString();
         strGuage.fillAmount = ((float)DataBaseManager.str / 100);
@@ -135,7 +135,7 @@ public class setStat : MonoBehaviour
         DataBaseManager.nowHP = DataBaseManager.hp;
         DataBaseManager.nowSan = DataBaseManager.san;
 
-        setSkill.resetSkillPoint();
+        setSkill.ResetSkillPoint();
         checkUI.SetActive(false);
 
         if (isAll == true)
@@ -147,7 +147,7 @@ public class setStat : MonoBehaviour
     }
     public void SetSkill()
     {
-        SoundManager.Instance.PaperClip_Play();
+        SoundManager.Instance.PaperClipPlay();
         setStatWindow.SetActive(false);
         setSkillWindow.SetActive(true);
         setStatButton.SetActive(false);

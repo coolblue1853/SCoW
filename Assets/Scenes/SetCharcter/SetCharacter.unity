@@ -1048,7 +1048,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: int_expl
+          m_MethodName: IntExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1064,7 +1064,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2403,7 +2403,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1375794850}
           m_TargetAssemblyTypeName: strSkillExplain, Assembly-CSharp
-          m_MethodName: Gunshot_expl
+          m_MethodName: GunshotExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2419,7 +2419,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4639,7 +4639,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: str_expl
+          m_MethodName: StrExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4655,7 +4655,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -7610,7 +7610,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: dex_expl
+          m_MethodName: DexExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -7626,7 +7626,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8010,7 +8010,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 109284130}
           m_TargetAssemblyTypeName: dexSkillExplain, Assembly-CSharp
-          m_MethodName: stealth_expl
+          m_MethodName: StealthExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8026,7 +8026,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8132,7 +8132,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 372379244}
           m_TargetAssemblyTypeName: intSkillExplain, Assembly-CSharp
-          m_MethodName: Medicine_expl
+          m_MethodName: MedicineExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8148,7 +8148,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8887,7 +8887,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 109284130}
           m_TargetAssemblyTypeName: dexSkillExplain, Assembly-CSharp
-          m_MethodName: rhetoric_expl
+          m_MethodName: RhetoricExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8903,7 +8903,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -9107,7 +9107,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: luck_expl
+          m_MethodName: LuckExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -9123,7 +9123,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13137,7 +13137,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1375794850}
           m_TargetAssemblyTypeName: strSkillExplain, Assembly-CSharp
-          m_MethodName: sword_expl
+          m_MethodName: SwordExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13153,7 +13153,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13884,7 +13884,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1375794850}
           m_TargetAssemblyTypeName: strSkillExplain, Assembly-CSharp
-          m_MethodName: Observation_expl
+          m_MethodName: ObservationExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13900,7 +13900,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -14870,7 +14870,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: hp_expl
+          m_MethodName: HpExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -14886,7 +14886,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -16774,7 +16774,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 109284130}
           m_TargetAssemblyTypeName: dexSkillExplain, Assembly-CSharp
-          m_MethodName: deftness_expl
+          m_MethodName: DeftnessExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -16790,7 +16790,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -18925,7 +18925,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: wealth_expl
+          m_MethodName: WealthExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -18941,7 +18941,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -19615,7 +19615,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 372379244}
           m_TargetAssemblyTypeName: intSkillExplain, Assembly-CSharp
-          m_MethodName: psychotherapy_expl
+          m_MethodName: PsychotherapyExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -19631,7 +19631,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -20050,7 +20050,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 109284130}
           m_TargetAssemblyTypeName: dexSkillExplain, Assembly-CSharp
-          m_MethodName: Disguise_expl
+          m_MethodName: DisguiseExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -20066,7 +20066,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -21295,7 +21295,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 372379244}
           m_TargetAssemblyTypeName: intSkillExplain, Assembly-CSharp
-          m_MethodName: analysis_expl
+          m_MethodName: AnalysisExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -21311,7 +21311,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -21671,7 +21671,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: mp_expl
+          m_MethodName: MpExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -21687,7 +21687,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -24988,7 +24988,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 109284130}
           m_TargetAssemblyTypeName: dexSkillExplain, Assembly-CSharp
-          m_MethodName: evasion_expl
+          m_MethodName: EvasionExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -25004,7 +25004,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -25266,7 +25266,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 372379244}
           m_TargetAssemblyTypeName: intSkillExplain, Assembly-CSharp
-          m_MethodName: occult_expl
+          m_MethodName: OccultExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -25282,7 +25282,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -25505,7 +25505,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1375794850}
           m_TargetAssemblyTypeName: strSkillExplain, Assembly-CSharp
-          m_MethodName: martialarts_expl
+          m_MethodName: MartialartsExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -25521,7 +25521,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -26292,7 +26292,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 372379244}
           m_TargetAssemblyTypeName: intSkillExplain, Assembly-CSharp
-          m_MethodName: Listening_expl
+          m_MethodName: ListeningExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -26308,7 +26308,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -28382,7 +28382,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1375794850}
           m_TargetAssemblyTypeName: strSkillExplain, Assembly-CSharp
-          m_MethodName: Swiming_expl
+          m_MethodName: SwimingExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -28398,7 +28398,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -28918,7 +28918,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: san_expl
+          m_MethodName: SanExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -28934,7 +28934,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1673926579}
           m_TargetAssemblyTypeName: statExplain, Assembly-CSharp
-          m_MethodName: rest_expl
+          m_MethodName: ResetExplain
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

@@ -29,7 +29,7 @@ public class BattleResetUI : MonoBehaviour
     public Sprite shotgunSprite;
     public Sprite rockSprite;
     public Sprite molotovSprite;
-    public void EndTrun_Reset()
+    public void EndTrunReset()
     {
         swordName.text = "";
         swordDetail.text = "";

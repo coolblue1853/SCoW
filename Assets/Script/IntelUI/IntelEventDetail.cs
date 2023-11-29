@@ -1166,25 +1166,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countPlanetarySequence >= 6)
                 {
-                    Reset_PlanetarySequence();
+                    ResetPlanetarySequence();
                     planetarySequenceContents.transform.GetChild(2).gameObject.SetActive(true);
                     planetarySequenceContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countPlanetarySequence >= 5)
                 {
-                    Reset_PlanetarySequence();
+                    ResetPlanetarySequence();
                     planetarySequenceContents.transform.GetChild(3).gameObject.SetActive(true);
                     planetarySequenceContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countPlanetarySequence >= 4)
                 {
-                    Reset_PlanetarySequence();
+                    ResetPlanetarySequence();
                     planetarySequenceContents.transform.GetChild(4).gameObject.SetActive(true);
                     planetarySequenceContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countPlanetarySequence >= 3)
                 {
-                    Reset_PlanetarySequence();
+                    ResetPlanetarySequence();
                     planetarySequenceContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPagePlanetaryParade = 2;
@@ -1193,13 +1193,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countPlanetarySequence >= 6)
                 {
-                    Reset_PlanetarySequence();
+                    ResetPlanetarySequence();
                     planetarySequenceContents.transform.GetChild(4).gameObject.SetActive(true);
                     planetarySequenceContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countPlanetarySequence >= 5)
                 {
-                    Reset_PlanetarySequence();
+                    ResetPlanetarySequence();
                     planetarySequenceContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPagePlanetaryParade = 3;
@@ -1211,25 +1211,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countNightmare >= 6)
                 {
-                    Reset_Nightmare();
+                    ResetNightmare();
                     nightmareContents.transform.GetChild(2).gameObject.SetActive(true);
                     nightmareContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countNightmare >= 5)
                 {
-                    Reset_Nightmare();
+                    ResetNightmare();
                     nightmareContents.transform.GetChild(3).gameObject.SetActive(true);
                     nightmareContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countNightmare >= 4)
                 {
-                    Reset_Nightmare();
+                    ResetNightmare();
                     nightmareContents.transform.GetChild(4).gameObject.SetActive(true);
                     nightmareContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countNightmare >= 3)
                 {
-                    Reset_Nightmare();
+                    ResetNightmare();
                     nightmareContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageNightmare = 2;
@@ -1238,13 +1238,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countNightmare >= 6)
                 {
-                    Reset_Nightmare();
+                    ResetNightmare();
                     nightmareContents.transform.GetChild(4).gameObject.SetActive(true);
                     nightmareContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countNightmare >= 5)
                 {
-                    Reset_Nightmare();
+                    ResetNightmare();
                     nightmareContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageNightmare = 3;
@@ -1256,25 +1256,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countParanoia >= 6)
                 {
-                    Reset_Paranoia();
+                    ResetParanoia();
                     paranoiaContents.transform.GetChild(2).gameObject.SetActive(true);
                     paranoiaContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countParanoia >= 5)
                 {
-                    Reset_Paranoia();
+                    ResetParanoia();
                     paranoiaContents.transform.GetChild(3).gameObject.SetActive(true);
                     paranoiaContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countParanoia >= 4)
                 {
-                    Reset_Paranoia();
+                    ResetParanoia();
                     paranoiaContents.transform.GetChild(4).gameObject.SetActive(true);
                     paranoiaContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countParanoia >= 3)
                 {
-                    Reset_Paranoia();
+                    ResetParanoia();
                     paranoiaContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageParanoia = 2;
@@ -1283,13 +1283,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countParanoia >= 6)
                 {
-                    Reset_Paranoia();
+                    ResetParanoia();
                     paranoiaContents.transform.GetChild(4).gameObject.SetActive(true);
                     paranoiaContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countParanoia >= 5)
                 {
-                    Reset_Paranoia();
+                    ResetParanoia();
                     paranoiaContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageParanoia = 3;
@@ -1301,25 +1301,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countInsomnia >= 6)
                 {
-                    Reset_Insomnia();
+                    ResetInsomnia();
                     insomniaContents.transform.GetChild(2).gameObject.SetActive(true);
                     insomniaContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countInsomnia >= 5)
                 {
-                    Reset_Insomnia();
+                    ResetInsomnia();
                     insomniaContents.transform.GetChild(3).gameObject.SetActive(true);
                     insomniaContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countInsomnia >= 4)
                 {
-                    Reset_Insomnia();
+                    ResetInsomnia();
                     insomniaContents.transform.GetChild(4).gameObject.SetActive(true);
                     insomniaContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countInsomnia >= 3)
                 {
-                    Reset_Insomnia();
+                    ResetInsomnia();
                     insomniaContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageInsomnia = 2;
@@ -1328,13 +1328,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countInsomnia >= 6)
                 {
-                    Reset_Insomnia();
+                    ResetInsomnia();
                     insomniaContents.transform.GetChild(4).gameObject.SetActive(true);
                     insomniaContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countInsomnia >= 5)
                 {
-                    Reset_Insomnia();
+                    ResetInsomnia();
                     insomniaContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageInsomnia = 3;
@@ -1346,25 +1346,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countSewerGhostStory >= 6)
                 {
-                    Reset_SewerGhostStory();
+                    ResetSewerGhostStory();
                     sewerGhostStoryContents.transform.GetChild(2).gameObject.SetActive(true);
                     sewerGhostStoryContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countSewerGhostStory >= 5)
                 {
-                    Reset_SewerGhostStory();
+                    ResetSewerGhostStory();
                     sewerGhostStoryContents.transform.GetChild(3).gameObject.SetActive(true);
                     sewerGhostStoryContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countSewerGhostStory >= 4)
                 {
-                    Reset_SewerGhostStory();
+                    ResetSewerGhostStory();
                     sewerGhostStoryContents.transform.GetChild(4).gameObject.SetActive(true);
                     sewerGhostStoryContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countSewerGhostStory >= 3)
                 {
-                    Reset_SewerGhostStory();
+                    ResetSewerGhostStory();
                     sewerGhostStoryContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageSewerGhostStory = 2;
@@ -1373,13 +1373,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countSewerGhostStory >= 6)
                 {
-                    Reset_SewerGhostStory();
+                    ResetSewerGhostStory();
                     sewerGhostStoryContents.transform.GetChild(4).gameObject.SetActive(true);
                     sewerGhostStoryContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countSewerGhostStory >= 5)
                 {
-                    Reset_SewerGhostStory();
+                    ResetSewerGhostStory();
                     sewerGhostStoryContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageSewerGhostStory = 3;
@@ -1391,25 +1391,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countMissingPeople >= 6)
                 {
-                    Reset_MissingPeople();
+                    ResetMissingPeople();
                     missingPeopleContents.transform.GetChild(2).gameObject.SetActive(true);
                     missingPeopleContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countMissingPeople >= 5)
                 {
-                    Reset_MissingPeople();
+                    ResetMissingPeople();
                     missingPeopleContents.transform.GetChild(3).gameObject.SetActive(true);
                     missingPeopleContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countMissingPeople >= 4)
                 {
-                    Reset_MissingPeople();
+                    ResetMissingPeople();
                     missingPeopleContents.transform.GetChild(4).gameObject.SetActive(true);
                     missingPeopleContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countMissingPeople >= 3)
                 {
-                    Reset_MissingPeople();
+                    ResetMissingPeople();
                     missingPeopleContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageMissingPeople = 2;
@@ -1418,13 +1418,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countMissingPeople >= 6)
                 {
-                    Reset_MissingPeople();
+                    ResetMissingPeople();
                     missingPeopleContents.transform.GetChild(4).gameObject.SetActive(true);
                     missingPeopleContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countMissingPeople >= 5)
                 {
-                    Reset_MissingPeople();
+                    ResetMissingPeople();
                     missingPeopleContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageMissingPeople = 3;
@@ -1436,25 +1436,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countFishySmell >= 6)
                 {
-                    Reset_FishySmell();
+                    ResetFishySmell();
                     fishySmellContents.transform.GetChild(2).gameObject.SetActive(true);
                     fishySmellContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countFishySmell >= 5)
                 {
-                    Reset_FishySmell();
+                    ResetFishySmell();
                     fishySmellContents.transform.GetChild(3).gameObject.SetActive(true);
                     fishySmellContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countFishySmell >= 4)
                 {
-                    Reset_FishySmell();
+                    ResetFishySmell();
                     fishySmellContents.transform.GetChild(4).gameObject.SetActive(true);
                     fishySmellContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countFishySmell >= 3)
                 {
-                    Reset_FishySmell();
+                    ResetFishySmell();
                     fishySmellContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageFishySmell = 2;
@@ -1463,13 +1463,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countFishySmell >= 6)
                 {
-                    Reset_FishySmell();
+                    ResetFishySmell();
                     fishySmellContents.transform.GetChild(4).gameObject.SetActive(true);
                     fishySmellContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countFishySmell >= 5)
                 {
-                    Reset_FishySmell();
+                    ResetFishySmell();
                     fishySmellContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageFishySmell = 3;
@@ -1481,25 +1481,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countRiverWaterQuality >= 6)
                 {
-                    Reset_RiverWaterQuality();
+                    ResetRiverWaterQuality();
                     riverWaterQualityContents.transform.GetChild(2).gameObject.SetActive(true);
                     riverWaterQualityContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countRiverWaterQuality >= 5)
                 {
-                    Reset_RiverWaterQuality();
+                    ResetRiverWaterQuality();
                     riverWaterQualityContents.transform.GetChild(3).gameObject.SetActive(true);
                     riverWaterQualityContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countRiverWaterQuality >= 4)
                 {
-                    Reset_RiverWaterQuality();
+                    ResetRiverWaterQuality();
                     riverWaterQualityContents.transform.GetChild(4).gameObject.SetActive(true);
                     riverWaterQualityContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countRiverWaterQuality >= 3)
                 {
-                    Reset_RiverWaterQuality();
+                    ResetRiverWaterQuality();
                     riverWaterQualityContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageRiverWaterQuality = 2;
@@ -1508,13 +1508,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countRiverWaterQuality >= 6)
                 {
-                    Reset_RiverWaterQuality();
+                    ResetRiverWaterQuality();
                     riverWaterQualityContents.transform.GetChild(4).gameObject.SetActive(true);
                     riverWaterQualityContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countRiverWaterQuality >= 5)
                 {
-                    Reset_RiverWaterQuality();
+                    ResetRiverWaterQuality();
                     riverWaterQualityContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageRiverWaterQuality = 3;
@@ -1526,25 +1526,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countCreepyEyes >= 6)
                 {
-                    Reset_CreepyEyes();
+                    ResetCreepyEyes();
                     creepyEyesContents.transform.GetChild(2).gameObject.SetActive(true);
                     creepyEyesContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countCreepyEyes >= 5)
                 {
-                    Reset_CreepyEyes();
+                    ResetCreepyEyes();
                     creepyEyesContents.transform.GetChild(3).gameObject.SetActive(true);
                     creepyEyesContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countCreepyEyes >= 4)
                 {
-                    Reset_CreepyEyes();
+                    ResetCreepyEyes();
                     creepyEyesContents.transform.GetChild(4).gameObject.SetActive(true);
                     creepyEyesContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countCreepyEyes >= 3)
                 {
-                    Reset_CreepyEyes();
+                    ResetCreepyEyes();
                     creepyEyesContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageCreepyEyes = 2;
@@ -1553,13 +1553,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countCreepyEyes >= 6)
                 {
-                    Reset_CreepyEyes();
+                    ResetCreepyEyes();
                     creepyEyesContents.transform.GetChild(4).gameObject.SetActive(true);
                     creepyEyesContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countCreepyEyes >= 5)
                 {
-                    Reset_CreepyEyes();
+                    ResetCreepyEyes();
                     creepyEyesContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageCreepyEyes = 3;
@@ -1572,25 +1572,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countSafe >= 6)
                 {
-                    Reset_Safe();
+                    ResetSafe();
                     safeContents.transform.GetChild(2).gameObject.SetActive(true);
                     safeContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countSafe >= 5)
                 {
-                    Reset_Safe();
+                    ResetSafe();
                     safeContents.transform.GetChild(3).gameObject.SetActive(true);
                     safeContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countSafe >= 4)
                 {
-                    Reset_Safe();
+                    ResetSafe();
                     safeContents.transform.GetChild(4).gameObject.SetActive(true);
                     safeContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countSafe >= 3)
                 {
-                    Reset_Safe();
+                    ResetSafe();
                     safeContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageSafe = 2;
@@ -1599,13 +1599,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countSafe >= 6)
                 {
-                    Reset_Safe();
+                    ResetSafe();
                     safeContents.transform.GetChild(4).gameObject.SetActive(true);
                     safeContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countSafe >= 5)
                 {
-                    Reset_Safe();
+                    ResetSafe();
                     safeContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageSafe = 3;
@@ -1617,25 +1617,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countMurderCase >= 6)
                 {
-                    Reset_MurderCase();
+                    ResetMurderCase();
                     murderCaseContents.transform.GetChild(2).gameObject.SetActive(true);
                     murderCaseContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countMurderCase >= 5)
                 {
-                    Reset_MurderCase();
+                    ResetMurderCase();
                     murderCaseContents.transform.GetChild(3).gameObject.SetActive(true);
                     murderCaseContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countMurderCase >= 4)
                 {
-                    Reset_MurderCase();
+                    ResetMurderCase();
                     murderCaseContents.transform.GetChild(4).gameObject.SetActive(true);
                     murderCaseContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countMurderCase >= 3)
                 {
-                    Reset_MurderCase();
+                    ResetMurderCase();
                     murderCaseContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageMurderCase = 2;
@@ -1644,13 +1644,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countMurderCase >= 6)
                 {
-                    Reset_MurderCase();
+                    ResetMurderCase();
                     murderCaseContents.transform.GetChild(4).gameObject.SetActive(true);
                     murderCaseContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countMurderCase >= 5)
                 {
-                    Reset_MurderCase();
+                    ResetMurderCase();
                     murderCaseContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageMurderCase = 3;
@@ -1665,25 +1665,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countPlanetarySequence >= 6)
                 {
-                    Reset_PlanetarySequence();
+                    ResetPlanetarySequence();
                     planetarySequenceContents.transform.GetChild(0).gameObject.SetActive(true);
                     planetarySequenceContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countPlanetarySequence >= 5)
                 {
-                    Reset_PlanetarySequence();
+                    ResetPlanetarySequence();
                     planetarySequenceContents.transform.GetChild(1).gameObject.SetActive(true);
                     planetarySequenceContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countPlanetarySequence >= 4)
                 {
-                    Reset_PlanetarySequence();
+                    ResetPlanetarySequence();
                     planetarySequenceContents.transform.GetChild(2).gameObject.SetActive(true);
                     planetarySequenceContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countPlanetarySequence >= 3)
                 {
-                    Reset_PlanetarySequence();
+                    ResetPlanetarySequence();
                     planetarySequenceContents.transform.GetChild(3).gameObject.SetActive(true);
                     planetarySequenceContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1694,13 +1694,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countPlanetarySequence >= 6)
                 {
-                    Reset_PlanetarySequence();
+                    ResetPlanetarySequence();
                     planetarySequenceContents.transform.GetChild(2).gameObject.SetActive(true);
                     planetarySequenceContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countPlanetarySequence >= 5)
                 {
-                    Reset_PlanetarySequence();
+                    ResetPlanetarySequence();
                     planetarySequenceContents.transform.GetChild(3).gameObject.SetActive(true);
                     planetarySequenceContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1713,25 +1713,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countNightmare >= 6)
                 {
-                    Reset_Nightmare();
+                    ResetNightmare();
                     nightmareContents.transform.GetChild(0).gameObject.SetActive(true);
                     nightmareContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countNightmare >= 5)
                 {
-                    Reset_Nightmare();
+                    ResetNightmare();
                     nightmareContents.transform.GetChild(1).gameObject.SetActive(true);
                     nightmareContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countNightmare >= 4)
                 {
-                    Reset_Nightmare();
+                    ResetNightmare();
                     nightmareContents.transform.GetChild(2).gameObject.SetActive(true);
                     nightmareContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countNightmare >= 3)
                 {
-                    Reset_Nightmare();
+                    ResetNightmare();
                     nightmareContents.transform.GetChild(3).gameObject.SetActive(true);
                     nightmareContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1742,13 +1742,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countNightmare >= 6)
                 {
-                    Reset_Nightmare();
+                    ResetNightmare();
                     nightmareContents.transform.GetChild(2).gameObject.SetActive(true);
                     nightmareContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countNightmare >= 5)
                 {
-                    Reset_Nightmare();
+                    ResetNightmare();
                     nightmareContents.transform.GetChild(3).gameObject.SetActive(true);
                     nightmareContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1761,25 +1761,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countParanoia >= 6)
                 {
-                    Reset_Paranoia();
+                    ResetParanoia();
                     paranoiaContents.transform.GetChild(0).gameObject.SetActive(true);
                     paranoiaContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countParanoia >= 5)
                 {
-                    Reset_Paranoia();
+                    ResetParanoia();
                     paranoiaContents.transform.GetChild(1).gameObject.SetActive(true);
                     paranoiaContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countParanoia >= 4)
                 {
-                    Reset_Paranoia();
+                    ResetParanoia();
                     paranoiaContents.transform.GetChild(2).gameObject.SetActive(true);
                     paranoiaContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countParanoia >= 3)
                 {
-                    Reset_Paranoia();
+                    ResetParanoia();
                     paranoiaContents.transform.GetChild(3).gameObject.SetActive(true);
                     paranoiaContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1790,13 +1790,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countParanoia >= 6)
                 {
-                    Reset_Paranoia();
+                    ResetParanoia();
                     paranoiaContents.transform.GetChild(2).gameObject.SetActive(true);
                     paranoiaContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countParanoia >= 5)
                 {
-                    Reset_Paranoia();
+                    ResetParanoia();
                     paranoiaContents.transform.GetChild(3).gameObject.SetActive(true);
                     paranoiaContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1809,25 +1809,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countInsomnia >= 6)
                 {
-                    Reset_Insomnia();
+                    ResetInsomnia();
                     insomniaContents.transform.GetChild(0).gameObject.SetActive(true);
                     insomniaContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countInsomnia >= 5)
                 {
-                    Reset_Insomnia();
+                    ResetInsomnia();
                     insomniaContents.transform.GetChild(1).gameObject.SetActive(true);
                     insomniaContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countInsomnia >= 4)
                 {
-                    Reset_Insomnia();
+                    ResetInsomnia();
                     insomniaContents.transform.GetChild(2).gameObject.SetActive(true);
                     insomniaContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countInsomnia >= 3)
                 {
-                    Reset_Insomnia();
+                    ResetInsomnia();
                     insomniaContents.transform.GetChild(3).gameObject.SetActive(true);
                     insomniaContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1838,13 +1838,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countInsomnia >= 6)
                 {
-                    Reset_Insomnia();
+                    ResetInsomnia();
                     insomniaContents.transform.GetChild(2).gameObject.SetActive(true);
                     insomniaContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countInsomnia >= 5)
                 {
-                    Reset_Insomnia();
+                    ResetInsomnia();
                     insomniaContents.transform.GetChild(3).gameObject.SetActive(true);
                     insomniaContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1857,25 +1857,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countSewerGhostStory >= 6)
                 {
-                    Reset_SewerGhostStory();
+                    ResetSewerGhostStory();
                     sewerGhostStoryContents.transform.GetChild(0).gameObject.SetActive(true);
                     sewerGhostStoryContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countSewerGhostStory >= 5)
                 {
-                    Reset_SewerGhostStory();
+                    ResetSewerGhostStory();
                     sewerGhostStoryContents.transform.GetChild(1).gameObject.SetActive(true);
                     sewerGhostStoryContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countSewerGhostStory >= 4)
                 {
-                    Reset_SewerGhostStory();
+                    ResetSewerGhostStory();
                     sewerGhostStoryContents.transform.GetChild(2).gameObject.SetActive(true);
                     sewerGhostStoryContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countSewerGhostStory >= 3)
                 {
-                    Reset_SewerGhostStory();
+                    ResetSewerGhostStory();
                     sewerGhostStoryContents.transform.GetChild(3).gameObject.SetActive(true);
                     sewerGhostStoryContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1886,13 +1886,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countSewerGhostStory >= 6)
                 {
-                    Reset_SewerGhostStory();
+                    ResetSewerGhostStory();
                     sewerGhostStoryContents.transform.GetChild(2).gameObject.SetActive(true);
                     sewerGhostStoryContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countSewerGhostStory >= 5)
                 {
-                    Reset_SewerGhostStory();
+                    ResetSewerGhostStory();
                     sewerGhostStoryContents.transform.GetChild(3).gameObject.SetActive(true);
                     sewerGhostStoryContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1905,25 +1905,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countMissingPeople >= 6)
                 {
-                    Reset_MissingPeople();
+                    ResetMissingPeople();
                     missingPeopleContents.transform.GetChild(0).gameObject.SetActive(true);
                     missingPeopleContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countMissingPeople >= 5)
                 {
-                    Reset_MissingPeople();
+                    ResetMissingPeople();
                     missingPeopleContents.transform.GetChild(1).gameObject.SetActive(true);
                     missingPeopleContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countMissingPeople >= 4)
                 {
-                    Reset_MissingPeople();
+                    ResetMissingPeople();
                     missingPeopleContents.transform.GetChild(2).gameObject.SetActive(true);
                     missingPeopleContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countMissingPeople >= 3)
                 {
-                    Reset_MissingPeople();
+                    ResetMissingPeople();
                     missingPeopleContents.transform.GetChild(3).gameObject.SetActive(true);
                     missingPeopleContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1934,13 +1934,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countMissingPeople >= 6)
                 {
-                    Reset_MissingPeople();
+                    ResetMissingPeople();
                     missingPeopleContents.transform.GetChild(2).gameObject.SetActive(true);
                     missingPeopleContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countMissingPeople >= 5)
                 {
-                    Reset_MissingPeople();
+                    ResetMissingPeople();
                     missingPeopleContents.transform.GetChild(3).gameObject.SetActive(true);
                     missingPeopleContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1953,25 +1953,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countFishySmell >= 6)
                 {
-                    Reset_FishySmell();
+                    ResetFishySmell();
                     fishySmellContents.transform.GetChild(0).gameObject.SetActive(true);
                     fishySmellContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countFishySmell >= 5)
                 {
-                    Reset_FishySmell();
+                    ResetFishySmell();
                     fishySmellContents.transform.GetChild(1).gameObject.SetActive(true);
                     fishySmellContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countFishySmell >= 4)
                 {
-                    Reset_FishySmell();
+                    ResetFishySmell();
                     fishySmellContents.transform.GetChild(2).gameObject.SetActive(true);
                     fishySmellContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countFishySmell >= 3)
                 {
-                    Reset_FishySmell();
+                    ResetFishySmell();
                     fishySmellContents.transform.GetChild(3).gameObject.SetActive(true);
                     fishySmellContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1982,13 +1982,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countFishySmell >= 6)
                 {
-                    Reset_FishySmell();
+                    ResetFishySmell();
                     fishySmellContents.transform.GetChild(2).gameObject.SetActive(true);
                     fishySmellContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countFishySmell >= 5)
                 {
-                    Reset_FishySmell();
+                    ResetFishySmell();
                     fishySmellContents.transform.GetChild(3).gameObject.SetActive(true);
                     fishySmellContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -2001,25 +2001,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countRiverWaterQuality >= 6)
                 {
-                    Reset_RiverWaterQuality();
+                    ResetRiverWaterQuality();
                     riverWaterQualityContents.transform.GetChild(0).gameObject.SetActive(true);
                     riverWaterQualityContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countRiverWaterQuality >= 5)
                 {
-                    Reset_RiverWaterQuality();
+                    ResetRiverWaterQuality();
                     riverWaterQualityContents.transform.GetChild(1).gameObject.SetActive(true);
                     riverWaterQualityContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countRiverWaterQuality >= 4)
                 {
-                    Reset_RiverWaterQuality();
+                    ResetRiverWaterQuality();
                     riverWaterQualityContents.transform.GetChild(2).gameObject.SetActive(true);
                     riverWaterQualityContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countRiverWaterQuality >= 3)
                 {
-                    Reset_RiverWaterQuality();
+                    ResetRiverWaterQuality();
                     riverWaterQualityContents.transform.GetChild(3).gameObject.SetActive(true);
                     riverWaterQualityContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -2030,13 +2030,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countRiverWaterQuality >= 6)
                 {
-                    Reset_RiverWaterQuality();
+                    ResetRiverWaterQuality();
                     riverWaterQualityContents.transform.GetChild(2).gameObject.SetActive(true);
                     riverWaterQualityContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countRiverWaterQuality >= 5)
                 {
-                    Reset_RiverWaterQuality();
+                    ResetRiverWaterQuality();
                     riverWaterQualityContents.transform.GetChild(3).gameObject.SetActive(true);
                     riverWaterQualityContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -2049,25 +2049,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countCreepyEyes >= 6)
                 {
-                    Reset_CreepyEyes();
+                    ResetCreepyEyes();
                     creepyEyesContents.transform.GetChild(0).gameObject.SetActive(true);
                     creepyEyesContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countCreepyEyes >= 5)
                 {
-                    Reset_CreepyEyes();
+                    ResetCreepyEyes();
                     creepyEyesContents.transform.GetChild(1).gameObject.SetActive(true);
                     creepyEyesContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countCreepyEyes >= 4)
                 {
-                    Reset_CreepyEyes();
+                    ResetCreepyEyes();
                     creepyEyesContents.transform.GetChild(2).gameObject.SetActive(true);
                     creepyEyesContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countCreepyEyes >= 3)
                 {
-                    Reset_CreepyEyes();
+                    ResetCreepyEyes();
                     creepyEyesContents.transform.GetChild(3).gameObject.SetActive(true);
                     creepyEyesContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -2078,13 +2078,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countCreepyEyes >= 6)
                 {
-                    Reset_CreepyEyes();
+                    ResetCreepyEyes();
                     creepyEyesContents.transform.GetChild(2).gameObject.SetActive(true);
                     creepyEyesContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countCreepyEyes >= 5)
                 {
-                    Reset_CreepyEyes();
+                    ResetCreepyEyes();
                     creepyEyesContents.transform.GetChild(3).gameObject.SetActive(true);
                     creepyEyesContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -2098,25 +2098,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countSafe >= 6)
                 {
-                    Reset_Safe();
+                    ResetSafe();
                     safeContents.transform.GetChild(0).gameObject.SetActive(true);
                     safeContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countSafe >= 5)
                 {
-                    Reset_Safe();
+                    ResetSafe();
                     safeContents.transform.GetChild(1).gameObject.SetActive(true);
                     safeContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countSafe >= 4)
                 {
-                    Reset_Safe();
+                    ResetSafe();
                     safeContents.transform.GetChild(2).gameObject.SetActive(true);
                     safeContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countSafe >= 3)
                 {
-                    Reset_Safe();
+                    ResetSafe();
                     safeContents.transform.GetChild(3).gameObject.SetActive(true);
                     safeContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -2127,13 +2127,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countSafe >= 6)
                 {
-                    Reset_Safe();
+                    ResetSafe();
                     safeContents.transform.GetChild(2).gameObject.SetActive(true);
                     safeContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countSafe >= 5)
                 {
-                    Reset_Safe();
+                    ResetSafe();
                     safeContents.transform.GetChild(3).gameObject.SetActive(true);
                     safeContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -2146,25 +2146,25 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countMurderCase >= 6)
                 {
-                    Reset_MurderCase();
+                    ResetMurderCase();
                     murderCaseContents.transform.GetChild(0).gameObject.SetActive(true);
                     murderCaseContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countMurderCase >= 5)
                 {
-                    Reset_MurderCase();
+                    ResetMurderCase();
                     murderCaseContents.transform.GetChild(1).gameObject.SetActive(true);
                     murderCaseContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countMurderCase >= 4)
                 {
-                    Reset_MurderCase();
+                    ResetMurderCase();
                     murderCaseContents.transform.GetChild(2).gameObject.SetActive(true);
                     murderCaseContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countMurderCase >= 3)
                 {
-                    Reset_MurderCase();
+                    ResetMurderCase();
                     murderCaseContents.transform.GetChild(3).gameObject.SetActive(true);
                     murderCaseContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -2175,13 +2175,13 @@ public class IntelEventDetail : MonoBehaviour
             {
                 if (countMurderCase >= 6)
                 {
-                    Reset_MurderCase();
+                    ResetMurderCase();
                     murderCaseContents.transform.GetChild(2).gameObject.SetActive(true);
                     murderCaseContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countMurderCase >= 5)
                 {
-                    Reset_MurderCase();
+                    ResetMurderCase();
                     murderCaseContents.transform.GetChild(3).gameObject.SetActive(true);
                     murderCaseContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -2190,7 +2190,7 @@ public class IntelEventDetail : MonoBehaviour
         }
     }
 
-    void Reset_PlanetarySequence()
+    void ResetPlanetarySequence()
     {
         planetarySequenceContents.transform.GetChild(0).gameObject.SetActive(false);
         planetarySequenceContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -2199,7 +2199,7 @@ public class IntelEventDetail : MonoBehaviour
         planetarySequenceContents.transform.GetChild(4).gameObject.SetActive(false);
         planetarySequenceContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_Nightmare()
+    void ResetNightmare()
     {
         nightmareContents.transform.GetChild(0).gameObject.SetActive(false);
         nightmareContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -2208,7 +2208,7 @@ public class IntelEventDetail : MonoBehaviour
         nightmareContents.transform.GetChild(4).gameObject.SetActive(false);
         nightmareContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_Paranoia()
+    void ResetParanoia()
     {
         paranoiaContents.transform.GetChild(0).gameObject.SetActive(false);
         paranoiaContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -2217,7 +2217,7 @@ public class IntelEventDetail : MonoBehaviour
         paranoiaContents.transform.GetChild(4).gameObject.SetActive(false);
         paranoiaContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_Insomnia()
+    void ResetInsomnia()
     {
         insomniaContents.transform.GetChild(0).gameObject.SetActive(false);
         insomniaContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -2226,7 +2226,7 @@ public class IntelEventDetail : MonoBehaviour
         insomniaContents.transform.GetChild(4).gameObject.SetActive(false);
         insomniaContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_SewerGhostStory()
+    void ResetSewerGhostStory()
     {
         sewerGhostStoryContents.transform.GetChild(0).gameObject.SetActive(false);
         sewerGhostStoryContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -2235,7 +2235,7 @@ public class IntelEventDetail : MonoBehaviour
         sewerGhostStoryContents.transform.GetChild(4).gameObject.SetActive(false);
         sewerGhostStoryContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_MissingPeople()
+    void ResetMissingPeople()
     {
         missingPeopleContents.transform.GetChild(0).gameObject.SetActive(false);
         missingPeopleContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -2244,7 +2244,7 @@ public class IntelEventDetail : MonoBehaviour
         missingPeopleContents.transform.GetChild(4).gameObject.SetActive(false);
         missingPeopleContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_FishySmell()
+    void ResetFishySmell()
     {
         fishySmellContents.transform.GetChild(0).gameObject.SetActive(false);
         fishySmellContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -2253,7 +2253,7 @@ public class IntelEventDetail : MonoBehaviour
         fishySmellContents.transform.GetChild(4).gameObject.SetActive(false);
         fishySmellContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_RiverWaterQuality()
+    void ResetRiverWaterQuality()
     {
         riverWaterQualityContents.transform.GetChild(0).gameObject.SetActive(false);
         riverWaterQualityContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -2262,7 +2262,7 @@ public class IntelEventDetail : MonoBehaviour
         riverWaterQualityContents.transform.GetChild(4).gameObject.SetActive(false);
         riverWaterQualityContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_CreepyEyes()
+    void ResetCreepyEyes()
     {
         creepyEyesContents.transform.GetChild(0).gameObject.SetActive(false);
         creepyEyesContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -2272,7 +2272,7 @@ public class IntelEventDetail : MonoBehaviour
         creepyEyesContents.transform.GetChild(5).gameObject.SetActive(false);
     }
 
-    void Reset_Safe()
+    void ResetSafe()
     {
         safeContents.transform.GetChild(0).gameObject.SetActive(false);
         safeContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -2281,7 +2281,7 @@ public class IntelEventDetail : MonoBehaviour
         safeContents.transform.GetChild(4).gameObject.SetActive(false);
         safeContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_MurderCase()
+    void ResetMurderCase()
     {
         murderCaseContents.transform.GetChild(0).gameObject.SetActive(false);
         murderCaseContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -2293,68 +2293,68 @@ public class IntelEventDetail : MonoBehaviour
 
     public void OpenPlanetarySequence()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         planetarySequenceDetail.SetActive(true);
     }
     public void OpenNightmare()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         nightmareDetail.SetActive(true);
     }
     public void OpenParanoia()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         paranoiaDetail.SetActive(true);
     }
     public void OpenInsomnia()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         insomniaDetail.SetActive(true);
     }
     public void OpenSewerGhostStory()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         sewerGhostStoryDetail.SetActive(true);
     }
     public void OpenMissingPeople()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         missingPeopleDetail.SetActive(true);
     }
     public void OpenFishySmell()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         fishySmellDetail.SetActive(true);
     }
     public void OpenRiverWaterQuality()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         riverWaterQualityDetail.SetActive(true);
     }
     public void OpenCreepyEyes()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         creepyEyes_etail.SetActive(true);
     }
 
     public void OpenSafe()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         safeDetail.SetActive(true);
     }
     public void OpenMurderCase()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         murderCaseDetail.SetActive(true);
     }

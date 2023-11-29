@@ -67,7 +67,7 @@ public class ShopUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && shopUIOb.activeSelf == true)
         {
-            SoundManager.Instance.ClickSound_Play();
+            SoundManager.Instance.ClickSoundPlay();
             DataBaseManager.isOpenUi = false;
             shopUIOb.SetActive(false);
         }
@@ -106,7 +106,7 @@ public class ShopUI : MonoBehaviour
     }
     public void BuySmallPistol()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 12 && DataBaseManager.smallPistol == 0)
@@ -128,7 +128,7 @@ public class ShopUI : MonoBehaviour
     }
     public void BuyRevolver()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 14 && DataBaseManager.revolver == 0)
@@ -150,7 +150,7 @@ public class ShopUI : MonoBehaviour
     }
     public void BuyRifle()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 22 && DataBaseManager.rifle == 0)
@@ -172,7 +172,7 @@ public class ShopUI : MonoBehaviour
     }
     public void BuyShotgun()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 20 && DataBaseManager.shotgun == 0)
@@ -194,7 +194,7 @@ public class ShopUI : MonoBehaviour
     }
     public void BuyPistolAmmo()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 3)
@@ -214,7 +214,7 @@ public class ShopUI : MonoBehaviour
     }
     public void BuyRifleAmmo()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 3)
@@ -234,7 +234,7 @@ public class ShopUI : MonoBehaviour
     }
     public void BuyShotgunAmmo()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 5)
@@ -255,7 +255,7 @@ public class ShopUI : MonoBehaviour
     }
     public void BuyBat()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 7 && DataBaseManager.bat == 0)
@@ -277,7 +277,7 @@ public class ShopUI : MonoBehaviour
     }
     public void BuyDagger()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 10 && DataBaseManager.dagger == 0)
@@ -299,7 +299,7 @@ public class ShopUI : MonoBehaviour
     }
     public void BuyAxe()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 12 && DataBaseManager.axe == 0)
@@ -321,7 +321,7 @@ public class ShopUI : MonoBehaviour
     }
     public void BuyMolotov()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 4)
@@ -341,7 +341,7 @@ public class ShopUI : MonoBehaviour
     }
     public void BuyBandage()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 3)
@@ -361,7 +361,7 @@ public class ShopUI : MonoBehaviour
     }
     public void BuyAidkit()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 6)
@@ -381,7 +381,7 @@ public class ShopUI : MonoBehaviour
     }
     public void BuyPainkiller()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         if (DataBaseManager.extravagant == true)
         {
             if (DataBaseManager.weal >= 4)
@@ -402,7 +402,7 @@ public class ShopUI : MonoBehaviour
     //상점페이지 열기
     public void OpenPageFirearm()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         fireArmPage.SetActive(true);
         ammoPage.SetActive(false);
         swordsPage.SetActive(false);
@@ -411,7 +411,7 @@ public class ShopUI : MonoBehaviour
     }
     public void OpenPageAmmo()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         fireArmPage.SetActive(false);
         ammoPage.SetActive(true);
         swordsPage.SetActive(false);
@@ -420,7 +420,7 @@ public class ShopUI : MonoBehaviour
     }
     public void OpenPageSowrds()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         fireArmPage.SetActive(false);
         ammoPage.SetActive(false);
         swordsPage.SetActive(true);
@@ -429,7 +429,7 @@ public class ShopUI : MonoBehaviour
     }
     public void OpenPageAidKit()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         fireArmPage.SetActive(false);
         ammoPage.SetActive(false);
         swordsPage.SetActive(false);
@@ -438,7 +438,7 @@ public class ShopUI : MonoBehaviour
     }
     public void OpenPageThrowable()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         fireArmPage.SetActive(false);
         ammoPage.SetActive(false);
         swordsPage.SetActive(false);
@@ -449,7 +449,7 @@ public class ShopUI : MonoBehaviour
     {
         if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false)
         {
-            SoundManager.Instance.PaperClip_Play();
+            SoundManager.Instance.PaperClipPlay();
             DataBaseManager.workSound = false;
             DataBaseManager.isOpenUi = true;
             shopUIOb.SetActive(true);

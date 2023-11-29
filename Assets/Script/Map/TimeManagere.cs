@@ -165,7 +165,7 @@ public class TimeManagere : MonoBehaviour
                     }
                     else if (RandInt == 1)
                     {
-                        MakeSewerMap_Nomal();
+                        MakeSewerMapNomal();
                         Debug.Log("¾ÆÀÌÅÛÀÌ ¶³¾îÁø °÷ µµÂø");
                     }
                     else if (RandInt == 2)
@@ -175,7 +175,7 @@ public class TimeManagere : MonoBehaviour
                     }
                     else
                     {
-                        MakeSewerMap_Nomal();
+                        MakeSewerMapNomal();
                         Debug.Log("ºó¹æ µµÂø");
                     }
                 }
@@ -198,7 +198,7 @@ public class TimeManagere : MonoBehaviour
                     }
                     else
                     {
-                        MakeSewerMap_Nomal();
+                        MakeSewerMapNomal();
                         Debug.Log("ºó¹æ µµÂø");
                     }
                 }
@@ -219,7 +219,7 @@ public class TimeManagere : MonoBehaviour
                         enemy2Ob.SetActive(true);
                     }
                     int RandInt = Random.Range(0, 3);
-                    MakeSewerMap_Enemy();
+                    MakeSewerMapEnemy();
                     Debug.Log("Àû µîÀå");
                     if (DataBaseManager.wearCoat == true)
                     {
@@ -259,12 +259,12 @@ public class TimeManagere : MonoBehaviour
                     }
                     else if (RandInt == 1)
                     {
-                        MakeSewerMap_Nomal();
+                        MakeSewerMapNomal();
                         Debug.Log("¾ÆÀÌÅÛÀÌ ¶³¾îÁø °÷ µµÂø");
                     }
                     else
                     {
-                        MakeSewerMap_Nomal();
+                        MakeSewerMapNomal();
                         Debug.Log("ºó¹æ µµÂø");
                     }
                 }
@@ -287,7 +287,7 @@ public class TimeManagere : MonoBehaviour
                     }
                     else
                     {
-                        MakeSewerMap_Nomal();
+                        MakeSewerMapNomal();
                         Debug.Log("ºó¹æ µµÂø");
                     }
                 }
@@ -296,7 +296,7 @@ public class TimeManagere : MonoBehaviour
                     DataBaseManager.sewerEnemyCounter += 1;
                     int RandInt = Random.Range(0, 3);
 
-                    MakeSewerMap_Enemy();
+                    MakeSewerMapEnemy();
                     Debug.Log("Àû µîÀå");
 
                     if (DataBaseManager.wearCoat == true)
@@ -341,7 +341,7 @@ public class TimeManagere : MonoBehaviour
         camera.transform.localPosition = camSewerRight;
         TimeManagere.Instance.DeletRightSewerPotal();
     }
-    public void MakeSewerMap_Nomal()
+    public void MakeSewerMapNomal()
     {
         symbol.transform.localPosition = new Vector3(-61.96f, 34.7f, 0);
         enemyOb.SetActive(false);
@@ -449,7 +449,7 @@ public class TimeManagere : MonoBehaviour
             pipe.SetActive(false);
         }
     }
-    public void MakeSewerMap_Enemy()
+    public void MakeSewerMapEnemy()
     {
         symbol.transform.localPosition = new Vector3(-61.96f, 34.7f, 0);
         groundWater.SetActive(true);
@@ -574,7 +574,7 @@ public class TimeManagere : MonoBehaviour
             pipeBattle.SetActive(false);
         }
     }
-    public void Sewer_ByRiverSide()
+    public void SewerByRiverSide()
     {
         symbol.transform.localPosition = new Vector3(-61.96f, 34.7f, 0);
         pipe.SetActive(false);

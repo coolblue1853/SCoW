@@ -7,10 +7,10 @@ namespace I2.Loc
 	{
 		void Start () 
 		{
-			Invoke("test", 3);
+			Invoke("Test", 3);
 		}
 
-		void test()
+		void Test()
 		{
 			//--  to move into the next language ----
 
@@ -23,7 +23,7 @@ namespace I2.Loc
 
 			//-- Call this function again in 3 seconds
 
-				Invoke("test", 3);
+				Invoke("Test", 3);
 		}
 	}
 }

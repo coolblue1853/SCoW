@@ -40,7 +40,6 @@ public class BattleCameraMove : MonoBehaviour
             return instance;
         }
     }
-
     void Update()
     {
         if (BattleManager.Instance != null)
@@ -87,7 +86,7 @@ public class BattleCameraMove : MonoBehaviour
             }
         }
     }
-    public void ZoomMe()
+    public void ZoomPlayer()
     {
         if (DataBaseManager.nowPlace != "InSewer")
         {

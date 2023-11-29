@@ -86,15 +86,15 @@ public class EnemySpriteChanger : MonoBehaviour
         ResetAll();
         hittedByMolotov.SetActive(true);
     }
-    public void DeepOneHybrid_PunchChange()
+    public void DeepOneHybridPunchChange()
     {
         spriteRenderer.sprite = deepOneHybridPunch;
     }
-    public void DeepOne_PoisonChange()
+    public void DeepOnePoisonChange()
     {
         spriteRenderer.sprite = deepOneHybridSanAttack;
     }
-    public void DeepOne_SanAttackChange()
+    public void DeepOneSanAttackChange()
     {
         spriteRenderer.sprite = deepOneHybridSanAttack;
     }

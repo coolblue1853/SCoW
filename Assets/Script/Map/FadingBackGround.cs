@@ -20,7 +20,7 @@ public class FadingBackGround : MonoBehaviour
     public GameObject demoEndBack;
     public Image demoEndBackGround;
     public GameObject endMenu;
-    public void DemoEnd_FadeIn()
+    public void DemoEndFadeIn()
     {
         demoEndBack.SetActive(true);
         Tween fadeTween = demoEndBackGround.DOFade(1, 1.5f);
@@ -35,9 +35,9 @@ public class FadingBackGround : MonoBehaviour
 
     public void CastInOut()
     {
-        StartCoroutine(CastInOut_IEnumerator());
+        StartCoroutine(CastInOutIEnumerator());
     }
-    IEnumerator CastInOut_IEnumerator()
+    IEnumerator CastInOutIEnumerator()
     {
         castIn.SetActive(true);
         mySequence = DOTween.Sequence()
@@ -56,9 +56,9 @@ public class FadingBackGround : MonoBehaviour
     }
     public void FadeInOut()
     {
-        StartCoroutine(FadeInOut_IEnumerator());
+        StartCoroutine(FadeInOutIEnumerator());
     }
-    IEnumerator FadeInOut_IEnumerator()
+    IEnumerator FadeInOutIEnumerator()
     {
         backgroundOb.SetActive(true);
         mySequence = DOTween.Sequence()
@@ -79,9 +79,9 @@ public class FadingBackGround : MonoBehaviour
     }
     public void FadeOut()
     {
-        StartCoroutine(FadeOut_IEnumerator());
+        StartCoroutine(FadeOutIEnumerator());
     }
-    IEnumerator FadeOut_IEnumerator()
+    IEnumerator FadeOutIEnumerator()
     {
         mySequence2 = DOTween.Sequence()
         .SetDelay(1.5f)

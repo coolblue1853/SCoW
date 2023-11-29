@@ -10,7 +10,7 @@ public class KeywordButton : MonoBehaviour
     int indexDetail;
     public void SeparateString()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         input = this.transform.name;
 
         string[] parts = input.Split('_');

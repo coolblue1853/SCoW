@@ -122,7 +122,7 @@ public class PotalPoint : MonoBehaviour
 
     void NoonEventFirstDoor()
     {
-        InteractionController.Instance.Start_2nd_NoonEvent("NoonEvent_FirstDoor");
+        InteractionController.Instance.Start2ndNoonEvent("NoonEvent_FirstDoor");
     }
     void MovePlayer()
     {
@@ -246,7 +246,7 @@ public class PotalPoint : MonoBehaviour
             player.transform.localPosition = playerSewer;
             camera.transform.localPosition = camSewer;
 
-            TimeManagere.Instance.Sewer_ByRiverSide();
+            TimeManagere.Instance.SewerByRiverSide();
             DataBaseManager.nowPlace = "InSewer";
             DialogDatabaseManager.instance.check = true;
             DataBaseManager.storyDirecting = true;
@@ -311,16 +311,16 @@ public class PotalPoint : MonoBehaviour
     {
         DataBaseManager.sewerFirstIn = true;
     }
-    public void Force_2st()
+    public void Force2st()
     {
-        InteractionController.Instance.Start_1st_ClientsHouse("Aiden_key_FailForce");
+        InteractionController.Instance.Start1stClientsHouse("Aiden_key_FailForce");
     }
     public void Ex2Room()
     {
         DataBaseManager.isDirecting = false;
-        InteractionController.Instance.Start_1st_ClientsHouse("into_FirstRoom");
+        InteractionController.Instance.Start1stClientsHouse("into_FirstRoom");
     }
-    public void Ex_Outto1st()
+    public void ExOutto1st()
     {
         CameraManager.Instance.isCheckEnd = true;
         player.transform.localPosition = playerOutsideTo1st;

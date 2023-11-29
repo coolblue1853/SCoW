@@ -261,7 +261,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 762191912}
           m_TargetAssemblyTypeName: ManageMain, Assembly-CSharp
-          m_MethodName: Open_tile2
+          m_MethodName: OpenTile2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -277,7 +277,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 762191912}
           m_TargetAssemblyTypeName: ManageMain, Assembly-CSharp
-          m_MethodName: Close_tile2
+          m_MethodName: CloseTile2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -578,7 +578,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 762191912}
           m_TargetAssemblyTypeName: ManageMain, Assembly-CSharp
-          m_MethodName: Open_tile3
+          m_MethodName: OpenTile3
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -594,7 +594,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 762191912}
           m_TargetAssemblyTypeName: ManageMain, Assembly-CSharp
-          m_MethodName: Close_tile3
+          m_MethodName: CloseTile3
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1735,7 +1735,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 762191912}
           m_TargetAssemblyTypeName: ManageMain, Assembly-CSharp
-          m_MethodName: Open_tile
+          m_MethodName: OpenTile
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1751,7 +1751,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 762191912}
           m_TargetAssemblyTypeName: ManageMain, Assembly-CSharp
-          m_MethodName: Close_tile
+          m_MethodName: CloseTile
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

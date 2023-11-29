@@ -7,7 +7,7 @@ public class SIS_Debuff : MonoBehaviour
     public GameObject detailObject;
     public TextMeshProUGUI detailText;
 
-    public void Open_Detail()
+    public void OpenDetail()
     {
         if (detailObject.activeSelf == false)
         {
@@ -122,7 +122,7 @@ public class SIS_Debuff : MonoBehaviour
             }
         }
     }
-    public void closeDetail()
+    public void CloseDetail()
     {
         detailObject.SetActive(false);
         detailText.text = "";

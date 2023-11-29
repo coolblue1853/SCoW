@@ -20,7 +20,7 @@ public class TutorialBox : MonoBehaviour
 
     public void OnButtonClick()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         // 현재 자식 오브젝트를 비활성화합니다.
         childObjects[currentIndex].SetActive(false);
         // 다음 자식 오브젝트의 인덱스를 계산합니다.
@@ -30,7 +30,7 @@ public class TutorialBox : MonoBehaviour
     }
     public void OnBackButtonClick()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         // 현재 자식 오브젝트를 비활성화합니다.
         childObjects[currentIndex].SetActive(false);
         // 이전 자식 오브젝트의 인덱스를 계산합니다.

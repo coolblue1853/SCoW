@@ -206,7 +206,7 @@ public class RolletTest : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F9))
         {
-            TimeManagere.Instance.MakeSewerMap_Enemy();
+            TimeManagere.Instance.MakeSewerMapEnemy();
 
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -259,7 +259,7 @@ public class RolletTest : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            BillowUIManager.Instance.HP_up(5);
+            BillowUIManager.Instance.HpUp(5);
 
         }
         if (Input.GetKeyDown(KeyCode.F4))

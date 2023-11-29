@@ -138,39 +138,39 @@ public class SIS_UIManager : MonoBehaviour
     }
     public void OpenUseItemUI()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         DataBaseManager.nowItem = "";
         itemuse.transform.SetSiblingIndex(-1);
     }
     public void OpenKeyItemUI()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         DataBaseManager.nowItem = "";
         itemKey.transform.SetSiblingIndex(-1);
     }
     public void OpenNomalItemUI()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         DataBaseManager.nowItem = "";
         itemEqip.transform.SetSiblingIndex(-1);
     }
     public void OpenStatUI()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         statUI.SetActive(true);
         inventoryUI.SetActive(false);
         skillUI.SetActive(false);
     }
     public void OpenInventoryUI()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         statUI.SetActive(false);
         inventoryUI.SetActive(true);
         skillUI.SetActive(false);
     }
     public void OpenSkillUI()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         statUI.SetActive(false);
         inventoryUI.SetActive(false);
         skillUI.SetActive(true);
@@ -180,7 +180,7 @@ public class SIS_UIManager : MonoBehaviour
     {
         if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.storyDirecting == false && DataBaseManager.potalWait == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad" && DataBaseManager.isOpenMap == false)
         {
-            SoundManager.Instance.PaperClip_Play();
+            SoundManager.Instance.PaperClipPlay();
             DataBaseManager.isItemUI = true;
             OpenItemDetail();
             DataBaseManager.workSound = false;
@@ -202,7 +202,7 @@ public class SIS_UIManager : MonoBehaviour
     }
     public void CloseMap()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         ResetDetail();
         debuffDetail.SetActive(false);
         DataBaseManager.isItemUI = false;
@@ -895,134 +895,134 @@ public class SIS_UIManager : MonoBehaviour
             DataBaseManager.painkillers -= 1;
         }
     }
-    public void ThinWallets_Open()
+    public void ThinWalletsOpen()
     {
         thinWallets.SetActive(true);
     }
 
-    public void Carelessness_Open()
+    public void CarelessnessOpen()
     {
         carelessness.SetActive(true);
     }
 
-    public void Debilitation_Open()
+    public void DebilitationOpen()
     {
         debilitation.SetActive(true);
     }
 
-    public void Dizziness_Open()
+    public void DizzinessOpen()
     {
         dizziness.SetActive(true);
     }
-    public void Sprains_Open()
+    public void SprainsOpen()
     {
         sprains.SetActive(true);
     }
 
-    public void Unlucky_Open()
+    public void UnluckyOpen()
     {
         unlucky.SetActive(true);
     }
 
-    public void MusclePain_Open()
+    public void MusclePainOpen()
     {
         musclePain.SetActive(true);
     }
 
-    public void Migraines_Open()
+    public void MigrainesOpen()
     {
         migraines.SetActive(true);
     }
 
-    public void EyeDisease_Open()
+    public void EyeDiseaseOpen()
     {
         eyeDisease.SetActive(true);
     }
 
     //Level - 2 Debuff
 
-    public void Masochism_Open()
+    public void MasochismOpen()
     {
         masochism.SetActive(true);
     }
 
-    public void Careless_Open()
+    public void CarelessOpen()
     {
         careless.SetActive(true);
     }
 
-    public void MentalWeakness_Open()
+    public void MentalWeaknessOpen()
     {
         mentalWeakness.SetActive(true);
     }
 
-    public void Helplessness_Open()
+    public void HelplessnessOpen()
     {
         helplessness.SetActive(true);
     }
 
-    public void Extravagant_Open()
+    public void ExtravagantOpen()
     {
         extravagant.SetActive(true);
     }
 
-    public void PanicAttack_Open()
+    public void PanicAttackOpen()
     {
         panicAttack.SetActive(true);
     }
 
-    public void Medicaldistrust_Open()
+    public void MedicaldistrustOpen()
     {
         medicaldistrust.SetActive(true);
     }
 
-    public void Hallucinations_Open()
+    public void HallucinationsOpen()
     {
         hallucinations.SetActive(true);
     }
 
-    public void Tightwad_Open()
+    public void TightwadOpen()
     {
         tightwad.SetActive(true);
     }
     //Level - 3 Debuff
-    public void NightPhobia_Open()
+    public void NightPhobiaOpen()
     {
         nightPhobia.SetActive(true);
     }
-    public void Deafness_Open()
+    public void DeafnessOpen()
     {
         deafness.SetActive(true);
     }
-    public void VisionLoss_Open()
+    public void VisionLossOpen()
     {
         visionLoss.SetActive(true);
     }
-    public void ShortTempered_Open()
+    public void ShortTemperedOpen()
     {
         shortTempered.SetActive(true);
     }
-    public void Dyslexia_Open()
+    public void DyslexiaOpen()
     {
         dyslexia.SetActive(true);
     }
-    public void DrugPhobia_Open()
+    public void DrugPhobiaOpen()
     {
         drugPhobia.SetActive(true);
     }
-    public void CognitiveDisorder_Open()
+    public void CognitiveDisorderOpen()
     {
         cognitiveDisorder.SetActive(true);
     }
-    public void CognitiveBreakdown_Open()
+    public void CognitiveBreakdownOpen()
     {
         cognitiveBreakdown.SetActive(true);
     }
-    public void HomicidalImpulse_Open()
+    public void HomicidalImpulseOpen()
     {
         homicidalImpulse.SetActive(true);
     }
-    public void Perfectionism_Open()
+    public void PerfectionismOpen()
     {
         perfectionism.SetActive(true);
     }

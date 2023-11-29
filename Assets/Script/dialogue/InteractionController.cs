@@ -714,7 +714,7 @@ public class InteractionController : MonoBehaviour
             theDM.ShowDialog(endingDoorEnd.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
-    public void Start_SewerOffice(string setDialog)
+    public void StartSewerOffice(string setDialog)
     {
         if (setDialog == "SewerDoordialog")
         {
@@ -814,7 +814,7 @@ public class InteractionController : MonoBehaviour
             theDM.ShowDialog(blackWellDialogLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
-    public void Start_2nd_NoonEvent(string setDialog)
+    public void Start2ndNoonEvent(string setDialog)
     {
         if (setDialog == "NoonEvent_FirstDailog_Detective")
         {
@@ -928,7 +928,7 @@ public class InteractionController : MonoBehaviour
             theDM.ShowDialog(siteAnalysisSuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
-    public void Start_2nd_DetectiveOffice(string setDialog)
+    public void Start2ndDetectiveOffice(string setDialog)
     {
         if (setDialog == "Fab_Case1")
         {
@@ -959,7 +959,7 @@ public class InteractionController : MonoBehaviour
             theDM.ShowDialog(fabCase3.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
-    public void Start_Safe_Look(string setDialog)
+    public void StartSafeLook(string setDialog)
     {
         if (setDialog == "OldMap_Look")
         {
@@ -995,7 +995,7 @@ public class InteractionController : MonoBehaviour
         }
     }
     // 1st
-    public void Start_1st_DetectiveOffice(string setDialog)
+    public void Start1stDetectiveOffice(string setDialog)
     {
         if (setDialog == "start")
         {
@@ -1216,7 +1216,7 @@ public class InteractionController : MonoBehaviour
             theDM.ShowDialog(thirdNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
-    public void Start_1st_ClientsHouse(string setDialog)
+    public void Start1stClientsHouse(string setDialog)
     {
         if (setDialog == "FirstArrive")
         {
@@ -1381,7 +1381,7 @@ public class InteractionController : MonoBehaviour
             theDM.ShowDialog(ellaEndGetSafe.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
-    public void Start_1st_DailyNews(string setDialog)
+    public void Start1stDailyNews(string setDialog)
     {
         if (setDialog == "Swain_FirstDialog")
         {
@@ -1451,7 +1451,7 @@ public class InteractionController : MonoBehaviour
             theDM.ShowDialog(journalistFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
-    public void Start_1st_University(string setDialog)
+    public void Start1stUniversity(string setDialog)
     {
         if (setDialog == "Univ_FirstDialog")
         {
@@ -1500,7 +1500,7 @@ public class InteractionController : MonoBehaviour
             theDM.ShowDialog(kaneAfterSevLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
-    public void Start_1st_Riverside(string setDialog)
+    public void Start1stRiverside(string setDialog)
     {
         if (setDialog == "Kane_FirstDialog")
         {
@@ -1562,7 +1562,7 @@ public class InteractionController : MonoBehaviour
             theDM.ShowDialog(sewerObservationSuccAfterSanSuc.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
-    public void Start_1st_Hospital(string setDialog)
+    public void Start1stHospital(string setDialog)
     {
         if (setDialog == "Kate_NoonLook")
         {
@@ -1630,7 +1630,7 @@ public class InteractionController : MonoBehaviour
             }
         }
     }
-    public void Start_1st_Policeoffice(string setDialog)
+    public void Start1stPoliceoffice(string setDialog)
     {
 
         if (setDialog == "A_FirstDialog")
@@ -1727,7 +1727,7 @@ public class InteractionController : MonoBehaviour
             theDM.ShowDialog(albertLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
-    public void Start_1st_Slum(string setDialog)
+    public void Start1stSlum(string setDialog)
     {
         if (setDialog == "Dave_FirstDialog")
         {
@@ -1801,7 +1801,7 @@ public class InteractionController : MonoBehaviour
             theDM.ShowDialog(afterDaveDeath.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
-    public void Start_1st_Bar(string setDialog)
+    public void Start1stBar(string setDialog)
     {
         if (setDialog == "Maeve_FirstDialog")
         {
@@ -2702,7 +2702,7 @@ public class InteractionController : MonoBehaviour
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                BillowUIManager.Instance.HP_down(5);
+                BillowUIManager.Instance.HpDown(5);
                 theDM.ShowDialog(aidenKeySafeStrFail.transform.GetComponent<interactionEvent>().GetDialogs());
             }
         }
@@ -3186,7 +3186,7 @@ public class InteractionController : MonoBehaviour
             }
             else if (result_End == "Result : Failure" || result_End == "Result : Fumble")
             {
-                BillowUIManager.Instance.HP_down(5);
+                BillowUIManager.Instance.HpDown(5);
                 Invoke("SwinCheckAgain", 0.5f);
             }
         }
@@ -3194,7 +3194,7 @@ public class InteractionController : MonoBehaviour
 
     void SwinCheckAgain()
     {
-        Rollet.Instance.setRollet("Fabian : Swimming", "Swin", DataBaseManager.swimingPoint, "dialog");
+        Rollet.Instance.SetRollet("Fabian : Swimming", "Swin", DataBaseManager.swimingPoint, "dialog");
     }
     private static InteractionController instance = null;
     private void Awake()

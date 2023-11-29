@@ -25,79 +25,79 @@ public class SpriteManager : MonoBehaviour
     bool isFirstImage = false;
     public GameObject ella2;
 
-    public void 수호자1()
+    public void Master1()
     {
-        일러스트송출(master1);
+        PrintImg(master1);
     }
-    public void 수호자2()
+    public void Master2()
     {
-        일러스트송출(master2);
+        PrintImg(master2);
     }
-    public void 수호자3()
+    public void Master3()
     {
-        일러스트송출(master3);
+        PrintImg(master3);
     }
-    public void 수호자4()
+    public void Master4()
     {
-        일러스트송출(master4);
+        PrintImg(master4);
     }
-    public void 수호자5()
+    public void Master5()
     {
-        일러스트송출(master5);
+        PrintImg(master5);
     }
-    public void 수호자6()
+    public void Master6()
     {
-        일러스트송출(master6);
+        PrintImg(master6);
     }
-    public void 노아일러스트1()
+    public void Albert1()
     {
-        일러스트송출(fabian1);
+        PrintImg(fabian1);
     }
-    public void 노아일러스트2()
-    {
-
-        일러스트송출(fabian2);
-    }
-    public void 노아일러스트3()
+    public void Albert2()
     {
 
-        일러스트송출(fabian3);
+        PrintImg(fabian2);
     }
-    public void 노아일러스트4()
+    public void Albert3()
     {
-        일러스트송출(fabian4);
+
+        PrintImg(fabian3);
     }
-    public void 노아일러스트5()
+    public void Albert4()
     {
-        일러스트송출(fabian5);
+        PrintImg(fabian4);
     }
-    public void 노아일러스트6()
+    public void Albert5()
     {
-        일러스트송출(fabian6);
+        PrintImg(fabian5);
     }
-    public void 노아일러스트7()
+    public void Albert6()
     {
-        일러스트송출(fabian7);
+        PrintImg(fabian6);
     }
-    public void 노아일러스트8()
+    public void Albert7()
     {
-        일러스트송출(fabian8);
+        PrintImg(fabian7);
     }
-    public void 노아일러스트9()
+    public void Albert8()
     {
-        일러스트송출(fabian9);
+        PrintImg(fabian8);
+    }
+    public void Albert9()
+    {
+        PrintImg(fabian9);
     }
 
-    public void 엘라일러스트1()
+    public void Ella1()
     {
-        일러스트송출(ella1);
+        PrintImg(ella1);
     }
-    public void 엘라일러스트2()
+    public void Ella2()
     {
-        일러스트송출(ella2);
+        PrintImg(ella2);
     }
 
-    public void allReset()
+    public void AllReset()
     {
         fabian1.SetActive(false);
         fabian2.SetActive(false);
@@ -109,20 +109,20 @@ public class SpriteManager : MonoBehaviour
         fabian8.SetActive(false);
         fabian9.SetActive(false);
     }
-    void 일러스트송출(GameObject 대상)
+    void PrintImg(GameObject subject)
     {
         if (isFirstShow)
         {
-            대상.SetActive(true);
-            beforeImage = 대상;
+            subject.SetActive(true);
+            beforeImage = subject;
             isFirstShow = false;
         }
 
         else
         {
             beforeImage.SetActive(false);
-            대상.SetActive(true);
-            beforeImage = 대상;
+            subject.SetActive(true);
+            beforeImage = subject;
         }
     }
 }

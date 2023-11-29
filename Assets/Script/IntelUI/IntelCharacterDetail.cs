@@ -7,7 +7,7 @@ public class IntelCharacterDetail : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    void setGameObecject()
+    void SetGameObecject()
     {
         DataBaseManager.setIntelCharDetail = true;
         detailElla1 = ellaContents.transform.GetChild(0).gameObject;
@@ -324,7 +324,7 @@ public class IntelCharacterDetail : MonoBehaviour
     private static IntelCharacterDetail instance = null;
     private void Awake()
     {
-        setGameObecject();
+        SetGameObecject();
         if (null == instance)
         {
             instance = this;
@@ -995,25 +995,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countElla >= 6)
                 {
-                    Reset_Ella();
+                    ResetElla();
                     ellaContents.transform.GetChild(2).gameObject.SetActive(true);
                     ellaContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countElla >= 5)
                 {
-                    Reset_Ella();
+                    ResetElla();
                     ellaContents.transform.GetChild(3).gameObject.SetActive(true);
                     ellaContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countElla >= 4)
                 {
-                    Reset_Ella();
+                    ResetElla();
                     ellaContents.transform.GetChild(4).gameObject.SetActive(true);
                     ellaContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countElla >= 3)
                 {
-                    Reset_Ella();
+                    ResetElla();
                     ellaContents.transform.GetChild(5).gameObject.SetActive(true);   
                 }
                 DataBaseManager.nowPageElla = 2;
@@ -1022,13 +1022,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countElla >= 6)
                 {
-                    Reset_Ella();
+                    ResetElla();
                     ellaContents.transform.GetChild(4).gameObject.SetActive(true);
                     ellaContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countElla >= 5)
                 {
-                    Reset_Ella();
+                    ResetElla();
                     ellaContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageElla = 3;
@@ -1040,25 +1040,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countAiden >= 6)
                 {
-                    Aiden_Ella();
+                    AidenElla();
                     aidenContents.transform.GetChild(2).gameObject.SetActive(true);
                     aidenContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countAiden >= 5)
                 {
-                    Aiden_Ella();
+                    AidenElla();
                     aidenContents.transform.GetChild(3).gameObject.SetActive(true);
                     aidenContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countAiden >= 4)
                 {
-                    Aiden_Ella();
+                    AidenElla();
                     aidenContents.transform.GetChild(4).gameObject.SetActive(true);
                     aidenContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countAiden >= 3)
                 {
-                    Aiden_Ella();
+                    AidenElla();
                     aidenContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageAiden = 2;
@@ -1067,13 +1067,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countAiden >= 6)
                 {
-                    Aiden_Ella();
+                    AidenElla();
                     aidenContents.transform.GetChild(4).gameObject.SetActive(true);
                     aidenContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countAiden >= 5)
                 {
-                    Aiden_Ella();
+                    AidenElla();
                     aidenContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageAiden = 3;
@@ -1085,25 +1085,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countSwain >= 6)
                 {
-                    Reset_Swain();
+                    ResetSwain();
                     swainContents.transform.GetChild(2).gameObject.SetActive(true);
                     swainContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countSwain >= 5)
                 {
-                    Reset_Swain();
+                    ResetSwain();
                     swainContents.transform.GetChild(3).gameObject.SetActive(true);
                     swainContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countSwain >= 4)
                 {
-                    Reset_Swain();
+                    ResetSwain();
                     swainContents.transform.GetChild(4).gameObject.SetActive(true);
                     swainContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countSwain >= 3)
                 {
-                    Reset_Swain();
+                    ResetSwain();
                     swainContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageSwain = 2;
@@ -1112,13 +1112,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countSwain >= 6)
                 {
-                    Reset_Swain();
+                    ResetSwain();
                     swainContents.transform.GetChild(4).gameObject.SetActive(true);
                     swainContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countSwain >= 5)
                 {
-                    Reset_Swain();
+                    ResetSwain();
                     swainContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageSwain = 3;
@@ -1130,25 +1130,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countCane >= 6)
                 {
-                    Reset_Cane();
+                    ResetCane();
                     caneContents.transform.GetChild(2).gameObject.SetActive(true);
                     caneContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countCane >= 5)
                 {
-                    Reset_Cane();
+                    ResetCane();
                     caneContents.transform.GetChild(3).gameObject.SetActive(true);
                     caneContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countCane >= 4)
                 {
-                    Reset_Cane();
+                    ResetCane();
                     caneContents.transform.GetChild(4).gameObject.SetActive(true);
                     caneContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countCane >= 3)
                 {
-                    Reset_Cane();
+                    ResetCane();
                     caneContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageCane = 2;
@@ -1157,13 +1157,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countCane >= 6)
                 {
-                    Reset_Cane();
+                    ResetCane();
                     caneContents.transform.GetChild(4).gameObject.SetActive(true);
                     caneContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countCane >= 5)
                 {
-                    Reset_Cane();
+                    ResetCane();
                     caneContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageCane = 3;
@@ -1175,25 +1175,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countAlbert >= 6)
                 {
-                    Reset_Albert();
+                    ResetAlbert();
                     albertContents.transform.GetChild(2).gameObject.SetActive(true);
                     albertContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countAlbert >= 5)
                 {
-                    Reset_Albert();
+                    ResetAlbert();
                     albertContents.transform.GetChild(3).gameObject.SetActive(true);
                     albertContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countAlbert >= 4)
                 {
-                    Reset_Albert();
+                    ResetAlbert();
                     albertContents.transform.GetChild(4).gameObject.SetActive(true);
                     albertContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countAlbert >= 3)
                 {
-                    Reset_Albert();
+                    ResetAlbert();
                     albertContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageAlbert = 2;
@@ -1202,13 +1202,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countAlbert >= 6)
                 {
-                    Reset_Albert();
+                    ResetAlbert();
                     albertContents.transform.GetChild(4).gameObject.SetActive(true);
                     albertContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countAlbert >= 5)
                 {
-                    Reset_Albert();
+                    ResetAlbert();
                     albertContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageAlbert = 3;
@@ -1220,25 +1220,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countMeiv >= 6)
                 {
-                    Reset_Meiv();
+                    ResetMeiv();
                     meivContents.transform.GetChild(2).gameObject.SetActive(true);
                     meivContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countMeiv >= 5)
                 {
-                    Reset_Meiv();
+                    ResetMeiv();
                     meivContents.transform.GetChild(3).gameObject.SetActive(true);
                     meivContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countMeiv >= 4)
                 {
-                    Reset_Meiv();
+                    ResetMeiv();
                     meivContents.transform.GetChild(4).gameObject.SetActive(true);
                     meivContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countMeiv >= 3)
                 {
-                    Reset_Meiv();
+                    ResetMeiv();
                     meivContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageMeiv = 2;
@@ -1247,13 +1247,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countMeiv >= 6)
                 {
-                    Reset_Meiv();
+                    ResetMeiv();
                     meivContents.transform.GetChild(4).gameObject.SetActive(true);
                     meivContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countMeiv >= 5)
                 {
-                    Reset_Meiv();
+                    ResetMeiv();
                     meivContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageMeiv = 3;
@@ -1265,25 +1265,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countBlackWell >= 6)
                 {
-                    Reset_BlackWell();
+                    ResetBlackWell();
                     blackWellContents.transform.GetChild(2).gameObject.SetActive(true);
                     blackWellContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countBlackWell >= 5)
                 {
-                    Reset_BlackWell();
+                    ResetBlackWell();
                     blackWellContents.transform.GetChild(3).gameObject.SetActive(true);
                     blackWellContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countBlackWell >= 4)
                 {
-                    Reset_BlackWell();
+                    ResetBlackWell();
                     blackWellContents.transform.GetChild(4).gameObject.SetActive(true);
                     blackWellContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countBlackWell >= 3)
                 {
-                    Reset_BlackWell();
+                    ResetBlackWell();
                     blackWellContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageBlackWell = 2;
@@ -1292,13 +1292,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countBlackWell >= 6)
                 {
-                    Reset_BlackWell();
+                    ResetBlackWell();
                     blackWellContents.transform.GetChild(4).gameObject.SetActive(true);
                     blackWellContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countBlackWell >= 5)
                 {
-                    Reset_BlackWell();
+                    ResetBlackWell();
                     blackWellContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageBlackWell = 3;
@@ -1310,25 +1310,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countSewerWorker >= 6)
                 {
-                    Reset_SewerWorker();
+                    ResetSewerWorker();
                     sewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
                     sewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countSewerWorker >= 5)
                 {
-                    Reset_SewerWorker();
+                    ResetSewerWorker();
                     sewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
                     sewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countSewerWorker >= 4)
                 {
-                    Reset_SewerWorker();
+                    ResetSewerWorker();
                     sewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
                     sewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countSewerWorker >= 3)
                 {
-                    Reset_SewerWorker();
+                    ResetSewerWorker();
                     sewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageSewerWorker = 2;
@@ -1337,13 +1337,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countSewerWorker >= 6)
                 {
-                    Reset_SewerWorker();
+                    ResetSewerWorker();
                     sewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
                     sewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countSewerWorker >= 5)
                 {
-                    Reset_SewerWorker();
+                    ResetSewerWorker();
                     sewerWorkerContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageSewerWorker = 3;
@@ -1355,25 +1355,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countDave >= 6)
                 {
-                    Reset_Dave();
+                    ResetDave();
                     daveContents.transform.GetChild(2).gameObject.SetActive(true);
                     daveContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countDave >= 5)
                 {
-                    Reset_Dave();
+                    ResetDave();
                     daveContents.transform.GetChild(3).gameObject.SetActive(true);
                     daveContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
                 else if (countDave >= 4)
                 {
-                    Reset_Dave();
+                    ResetDave();
                     daveContents.transform.GetChild(4).gameObject.SetActive(true);
                     daveContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countDave >= 3)
                 {
-                    Reset_Dave();
+                    ResetDave();
                     daveContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageDave = 2;
@@ -1382,13 +1382,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countDave >= 6)
                 {
-                    Reset_Dave();
+                    ResetDave();
                     daveContents.transform.GetChild(4).gameObject.SetActive(true);
                     daveContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 else if (countDave >= 5)
                 {
-                    Reset_Dave();
+                    ResetDave();
                     daveContents.transform.GetChild(5).gameObject.SetActive(true);
                 }
                 DataBaseManager.nowPageDave = 3;
@@ -1404,25 +1404,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countElla >= 6)
                 {
-                    Reset_Ella();
+                    ResetElla();
                     ellaContents.transform.GetChild(0).gameObject.SetActive(true);
                     ellaContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countElla >= 5)
                 {
-                    Reset_Ella();
+                    ResetElla();
                     ellaContents.transform.GetChild(1).gameObject.SetActive(true);
                     ellaContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countElla >= 4)
                 {
-                    Reset_Ella();
+                    ResetElla();
                     ellaContents.transform.GetChild(2).gameObject.SetActive(true);
                     ellaContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countElla >= 3)
                 {
-                    Reset_Ella();
+                    ResetElla();
                     ellaContents.transform.GetChild(3).gameObject.SetActive(true);
                     ellaContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1433,13 +1433,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countElla >= 6)
                 {
-                    Reset_Ella();
+                    ResetElla();
                     ellaContents.transform.GetChild(2).gameObject.SetActive(true);
                     ellaContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countElla >= 5)
                 {
-                    Reset_Ella();
+                    ResetElla();
                     ellaContents.transform.GetChild(3).gameObject.SetActive(true);
                     ellaContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1452,25 +1452,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countAiden >= 6)
                 {
-                    Aiden_Ella();
+                    AidenElla();
                     aidenContents.transform.GetChild(0).gameObject.SetActive(true);
                     aidenContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countAiden >= 5)
                 {
-                    Aiden_Ella();
+                    AidenElla();
                     aidenContents.transform.GetChild(1).gameObject.SetActive(true);
                     aidenContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countAiden >= 4)
                 {
-                    Aiden_Ella();
+                    AidenElla();
                     aidenContents.transform.GetChild(2).gameObject.SetActive(true);
                     aidenContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countAiden >= 3)
                 {
-                    Aiden_Ella();
+                    AidenElla();
                     aidenContents.transform.GetChild(3).gameObject.SetActive(true);
                     aidenContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1481,13 +1481,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countAiden >= 6)
                 {
-                    Aiden_Ella();
+                    AidenElla();
                     aidenContents.transform.GetChild(2).gameObject.SetActive(true);
                     aidenContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countAiden >= 5)
                 {
-                    Aiden_Ella();
+                    AidenElla();
                     aidenContents.transform.GetChild(3).gameObject.SetActive(true);
                     aidenContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1500,25 +1500,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countSwain >= 6)
                 {
-                    Reset_Swain();
+                    ResetSwain();
                     swainContents.transform.GetChild(0).gameObject.SetActive(true);
                     swainContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countSwain >= 5)
                 {
-                    Reset_Swain();
+                    ResetSwain();
                     swainContents.transform.GetChild(1).gameObject.SetActive(true);
                     swainContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countSwain >= 4)
                 {
-                    Reset_Swain();
+                    ResetSwain();
                     swainContents.transform.GetChild(2).gameObject.SetActive(true);
                     swainContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countSwain >= 3)
                 {
-                    Reset_Swain();
+                    ResetSwain();
                     swainContents.transform.GetChild(3).gameObject.SetActive(true);
                     swainContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1529,13 +1529,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countSwain >= 6)
                 {
-                    Reset_Swain();
+                    ResetSwain();
                     swainContents.transform.GetChild(2).gameObject.SetActive(true);
                     swainContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countSwain >= 5)
                 {
-                    Reset_Swain();
+                    ResetSwain();
                     swainContents.transform.GetChild(3).gameObject.SetActive(true);
                     swainContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1548,25 +1548,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countCane >= 6)
                 {
-                    Reset_Cane();
+                    ResetCane();
                     caneContents.transform.GetChild(0).gameObject.SetActive(true);
                     caneContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countCane >= 5)
                 {
-                    Reset_Cane();
+                    ResetCane();
                     caneContents.transform.GetChild(1).gameObject.SetActive(true);
                     caneContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countCane >= 4)
                 {
-                    Reset_Cane();
+                    ResetCane();
                     caneContents.transform.GetChild(2).gameObject.SetActive(true);
                     caneContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countCane >= 3)
                 {
-                    Reset_Cane();
+                    ResetCane();
                     caneContents.transform.GetChild(3).gameObject.SetActive(true);
                     caneContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1577,13 +1577,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countCane >= 6)
                 {
-                    Reset_Cane();
+                    ResetCane();
                     caneContents.transform.GetChild(2).gameObject.SetActive(true);
                     caneContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countCane >= 5)
                 {
-                    Reset_Cane();
+                    ResetCane();
                     caneContents.transform.GetChild(3).gameObject.SetActive(true);
                     caneContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1596,25 +1596,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countAlbert >= 6)
                 {
-                    Reset_Albert();
+                    ResetAlbert();
                     albertContents.transform.GetChild(0).gameObject.SetActive(true);
                     albertContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countAlbert >= 5)
                 {
-                    Reset_Albert();
+                    ResetAlbert();
                     albertContents.transform.GetChild(1).gameObject.SetActive(true);
                     albertContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countAlbert >= 4)
                 {
-                    Reset_Albert();
+                    ResetAlbert();
                     albertContents.transform.GetChild(2).gameObject.SetActive(true);
                     albertContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countAlbert >= 3)
                 {
-                    Reset_Albert();
+                    ResetAlbert();
                     albertContents.transform.GetChild(3).gameObject.SetActive(true);
                     albertContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1625,13 +1625,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countAlbert >= 6)
                 {
-                    Reset_Albert();
+                    ResetAlbert();
                     albertContents.transform.GetChild(2).gameObject.SetActive(true);
                     albertContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countAlbert >= 5)
                 {
-                    Reset_Albert();
+                    ResetAlbert();
                     albertContents.transform.GetChild(3).gameObject.SetActive(true);
                     albertContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1644,25 +1644,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countMeiv >= 6)
                 {
-                    Reset_Meiv();
+                    ResetMeiv();
                     meivContents.transform.GetChild(0).gameObject.SetActive(true);
                     meivContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countMeiv >= 5)
                 {
-                    Reset_Meiv();
+                    ResetMeiv();
                     meivContents.transform.GetChild(1).gameObject.SetActive(true);
                     meivContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countMeiv >= 4)
                 {
-                    Reset_Meiv();
+                    ResetMeiv();
                     meivContents.transform.GetChild(2).gameObject.SetActive(true);
                     meivContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countMeiv >= 3)
                 {
-                    Reset_Meiv();
+                    ResetMeiv();
                     meivContents.transform.GetChild(3).gameObject.SetActive(true);
                     meivContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1673,13 +1673,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countMeiv >= 6)
                 {
-                    Reset_Meiv();
+                    ResetMeiv();
                     meivContents.transform.GetChild(2).gameObject.SetActive(true);
                     meivContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countMeiv >= 5)
                 {
-                    Reset_Meiv();
+                    ResetMeiv();
                     meivContents.transform.GetChild(3).gameObject.SetActive(true);
                     meivContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1692,25 +1692,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countBlackWell >= 6)
                 {
-                    Reset_BlackWell();
+                    ResetBlackWell();
                     blackWellContents.transform.GetChild(0).gameObject.SetActive(true);
                     blackWellContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countBlackWell >= 5)
                 {
-                    Reset_BlackWell();
+                    ResetBlackWell();
                     blackWellContents.transform.GetChild(1).gameObject.SetActive(true);
                     blackWellContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countBlackWell >= 4)
                 {
-                    Reset_BlackWell();
+                    ResetBlackWell();
                     blackWellContents.transform.GetChild(2).gameObject.SetActive(true);
                     blackWellContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countBlackWell >= 3)
                 {
-                    Reset_BlackWell();
+                    ResetBlackWell();
                     blackWellContents.transform.GetChild(3).gameObject.SetActive(true);
                     blackWellContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1721,13 +1721,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countBlackWell >= 6)
                 {
-                    Reset_BlackWell();
+                    ResetBlackWell();
                     blackWellContents.transform.GetChild(2).gameObject.SetActive(true);
                     blackWellContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countBlackWell >= 5)
                 {
-                    Reset_BlackWell();
+                    ResetBlackWell();
                     blackWellContents.transform.GetChild(3).gameObject.SetActive(true);
                     blackWellContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1740,25 +1740,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countSewerWorker >= 6)
                 {
-                    Reset_SewerWorker();
+                    ResetSewerWorker();
                     sewerWorkerContents.transform.GetChild(0).gameObject.SetActive(true);
                     sewerWorkerContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countSewerWorker >= 5)
                 {
-                    Reset_SewerWorker();
+                    ResetSewerWorker();
                     sewerWorkerContents.transform.GetChild(1).gameObject.SetActive(true);
                     sewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countSewerWorker >= 4)
                 {
-                    Reset_SewerWorker();
+                    ResetSewerWorker();
                     sewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
                     sewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countSewerWorker >= 3)
                 {
-                    Reset_SewerWorker();
+                    ResetSewerWorker();
                     sewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
                     sewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1769,13 +1769,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countSewerWorker >= 6)
                 {
-                    Reset_SewerWorker();
+                    ResetSewerWorker();
                     sewerWorkerContents.transform.GetChild(2).gameObject.SetActive(true);
                     sewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countSewerWorker >= 5)
                 {
-                    Reset_SewerWorker();
+                    ResetSewerWorker();
                     sewerWorkerContents.transform.GetChild(3).gameObject.SetActive(true);
                     sewerWorkerContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1788,25 +1788,25 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countDave >= 6)
                 {
-                    Reset_Dave();
+                    ResetDave();
                     daveContents.transform.GetChild(0).gameObject.SetActive(true);
                     daveContents.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 else if (countDave >= 5)
                 {
-                    Reset_Dave();
+                    ResetDave();
                     daveContents.transform.GetChild(1).gameObject.SetActive(true);
                     daveContents.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 else if (countDave >= 4)
                 {
-                    Reset_Dave();
+                    ResetDave();
                     daveContents.transform.GetChild(2).gameObject.SetActive(true);
                     daveContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countDave >= 3)
                 {
-                    Reset_Dave();
+                    ResetDave();
                     daveContents.transform.GetChild(3).gameObject.SetActive(true);
                     daveContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1817,13 +1817,13 @@ public class IntelCharacterDetail : MonoBehaviour
             {
                 if (countDave >= 6)
                 {
-                    Reset_Dave();
+                    ResetDave();
                     daveContents.transform.GetChild(2).gameObject.SetActive(true);
                     daveContents.transform.GetChild(3).gameObject.SetActive(true);
                 }
                 else if (countDave >= 5)
                 {
-                    Reset_Dave();
+                    ResetDave();
                     daveContents.transform.GetChild(3).gameObject.SetActive(true);
                     daveContents.transform.GetChild(4).gameObject.SetActive(true);
                 }
@@ -1831,7 +1831,7 @@ public class IntelCharacterDetail : MonoBehaviour
             }
         }
     }
-    void Reset_Ella()
+    void ResetElla()
     {
         ellaContents.transform.GetChild(0).gameObject.SetActive(false);
         ellaContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -1840,7 +1840,7 @@ public class IntelCharacterDetail : MonoBehaviour
         ellaContents.transform.GetChild(4).gameObject.SetActive(false);
         ellaContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Aiden_Ella()
+    void AidenElla()
     {
         aidenContents.transform.GetChild(0).gameObject.SetActive(false);
         aidenContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -1849,7 +1849,7 @@ public class IntelCharacterDetail : MonoBehaviour
         aidenContents.transform.GetChild(4).gameObject.SetActive(false);
         aidenContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_Swain()
+    void ResetSwain()
     {
         swainContents.transform.GetChild(0).gameObject.SetActive(false);
         swainContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -1858,7 +1858,7 @@ public class IntelCharacterDetail : MonoBehaviour
         swainContents.transform.GetChild(4).gameObject.SetActive(false);
         swainContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_Cane()
+    void ResetCane()
     {
         caneContents.transform.GetChild(0).gameObject.SetActive(false);
         caneContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -1867,7 +1867,7 @@ public class IntelCharacterDetail : MonoBehaviour
         caneContents.transform.GetChild(4).gameObject.SetActive(false);
         caneContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_Albert()
+    void ResetAlbert()
     {
         albertContents.transform.GetChild(0).gameObject.SetActive(false);
         albertContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -1876,7 +1876,7 @@ public class IntelCharacterDetail : MonoBehaviour
         albertContents.transform.GetChild(4).gameObject.SetActive(false);
         albertContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_Meiv()
+    void ResetMeiv()
     {
         meivContents.transform.GetChild(0).gameObject.SetActive(false);
         meivContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -1885,7 +1885,7 @@ public class IntelCharacterDetail : MonoBehaviour
         meivContents.transform.GetChild(4).gameObject.SetActive(false);
         meivContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    void Reset_BlackWell()
+    void ResetBlackWell()
     {
         blackWellContents.transform.GetChild(0).gameObject.SetActive(false);
         blackWellContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -1895,7 +1895,7 @@ public class IntelCharacterDetail : MonoBehaviour
         blackWellContents.transform.GetChild(5).gameObject.SetActive(false);
     }
 
-    void Reset_SewerWorker()
+    void ResetSewerWorker()
     {
         sewerWorkerContents.transform.GetChild(0).gameObject.SetActive(false);
         sewerWorkerContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -1905,7 +1905,7 @@ public class IntelCharacterDetail : MonoBehaviour
         sewerWorkerContents.transform.GetChild(5).gameObject.SetActive(false);
     }
 
-    void Reset_Dave()
+    void ResetDave()
     {
         daveContents.transform.GetChild(0).gameObject.SetActive(false);
         daveContents.transform.GetChild(1).gameObject.SetActive(false);
@@ -1916,57 +1916,57 @@ public class IntelCharacterDetail : MonoBehaviour
     }
     public void OpenElla()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         ellaDetail.SetActive(true);
     }
     public void OpenSwain()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         swainDetail.SetActive(true);
     }
     public void OpenAiden()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         aidenDetail.SetActive(true);
     }
     public void OpenKane()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         caneDetail.SetActive(true);
     }
     public void OpenAlbert()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         albertDetail.SetActive(true);
     }
     public void OpenMeiv()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         meivDetail.SetActive(true);
     }
     public void OpenBlackWell()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         blackWellDetail.SetActive(true);
     }
 
     public void OpenSewerWorker()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         sewerWorkerDetail.SetActive(true);
     }
 
     public void OpenDave()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         CloseAllContents();
         daveDetail.SetActive(true);
     }

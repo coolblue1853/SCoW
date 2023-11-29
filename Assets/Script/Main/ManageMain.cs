@@ -18,21 +18,21 @@ public class ManageMain : MonoBehaviour
     Sequence mySequence;
     public void FadeIn()
     {
-        SoundManager.Instance.pen_Circle();
+        SoundManager.Instance.PenCircle();
         back.SetActive(true);
         Tween fadeTween = backGroundImg.DOFade(1, 1.5f);
-        fadeTween.OnComplete(Go_SetCharacter);
+        fadeTween.OnComplete(GoSetCharacter);
     }
     public void GameQuit()
     {
-        SoundManager.Instance.pen_Circle();
+        SoundManager.Instance.PenCircle();
         Application.Quit();
     }
-    public void Go_SetCharacter()
+    public void GoSetCharacter()
     {
         SceneManager.LoadScene("SetCharacter");
     }
-    public void Open_tile()
+    public void OpenTile()
     {
         if (isSelectOn1 == false)
         {
@@ -40,7 +40,7 @@ public class ManageMain : MonoBehaviour
             select1.SetActive(true);
         }
     }
-    public void Close_tile()
+    public void CloseTile()
     {
         if (isSelectOn1 == true)
         {
@@ -48,7 +48,7 @@ public class ManageMain : MonoBehaviour
             select1.SetActive(false);
         }
     }
-    public void Open_tile2()
+    public void OpenTile2()
     {
         if (isSelectOn2 == false)
         {
@@ -56,7 +56,7 @@ public class ManageMain : MonoBehaviour
             select2.SetActive(true);
         }
     }
-    public void Close_tile2()
+    public void CloseTile2()
     {
         if (isSelectOn2 == true)
         {
@@ -64,7 +64,7 @@ public class ManageMain : MonoBehaviour
             select2.SetActive(false);
         }
     }
-    public void Open_tile3()
+    public void OpenTile3()
     {
         if (isSelectOn3 == false)
         {
@@ -72,7 +72,7 @@ public class ManageMain : MonoBehaviour
             select3.SetActive(true);
         }
     }
-    public void Close_tile3()
+    public void CloseTile3()
     {
         if (isSelectOn3 == true)
         {

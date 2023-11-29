@@ -39,7 +39,7 @@ public class BillowUIManager : MonoBehaviour
         }
         else
         {
-            ResetMHP();
+            ResetMHp();
         }
     }
     public void SetIntelUi(string name, string detail)
@@ -52,12 +52,12 @@ public class BillowUIManager : MonoBehaviour
         intelNameText.text = "";
         intelDetailText.text = "";
     }
-    public void resetHP()
+    public void ResetHp()
     {
-        healthBar.resetHP();
+        healthBar.ResetHp();
     }
     //체력바 관련
-    private void ResetMHP()
+    private void ResetMHp()
     {
         setHP = 1;
         fullHP = DataBaseManager.hp;
@@ -70,16 +70,16 @@ public class BillowUIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HPIntMagaer();
+        HpIntMagaer();
     }
-    void HPIntMagaer()
+    void HpIntMagaer()
     {
         hpText.text = "HP : " + DataBaseManager.nowHP;
         sanText.text = "SAN : " + DataBaseManager.nowSan;
     }
     private static BillowUIManager instance = null;
 
-    public void HP_down(int damage)
+    public void HpDown(int damage)
     {
         CameraManager.Instance.ShakeCam();
         if (DataBaseManager.masochism == true)
@@ -99,7 +99,7 @@ public class BillowUIManager : MonoBehaviour
             healthBar.healthSystem.Damage(damage);
         }
     }
-    public void HP_Battledown(int damage)
+    public void HpBattleDown(int damage)
     {
         if (DataBaseManager.masochism == true)
         {
@@ -118,7 +118,7 @@ public class BillowUIManager : MonoBehaviour
             healthBar.healthSystem.Damage(damage);
         }
     }
-    public void San_Down(int damage)
+    public void SanDown(int damage)
     {
         CameraManager.Instance.ShakeCam();
         if (DataBaseManager.mentalWeakness == true)
@@ -135,7 +135,7 @@ public class BillowUIManager : MonoBehaviour
             mentalBar.healthSystem.Damage(damage);
         }
     }
-    public void HP_up(int healed)
+    public void HpUp(int healed)
     {
         if (healed > DataBaseManager.hp - DataBaseManager.nowHP)
         {
@@ -151,7 +151,7 @@ public class BillowUIManager : MonoBehaviour
             healthBar.healthSystem.Heal(healed);
         }
     }
-    public void San_up(int damage)
+    public void SanUp(int damage)
     {
         if (damage > DataBaseManager.san - DataBaseManager.nowSan)
         {

@@ -242,14 +242,14 @@ public class PlaceButtonManage : MonoBehaviour
     }
     public void ClickUpButton()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         clickDownButton = false;
         upButton.SetActive(false);
         downButton.SetActive(true);
     }
     public void ClickUpButton2()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         upButton.SetActive(true);
         upButton2.SetActive(false);
         downButton.SetActive(true);
@@ -269,7 +269,7 @@ public class PlaceButtonManage : MonoBehaviour
     }
     public void ClickDownButton()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         upButton.SetActive(true);
         downButton.SetActive(false);
         clickDownButton = true;
@@ -345,7 +345,7 @@ public class PlaceButtonManage : MonoBehaviour
     }
     public void ClickDownButton2()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         upButton.SetActive(false);
         upButton2.SetActive(true);
         downButton.SetActive(false);

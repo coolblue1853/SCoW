@@ -49,7 +49,7 @@ public class settingManager : MonoBehaviour
     {
         if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.storyDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.potalWait == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isOpenMap == false)
         {
-            SoundManager.Instance.PaperClip_Play();
+            SoundManager.Instance.PaperClipPlay();
             DataBaseManager.isOpenUi = true;
             setting.SetActive(true);
 
@@ -57,7 +57,7 @@ public class settingManager : MonoBehaviour
     }
     public void CloseSetting()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         DataBaseManager.isOpenUi = false;
         setting.SetActive(false);
         settingUi.SetActive(true);
@@ -72,17 +72,17 @@ public class settingManager : MonoBehaviour
 
     public void OnFullScrean()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         isFullScrean = true;
     }
     public void OffFullScrean()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         isFullScrean = false;
     }
     public void ChangeResolution()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         if (changeInt == 0 && isFullScrean == false)
         {
             Screen.SetResolution(2560, 1440, false);
@@ -134,12 +134,12 @@ public class settingManager : MonoBehaviour
     }
     public void AddInt()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         changeInt++;
     }
     public void SubInt()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         changeInt--;
     }
     public GameObject fullCheck;
@@ -208,13 +208,13 @@ public class settingManager : MonoBehaviour
     public GameObject keySetting;
     public void OpenTut()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         settingUi.SetActive(false);
         tutorial.SetActive(true);
     }
     public void OpenKey()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         settingUi.SetActive(false);
         keySetting.SetActive(true);
     }

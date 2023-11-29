@@ -127,7 +127,7 @@ public class Rollet : MonoBehaviour
             return instance;
         }
     }
-    public void setRollet(string skill, string point_sting, int point_int, string subject, string Enemy = "")
+    public void SetRollet(string skill, string point_sting, int point_int, string subject, string Enemy = "")
     {
         if (point_int >= 90)
         {
@@ -138,7 +138,7 @@ public class Rollet : MonoBehaviour
             point_int = 0;
         }
         enemySubject = Enemy;
-        SoundManager.Instance.PaperClip_Play();
+        SoundManager.Instance.PaperClipPlay();
         DataBaseManager.isRollet = true;
         DataBaseManager.isOpenUi = true;
         this.subject = subject;
@@ -277,7 +277,7 @@ public class Rollet : MonoBehaviour
     }
     void GetIntResult()
     {
-        SoundManager.Instance.pen_Line();
+        SoundManager.Instance.PenLine();
         if (DataBaseManager.condition == "Nomal")
         {
             resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
@@ -375,7 +375,7 @@ public class Rollet : MonoBehaviour
     }
     void GetStringResult()
     {
-        SoundManager.Instance.pen_Circle();
+        SoundManager.Instance.PenCircle();
         if (resultInt >= 95)
         {
             resultEnd.text = "Result : Fumble";
@@ -433,11 +433,11 @@ public class Rollet : MonoBehaviour
                 DataBaseManager.firstaidkit -= 1;
                 if (resultEnd.text == "Result : Success")
                 {
-                    BillowUIManager.Instance.HP_up((Random.Range(1, 7)) * 5);
+                    BillowUIManager.Instance.HpUp((Random.Range(1, 7)) * 5);
                 }
                 else if (resultEnd.text == "Result : Critical Success")
                 {
-                    BillowUIManager.Instance.HP_up((Random.Range(1, 7)) * 5);
+                    BillowUIManager.Instance.HpUp((Random.Range(1, 7)) * 5);
                 }
             }
             if (DataBaseManager.nowItem == "Bandages")
@@ -445,11 +445,11 @@ public class Rollet : MonoBehaviour
                 DataBaseManager.bandages -= 1;
                 if (resultEnd.text == "Result : Success")
                 {
-                    BillowUIManager.Instance.HP_up((Random.Range(1, 4)) * 5);
+                    BillowUIManager.Instance.HpUp((Random.Range(1, 4)) * 5);
                 }
                 else if (resultEnd.text == "Result : Critical Success")
                 {
-                    BillowUIManager.Instance.HP_up((Random.Range(1, 4)) * 5);
+                    BillowUIManager.Instance.HpUp((Random.Range(1, 4)) * 5);
                 }
             }
             if (DataBaseManager.nowItem == "Painkillers")
@@ -457,11 +457,11 @@ public class Rollet : MonoBehaviour
                 DataBaseManager.painkillers -= 1;
                 if (resultEnd.text == "Result : Success")
                 {
-                    BillowUIManager.Instance.San_up((Random.Range(1, 4)) * 5);
+                    BillowUIManager.Instance.SanUp((Random.Range(1, 4)) * 5);
                 }
                 else if (resultEnd.text == "Result : Critical Success")
                 {
-                    BillowUIManager.Instance.San_up((Random.Range(1, 4)) * 5);
+                    BillowUIManager.Instance.SanUp((Random.Range(1, 4)) * 5);
                 }
             }
             if (DataBaseManager.nowItem == "Safe")
@@ -610,7 +610,7 @@ public class Rollet : MonoBehaviour
     public void OpenSanRollet()
     {
         activeButton.SetActive(true);
-        SoundManager.Instance.PaperClip_Play();
+        SoundManager.Instance.PaperClipPlay();
         sanRollet.SetActive(true);
         Invoke("WaitOneSec2", 0.1f);
         if (resultEnd.text == "Result : Fumble" || resultEnd.text == "Result : Failure")
@@ -758,7 +758,7 @@ public class Rollet : MonoBehaviour
     }
     void ChangeSanRollet()
     {
-        SoundManager.Instance.pen_Line();
+        SoundManager.Instance.PenLine();
         if (sanName.text == "!Sanity check failed!")
         {
             int SanRollet = (Random.Range(1, 101));
@@ -812,20 +812,20 @@ public class Rollet : MonoBehaviour
     }
     void ResultRollet()
     {
-        SoundManager.Instance.pen_Circle();
+        SoundManager.Instance.PenCircle();
         if (sanRolletText.text == "Sanity Decline")
         {
             int SanRollet = (Random.Range(0, 3));
             if (SanRollet == 1)
             {
                 detailSan.text = "Sanity Decline : 10\n\nThe current sanity reduced by 10 Point.";
-                BillowUIManager.Instance.San_Down(10);
+                BillowUIManager.Instance.SanDown(10);
                 sanM10.SetActive(true);
             }
             else
             {
                 detailSan.text = "Sanity Decline : 5\n\nThe current sanity reduced by 5 Point.";
-                BillowUIManager.Instance.San_Down(5);
+                BillowUIManager.Instance.SanDown(5);
                 sanM5.SetActive(true);
             }
         }
@@ -850,45 +850,45 @@ public class Rollet : MonoBehaviour
                         {
                             DataBaseManager.weal = 0;
                         }
-                        SIS_UIManager.Instance.ThinWallets_Open();
+                        SIS_UIManager.Instance.ThinWalletsOpen();
                         break;
                     case 2:
                         carelessness.SetActive(true);
                         DataBaseManager.hp -= 5;
                         DataBaseManager.nowHP -= 5;
-                        BillowUIManager.Instance.resetHP();
-                        BillowUIManager.Instance.HP_down(5);
+                        BillowUIManager.Instance.ResetHp();
+                        BillowUIManager.Instance.HpDown(5);
                         detailSan.text = "Level 1 : Carelessness\n\nYou lose 5 HP and max HP Point.";
                         DataBaseManager.carelessness = true;
-                        SIS_UIManager.Instance.Carelessness_Open();
+                        SIS_UIManager.Instance.CarelessnessOpen();
                         break;
                     case 3:
                         debilitation.SetActive(true);
                         DataBaseManager.str -= 10;
                         detailSan.text = "Level 1 : Debilitation\n\nYou lose 10 Str Point";
                         DataBaseManager.debilitation = true;
-                        SIS_UIManager.Instance.Debilitation_Open();
+                        SIS_UIManager.Instance.DebilitationOpen();
                         break;
                     case 4:
                         dizziness.SetActive(true);
                         DataBaseManager.intl -= 10;
                         detailSan.text = "Level 1 : Dizziness\n\nYou lose 10 Int Point";
                         DataBaseManager.dizziness = true;
-                        SIS_UIManager.Instance.Dizziness_Open();
+                        SIS_UIManager.Instance.DizzinessOpen();
                         break;
                     case 5:
                         sprains.SetActive(true);
                         DataBaseManager.dex -= 10;
                         detailSan.text = "Level 1 : Sprains\n\nYou lose 10 Dex Point";
                         DataBaseManager.sprains = true;
-                        SIS_UIManager.Instance.Sprains_Open();
+                        SIS_UIManager.Instance.SprainsOpen();
                         break;
                     case 6:
                         unlucky.SetActive(true);
                         DataBaseManager.luk -= 10;
                         detailSan.text = "Level 1 : Unlucky\n\nYou lose 10 Luk Point";
                         DataBaseManager.unlucky = true;
-                        SIS_UIManager.Instance.Unlucky_Open();
+                        SIS_UIManager.Instance.UnluckyOpen();
                         break;
                     case 7:
                         musclePain.SetActive(true);
@@ -899,7 +899,7 @@ public class Rollet : MonoBehaviour
                         DataBaseManager.observationPoint -= 10;
                         detailSan.text = "Level 1 : MusclePain\n\nAll skills based on Str are reduced by 10 Point.";
                         DataBaseManager.musclePain = true;
-                        SIS_UIManager.Instance.MusclePain_Open();
+                        SIS_UIManager.Instance.MusclePainOpen();
                         break;
                     case 8:
                         migraines.SetActive(true);
@@ -924,7 +924,7 @@ public class Rollet : MonoBehaviour
                         }
                         detailSan.text = "Level 1 : Migraines\n\nAll skills based on Int are reduced by 10 Point.";
                         DataBaseManager.migraines = true;
-                        SIS_UIManager.Instance.Migraines_Open();
+                        SIS_UIManager.Instance.MigrainesOpen();
                         break;
                     case 9:
                         eyeDisease.SetActive(true);
@@ -935,7 +935,7 @@ public class Rollet : MonoBehaviour
                         DataBaseManager.disguisePoint -= 10;
                         detailSan.text = "Level 1 : EyeDisease\n\nAll skills based on Dex are reduced by 10 Point.";
                         DataBaseManager.eyeDisease = true;
-                        SIS_UIManager.Instance.EyeDisease_Open();
+                        SIS_UIManager.Instance.EyeDiseaseOpen();
                         break;
                 }
             }
@@ -949,7 +949,7 @@ public class Rollet : MonoBehaviour
                         detailSan.text = "Level 2 : Masochism\n\nThe player takes an additional 5 HP damage when hit.(100%)";
                         masochism.SetActive(true);
                         DataBaseManager.masochism = true;
-                        SIS_UIManager.Instance.Masochism_Open();
+                        SIS_UIManager.Instance.MasochismOpen();
                         break;
                     case 2:
                         detailSan.text = "Level 2 : Careless\n\nYou lose one of the items you're currently carrying.";
@@ -957,46 +957,46 @@ public class Rollet : MonoBehaviour
                         DataBaseManager.nowItem = "";
                         DataBaseManager.careless = true;
                         SIS_UIManager.Instance.CareLessActive();
-                        SIS_UIManager.Instance.Careless_Open();
+                        SIS_UIManager.Instance.CarelessOpen();
                         break;
                     case 3:
                         detailSan.text = "Level 2 : MentalWeakness\n\nThe player takes an additional 5 SAN damage when hit.(100%)";
                         mentalWeakness.SetActive(true);
                         DataBaseManager.mentalWeakness = true;
-                        SIS_UIManager.Instance.MentalWeakness_Open();
+                        SIS_UIManager.Instance.MentalWeaknessOpen();
                         break;
                     case 4:
                         detailSan.text = "Level 2 : Helplessness\n\nMovement speed is reduced by 30%.";
                         helplessness.SetActive(true);
                         DataBaseManager.helplessness = true;
-                        SIS_UIManager.Instance.Helplessness_Open();
+                        SIS_UIManager.Instance.HelplessnessOpen();
                         break;
                     case 5:
                         detailSan.text = "Level 2 : Extravagant\n\nThe cost of store purchases increases.";
                         extravagant.SetActive(true);
                         ShopUI.Instance.ExtravoltON();
                         DataBaseManager.extravagant = true;
-                        SIS_UIManager.Instance.Extravagant_Open();
+                        SIS_UIManager.Instance.ExtravagantOpen();
                         break;
                     case 6:
                         detailSan.text = "Level 2 : PanicAttack\n\nChance to 5 HP damage when traveling through an area.(50%)";
                         panicAttack.SetActive(true);
                         DataBaseManager.panicAttack = true;
-                        SIS_UIManager.Instance.PanicAttack_Open();
+                        SIS_UIManager.Instance.PanicAttackOpen();
                         break;
                     case 7:
                         detailSan.text = "Level 2 : Tightwad\n\nThe store is no longer available.";
                         tightwad.SetActive(true);
                         DataBaseManager.tightwad = true;
-                        SIS_UIManager.Instance.Tightwad_Open();
+                        SIS_UIManager.Instance.TightwadOpen();
                         break;
                     case 8:
                         hallucinations.SetActive(true);      // 나중에 연출로 해서 넣기~~~~~~~~~~~~
-                        SIS_UIManager.Instance.Hallucinations_Open();
+                        SIS_UIManager.Instance.HallucinationsOpen();
                         break;
                     case 9:
                         medicaldistrust.SetActive(true);   // 나중에 상점 추가된 뒤에 해서 넣기~~~~~~~~~~~~
-                        SIS_UIManager.Instance.Medicaldistrust_Open();
+                        SIS_UIManager.Instance.MedicaldistrustOpen();
                         break;
                 }
             }
@@ -1010,60 +1010,60 @@ public class Rollet : MonoBehaviour
                         detailSan.text = "Level 3 : NightPhobia\n\nThe player can't walk around at night anymore.";
                         nightPhobia.SetActive(true);
                         DataBaseManager.isDebuffNightPhobia = true;
-                        SIS_UIManager.Instance.NightPhobia_Open();
+                        SIS_UIManager.Instance.NightPhobiaOpen();
                         break;
                     case 2:
                         detailSan.text = "Level 3 : Deafness\n\nThe player can no longer hear the sound.";
                         deafness.SetActive(true);
                         DataBaseManager.isDebuffDeftness = true;
-                        SIS_UIManager.Instance.Deafness_Open();
+                        SIS_UIManager.Instance.DeafnessOpen();
                         break;
                     case 3:
                         detailSan.text = "Level 3 : VisionLoss\n\nThe player narrows the field of view.";
                         visionLoss.SetActive(true);
                         DataBaseManager.isDebuffVisionLoss = true;
-                        SIS_UIManager.Instance.VisionLoss_Open();
+                        SIS_UIManager.Instance.VisionLossOpen();
                         break;
                     case 4:
                         detailSan.text = "Level 3 : Short-Tempered\n\nThe player can't run away from the battle.";
                         shortTempered.SetActive(true);
                         DataBaseManager.isDebuffShortTempred = true;
-                        SIS_UIManager.Instance.ShortTempered_Open();
+                        SIS_UIManager.Instance.ShortTemperedOpen();
                         break;
                     case 5:
                         detailSan.text = "Level 3 : Dyslexia\n\nThe Detective Notebook is no longer available.";
                         dyslexia.SetActive(true);
                         DataBaseManager.isDebuffDyslexia = true;
-                        SIS_UIManager.Instance.Dyslexia_Open();
+                        SIS_UIManager.Instance.DyslexiaOpen();
                         break;
                     case 6:
                         detailSan.text = "Level 3 : DrugPhobia\n\nCure items are no longer available.";
                         drugPhobia.SetActive(true);
                         DataBaseManager.isDebuffDrugPhobia = true;
-                        SIS_UIManager.Instance.DrugPhobia_Open();
+                        SIS_UIManager.Instance.DrugPhobiaOpen();
                         break;
                     case 7:
                         detailSan.text = "Level 3 : CognitiveDisorder\n\nThe player will be taken to a random place when using the map.";
                         cognitiveDisorder.SetActive(true);
                         DataBaseManager.isDebuffCognitiveDisorder = true;
-                        SIS_UIManager.Instance.CognitiveDisorder_Open();
+                        SIS_UIManager.Instance.CognitiveDisorderOpen();
                         break;
                     case 8:
                         detailSan.text = "Level 3 : CognitiveBreakdown\n\nThe Player information is no longer available.";
                         cognitiveBreakdown.SetActive(true);
-                        SIS_UIManager.Instance.CognitiveBreakdown_Open();
+                        SIS_UIManager.Instance.CognitiveBreakdownOpen();
                         DataBaseManager.isDebuffCognitiveBreakdown = true;
                         break;
                     case 9:
                         detailSan.text = "Level 3 : Perfectionism\n\nUnless it's an Critical Success, the judgment will fail.";
                         perfectionism.SetActive(true);
-                        SIS_UIManager.Instance.Perfectionism_Open();
+                        SIS_UIManager.Instance.PerfectionismOpen();
                         DataBaseManager.isDebuffPerfectionism = true;
                         break;
                     case 10:
                         detailSan.text = "Level 3 : NightPhobia\n\n";
                         homicidalImpulse.SetActive(true);
-                        SIS_UIManager.Instance.HomicidalImpulse_Open();
+                        SIS_UIManager.Instance.HomicidalImpulseOpen();
                         break;
                 }
             }
@@ -1104,13 +1104,13 @@ public class Rollet : MonoBehaviour
             if (SanRollet == 1)
             {
                 detailSan.text = "Rise sanity : 10\n\nThe current sanity rised by 10 Point.";
-                BillowUIManager.Instance.San_up(10);
+                BillowUIManager.Instance.SanUp(10);
                 sanM10.SetActive(true);
             }
             else
             {
                 detailSan.text = "Rise sanity : 5\n\nThe current sanity rised by 5 Point.";
-                BillowUIManager.Instance.San_up(5);
+                BillowUIManager.Instance.SanUp(5);
                 sanM5.SetActive(true);
             }
         }
@@ -1162,7 +1162,7 @@ public class Rollet : MonoBehaviour
         isClick = false;
         sanRollet.SetActive(false);
         endButton2.SetActive(false);
-        resetSanRollet();
+        ResetSanRollet();
         // 결과값을 전달하는 함수 필요
         if (subject == "RoadBattle1")
         {
@@ -1230,7 +1230,7 @@ public class Rollet : MonoBehaviour
             InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, "EndingLedderSan");
         }
     }
-    void resetSanRollet()
+    void ResetSanRollet()
     {
         endButton2.SetActive(false);
         detailSan.text = "";

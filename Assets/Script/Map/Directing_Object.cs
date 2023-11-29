@@ -10,7 +10,7 @@ public class Directing_Object : MonoBehaviour
         {
             if (DataBaseManager.fstDetectivTimeOn < -50 && DataBaseManager.fstDetectivTimeOn > -500)
             {
-                InteractionController.Instance.Start_1st_DetectiveOffice("Directing_Door");
+                InteractionController.Instance.Start1stDetectiveOffice("Directing_Door");
             }
         }
         if (collision.tag == "Player" && this.name == "Directing_NockEnd")
@@ -19,7 +19,7 @@ public class Directing_Object : MonoBehaviour
             InteractionController.Instance.InSewerDialog("Ending_DoorEnd");
         }
     }
-    void destory()
+    void Destory()
     {
         Destroy(this.gameObject);
     }

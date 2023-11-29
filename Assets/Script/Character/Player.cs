@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.storyDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false)
         {
             anime.SetBool("Dialog", false);
-            runAndWalkChanger();
+            RunWalkChanger();
             Move();
         }
         else
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
             runPower = 9.8f;
         }
     }
-    void runAndWalkChanger()
+    void RunWalkChanger()
     {
         if (Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Horizontal") < 0)
         {

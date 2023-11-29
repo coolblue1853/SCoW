@@ -9,21 +9,21 @@ public class changeStatPage : MonoBehaviour
     public GameObject dexPage;
     public void StrPageButton()
     {
-        SoundManager.Instance.PaperClip_Play();
+        SoundManager.Instance.PaperClipPlay();
         strPage.SetActive(true);
         intPage.SetActive(false);
         dexPage.SetActive(false);
     }
     public void IntPageButton()
     {
-        SoundManager.Instance.PaperClip_Play();
+        SoundManager.Instance.PaperClipPlay();
         strPage.SetActive(false);
         intPage.SetActive(true);
         dexPage.SetActive(false);
     }
     public void DexPageButton()
     {
-        SoundManager.Instance.PaperClip_Play();
+        SoundManager.Instance.PaperClipPlay();
         strPage.SetActive(false);
         intPage.SetActive(false);
         dexPage.SetActive(true);

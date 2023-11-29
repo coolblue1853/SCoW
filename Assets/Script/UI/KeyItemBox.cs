@@ -28,7 +28,7 @@ public class KeyItemBox : MonoBehaviour
         sisUI.SetActive(false);
         if (DataBaseManager.nowItem == "First aid kit")
         {
-            Rollet.Instance.setRollet("Fabian : Medicines", "Medicine+20", DataBaseManager.medicinePoint + 20, "Item");
+            Rollet.Instance.SetRollet("Fabian : Medicines", "Medicine+20", DataBaseManager.medicinePoint + 20, "Item");
         }
     }
     public void LookButton()
@@ -36,43 +36,43 @@ public class KeyItemBox : MonoBehaviour
         if (DataBaseManager.nowItem == "Document")
         {
             DataBaseManager.isOpenUi = false;
-            InteractionController.Instance.Start_Safe_Look("Document_Look");
+            InteractionController.Instance.StartSafeLook("Document_Look");
             sisUI.SetActive(false);
         }
         if (DataBaseManager.nowItem == "Safe")
         {
             DataBaseManager.isOpenUi = false;
-            InteractionController.Instance.Start_Safe_Look("Safe_Look");
+            InteractionController.Instance.StartSafeLook("Safe_Look");
             sisUI.SetActive(false);
         }
         if (DataBaseManager.nowItem == "Bracelet")
         {
             DataBaseManager.isOpenUi = false;
-            InteractionController.Instance.Start_Safe_Look("Bracelet_Look");
+            InteractionController.Instance.StartSafeLook("Bracelet_Look");
             sisUI.SetActive(false);
         }
         if (DataBaseManager.nowItem == "Coat")
         {
             DataBaseManager.isOpenUi = false;
-            InteractionController.Instance.Start_Safe_Look("Coat_Look");
+            InteractionController.Instance.StartSafeLook("Coat_Look");
             sisUI.SetActive(false);
         }
         if (DataBaseManager.nowItem == "Sewerge Key")
         {
             DataBaseManager.isOpenUi = false;
-            InteractionController.Instance.Start_Safe_Look("SewergeKey_Look");
+            InteractionController.Instance.StartSafeLook("SewergeKey_Look");
             sisUI.SetActive(false);
         }
         if (DataBaseManager.nowItem == "Map")
         {
             DataBaseManager.isOpenUi = false;
-            InteractionController.Instance.Start_Safe_Look("Map_Look");
+            InteractionController.Instance.StartSafeLook("Map_Look");
             sisUI.SetActive(false);
         }
         if (DataBaseManager.nowItem == "OldMap")
         {
             DataBaseManager.isOpenUi = false;
-            InteractionController.Instance.Start_Safe_Look("OldMap_Look");
+            InteractionController.Instance.StartSafeLook("OldMap_Look");
             sisUI.SetActive(false);
         }
     }
@@ -81,13 +81,13 @@ public class KeyItemBox : MonoBehaviour
         if (DataBaseManager.nowItem == "Safe" && DataBaseManager.judgeSafeTryOpen == false)
         {
             DataBaseManager.isOpenUi = false;
-            Rollet.Instance.setRollet("Safe : Open", "Deftness-20", DataBaseManager.deftnessPoint - 20, "Item");
+            Rollet.Instance.SetRollet("Safe : Open", "Deftness-20", DataBaseManager.deftnessPoint - 20, "Item");
             sisUI.SetActive(false);
         }
         if (DataBaseManager.nowItem == "Coat" && DataBaseManager.judgeCoatTryDisguise == false)
         {
             DataBaseManager.isOpenUi = false;
-            Rollet.Instance.setRollet("Coat : Disguise", "Disguise", DataBaseManager.disguisePoint, "Item");
+            Rollet.Instance.SetRollet("Coat : Disguise", "Disguise", DataBaseManager.disguisePoint, "Item");
             sisUI.SetActive(false);
         }
         //오래된 지도 -> 사용하면 아예 지도창으로 바로 보내주기.

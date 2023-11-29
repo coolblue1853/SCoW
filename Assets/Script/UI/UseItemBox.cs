@@ -26,11 +26,11 @@ public class UseItemBox : MonoBehaviour
             sisUI.SetActive(false);
             if (DataBaseManager.nowItem == "First aid kit")
             {
-                Rollet.Instance.setRollet("Fabian : Medicines", "Medicine+20", DataBaseManager.medicinePoint + 20, "Item");
+                Rollet.Instance.SetRollet("Fabian : Medicines", "Medicine+20", DataBaseManager.medicinePoint + 20, "Item");
             }
             else if (DataBaseManager.nowItem == "Bandages")
             {
-                Rollet.Instance.setRollet("Fabian : Medicines", "Medicine+20", DataBaseManager.medicinePoint + 20, "Item");
+                Rollet.Instance.SetRollet("Fabian : Medicines", "Medicine+20", DataBaseManager.medicinePoint + 20, "Item");
             }
             else if (DataBaseManager.nowItem == "Painkillers")
             {
@@ -39,7 +39,7 @@ public class UseItemBox : MonoBehaviour
                 {
                     Heal = DataBaseManager.san - DataBaseManager.nowSan;
                 }
-                BillowUIManager.Instance.San_up(Heal);
+                BillowUIManager.Instance.SanUp(Heal);
                 DataBaseManager.painkillers -= 1;
             }
         }

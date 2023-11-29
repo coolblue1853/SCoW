@@ -35,7 +35,7 @@ public class HealthBarShrink : MonoBehaviour {
 
     }
 
-    public void resetHP()
+    public void ResetHp()
     {
         healthSystem = new HealthSystem(DataBaseManager.hp);
         SetHealth(healthSystem.GetHealthNormalized());

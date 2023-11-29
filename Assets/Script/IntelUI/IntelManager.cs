@@ -93,14 +93,14 @@ public class IntelManager : MonoBehaviour
     }
     public void QuitIntelWindow()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         //DataBaseManager.옵션창여부 = false;
         intelWindow.SetActive(false);
     }
 
-    public void Open_Character()
+    public void OpenCharacter()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         characterWindowOn.SetActive(true);
         eventWindowOn.SetActive(false);
         placeWindowOn.SetActive(false);
@@ -110,9 +110,9 @@ public class IntelManager : MonoBehaviour
         placeWindow.SetActive(false);
     }
 
-    public void Open_Event()
+    public void OpenEvent()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         characterWindowOn.SetActive(false);
         eventWindowOn.SetActive(true);
         placeWindowOn.SetActive(false);
@@ -123,7 +123,7 @@ public class IntelManager : MonoBehaviour
     }
     public void OpenPlace()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         characterWindowOn.SetActive(false);        
         eventWindowOn.SetActive(false);
         placeWindowOn.SetActive(true);
@@ -136,7 +136,7 @@ public class IntelManager : MonoBehaviour
     {
         if (DataBaseManager.isActiveDialog1 == false  && DataBaseManager.isDebuffDyslexia != true && DataBaseManager.storyDirecting == false && DataBaseManager.potalWait == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isOpenMap == false)
         {
-            SoundManager.Instance.PaperClip_Play();
+            SoundManager.Instance.PaperClipPlay();
             DataBaseManager.isOpenUi = true;
             intelUI.SetActive(true);
         }

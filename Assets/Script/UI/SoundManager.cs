@@ -49,7 +49,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip rifleReload;
     public AudioClip shotgunReload;
 
-    public void Battle_Sound(string sound)
+    public void BattleSound(string sound)
     {
         if (sound == "Evaision")
         {
@@ -230,42 +230,42 @@ public class SoundManager : MonoBehaviour
         sfxSecendSource.Stop();
         sfxSecendSource.PlayOneShot(dialogClip);
     }
-    public void pen_Line()
+    public void PenLine()
     {
         sfxSecendSource.Stop();
         sfxSecendSource.PlayOneShot(penLineClip);
     }
-    public void pen_Circle()
+    public void PenCircle()
     {
         sfxSecendSource.Stop();
         sfxSecendSource.PlayOneShot(penCircleClip);
     }
-    public void PaperClip_Play()
+    public void PaperClipPlay()
     {
         sfxSecendSource.Stop();
         sfxSecendSource.PlayOneShot(paperClip);
     }
-    public void Door_Sound()
+    public void DoorSound()
     {
         sfxSecendSource.PlayOneShot(doorOpenClip);
     }
-    public void Nock_Sound()
+    public void NockSound()
     {
         sfxSecendSource.PlayOneShot(nockClip);
     }
-    public void 찰칵효과음함수()
+    public void ClickSound()
     {
         sfxSecendSource.PlayOneShot(setSfxClip);
     }
-    public void ClickSound_Play()
+    public void ClickSoundPlay()
     {
         sfxSecendSource.PlayOneShot(clickSound);
     }
-    public void SetTrunSound_Play()
+    public void SetTrunSoundPlay()
     {
         sfxSecendSource.PlayOneShot(setTrunSound);
     }
-    void 효과음관리()
+    void ManageSfx()
     {
         if ((DataBaseManager.isActiveDialog1 == true || DataBaseManager.isRollet == true || DataBaseManager.isDirecting == true || DataBaseManager.isOpenUi == true) && sfxSource.isPlaying == true)
         {
@@ -288,7 +288,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    void bgm소리설정()
+    void SetBgmVolum()
     {
         mainBgmSource.volume = DataBaseManager.soundVolume;
         effectBgm.volume = DataBaseManager.sfxVolume;
@@ -298,11 +298,11 @@ public class SoundManager : MonoBehaviour
         //  오디오소스_기어.volume = DataBaseManager.sfx_Volume;
     }
 
-    public void 슬라이드bgm관리()
+    public void SetSlideBgm()
     {
         DataBaseManager.soundVolume = bgmVolum.value;
     }
-    public void 슬라이드효과관리()
+    public void SetSlideSfx()
     {
         DataBaseManager.sfxVolume = sfxVolum.value;
     }
@@ -325,11 +325,11 @@ public class SoundManager : MonoBehaviour
             sfxVolum.value = 0;
         }
 
-        BGM_Manage();
-        효과음관리();
-        슬라이드효과관리();
-        슬라이드bgm관리();
-        bgm소리설정();
+        BGMManage();
+        ManageSfx();
+        SetSlideSfx();
+        SetSlideBgm();
+        SetBgmVolum();
     }
 
     public AudioClip mainBgmClip;
@@ -343,7 +343,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip riverBgmClip;
     public AudioClip policeOfficeBgmClip;
     public AudioClip barBgmClip;
-    void BGM_Manage()
+    void BGMManage()
     {
         if (SceneManager.GetActiveScene().name == "Insert" && mainBgmSource.clip != mainBgmClip)
         {

@@ -7,8 +7,8 @@ public class SelectionButton : MonoBehaviour
     public bool dontDestroy = false;
     public void ClickButton()
     {
-        SoundManager.Instance.ClickSound_Play();
-        selectionUIManager.Instance.ReciveRequest_SelectionButton(this.transform.name);
+        SoundManager.Instance.ClickSoundPlay();
+        selectionUIManager.Instance.ReciveRequestSelectionButton(this.transform.name);
         if (dontDestroy != true)
         {
             Invoke("Destroy", 1);

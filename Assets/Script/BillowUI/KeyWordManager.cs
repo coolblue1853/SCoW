@@ -1195,7 +1195,7 @@ public class KeyWordManager : MonoBehaviour
     bool isSewageMaintenanceOffice1Add = false;
     bool isWharf1Add = false;
     bool isUniversity1Add = false;
-    public void downerKeywrodUpdater()
+    public void DownKeywordUpdater()
     {
 
         planetaryParadeKeywordCount = planetaryParadeList.Count - 1;
@@ -1671,7 +1671,7 @@ public class KeyWordManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        downerKeywrodUpdater();
+        DownKeywordUpdater();
         KeywordUpdate();
     }
     public GameObject daveIntel1;

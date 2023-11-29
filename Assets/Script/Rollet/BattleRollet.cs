@@ -142,9 +142,9 @@ public class BattleRollet : MonoBehaviour
             return instance;
         }
     }
-    public void setBattleRollet(string skill, string point_sting, int point_int, string subject, string EnemyName, string E_skill, string E_point_string, int E_Point_int)
+    public void SetBattleRollet(string skill, string point_sting, int point_int, string subject, string EnemyName, string E_skill, string E_point_string, int E_Point_int)
     {
-        SoundManager.Instance.PaperClip_Play();
+        SoundManager.Instance.PaperClipPlay();
         DataBaseManager.isRollet = true;
         this.subject = subject;
         subDialog = skill; // 나중에 다이얼로그 Result 전송시 사용
@@ -296,7 +296,7 @@ public class BattleRollet : MonoBehaviour
     }
     void GetIntResult()
     {
-        SoundManager.Instance.pen_Line();
+        SoundManager.Instance.PenLine();
         if (DataBaseManager.condition == "Nomal")
         {
             resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
@@ -401,7 +401,7 @@ public class BattleRollet : MonoBehaviour
     }
     void GetStringResult()
     {
-        SoundManager.Instance.pen_Circle();
+        SoundManager.Instance.PenCircle();
         if (resultInt >= 95)
         {
             resultEnd.text = "Result : Fumble";
@@ -714,7 +714,7 @@ public class BattleRollet : MonoBehaviour
             {
                 if (DataBaseManager.nowPlace != "InSewer")
                 {
-                    BattleManager.Instance.Ex_BattleEnd();
+                    BattleManager.Instance.ExBattleEnd();
                 }
                 else
                 {

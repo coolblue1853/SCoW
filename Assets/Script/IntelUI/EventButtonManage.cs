@@ -196,14 +196,14 @@ public class EventButtonManage : MonoBehaviour
 
     public void ClickUpButton()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         ispushDownButton = false;
         upButton.SetActive(false);
         downButton.SetActive(true);
     }
     public void ClickDownButton()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         upButton.SetActive(true);
         downButton.SetActive(false);
         ispushDownButton = true;

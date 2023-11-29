@@ -100,7 +100,7 @@ public class DialogManager : MonoBehaviour
     }
     void Update()
     {
-        settingPlayerCon();
+        SettingPlayerCon();
         TextCheker();
         if (Input.GetKeyDown(KeyCode.E) || (Input.GetMouseButtonDown(0)))
         {
@@ -190,7 +190,7 @@ public class DialogManager : MonoBehaviour
             zNext1 = true;   //이 부분을 true로 두면  스킵이 엄청 빨라지고 false로 두면 적당해짐
             zNext2 = true;
             yield return new WaitForSeconds(0.08f);
-            ChoiceEx_NextPage_t();
+            ChoiceExNextPageT();
             yield return new WaitForSeconds(0.08f);
             if (goDialogBar.activeSelf == false)
             {
@@ -211,7 +211,7 @@ public class DialogManager : MonoBehaviour
             SkipStopON();
         }
     }
-    public void ChoiceEx_NextPage_t()
+    public void ChoiceExNextPageT()
     {
         if (isDialog)
         {
@@ -238,7 +238,7 @@ public class DialogManager : MonoBehaviour
             }
         }
     }
-    public void ChoiceEx_NextPage()
+    public void ChoiceExNextPage()
     {
         skipButton.SetActive(true);
         skipStopButton.SetActive(false);
@@ -316,7 +316,7 @@ public class DialogManager : MonoBehaviour
         dialogs = P_dialogs;
         StartCoroutine(TypeWriter());
     }
-    public void TypeWriter_Force()
+    public void TypeWriterForce()
     {
         SettingUI(true);
         string t_ReplaceText = dialogs[lineCount].contexts[contextCount];
@@ -997,17 +997,17 @@ public class DialogManager : MonoBehaviour
                     if (t_ReplaceText[i + 1] == '①')
                     {
                         DataBaseManager.selectionOn = true;
-                        selectionUIManager.Instance.Open_1st_DetectiveOffice_Select1();
+                        selectionUIManager.Instance.Open1stDetectiveOfficeSelect1();
                     }
                     if (t_ReplaceText[i + 1] == '②')
                     {
                         DataBaseManager.selectionOn = true;
-                        selectionUIManager.Instance.Open_1st_ClientsOffic_SafeSelect();
+                        selectionUIManager.Instance.Open1stClientsOfficSafeSelect();
                     }
                     if (t_ReplaceText[i + 1] == '③')
                     {
                         //DataBaseManager.SelectionOn = true;
-                        selectionUIManager.Instance.Open_1st_Slum_Dave();
+                        selectionUIManager.Instance.Open1stSlumDave();
                         DataBaseManager.daveCheck = true;
                     }
                     break;
@@ -1129,7 +1129,7 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '⑧')
                     {
-                        BillowUIManager.Instance.HP_down(5);
+                        BillowUIManager.Instance.HpDown(5);
                     }
                     t_ignore = true;
                     break;
@@ -1163,7 +1163,7 @@ public class DialogManager : MonoBehaviour
                     {
                         //적 발견시 선택지 출력
                         DataBaseManager.selectionOn = true;
-                        selectionUIManager.Instance.Open_Select_SewerEnemy();
+                        selectionUIManager.Instance.OpenSelectSewerEnemy();
                         DataBaseManager.storyDirecting = true;
                     }
                     if (t_ReplaceText[i + 1] == '⑤')
@@ -1233,7 +1233,7 @@ public class DialogManager : MonoBehaviour
                     if (t_ReplaceText[i + 1] == '⑧') // 사다리 선택지
                     {
                         DataBaseManager.selectionOn = true;
-                        selectionUIManager.Instance.Open_LadderSelectUI();
+                        selectionUIManager.Instance.OpenLadderSelectUI();
                     }
                     if (t_ReplaceText[i + 1] == '⑨')
                     {
@@ -1336,22 +1336,22 @@ public class DialogManager : MonoBehaviour
                     t_ignore = true;
                     break;
                 case '⒭':
-                    theSpriteManager.allReset();
+                    theSpriteManager.AllReset();
                     t_ignore = true;
                     break;
                 case '§':
-                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '①' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트1(); };
-                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '②' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트2(); };
-                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '③' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트3(); };
-                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '④' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트4(); };
-                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑤' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트5(); };
-                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑥' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트6(); };
-                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑦' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트7(); };
-                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑧' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트8(); };
-                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑨' && t_ReplaceText[i + 4] == '§') { theSpriteManager.노아일러스트9(); };
-                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '§') { theSpriteManager.엘라일러스트2(); };
-                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '①' && t_ReplaceText[i + 5] == '§') { theSpriteManager.엘라일러스트1(); };
-                    if (t_ReplaceText[i + 1] == '엘' && t_ReplaceText[i + 2] == '라' && t_ReplaceText[i + 3] == '1' && t_ReplaceText[i + 4] == '§') { theSpriteManager.엘라일러스트1(); }; t_ignore = true; break; // 표정변경.
+                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '①' && t_ReplaceText[i + 4] == '§') { theSpriteManager.Albert1(); };
+                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '②' && t_ReplaceText[i + 4] == '§') { theSpriteManager.Albert2(); };
+                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '③' && t_ReplaceText[i + 4] == '§') { theSpriteManager.Albert3(); };
+                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '④' && t_ReplaceText[i + 4] == '§') { theSpriteManager.Albert4(); };
+                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑤' && t_ReplaceText[i + 4] == '§') { theSpriteManager.Albert5(); };
+                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑥' && t_ReplaceText[i + 4] == '§') { theSpriteManager.Albert6(); };
+                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑦' && t_ReplaceText[i + 4] == '§') { theSpriteManager.Albert7(); };
+                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑧' && t_ReplaceText[i + 4] == '§') { theSpriteManager.Albert8(); };
+                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑨' && t_ReplaceText[i + 4] == '§') { theSpriteManager.Albert9(); };
+                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '§') { theSpriteManager.Ella2(); };
+                    if (t_ReplaceText[i + 1] == '㉡' && t_ReplaceText[i + 2] == '㉧' && t_ReplaceText[i + 3] == '⑩' && t_ReplaceText[i + 4] == '①' && t_ReplaceText[i + 5] == '§') { theSpriteManager.Ella1(); };
+                    if (t_ReplaceText[i + 1] == '엘' && t_ReplaceText[i + 2] == '라' && t_ReplaceText[i + 3] == '1' && t_ReplaceText[i + 4] == '§') { theSpriteManager.Ella1(); }; t_ignore = true; break; // 표정변경.
 
                 //㉠ ㉡ ㉢ ㉣ ㉤ ㉥ ㉦ ㉧ ㉨ ㉩ ㉪ ㉫ ㉬ ㉭▒
                 //① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫
@@ -1443,7 +1443,7 @@ public class DialogManager : MonoBehaviour
             }
         }
     }
-    void settingPlayerCon()
+    void SettingPlayerCon()
     {
         if (goDialogBar.activeSelf == true)
         {
@@ -1456,11 +1456,11 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public void onButtonSetterT()
+    public void OnButtonSetterT()
     {
         isSelectButton = true;
     }
-    public void onButtonSetterF()
+    public void OnButtonSetterF()
     {
         isSelectButton = false;
     }

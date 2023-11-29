@@ -10,12 +10,12 @@ public class BattleItemButton : MonoBehaviour
     public Sprite guide;
     public void ClickItem()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         DataBaseManager.battleWeapon = this.name;
     }
     public void ReloadItem()
     {
-        SoundManager.Instance.ClickSound_Play();
+        SoundManager.Instance.ClickSoundPlay();
         BattleManager.Instance.OpenReloadUI(this.name);
     }
     private void Start()
