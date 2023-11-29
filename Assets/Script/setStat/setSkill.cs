@@ -395,37 +395,37 @@ public class setSkill : MonoBehaviour
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                martialArtsUP();
+                MartialArtsUP();
             }
             if (nowSkill == "martialArtsDown")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                martialArtsDown();
+                MartialArtsDown();
             }
             if (nowSkill == "gunShotUP")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                gunShotUP();
+                GunShotUP();
             }
             if (nowSkill == "gunShotDown")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                gunShotDown();
+                GunShotDown();
             }
             if (nowSkill == "swordUP")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                swordUP();
+                SwordUP();
             }
             if (nowSkill == "swordDown")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                swordDown();
+                SwordDown();
             }
             if (nowSkill == "ObservationUP")
             {
@@ -443,123 +443,123 @@ public class setSkill : MonoBehaviour
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                swimingUP();
+                SwimingUP();
             }
             if (nowSkill == "swimingDown")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                swimingDown();
+                SwimingDown();
             }
 
             if (nowSkill == "medicineUP")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                medicineUP();
+                MedicineUP();
             }
             if (nowSkill == "medicineDown")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                medicineDown();
+                MedicineDown();
             }
             if (nowSkill == "analysisUP")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                analysisUP();
+                AnalysisUP();
             }
             if (nowSkill == "analysisDown")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                analysisDown();
+                AnalysisDown();
             }
             if (nowSkill == "occultUP")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                occultUP();
+                OccultUP();
             }
             if (nowSkill == "occultDown")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                occultDown();
+                OccultDown();
             }
             if (nowSkill == "listeningUP")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                listeningUP();
+                ListeningUP();
             }
             if (nowSkill == "listeningDown")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                listeningDown();
+                ListeningDown();
             }
             if (nowSkill == "psychotherapyUP")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                psychotherapyUP();
+                PsychotherapyUP();
             }
             if (nowSkill == "psychotherapyDown")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                psychotherapyDown();
+                PsychotherapyDown();
             }
 
             if (nowSkill == "evasionUP")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                evasionUP();
+                EvasionUP();
             }
             if (nowSkill == "evasionDown")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                evasionDown();
+                EvasionDown();
             }
             if (nowSkill == "deftnessUP")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                deftnessUP();
+                DeftnessUP();
             }
             if (nowSkill == "deftnessDown")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                deftnessDown();
+                DeftnessDown();
             }
             if (nowSkill == "rhetoricUP")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                rhetoricUP();
+                RhetoricUP();
             }
             if (nowSkill == "rhetoricDown")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                rhetoricDown();
+                RhetoricDown();
             }
             if (nowSkill == "stealthUP")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                stealthUP();
+                StealthUP();
             }
             if (nowSkill == "stealthDown")
             {
                 clickTime = 0;
                 minClickTime = 0.1f;
-                stealthDown();
+                StealthDown();
             }
             if (nowSkill == "DisguiseUP")
             {
@@ -576,7 +576,7 @@ public class setSkill : MonoBehaviour
         }
     }
     //str
-    public void martialArtsUP()
+    public void MartialArtsUP()
     {
         if (DataBaseManager.martialArtsPoint < 90 && DataBaseManager.strSkillPoint >= 5)
         {
@@ -590,7 +590,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "martialArtsUP";
         }
     }
-    public void martialArtsDown()
+    public void MartialArtsDown()
     {
         if (DataBaseManager.martialArtsPoint > 25)
         {
@@ -604,7 +604,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "martialArtsDown";
         }
     }
-    public void gunShotUP()
+    public void GunShotUP()
     {
         if (DataBaseManager.gunShotPoint < 90 && DataBaseManager.strSkillPoint >= 5)
         {
@@ -618,7 +618,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "gunShotUP";
         }
     }
-    public void gunShotDown()
+    public void GunShotDown()
     {
         if (DataBaseManager.gunShotPoint > 15)
         {
@@ -633,7 +633,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "gunShotDown";
         }
     }
-    public void swordUP()
+    public void SwordUP()
     {
         if (DataBaseManager.swordPoint < 90 && DataBaseManager.strSkillPoint >= 5)
         {
@@ -647,7 +647,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "swordUP";
         }
     }
-    public void swordDown()
+    public void SwordDown()
     {
         if (DataBaseManager.swordPoint > 20)
         {
@@ -689,7 +689,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "ObservationDown";
         }
     }
-    public void swimingUP()
+    public void SwimingUP()
     {
         if (DataBaseManager.swimingPoint < 90 && DataBaseManager.strSkillPoint >= 5)
         {
@@ -703,7 +703,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "swimingUP";
         }
     }
-    public void swimingDown()
+    public void SwimingDown()
     {
         if (DataBaseManager.swimingPoint > 10)
         {
@@ -800,7 +800,7 @@ public class setSkill : MonoBehaviour
         intPointTxt.text = DataBaseManager.intSkillPoint.ToString();
     }
     //int
-    public void medicineUP()
+    public void MedicineUP()
     {
         if (DataBaseManager.medicinePoint < 90 && DataBaseManager.intSkillPoint >= 5)
         {
@@ -814,7 +814,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "medicineUP";
         }
     }
-    public void medicineDown()
+    public void MedicineDown()
     {
         if (DataBaseManager.medicinePoint > 10)
         {
@@ -829,7 +829,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "medicineDown";
         }
     }
-    public void analysisUP()
+    public void AnalysisUP()
     {
         if (DataBaseManager.analysisPoint < 90 && DataBaseManager.intSkillPoint >= 5)
         {
@@ -843,7 +843,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "analysisUP";
         }
     }
-    public void analysisDown()
+    public void AnalysisDown()
     {
         if (DataBaseManager.analysisPoint > 30)
         {
@@ -858,7 +858,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "analysisDown";
         }
     }
-    public void occultUP()
+    public void OccultUP()
     {
         if (DataBaseManager.occultPoint < 90 && DataBaseManager.intSkillPoint >= 5)
         {
@@ -872,7 +872,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "occultUP";
         }
     }
-    public void occultDown()
+    public void OccultDown()
     {
         if (DataBaseManager.occultPoint > 5)
         {
@@ -886,7 +886,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "occultDown";
         }
     }
-    public void listeningUP()
+    public void ListeningUP()
     {
         if (DataBaseManager.listeningPoint < 90 && DataBaseManager.intSkillPoint >= 5)
         {
@@ -901,7 +901,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "listeningUP";
         }
     }
-    public void listeningDown()
+    public void ListeningDown()
     {
         if (DataBaseManager.listeningPoint > 5)
         {
@@ -915,7 +915,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "listeningDown";
         }
     }
-    public void psychotherapyUP()
+    public void PsychotherapyUP()
     {
         if (DataBaseManager.psychotherapyPoint < 90 && DataBaseManager.intSkillPoint >= 5)
         {
@@ -929,7 +929,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "psychotherapyUP";
         }
     }
-    public void psychotherapyDown()
+    public void PsychotherapyDown()
     {
         if (DataBaseManager.psychotherapyPoint > 5)
         {
@@ -1029,7 +1029,7 @@ public class setSkill : MonoBehaviour
     }
 
     //dex
-    public void evasionUP()
+    public void EvasionUP()
     {
         if (DataBaseManager.evasionPoint < 90 && DataBaseManager.dexSkillPoint >= 5)
         {
@@ -1043,7 +1043,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "evasionUP";
         }
     }
-    public void evasionDown()
+    public void EvasionDown()
     {
         if (DataBaseManager.evasionPoint > 30)
         {
@@ -1057,7 +1057,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "evasionDown";
         }
     }
-    public void deftnessUP()
+    public void DeftnessUP()
     {
         if (DataBaseManager.deftnessPoint < 90 && DataBaseManager.dexSkillPoint >= 5)
         {
@@ -1071,7 +1071,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "deftnessUP";
         }
     }
-    public void deftnessDown()
+    public void DeftnessDown()
     {
         if (DataBaseManager.deftnessPoint > 20)
         {
@@ -1085,7 +1085,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "deftnessDown";
         }
     }
-    public void rhetoricUP()
+    public void RhetoricUP()
     {
         if (DataBaseManager.rhetoricPoint < 90 && DataBaseManager.dexSkillPoint >= 5)
         {
@@ -1099,7 +1099,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "rhetoricUP";
         }
     }
-    public void rhetoricDown()
+    public void RhetoricDown()
     {
         if (DataBaseManager.rhetoricPoint > 20)
         {
@@ -1113,7 +1113,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "rhetoricDown";
         }
     }
-    public void stealthUP()
+    public void StealthUP()
     {
         if (DataBaseManager.stealthPoint < 90 && DataBaseManager.dexSkillPoint >= 5)
         {
@@ -1128,7 +1128,7 @@ public class setSkill : MonoBehaviour
             nowSkill = "stealthUP";
         }
     }
-    public void stealthDown()
+    public void StealthDown()
     {
         if (DataBaseManager.stealthPoint > 15)
         {
@@ -1170,14 +1170,14 @@ public class setSkill : MonoBehaviour
             nowSkill = "DisguiseDown";
         }
     }
-    public void buttonUP()
+    public void ButtonUP()
     {
         isClick = false;
         minClickTime = 0.5f;
         clickTime = 0;
         nowSkill = "";
     }
-    public void Back2stat()
+    public void BackToStat()
     {
         SoundManager.Instance.PaperClip_Play();
         setStatButton.SetActive(true);

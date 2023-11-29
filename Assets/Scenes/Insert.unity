@@ -333,7 +333,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 762191912}
         m_TargetAssemblyTypeName: ManageMain, Assembly-CSharp
-        m_MethodName: Game_Quit
+        m_MethodName: GameQuit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2563,10 +2563,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 89403185, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToMain
-      objectReference: {fileID: 0}
     - target: {fileID: 8831394067221339529, guid: 547c7de6a694f9d40a53664723ad8355,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2676,11 +2672,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SettingCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831394067221339539, guid: 547c7de6a694f9d40a53664723ad8355,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}

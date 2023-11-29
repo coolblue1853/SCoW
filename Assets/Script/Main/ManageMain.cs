@@ -23,7 +23,7 @@ public class ManageMain : MonoBehaviour
         Tween fadeTween = backGroundImg.DOFade(1, 1.5f);
         fadeTween.OnComplete(Go_SetCharacter);
     }
-    public void Game_Quit()
+    public void GameQuit()
     {
         SoundManager.Instance.pen_Circle();
         Application.Quit();

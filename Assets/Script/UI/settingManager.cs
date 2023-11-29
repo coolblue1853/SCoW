@@ -70,17 +70,17 @@ public class settingManager : MonoBehaviour
     int changeInt = 1;
     bool isFullScrean = true;
 
-    public void 전체화면온()
+    public void OnFullScrean()
     {
         SoundManager.Instance.ClickSound_Play();
         isFullScrean = true;
     }
-    public void 전체화면오프()
+    public void OffFullScrean()
     {
         SoundManager.Instance.ClickSound_Play();
         isFullScrean = false;
     }
-    public void 화면체인저엔터()
+    public void ChangeResolution()
     {
         SoundManager.Instance.ClickSound_Play();
         if (changeInt == 0 && isFullScrean == false)
@@ -132,12 +132,12 @@ public class settingManager : MonoBehaviour
             Screen.SetResolution(640, 360, true);
         }
     }
-    public void 인트더하기()
+    public void AddInt()
     {
         SoundManager.Instance.ClickSound_Play();
         changeInt++;
     }
-    public void 빼기()
+    public void SubInt()
     {
         SoundManager.Instance.ClickSound_Play();
         changeInt--;

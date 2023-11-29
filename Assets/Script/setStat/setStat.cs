@@ -145,7 +145,7 @@ public class setStat : MonoBehaviour
             isAll = false;
         }
     }
-    public void setSkill_B()
+    public void SetSkill()
     {
         SoundManager.Instance.PaperClip_Play();
         setStatWindow.SetActive(false);

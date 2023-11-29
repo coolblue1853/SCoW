@@ -711,7 +711,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8831394067221339532}
         m_TargetAssemblyTypeName: settingManager, Assembly-CSharp
-        m_MethodName: goToMain
+        m_MethodName: GoToMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1072,9 +1072,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f3a205b5da66a429285faf9dcc771e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Set: {fileID: 1164768717}
-  Main: {fileID: 729369409}
-  Tut: {fileID: 351935376}
+  setting: {fileID: 0}
+  main: {fileID: 0}
+  tutorial: {fileID: 0}
 --- !u!1 &145998485
 GameObject:
   m_ObjectHideFlags: 0
@@ -5292,7 +5292,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 124021568}
         m_TargetAssemblyTypeName: TutoralManage, Assembly-CSharp
-        m_MethodName: openSet
+        m_MethodName: OpenSet
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10874,7 +10874,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 124021568}
         m_TargetAssemblyTypeName: TutoralManage, Assembly-CSharp
-        m_MethodName: openMain
+        m_MethodName: OpenMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24385,7 +24385,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8831394067221339532}
         m_TargetAssemblyTypeName: settingManager, Assembly-CSharp
-        m_MethodName: "\uBE7C\uAE30"
+        m_MethodName: SubInt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25648,7 +25648,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8831394067221339532}
         m_TargetAssemblyTypeName: settingManager, Assembly-CSharp
-        m_MethodName: "\uD654\uBA74\uCCB4\uC778\uC800\uC5D4\uD130"
+        m_MethodName: ChangeResolution
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26019,7 +26019,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8831394067221339532}
         m_TargetAssemblyTypeName: settingManager, Assembly-CSharp
-        m_MethodName: "\uC804\uCCB4\uD654\uBA74\uC628"
+        m_MethodName: OnFullScrean
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26413,7 +26413,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8831394067221339532}
         m_TargetAssemblyTypeName: settingManager, Assembly-CSharp
-        m_MethodName: "\uC778\uD2B8\uB354\uD558\uAE30"
+        m_MethodName: AddInt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -27095,7 +27095,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8831394067221339532}
         m_TargetAssemblyTypeName: settingManager, Assembly-CSharp
-        m_MethodName: "\uC804\uCCB4\uD654\uBA74\uC624\uD504"
+        m_MethodName: OffFullScrean
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

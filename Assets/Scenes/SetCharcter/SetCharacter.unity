@@ -634,7 +634,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -802,7 +802,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -818,7 +818,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: gunShotUP
+          m_MethodName: GunShotUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1809,7 +1809,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1825,7 +1825,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: listeningUP
+          m_MethodName: ListeningUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2661,7 +2661,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: occultDown
+          m_MethodName: OccultDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2677,7 +2677,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3264,7 +3264,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 934547478}
         m_TargetAssemblyTypeName: changeStatPage, Assembly-CSharp
-        m_MethodName: intPageButton
+        m_MethodName: IntPageButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4957,7 +4957,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: rhetoricDown
+          m_MethodName: RhetoricDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4973,7 +4973,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5219,7 +5219,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: swimingDown
+          m_MethodName: SwimingDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5235,7 +5235,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5501,7 +5501,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5517,7 +5517,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: swimingUP
+          m_MethodName: SwimingUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6194,7 +6194,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1673926578}
         m_TargetAssemblyTypeName: setStat, Assembly-CSharp
-        m_MethodName: setSkill_B
+        m_MethodName: SetSkill
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6793,7 +6793,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6809,7 +6809,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: swordUP
+          m_MethodName: SwordUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6961,7 +6961,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: listeningDown
+          m_MethodName: ListeningDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6977,7 +6977,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -7734,7 +7734,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: psychotherapyDown
+          m_MethodName: PsychotherapyDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -7750,7 +7750,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -9333,7 +9333,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 934547477}
         m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-        m_MethodName: Back2stat
+        m_MethodName: BackToStat
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10070,7 +10070,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -10086,7 +10086,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: evasionUP
+          m_MethodName: EvasionUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -10513,7 +10513,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -10529,7 +10529,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: rhetoricUP
+          m_MethodName: RhetoricUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -10681,7 +10681,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: gunShotDown
+          m_MethodName: GunShotDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -10697,7 +10697,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -11017,7 +11017,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: swordDown
+          m_MethodName: SwordDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -11033,7 +11033,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13261,7 +13261,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13277,7 +13277,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: stealthUP
+          m_MethodName: StealthUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13509,7 +13509,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: evasionDown
+          m_MethodName: EvasionDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13525,7 +13525,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -14281,7 +14281,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -14297,7 +14297,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: martialArtsUP
+          m_MethodName: MartialArtsUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -14626,7 +14626,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -14642,7 +14642,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: deftnessUP
+          m_MethodName: DeftnessUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -15765,7 +15765,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -16103,7 +16103,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -17672,7 +17672,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -17688,7 +17688,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: medicineUP
+          m_MethodName: MedicineUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -18602,7 +18602,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -18618,7 +18618,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: psychotherapyUP
+          m_MethodName: PsychotherapyUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -19369,7 +19369,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -19385,7 +19385,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: analysisUP
+          m_MethodName: AnalysisUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -20360,7 +20360,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 934547478}
         m_TargetAssemblyTypeName: changeStatPage, Assembly-CSharp
-        m_MethodName: dexPageButton
+        m_MethodName: DexPageButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20627,7 +20627,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: deftnessDown
+          m_MethodName: DeftnessDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -20643,7 +20643,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -21117,7 +21117,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: medicineDown
+          m_MethodName: MedicineDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -21133,7 +21133,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -22936,7 +22936,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: stealthDown
+          m_MethodName: StealthDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -22952,7 +22952,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -25869,7 +25869,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -25885,7 +25885,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: occultUP
+          m_MethodName: OccultUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -26130,7 +26130,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -26708,7 +26708,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: analysisDown
+          m_MethodName: AnalysisDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -26724,7 +26724,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -27071,7 +27071,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 934547478}
         m_TargetAssemblyTypeName: changeStatPage, Assembly-CSharp
-        m_MethodName: strPageButton
+        m_MethodName: StrPageButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -27523,6 +27523,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 747169067, guid: 547c7de6a694f9d40a53664723ad8355, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenSet
+      objectReference: {fileID: 0}
     - target: {fileID: 8831394067221339529, guid: 547c7de6a694f9d40a53664723ad8355,
         type: 3}
       propertyPath: m_Pivot.x
@@ -27652,6 +27656,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0.498
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831394068523527257, guid: 547c7de6a694f9d40a53664723ad8355,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeResolution
       objectReference: {fileID: 0}
     - target: {fileID: 8831394069004670989, guid: 547c7de6a694f9d40a53664723ad8355,
         type: 3}
@@ -28591,7 +28600,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: martialArtsDown
+          m_MethodName: MartialArtsDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -28607,7 +28616,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 934547477}
           m_TargetAssemblyTypeName: setSkill, Assembly-CSharp
-          m_MethodName: buttonUP
+          m_MethodName: ButtonUP
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

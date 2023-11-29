@@ -11,13 +11,13 @@ public class TutoralManage : MonoBehaviour
         SoundManager.Instance.ClickSound_Play();
         tutorial.SetActive(false);
     }
-    public void openSet()
+    public void OpenSet()
     {
         SoundManager.Instance.ClickSound_Play();
         setting.SetActive(true);
         main.SetActive(false);
     }
-    public void openMain()
+    public void OpenMain()
     {
         SoundManager.Instance.ClickSound_Play();
         setting.SetActive(false);
