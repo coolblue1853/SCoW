@@ -1914,57 +1914,57 @@ public class IntelCharacterDetail : MonoBehaviour
         daveContents.transform.GetChild(4).gameObject.SetActive(false);
         daveContents.transform.GetChild(5).gameObject.SetActive(false);
     }
-    public void Open_Ella()
+    public void OpenElla()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         ellaDetail.SetActive(true);
     }
-    public void Open_Swain()
+    public void OpenSwain()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         swainDetail.SetActive(true);
     }
-    public void Open_Aiden()
+    public void OpenAiden()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         aidenDetail.SetActive(true);
     }
-    public void Open_Cane()
+    public void OpenKane()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         caneDetail.SetActive(true);
     }
-    public void Open_Albert()
+    public void OpenAlbert()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         albertDetail.SetActive(true);
     }
-    public void Open_Meiv()
+    public void OpenMeiv()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         meivDetail.SetActive(true);
     }
-    public void Open_BlackWell()
+    public void OpenBlackWell()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         blackWellDetail.SetActive(true);
     }
 
-    public void Open_SewerWorker()
+    public void OpenSewerWorker()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         sewerWorkerDetail.SetActive(true);
     }
 
-    public void Open_Dave()
+    public void OpenDave()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();

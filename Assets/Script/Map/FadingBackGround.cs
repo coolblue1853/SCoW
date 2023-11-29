@@ -12,7 +12,7 @@ public class FadingBackGround : MonoBehaviour
     public Image castInBackground;
     public GameObject castOut;
     public Image castOutBackground;
-    public void goToMain()
+    public void GoToMain()
     {
         DataBaseManager.instance.ResetData();
         SceneManager.LoadScene("Insert");

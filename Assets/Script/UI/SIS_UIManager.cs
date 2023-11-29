@@ -136,39 +136,39 @@ public class SIS_UIManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    public void Open_UseItemUI()
+    public void OpenUseItemUI()
     {
         SoundManager.Instance.ClickSound_Play();
         DataBaseManager.nowItem = "";
         itemuse.transform.SetSiblingIndex(-1);
     }
-    public void Open_KeyItemUI()
+    public void OpenKeyItemUI()
     {
         SoundManager.Instance.ClickSound_Play();
         DataBaseManager.nowItem = "";
         itemKey.transform.SetSiblingIndex(-1);
     }
-    public void Open_NomalItemUI()
+    public void OpenNomalItemUI()
     {
         SoundManager.Instance.ClickSound_Play();
         DataBaseManager.nowItem = "";
         itemEqip.transform.SetSiblingIndex(-1);
     }
-    public void Open_StatUI()
+    public void OpenStatUI()
     {
         SoundManager.Instance.ClickSound_Play();
         statUI.SetActive(true);
         inventoryUI.SetActive(false);
         skillUI.SetActive(false);
     }
-    public void Open_InventoryUI()
+    public void OpenInventoryUI()
     {
         SoundManager.Instance.ClickSound_Play();
         statUI.SetActive(false);
         inventoryUI.SetActive(true);
         skillUI.SetActive(false);
     }
-    public void Open_SkillUI()
+    public void OpenSkillUI()
     {
         SoundManager.Instance.ClickSound_Play();
         statUI.SetActive(false);
@@ -714,7 +714,7 @@ public class SIS_UIManager : MonoBehaviour
             }
         }
     }
-    public void openSetting()
+    public void OpenSetting()
     {
         settingManager.Instance.OpenSetting();
     }

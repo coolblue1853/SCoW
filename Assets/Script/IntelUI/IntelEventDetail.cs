@@ -2291,68 +2291,68 @@ public class IntelEventDetail : MonoBehaviour
         murderCaseContents.transform.GetChild(5).gameObject.SetActive(false);
     }
 
-    public void Open_PlanetarySequence()
+    public void OpenPlanetarySequence()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         planetarySequenceDetail.SetActive(true);
     }
-    public void Open_Nightmare()
+    public void OpenNightmare()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         nightmareDetail.SetActive(true);
     }
-    public void Open_Paranoia()
+    public void OpenParanoia()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         paranoiaDetail.SetActive(true);
     }
-    public void Open_Insomnia()
+    public void OpenInsomnia()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         insomniaDetail.SetActive(true);
     }
-    public void Open_SewerGhostStory()
+    public void OpenSewerGhostStory()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         sewerGhostStoryDetail.SetActive(true);
     }
-    public void Open_MissingPeople()
+    public void OpenMissingPeople()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         missingPeopleDetail.SetActive(true);
     }
-    public void Open_FishySmell()
+    public void OpenFishySmell()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         fishySmellDetail.SetActive(true);
     }
-    public void Open_RiverWaterQuality()
+    public void OpenRiverWaterQuality()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         riverWaterQualityDetail.SetActive(true);
     }
-    public void Open_CreepyEyes()
+    public void OpenCreepyEyes()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         creepyEyes_etail.SetActive(true);
     }
 
-    public void Open_Safe()
+    public void OpenSafe()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         safeDetail.SetActive(true);
     }
-    public void Open_MurderCase()
+    public void OpenMurderCase()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();

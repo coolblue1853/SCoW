@@ -58,13 +58,13 @@ public class Rollet : MonoBehaviour
             {
                 BattleManager.Instance.enemySelectUI.SetActive(true);
                 BattleManager.Instance.battleState = "selectEnemy";
-                BattleManager.Instance.Player_setMarkmens();
+                BattleManager.Instance.PlayerSetMarkmenship();
             }
             else if (BattleManager.Instance.playerAction == "PlayerDeftness")
             {
                 BattleManager.Instance.enemySelectUI.SetActive(true);
                 BattleManager.Instance.battleState = "selectEnemy";
-                BattleManager.Instance.Player_setDeftness();
+                BattleManager.Instance.PlayerSetDeftness();
             }
             rolletSetUi.SetActive(false);
             DataBaseManager.isRollet = false;
@@ -75,7 +75,7 @@ public class Rollet : MonoBehaviour
         if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck == true)
         {
             activeCheck = false;
-            activeRollet();
+            ActiveRollet();
         }
         if (endButton.activeSelf == true && Input.GetKeyDown(KeyCode.E))
         {
@@ -97,7 +97,7 @@ public class Rollet : MonoBehaviour
         if (sanRollet.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck2 == true)
         {
             activeCheck2 = false;
-            activeSanRollet();
+            ActiveSanRollet();
         }
         if (endButton2.activeSelf == true && Input.GetKeyDown(KeyCode.E))
         {
@@ -230,7 +230,7 @@ public class Rollet : MonoBehaviour
     {
         activeCheck = true;
     }
-    public void activeRollet()
+    public void ActiveRollet()
     {
         setUI.SetActive(false);
         activeUI.SetActive(true);
@@ -747,7 +747,7 @@ public class Rollet : MonoBehaviour
         }
     }
     public GameObject activeButton;
-    public void activeSanRollet()
+    public void ActiveSanRollet()
     {
         activeButton.SetActive(false);
         ChangeSanRollet();

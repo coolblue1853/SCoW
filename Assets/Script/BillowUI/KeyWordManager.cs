@@ -31,11 +31,11 @@ public class KeyWordManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    public void endterKey()
+    public void EndterKey()
     {
         DataBaseManager.conntectMouse = true;
     }
-    public void outKey()
+    public void OutKey()
     {
         DataBaseManager.conntectMouse = false;
     }

@@ -340,7 +340,7 @@ public class BattleManager : MonoBehaviour
         roundGameObject.SetActive(false);
         playerActionUi.SetActive(true);
     }
-    public void Player_BackAction()
+    public void PlayerBackAction()
     {
         SoundManager.Instance.ClickSound_Play();
         enemySelectUI.SetActive(false);
@@ -348,21 +348,21 @@ public class BattleManager : MonoBehaviour
         battleState = "PlayerChoice";
         playerActionUi.SetActive(true);
     }
-    public void Player_setAttack()
+    public void PlayerSetAttack()
     {
         SoundManager.Instance.ClickSound_Play();
         playerActionUi.SetActive(false);
         battleState = "PlayerAttack";
         playerAttackUi.SetActive(true);
     }
-    public void Player_setSwords()
+    public void PlayerSetSwords()
     {
         SoundManager.Instance.ClickSound_Play();
         playerAttackUi.SetActive(false);
         playerAction = "PlayerSwords";
         playerSwordsUi.SetActive(true);
     }
-    public void Player_BackSwords()
+    public void PlayerBackSwords()
     {
         SoundManager.Instance.ClickSound_Play();
         enemySelectUI.SetActive(false);
@@ -371,14 +371,14 @@ public class BattleManager : MonoBehaviour
         playerAttackUi.SetActive(true);
         playerRender.sprite = stand;
     }
-    public void Player_setMarkmens()
+    public void PlayerSetMarkmenship()
     {
         SoundManager.Instance.ClickSound_Play();
         playerAttackUi.SetActive(false);
         playerAction = "PlayerMarkmen";
         playerMarkmenUi.SetActive(true);
     }
-    public void Player_BackMarkmens()
+    public void PlayerBackMarkmenship()
     {
         SoundManager.Instance.ClickSound_Play();
         enemySelectUI.SetActive(false);
@@ -387,14 +387,14 @@ public class BattleManager : MonoBehaviour
         playerMarkmenUi.SetActive(false);
         playerRender.sprite = stand;
     }
-    public void Player_setDeftness()
+    public void PlayerSetDeftness()
     {
         SoundManager.Instance.ClickSound_Play();
         playerAttackUi.SetActive(false);
         playerAction = "PlayerDeftness";
         playerDeftnessUi.SetActive(true);
     }
-    public void Player_BackDeftness()
+    public void PlayerBackDeftness()
     {
         SoundManager.Instance.ClickSound_Play();
         enemySelectUI.SetActive(false);
@@ -403,7 +403,7 @@ public class BattleManager : MonoBehaviour
         playerDeftnessUi.SetActive(false);
         playerRender.sprite = stand;
     }
-    public void Player_setReload()
+    public void PlayerSetReload()
     {
         SoundManager.Instance.ClickSound_Play();
         playerActionUi.SetActive(false);
@@ -411,7 +411,7 @@ public class BattleManager : MonoBehaviour
         playerReloadUi.SetActive(true);
         playerReloadItemUI.SetActive(true);
     }
-    public void Player_BackReload()
+    public void PlayerBackReload()
     {
         SoundManager.Instance.ClickSound_Play();
         playerActionUi.SetActive(true);
@@ -652,7 +652,7 @@ public class BattleManager : MonoBehaviour
     {
         Rollet.Instance.setRollet("??? : Deftness", "Deftness", deepOneHybrid3.dex, "EnemyDeftness", "DeepOneHybrid");
     }
-    public void PlayerChoiceButton_Evasion()
+    public void ChoiceEvasion()
     {
         playerAction = "evasion";
         if (battleState == "DeepOneHybrid1Attack")
@@ -686,7 +686,7 @@ public class BattleManager : MonoBehaviour
             BattleRollet.Instance.setBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOne", "??? : Poking", "SwordsManship", deepOne1.deepOneSewerdManShip);
         }
     }
-    public void PlayerChoiceButton_CounterAttack()
+    public void ChoiceCounterAttack()
     {
         playerAction = "counterattack";
         if (battleState == "DeepOneHybrid1Attack")
@@ -3963,7 +3963,7 @@ public class BattleManager : MonoBehaviour
         playerAction = action;
     }
 
-    public void Back_MA()
+    public void BackMA()
     {
         maBackButton.SetActive(false);
         SoundManager.Instance.ClickSound_Play();

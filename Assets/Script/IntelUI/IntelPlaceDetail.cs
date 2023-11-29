@@ -2889,85 +2889,85 @@ public class IntelPlaceDetail : MonoBehaviour
         wharfContents.transform.GetChild(5).gameObject.SetActive(false);
     }
 
-    public void Open_DetectiveOffice()
+    public void OpenDetectiveOffice()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         detectiveOfficeDetail.SetActive(true);
     }
-    public void Open_Hospital()
+    public void OpenHospital()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         hospitalDetail.SetActive(true);
     }
-    public void Open_Newspaper()
+    public void OpenNewspaper()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         newspaperDetail.SetActive(true);
     }
-    public void Open_QuestHouse()
+    public void OpenClientHouse()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         questHouseDetail.SetActive(true);
     }
-    public void Open_Station()
+    public void OpenStation()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         stationDetail.SetActive(true);
     }
-    public void Open_Sewer()
+    public void OpenSewer()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         sewerDetail.SetActive(true);
     }
-    public void Open_University()
+    public void OpenUniversity()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         universityDetail.SetActive(true);
     }
-    public void Open_Riverside()
+    public void OpenRiverside()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         riversideDetail.SetActive(true);
     }
-    public void Open_Bar()
+    public void OpenBar()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         barDetail.SetActive(true);
     }
-    public void Open_Slum()
+    public void OpenSlum()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         slumDetail.SetActive(true);
     }
-    public void Open_PoliceOffice()
+    public void OpenPoliceOffice()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         policeOfficeDetail.SetActive(true);
     }
-    public void Open_Gunsmith()
+    public void OpenGunsmith()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         gunsmithDetail.SetActive(true);
     }
-    public void Open_SewageMaintenanceOffice()
+    public void OpenSewageMaintenanceOffice()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();
         sewageMaintenanceOfficeDetail.SetActive(true);
     }
-    public void Open_Wharf()
+    public void OpenWharf()
     {
         SoundManager.Instance.ClickSound_Play();
         CloseAllContents();

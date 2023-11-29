@@ -71,7 +71,7 @@ public class BattleRollet : MonoBehaviour
             {
                 BattleManager.Instance.enemySelectUI.SetActive(true);
                 BattleManager.Instance.battleState = "selectEnemy";
-                BattleManager.Instance.Player_setSwords();
+                BattleManager.Instance.PlayerSetSwords();
             }
             else if (BattleManager.Instance.playerAction == "martialarts")
             {
@@ -93,7 +93,7 @@ public class BattleRollet : MonoBehaviour
         if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck == true)
         {
             activeCheck = false;
-            activeRollet();
+            ActiveRollet();
         }
         if (endButton.activeSelf == true && Input.GetKeyDown(KeyCode.E))
         {
@@ -236,7 +236,7 @@ public class BattleRollet : MonoBehaviour
         Invoke("WaitOneSec", 0.1f);
     }
 
-    public void activeRollet()
+    public void ActiveRollet()
     {
         BattleManager.Instance.playerMAUI.SetActive(false);
         BattleManager.Instance.playerActionUi.SetActive(false);

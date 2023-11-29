@@ -400,7 +400,7 @@ public class ShopUI : MonoBehaviour
         }
     }
     //상점페이지 열기
-    public void OpenPage_Firearm()
+    public void OpenPageFirearm()
     {
         SoundManager.Instance.ClickSound_Play();
         fireArmPage.SetActive(true);
@@ -409,7 +409,7 @@ public class ShopUI : MonoBehaviour
         throwablePage.SetActive(false);
         aidKitPage.SetActive(false);
     }
-    public void OpenPage_Ammo()
+    public void OpenPageAmmo()
     {
         SoundManager.Instance.ClickSound_Play();
         fireArmPage.SetActive(false);
@@ -418,7 +418,7 @@ public class ShopUI : MonoBehaviour
         throwablePage.SetActive(false);
         aidKitPage.SetActive(false);
     }
-    public void OpenPage_Sowrds()
+    public void OpenPageSowrds()
     {
         SoundManager.Instance.ClickSound_Play();
         fireArmPage.SetActive(false);
@@ -427,7 +427,7 @@ public class ShopUI : MonoBehaviour
         throwablePage.SetActive(false);
         aidKitPage.SetActive(false);
     }
-    public void OpenPage_AidKit()
+    public void OpenPageAidKit()
     {
         SoundManager.Instance.ClickSound_Play();
         fireArmPage.SetActive(false);
@@ -436,7 +436,7 @@ public class ShopUI : MonoBehaviour
         throwablePage.SetActive(false);
         aidKitPage.SetActive(true);
     }
-    public void OpenPage_Throwable()
+    public void OpenPageThrowable()
     {
         SoundManager.Instance.ClickSound_Play();
         fireArmPage.SetActive(false);

@@ -28,14 +28,14 @@ public class PlaceButtonManage : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.S))
             {
-                ClickDownButton_2();
+                ClickDownButton2();
             }
         }
         else if (downButton.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.S))
             {
-                ClickDownButton_();
+                ClickDownButton();
             }
         }
     }
@@ -267,7 +267,7 @@ public class PlaceButtonManage : MonoBehaviour
         Transform trChild12 = buttonRect.transform.GetChild(11);
         trChild12.gameObject.SetActive(true);
     }
-    public void ClickDownButton_()
+    public void ClickDownButton()
     {
         SoundManager.Instance.ClickSound_Play();
         upButton.SetActive(true);
@@ -343,7 +343,7 @@ public class PlaceButtonManage : MonoBehaviour
             downButton2.SetActive(true);
         }
     }
-    public void ClickDownButton_2()
+    public void ClickDownButton2()
     {
         SoundManager.Instance.ClickSound_Play();
         upButton.SetActive(false);
