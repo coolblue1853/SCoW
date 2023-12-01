@@ -27,8 +27,8 @@ public class PotalPoint : MonoBehaviour
     Vector3 cam2stTo1st = new Vector3(-1192.4f, 1.5f, -15);
     Vector2 playerRoomTo2st = new Vector3(-1365.4f, 7f);
     Vector3 camRoomTo2st = new Vector3(-1368.6f, 1.5f, -15);
-    Vector2 player2stToRoom = new Vector3(-1567.91f, 2.86f);
-    Vector3 cam2stTo2Room = new Vector3(-1551.49f, 1.5f, -15);
+    Vector2 player2stToRoom = new Vector3(-1573.03f, 1.1f);
+    Vector3 cam2stTo2Room = new Vector3(-1554.97f, 1.3f, -15);
 
     // 하수정비시설
     Vector2 playerSewerInside = new Vector3(-1363.46f, -78.46f);

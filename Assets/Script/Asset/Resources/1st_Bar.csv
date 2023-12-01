@@ -115,14 +115,14 @@ ID,캐릭터이름,대사,
 114,Fabian,@Ugh^ that's so you.@,
 115,Fabian,(I walked into the ⓑ(bar)ⓦ and a few men were handing ⓖ(Maeve)ⓦ a box of something.),2일차 저녁 /비랏한 냄새가 있다면>
 116,Fabian,'Is that a...?',
-117,Fabian,(While I was staring at them^ I smelled a ⓡ(fishy smell)ⓦ as they walked by.),
+117,Fabian,(While I was staring at them^ I smelled a ⓡ(fishy smell)ⓦ as they walked by.)◈⑪▒⑥,
 118,Fabian,'This smells like...',
-119,Fabian,'I think it's the ⓡ(fishy smell)ⓦ that's been going around lately...'※②, // 화면 암전 이후 Maeve 앞으로 이동
+119,Fabian,'I think it's the ⓡ(fishy smell)ⓦ that's been going around lately...'※②▒⑥◈⑩, // 화면 암전 이후 Maeve 앞으로 이동
 120,Fabian,(I walked into the ⓑ(bar)ⓦ and a few men were handing ⓖ(Maeve)ⓦ a box of something.),2일차 저녁 / <비랏한 냄새가 없다면>
 121,Fabian,'Is that a...?',
-122,Fabian,(While I was staring at them^ I smelled a ⓡ(fishy smell)ⓦ as they walked by.),
+122,Fabian,(While I was staring at them^ I smelled a ⓡ(fishy smell)ⓦ as they walked by.)◈⑪▒⑥,
 123,Fabian,'This smells like...',
-124,Fabian,'Are they fishermen or something? That stinks.'※②, // 화면 암전 이후 Maeve 앞으로 이동
+124,Fabian,'Are they fishermen or something? That stinks.'※②▒⑥◈⑩, // 화면 암전 이후 Maeve 앞으로 이동
 125,Maeve,@Hey^ Fabian. I've been seeing you a lot lately.@,<첫쨋날에 바에 찾아왔따면>
 126,Fabian,@Somehow^ What about those people?@,
 127,Maeve,@These are the people we've been helped lately^ new suppliers and buyers.@,

@@ -696,6 +696,10 @@ public class TimeManagere : MonoBehaviour
     public GameObject riverPotal;
     public GameObject leftSewerPotal;
     public GameObject rightSewerPotal;
+
+    public SpriteRenderer clientsHouseRoom;
+    public Sprite messClientsHouseRoom;
+
     public void DeletRightSewerPotal()
     {
         leftSewerPotal.SetActive(true);
@@ -780,7 +784,11 @@ public class TimeManagere : MonoBehaviour
         {
             bfNoonEvent.transform.localPosition = new Vector3(0, 60, 0);
             afNoonEvent.transform.localPosition = new Vector3(0, 0, 0);
-            policeLine.transform.localPosition = new Vector3(-65.88f, 4.96f, 0);
+            policeLine.transform.localPosition = new Vector3(-58.1f, 4.06f, 0);
+
+            //맵 스프라이트 변경
+
+            clientsHouseRoom.sprite = messClientsHouseRoom;
         }
         if (DataBaseManager.timeCount >= 7 && witness.activeSelf == true)
         {

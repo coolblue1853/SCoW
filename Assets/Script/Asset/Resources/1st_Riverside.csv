@@ -14,14 +14,14 @@ ID,캐릭터이름,대사,
 13,Fabian,'It's really dark in here.'☆①,
 14,Fabian,(Dark sewers^ locked with padlocks.)☆①,하수도 반복
 15,Fabian,@Hmm... let's take a closer look.@♠②,하수도 살펴보기
-16,Fabian,(The moment I turned my head away because it was too dark to see anything.),성공
+16,Fabian,(The moment I turned my head away because it was too dark to see anything.)◈⑪,성공
 17,Fabian,'What is that...?',
 18,Fabian,(As I focus my gaze on it^ which is shimmering very slightly^ I slowly see its outline.),
-19,Fabian,'It's a person^ it's eyes that sparkle.',
+19,Fabian,'It's a person^ it's eyes that sparkle.'▒⑦,
 20,Fabian,'No^ but how can those ⓡ(●1ⓒeyeballs)ⓦ be so big...!',키워드 획득
 21,Fabian,(Those eyeballs^ embedded in the position of a human eye^ looked two to three times larger than a normal human's.),
-22,Fabian,(It was also as distinct as a fish and had no eyelids.),
-23,Fabian,(I feel cold^ as if I'm in the deep end^ even though I've been making eye contact for a moment.)♠③,//이성판정
+22,Fabian,(It was also as distinct as a fish and had no eyelids.)▒⑦,
+23,Fabian,(I feel cold^ as if I'm in the deep end^ even though I've been making eye contact for a moment.)♠③◈⑩,//이성판정
 24,Fabian,@What the hell is that?@,
 25,Fabian,(When I woke up and checked again^ there was nothing there.),
 26,Fabian,(It's too dark to see anything properly.),하수도 실패

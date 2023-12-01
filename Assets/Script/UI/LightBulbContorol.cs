@@ -21,7 +21,10 @@ public class LightBulbContorol : MonoBehaviour
     public GameObject bulb16;
     public GameObject bulb17;
     public GameObject bulb18;
-    
+    public GameObject bulb19;
+    public GameObject bulb20;
+    public GameObject bulb21;
+
     void Update()
     {
         if ((DataBaseManager.timeCount % 4) == 3 || (DataBaseManager.timeCount % 4) == 0)
@@ -43,6 +46,9 @@ public class LightBulbContorol : MonoBehaviour
             bulb16.SetActive(true);
             bulb17.SetActive(true);
             bulb18.SetActive(true);
+            bulb19.SetActive(true);
+            bulb20.SetActive(true);
+            bulb21.SetActive(true);
         }
         else
         {
@@ -63,6 +69,9 @@ public class LightBulbContorol : MonoBehaviour
             bulb16.SetActive(false);
             bulb17.SetActive(false);
             bulb18.SetActive(false);
+            bulb19.SetActive(false);
+            bulb20.SetActive(false);
+            bulb21.SetActive(false);
         }
     }
-}
+}   

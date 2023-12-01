@@ -28,120 +28,17 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.nowHP = DataBaseManager.hp;
         DataBaseManager.nowSan = DataBaseManager.san;
         DataBaseManager.intelQuestHouse1 = true;
-        DataBaseManager.rhetoricPoint = 80;
+        DataBaseManager.observationPoint = 80;
 
 
-        /*
-        DataBaseManager.Intel_MurderCase1 = true;
-        DataBaseManager.Intel_MurderCase2 = true;
-        DataBaseManager.Intel_MurderCase3 = true;
-        DataBaseManager.Intel_MurderCase4 = true;
-        DataBaseManager.Intel_MurderCase5 = true;
-        DataBaseManager.Intel_MurderCase6 = true;
+        // DataBaseManager.getSafe = true;   
 
-        DataBaseManager.Intel_Dave1 = true;
-        DataBaseManager.Intel_Dave2 = true;
-        DataBaseManager.Intel_Dave3 = true;
-        DataBaseManager.Intel_Dave4 = true;
-        DataBaseManager.Intel_Dave5 = true;
-
-        DataBaseManager.Intel_Dave1 = true;
-        DataBaseManager.Intel_MissingPeople3 = true;
-        DataBaseManager.Intel_RiverWaterQuality3 = true;
-        DataBaseManager.Intel_Sewer3 = true;
-        DataBaseManager.Intel_Ella2 = true;
-        DataBaseManager.Intel_Aiden3 = true;
-        DataBaseManager.Intel_CreepyEyes1 = true;
-        DataBaseManager.Intel_RiverWaterQuality2 = true;
-
-        DataBaseManager.Intel_RiverWaterQuality3 = true;
-
-        DataBaseManager.Intel_Safe2 = true;
-
-        DataBaseManager.getSafe = true;
-        DataBaseManager.Intel_Safe2 = true;
-        DataBaseManager.Intel_Sewer1 = true;
-
-        DataBaseManager.Intel_Sewer2 = true;
-        DataBaseManager.Intel_SewerWorker4 = true;
-
-        DataBaseManager.Intel_Aiden1 = true;
-        DataBaseManager.Intel_Safe1 = true;
-        DataBaseManager.Intel_Nightmare1 = true;
-        DataBaseManager.Intel_Nightmare2 = true;
-
-        DataBaseManager.Intel_Insomnia1 = true;
-        DataBaseManager.Intel_Insomnia2 = true;
-
-        DataBaseManager.Intel_University1 = true;
-        DataBaseManager.Intel_Meiv1 = true;
-        DataBaseManager.Intel_MissingPeople1 = true;
-        DataBaseManager.Intel_SewerGhostStory1 = true;
-        DataBaseManager.Intel_SewerGhostStory2 = true;
-        DataBaseManager.Intel_CreepyEyes1 = true;
-        DataBaseManager.Intel_SewerWorker1 = true;
-        DataBaseManager.Intel_FishySmell1 = true;
-        DataBaseManager.Intel_FishySmell2 = true;
-        DataBaseManager.Intel_FishySmell3 = true;
-        // 테스트 진행중 삭제
-   
-        DataBaseManager.ObservationPoint = 80;
-        DataBaseManager.listeningPoint = 80;
-        DataBaseManager.medicinePoint = 80;
-        DataBaseManager.analysisPoint = 80;
-        DataBaseManager.NoonEvent_AccessAuthorization = true;
-
-
-
-        DataBaseManager.getSafe = true;
-        DataBaseManager.GainCoat = true;
-
-        DataBaseManager.gunShotPoint = 50;
-        DataBaseManager.swordPoint = 40;
-        DataBaseManager.martialArtsPoint = 30;
-        DataBaseManager.stealthPoint = 90;
-
-
-        DataBaseManager.rhetoricPoint = 90;
-        DataBaseManager.luk = 25;
-        //   DataBaseManager.Intel_Nightmare3 = true;
-        //      DataBaseManager.Intel_Nightmare4 = true;
-        DataBaseManager.swimingPoint = 50;
-        DataBaseManager.DisguisePoint = 90;
-        DataBaseManager.dex = 80;
-        DataBaseManager.ObservationPoint = 90;
-        DataBaseManager.occultPoint = 80;
-        //     DataBaseManager.GainMap = true;
-
-        DataBaseManager.Intel_SewageMaintenanceOffice1 = true;
-
-        DataBaseManager.Intel_Sewer4 = true;
-
-
-        //DataBaseManager.isDebuff_Deftness = true;
-        // DataBaseManager.DaveDeathKeyword = true;
-        DataBaseManager.Revolver += 1;
-
-        DataBaseManager.Dagger += 1; DataBaseManager.Molotov += 2;
-        DataBaseManager.TimeCount = 1;
-        DataBaseManager.SewerageKey = true;
-        //  DataBaseManager.SecondDayDialog = true;
-        DataBaseManager.AlbertDeathKeyword = true; DataBaseManager.SwainDeathKeyword = true;
-        DataBaseManager.PistolAmmo += 20;
-        DataBaseManager.SafeDocument = true;
-        DataBaseManager.Condition = "Best";
-        //   DataBaseManager.Debuff = 2;
-        DataBaseManager.SewerEnemyCounter = 1;
-        DataBaseManager.Bandages = 5;
-        DataBaseManager.Firstaidkit = 5;
-        DataBaseManager.Painkillers = 5;
-
-
-        DataBaseManager.EnemyDeathCount = 500;
+        DataBaseManager.timeCount = 3;
+      DataBaseManager.secondDayDialog = true;
         DataBaseManager.luk = 0;
 
       //  DataBaseManager.isDebuff_CognitiveBreakdown = true;
-             */
+       
     }
     public void NewsRollet()
     {
