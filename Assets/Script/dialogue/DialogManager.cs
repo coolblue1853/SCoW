@@ -17,6 +17,7 @@ public class DialogManager : MonoBehaviour
     public GameObject image004;
     public GameObject image005;
     public GameObject image006;
+    public GameObject image006_2;
     public GameObject image007;
     public GameObject image008;
     public GameObject image009;
@@ -1298,7 +1299,7 @@ public class DialogManager : MonoBehaviour
                     }
                     t_ignore = true;
                     break;
-                case '▒'://▒⑨⑧⑦⑥①
+                case '▒'://▒⑤⑪⑩⑨⑧⑦⑥①
                     if (t_ReplaceText[i + 1] == '①')
                     {
                         ActiveImage(image002);
@@ -1345,7 +1346,7 @@ public class DialogManager : MonoBehaviour
                     }
                     t_ignore = true;
                     break;
-                case '◑'://◑
+                case '◑'://◑③①
                     if (t_ReplaceText[i + 1] == '①')
                     {
                         ActiveImage(image013);
@@ -1356,7 +1357,7 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '③')
                     {
-
+                        ActiveImage(image006_2);
                     }
                     if (t_ReplaceText[i + 1] == '④')
                     {

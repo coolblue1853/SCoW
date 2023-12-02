@@ -29,11 +29,16 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.nowSan = DataBaseManager.san;
         DataBaseManager.intelQuestHouse1 = true;
         DataBaseManager.observationPoint = 80;
+        DataBaseManager.rhetoricPoint = 90;
+        DataBaseManager.analysisPoint = 90;
 
 
+
+        DataBaseManager.noonEventAccessAuthorization = true;
+        DataBaseManager.sewerEnemyCounter = 1;
         // DataBaseManager.getSafe = true;   
 
-        DataBaseManager.timeCount = 3;
+        DataBaseManager.timeCount = 15;
       DataBaseManager.secondDayDialog = true;
         DataBaseManager.luk = 0;
 

@@ -31,6 +31,7 @@ public class DirectingManager : MonoBehaviour
     Vector3 camBattlePos = new Vector3(-774.6f, 120.1f, -15);
     Vector3 camBattleSewerPos = new Vector3(-776.77f, 119.79f, -15);
     bool once = false;
+    bool fourth;
     bool thrid;
     bool twice;
     private static DirectingManager instance = null;
@@ -281,6 +282,26 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.storyDirecting = true;
             DirectingManager.Instance.OrganizeKeyword();
             thrid = true;
+            player.SetActive(false);
+            sitNoNewspaperPlayer.SetActive(true);
+            if (DataBaseManager.isBar == true || DataBaseManager.isSewerOffice == true)
+            {
+                Invoke("KeyConnect", 12f);
+            }
+            else if (DataBaseManager.afterBattle == true)
+            {
+                Invoke("KeyConnect", 3f);
+            }
+            else
+            {
+                Invoke("KeyConnect", 3f);
+            }
+        }
+        if ((DataBaseManager.timeCount == 16 && DataBaseManager.nowPlace == "DetectiveOffice" && fourth == false))
+        {
+            DataBaseManager.storyDirecting = true;
+            DirectingManager.Instance.OrganizeKeyword();
+            fourth = true;
             player.SetActive(false);
             sitNoNewspaperPlayer.SetActive(true);
             if (DataBaseManager.isBar == true || DataBaseManager.isSewerOffice == true)
@@ -838,6 +859,10 @@ public class DirectingManager : MonoBehaviour
         {
             InteractionController.Instance.Start1stDetectiveOffice("ThirdNightmare");
         }
+        else if (DataBaseManager.timeCount == 16)
+        {
+            InteractionController.Instance.Start1stDetectiveOffice("FourthNightmare");
+        }
     }
 
     //병원 연출
@@ -985,6 +1010,10 @@ public class DirectingManager : MonoBehaviour
             functionList.Add(Fab2ndConnectStart);
         }
         else if (DataBaseManager.timeCount == 12)
+        {
+            functionList.Add(FabFirstDialog);
+        }
+        else if (DataBaseManager.timeCount == 16)
         {
             functionList.Add(FabFirstDialog);
         }

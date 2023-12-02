@@ -453,7 +453,7 @@ public class InteractionController : MonoBehaviour
     public GameObject fab4thQuestX;
     public GameObject fab4thQuestXHealthCheckSucc;
     public GameObject fab4thQuestXHealthCheckFail;
-
+    public GameObject fourthNightmare;
 
     //하수정비사무소
     public GameObject sewerDoorDialog;
@@ -1214,6 +1214,10 @@ public class InteractionController : MonoBehaviour
         else if (setDialog == "ThirdNightmare")
         {
             theDM.ShowDialog(thirdNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
+        }
+        else if (setDialog == "FourthNightmare")
+        {
+            theDM.ShowDialog(fourthNightmare.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
     public void Start1stClientsHouse(string setDialog)
