@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 public class PotalPoint : MonoBehaviour
 {
     float chInRommSize = 2.383215f; // -이면 왼쪽 +면 오른쪽
@@ -61,6 +62,14 @@ public class PotalPoint : MonoBehaviour
                         {
                             if (DataBaseManager.noonEventFirstDoor == false)
                             {
+                                Sequence sequence = DOTween.Sequence()
+                                .AppendCallback(() => DialogManager.Instance.AlphaChange(0, 0.01f))
+                                .AppendInterval(0.1f) // 2초 대기
+                                .AppendCallback(() => DialogManager.Instance.ActiveBlackImage())
+                                .AppendCallback(() => DialogManager.Instance.AlphaChange(1, 1f));
+
+
+
                                 DataBaseManager.noonEventFirstDoor = true;
                                 DataBaseManager.storyDirecting = true;
                                 Invoke("NoonEventFirstDoor", 3f);

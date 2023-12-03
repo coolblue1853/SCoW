@@ -41,8 +41,8 @@ public class MapManager : MonoBehaviour
 
     Vector3 playerNoonEventFirst = new Vector3(-981.2974f, 2.86f);
 
-    Vector3 playerClientsHouse = new Vector3(-984.2f, 2.86f);
-    Vector3 camClientsHouse = new Vector3(-993.87f, 1.5f, -15);
+    Vector3 playerClientsHouse = new Vector3(-977.8177f, 3.072989f);
+    Vector3 camClientsHouse = new Vector3(-988.6172f, 1.5f, -15);
 
     Vector3 playerDailyNews = new Vector3(-117.6f, -81f);
     Vector3 camDailyNews = new Vector3(-135.7f, -81.21f, -15);
@@ -840,7 +840,7 @@ public class MapManager : MonoBehaviour
         {
             DataBaseManager.timeCount += 1;
             player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
-            player.transform.localPosition = playerNoonEventFirst;
+            player.transform.localPosition = playerClientsHouse;
             camera.transform.localPosition = camClientsHouse;
             mapChainingUI.SetActive(false);
             mapUI.SetActive(false);

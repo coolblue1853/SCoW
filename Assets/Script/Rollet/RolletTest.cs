@@ -38,7 +38,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.sewerEnemyCounter = 1;
         // DataBaseManager.getSafe = true;   
 
-        DataBaseManager.timeCount = 15;
+        DataBaseManager.timeCount = 5;
       DataBaseManager.secondDayDialog = true;
         DataBaseManager.luk = 0;
 

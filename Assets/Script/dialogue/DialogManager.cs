@@ -8,9 +8,11 @@ using Febucci.UI.Core;
 using System;
 using System.Linq;
 using UnityEngine.Assertions;
+using DG.Tweening;
 public class DialogManager : MonoBehaviour
 {
     public GameObject backGround;
+    Image backGroundImg;
     public GameObject image001;
     public GameObject image002;
     public GameObject image003;
@@ -26,6 +28,10 @@ public class DialogManager : MonoBehaviour
     public GameObject image012;
     public GameObject image013;
     public GameObject image014;
+    public GameObject image015;
+    public GameObject image016;
+    public GameObject image017;
+    public GameObject image018;
 
 
 
@@ -105,6 +111,7 @@ public class DialogManager : MonoBehaviour
     public TextAnimatorPlayer textAnimatorPlayer;
     private void Start()
     {
+        backGroundImg = backGround.GetComponent<Image>();
         firstClick = true;
         isSelectButton = false;
         theSpriteManager = FindObjectOfType<SpriteManager>();
@@ -121,6 +128,16 @@ public class DialogManager : MonoBehaviour
             }
             zNext2 = true;
         }
+    }
+
+    public void AlphaChange(float alhpa, float during)
+    {
+        backGroundImg.DOFade(alhpa, during);
+
+    }
+    public void ActiveBlackImage()
+    {
+        backGround.SetActive(true);
     }
     void TextCheker()
     {
@@ -1346,7 +1363,7 @@ public class DialogManager : MonoBehaviour
                     }
                     t_ignore = true;
                     break;
-                case '◑'://◑③①
+                case '◑'://◑⑦⑥⑤④③①
                     if (t_ReplaceText[i + 1] == '①')
                     {
                         ActiveImage(image013);
@@ -1361,19 +1378,19 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '④')
                     {
-
+                        ActiveImage(image015);
                     }
                     if (t_ReplaceText[i + 1] == '⑤')
                     {
-
+                        ActiveImage(image016);
                     }
                     if (t_ReplaceText[i + 1] == '⑥')
                     {
-
+                        ActiveImage(image018);
                     }
                     if (t_ReplaceText[i + 1] == '⑦')
                     {
-
+                        ActiveImage(image017);
                     }
                     if (t_ReplaceText[i + 1] == '⑧') // 사다리 선택지
                     {
