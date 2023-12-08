@@ -259,6 +259,7 @@ public class PotalPoint : MonoBehaviour
             DataBaseManager.nowPlace = "InSewer";
             DialogDatabaseManager.instance.check = true;
             DataBaseManager.storyDirecting = true;
+            SoundManager.Instance.BGMManage();
             Invoke("FirstSewerIn", 2f);
         }
         else if (this.name == "Sewer_Left" || this.name == "Sewer_Right")

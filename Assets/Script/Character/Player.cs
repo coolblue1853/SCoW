@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     {
         if (DataBaseManager.wearCoat == true && coatCheckOff == false)
         {
-            Debug.Log("ssddff22");
+
             coatCheckOn = false;
             coatCheckOff = true;
             anime.SetBool("IsChange", true);
@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         }
         if (DataBaseManager.wearCoat == false && coatCheckOn == false)
         {
-            Debug.Log("ssddff");
+
             coatCheckOn = true;
             coatCheckOff = false;
             anime.SetBool("Nomal", true);

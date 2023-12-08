@@ -319,16 +319,22 @@ public class DirectingManager : MonoBehaviour
         }
         if (DataBaseManager.timeCount == 5 && DataBaseManager.secondDayDialog == false && DataBaseManager.isActiveDialog1 == false)
         {
+            DataBaseManager.isNightmare = false;
+            SoundManager.Instance.BGMManage();
             DataBaseManager.secondDayDialog = true;
             Invoke("ScendDayStartDialog", 3f);
         }
         if (DataBaseManager.timeCount == 9 && DataBaseManager.secondDayDialog == false && DataBaseManager.isActiveDialog1 == false)
         {
+            DataBaseManager.isNightmare = false;
+            SoundManager.Instance.BGMManage();
             DataBaseManager.secondDayDialog = true;
             Invoke("ThirdDayStartDialog", 3f);
         }
         if (DataBaseManager.timeCount == 13 && DataBaseManager.secondDayDialog == false && DataBaseManager.isActiveDialog1 == false)
         {
+            DataBaseManager.isNightmare = false;
+            SoundManager.Instance.BGMManage();
             DataBaseManager.secondDayDialog = true;
             Invoke("FourthDayStartDialog", 3f);
         }
@@ -849,18 +855,28 @@ public class DirectingManager : MonoBehaviour
         DataBaseManager.secondisDirecting = false;
         if (DataBaseManager.timeCount == 4)
         {
+
+            DataBaseManager.isNightmare = true;
+            SoundManager.Instance.BGMManage();
+            Debug.Log(DataBaseManager.isNightmare);
             InteractionController.Instance.Start1stDetectiveOffice("Fab_EndDay");
         }
         else if (DataBaseManager.timeCount == 8)
         {
+            DataBaseManager.isNightmare = true;
+            SoundManager.Instance.BGMManage();
             InteractionController.Instance.Start1stDetectiveOffice("SecondDream");
         }
         else if (DataBaseManager.timeCount == 12)
         {
+            DataBaseManager.isNightmare = true;
+            SoundManager.Instance.BGMManage();
             InteractionController.Instance.Start1stDetectiveOffice("ThirdNightmare");
         }
         else if (DataBaseManager.timeCount == 16)
         {
+            DataBaseManager.isNightmare = true;
+            SoundManager.Instance.BGMManage();
             InteractionController.Instance.Start1stDetectiveOffice("FourthNightmare");
         }
     }

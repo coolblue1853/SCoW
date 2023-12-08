@@ -457,6 +457,7 @@ public class MapManager : MonoBehaviour
     public void MapOn()
     {
         DataBaseManager.bgmChangeChecker = true;
+        SoundManager.Instance.BGMManage();
 
         if (DataBaseManager.timeCount == 13 && DataBaseManager.morningMove4th == false)
         {

@@ -3681,7 +3681,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -3748,7 +3748,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5912,7 +5912,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -5979,7 +5979,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -20428,7 +20428,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -20495,7 +20495,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -20556,7 +20556,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -20623,7 +20623,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -24046,6 +24046,10 @@ MonoBehaviour:
   riverBgmClip: {fileID: 8300000, guid: 7c65161cc57f74140b58737f6b160513, type: 3}
   policeOfficeBgmClip: {fileID: 8300000, guid: aba8b426a2249e94a9ad733c49b5a109, type: 3}
   barBgmClip: {fileID: 8300000, guid: d6d021230ee9b56428768cce2e2c8143, type: 3}
+  gunshopBgmClip: {fileID: 8300000, guid: 1980f3bb9884bdf489facd7c37cdfcd2, type: 3}
+  sewerOfficeBgmClip: {fileID: 8300000, guid: ae47d884bc9c1d948bee0ce71a85b501, type: 3}
+  inSewerBgmClip: {fileID: 8300000, guid: 4c56f0a838a30a54996cb237c4854d6b, type: 3}
+  nightmareBgmClip: {fileID: 8300000, guid: 4ff7418333f681d4082c4534deb31ae5, type: 3}
 --- !u!114 &8831394067221339532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27232,7 +27236,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -27299,7 +27303,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

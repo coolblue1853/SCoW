@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DataBaseManager : MonoBehaviour
 {
+    public static bool isNightmare = false;
+
     public static bool endingDoorCheck = false;
     public static bool endingDeathCheck = false;
     public static int enemyDeathCount = 0;

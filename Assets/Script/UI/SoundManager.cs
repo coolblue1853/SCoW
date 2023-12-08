@@ -343,7 +343,12 @@ public class SoundManager : MonoBehaviour
     public AudioClip riverBgmClip;
     public AudioClip policeOfficeBgmClip;
     public AudioClip barBgmClip;
-    void BGMManage()
+
+    public AudioClip gunshopBgmClip;
+    public AudioClip sewerOfficeBgmClip;
+    public AudioClip inSewerBgmClip;
+    public AudioClip nightmareBgmClip;
+    public void BGMManage()
     {
         if (SceneManager.GetActiveScene().name == "Insert" && mainBgmSource.clip != mainBgmClip)
         {
@@ -358,71 +363,93 @@ public class SoundManager : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Main")
         {
-            if (DataBaseManager.bgmChangeChecker == true)
+            if (DataBaseManager.nowPlace == "DetectiveOffice" && mainBgmSource.clip != detectiveBgmClip && DataBaseManager.isNightmare == false)
             {
-                DataBaseManager.bgmChangeChecker = false;
-                if (DataBaseManager.nowPlace == "DetectiveOffice" && mainBgmSource.clip != detectiveBgmClip)
+                if (mainBgmSource.clip == setCharBgmClip)
                 {
-                    if (mainBgmSource.clip == setCharBgmClip)
-                    {
-                        mainBgmSource.clip = detectiveBgmClip;
-                        Invoke("PlayBgm", 2);
-                    }
-                    else
-                    {
-                        mainBgmSource.clip = detectiveBgmClip;
-                        Invoke("PlayBgm", 9);
-                    }
+                    mainBgmSource.clip = detectiveBgmClip;
+                    Invoke("PlayBgm", 2);
                 }
-                else if (DataBaseManager.nowPlace == "Client'shouse" && mainBgmSource.clip != clientHouseBgmClip)
+                else
                 {
-                    mainBgmSource.clip = clientHouseBgmClip;
-                    Invoke("PlayBgm", 9);
-                }
-                else if (DataBaseManager.nowPlace == "DailyNews" && mainBgmSource.clip != newspaperBgmClip)
-                {
-                    mainBgmSource.clip = newspaperBgmClip;
-                    Invoke("PlayBgm", 9);
-                }
-                else if (DataBaseManager.nowPlace == "University" && mainBgmSource.clip != universityBgmClip)
-                {
-                    mainBgmSource.clip = universityBgmClip;
-                    Invoke("PlayBgm", 9);
-                }
-                else if (DataBaseManager.nowPlace == "Riverside" && mainBgmSource.clip != riverBgmClip)
-                {
-                    mainBgmSource.clip = riverBgmClip;
-                    Invoke("PlayBgm", 9);
-                }
-                else if (DataBaseManager.nowPlace == "Hospital" && mainBgmSource.clip != hospitalBgmClip)
-                {
-                    mainBgmSource.clip = hospitalBgmClip;
-                    Invoke("PlayBgm", 9);
-                }
-                else if (DataBaseManager.nowPlace == "Policeoffice" && mainBgmSource.clip != policeOfficeBgmClip)
-                {
-                    mainBgmSource.clip = policeOfficeBgmClip;
-                    Invoke("PlayBgm", 9);
-                }
-                else if (DataBaseManager.nowPlace == "Slum" && mainBgmSource.clip != slumBgmClip)
-                {
-                    mainBgmSource.clip = slumBgmClip;
-                    Invoke("PlayBgm", 9);
-                }
-                else if (DataBaseManager.nowPlace == "Bar" && mainBgmSource.clip != barBgmClip)
-                {
-                    mainBgmSource.clip = barBgmClip;
-                    Invoke("PlayBgm", 9);
-                }
-                else if ((DataBaseManager.nowPlace == "BattleRoad" && mainBgmSource.clip != battleBgm))
-                {
-                    mainBgmSource.clip = battleBgm;
-                    Invoke("PlayBgm", 0.5f);
+                    mainBgmSource.clip = detectiveBgmClip;
+                    Invoke("PlayBgm", 6);
                 }
             }
-            else if ((DataBaseManager.nowPlace == "InSewer" && mainBgmSource.clip != clientHouseBgmClip))
+            if (DataBaseManager.nowPlace == "DetectiveOffice" && mainBgmSource.clip != nightmareBgmClip && DataBaseManager.isNightmare == true)
+            {
+                mainBgmSource.clip = nightmareBgmClip;
+                Invoke("PlayBgm", 6);
+            }
+            else if (DataBaseManager.nowPlace == "Client'shouse" && mainBgmSource.clip != clientHouseBgmClip)
             {
                 mainBgmSource.clip = clientHouseBgmClip;
+                Invoke("PlayBgm", 6);
+            }
+
+            else if (DataBaseManager.nowPlace == "DailyNews" && mainBgmSource.clip != newspaperBgmClip)
+            {
+                mainBgmSource.clip = newspaperBgmClip;
+                Invoke("PlayBgm", 0.5f);
+            }
+            else if (DataBaseManager.nowPlace == "University" && mainBgmSource.clip != universityBgmClip)
+            {
+                mainBgmSource.clip = universityBgmClip;
+                Invoke("PlayBgm", 6);
+            }
+            else if (DataBaseManager.nowPlace == "Riverside" && mainBgmSource.clip != riverBgmClip)
+            {
+                mainBgmSource.clip = riverBgmClip;
+                Invoke("PlayBgm", 6);
+            }
+            else if (DataBaseManager.nowPlace == "Hospital" && mainBgmSource.clip != hospitalBgmClip)
+            {
+                mainBgmSource.clip = hospitalBgmClip;
+                Invoke("PlayBgm", 6);
+            }
+            else if (DataBaseManager.nowPlace == "Policeoffice" && mainBgmSource.clip != policeOfficeBgmClip)
+            {
+                mainBgmSource.clip = policeOfficeBgmClip;
+                Invoke("PlayBgm", 6);
+            }
+            else if (DataBaseManager.nowPlace == "Slum" && mainBgmSource.clip != slumBgmClip)
+            {
+                mainBgmSource.clip = slumBgmClip;
+                Invoke("PlayBgm", 6);
+            }
+            else if (DataBaseManager.nowPlace == "Bar" && mainBgmSource.clip != barBgmClip)
+            {
+                mainBgmSource.clip = barBgmClip;
+                Invoke("PlayBgm", 6);
+            }
+            else if ((DataBaseManager.nowPlace == "BattleRoad" && mainBgmSource.clip != battleBgm))
+            {
+                mainBgmSource.clip = battleBgm;
+                Invoke("PlayBgm", 0.5f);
+            }
+            else if ((DataBaseManager.nowPlace == "Gunshop" && mainBgmSource.clip != gunshopBgmClip))
+            {
+                mainBgmSource.clip = gunshopBgmClip;
+                Invoke("PlayBgm", 6);
+            }
+            else if ((DataBaseManager.nowPlace == "SewerOffice" && mainBgmSource.clip != sewerOfficeBgmClip))
+            {
+                mainBgmSource.clip = sewerOfficeBgmClip;
+                Invoke("PlayBgm", 6);
+            }
+            else if ((DataBaseManager.nowPlace == "InSewer" && mainBgmSource.clip != inSewerBgmClip))
+            {
+                mainBgmSource.clip = inSewerBgmClip;
+                Invoke("PlayBgm", 6);
+            }
+            else if ((DataBaseManager.nowPlace == "NoonEvent" && mainBgmSource.clip != nightmareBgmClip))
+            {
+                mainBgmSource.clip = nightmareBgmClip;
+                Invoke("PlayBgm", 6);
+            }
+            else if ((DataBaseManager.nowPlace == "InSewer" && mainBgmSource.clip != inSewerBgmClip))
+            {
+                mainBgmSource.clip = inSewerBgmClip;
                 Invoke("PlayBgm", 0.5f);
             }
         }
@@ -430,6 +457,7 @@ public class SoundManager : MonoBehaviour
 
     void PlayBgm()
     {
+        Debug.Log("작동중");
         mainBgmSource.Play();
     }
 }
