@@ -12,7 +12,7 @@
 순서: UPG-1 → FIX-P0 → A·B 문서 + C 설계 병행 → C 구현 → B 수정 반영 → A 구현. 트랙 끝마다 state.md 3~5줄.
 
 - [x] **UPG-1** (c06ec75·5fec076, 씬 3개 플레이 확인) Unity 6000.4.0f1 업그레이드(사용자 11-21: 2021.3 설치 안 함). 태그 `pre-unity6` 고정 → 배치 모드 업그레이드 → 패키지 갱신·컴파일 에러·서드파티 호환 → 씬 3개 플레이·스샷 → unity-mcp 연결 → 문서 버전 줄 갱신.
-- [ ] **FIX-P0** ImproveAudit P0 먼저: 출시판 RolletTest 치트 키, ResetData 누락 변수, BattleManager.cs:331 피해 5 고정(리팩터 전).
+- [x] **FIX-P0** (46e08c1, reviewer-code 필수 0) ImproveAudit P0 먼저: 출시판 RolletTest 치트 키, ResetData 누락 변수, BattleManager.cs:331 피해 5 고정(리팩터 전).
 - [x] **A-1** (a545a8c) CoC 7판 대조 설계 `.claude-rules/Game/CocDesign.md`: 성장 체크·Push·행운·보너스/페널티 주사위·성공 단계·광기·신화 지식·단서 대체 경로·직업 선택지·대립 판정 → 효과·비용·스토리 영향 표, 우선순위, 원작 근거. 구현은 C 뒤.
 - [~] **B-1** (검사기·점검표 de37813, CSV 수정 남음) 대사 CSV 15개·I2 전수 점검: `Tools/dialog_lint.py`(깨진 줄·누락·끊긴 분기·잘못된 다음 ID·도달 불가·막다른 길) → 결과표 → 수정 → 재검사 0건. 스토리 내용 변경은 목록으로 사용자 확인. I2 통합 방향은 설계 문서 추천안.
 - [x] **C-1** (a545a8c) 아키텍처 설계 `.claude-rules/Game/Architecture.md`: 정적 플래그 → 상태 객체·저장 데이터, InteractionController·TimeManagere 분리, 데이터 주도 대화, 판정·전투 순수 C#+EditMode 테스트, 저장·백로그·스킵·자동 진행, New Input System(INPUT-1 흡수). 단계 P0~ 로 나눔.
