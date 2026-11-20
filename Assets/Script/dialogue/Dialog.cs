@@ -17,6 +17,10 @@ public class Dialog
     [HideInInspector]
     public string[] spriteName;
 
+    /// <summary>읽은 줄 기록용(P8). CSV 에서 읽을 때만 채워지고 직렬화하지 않는다.</summary>
+    [System.NonSerialized] public string scriptId;
+    [System.NonSerialized] public string lineId;
+
 }
 [System.Serializable]
 public class DialogEvent

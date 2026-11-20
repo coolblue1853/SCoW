@@ -34,6 +34,7 @@ public class settingManager : MonoBehaviour
             changeInt = saved.ResolutionIndex;
             isFullScrean = saved.FullScreen;
             BuildSaveButtons();
+            BuildDialogOptions();
         }
         else
         {
@@ -109,6 +110,96 @@ public class settingManager : MonoBehaviour
         }
         MakeSlotButton(key, "SaveButton", SaveText.Pick("저장 ▶", "Save ▶"), -63f, SlotMenuView.Mode.Save);
         MakeSlotButton(key, "LoadButton", SaveText.Pick("◀ 불러오기", "◀ Load"), 22f, SlotMenuView.Mode.Load);
+    }
+
+    // P8: 글자 속도 슬라이더(5단계)와 스킵 범위(읽은 것만/전부) 버튼을 사운드 칸 아래에 코드로 만든다.
+    private Text _skipModeLabel;
+
+    private void BuildDialogOptions()
+    {
+        Transform sound = settingUi != null ? settingUi.transform.Find("Sound") : null;
+        Transform key = settingUi != null ? settingUi.transform.Find("Key") : null;
+        Transform sfx = sound != null ? sound.Find("SFX") : null;
+        Transform label = sound != null ? sound.Find("Upper3") : null;
+        if (sfx == null || label == null || key == null)
+        {
+            return;
+        }
+        GameObject s = Instantiate(sfx.gameObject, sound);
+        s.name = "TextSpeed";
+        Slider sl = s.GetComponent<Slider>();
+        sl.onValueChanged = new Slider.SliderEvent(); // 복제본이 SFX 슬라이더의 이벤트를 물려받지 않게
+        sl.minValue = 1f;
+        sl.maxValue = 5f;
+        sl.wholeNumbers = true;
+        sl.SetValueWithoutNotify(SettingsService.Current.TextSpeedLevel);
+        sl.onValueChanged.AddListener(OnTextSpeedChanged);
+        ((RectTransform)s.transform).anchoredPosition += new Vector2(0f, -65f);
+
+        GameObject l = Instantiate(label.gameObject, sound);
+        l.name = "Upper4";
+        ((RectTransform)l.transform).anchoredPosition += new Vector2(0f, -65f);
+        Text lt = l.GetComponentInChildren<Text>(true);
+        if (lt != null)
+        {
+            lt.text = "TEXT";
+        }
+
+        GameObject b = Instantiate(key.gameObject, key.parent);
+        b.name = "SkipModeButton";
+        Button old = b.GetComponent<Button>();
+        if (old != null)
+        {
+            DestroyImmediate(old);
+        }
+        UnityEngine.EventSystems.EventTrigger oldTrigger = b.GetComponent<UnityEngine.EventSystems.EventTrigger>();
+        if (oldTrigger != null)
+        {
+            DestroyImmediate(oldTrigger);
+        }
+        Button nb = b.AddComponent<Button>();
+        nb.targetGraphic = b.GetComponent<Image>();
+        nb.onClick.AddListener(ToggleSkipAll);
+        RectTransform rt = (RectTransform)b.transform;
+        rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, -148f); // 저장(-63)·불러오기(22) 버튼 아래 같은 열
+        Transform res = settingUi.transform.Find("SetResolution");
+        if (res != null)
+        {
+            ((RectTransform)res).anchoredPosition += new Vector2(0f, -55f); // 글자 속도 줄이 들어갈 자리를 만든다
+        }
+        _skipModeLabel = b.GetComponentInChildren<Text>(true);
+        RefreshSkipModeLabel();
+    }
+
+    private void OnTextSpeedChanged(float value)
+    {
+        int level = Mathf.RoundToInt(value);
+        SettingsService.Current.TextSpeedLevel = level;
+        if (DialogManager.Instance != null)
+        {
+            DialogManager.Instance.SetTextSpeedLevel(level);
+        }
+    }
+
+    private void ToggleSkipAll()
+    {
+        SoundManager.Instance.ClickSoundPlay();
+        SettingsData d = SettingsService.Current;
+        d.SkipAll = !d.SkipAll;
+        if (DialogManager.Instance != null && DialogManager.Instance.Runner != null)
+        {
+            DialogManager.Instance.Runner.SkipAll = d.SkipAll;
+        }
+        RefreshSkipModeLabel();
+        SettingsService.Save();
+    }
+
+    private void RefreshSkipModeLabel()
+    {
+        if (_skipModeLabel != null)
+        {
+            _skipModeLabel.text = SaveText.Pick(SettingsService.Current.SkipAll ? "스킵: 전부" : "스킵: 읽은 것만", SettingsService.Current.SkipAll ? "Skip: All" : "Skip: Read only");
+        }
     }
 
     private void MakeSlotButton(Transform template, string objName, string label, float y, SlotMenuView.Mode mode)

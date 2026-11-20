@@ -15,6 +15,7 @@ public static class GameInput
     private static InputAction _move, _interact, _advance, _portal, _pointerPrimary;
     private static InputAction _cancel, _menu, _openIntel, _openMap, _openSIS;
     private static InputAction _navUp, _navDown, _pageNext, _pagePrev;
+    private static InputAction _dlgBacklog, _dlgSkipHold, _dlgSkipToggle, _dlgAutoToggle;
     private static Vector2 _lastPointer;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
@@ -56,6 +57,10 @@ public static class GameInput
         _advance = Find(play, "Advance");
         _portal = Find(play, "Portal");
         _pointerPrimary = Find(play, "PointerPrimary");
+        _dlgBacklog = Find(play, "DialogBacklog");
+        _dlgSkipHold = Find(play, "DialogSkipHold");
+        _dlgSkipToggle = Find(play, "DialogSkipToggle");
+        _dlgAutoToggle = Find(play, "DialogAutoToggle");
         _cancel = Find(ui, "Cancel");
         _menu = Find(ui, "Menu");
         _openIntel = Find(ui, "OpenIntel");
@@ -91,6 +96,23 @@ public static class GameInput
     public static bool NavDownDown { get { return Down(_navDown); } }
     public static bool PageNextDown { get { return Down(_pageNext); } }
     public static bool PagePrevDown { get { return Down(_pagePrev); } }
+
+    /// <summary>대사 백로그 열기(B / 마우스 휠 위 / 패드 LT).</summary>
+    public static bool DialogBacklogDown { get { return Down(_dlgBacklog); } }
+    /// <summary>스킵 토글(Tab / 패드 오른쪽 스틱 누름).</summary>
+    public static bool DialogSkipToggleDown { get { return Down(_dlgSkipToggle); } }
+    /// <summary>자동 진행 토글(T / 패드 왼쪽 스틱 누름).</summary>
+    public static bool DialogAutoToggleDown { get { return Down(_dlgAutoToggle); } }
+
+    /// <summary>스킵 홀드(Ctrl / 패드 RT): 누르고 있는 동안 true.</summary>
+    public static bool DialogSkipHeld
+    {
+        get
+        {
+            Ensure();
+            return _dlgSkipHold != null && _dlgSkipHold.IsPressed();
+        }
+    }
 
     /// <summary>누르고 있는 동안 true(레거시 GetMouseButton).</summary>
     public static bool PointerHeld

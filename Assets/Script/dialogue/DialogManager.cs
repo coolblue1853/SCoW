@@ -9,6 +9,7 @@ using System;
 using System.Linq;
 using UnityEngine.Assertions;
 using DG.Tweening;
+using SCoW.Core.Story;
 public class DialogManager : MonoBehaviour
 {
     public GameObject backGround;
@@ -101,8 +102,6 @@ public class DialogManager : MonoBehaviour
     int contextCount = 0; // 대사 카운트 (줄)
                           //기능판정 대화창
     public GameObject judgeDialog;
-    bool zNext2 = true;
-    bool zNext1;
     SpriteManager theSpriteManager;
 
     [Header("텍스트 출력 딜레이.")]
@@ -115,19 +114,85 @@ public class DialogManager : MonoBehaviour
         firstClick = true;
         isSelectButton = false;
         theSpriteManager = FindObjectOfType<SpriteManager>();
+        EnsureRunner();
+        ApplyTextSpeed();
+        BuildExtraButtons();
     }
+    // ---- P8: 대사 진행은 DialogueRunner(Core)가 정하고, 이 클래스는 그 결정을 화면에 옮기는 View 다. ----
+    DialogueRunner _runner;
+    int _textSpeedLevel = TextSpeed.DefaultLevel;
+    int _lastSkipUi = -1;
+    GameObject _logButton;
+    GameObject _autoButton;
+    Text _autoLabel;
+
+    public DialogueRunner Runner
+    {
+        get { return _runner; }
+    }
+
+    void EnsureRunner()
+    {
+        if (_runner != null)
+        {
+            return;
+        }
+        _runner = new DialogueRunner(ReadLogService.Current, new Backlog());
+        _runner.SkipAll = SettingsService.Current.SkipAll;
+        _textSpeedLevel = TextSpeed.Clamp(SettingsService.Current.TextSpeedLevel);
+    }
+
+    void OnEnable()
+    {
+        SceneRouter.SceneEntered += OnSceneEntered;
+    }
+
+    void OnDisable()
+    {
+        SceneRouter.SceneEntered -= OnSceneEntered;
+    }
+
+    void OnApplicationQuit()
+    {
+        ReadLogService.SaveIfChanged();
+    }
+
+    // 타이틀로 돌아가면 이전 판의 백로그를 비운다(읽은 기록은 전역이라 유지).
+    void OnSceneEntered(string sceneId)
+    {
+        ReadLogService.SaveIfChanged();
+        if (sceneId == SceneIds.Insert && _runner != null)
+        {
+            _runner.Backlog.Clear();
+            _runner.End();
+        }
+    }
+
+    /// <summary>설정창 슬라이더가 호출. 저장은 설정창을 닫을 때 한다.</summary>
+    public void SetTextSpeedLevel(int level)
+    {
+        _textSpeedLevel = TextSpeed.Clamp(level);
+        SettingsService.Current.TextSpeedLevel = _textSpeedLevel;
+        ApplyTextSpeed();
+    }
+
+    void ApplyTextSpeed()
+    {
+        if (textAnimatorPlayer == null)
+        {
+            return;
+        }
+        float d = TextSpeed.DelayOf(_textSpeedLevel);
+        textAnimatorPlayer.waitForNormalChars = d;
+        textAnimatorPlayer.waitLong = d;
+        textAnimatorPlayer.waitMiddle = d;
+    }
+
     void Update()
     {
+        EnsureRunner();
         SettingPlayerCon();
         TextCheker();
-        if (!UiGate.BlocksDialogueInput && (GameInput.InteractDown || (GameInput.AdvanceDown)))
-        {
-            if (zNext2 == true)
-            {
-                zNext1 = true;
-            }
-            zNext2 = true;
-        }
     }
 
     public void AlphaChange(float alhpa, float during)
@@ -139,164 +204,196 @@ public class DialogManager : MonoBehaviour
     {
         backGround.SetActive(true);
     }
+    // 대사 진행의 단일 입구: 모든 입력(E·클릭·패드·스킵·자동)이 Runner 를 거쳐 RunnerAction 하나가 되고, 줄 이동은 AdvanceLine 하나뿐이다.
+    // A-6: 선택지 대기(selectionOn·daveCheck) 중에는 E·클릭 모두 막는다(예전엔 E 만 daveCheck 를 무시했다).
     void TextCheker()
     {
-        if (isDialog && DataBaseManager.selectionOn == false)
+        if (!isDialog)
         {
-            if (isNext)
-            {
-                if (!UiGate.BlocksDialogueInput && (GameInput.InteractDown || (GameInput.AdvanceDown && DataBaseManager.daveCheck == false )))
-                {
-                    if (firstClick == true)
-                    {
-                        typeA.SkipTypewriter();
-                        firstClick = false;
-                    }
-                    else
-                    {
-                        isNext = false;
-                        txtDialog.text = "";
-                        if (++contextCount < dialogs[lineCount].contexts.Length)
-                        {
-                            StartCoroutine(TypeWriter());
-                        }
-                        else
-                        {
-                            contextCount = 0;
-                            if (++lineCount < dialogs.Length)
-                            {
-                                //selectionUIManager.대화중기능판정버튼제거();
-                                StartCoroutine(TypeWriter());
-                            }
-                            else
-                            {
-                                EndDialog();
-                            }
-                        }
-                    }
-                }
-            }
+            return;
+        }
+        bool blocked = UiGate.AnyOpen;
+        bool choicePending = DataBaseManager.selectionOn || DataBaseManager.daveCheck;
+        bool checkPending = DataBaseManager.isRollet || DataBaseManager.isBattleRollet;
+        _runner.SetPending(choicePending ? Pending.Choice : (checkPending ? Pending.Check : Pending.None));
+        DataBaseManager.skipActive = _runner.SkipActive;
+
+        if (!blocked)
+        {
+            HandleControls();
+        }
+        SyncSkipUi();
+
+        RunnerAction action = RunnerAction.None;
+        if (!UiGate.BlocksDialogueInput && (GameInput.InteractDown || GameInput.AdvanceDown))
+        {
+            action = _runner.Advance();
+        }
+        if (action == RunnerAction.None && !blocked)
+        {
+            action = _runner.Tick(Time.unscaledDeltaTime);
+        }
+        if (action == RunnerAction.CompleteTyping)
+        {
+            typeA.SkipTypewriter();
+            firstClick = false;
+            _runner.TypingDone();
+        }
+        else if (action == RunnerAction.NextLine)
+        {
+            AdvanceLine();
         }
     }
+
+    // 백로그·스킵·자동 키(키보드·마우스·패드 3경로는 GameInput 액션).
+    void HandleControls()
+    {
+        _runner.SetSkipHeld(GameInput.DialogSkipHeld);
+        if (GameInput.DialogSkipToggleDown)
+        {
+            SetSkip(!_runner.SkipToggled);
+        }
+        if (GameInput.DialogAutoToggleDown)
+        {
+            SetAuto(!_runner.AutoOn);
+        }
+        if (GameInput.DialogBacklogDown && !BacklogView.IsOpen)
+        {
+            OpenBacklog();
+        }
+    }
+
+    public void OpenBacklog()
+    {
+        if (_runner == null || !isDialog || UiGate.AnyOpen)
+        {
+            return;
+        }
+        BacklogView.Open(_runner.Backlog, txtDialog != null ? txtDialog.font : null);
+    }
+
+    public void ToggleAuto()
+    {
+        SetAuto(!_runner.AutoOn);
+    }
+
+    // 대사창에 LOG(백로그)·AUTO(자동 진행) 버튼을 스킵 버튼 옆에 만든다(스킵 버튼을 복제해 같은 모양).
+    void BuildExtraButtons()
+    {
+        if (skipButton == null || _logButton != null)
+        {
+            return;
+        }
+        _logButton = CloneSkipButton("LogButton", "log", new Vector2(-110f, 0f), OpenBacklog, out _);
+        _autoButton = CloneSkipButton("AutoButton", "auto", new Vector2(-220f, 0f), ToggleAuto, out _autoLabel);
+    }
+
+    GameObject CloneSkipButton(string objName, string label, Vector2 offset, UnityEngine.Events.UnityAction onClick, out Text labelText)
+    {
+        GameObject go = Instantiate(skipButton, skipButton.transform.parent);
+        go.name = objName;
+        go.SetActive(true);
+        Button b = go.GetComponent<Button>();
+        b.onClick = new Button.ButtonClickedEvent();
+        b.onClick.AddListener(onClick);
+        RectTransform rt = (RectTransform)go.transform;
+        rt.anchoredPosition = ((RectTransform)skipButton.transform).anchoredPosition + offset;
+        labelText = go.GetComponentInChildren<Text>(true);
+        if (labelText != null)
+        {
+            labelText.text = label;
+        }
+        return go;
+    }
+
+    void SetAuto(bool on)
+    {
+        _runner.AutoOn = on;
+        if (_autoLabel != null)
+        {
+            _autoLabel.text = on ? "AUTO ON" : "auto";
+        }
+    }
+
+    void SetSkip(bool on)
+    {
+        if (on && (DataBaseManager.selectionOn || DataBaseManager.daveCheck))
+        {
+            return;
+        }
+        _runner.SetSkipToggle(on);
+    }
+
+    // 스킵 버튼 표시를 Runner 상태에 맞춘다(스킵 중엔 정지 버튼, 아니면 시작 버튼).
+    void SyncSkipUi()
+    {
+        int s = _runner.SkipActive ? 1 : 0;
+        if (s == _lastSkipUi)
+        {
+            return;
+        }
+        _lastSkipUi = s;
+        if (skipButton != null)
+        {
+            skipButton.SetActive(s == 0);
+        }
+        if (skipStopButton != null)
+        {
+            skipStopButton.SetActive(s == 1);
+        }
+    }
+
+    // 줄 이동의 유일한 구현. 다음 줄이 있으면 TypeWriter, 없으면 대사 종료.
+    void AdvanceLine()
+    {
+        if (!isDialog || dialogs == null)
+        {
+            return;
+        }
+        isNext = false;
+        txtDialog.text = "";
+        if (++contextCount < dialogs[lineCount].contexts.Length)
+        {
+            StartCoroutine(TypeWriter());
+            return;
+        }
+        contextCount = 0;
+        if (++lineCount < dialogs.Length)
+        {
+            StartCoroutine(TypeWriter());
+        }
+        else
+        {
+            EndDialog();
+        }
+    }
+
+    // ---- 씬 UnityEvent 가 이름으로 부르는 공개 메서드(이름·시그니처 유지) ----
     public void SkipOn()
     {
-        if (DataBaseManager.selectionOn == false)
-        {
-            skipButton.SetActive(false);
-            skipStopButton.SetActive(true);
-            DataBaseManager.skipActive = true;
-            textAnimatorPlayer.waitForNormalChars = 0.003f;
-            textAnimatorPlayer.waitLong = 0.003f;
-            textAnimatorPlayer.waitMiddle = 0.003f;
-            StartCoroutine(Skip());
-        }
-        else if (DataBaseManager.selectionOn == true)
-        {
-            SkipStopON();
-        }
+        SetSkip(true);
     }
+
     public void SkipStopON()
     {
-        textAnimatorPlayer.waitForNormalChars = 0.03f;
-        textAnimatorPlayer.waitLong = 0.03f;
-        textAnimatorPlayer.waitMiddle = 0.03f;
-        DataBaseManager.skipActive = false;
-        skipStopButton.SetActive(false);
-        showChoice = true;
-        StartCoroutine(SkipNomalize());
+        _runner.SetSkipToggle(false);
+        _runner.SetSkipHeld(false);
     }
-    IEnumerator SkipNomalize()
-    {
-        yield return new WaitForSeconds(0.5f);
-        showChoice = false;
-        skipButton.SetActive(true);
-    }
-    IEnumerator Skip()
-    {
-        if(DataBaseManager.selectionOn == false)
-        {
-            zNext1 = true;   //이 부분을 true로 두면  스킵이 엄청 빨라지고 false로 두면 적당해짐
-            zNext2 = true;
-            yield return new WaitForSeconds(0.08f);
-            ChoiceExNextPageT();
-            yield return new WaitForSeconds(0.08f);
-            if (goDialogBar.activeSelf == false)
-            {
-                SkipStopON();
-                DataBaseManager.skipActive = false;
-            }
-            else if (showChoice == false)
-            {
-                StartCoroutine(Skip());
-            }
-            else if (showChoice == true)
-            {
-                DataBaseManager.skipActive = false;
-            }
-        }
-        else if (DataBaseManager.selectionOn == true)
-        {
-            SkipStopON();
-        }
-    }
+
+    /// <summary>선택지 버튼이 고른 뒤 부른다. 대기 중인 줄이 있으면 다음으로 넘긴다.</summary>
     public void ChoiceExNextPageT()
     {
-        if (isDialog)
+        if (isDialog && isNext)
         {
-            if (isNext)
-            {
-                isNext = false;
-                txtDialog.text = "";
-                if (++contextCount < dialogs[lineCount].contexts.Length)
-                {
-                    StartCoroutine(TypeWriter());
-                }
-                else
-                {
-                    contextCount = 0;
-                    if (++lineCount < dialogs.Length)
-                    {
-                        StartCoroutine(TypeWriter());
-                    }
-                    else
-                    {
-                        EndDialog();
-                    }
-                }
-            }
+            AdvanceLine();
         }
     }
+
     public void ChoiceExNextPage()
     {
-        skipButton.SetActive(true);
-        skipStopButton.SetActive(false);
-        DataBaseManager.skipActive = false;
+        _runner.SetSkipToggle(false);
         showChoice = false;
-        if (isDialog)
-        {
-            if (isNext)
-            {
-                isNext = false;
-                txtDialog.text = "";
-                if (++contextCount < dialogs[lineCount].contexts.Length)
-                {
-                    StartCoroutine(TypeWriter());
-                }
-                else
-                {
-                    contextCount = 0;
-                    if (++lineCount < dialogs.Length)
-                    {
-                        StartCoroutine(TypeWriter());
-                    }
-
-                    else
-                    {
-                        EndDialog();
-                    }
-                }
-            }
-        }
+        ChoiceExNextPageT();
     }
     public void DeleteChilds(GameObject stressBackground)
     {
@@ -330,11 +427,18 @@ public class DialogManager : MonoBehaviour
         SettingUI(false);
         DataBaseManager.nowSelecter = "End";
        
+        EnsureRunner();
+        _runner.End();
+        _lastSkipUi = -1;
+        ReadLogService.SaveIfChanged();
+
         End_Look_Judge.Instance.Inactive();
     }
 
     public void ShowDialog(Dialog[] P_dialogs)
     {
+        EnsureRunner();
+        _lastSkipUi = -1;
         DataBaseManager.isActiveDialog1 = true;
         DataBaseManager.isActiveDialog2 = true;
         dialogFace.SetActive(true);
@@ -1489,12 +1593,24 @@ public class DialogManager : MonoBehaviour
             }
             t_ignore = false;
         }
+        BeginRunnerLine(t_ReplaceText);
         firstClick = true;
         isNext = true;
         yield return null;
     }
+    // 새 줄이 화면에 올라갔다: 백로그·읽음 기록·스킵 정지 판정은 Runner 가 한다.
+    void BeginRunnerLine(string rawText)
+    {
+        Dialog d = dialogs[lineCount];
+        string script = string.IsNullOrEmpty(d.scriptId) ? "inspector" : d.scriptId;
+        string id = string.IsNullOrEmpty(d.lineId) ? lineCount + "." + contextCount : d.lineId + (contextCount > 0 ? "." + contextCount : "");
+        _runner.BeginLine(script, id, d.name, Backlog.Plain(txtDialog.text), LineMarks.Classify(rawText));
+    }
+
     public void EndTypeSKip()
     {
+        EnsureRunner();
+        _runner.TypingDone();
         DataBaseManager.endDialogLine = true;
         firstClick = false;
     }
