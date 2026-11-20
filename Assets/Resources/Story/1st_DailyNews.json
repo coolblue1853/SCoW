@@ -1,0 +1,39 @@
+{
+  "id": "1st_DailyNews",
+  "topics": [
+    { "id": "Swain_FirstDialog", "cases": [
+      { "when": "!flag:aidenFirstDialog && time<6", "pre": "set:aidenFirstDialog", "node": "swain_first" },
+      { "when": "!flag:aidenFirstDialog", "pre": "set:aidenFirstDialog", "node": "swain_nocontact_first" },
+      { "node": "swain_dialog" }
+    ] },
+    { "id": "Swain_Look", "cases": [ { "node": "Swain_Look" } ] },
+    { "id": "Swain_LookJudge_Sucsses", "cases": [ { "node": "Swain_LookJudge_Sucsses" } ] },
+    { "id": "Swain_LookJudge_Fail", "cases": [ { "node": "Swain_LookJudge_Fail" } ] },
+    { "id": "Swain_Key_PlanetarySequence1", "cases": [ { "node": "Swain_Key_PlanetarySequence1" } ] },
+    { "id": "Swain_Key_Insomnia1", "cases": [ { "node": "Swain_Key_Insomnia1" } ] },
+    { "id": "Swain_Key_Nightmare2", "cases": [ { "node": "Swain_Key_Nightmare2" } ] },
+    { "id": "Swain_Key_Paranoia1", "cases": [ { "node": "Swain_Key_Paranoia1" } ] },
+    { "id": "Swain_Key_EllaTriss1", "cases": [ { "node": "Swain_Key_EllaTriss1" } ] },
+    { "id": "Swain_Key_AidenTriss1", "cases": [ { "node": "Swain_Key_AidenTriss1" } ] },
+    { "id": "Swain_Key_DailyNews1", "cases": [ { "node": "Swain_Key_DailyNews1" } ] },
+    { "id": "Swain_Key_Nothing", "cases": [ { "node": "Swain_Key_Nothing" } ] },
+    { "id": "Journalist_FirstDialog", "cases": [ { "node": "Journalist_FirstDialog" } ] }
+  ],
+  "nodes": {
+    "swain_first": { "text": "1st_DailyNews:1-12" },
+    "swain_nocontact_first": { "text": "1st_DailyNews:124-134" },
+    "swain_dialog": { "text": "1st_DailyNews:13" },
+    "Swain_Look": { "text": "1st_DailyNews:14" },
+    "Swain_LookJudge_Sucsses": { "text": "1st_DailyNews:15-16" },
+    "Swain_LookJudge_Fail": { "text": "1st_DailyNews:17" },
+    "Swain_Key_PlanetarySequence1": { "text": "1st_DailyNews:18-23" },
+    "Swain_Key_Insomnia1": { "text": "1st_DailyNews:24-27" },
+    "Swain_Key_Nightmare2": { "text": "1st_DailyNews:28" },
+    "Swain_Key_Paranoia1": { "text": "1st_DailyNews:29-31" },
+    "Swain_Key_EllaTriss1": { "text": "1st_DailyNews:32-35" },
+    "Swain_Key_AidenTriss1": { "text": "1st_DailyNews:36-41" },
+    "Swain_Key_DailyNews1": { "text": "1st_DailyNews:42-68" },
+    "Swain_Key_Nothing": { "text": "1st_DailyNews:69" },
+    "Journalist_FirstDialog": { "text": "1st_DailyNews:225-230" }
+  }
+}

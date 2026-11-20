@@ -19,6 +19,8 @@ public static class DialogEquivalenceTool
 {
     public const string GoldenPath = "Assets/Tests/EditMode/Golden/DialogPilot.golden.txt";
     public const string CurrentPath = "Logs/playtest/DialogPilot.current.txt";
+    public const string GoldenPathP10a = "Assets/Tests/EditMode/Golden/DialogP10a.golden.txt";
+    public const string CurrentPathP10a = "Logs/playtest/DialogP10a.current.txt";
 
     private static readonly string[] BarTopics =
     {
@@ -39,11 +41,114 @@ public static class DialogEquivalenceTool
         "NoSuchTopic"
     };
 
+    private static readonly string[] ClientsHouseTopics =
+    {
+        "FirstArrive", "NockDoor", "Ella_fistDialog", "Ella_Dialog1", "Ella_Dialog2", "Ella_FirstUpstair", "into_FirstRoom",
+        "Aiden_FirstDialog", "Aiden_Active", "Aiden_Look", "Aiden_LookJudge", "Aiden_Dialog1", "Aiden_Dialog2",
+        "Aiden_key_Nightmare1", "Aiden_key_EllaTriss1", "Aiden_key_Safe1", "Aiden_key_Safe_Str", "Aiden_key_Safe_Str_Sucsses",
+        "Aiden_key_Safe_Str_Fail", "Aiden_key_Safe_rhetoric_sucsses", "Aiden_key_Safe_rhetoric_Fail", "Aiden_key_Safe_Nothing",
+        "Aiden_key_Fail1", "Aiden_key_Fail2", "Aiden_Judge_medicine_Sucsses", "Aiden_Judge_medicine_Fail",
+        "Aiden_Judge_psychotherapy_Sucsses", "Aiden_Judge_psychotherapy_Sucsses_Safe", "Aiden_Judge_psychotherapy_Sucsses_NoSafe",
+        "Aiden_Judge_psychotherapy_Sucsses_End", "Aiden_Judge_psychotherapy_Fail", "Aiden_Judge_Observation_Sucsses",
+        "Aiden_Judge_Observation_Fail", "Aiden_key_FailForce", "EllaEnd_NoSafe", "EllaEnd_GetSafe", "NoSuchTopic"
+    };
+
+    private static readonly string[] DailyNewsTopics =
+    {
+        "Swain_FirstDialog", "Swain_Look", "Swain_LookJudge_Sucsses", "Swain_LookJudge_Fail", "Swain_Key_PlanetarySequence1",
+        "Swain_Key_Insomnia1", "Swain_Key_Nightmare2", "Swain_Key_Paranoia1", "Swain_Key_EllaTriss1", "Swain_Key_AidenTriss1",
+        "Swain_Key_DailyNews1", "Swain_Key_Nothing", "Journalist_FirstDialog", "NoSuchTopic"
+    };
+
+    private static readonly string[] UniversityTopics =
+    {
+        "Univ_FirstDialog", "Univ_Look", "Univ_Key_PlanetarySequence1", "Univ_Key_Insomnia1", "Kane_FirstDialog", "Kane_Look", "NoSuchTopic"
+    };
+
+    private static readonly string[] RiversideTopics =
+    {
+        "Kane_FirstDialog", "Kane_Look", "Kane_Nothing", "Sewer_FirstDialog", "Sewer_Look", "Sewer_Observation_SucssesAfter",
+        "Sewer_Observation_Sucsses", "Sewer_Observation_Fail", "Sewer_Observation_SucssesAfterSanSuc", "NoSuchTopic"
+    };
+
+    private static readonly string[] HospitalTopics =
+    {
+        "Kate_NoonLook", "Alan_NoonLook", "Hospital_NoonFirst", "Kate_FirstDialog", "Alan_FirstDialog", "NoSuchTopic"
+    };
+
     [MenuItem("SCoW/Dialog/Dump Pilot Golden (Play Mode)")]
-    private static void DumpGolden() { Dump(GoldenPath); }
+    private static void DumpGolden() { Dump(GoldenPath, false); }
 
     [MenuItem("SCoW/Dialog/Dump Pilot Current (Play Mode)")]
-    private static void DumpCurrent() { Dump(CurrentPath); }
+    private static void DumpCurrent() { Dump(CurrentPath, false); }
+
+    [MenuItem("SCoW/Dialog/Dump P10a Golden (Play Mode)")]
+    private static void DumpGoldenP10a() { Dump(GoldenPathP10a, true); }
+
+    [MenuItem("SCoW/Dialog/Dump P10a Current (Play Mode)")]
+    private static void DumpCurrentP10a() { Dump(CurrentPathP10a, true); }
+
+    /// <summary>플래그 이름들의 모든 0/1 조합 x 시각(timeCount) 값들. 이름은 접두+시각+조합.</summary>
+    private static List<Preset> Combos(string prefix, string[] flags, int[] times)
+    {
+        List<Preset> list = new List<Preset>();
+        for (int t = 0; t < times.Length; t++)
+        {
+            for (int mask = 0; mask < (1 << flags.Length); mask++)
+            {
+                string spec = "counter:timeCount=" + times[t];
+                string name = prefix + "_t" + times[t] + "_";
+                for (int f = 0; f < flags.Length; f++)
+                {
+                    int on = (mask >> f) & 1;
+                    spec += ";flag:" + flags[f] + "=" + on;
+                    name += on;
+                }
+                list.Add(new Preset { Name = name, Spec = spec });
+            }
+        }
+        return list;
+    }
+
+    private sealed class Target
+    {
+        public string Script;
+        public string[] Topics;
+        public List<Preset> Presets;
+        public Action<string> Run;
+    }
+
+    private static List<Target> P10aTargets()
+    {
+        InteractionController ic = InteractionController.Instance;
+        List<Target> list = new List<Target>();
+        list.Add(new Target
+        {
+            Script = "1st_Client'sHouse", Topics = ClientsHouseTopics, Run = ic.Start1stClientsHouse,
+            Presets = Combos("ch", new[] { "ellaEndDialog", "aidenFirstDialog", "getSafe" }, new[] { 1 })
+        });
+        list.Add(new Target
+        {
+            Script = "1st_DailyNews", Topics = DailyNewsTopics, Run = ic.Start1stDailyNews,
+            Presets = Combos("dn", new[] { "aidenFirstDialog" }, new[] { 5, 6 })
+        });
+        list.Add(new Target
+        {
+            Script = "1st_University", Topics = UniversityTopics, Run = ic.Start1stUniversity,
+            Presets = Combos("un", new[] { "univFirstDialog", "kaneFirstDialog", "intelRiverWaterQuality2" }, new[] { 1 })
+        });
+        list.Add(new Target
+        {
+            Script = "1st_Riverside", Topics = RiversideTopics, Run = ic.Start1stRiverside,
+            Presets = Combos("rv", new[] { "kaneFirstDialog", "sewerFirstDialog", "sewerObservationEnd" }, new[] { 1 })
+        });
+        list.Add(new Target
+        {
+            Script = "1st_Hospital", Topics = HospitalTopics, Run = ic.Start1stHospital,
+            Presets = Combos("hp", new[] { "kateNoonFirstDialog", "alanFirstDialog", "thirdDayAlanDialog", "alanNoonFirstDialog" }, new[] { 2, 6, 3, 7, 9, 12 })
+        });
+        return list;
+    }
 
     private sealed class Preset
     {
@@ -79,7 +184,7 @@ public static class DialogEquivalenceTool
         return list;
     }
 
-    private static void Dump(string path)
+    private static void Dump(string path, bool p10a)
     {
         if (!EditorApplication.isPlaying || InteractionController.Instance == null)
         {
@@ -92,12 +197,26 @@ public static class DialogEquivalenceTool
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("# DialogPilot golden v1\n");
-            List<Preset> bar = BarPresets();
-            List<Preset> det = DetectivePresets();
-            for (int i = 0; i < bar.Count; i++) { sb.Append("@preset ").Append(bar[i].Name).Append('|').Append(bar[i].Spec).Append('\n'); }
-            for (int i = 0; i < det.Count; i++) { sb.Append("@preset ").Append(det[i].Name).Append('|').Append(det[i].Spec).Append('\n'); }
-            DumpScript(sb, "1st_Bar", BarTopics, bar, InteractionController.Instance.Start1stBar);
-            DumpScript(sb, "1st_DetectiveOffice", DetectiveTopics, det, InteractionController.Instance.Start1stDetectiveOffice);
+            List<Target> targets;
+            if (p10a)
+            {
+                targets = P10aTargets();
+            }
+            else
+            {
+                targets = new List<Target>();
+                targets.Add(new Target { Script = "1st_Bar", Topics = BarTopics, Presets = BarPresets(), Run = InteractionController.Instance.Start1stBar });
+                targets.Add(new Target { Script = "1st_DetectiveOffice", Topics = DetectiveTopics, Presets = DetectivePresets(), Run = InteractionController.Instance.Start1stDetectiveOffice });
+            }
+            for (int k = 0; k < targets.Count; k++)
+            {
+                List<Preset> ps = targets[k].Presets;
+                for (int i = 0; i < ps.Count; i++) { sb.Append("@preset ").Append(ps[i].Name).Append('|').Append(ps[i].Spec).Append('\n'); }
+            }
+            for (int k = 0; k < targets.Count; k++)
+            {
+                DumpScript(sb, targets[k].Script, targets[k].Topics, targets[k].Presets, targets[k].Run);
+            }
             string dir = Path.GetDirectoryName(path);
             if (!string.IsNullOrEmpty(dir)) { Directory.CreateDirectory(dir); }
             File.WriteAllText(path, sb.ToString(), new UTF8Encoding(false));
@@ -128,10 +247,18 @@ public static class DialogEquivalenceTool
                 GameState before = gs.Clone();
                 Dialog[] captured = null;
                 DialogManager.ShowDialogProbe = d => captured = d;
-                run(topics[t]);
+                string exception = null;
+                try
+                {
+                    run(topics[t]);
+                }
+                catch (Exception e)
+                {
+                    exception = e.GetType().Name;
+                }
                 DialogManager.ShowDialogProbe = null;
                 sb.Append(script).Append('|').Append(topics[t]).Append('|').Append(presets[p].Name).Append('|');
-                AppendResult(sb, captured, StatePreset.Diff(before, GameRoot.Instance.State));
+                AppendResult(sb, captured, StatePreset.Diff(before, GameRoot.Instance.State) + (exception != null ? "|EX=" + exception : ""));
             }
         }
     }

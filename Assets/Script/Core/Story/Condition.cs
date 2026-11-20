@@ -51,8 +51,16 @@ namespace SCoW.Core.Story
         public readonly string Key;
         public readonly CmpOp Op;
         public readonly int Value;
-        public CounterCmp(string key, CmpOp op, int value) { Key = key; Op = op; Value = value; }
-        public override bool Eval(IStateReader s) { return Compare(s.GetCounter(Key), Op, Value); }
+        /// <summary>0 이면 나머지 연산 없음. 양수면 카운터 % Mod 를 비교한다(예: timeCount%4==2 = 낮).</summary>
+        public readonly int Mod;
+        public CounterCmp(string key, CmpOp op, int value) : this(key, op, value, 0) { }
+        public CounterCmp(string key, CmpOp op, int value, int mod) { Key = key; Op = op; Value = value; Mod = mod; }
+        public override bool Eval(IStateReader s)
+        {
+            int v = s.GetCounter(Key);
+            if (Mod > 0) { v = ((v % Mod) + Mod) % Mod; }
+            return Compare(v, Op, Value);
+        }
     }
 
     public sealed class TextIs : Condition

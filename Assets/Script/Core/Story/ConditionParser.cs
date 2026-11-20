@@ -159,7 +159,7 @@ namespace SCoW.Core.Story
         private static bool IsAtomChar(char ch)
         {
             return char.IsLetterOrDigit(ch) || ch == '_' || ch == '.' || ch == '-' || ch == '+' || ch == ':'
-                || ch == '=' || ch == '<' || ch == '>' || ch == '!';
+                || ch == '=' || ch == '<' || ch == '>' || ch == '!' || ch == '%';
         }
 
         private static Condition ParseAtom(string a)
@@ -183,7 +183,7 @@ namespace SCoW.Core.Story
                 return ParseCmp(a.Substring(8), a);
             }
             if (a.StartsWith(TimeKeyword, System.StringComparison.Ordinal)
-                && a.Length > TimeKeyword.Length && "<>=!".IndexOf(a[TimeKeyword.Length]) >= 0)
+                && a.Length > TimeKeyword.Length && "<>=!%".IndexOf(a[TimeKeyword.Length]) >= 0)
             {
                 return ParseCmp(TimeCounter + a.Substring(TimeKeyword.Length), a);
             }
@@ -195,6 +195,18 @@ namespace SCoW.Core.Story
             int i = body.IndexOfAny(new[] { '>', '<', '=', '!' });
             if (i <= 0) { throw new DslError("비교 연산자 없음 '" + whole + "'"); }
             string key = body.Substring(0, i);
+            int mod = 0;
+            int pct = key.IndexOf('%');
+            if (pct >= 0)
+            {
+                if (!int.TryParse(key.Substring(pct + 1), System.Globalization.NumberStyles.None,
+                        System.Globalization.CultureInfo.InvariantCulture, out mod) || mod <= 0)
+                {
+                    throw new DslError("나머지 값이 양의 정수가 아님 '" + whole + "'");
+                }
+                key = key.Substring(0, pct);
+                if (key.Length == 0) { throw new DslError("카운터 이름 없음 '" + whole + "'"); }
+            }
             CmpOp op;
             int len;
             if (!ReadOp(body, i, out op, out len)) { throw new DslError("잘못된 연산자 '" + whole + "'"); }
@@ -204,7 +216,7 @@ namespace SCoW.Core.Story
             {
                 throw new DslError("정수 아님 '" + whole + "'");
             }
-            return new CounterCmp(key, op, val);
+            return new CounterCmp(key, op, val, mod);
         }
 
         private static bool ReadOp(string s, int i, out CmpOp op, out int len)

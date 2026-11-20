@@ -1,0 +1,37 @@
+{
+  "id": "1st_Riverside",
+  "topics": [
+    { "id": "Kane_FirstDialog", "cases": [
+      { "when": "!flag:kaneFirstDialog", "pre": "set:kaneFirstDialog", "node": "kane_first" },
+      { "node": "kane_dialog" }
+    ] },
+    { "id": "Kane_Look", "cases": [ { "node": "Kane_Look" } ] },
+    { "id": "Kane_Nothing", "cases": [ { "node": "Kane_Nothing" } ] },
+    { "id": "Sewer_FirstDialog", "cases": [
+      { "when": "!flag:sewerFirstDialog", "pre": "set:sewerFirstDialog", "node": "sewer_first" },
+      { "node": "sewer_dialog" }
+    ] },
+    { "id": "Sewer_Look", "cases": [
+      { "when": "!flag:sewerObservationEnd", "node": "sewer_look" },
+      { "node": "sewer_look_after" }
+    ] },
+    { "id": "Sewer_Observation_SucssesAfter", "cases": [ { "node": "Sewer_Observation_SucssesAfter" } ] },
+    { "id": "Sewer_Observation_Sucsses", "cases": [ { "node": "Sewer_Observation_Sucsses" } ] },
+    { "id": "Sewer_Observation_Fail", "cases": [ { "node": "Sewer_Observation_Fail" } ] },
+    { "id": "Sewer_Observation_SucssesAfterSanSuc", "cases": [ { "node": "Sewer_Observation_SucssesAfterSanSuc" } ] }
+  ],
+  "nodes": {
+    "kane_first": { "text": "1st_Riverside:1-6" },
+    "kane_dialog": { "text": "1st_Riverside:7" },
+    "Kane_Look": { "text": "1st_Riverside:8-10" },
+    "Kane_Nothing": { "text": "1st_Riverside:11" },
+    "sewer_first": { "text": "1st_Riverside:12-13" },
+    "sewer_dialog": { "text": "1st_Riverside:14" },
+    "sewer_look": { "text": "1st_Riverside:15" },
+    "sewer_look_after": { "text": "1st_Riverside:26" },
+    "Sewer_Observation_SucssesAfter": { "text": "1st_Riverside:24-25" },
+    "Sewer_Observation_Sucsses": { "text": "1st_Riverside:16-23" },
+    "Sewer_Observation_Fail": { "text": "1st_Riverside:26" },
+    "Sewer_Observation_SucssesAfterSanSuc": { "text": "1st_Riverside:27-28" }
+  }
+}

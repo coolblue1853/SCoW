@@ -14,6 +14,7 @@ namespace SCoW.Tests
     public sealed class DialogPilotEquivalenceTests
     {
         private const string GoldenPath = "Assets/Tests/EditMode/Golden/DialogPilot.golden.txt";
+        private const string GoldenPathP10a = "Assets/Tests/EditMode/Golden/DialogP10a.golden.txt";
         private static readonly Dictionary<string, IList<StoryLine>> CsvCache = new Dictionary<string, IList<StoryLine>>();
 
         private static IList<StoryLine> Csv(string name)
@@ -49,7 +50,19 @@ namespace SCoW.Tests
         [Test]
         public void GoldenRows_MatchNewPath()
         {
-            string[] rows = File.ReadAllLines(Path.Combine(Path.GetDirectoryName(Application.dataPath), GoldenPath));
+            CheckGolden(GoldenPath, 800);
+        }
+
+        /// <summary>P10a 5장소(ClientsHouse·DailyNews·University·Riverside·Hospital). 옛 경로에서 예외(씬 필드 미할당)로 끝난 행은 "아무것도 안 띄움"으로 본다.</summary>
+        [Test]
+        public void GoldenRows_P10a_MatchNewPath()
+        {
+            CheckGolden(GoldenPathP10a, 1000);
+        }
+
+        private static void CheckGolden(string goldenPath, int minRows)
+        {
+            string[] rows = File.ReadAllLines(Path.Combine(Path.GetDirectoryName(Application.dataPath), goldenPath));
             Dictionary<string, string> presets = new Dictionary<string, string>();
             Dictionary<string, StoryScript> scripts = new Dictionary<string, StoryScript>();
             HashSet<string> reached = new HashSet<string>();
@@ -70,6 +83,8 @@ namespace SCoW.Tests
                 string topic = f[1];
                 string presetName = f[2];
                 string expected = f[3];
+                int ex = expected.IndexOf("|EX=", System.StringComparison.Ordinal);
+                if (ex >= 0) { expected = expected.Substring(0, ex); }
                 if (!scripts.ContainsKey(scriptId)) { scripts[scriptId] = Script(scriptId); }
                 GameState gs = StatePreset.Build(presets[presetName]);
                 GameState before = gs.Clone();
@@ -85,7 +100,7 @@ namespace SCoW.Tests
                     mismatches.Add(scriptId + "|" + topic + "|" + presetName + "\n  기대 " + expected + "\n  실제 " + actual);
                 }
             }
-            Assert.IsTrue(compared > 800, "골든 행이 너무 적다: " + compared);
+            Assert.IsTrue(compared > minRows, "골든 행이 너무 적다: " + compared);
             Assert.AreEqual(0, mismatches.Count, "동치 불일치:\n" + string.Join("\n", mismatches.ToArray()));
             // 프리셋이 모든 노드를 덮는지(도달 못 하는 노드가 있으면 그 분기는 검증되지 않은 것).
             foreach (KeyValuePair<string, StoryScript> kv in scripts)
@@ -107,7 +122,15 @@ namespace SCoW.Tests
             GameStateAccess s = new GameStateAccess(GameState.New());
             Assert.AreEqual("1st_Bar", cat.ScriptFor("Bar", s));
             Assert.AreEqual("1st_DetectiveOffice", cat.ScriptFor("DetectiveOffice", s));
-            Assert.IsNull(cat.ScriptFor("Hospital", s));
+            Assert.AreEqual("1st_Hospital", cat.ScriptFor("Hospital", s));
+            Assert.AreEqual("1st_DailyNews", cat.ScriptFor("DailyNews", s));
+            Assert.AreEqual("1st_University", cat.ScriptFor("University", s));
+            Assert.AreEqual("1st_Riverside", cat.ScriptFor("Riverside", s));
+            Assert.AreEqual("1st_Client'sHouse", cat.ScriptFor("Client'shouse", s));
+            GameState late = GameState.New();
+            late.SetCounter("timeCount", 6);
+            Assert.AreEqual("2nd_NoonEvent", cat.ScriptFor("Client'shouse", new GameStateAccess(late)));
+            Assert.IsNull(cat.ScriptFor("Slum", s));
             Assert.IsNull(cat.ScriptFor(null, s));
         }
 

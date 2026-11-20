@@ -1,0 +1,29 @@
+{
+  "id": "1st_University",
+  "topics": [
+    { "id": "Univ_FirstDialog", "cases": [
+      { "when": "!flag:univFirstDialog", "pre": "set:univFirstDialog", "node": "univ_first" },
+      { "node": "univ_dialog" }
+    ] },
+    { "id": "Univ_Look", "cases": [ { "node": "Univ_Look" } ] },
+    { "id": "Univ_Key_PlanetarySequence1", "cases": [ { "node": "Univ_Key_PlanetarySequence1" } ] },
+    { "id": "Univ_Key_Insomnia1", "cases": [ { "node": "Univ_Key_Insomnia1" } ] },
+    { "id": "Kane_FirstDialog", "cases": [
+      { "when": "!flag:kaneFirstDialog && flag:intelRiverWaterQuality2", "pre": "set:kaneFirstDialog", "node": "kane_detail_ob" },
+      { "when": "!flag:kaneFirstDialog", "pre": "set:kaneFirstDialog", "node": "kane_first_meat_sev" },
+      { "node": "kane_after_sev_dialog" }
+    ] },
+    { "id": "Kane_Look", "cases": [ { "node": "Kane_Look" } ] }
+  ],
+  "nodes": {
+    "univ_first": { "text": "1st_University:1-10" },
+    "univ_dialog": { "text": "1st_University:11" },
+    "Univ_Look": { "text": "1st_University:23" },
+    "Univ_Key_PlanetarySequence1": { "text": "1st_University:12-19" },
+    "Univ_Key_Insomnia1": { "text": "1st_University:20-21" },
+    "kane_detail_ob": { "text": "1st_University:48-50" },
+    "kane_first_meat_sev": { "text": "1st_University:43-47" },
+    "kane_after_sev_dialog": { "text": "1st_University:51" },
+    "Kane_Look": { "text": "1st_University:52" }
+  }
+}

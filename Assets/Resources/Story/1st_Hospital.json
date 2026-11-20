@@ -1,0 +1,32 @@
+{
+  "id": "1st_Hospital",
+  "topics": [
+    { "id": "Kate_NoonLook", "cases": [ { "node": "Kate_NoonLook" } ] },
+    { "id": "Alan_NoonLook", "cases": [ { "node": "Alan_NoonLook" } ] },
+    { "id": "Hospital_NoonFirst", "cases": [ { "node": "Hospital_NoonFirst" } ] },
+    { "id": "Kate_FirstDialog", "cases": [
+      { "when": "time%4==2", "node": "kate_first" },
+      { "when": "!flag:kateNoonFirstDialog", "pre": "set:kateNoonFirstDialog", "node": "kate_noon_first" },
+      { "node": "kate_noon_dialog" }
+    ] },
+    { "id": "Alan_FirstDialog", "cases": [
+      { "when": "time%4==2 && !flag:alanFirstDialog", "pre": "set:alanFirstDialog", "node": "alan_first" },
+      { "when": "time%4==2", "node": "alan_dialog" },
+      { "when": "time>8 && !flag:thirdDayAlanDialog", "pre": "set:thirdDayAlanDialog; set:alanNoonFirstDialog", "node": "alan_noon_dialog" },
+      { "when": "!flag:alanNoonFirstDialog", "pre": "set:alanNoonFirstDialog", "node": "alan_noon_first" },
+      { "node": "alan_noon_dialog" }
+    ] }
+  ],
+  "nodes": {
+    "Kate_NoonLook": { "text": "1st_Hospital:30" },
+    "Alan_NoonLook": { "text": "1st_Hospital:49-50" },
+    "Hospital_NoonFirst": { "text": "1st_Hospital:1-2" },
+    "kate_first": { "text": "1st_Hospital:3-14" },
+    "kate_noon_first": { "text": "1st_Hospital:21-28" },
+    "kate_noon_dialog": { "text": "1st_Hospital:29" },
+    "alan_first": { "text": "1st_Hospital:15-19" },
+    "alan_dialog": { "text": "1st_Hospital:20" },
+    "alan_noon_dialog": { "text": "1st_Hospital:48" },
+    "alan_noon_first": { "text": "1st_Hospital:46-47" }
+  }
+}

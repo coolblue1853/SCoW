@@ -61,6 +61,22 @@ namespace SCoW.Tests
             Assert.IsTrue(Eval("flag:intelQuestHouse1 && time>=12 || !flag:x", a));
         }
 
+        [Test]
+        public void Counter_Modulo()
+        {
+            GameState gs;
+            GameStateAccess a = Acc(out gs);
+            gs.SetCounter("timeCount", 10);
+            Assert.IsTrue(Eval("time%4==2", a));
+            Assert.IsFalse(Eval("time%4!=2", a));
+            Assert.IsTrue(Eval("counter:timeCount%4>=2 && time>8", a));
+            gs.SetCounter("timeCount", 9);
+            Assert.IsFalse(Eval("time%4==2", a));
+            Assert.IsFalse(ConditionParser.Parse("time%0==1").Ok);
+            Assert.IsFalse(ConditionParser.Parse("counter:%4==1").Ok);
+            Assert.IsFalse(ConditionParser.Parse("time%x==1").Ok);
+        }
+
         [TestCase("flag:")]
         [TestCase("flag:a &&")]
         [TestCase("(flag:a")]

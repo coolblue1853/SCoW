@@ -1,0 +1,1189 @@
+# DialogPilot golden v1
+@preset ch_t1_000|counter:timeCount=1;flag:ellaEndDialog=0;flag:aidenFirstDialog=0;flag:getSafe=0
+@preset ch_t1_100|counter:timeCount=1;flag:ellaEndDialog=1;flag:aidenFirstDialog=0;flag:getSafe=0
+@preset ch_t1_010|counter:timeCount=1;flag:ellaEndDialog=0;flag:aidenFirstDialog=1;flag:getSafe=0
+@preset ch_t1_110|counter:timeCount=1;flag:ellaEndDialog=1;flag:aidenFirstDialog=1;flag:getSafe=0
+@preset ch_t1_001|counter:timeCount=1;flag:ellaEndDialog=0;flag:aidenFirstDialog=0;flag:getSafe=1
+@preset ch_t1_101|counter:timeCount=1;flag:ellaEndDialog=1;flag:aidenFirstDialog=0;flag:getSafe=1
+@preset ch_t1_011|counter:timeCount=1;flag:ellaEndDialog=0;flag:aidenFirstDialog=1;flag:getSafe=1
+@preset ch_t1_111|counter:timeCount=1;flag:ellaEndDialog=1;flag:aidenFirstDialog=1;flag:getSafe=1
+@preset dn_t5_0|counter:timeCount=5;flag:aidenFirstDialog=0
+@preset dn_t5_1|counter:timeCount=5;flag:aidenFirstDialog=1
+@preset dn_t6_0|counter:timeCount=6;flag:aidenFirstDialog=0
+@preset dn_t6_1|counter:timeCount=6;flag:aidenFirstDialog=1
+@preset un_t1_000|counter:timeCount=1;flag:univFirstDialog=0;flag:kaneFirstDialog=0;flag:intelRiverWaterQuality2=0
+@preset un_t1_100|counter:timeCount=1;flag:univFirstDialog=1;flag:kaneFirstDialog=0;flag:intelRiverWaterQuality2=0
+@preset un_t1_010|counter:timeCount=1;flag:univFirstDialog=0;flag:kaneFirstDialog=1;flag:intelRiverWaterQuality2=0
+@preset un_t1_110|counter:timeCount=1;flag:univFirstDialog=1;flag:kaneFirstDialog=1;flag:intelRiverWaterQuality2=0
+@preset un_t1_001|counter:timeCount=1;flag:univFirstDialog=0;flag:kaneFirstDialog=0;flag:intelRiverWaterQuality2=1
+@preset un_t1_101|counter:timeCount=1;flag:univFirstDialog=1;flag:kaneFirstDialog=0;flag:intelRiverWaterQuality2=1
+@preset un_t1_011|counter:timeCount=1;flag:univFirstDialog=0;flag:kaneFirstDialog=1;flag:intelRiverWaterQuality2=1
+@preset un_t1_111|counter:timeCount=1;flag:univFirstDialog=1;flag:kaneFirstDialog=1;flag:intelRiverWaterQuality2=1
+@preset rv_t1_000|counter:timeCount=1;flag:kaneFirstDialog=0;flag:sewerFirstDialog=0;flag:sewerObservationEnd=0
+@preset rv_t1_100|counter:timeCount=1;flag:kaneFirstDialog=1;flag:sewerFirstDialog=0;flag:sewerObservationEnd=0
+@preset rv_t1_010|counter:timeCount=1;flag:kaneFirstDialog=0;flag:sewerFirstDialog=1;flag:sewerObservationEnd=0
+@preset rv_t1_110|counter:timeCount=1;flag:kaneFirstDialog=1;flag:sewerFirstDialog=1;flag:sewerObservationEnd=0
+@preset rv_t1_001|counter:timeCount=1;flag:kaneFirstDialog=0;flag:sewerFirstDialog=0;flag:sewerObservationEnd=1
+@preset rv_t1_101|counter:timeCount=1;flag:kaneFirstDialog=1;flag:sewerFirstDialog=0;flag:sewerObservationEnd=1
+@preset rv_t1_011|counter:timeCount=1;flag:kaneFirstDialog=0;flag:sewerFirstDialog=1;flag:sewerObservationEnd=1
+@preset rv_t1_111|counter:timeCount=1;flag:kaneFirstDialog=1;flag:sewerFirstDialog=1;flag:sewerObservationEnd=1
+@preset hp_t2_0000|counter:timeCount=2;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t2_1000|counter:timeCount=2;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t2_0100|counter:timeCount=2;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t2_1100|counter:timeCount=2;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t2_0010|counter:timeCount=2;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t2_1010|counter:timeCount=2;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t2_0110|counter:timeCount=2;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t2_1110|counter:timeCount=2;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t2_0001|counter:timeCount=2;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t2_1001|counter:timeCount=2;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t2_0101|counter:timeCount=2;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t2_1101|counter:timeCount=2;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t2_0011|counter:timeCount=2;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t2_1011|counter:timeCount=2;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t2_0111|counter:timeCount=2;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t2_1111|counter:timeCount=2;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t6_0000|counter:timeCount=6;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t6_1000|counter:timeCount=6;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t6_0100|counter:timeCount=6;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t6_1100|counter:timeCount=6;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t6_0010|counter:timeCount=6;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t6_1010|counter:timeCount=6;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t6_0110|counter:timeCount=6;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t6_1110|counter:timeCount=6;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t6_0001|counter:timeCount=6;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t6_1001|counter:timeCount=6;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t6_0101|counter:timeCount=6;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t6_1101|counter:timeCount=6;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t6_0011|counter:timeCount=6;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t6_1011|counter:timeCount=6;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t6_0111|counter:timeCount=6;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t6_1111|counter:timeCount=6;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t3_0000|counter:timeCount=3;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t3_1000|counter:timeCount=3;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t3_0100|counter:timeCount=3;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t3_1100|counter:timeCount=3;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t3_0010|counter:timeCount=3;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t3_1010|counter:timeCount=3;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t3_0110|counter:timeCount=3;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t3_1110|counter:timeCount=3;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t3_0001|counter:timeCount=3;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t3_1001|counter:timeCount=3;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t3_0101|counter:timeCount=3;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t3_1101|counter:timeCount=3;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t3_0011|counter:timeCount=3;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t3_1011|counter:timeCount=3;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t3_0111|counter:timeCount=3;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t3_1111|counter:timeCount=3;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t7_0000|counter:timeCount=7;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t7_1000|counter:timeCount=7;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t7_0100|counter:timeCount=7;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t7_1100|counter:timeCount=7;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t7_0010|counter:timeCount=7;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t7_1010|counter:timeCount=7;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t7_0110|counter:timeCount=7;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t7_1110|counter:timeCount=7;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t7_0001|counter:timeCount=7;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t7_1001|counter:timeCount=7;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t7_0101|counter:timeCount=7;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t7_1101|counter:timeCount=7;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t7_0011|counter:timeCount=7;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t7_1011|counter:timeCount=7;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t7_0111|counter:timeCount=7;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t7_1111|counter:timeCount=7;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t9_0000|counter:timeCount=9;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t9_1000|counter:timeCount=9;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t9_0100|counter:timeCount=9;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t9_1100|counter:timeCount=9;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t9_0010|counter:timeCount=9;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t9_1010|counter:timeCount=9;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t9_0110|counter:timeCount=9;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t9_1110|counter:timeCount=9;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t9_0001|counter:timeCount=9;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t9_1001|counter:timeCount=9;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t9_0101|counter:timeCount=9;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t9_1101|counter:timeCount=9;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t9_0011|counter:timeCount=9;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t9_1011|counter:timeCount=9;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t9_0111|counter:timeCount=9;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t9_1111|counter:timeCount=9;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t12_0000|counter:timeCount=12;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t12_1000|counter:timeCount=12;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t12_0100|counter:timeCount=12;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t12_1100|counter:timeCount=12;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=0
+@preset hp_t12_0010|counter:timeCount=12;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t12_1010|counter:timeCount=12;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t12_0110|counter:timeCount=12;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t12_1110|counter:timeCount=12;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=0
+@preset hp_t12_0001|counter:timeCount=12;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t12_1001|counter:timeCount=12;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t12_0101|counter:timeCount=12;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t12_1101|counter:timeCount=12;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=0;flag:alanNoonFirstDialog=1
+@preset hp_t12_0011|counter:timeCount=12;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t12_1011|counter:timeCount=12;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=0;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t12_0111|counter:timeCount=12;flag:kateNoonFirstDialog=0;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+@preset hp_t12_1111|counter:timeCount=12;flag:kateNoonFirstDialog=1;flag:alanFirstDialog=1;flag:thirdDayAlanDialog=1;flag:alanNoonFirstDialog=1
+1st_Client'sHouse|FirstArrive|ch_t1_000|n=1|first=1st_Client'sHouse:1|last=1st_Client'sHouse:1|ids=1|post=-
+1st_Client'sHouse|NockDoor|ch_t1_000|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_fistDialog|ch_t1_000|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_Dialog1|ch_t1_000|n=1|first=1st_Client'sHouse:10|last=1st_Client'sHouse:10|ids=10|post=-
+1st_Client'sHouse|Ella_Dialog2|ch_t1_000|n=2|first=1st_Client'sHouse:11|last=1st_Client'sHouse:12|ids=11-12|post=-
+1st_Client'sHouse|Ella_FirstUpstair|ch_t1_000|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|into_FirstRoom|ch_t1_000|n=2|first=1st_Client'sHouse:14|last=1st_Client'sHouse:15|ids=14-15|post=-
+1st_Client'sHouse|Aiden_FirstDialog|ch_t1_000|n=13|first=1st_Client'sHouse:27|last=1st_Client'sHouse:39|ids=27-39|post=+flag:aidenFirstDialog
+1st_Client'sHouse|Aiden_Active|ch_t1_000|n=1|first=1st_Client'sHouse:148|last=1st_Client'sHouse:148|ids=148|post=-
+1st_Client'sHouse|Aiden_Look|ch_t1_000|n=6|first=1st_Client'sHouse:18|last=1st_Client'sHouse:23|ids=18-23|post=-
+1st_Client'sHouse|Aiden_LookJudge|ch_t1_000|n=0|first=-|last=-|ids=-|post=-|EX=UnassignedReferenceException
+1st_Client'sHouse|Aiden_Dialog1|ch_t1_000|n=2|first=1st_Client'sHouse:40|last=1st_Client'sHouse:41|ids=40-41|post=-
+1st_Client'sHouse|Aiden_Dialog2|ch_t1_000|n=2|first=1st_Client'sHouse:42|last=1st_Client'sHouse:43|ids=42-43|post=-
+1st_Client'sHouse|Aiden_key_Nightmare1|ch_t1_000|n=11|first=1st_Client'sHouse:44|last=1st_Client'sHouse:54|ids=44-54|post=-
+1st_Client'sHouse|Aiden_key_EllaTriss1|ch_t1_000|n=7|first=1st_Client'sHouse:55|last=1st_Client'sHouse:61|ids=55-61|post=-
+1st_Client'sHouse|Aiden_key_Safe1|ch_t1_000|n=4|first=1st_Client'sHouse:62|last=1st_Client'sHouse:65|ids=62-65|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str|ch_t1_000|n=2|first=1st_Client'sHouse:66|last=1st_Client'sHouse:67|ids=66-67|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Sucsses|ch_t1_000|n=7|first=1st_Client'sHouse:68|last=1st_Client'sHouse:74|ids=68-74|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Fail|ch_t1_000|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_sucsses|ch_t1_000|n=6|first=1st_Client'sHouse:79|last=1st_Client'sHouse:84|ids=79-84|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_Fail|ch_t1_000|n=3|first=1st_Client'sHouse:85|last=1st_Client'sHouse:87|ids=85-87|post=-
+1st_Client'sHouse|Aiden_key_Safe_Nothing|ch_t1_000|n=2|first=1st_Client'sHouse:88|last=1st_Client'sHouse:89|ids=88-89|post=-
+1st_Client'sHouse|Aiden_key_Fail1|ch_t1_000|n=1|first=1st_Client'sHouse:90|last=1st_Client'sHouse:90|ids=90|post=-
+1st_Client'sHouse|Aiden_key_Fail2|ch_t1_000|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_000|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_000|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_000|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_000|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_000|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_000|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Fail|ch_t1_000|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Sucsses|ch_t1_000|n=3|first=1st_Client'sHouse:24|last=1st_Client'sHouse:26|ids=24-26|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Fail|ch_t1_000|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_key_FailForce|ch_t1_000|n=1|first=1st_Client'sHouse:96|last=1st_Client'sHouse:96|ids=96|post=-
+1st_Client'sHouse|EllaEnd_NoSafe|ch_t1_000|n=5|first=1st_Client'sHouse:132|last=1st_Client'sHouse:136|ids=132-136|post=-
+1st_Client'sHouse|EllaEnd_GetSafe|ch_t1_000|n=8|first=1st_Client'sHouse:124|last=1st_Client'sHouse:131|ids=124-131|post=-
+1st_Client'sHouse|NoSuchTopic|ch_t1_000|n=0|first=-|last=-|ids=-|post=-
+1st_Client'sHouse|FirstArrive|ch_t1_100|n=1|first=1st_Client'sHouse:1|last=1st_Client'sHouse:1|ids=1|post=-
+1st_Client'sHouse|NockDoor|ch_t1_100|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_fistDialog|ch_t1_100|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_Dialog1|ch_t1_100|n=1|first=1st_Client'sHouse:10|last=1st_Client'sHouse:10|ids=10|post=-
+1st_Client'sHouse|Ella_Dialog2|ch_t1_100|n=2|first=1st_Client'sHouse:11|last=1st_Client'sHouse:12|ids=11-12|post=-
+1st_Client'sHouse|Ella_FirstUpstair|ch_t1_100|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|into_FirstRoom|ch_t1_100|n=2|first=1st_Client'sHouse:14|last=1st_Client'sHouse:15|ids=14-15|post=-
+1st_Client'sHouse|Aiden_FirstDialog|ch_t1_100|n=13|first=1st_Client'sHouse:27|last=1st_Client'sHouse:39|ids=27-39|post=+flag:aidenFirstDialog
+1st_Client'sHouse|Aiden_Active|ch_t1_100|n=1|first=1st_Client'sHouse:148|last=1st_Client'sHouse:148|ids=148|post=-
+1st_Client'sHouse|Aiden_Look|ch_t1_100|n=6|first=1st_Client'sHouse:18|last=1st_Client'sHouse:23|ids=18-23|post=-
+1st_Client'sHouse|Aiden_LookJudge|ch_t1_100|n=0|first=-|last=-|ids=-|post=-|EX=UnassignedReferenceException
+1st_Client'sHouse|Aiden_Dialog1|ch_t1_100|n=2|first=1st_Client'sHouse:40|last=1st_Client'sHouse:41|ids=40-41|post=-
+1st_Client'sHouse|Aiden_Dialog2|ch_t1_100|n=2|first=1st_Client'sHouse:42|last=1st_Client'sHouse:43|ids=42-43|post=-
+1st_Client'sHouse|Aiden_key_Nightmare1|ch_t1_100|n=11|first=1st_Client'sHouse:44|last=1st_Client'sHouse:54|ids=44-54|post=-
+1st_Client'sHouse|Aiden_key_EllaTriss1|ch_t1_100|n=7|first=1st_Client'sHouse:55|last=1st_Client'sHouse:61|ids=55-61|post=-
+1st_Client'sHouse|Aiden_key_Safe1|ch_t1_100|n=4|first=1st_Client'sHouse:62|last=1st_Client'sHouse:65|ids=62-65|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str|ch_t1_100|n=2|first=1st_Client'sHouse:66|last=1st_Client'sHouse:67|ids=66-67|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Sucsses|ch_t1_100|n=7|first=1st_Client'sHouse:68|last=1st_Client'sHouse:74|ids=68-74|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Fail|ch_t1_100|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_sucsses|ch_t1_100|n=6|first=1st_Client'sHouse:79|last=1st_Client'sHouse:84|ids=79-84|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_Fail|ch_t1_100|n=3|first=1st_Client'sHouse:85|last=1st_Client'sHouse:87|ids=85-87|post=-
+1st_Client'sHouse|Aiden_key_Safe_Nothing|ch_t1_100|n=2|first=1st_Client'sHouse:88|last=1st_Client'sHouse:89|ids=88-89|post=-
+1st_Client'sHouse|Aiden_key_Fail1|ch_t1_100|n=1|first=1st_Client'sHouse:90|last=1st_Client'sHouse:90|ids=90|post=-
+1st_Client'sHouse|Aiden_key_Fail2|ch_t1_100|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_100|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_100|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_100|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_100|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_100|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_100|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Fail|ch_t1_100|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Sucsses|ch_t1_100|n=3|first=1st_Client'sHouse:24|last=1st_Client'sHouse:26|ids=24-26|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Fail|ch_t1_100|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_key_FailForce|ch_t1_100|n=1|first=1st_Client'sHouse:96|last=1st_Client'sHouse:96|ids=96|post=-
+1st_Client'sHouse|EllaEnd_NoSafe|ch_t1_100|n=5|first=1st_Client'sHouse:132|last=1st_Client'sHouse:136|ids=132-136|post=-
+1st_Client'sHouse|EllaEnd_GetSafe|ch_t1_100|n=8|first=1st_Client'sHouse:124|last=1st_Client'sHouse:131|ids=124-131|post=-
+1st_Client'sHouse|NoSuchTopic|ch_t1_100|n=0|first=-|last=-|ids=-|post=-
+1st_Client'sHouse|FirstArrive|ch_t1_010|n=1|first=1st_Client'sHouse:1|last=1st_Client'sHouse:1|ids=1|post=-
+1st_Client'sHouse|NockDoor|ch_t1_010|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_fistDialog|ch_t1_010|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_Dialog1|ch_t1_010|n=5|first=1st_Client'sHouse:132|last=1st_Client'sHouse:136|ids=132-136|post=+flag:ellaEndDialog
+1st_Client'sHouse|Ella_Dialog2|ch_t1_010|n=2|first=1st_Client'sHouse:11|last=1st_Client'sHouse:12|ids=11-12|post=-
+1st_Client'sHouse|Ella_FirstUpstair|ch_t1_010|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|into_FirstRoom|ch_t1_010|n=2|first=1st_Client'sHouse:14|last=1st_Client'sHouse:15|ids=14-15|post=-
+1st_Client'sHouse|Aiden_FirstDialog|ch_t1_010|n=13|first=1st_Client'sHouse:27|last=1st_Client'sHouse:39|ids=27-39|post=-
+1st_Client'sHouse|Aiden_Active|ch_t1_010|n=1|first=1st_Client'sHouse:148|last=1st_Client'sHouse:148|ids=148|post=-
+1st_Client'sHouse|Aiden_Look|ch_t1_010|n=6|first=1st_Client'sHouse:18|last=1st_Client'sHouse:23|ids=18-23|post=-
+1st_Client'sHouse|Aiden_LookJudge|ch_t1_010|n=0|first=-|last=-|ids=-|post=-|EX=UnassignedReferenceException
+1st_Client'sHouse|Aiden_Dialog1|ch_t1_010|n=2|first=1st_Client'sHouse:40|last=1st_Client'sHouse:41|ids=40-41|post=-
+1st_Client'sHouse|Aiden_Dialog2|ch_t1_010|n=2|first=1st_Client'sHouse:42|last=1st_Client'sHouse:43|ids=42-43|post=-
+1st_Client'sHouse|Aiden_key_Nightmare1|ch_t1_010|n=11|first=1st_Client'sHouse:44|last=1st_Client'sHouse:54|ids=44-54|post=-
+1st_Client'sHouse|Aiden_key_EllaTriss1|ch_t1_010|n=7|first=1st_Client'sHouse:55|last=1st_Client'sHouse:61|ids=55-61|post=-
+1st_Client'sHouse|Aiden_key_Safe1|ch_t1_010|n=4|first=1st_Client'sHouse:62|last=1st_Client'sHouse:65|ids=62-65|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str|ch_t1_010|n=2|first=1st_Client'sHouse:66|last=1st_Client'sHouse:67|ids=66-67|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Sucsses|ch_t1_010|n=7|first=1st_Client'sHouse:68|last=1st_Client'sHouse:74|ids=68-74|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Fail|ch_t1_010|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_sucsses|ch_t1_010|n=6|first=1st_Client'sHouse:79|last=1st_Client'sHouse:84|ids=79-84|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_Fail|ch_t1_010|n=3|first=1st_Client'sHouse:85|last=1st_Client'sHouse:87|ids=85-87|post=-
+1st_Client'sHouse|Aiden_key_Safe_Nothing|ch_t1_010|n=2|first=1st_Client'sHouse:88|last=1st_Client'sHouse:89|ids=88-89|post=-
+1st_Client'sHouse|Aiden_key_Fail1|ch_t1_010|n=1|first=1st_Client'sHouse:90|last=1st_Client'sHouse:90|ids=90|post=-
+1st_Client'sHouse|Aiden_key_Fail2|ch_t1_010|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_010|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_010|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_010|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_010|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_010|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_010|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Fail|ch_t1_010|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Sucsses|ch_t1_010|n=3|first=1st_Client'sHouse:24|last=1st_Client'sHouse:26|ids=24-26|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Fail|ch_t1_010|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_key_FailForce|ch_t1_010|n=1|first=1st_Client'sHouse:96|last=1st_Client'sHouse:96|ids=96|post=-
+1st_Client'sHouse|EllaEnd_NoSafe|ch_t1_010|n=5|first=1st_Client'sHouse:132|last=1st_Client'sHouse:136|ids=132-136|post=-
+1st_Client'sHouse|EllaEnd_GetSafe|ch_t1_010|n=8|first=1st_Client'sHouse:124|last=1st_Client'sHouse:131|ids=124-131|post=-
+1st_Client'sHouse|NoSuchTopic|ch_t1_010|n=0|first=-|last=-|ids=-|post=-
+1st_Client'sHouse|FirstArrive|ch_t1_110|n=1|first=1st_Client'sHouse:1|last=1st_Client'sHouse:1|ids=1|post=-
+1st_Client'sHouse|NockDoor|ch_t1_110|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_fistDialog|ch_t1_110|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_Dialog1|ch_t1_110|n=1|first=1st_Client'sHouse:10|last=1st_Client'sHouse:10|ids=10|post=-
+1st_Client'sHouse|Ella_Dialog2|ch_t1_110|n=2|first=1st_Client'sHouse:11|last=1st_Client'sHouse:12|ids=11-12|post=-
+1st_Client'sHouse|Ella_FirstUpstair|ch_t1_110|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|into_FirstRoom|ch_t1_110|n=2|first=1st_Client'sHouse:14|last=1st_Client'sHouse:15|ids=14-15|post=-
+1st_Client'sHouse|Aiden_FirstDialog|ch_t1_110|n=13|first=1st_Client'sHouse:27|last=1st_Client'sHouse:39|ids=27-39|post=-
+1st_Client'sHouse|Aiden_Active|ch_t1_110|n=1|first=1st_Client'sHouse:148|last=1st_Client'sHouse:148|ids=148|post=-
+1st_Client'sHouse|Aiden_Look|ch_t1_110|n=6|first=1st_Client'sHouse:18|last=1st_Client'sHouse:23|ids=18-23|post=-
+1st_Client'sHouse|Aiden_LookJudge|ch_t1_110|n=0|first=-|last=-|ids=-|post=-|EX=UnassignedReferenceException
+1st_Client'sHouse|Aiden_Dialog1|ch_t1_110|n=2|first=1st_Client'sHouse:40|last=1st_Client'sHouse:41|ids=40-41|post=-
+1st_Client'sHouse|Aiden_Dialog2|ch_t1_110|n=2|first=1st_Client'sHouse:42|last=1st_Client'sHouse:43|ids=42-43|post=-
+1st_Client'sHouse|Aiden_key_Nightmare1|ch_t1_110|n=11|first=1st_Client'sHouse:44|last=1st_Client'sHouse:54|ids=44-54|post=-
+1st_Client'sHouse|Aiden_key_EllaTriss1|ch_t1_110|n=7|first=1st_Client'sHouse:55|last=1st_Client'sHouse:61|ids=55-61|post=-
+1st_Client'sHouse|Aiden_key_Safe1|ch_t1_110|n=4|first=1st_Client'sHouse:62|last=1st_Client'sHouse:65|ids=62-65|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str|ch_t1_110|n=2|first=1st_Client'sHouse:66|last=1st_Client'sHouse:67|ids=66-67|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Sucsses|ch_t1_110|n=7|first=1st_Client'sHouse:68|last=1st_Client'sHouse:74|ids=68-74|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Fail|ch_t1_110|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_sucsses|ch_t1_110|n=6|first=1st_Client'sHouse:79|last=1st_Client'sHouse:84|ids=79-84|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_Fail|ch_t1_110|n=3|first=1st_Client'sHouse:85|last=1st_Client'sHouse:87|ids=85-87|post=-
+1st_Client'sHouse|Aiden_key_Safe_Nothing|ch_t1_110|n=2|first=1st_Client'sHouse:88|last=1st_Client'sHouse:89|ids=88-89|post=-
+1st_Client'sHouse|Aiden_key_Fail1|ch_t1_110|n=1|first=1st_Client'sHouse:90|last=1st_Client'sHouse:90|ids=90|post=-
+1st_Client'sHouse|Aiden_key_Fail2|ch_t1_110|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_110|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_110|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_110|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_110|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_110|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_110|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Fail|ch_t1_110|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Sucsses|ch_t1_110|n=3|first=1st_Client'sHouse:24|last=1st_Client'sHouse:26|ids=24-26|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Fail|ch_t1_110|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_key_FailForce|ch_t1_110|n=1|first=1st_Client'sHouse:96|last=1st_Client'sHouse:96|ids=96|post=-
+1st_Client'sHouse|EllaEnd_NoSafe|ch_t1_110|n=5|first=1st_Client'sHouse:132|last=1st_Client'sHouse:136|ids=132-136|post=-
+1st_Client'sHouse|EllaEnd_GetSafe|ch_t1_110|n=8|first=1st_Client'sHouse:124|last=1st_Client'sHouse:131|ids=124-131|post=-
+1st_Client'sHouse|NoSuchTopic|ch_t1_110|n=0|first=-|last=-|ids=-|post=-
+1st_Client'sHouse|FirstArrive|ch_t1_001|n=1|first=1st_Client'sHouse:1|last=1st_Client'sHouse:1|ids=1|post=-
+1st_Client'sHouse|NockDoor|ch_t1_001|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_fistDialog|ch_t1_001|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_Dialog1|ch_t1_001|n=1|first=1st_Client'sHouse:10|last=1st_Client'sHouse:10|ids=10|post=-
+1st_Client'sHouse|Ella_Dialog2|ch_t1_001|n=2|first=1st_Client'sHouse:11|last=1st_Client'sHouse:12|ids=11-12|post=-
+1st_Client'sHouse|Ella_FirstUpstair|ch_t1_001|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|into_FirstRoom|ch_t1_001|n=2|first=1st_Client'sHouse:14|last=1st_Client'sHouse:15|ids=14-15|post=-
+1st_Client'sHouse|Aiden_FirstDialog|ch_t1_001|n=13|first=1st_Client'sHouse:27|last=1st_Client'sHouse:39|ids=27-39|post=+flag:aidenFirstDialog
+1st_Client'sHouse|Aiden_Active|ch_t1_001|n=1|first=1st_Client'sHouse:148|last=1st_Client'sHouse:148|ids=148|post=-
+1st_Client'sHouse|Aiden_Look|ch_t1_001|n=6|first=1st_Client'sHouse:18|last=1st_Client'sHouse:23|ids=18-23|post=-
+1st_Client'sHouse|Aiden_LookJudge|ch_t1_001|n=0|first=-|last=-|ids=-|post=-|EX=UnassignedReferenceException
+1st_Client'sHouse|Aiden_Dialog1|ch_t1_001|n=2|first=1st_Client'sHouse:40|last=1st_Client'sHouse:41|ids=40-41|post=-
+1st_Client'sHouse|Aiden_Dialog2|ch_t1_001|n=2|first=1st_Client'sHouse:42|last=1st_Client'sHouse:43|ids=42-43|post=-
+1st_Client'sHouse|Aiden_key_Nightmare1|ch_t1_001|n=11|first=1st_Client'sHouse:44|last=1st_Client'sHouse:54|ids=44-54|post=-
+1st_Client'sHouse|Aiden_key_EllaTriss1|ch_t1_001|n=7|first=1st_Client'sHouse:55|last=1st_Client'sHouse:61|ids=55-61|post=-
+1st_Client'sHouse|Aiden_key_Safe1|ch_t1_001|n=4|first=1st_Client'sHouse:62|last=1st_Client'sHouse:65|ids=62-65|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str|ch_t1_001|n=2|first=1st_Client'sHouse:66|last=1st_Client'sHouse:67|ids=66-67|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Sucsses|ch_t1_001|n=7|first=1st_Client'sHouse:68|last=1st_Client'sHouse:74|ids=68-74|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Fail|ch_t1_001|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_sucsses|ch_t1_001|n=6|first=1st_Client'sHouse:79|last=1st_Client'sHouse:84|ids=79-84|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_Fail|ch_t1_001|n=3|first=1st_Client'sHouse:85|last=1st_Client'sHouse:87|ids=85-87|post=-
+1st_Client'sHouse|Aiden_key_Safe_Nothing|ch_t1_001|n=2|first=1st_Client'sHouse:88|last=1st_Client'sHouse:89|ids=88-89|post=-
+1st_Client'sHouse|Aiden_key_Fail1|ch_t1_001|n=1|first=1st_Client'sHouse:90|last=1st_Client'sHouse:90|ids=90|post=-
+1st_Client'sHouse|Aiden_key_Fail2|ch_t1_001|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_001|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_001|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_001|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_001|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_001|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_001|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Fail|ch_t1_001|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Sucsses|ch_t1_001|n=3|first=1st_Client'sHouse:24|last=1st_Client'sHouse:26|ids=24-26|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Fail|ch_t1_001|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_key_FailForce|ch_t1_001|n=1|first=1st_Client'sHouse:96|last=1st_Client'sHouse:96|ids=96|post=-
+1st_Client'sHouse|EllaEnd_NoSafe|ch_t1_001|n=5|first=1st_Client'sHouse:132|last=1st_Client'sHouse:136|ids=132-136|post=-
+1st_Client'sHouse|EllaEnd_GetSafe|ch_t1_001|n=8|first=1st_Client'sHouse:124|last=1st_Client'sHouse:131|ids=124-131|post=-
+1st_Client'sHouse|NoSuchTopic|ch_t1_001|n=0|first=-|last=-|ids=-|post=-
+1st_Client'sHouse|FirstArrive|ch_t1_101|n=1|first=1st_Client'sHouse:1|last=1st_Client'sHouse:1|ids=1|post=-
+1st_Client'sHouse|NockDoor|ch_t1_101|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_fistDialog|ch_t1_101|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_Dialog1|ch_t1_101|n=1|first=1st_Client'sHouse:10|last=1st_Client'sHouse:10|ids=10|post=-
+1st_Client'sHouse|Ella_Dialog2|ch_t1_101|n=2|first=1st_Client'sHouse:11|last=1st_Client'sHouse:12|ids=11-12|post=-
+1st_Client'sHouse|Ella_FirstUpstair|ch_t1_101|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|into_FirstRoom|ch_t1_101|n=2|first=1st_Client'sHouse:14|last=1st_Client'sHouse:15|ids=14-15|post=-
+1st_Client'sHouse|Aiden_FirstDialog|ch_t1_101|n=13|first=1st_Client'sHouse:27|last=1st_Client'sHouse:39|ids=27-39|post=+flag:aidenFirstDialog
+1st_Client'sHouse|Aiden_Active|ch_t1_101|n=1|first=1st_Client'sHouse:148|last=1st_Client'sHouse:148|ids=148|post=-
+1st_Client'sHouse|Aiden_Look|ch_t1_101|n=6|first=1st_Client'sHouse:18|last=1st_Client'sHouse:23|ids=18-23|post=-
+1st_Client'sHouse|Aiden_LookJudge|ch_t1_101|n=0|first=-|last=-|ids=-|post=-|EX=UnassignedReferenceException
+1st_Client'sHouse|Aiden_Dialog1|ch_t1_101|n=2|first=1st_Client'sHouse:40|last=1st_Client'sHouse:41|ids=40-41|post=-
+1st_Client'sHouse|Aiden_Dialog2|ch_t1_101|n=2|first=1st_Client'sHouse:42|last=1st_Client'sHouse:43|ids=42-43|post=-
+1st_Client'sHouse|Aiden_key_Nightmare1|ch_t1_101|n=11|first=1st_Client'sHouse:44|last=1st_Client'sHouse:54|ids=44-54|post=-
+1st_Client'sHouse|Aiden_key_EllaTriss1|ch_t1_101|n=7|first=1st_Client'sHouse:55|last=1st_Client'sHouse:61|ids=55-61|post=-
+1st_Client'sHouse|Aiden_key_Safe1|ch_t1_101|n=4|first=1st_Client'sHouse:62|last=1st_Client'sHouse:65|ids=62-65|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str|ch_t1_101|n=2|first=1st_Client'sHouse:66|last=1st_Client'sHouse:67|ids=66-67|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Sucsses|ch_t1_101|n=7|first=1st_Client'sHouse:68|last=1st_Client'sHouse:74|ids=68-74|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Fail|ch_t1_101|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_sucsses|ch_t1_101|n=6|first=1st_Client'sHouse:79|last=1st_Client'sHouse:84|ids=79-84|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_Fail|ch_t1_101|n=3|first=1st_Client'sHouse:85|last=1st_Client'sHouse:87|ids=85-87|post=-
+1st_Client'sHouse|Aiden_key_Safe_Nothing|ch_t1_101|n=2|first=1st_Client'sHouse:88|last=1st_Client'sHouse:89|ids=88-89|post=-
+1st_Client'sHouse|Aiden_key_Fail1|ch_t1_101|n=1|first=1st_Client'sHouse:90|last=1st_Client'sHouse:90|ids=90|post=-
+1st_Client'sHouse|Aiden_key_Fail2|ch_t1_101|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_101|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_101|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_101|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_101|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_101|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_101|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Fail|ch_t1_101|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Sucsses|ch_t1_101|n=3|first=1st_Client'sHouse:24|last=1st_Client'sHouse:26|ids=24-26|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Fail|ch_t1_101|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_key_FailForce|ch_t1_101|n=1|first=1st_Client'sHouse:96|last=1st_Client'sHouse:96|ids=96|post=-
+1st_Client'sHouse|EllaEnd_NoSafe|ch_t1_101|n=5|first=1st_Client'sHouse:132|last=1st_Client'sHouse:136|ids=132-136|post=-
+1st_Client'sHouse|EllaEnd_GetSafe|ch_t1_101|n=8|first=1st_Client'sHouse:124|last=1st_Client'sHouse:131|ids=124-131|post=-
+1st_Client'sHouse|NoSuchTopic|ch_t1_101|n=0|first=-|last=-|ids=-|post=-
+1st_Client'sHouse|FirstArrive|ch_t1_011|n=1|first=1st_Client'sHouse:1|last=1st_Client'sHouse:1|ids=1|post=-
+1st_Client'sHouse|NockDoor|ch_t1_011|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_fistDialog|ch_t1_011|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_Dialog1|ch_t1_011|n=8|first=1st_Client'sHouse:124|last=1st_Client'sHouse:131|ids=124-131|post=+flag:ellaEndDialog
+1st_Client'sHouse|Ella_Dialog2|ch_t1_011|n=2|first=1st_Client'sHouse:11|last=1st_Client'sHouse:12|ids=11-12|post=-
+1st_Client'sHouse|Ella_FirstUpstair|ch_t1_011|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|into_FirstRoom|ch_t1_011|n=2|first=1st_Client'sHouse:14|last=1st_Client'sHouse:15|ids=14-15|post=-
+1st_Client'sHouse|Aiden_FirstDialog|ch_t1_011|n=13|first=1st_Client'sHouse:27|last=1st_Client'sHouse:39|ids=27-39|post=-
+1st_Client'sHouse|Aiden_Active|ch_t1_011|n=1|first=1st_Client'sHouse:148|last=1st_Client'sHouse:148|ids=148|post=-
+1st_Client'sHouse|Aiden_Look|ch_t1_011|n=6|first=1st_Client'sHouse:18|last=1st_Client'sHouse:23|ids=18-23|post=-
+1st_Client'sHouse|Aiden_LookJudge|ch_t1_011|n=0|first=-|last=-|ids=-|post=-|EX=UnassignedReferenceException
+1st_Client'sHouse|Aiden_Dialog1|ch_t1_011|n=2|first=1st_Client'sHouse:40|last=1st_Client'sHouse:41|ids=40-41|post=-
+1st_Client'sHouse|Aiden_Dialog2|ch_t1_011|n=2|first=1st_Client'sHouse:42|last=1st_Client'sHouse:43|ids=42-43|post=-
+1st_Client'sHouse|Aiden_key_Nightmare1|ch_t1_011|n=11|first=1st_Client'sHouse:44|last=1st_Client'sHouse:54|ids=44-54|post=-
+1st_Client'sHouse|Aiden_key_EllaTriss1|ch_t1_011|n=7|first=1st_Client'sHouse:55|last=1st_Client'sHouse:61|ids=55-61|post=-
+1st_Client'sHouse|Aiden_key_Safe1|ch_t1_011|n=4|first=1st_Client'sHouse:62|last=1st_Client'sHouse:65|ids=62-65|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str|ch_t1_011|n=2|first=1st_Client'sHouse:66|last=1st_Client'sHouse:67|ids=66-67|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Sucsses|ch_t1_011|n=7|first=1st_Client'sHouse:68|last=1st_Client'sHouse:74|ids=68-74|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Fail|ch_t1_011|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_sucsses|ch_t1_011|n=6|first=1st_Client'sHouse:79|last=1st_Client'sHouse:84|ids=79-84|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_Fail|ch_t1_011|n=3|first=1st_Client'sHouse:85|last=1st_Client'sHouse:87|ids=85-87|post=-
+1st_Client'sHouse|Aiden_key_Safe_Nothing|ch_t1_011|n=2|first=1st_Client'sHouse:88|last=1st_Client'sHouse:89|ids=88-89|post=-
+1st_Client'sHouse|Aiden_key_Fail1|ch_t1_011|n=1|first=1st_Client'sHouse:90|last=1st_Client'sHouse:90|ids=90|post=-
+1st_Client'sHouse|Aiden_key_Fail2|ch_t1_011|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_011|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_011|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_011|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_011|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_011|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_011|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Fail|ch_t1_011|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Sucsses|ch_t1_011|n=3|first=1st_Client'sHouse:24|last=1st_Client'sHouse:26|ids=24-26|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Fail|ch_t1_011|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_key_FailForce|ch_t1_011|n=1|first=1st_Client'sHouse:96|last=1st_Client'sHouse:96|ids=96|post=-
+1st_Client'sHouse|EllaEnd_NoSafe|ch_t1_011|n=5|first=1st_Client'sHouse:132|last=1st_Client'sHouse:136|ids=132-136|post=-
+1st_Client'sHouse|EllaEnd_GetSafe|ch_t1_011|n=8|first=1st_Client'sHouse:124|last=1st_Client'sHouse:131|ids=124-131|post=-
+1st_Client'sHouse|NoSuchTopic|ch_t1_011|n=0|first=-|last=-|ids=-|post=-
+1st_Client'sHouse|FirstArrive|ch_t1_111|n=1|first=1st_Client'sHouse:1|last=1st_Client'sHouse:1|ids=1|post=-
+1st_Client'sHouse|NockDoor|ch_t1_111|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_fistDialog|ch_t1_111|n=8|first=1st_Client'sHouse:2|last=1st_Client'sHouse:9|ids=2-9|post=-
+1st_Client'sHouse|Ella_Dialog1|ch_t1_111|n=1|first=1st_Client'sHouse:10|last=1st_Client'sHouse:10|ids=10|post=-
+1st_Client'sHouse|Ella_Dialog2|ch_t1_111|n=2|first=1st_Client'sHouse:11|last=1st_Client'sHouse:12|ids=11-12|post=-
+1st_Client'sHouse|Ella_FirstUpstair|ch_t1_111|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|into_FirstRoom|ch_t1_111|n=2|first=1st_Client'sHouse:14|last=1st_Client'sHouse:15|ids=14-15|post=-
+1st_Client'sHouse|Aiden_FirstDialog|ch_t1_111|n=13|first=1st_Client'sHouse:27|last=1st_Client'sHouse:39|ids=27-39|post=-
+1st_Client'sHouse|Aiden_Active|ch_t1_111|n=1|first=1st_Client'sHouse:148|last=1st_Client'sHouse:148|ids=148|post=-
+1st_Client'sHouse|Aiden_Look|ch_t1_111|n=6|first=1st_Client'sHouse:18|last=1st_Client'sHouse:23|ids=18-23|post=-
+1st_Client'sHouse|Aiden_LookJudge|ch_t1_111|n=0|first=-|last=-|ids=-|post=-|EX=UnassignedReferenceException
+1st_Client'sHouse|Aiden_Dialog1|ch_t1_111|n=2|first=1st_Client'sHouse:40|last=1st_Client'sHouse:41|ids=40-41|post=-
+1st_Client'sHouse|Aiden_Dialog2|ch_t1_111|n=2|first=1st_Client'sHouse:42|last=1st_Client'sHouse:43|ids=42-43|post=-
+1st_Client'sHouse|Aiden_key_Nightmare1|ch_t1_111|n=11|first=1st_Client'sHouse:44|last=1st_Client'sHouse:54|ids=44-54|post=-
+1st_Client'sHouse|Aiden_key_EllaTriss1|ch_t1_111|n=7|first=1st_Client'sHouse:55|last=1st_Client'sHouse:61|ids=55-61|post=-
+1st_Client'sHouse|Aiden_key_Safe1|ch_t1_111|n=4|first=1st_Client'sHouse:62|last=1st_Client'sHouse:65|ids=62-65|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str|ch_t1_111|n=2|first=1st_Client'sHouse:66|last=1st_Client'sHouse:67|ids=66-67|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Sucsses|ch_t1_111|n=7|first=1st_Client'sHouse:68|last=1st_Client'sHouse:74|ids=68-74|post=-
+1st_Client'sHouse|Aiden_key_Safe_Str_Fail|ch_t1_111|n=1|first=1st_Client'sHouse:13|last=1st_Client'sHouse:13|ids=13|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_sucsses|ch_t1_111|n=6|first=1st_Client'sHouse:79|last=1st_Client'sHouse:84|ids=79-84|post=-
+1st_Client'sHouse|Aiden_key_Safe_rhetoric_Fail|ch_t1_111|n=3|first=1st_Client'sHouse:85|last=1st_Client'sHouse:87|ids=85-87|post=-
+1st_Client'sHouse|Aiden_key_Safe_Nothing|ch_t1_111|n=2|first=1st_Client'sHouse:88|last=1st_Client'sHouse:89|ids=88-89|post=-
+1st_Client'sHouse|Aiden_key_Fail1|ch_t1_111|n=1|first=1st_Client'sHouse:90|last=1st_Client'sHouse:90|ids=90|post=-
+1st_Client'sHouse|Aiden_key_Fail2|ch_t1_111|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_111|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
+1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_111|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_111|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_111|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_111|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_111|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Fail|ch_t1_111|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Sucsses|ch_t1_111|n=3|first=1st_Client'sHouse:24|last=1st_Client'sHouse:26|ids=24-26|post=-
+1st_Client'sHouse|Aiden_Judge_Observation_Fail|ch_t1_111|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
+1st_Client'sHouse|Aiden_key_FailForce|ch_t1_111|n=1|first=1st_Client'sHouse:96|last=1st_Client'sHouse:96|ids=96|post=-
+1st_Client'sHouse|EllaEnd_NoSafe|ch_t1_111|n=5|first=1st_Client'sHouse:132|last=1st_Client'sHouse:136|ids=132-136|post=-
+1st_Client'sHouse|EllaEnd_GetSafe|ch_t1_111|n=8|first=1st_Client'sHouse:124|last=1st_Client'sHouse:131|ids=124-131|post=-
+1st_Client'sHouse|NoSuchTopic|ch_t1_111|n=0|first=-|last=-|ids=-|post=-
+1st_DailyNews|Swain_FirstDialog|dn_t5_0|n=12|first=1st_DailyNews:1|last=1st_DailyNews:12|ids=1-12|post=+flag:aidenFirstDialog
+1st_DailyNews|Swain_Look|dn_t5_0|n=1|first=1st_DailyNews:14|last=1st_DailyNews:14|ids=14|post=-
+1st_DailyNews|Swain_LookJudge_Sucsses|dn_t5_0|n=2|first=1st_DailyNews:15|last=1st_DailyNews:16|ids=15-16|post=-
+1st_DailyNews|Swain_LookJudge_Fail|dn_t5_0|n=1|first=1st_DailyNews:17|last=1st_DailyNews:17|ids=17|post=-
+1st_DailyNews|Swain_Key_PlanetarySequence1|dn_t5_0|n=6|first=1st_DailyNews:18|last=1st_DailyNews:23|ids=18-23|post=-
+1st_DailyNews|Swain_Key_Insomnia1|dn_t5_0|n=4|first=1st_DailyNews:24|last=1st_DailyNews:27|ids=24-27|post=-
+1st_DailyNews|Swain_Key_Nightmare2|dn_t5_0|n=1|first=1st_DailyNews:28|last=1st_DailyNews:28|ids=28|post=-
+1st_DailyNews|Swain_Key_Paranoia1|dn_t5_0|n=3|first=1st_DailyNews:29|last=1st_DailyNews:31|ids=29-31|post=-
+1st_DailyNews|Swain_Key_EllaTriss1|dn_t5_0|n=4|first=1st_DailyNews:32|last=1st_DailyNews:35|ids=32-35|post=-
+1st_DailyNews|Swain_Key_AidenTriss1|dn_t5_0|n=6|first=1st_DailyNews:36|last=1st_DailyNews:41|ids=36-41|post=-
+1st_DailyNews|Swain_Key_DailyNews1|dn_t5_0|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-68|post=-
+1st_DailyNews|Swain_Key_Nothing|dn_t5_0|n=1|first=1st_DailyNews:69|last=1st_DailyNews:69|ids=69|post=-
+1st_DailyNews|Journalist_FirstDialog|dn_t5_0|n=6|first=1st_DailyNews:225|last=1st_DailyNews:230|ids=225-230|post=-
+1st_DailyNews|NoSuchTopic|dn_t5_0|n=0|first=-|last=-|ids=-|post=-
+1st_DailyNews|Swain_FirstDialog|dn_t5_1|n=1|first=1st_DailyNews:13|last=1st_DailyNews:13|ids=13|post=-
+1st_DailyNews|Swain_Look|dn_t5_1|n=1|first=1st_DailyNews:14|last=1st_DailyNews:14|ids=14|post=-
+1st_DailyNews|Swain_LookJudge_Sucsses|dn_t5_1|n=2|first=1st_DailyNews:15|last=1st_DailyNews:16|ids=15-16|post=-
+1st_DailyNews|Swain_LookJudge_Fail|dn_t5_1|n=1|first=1st_DailyNews:17|last=1st_DailyNews:17|ids=17|post=-
+1st_DailyNews|Swain_Key_PlanetarySequence1|dn_t5_1|n=6|first=1st_DailyNews:18|last=1st_DailyNews:23|ids=18-23|post=-
+1st_DailyNews|Swain_Key_Insomnia1|dn_t5_1|n=4|first=1st_DailyNews:24|last=1st_DailyNews:27|ids=24-27|post=-
+1st_DailyNews|Swain_Key_Nightmare2|dn_t5_1|n=1|first=1st_DailyNews:28|last=1st_DailyNews:28|ids=28|post=-
+1st_DailyNews|Swain_Key_Paranoia1|dn_t5_1|n=3|first=1st_DailyNews:29|last=1st_DailyNews:31|ids=29-31|post=-
+1st_DailyNews|Swain_Key_EllaTriss1|dn_t5_1|n=4|first=1st_DailyNews:32|last=1st_DailyNews:35|ids=32-35|post=-
+1st_DailyNews|Swain_Key_AidenTriss1|dn_t5_1|n=6|first=1st_DailyNews:36|last=1st_DailyNews:41|ids=36-41|post=-
+1st_DailyNews|Swain_Key_DailyNews1|dn_t5_1|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-68|post=-
+1st_DailyNews|Swain_Key_Nothing|dn_t5_1|n=1|first=1st_DailyNews:69|last=1st_DailyNews:69|ids=69|post=-
+1st_DailyNews|Journalist_FirstDialog|dn_t5_1|n=6|first=1st_DailyNews:225|last=1st_DailyNews:230|ids=225-230|post=-
+1st_DailyNews|NoSuchTopic|dn_t5_1|n=0|first=-|last=-|ids=-|post=-
+1st_DailyNews|Swain_FirstDialog|dn_t6_0|n=11|first=1st_DailyNews:124|last=1st_DailyNews:134|ids=124-134|post=+flag:aidenFirstDialog
+1st_DailyNews|Swain_Look|dn_t6_0|n=1|first=1st_DailyNews:14|last=1st_DailyNews:14|ids=14|post=-
+1st_DailyNews|Swain_LookJudge_Sucsses|dn_t6_0|n=2|first=1st_DailyNews:15|last=1st_DailyNews:16|ids=15-16|post=-
+1st_DailyNews|Swain_LookJudge_Fail|dn_t6_0|n=1|first=1st_DailyNews:17|last=1st_DailyNews:17|ids=17|post=-
+1st_DailyNews|Swain_Key_PlanetarySequence1|dn_t6_0|n=6|first=1st_DailyNews:18|last=1st_DailyNews:23|ids=18-23|post=-
+1st_DailyNews|Swain_Key_Insomnia1|dn_t6_0|n=4|first=1st_DailyNews:24|last=1st_DailyNews:27|ids=24-27|post=-
+1st_DailyNews|Swain_Key_Nightmare2|dn_t6_0|n=1|first=1st_DailyNews:28|last=1st_DailyNews:28|ids=28|post=-
+1st_DailyNews|Swain_Key_Paranoia1|dn_t6_0|n=3|first=1st_DailyNews:29|last=1st_DailyNews:31|ids=29-31|post=-
+1st_DailyNews|Swain_Key_EllaTriss1|dn_t6_0|n=4|first=1st_DailyNews:32|last=1st_DailyNews:35|ids=32-35|post=-
+1st_DailyNews|Swain_Key_AidenTriss1|dn_t6_0|n=6|first=1st_DailyNews:36|last=1st_DailyNews:41|ids=36-41|post=-
+1st_DailyNews|Swain_Key_DailyNews1|dn_t6_0|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-68|post=-
+1st_DailyNews|Swain_Key_Nothing|dn_t6_0|n=1|first=1st_DailyNews:69|last=1st_DailyNews:69|ids=69|post=-
+1st_DailyNews|Journalist_FirstDialog|dn_t6_0|n=6|first=1st_DailyNews:225|last=1st_DailyNews:230|ids=225-230|post=-
+1st_DailyNews|NoSuchTopic|dn_t6_0|n=0|first=-|last=-|ids=-|post=-
+1st_DailyNews|Swain_FirstDialog|dn_t6_1|n=1|first=1st_DailyNews:13|last=1st_DailyNews:13|ids=13|post=-
+1st_DailyNews|Swain_Look|dn_t6_1|n=1|first=1st_DailyNews:14|last=1st_DailyNews:14|ids=14|post=-
+1st_DailyNews|Swain_LookJudge_Sucsses|dn_t6_1|n=2|first=1st_DailyNews:15|last=1st_DailyNews:16|ids=15-16|post=-
+1st_DailyNews|Swain_LookJudge_Fail|dn_t6_1|n=1|first=1st_DailyNews:17|last=1st_DailyNews:17|ids=17|post=-
+1st_DailyNews|Swain_Key_PlanetarySequence1|dn_t6_1|n=6|first=1st_DailyNews:18|last=1st_DailyNews:23|ids=18-23|post=-
+1st_DailyNews|Swain_Key_Insomnia1|dn_t6_1|n=4|first=1st_DailyNews:24|last=1st_DailyNews:27|ids=24-27|post=-
+1st_DailyNews|Swain_Key_Nightmare2|dn_t6_1|n=1|first=1st_DailyNews:28|last=1st_DailyNews:28|ids=28|post=-
+1st_DailyNews|Swain_Key_Paranoia1|dn_t6_1|n=3|first=1st_DailyNews:29|last=1st_DailyNews:31|ids=29-31|post=-
+1st_DailyNews|Swain_Key_EllaTriss1|dn_t6_1|n=4|first=1st_DailyNews:32|last=1st_DailyNews:35|ids=32-35|post=-
+1st_DailyNews|Swain_Key_AidenTriss1|dn_t6_1|n=6|first=1st_DailyNews:36|last=1st_DailyNews:41|ids=36-41|post=-
+1st_DailyNews|Swain_Key_DailyNews1|dn_t6_1|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-68|post=-
+1st_DailyNews|Swain_Key_Nothing|dn_t6_1|n=1|first=1st_DailyNews:69|last=1st_DailyNews:69|ids=69|post=-
+1st_DailyNews|Journalist_FirstDialog|dn_t6_1|n=6|first=1st_DailyNews:225|last=1st_DailyNews:230|ids=225-230|post=-
+1st_DailyNews|NoSuchTopic|dn_t6_1|n=0|first=-|last=-|ids=-|post=-
+1st_University|Univ_FirstDialog|un_t1_000|n=10|first=1st_University:1|last=1st_University:10|ids=1-10|post=+flag:univFirstDialog
+1st_University|Univ_Look|un_t1_000|n=1|first=1st_University:23|last=1st_University:23|ids=23|post=-
+1st_University|Univ_Key_PlanetarySequence1|un_t1_000|n=8|first=1st_University:12|last=1st_University:19|ids=12-19|post=-
+1st_University|Univ_Key_Insomnia1|un_t1_000|n=2|first=1st_University:20|last=1st_University:21|ids=20-21|post=-
+1st_University|Kane_FirstDialog|un_t1_000|n=5|first=1st_University:43|last=1st_University:47|ids=43-47|post=+flag:kaneFirstDialog
+1st_University|Kane_Look|un_t1_000|n=1|first=1st_University:52|last=1st_University:52|ids=52|post=-
+1st_University|NoSuchTopic|un_t1_000|n=0|first=-|last=-|ids=-|post=-
+1st_University|Univ_FirstDialog|un_t1_100|n=1|first=1st_University:11|last=1st_University:11|ids=11|post=-
+1st_University|Univ_Look|un_t1_100|n=1|first=1st_University:23|last=1st_University:23|ids=23|post=-
+1st_University|Univ_Key_PlanetarySequence1|un_t1_100|n=8|first=1st_University:12|last=1st_University:19|ids=12-19|post=-
+1st_University|Univ_Key_Insomnia1|un_t1_100|n=2|first=1st_University:20|last=1st_University:21|ids=20-21|post=-
+1st_University|Kane_FirstDialog|un_t1_100|n=5|first=1st_University:43|last=1st_University:47|ids=43-47|post=+flag:kaneFirstDialog
+1st_University|Kane_Look|un_t1_100|n=1|first=1st_University:52|last=1st_University:52|ids=52|post=-
+1st_University|NoSuchTopic|un_t1_100|n=0|first=-|last=-|ids=-|post=-
+1st_University|Univ_FirstDialog|un_t1_010|n=10|first=1st_University:1|last=1st_University:10|ids=1-10|post=+flag:univFirstDialog
+1st_University|Univ_Look|un_t1_010|n=1|first=1st_University:23|last=1st_University:23|ids=23|post=-
+1st_University|Univ_Key_PlanetarySequence1|un_t1_010|n=8|first=1st_University:12|last=1st_University:19|ids=12-19|post=-
+1st_University|Univ_Key_Insomnia1|un_t1_010|n=2|first=1st_University:20|last=1st_University:21|ids=20-21|post=-
+1st_University|Kane_FirstDialog|un_t1_010|n=1|first=1st_University:51|last=1st_University:51|ids=51|post=-
+1st_University|Kane_Look|un_t1_010|n=1|first=1st_University:52|last=1st_University:52|ids=52|post=-
+1st_University|NoSuchTopic|un_t1_010|n=0|first=-|last=-|ids=-|post=-
+1st_University|Univ_FirstDialog|un_t1_110|n=1|first=1st_University:11|last=1st_University:11|ids=11|post=-
+1st_University|Univ_Look|un_t1_110|n=1|first=1st_University:23|last=1st_University:23|ids=23|post=-
+1st_University|Univ_Key_PlanetarySequence1|un_t1_110|n=8|first=1st_University:12|last=1st_University:19|ids=12-19|post=-
+1st_University|Univ_Key_Insomnia1|un_t1_110|n=2|first=1st_University:20|last=1st_University:21|ids=20-21|post=-
+1st_University|Kane_FirstDialog|un_t1_110|n=1|first=1st_University:51|last=1st_University:51|ids=51|post=-
+1st_University|Kane_Look|un_t1_110|n=1|first=1st_University:52|last=1st_University:52|ids=52|post=-
+1st_University|NoSuchTopic|un_t1_110|n=0|first=-|last=-|ids=-|post=-
+1st_University|Univ_FirstDialog|un_t1_001|n=10|first=1st_University:1|last=1st_University:10|ids=1-10|post=+flag:univFirstDialog
+1st_University|Univ_Look|un_t1_001|n=1|first=1st_University:23|last=1st_University:23|ids=23|post=-
+1st_University|Univ_Key_PlanetarySequence1|un_t1_001|n=8|first=1st_University:12|last=1st_University:19|ids=12-19|post=-
+1st_University|Univ_Key_Insomnia1|un_t1_001|n=2|first=1st_University:20|last=1st_University:21|ids=20-21|post=-
+1st_University|Kane_FirstDialog|un_t1_001|n=3|first=1st_University:48|last=1st_University:50|ids=48-50|post=+flag:kaneFirstDialog
+1st_University|Kane_Look|un_t1_001|n=1|first=1st_University:52|last=1st_University:52|ids=52|post=-
+1st_University|NoSuchTopic|un_t1_001|n=0|first=-|last=-|ids=-|post=-
+1st_University|Univ_FirstDialog|un_t1_101|n=1|first=1st_University:11|last=1st_University:11|ids=11|post=-
+1st_University|Univ_Look|un_t1_101|n=1|first=1st_University:23|last=1st_University:23|ids=23|post=-
+1st_University|Univ_Key_PlanetarySequence1|un_t1_101|n=8|first=1st_University:12|last=1st_University:19|ids=12-19|post=-
+1st_University|Univ_Key_Insomnia1|un_t1_101|n=2|first=1st_University:20|last=1st_University:21|ids=20-21|post=-
+1st_University|Kane_FirstDialog|un_t1_101|n=3|first=1st_University:48|last=1st_University:50|ids=48-50|post=+flag:kaneFirstDialog
+1st_University|Kane_Look|un_t1_101|n=1|first=1st_University:52|last=1st_University:52|ids=52|post=-
+1st_University|NoSuchTopic|un_t1_101|n=0|first=-|last=-|ids=-|post=-
+1st_University|Univ_FirstDialog|un_t1_011|n=10|first=1st_University:1|last=1st_University:10|ids=1-10|post=+flag:univFirstDialog
+1st_University|Univ_Look|un_t1_011|n=1|first=1st_University:23|last=1st_University:23|ids=23|post=-
+1st_University|Univ_Key_PlanetarySequence1|un_t1_011|n=8|first=1st_University:12|last=1st_University:19|ids=12-19|post=-
+1st_University|Univ_Key_Insomnia1|un_t1_011|n=2|first=1st_University:20|last=1st_University:21|ids=20-21|post=-
+1st_University|Kane_FirstDialog|un_t1_011|n=1|first=1st_University:51|last=1st_University:51|ids=51|post=-
+1st_University|Kane_Look|un_t1_011|n=1|first=1st_University:52|last=1st_University:52|ids=52|post=-
+1st_University|NoSuchTopic|un_t1_011|n=0|first=-|last=-|ids=-|post=-
+1st_University|Univ_FirstDialog|un_t1_111|n=1|first=1st_University:11|last=1st_University:11|ids=11|post=-
+1st_University|Univ_Look|un_t1_111|n=1|first=1st_University:23|last=1st_University:23|ids=23|post=-
+1st_University|Univ_Key_PlanetarySequence1|un_t1_111|n=8|first=1st_University:12|last=1st_University:19|ids=12-19|post=-
+1st_University|Univ_Key_Insomnia1|un_t1_111|n=2|first=1st_University:20|last=1st_University:21|ids=20-21|post=-
+1st_University|Kane_FirstDialog|un_t1_111|n=1|first=1st_University:51|last=1st_University:51|ids=51|post=-
+1st_University|Kane_Look|un_t1_111|n=1|first=1st_University:52|last=1st_University:52|ids=52|post=-
+1st_University|NoSuchTopic|un_t1_111|n=0|first=-|last=-|ids=-|post=-
+1st_Riverside|Kane_FirstDialog|rv_t1_000|n=6|first=1st_Riverside:1|last=1st_Riverside:6|ids=1-6|post=+flag:kaneFirstDialog
+1st_Riverside|Kane_Look|rv_t1_000|n=3|first=1st_Riverside:8|last=1st_Riverside:10|ids=8-10|post=-
+1st_Riverside|Kane_Nothing|rv_t1_000|n=1|first=1st_Riverside:11|last=1st_Riverside:11|ids=11|post=-
+1st_Riverside|Sewer_FirstDialog|rv_t1_000|n=2|first=1st_Riverside:12|last=1st_Riverside:13|ids=12-13|post=+flag:sewerFirstDialog
+1st_Riverside|Sewer_Look|rv_t1_000|n=1|first=1st_Riverside:15|last=1st_Riverside:15|ids=15|post=-
+1st_Riverside|Sewer_Observation_SucssesAfter|rv_t1_000|n=2|first=1st_Riverside:24|last=1st_Riverside:25|ids=24-25|post=-
+1st_Riverside|Sewer_Observation_Sucsses|rv_t1_000|n=8|first=1st_Riverside:16|last=1st_Riverside:23|ids=16-23|post=-
+1st_Riverside|Sewer_Observation_Fail|rv_t1_000|n=1|first=1st_Riverside:26|last=1st_Riverside:26|ids=26|post=-
+1st_Riverside|Sewer_Observation_SucssesAfterSanSuc|rv_t1_000|n=2|first=1st_Riverside:27|last=1st_Riverside:28|ids=27-28|post=-
+1st_Riverside|NoSuchTopic|rv_t1_000|n=0|first=-|last=-|ids=-|post=-
+1st_Riverside|Kane_FirstDialog|rv_t1_100|n=1|first=1st_Riverside:7|last=1st_Riverside:7|ids=7|post=-
+1st_Riverside|Kane_Look|rv_t1_100|n=3|first=1st_Riverside:8|last=1st_Riverside:10|ids=8-10|post=-
+1st_Riverside|Kane_Nothing|rv_t1_100|n=1|first=1st_Riverside:11|last=1st_Riverside:11|ids=11|post=-
+1st_Riverside|Sewer_FirstDialog|rv_t1_100|n=2|first=1st_Riverside:12|last=1st_Riverside:13|ids=12-13|post=+flag:sewerFirstDialog
+1st_Riverside|Sewer_Look|rv_t1_100|n=1|first=1st_Riverside:15|last=1st_Riverside:15|ids=15|post=-
+1st_Riverside|Sewer_Observation_SucssesAfter|rv_t1_100|n=2|first=1st_Riverside:24|last=1st_Riverside:25|ids=24-25|post=-
+1st_Riverside|Sewer_Observation_Sucsses|rv_t1_100|n=8|first=1st_Riverside:16|last=1st_Riverside:23|ids=16-23|post=-
+1st_Riverside|Sewer_Observation_Fail|rv_t1_100|n=1|first=1st_Riverside:26|last=1st_Riverside:26|ids=26|post=-
+1st_Riverside|Sewer_Observation_SucssesAfterSanSuc|rv_t1_100|n=2|first=1st_Riverside:27|last=1st_Riverside:28|ids=27-28|post=-
+1st_Riverside|NoSuchTopic|rv_t1_100|n=0|first=-|last=-|ids=-|post=-
+1st_Riverside|Kane_FirstDialog|rv_t1_010|n=6|first=1st_Riverside:1|last=1st_Riverside:6|ids=1-6|post=+flag:kaneFirstDialog
+1st_Riverside|Kane_Look|rv_t1_010|n=3|first=1st_Riverside:8|last=1st_Riverside:10|ids=8-10|post=-
+1st_Riverside|Kane_Nothing|rv_t1_010|n=1|first=1st_Riverside:11|last=1st_Riverside:11|ids=11|post=-
+1st_Riverside|Sewer_FirstDialog|rv_t1_010|n=1|first=1st_Riverside:14|last=1st_Riverside:14|ids=14|post=-
+1st_Riverside|Sewer_Look|rv_t1_010|n=1|first=1st_Riverside:15|last=1st_Riverside:15|ids=15|post=-
+1st_Riverside|Sewer_Observation_SucssesAfter|rv_t1_010|n=2|first=1st_Riverside:24|last=1st_Riverside:25|ids=24-25|post=-
+1st_Riverside|Sewer_Observation_Sucsses|rv_t1_010|n=8|first=1st_Riverside:16|last=1st_Riverside:23|ids=16-23|post=-
+1st_Riverside|Sewer_Observation_Fail|rv_t1_010|n=1|first=1st_Riverside:26|last=1st_Riverside:26|ids=26|post=-
+1st_Riverside|Sewer_Observation_SucssesAfterSanSuc|rv_t1_010|n=2|first=1st_Riverside:27|last=1st_Riverside:28|ids=27-28|post=-
+1st_Riverside|NoSuchTopic|rv_t1_010|n=0|first=-|last=-|ids=-|post=-
+1st_Riverside|Kane_FirstDialog|rv_t1_110|n=1|first=1st_Riverside:7|last=1st_Riverside:7|ids=7|post=-
+1st_Riverside|Kane_Look|rv_t1_110|n=3|first=1st_Riverside:8|last=1st_Riverside:10|ids=8-10|post=-
+1st_Riverside|Kane_Nothing|rv_t1_110|n=1|first=1st_Riverside:11|last=1st_Riverside:11|ids=11|post=-
+1st_Riverside|Sewer_FirstDialog|rv_t1_110|n=1|first=1st_Riverside:14|last=1st_Riverside:14|ids=14|post=-
+1st_Riverside|Sewer_Look|rv_t1_110|n=1|first=1st_Riverside:15|last=1st_Riverside:15|ids=15|post=-
+1st_Riverside|Sewer_Observation_SucssesAfter|rv_t1_110|n=2|first=1st_Riverside:24|last=1st_Riverside:25|ids=24-25|post=-
+1st_Riverside|Sewer_Observation_Sucsses|rv_t1_110|n=8|first=1st_Riverside:16|last=1st_Riverside:23|ids=16-23|post=-
+1st_Riverside|Sewer_Observation_Fail|rv_t1_110|n=1|first=1st_Riverside:26|last=1st_Riverside:26|ids=26|post=-
+1st_Riverside|Sewer_Observation_SucssesAfterSanSuc|rv_t1_110|n=2|first=1st_Riverside:27|last=1st_Riverside:28|ids=27-28|post=-
+1st_Riverside|NoSuchTopic|rv_t1_110|n=0|first=-|last=-|ids=-|post=-
+1st_Riverside|Kane_FirstDialog|rv_t1_001|n=6|first=1st_Riverside:1|last=1st_Riverside:6|ids=1-6|post=+flag:kaneFirstDialog
+1st_Riverside|Kane_Look|rv_t1_001|n=3|first=1st_Riverside:8|last=1st_Riverside:10|ids=8-10|post=-
+1st_Riverside|Kane_Nothing|rv_t1_001|n=1|first=1st_Riverside:11|last=1st_Riverside:11|ids=11|post=-
+1st_Riverside|Sewer_FirstDialog|rv_t1_001|n=2|first=1st_Riverside:12|last=1st_Riverside:13|ids=12-13|post=+flag:sewerFirstDialog
+1st_Riverside|Sewer_Look|rv_t1_001|n=1|first=1st_Riverside:26|last=1st_Riverside:26|ids=26|post=-
+1st_Riverside|Sewer_Observation_SucssesAfter|rv_t1_001|n=2|first=1st_Riverside:24|last=1st_Riverside:25|ids=24-25|post=-
+1st_Riverside|Sewer_Observation_Sucsses|rv_t1_001|n=8|first=1st_Riverside:16|last=1st_Riverside:23|ids=16-23|post=-
+1st_Riverside|Sewer_Observation_Fail|rv_t1_001|n=1|first=1st_Riverside:26|last=1st_Riverside:26|ids=26|post=-
+1st_Riverside|Sewer_Observation_SucssesAfterSanSuc|rv_t1_001|n=2|first=1st_Riverside:27|last=1st_Riverside:28|ids=27-28|post=-
+1st_Riverside|NoSuchTopic|rv_t1_001|n=0|first=-|last=-|ids=-|post=-
+1st_Riverside|Kane_FirstDialog|rv_t1_101|n=1|first=1st_Riverside:7|last=1st_Riverside:7|ids=7|post=-
+1st_Riverside|Kane_Look|rv_t1_101|n=3|first=1st_Riverside:8|last=1st_Riverside:10|ids=8-10|post=-
+1st_Riverside|Kane_Nothing|rv_t1_101|n=1|first=1st_Riverside:11|last=1st_Riverside:11|ids=11|post=-
+1st_Riverside|Sewer_FirstDialog|rv_t1_101|n=2|first=1st_Riverside:12|last=1st_Riverside:13|ids=12-13|post=+flag:sewerFirstDialog
+1st_Riverside|Sewer_Look|rv_t1_101|n=1|first=1st_Riverside:26|last=1st_Riverside:26|ids=26|post=-
+1st_Riverside|Sewer_Observation_SucssesAfter|rv_t1_101|n=2|first=1st_Riverside:24|last=1st_Riverside:25|ids=24-25|post=-
+1st_Riverside|Sewer_Observation_Sucsses|rv_t1_101|n=8|first=1st_Riverside:16|last=1st_Riverside:23|ids=16-23|post=-
+1st_Riverside|Sewer_Observation_Fail|rv_t1_101|n=1|first=1st_Riverside:26|last=1st_Riverside:26|ids=26|post=-
+1st_Riverside|Sewer_Observation_SucssesAfterSanSuc|rv_t1_101|n=2|first=1st_Riverside:27|last=1st_Riverside:28|ids=27-28|post=-
+1st_Riverside|NoSuchTopic|rv_t1_101|n=0|first=-|last=-|ids=-|post=-
+1st_Riverside|Kane_FirstDialog|rv_t1_011|n=6|first=1st_Riverside:1|last=1st_Riverside:6|ids=1-6|post=+flag:kaneFirstDialog
+1st_Riverside|Kane_Look|rv_t1_011|n=3|first=1st_Riverside:8|last=1st_Riverside:10|ids=8-10|post=-
+1st_Riverside|Kane_Nothing|rv_t1_011|n=1|first=1st_Riverside:11|last=1st_Riverside:11|ids=11|post=-
+1st_Riverside|Sewer_FirstDialog|rv_t1_011|n=1|first=1st_Riverside:14|last=1st_Riverside:14|ids=14|post=-
+1st_Riverside|Sewer_Look|rv_t1_011|n=1|first=1st_Riverside:26|last=1st_Riverside:26|ids=26|post=-
+1st_Riverside|Sewer_Observation_SucssesAfter|rv_t1_011|n=2|first=1st_Riverside:24|last=1st_Riverside:25|ids=24-25|post=-
+1st_Riverside|Sewer_Observation_Sucsses|rv_t1_011|n=8|first=1st_Riverside:16|last=1st_Riverside:23|ids=16-23|post=-
+1st_Riverside|Sewer_Observation_Fail|rv_t1_011|n=1|first=1st_Riverside:26|last=1st_Riverside:26|ids=26|post=-
+1st_Riverside|Sewer_Observation_SucssesAfterSanSuc|rv_t1_011|n=2|first=1st_Riverside:27|last=1st_Riverside:28|ids=27-28|post=-
+1st_Riverside|NoSuchTopic|rv_t1_011|n=0|first=-|last=-|ids=-|post=-
+1st_Riverside|Kane_FirstDialog|rv_t1_111|n=1|first=1st_Riverside:7|last=1st_Riverside:7|ids=7|post=-
+1st_Riverside|Kane_Look|rv_t1_111|n=3|first=1st_Riverside:8|last=1st_Riverside:10|ids=8-10|post=-
+1st_Riverside|Kane_Nothing|rv_t1_111|n=1|first=1st_Riverside:11|last=1st_Riverside:11|ids=11|post=-
+1st_Riverside|Sewer_FirstDialog|rv_t1_111|n=1|first=1st_Riverside:14|last=1st_Riverside:14|ids=14|post=-
+1st_Riverside|Sewer_Look|rv_t1_111|n=1|first=1st_Riverside:26|last=1st_Riverside:26|ids=26|post=-
+1st_Riverside|Sewer_Observation_SucssesAfter|rv_t1_111|n=2|first=1st_Riverside:24|last=1st_Riverside:25|ids=24-25|post=-
+1st_Riverside|Sewer_Observation_Sucsses|rv_t1_111|n=8|first=1st_Riverside:16|last=1st_Riverside:23|ids=16-23|post=-
+1st_Riverside|Sewer_Observation_Fail|rv_t1_111|n=1|first=1st_Riverside:26|last=1st_Riverside:26|ids=26|post=-
+1st_Riverside|Sewer_Observation_SucssesAfterSanSuc|rv_t1_111|n=2|first=1st_Riverside:27|last=1st_Riverside:28|ids=27-28|post=-
+1st_Riverside|NoSuchTopic|rv_t1_111|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_0000|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_0000|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_0000|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_0000|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_0000|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t2_0000|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_1000|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_1000|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_1000|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_1000|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_1000|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t2_1000|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_0100|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_0100|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_0100|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_0100|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_0100|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t2_0100|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_1100|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_1100|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_1100|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_1100|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_1100|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t2_1100|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_0010|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_0010|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_0010|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_0010|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_0010|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t2_0010|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_1010|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_1010|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_1010|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_1010|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_1010|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t2_1010|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_0110|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_0110|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_0110|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_0110|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_0110|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t2_0110|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_1110|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_1110|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_1110|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_1110|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_1110|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t2_1110|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_0001|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_0001|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_0001|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_0001|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_0001|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t2_0001|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_1001|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_1001|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_1001|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_1001|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_1001|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t2_1001|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_0101|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_0101|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_0101|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_0101|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_0101|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t2_0101|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_1101|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_1101|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_1101|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_1101|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_1101|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t2_1101|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_0011|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_0011|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_0011|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_0011|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_0011|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t2_0011|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_1011|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_1011|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_1011|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_1011|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_1011|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t2_1011|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_0111|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_0111|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_0111|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_0111|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_0111|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t2_0111|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t2_1111|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t2_1111|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t2_1111|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t2_1111|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t2_1111|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t2_1111|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_0000|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_0000|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_0000|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_0000|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_0000|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t6_0000|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_1000|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_1000|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_1000|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_1000|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_1000|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t6_1000|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_0100|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_0100|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_0100|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_0100|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_0100|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t6_0100|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_1100|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_1100|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_1100|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_1100|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_1100|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t6_1100|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_0010|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_0010|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_0010|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_0010|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_0010|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t6_0010|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_1010|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_1010|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_1010|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_1010|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_1010|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t6_1010|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_0110|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_0110|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_0110|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_0110|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_0110|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t6_0110|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_1110|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_1110|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_1110|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_1110|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_1110|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t6_1110|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_0001|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_0001|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_0001|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_0001|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_0001|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t6_0001|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_1001|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_1001|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_1001|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_1001|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_1001|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t6_1001|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_0101|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_0101|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_0101|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_0101|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_0101|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t6_0101|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_1101|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_1101|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_1101|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_1101|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_1101|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t6_1101|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_0011|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_0011|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_0011|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_0011|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_0011|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t6_0011|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_1011|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_1011|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_1011|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_1011|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_1011|n=5|first=1st_Hospital:15|last=1st_Hospital:19|ids=15-19|post=+flag:alanFirstDialog
+1st_Hospital|NoSuchTopic|hp_t6_1011|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_0111|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_0111|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_0111|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_0111|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_0111|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t6_0111|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t6_1111|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t6_1111|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t6_1111|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t6_1111|n=12|first=1st_Hospital:3|last=1st_Hospital:14|ids=3-14|post=-
+1st_Hospital|Alan_FirstDialog|hp_t6_1111|n=1|first=1st_Hospital:20|last=1st_Hospital:20|ids=20|post=-
+1st_Hospital|NoSuchTopic|hp_t6_1111|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_0000|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_0000|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_0000|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_0000|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t3_0000|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t3_0000|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_1000|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_1000|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_1000|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_1000|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t3_1000|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t3_1000|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_0100|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_0100|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_0100|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_0100|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t3_0100|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t3_0100|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_1100|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_1100|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_1100|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_1100|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t3_1100|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t3_1100|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_0010|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_0010|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_0010|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_0010|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t3_0010|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t3_0010|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_1010|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_1010|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_1010|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_1010|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t3_1010|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t3_1010|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_0110|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_0110|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_0110|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_0110|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t3_0110|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t3_0110|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_1110|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_1110|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_1110|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_1110|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t3_1110|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t3_1110|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_0001|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_0001|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_0001|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_0001|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t3_0001|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t3_0001|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_1001|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_1001|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_1001|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_1001|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t3_1001|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t3_1001|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_0101|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_0101|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_0101|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_0101|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t3_0101|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t3_0101|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_1101|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_1101|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_1101|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_1101|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t3_1101|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t3_1101|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_0011|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_0011|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_0011|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_0011|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t3_0011|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t3_0011|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_1011|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_1011|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_1011|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_1011|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t3_1011|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t3_1011|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_0111|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_0111|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_0111|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_0111|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t3_0111|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t3_0111|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t3_1111|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t3_1111|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t3_1111|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t3_1111|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t3_1111|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t3_1111|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_0000|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_0000|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_0000|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_0000|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t7_0000|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t7_0000|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_1000|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_1000|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_1000|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_1000|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t7_1000|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t7_1000|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_0100|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_0100|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_0100|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_0100|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t7_0100|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t7_0100|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_1100|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_1100|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_1100|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_1100|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t7_1100|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t7_1100|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_0010|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_0010|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_0010|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_0010|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t7_0010|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t7_0010|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_1010|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_1010|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_1010|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_1010|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t7_1010|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t7_1010|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_0110|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_0110|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_0110|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_0110|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t7_0110|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t7_0110|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_1110|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_1110|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_1110|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_1110|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t7_1110|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t7_1110|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_0001|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_0001|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_0001|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_0001|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t7_0001|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t7_0001|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_1001|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_1001|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_1001|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_1001|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t7_1001|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t7_1001|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_0101|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_0101|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_0101|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_0101|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t7_0101|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t7_0101|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_1101|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_1101|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_1101|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_1101|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t7_1101|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t7_1101|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_0011|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_0011|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_0011|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_0011|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t7_0011|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t7_0011|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_1011|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_1011|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_1011|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_1011|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t7_1011|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t7_1011|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_0111|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_0111|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_0111|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_0111|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t7_0111|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t7_0111|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t7_1111|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t7_1111|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t7_1111|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t7_1111|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t7_1111|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t7_1111|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_0000|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_0000|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_0000|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_0000|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t9_0000|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:alanNoonFirstDialog,+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t9_0000|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_1000|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_1000|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_1000|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_1000|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t9_1000|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:alanNoonFirstDialog,+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t9_1000|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_0100|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_0100|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_0100|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_0100|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t9_0100|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:alanNoonFirstDialog,+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t9_0100|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_1100|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_1100|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_1100|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_1100|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t9_1100|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:alanNoonFirstDialog,+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t9_1100|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_0010|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_0010|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_0010|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_0010|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t9_0010|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t9_0010|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_1010|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_1010|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_1010|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_1010|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t9_1010|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t9_1010|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_0110|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_0110|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_0110|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_0110|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t9_0110|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t9_0110|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_1110|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_1110|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_1110|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_1110|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t9_1110|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t9_1110|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_0001|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_0001|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_0001|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_0001|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t9_0001|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t9_0001|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_1001|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_1001|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_1001|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_1001|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t9_1001|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t9_1001|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_0101|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_0101|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_0101|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_0101|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t9_0101|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t9_0101|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_1101|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_1101|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_1101|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_1101|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t9_1101|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t9_1101|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_0011|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_0011|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_0011|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_0011|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t9_0011|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t9_0011|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_1011|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_1011|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_1011|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_1011|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t9_1011|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t9_1011|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_0111|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_0111|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_0111|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_0111|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t9_0111|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t9_0111|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t9_1111|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t9_1111|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t9_1111|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t9_1111|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t9_1111|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t9_1111|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_0000|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_0000|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_0000|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_0000|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t12_0000|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:alanNoonFirstDialog,+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t12_0000|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_1000|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_1000|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_1000|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_1000|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t12_1000|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:alanNoonFirstDialog,+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t12_1000|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_0100|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_0100|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_0100|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_0100|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t12_0100|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:alanNoonFirstDialog,+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t12_0100|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_1100|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_1100|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_1100|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_1100|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t12_1100|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:alanNoonFirstDialog,+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t12_1100|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_0010|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_0010|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_0010|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_0010|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t12_0010|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t12_0010|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_1010|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_1010|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_1010|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_1010|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t12_1010|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t12_1010|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_0110|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_0110|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_0110|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_0110|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t12_0110|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t12_0110|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_1110|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_1110|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_1110|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_1110|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t12_1110|n=2|first=1st_Hospital:46|last=1st_Hospital:47|ids=46-47|post=+flag:alanNoonFirstDialog
+1st_Hospital|NoSuchTopic|hp_t12_1110|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_0001|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_0001|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_0001|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_0001|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t12_0001|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t12_0001|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_1001|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_1001|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_1001|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_1001|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t12_1001|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t12_1001|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_0101|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_0101|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_0101|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_0101|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t12_0101|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t12_0101|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_1101|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_1101|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_1101|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_1101|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t12_1101|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=+flag:thirdDayAlanDialog
+1st_Hospital|NoSuchTopic|hp_t12_1101|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_0011|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_0011|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_0011|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_0011|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t12_0011|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t12_0011|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_1011|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_1011|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_1011|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_1011|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t12_1011|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t12_1011|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_0111|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_0111|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_0111|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_0111|n=8|first=1st_Hospital:21|last=1st_Hospital:28|ids=21-28|post=+flag:kateNoonFirstDialog
+1st_Hospital|Alan_FirstDialog|hp_t12_0111|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t12_0111|n=0|first=-|last=-|ids=-|post=-
+1st_Hospital|Kate_NoonLook|hp_t12_1111|n=1|first=1st_Hospital:30|last=1st_Hospital:30|ids=30|post=-
+1st_Hospital|Alan_NoonLook|hp_t12_1111|n=2|first=1st_Hospital:49|last=1st_Hospital:50|ids=49-50|post=-
+1st_Hospital|Hospital_NoonFirst|hp_t12_1111|n=2|first=1st_Hospital:1|last=1st_Hospital:2|ids=1-2|post=-
+1st_Hospital|Kate_FirstDialog|hp_t12_1111|n=1|first=1st_Hospital:29|last=1st_Hospital:29|ids=29|post=-
+1st_Hospital|Alan_FirstDialog|hp_t12_1111|n=1|first=1st_Hospital:48|last=1st_Hospital:48|ids=48|post=-
+1st_Hospital|NoSuchTopic|hp_t12_1111|n=0|first=-|last=-|ids=-|post=-
