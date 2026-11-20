@@ -29,6 +29,8 @@
 | 파일 | 설명 |
 |------|------|
 | `Game/GameOverview.md` | 게임 개요·코드 구조 지도(첫 세션에서 채움) |
+| `Game/CocDesign.md` | CoC 판정·SAN·전투 실측, 7판 규칙 대조, 우선순위, 순수 C# 규칙 인터페이스 초안 |
+| `Game/Architecture.md` | 코드 전면 재작성 설계: 구조 실측, 상태 객체·저장·데이터 주도 대화·Core asmdef·GameInput, 단계 P0~P16(스트랭글러), UTF-8 변환 방침 |
 
 ## 레퍼런스 게임 분석 (Project B 에서 옮김, 원본 추출 자료는 ProjectB 쪽 경로)
 
