@@ -20,8 +20,19 @@ public static class GameInput
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetStatics()
     {
+        if (_asset != null)
+        {
+            _asset.Disable();
+        }
+
         _asset = null;
         _lastPointer = Vector2.zero;
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void EnableBeforeScene()
+    {
+        Ensure();
     }
 
     private static void Ensure()

@@ -76,7 +76,7 @@
 
 ## 2. 입력 액션 에셋 설계
 
-경로: `Assets/Settings/Input/SCoWInput.inputactions` (JSON, Generate C# Class 체크 안 함 -> 5.1 참조).
+경로: `Assets/Resources/Input/SCoWInput.inputactions` (JSON, Generate C# Class 체크 안 함 -> 5.1 참조).
 
 원칙: 기존 키 유지. 키보드(KB)·마우스·게임패드(GP) 3경로. 모든 액션은 Button(Value 아님), 예외 Move/Point.
 
@@ -87,8 +87,8 @@
 | Move | Value Vector2(axis X만 사용) | A/D 가 아님! 레거시 Horizontal = 방향키 ←→ + A/D 둘 다 -> 둘 다 바인딩(1D Axis: A/D, ←/→) | 왼스틱 X, 십자키 ←→ | Player.cs 66~85 |
 | Interact | Button | E | A(buttonSouth) | E 전부(Rollet·Dialog·Intel_ObtoUI) |
 | Advance | Button | Mouse 왼쪽 | (Interact 와 동일 A 바인딩 추가) | Mouse0 Down(Dialog·Rollet) |
-| Portal | Button | F | A(buttonSouth) | PotalPoint:55 (조건이 Interact 와 겹치지 않음, 가정 A-1) |
-| PointerPrimary | Button | Mouse 왼쪽 (Held 판정 `IsPressed`) | A | EnemySelectButton:45 |
+| Portal | Button | F | 십자키 위(dpad/up) | PotalPoint:55 (A 와 분리, 가정 A-1) |
+| PointerPrimary | Button | Mouse 왼쪽 (Held 판정 `IsPressed`) | 없음(마우스 전용) | EnemySelectButton:45 |
 | Point | Value Vector2 | Mouse position | 오른스틱 가상 커서 대신 아래 가정 A-2 | EnemySelectButton:35 |
 
 ### 2.2 Map `UI` (패널·메뉴)
@@ -107,10 +107,20 @@
 
 Esc 한 키에 Cancel 과 Menu 가 동시에 걸린다. 지금도 각 UI 가 `activeSelf` 로 가드해 동시 반응을 피함. 같은 구조 유지(액션 2개를 같은 키에 바인딩해도 각각 이벤트 발생).
 
-### 2.3 Map `Debug` (KB 전용, RolletTest)
+### 2.3 디버그 키 (Map 아님)
 
-F1~F12, Alpha1~6, P 를 각 액션으로. `GameInput.Debug.*`. 패드 바인딩 없음(디버그 전용, 에디터·Development 빌드만 활성: `#if UNITY_EDITOR || DEVELOPMENT_BUILD` 로 맵 enable).
-주의: Debug 의 Alpha1/2 와 UI 의 OpenIntel/OpenMap 이 같은 키(1,2). 레거시도 동일 동작이므로 유지(RolletTest 가 씬에 있을 때만).
+별도 Debug 맵은 만들지 않았다. `GameInput.DebugKeyDown(Key)` 가 `Keyboard.current` 를 직접 조회하고, `#if UNITY_EDITOR || DEVELOPMENT_BUILD` 밖에서는 항상 false. 패드 바인딩 없음.
+주의: 디버그 Alpha1/2 와 UI 의 OpenIntel/OpenMap 이 같은 키(1,2). 레거시도 동일 동작이므로 유지(RolletTest 가 씬에 있을 때만).
+
+#### 패드 A(buttonSouth) 겹침 표 (C-2 P2c)
+| 액션 | A 바인딩 | 비고 |
+|---|---|---|
+| Interact | 예 | 상호작용 |
+| Advance | 예 | 대화·주사위 진행 |
+| Portal | 아니오(dpad 위) | 분리함 |
+| PointerPrimary | 아니오 | 마우스 전용, 적 선택은 Mouse 일 때만 |
+
+Interact·Advance 는 같은 "확인" 의미라 겹침 허용. 위쪽 십자키는 UI 맵 NavUp 과도 겹치나 월드(포탈)와 목록 UI 는 동시에 쓰이지 않는다.
 
 ### 2.4 Control Scheme
 
@@ -193,7 +203,7 @@ New 전환 시 `UnityEngine.Input` 의 모든 호출은 **런타임에 `InvalidO
 
 ## 미결 (임시 가정)
 
-- A-1 Portal(F) 의 패드 키: A(buttonSouth). 상호작용(E)과 같은 버튼. 두 동작의 발생 조건이 겹치지 않는다고 가정(PotalPoint 는 포탈 근처 + 연출·대화 아님).
+- A-1 Portal(F) 의 패드 키: 십자키 위(P2c 에서 A 에서 분리. Y 는 OpenIntel 이 사용).
 - A-2 전투 적 선택은 마우스 전제(월드 Raycast). 패드에서는 좌우 십자키로 적 순회 + A 확인 UX 가 필요하나 이번 교체 범위에서 제외, 별도 큐로. 임시: 패드 사용자는 전투 적 선택이 불가할 수 있음(위험, 별도 확인 필요).
 - A-3 UI 모듈의 액션 에셋은 `DefaultInputActions` 그대로 사용(Submit=A/Enter, Cancel=B/Esc, Navigate=십자키·스틱, Click=마우스).
 - A-4 입력 액션 에셋 위치는 `Assets/Resources/Input/SCoWInput.inputactions` (정적 래퍼 로드용). `Assets/Settings/Input/` 가 아님.
@@ -205,7 +215,7 @@ New 전환 시 `UnityEngine.Input` 의 모든 호출은 **런타임에 `InvalidO
 
 - `Assets/Script/Input/GameInput.cs`(정적 래퍼, 소비 없는 순수 조회) + `Assets/Resources/Input/SCoWInput.inputactions`(Gameplay·UI 맵, Keyboard&Mouse·Gamepad 스킴). 20개 파일 `Input.*` 교체(레거시 호출 0건).
 - 디버그 키(RolletTest)는 별도 맵 대신 `GameInput.DebugKeyDown(Key)` → `Keyboard.current` 직접 조회. 에디터·Development 빌드 외에는 항상 false(출시 빌드 치트 차단).
-- 패드 A 는 Interact·Portal·PointerPrimary 에 공통 바인딩(가정 A-1).
+- (P2c 에서 변경: 패드 A 는 Interact·Advance 만. Portal=십자키 위, PointerPrimary 패드 바인딩 제거.)
 - 검증: 컴파일 error 0, EditMode 1/1, 씬 3개 플레이 콘솔 error 0, 액션별 바인딩 해석(키보드·마우스·가상 패드) 확인. **미검증:** 입력 이벤트 주입 동작(에디터 비포커스 상태에서 가상 장치 상태는 바뀌나 액션이 발화하지 않음 — `backgroundBehavior`/`editorInputBehaviorInPlayMode` 런타임 변경도 무효). 실제 키·클릭 동작은 사용자 플레이로 확인 필요.
 
 ## 구현 기록 (C-2 P2b, 11-21)
@@ -216,3 +226,10 @@ New 전환 시 `UnityEngine.Input` 의 모든 호출은 **런타임에 `InvalidO
 - Text Animator: `TextAnimatorPlayer.WaitInput` 의 `Input.anyKeyDown` 을 `#if ENABLE_INPUT_SYSTEM` 로 Keyboard/Mouse/Gamepad(A) 입력 확인으로 패치, `Febucci.TextAnimator.Runtime.asmdef` 에 `Unity.InputSystem` 참조 추가(게임 데이터에서 waitinput 사용처는 없음).
 - `ProjectSettings.asset` `activeInputHandler: 1`(Input System Package New). 되돌리려면 2(Both).
 - 검증: 에디터 재시작 후 `UnityEngine.Input` 접근이 InvalidOperationException 을 던짐 확인, 씬 3개 플레이 콘솔 error 0, 플레이 중 모듈 `InputSystemUIInputModule` 액션(point·leftClick) 할당 확인. **미검증:** 실제 UI 클릭·키 입력(비포커스 에디터에서 입력 이벤트 주입 불가).
+
+## 구현 기록 (C-2 P2c, 11-21)
+
+- Portal 패드 십자키 위로 분리, PointerPrimary 패드 바인딩 제거. EnemySelectButton 은 `Mouse.current` 없으면 적 선택 생략(패드 조준은 A-2 후속).
+- TextAnimatorPlayer.WaitInput 패치를 anyKeyDown 에 가깝게(키보드 anyKey + 마우스 전 버튼 + 패드 버튼류). 서드파티 수정 기록 갱신.
+- GameInput: BeforeSceneLoad 에서 선활성화, ResetStatics 에서 이전 asset Disable.
+- 미검증: 실제 키·패드 동작(에디터 비포커스).

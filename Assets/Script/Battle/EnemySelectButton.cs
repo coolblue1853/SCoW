@@ -32,6 +32,11 @@ public class EnemySelectButton : MonoBehaviour
         if (BattleManager.Instance.battleState == "selectEnemy")
         {
             isSetTrun = false;
+            // 패드 조준은 미설계(Docs/Playtest/InputMigration.md A-2). 마우스일 때만 적 선택 동작.
+            if (UnityEngine.InputSystem.Mouse.current == null)
+            {
+                return;
+            }
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(GameInput.PointerPosition); // 마우스 위치 가져오기
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero); // 마우스 위치에서 Raycast
             if (hit.collider != null)

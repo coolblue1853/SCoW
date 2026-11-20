@@ -196,7 +196,7 @@
                 {
                     "name": "",
                     "id": "39b57faf-6a57-4a12-9be1-44a736514253",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -211,17 +211,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "PointerPrimary",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f3c652e2-6a90-4473-a5c0-16f391cf5129",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
                     "action": "PointerPrimary",
                     "isComposite": false,
                     "isPartOfComposite": false

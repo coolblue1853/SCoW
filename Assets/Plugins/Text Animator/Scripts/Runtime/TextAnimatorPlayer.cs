@@ -81,6 +81,41 @@ namespace Febucci.UI
             else return disappearanceWaitTime;
         }
 
+#if ENABLE_INPUT_SYSTEM
+        // SCoW 패치: 레거시 Input.anyKeyDown 에 가까운 판정(키보드 아무 키 + 마우스 모든 버튼 + 패드 버튼류).
+        private static bool SCoWAnyInputDown()
+        {
+            UnityEngine.InputSystem.Keyboard kb = UnityEngine.InputSystem.Keyboard.current;
+            if (kb != null && kb.anyKey.wasPressedThisFrame)
+            {
+                return true;
+            }
+
+            UnityEngine.InputSystem.Mouse m = UnityEngine.InputSystem.Mouse.current;
+            if (m != null && (m.leftButton.wasPressedThisFrame || m.rightButton.wasPressedThisFrame
+                || m.middleButton.wasPressedThisFrame || m.forwardButton.wasPressedThisFrame || m.backButton.wasPressedThisFrame))
+            {
+                return true;
+            }
+
+            UnityEngine.InputSystem.Gamepad g = UnityEngine.InputSystem.Gamepad.current;
+            if (g != null)
+            {
+                foreach (UnityEngine.InputSystem.Controls.ButtonControl c in new UnityEngine.InputSystem.Controls.ButtonControl[] {
+                    g.buttonSouth, g.buttonEast, g.buttonWest, g.buttonNorth, g.startButton, g.selectButton,
+                    g.leftShoulder, g.rightShoulder, g.leftStickButton, g.rightStickButton })
+                {
+                    if (c.wasPressedThisFrame)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+#endif
+
         /// <summary>
         /// Waits any input from the user.
         /// </summary>
@@ -89,9 +124,7 @@ namespace Febucci.UI
         {
             // SCoW 패치(C-2 P2b): Input System 전용 설정에서는 UnityEngine.Input 을 쓸 수 없다.
 #if ENABLE_INPUT_SYSTEM
-            while (!((UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.anyKey.wasPressedThisFrame)
-                || (UnityEngine.InputSystem.Mouse.current != null && UnityEngine.InputSystem.Mouse.current.leftButton.wasPressedThisFrame)
-                || (UnityEngine.InputSystem.Gamepad.current != null && UnityEngine.InputSystem.Gamepad.current.buttonSouth.wasPressedThisFrame)))
+            while (!SCoWAnyInputDown())
                 yield return null;
 #else
             while (!Input.anyKeyDown)
