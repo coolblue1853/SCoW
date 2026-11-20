@@ -75,3 +75,5 @@ crashlytics-build.properties
 /[Ll]ogs/
 .claude/settings.local.json
 .claude/scheduled_tasks*
+/[Aa]ssets/[Ss]creenshots/
+/[Aa]ssets/[Ss]creenshots.meta
