@@ -16,6 +16,7 @@ public static class StoryDatabase
     private static readonly Dictionary<string, IList<StoryLine>> CsvLines = new Dictionary<string, IList<StoryLine>>();
     private static readonly Dictionary<string, Dictionary<string, Dialog>> CsvDialogs = new Dictionary<string, Dictionary<string, Dialog>>();
     private static PlaceCatalog _places;
+    private static bool _placesLoaded;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     public static void ResetStatics()
@@ -24,13 +25,15 @@ public static class StoryDatabase
         CsvLines.Clear();
         CsvDialogs.Clear();
         _places = null;
+        _placesLoaded = false;
     }
 
     /// <summary>장소 → 대사 스크립트(PlaceDef). 없으면 null(옛 분기 그대로 쓴다).</summary>
     public static string ScriptForPlace(string placeId)
     {
         PlaceCatalog cat = Places();
-        return cat == null ? null : cat.ScriptFor(placeId, new GameStateAccess(GameRoot.Instance.State));
+        if (cat == null || placeId == null || !cat.Places.ContainsKey(placeId)) { return null; }
+        return cat.ScriptFor(placeId, new GameStateAccess(GameRoot.Instance.State));
     }
 
     /// <summary>
@@ -60,7 +63,8 @@ public static class StoryDatabase
 
     private static PlaceCatalog Places()
     {
-        if (_places != null) { return _places; }
+        if (_placesLoaded) { return _places; }
+        _placesLoaded = true;
         TextAsset ta = Resources.Load<TextAsset>(PlacesResource);
         if (ta == null)
         {
@@ -77,6 +81,7 @@ public static class StoryDatabase
     {
         StoryScript sc;
         if (Scripts.TryGetValue(scriptId, out sc)) { return sc; }
+        Scripts[scriptId] = null; // 실패도 캐시해 매 호출 로그가 반복되지 않게 한다(성공하면 아래에서 덮어씀)
         TextAsset ta = Resources.Load<TextAsset>(ResourceFolder + scriptId);
         if (ta == null)
         {

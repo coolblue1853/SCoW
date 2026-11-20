@@ -114,9 +114,11 @@ public static class DialogEquivalenceTool
     {
         // 옛 경로는 DialogDatabaseManager 가 현재 장소 CSV 를 읽어 둔 상태를 전제한다(장소 도착 때 하던 일을 흉내).
         DialogDatabaseManager ddm = DialogDatabaseManager.instance;
+        System.Reflection.MethodInfo setDialog = typeof(DialogDatabaseManager).GetMethod("SetDialog", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+        if (ddm == null || setDialog == null) { throw new InvalidOperationException("DialogDatabaseManager 를 찾지 못했다"); }
         ddm.check = false;
         ddm.csvFileName = script;
-        typeof(DialogDatabaseManager).GetMethod("SetDialog", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(ddm, null);
+        setDialog.Invoke(ddm, null);
         for (int p = 0; p < presets.Count; p++)
         {
             for (int t = 0; t < topics.Length; t++)

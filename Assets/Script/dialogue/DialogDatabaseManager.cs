@@ -9,10 +9,12 @@ public class DialogDatabaseManager : MonoBehaviour
     {
         if (DataBaseManager.isItemUI == false)
         {
-            if (DataBaseManager.nowPlace == "DetectiveOffice" && check == true)
+            // PlaceDef(Resources/Story/places.json)가 정의한 장소(DetectiveOffice·Bar)는 데이터로 CSV 를 고른다(C-2 P9).
+            string placeCsv = check ? StoryDatabase.ScriptForPlace(DataBaseManager.nowPlace) : null;
+            if (placeCsv != null)
             {
                 check = false;
-                csvFileName = "1st_DetectiveOffice";
+                csvFileName = placeCsv;
                 SetDialog();
             }
             else if (DataBaseManager.nowPlace == "Client'shouse" && check == true)
@@ -72,12 +74,6 @@ public class DialogDatabaseManager : MonoBehaviour
                 csvFileName = "1st_Slum";
                 SetDialog();
             }
-            else if (DataBaseManager.nowPlace == "Bar" && check == true)
-            {
-                check = false;
-                csvFileName = "1st_Bar";
-                SetDialog();
-            }
             else if (DataBaseManager.nowPlace == "InSewer" && check == true)
             {
                 check = false;
@@ -126,9 +122,10 @@ public class DialogDatabaseManager : MonoBehaviour
 
     private void Awake()
     {
-        if (DataBaseManager.nowPlace == "DetectiveOffice")
+        string placeCsv = StoryDatabase.ScriptForPlace(DataBaseManager.nowPlace);
+        if (placeCsv != null)
         {
-            csvFileName = "1st_DetectiveOffice";
+            csvFileName = placeCsv;
         }
         if (DataBaseManager.nowPlace == "Client'shouse")
         {
@@ -157,10 +154,6 @@ public class DialogDatabaseManager : MonoBehaviour
         else if (DataBaseManager.nowPlace == "Slum")
         {
             csvFileName = "1st_Slum";
-        }
-        else if (DataBaseManager.nowPlace == "Bar")
-        {
-            csvFileName = "1st_Bar";
         }
         else if (DataBaseManager.nowPlace == "InSewer")
         {
