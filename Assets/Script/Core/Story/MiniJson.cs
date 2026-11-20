@@ -93,10 +93,16 @@ namespace SCoW.Core.Story
                     case 'r': sb.Append('\r'); break;
                     case 't': sb.Append('\t'); break;
                     case 'u':
-                        int code;
-                        if (p + 4 > s.Length || !int.TryParse(s.Substring(p, 4), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out code))
+                        int code = 0;
+                        if (p + 4 > s.Length)
                         {
                             throw new System.FormatException("잘못된 \\u 이스케이프");
+                        }
+                        for (int k = 0; k < 4; k++)
+                        {
+                            int h = HexVal(s[p + k]);
+                            if (h < 0) { throw new System.FormatException("잘못된 \\u 이스케이프"); }
+                            code = code * 16 + h;
                         }
                         sb.Append((char)code);
                         p += 4;
@@ -105,6 +111,14 @@ namespace SCoW.Core.Story
                 }
             }
             throw new System.FormatException("닫히지 않은 문자열");
+        }
+
+        private static int HexVal(char c)
+        {
+            if (c >= '0' && c <= '9') { return c - '0'; }
+            if (c >= 'a' && c <= 'f') { return c - 'a' + 10; }
+            if (c >= 'A' && c <= 'F') { return c - 'A' + 10; }
+            return -1;
         }
 
         private static List<object> ReadArray(string s, ref int p, int depth)

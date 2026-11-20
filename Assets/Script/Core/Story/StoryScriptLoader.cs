@@ -4,6 +4,7 @@ namespace SCoW.Core.Story
 {
     public sealed class StoryLoadResult
     {
+        /// <summary>오류가 하나라도 있으면 null. Ok 를 먼저 확인한다.</summary>
         public StoryScript Script;
         public List<string> Errors = new List<string>();
         public bool Ok { get { return Errors.Count == 0; } }
@@ -28,7 +29,6 @@ namespace SCoW.Core.Story
 
             StoryScript sc = new StoryScript();
             sc.Id = Str(o, "id");
-            res.Script = sc;
             List<object> topics = Get<List<object>>(o, "topics");
             if (topics != null)
             {
@@ -40,6 +40,8 @@ namespace SCoW.Core.Story
                 foreach (KeyValuePair<string, object> kv in nodes) { LoadNode(kv.Key, kv.Value, sc, res.Errors); }
             }
             CheckRefs(sc, res.Errors);
+            // 오류가 하나라도 있으면 불완전한 모델을 내보내지 않는다(실패한 조건이 참으로 보이는 일을 막는 계약).
+            res.Script = res.Errors.Count == 0 ? sc : null;
             return res;
         }
 
@@ -59,7 +61,7 @@ namespace SCoW.Core.Story
         private static Condition Cond(Dictionary<string, object> o, string key, string where, List<string> errors)
         {
             ParseOutcome<Condition> r = ConditionParser.Parse(Str(o, key));
-            if (!r.Ok) { errors.Add(where + " " + key + ": " + r.Error); return Condition.Always; }
+            if (!r.Ok) { errors.Add(where + " " + key + ": " + r.Error); return new ConstCond(false); }
             return r.Value;
         }
 

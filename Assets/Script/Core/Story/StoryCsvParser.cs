@@ -18,6 +18,8 @@ namespace SCoW.Core.Story
     {
         public List<StoryLine> Lines = new List<StoryLine>();
         public List<string> Errors = new List<string>();
+        /// <summary>읽을 수는 있지만 의심스러운 점(열 초과 등). Ok 에는 영향 없음.</summary>
+        public List<string> Warnings = new List<string>();
         public bool Ok { get { return Errors.Count == 0; } }
     }
 
@@ -50,6 +52,24 @@ namespace SCoW.Core.Story
                         continue;
                     }
                 }
+                if (IsBlankRow(f))
+                {
+                    continue;
+                }
+                if (f[0].Trim().Length == 0)
+                {
+                    // 옛 데이터에 ID·대사 없이 화자만 남은 줄이 있다(1st_DetectiveOffice 417행). 대사가 없으면 경고로 건너뛴다.
+                    bool hasText = f.Length > 2 && f[2].Trim().Length != 0;
+                    if (hasText)
+                    {
+                        result.Errors.Add(lineNos[i] + "행: ID 가 비어 있음");
+                    }
+                    else
+                    {
+                        result.Warnings.Add(lineNos[i] + "행: ID·대사 없는 줄을 건너뜀");
+                    }
+                    continue;
+                }
                 if (f.Length < 3)
                 {
                     result.Errors.Add(lineNos[i] + "행: 열 부족(" + f.Length + "열, 최소 3열)");
@@ -61,9 +81,25 @@ namespace SCoW.Core.Story
                 line.Speaker = f[1];
                 line.Text = f[2];
                 line.Memo = f.Length > 3 ? f[3] : "";
+                if (f.Length > 4)
+                {
+                    result.Warnings.Add(lineNos[i] + "행: 열 초과(" + f.Length + "열, 5열 이후는 무시)");
+                }
                 result.Lines.Add(line);
             }
             return result;
+        }
+
+        private static bool IsBlankRow(string[] f)
+        {
+            for (int i = 0; i < f.Length; i++)
+            {
+                if (f[i].Trim().Length != 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         /// <summary>열 수 제한 없는 원시 레코드 분해. 빈 줄은 건너뛴다. lineNos 는 레코드 시작 행(1부터).</summary>

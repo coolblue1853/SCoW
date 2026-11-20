@@ -23,6 +23,17 @@ namespace SCoW.Tests
         }
 
         [Test]
+        public void BlankRowSkipped_EmptyIdIsError_ExtraColumnsWarn()
+        {
+            StoryCsvResult r = StoryCsvParser.Parse("ID,n,t,m\n,,,\n1,A,x,y,extra\n,B,z\n,Fab,,\n");
+            Assert.AreEqual(1, r.Lines.Count);
+            Assert.AreEqual(1, r.Errors.Count, string.Join("|", r.Errors));
+            StringAssert.Contains("ID", r.Errors[0]);
+            Assert.AreEqual(2, r.Warnings.Count);
+            Assert.AreEqual("y", r.Lines[0].Memo);
+        }
+
+        [Test]
         public void QuotedComma_Quote_AndNewline()
         {
             StoryCsvResult r = StoryCsvParser.Parse("ID,n,t\n1,A,\"a, b\"\n2,B,\"say \"\"hi\"\"\"\n3,C,\"l1\nl2\"\n4,D,x\n");

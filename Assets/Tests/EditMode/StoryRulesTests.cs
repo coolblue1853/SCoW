@@ -76,6 +76,26 @@ namespace SCoW.Tests
             Assert.IsFalse(ConditionParser.Parse(dsl).Ok, dsl);
         }
 
+        [TestCase("time")]
+        [TestCase("timex>=3")]
+        [TestCase("flag:a$b")]
+        [TestCase("counter:x>=3#")]
+        public void BadCondition_TimeExactAndAtomChars(string dsl)
+        {
+            Assert.IsFalse(ConditionParser.Parse(dsl).Ok, dsl);
+        }
+
+        [Test]
+        public void Condition_DeepNesting_FailsWithoutStackOverflow()
+        {
+            string deep = new string('(', 5000) + "flag:a" + new string(')', 5000);
+            Assert.IsFalse(ConditionParser.Parse(deep).Ok);
+            string ok = new string('(', 30) + "flag:a" + new string(')', 30);
+            Assert.IsTrue(ConditionParser.Parse(ok).Ok);
+            string nots = new string('!', 5000) + "flag:a";
+            Assert.IsFalse(ConditionParser.Parse(nots).Ok);
+        }
+
         [Test]
         public void Effects_SetClearAddAndHostCalls()
         {

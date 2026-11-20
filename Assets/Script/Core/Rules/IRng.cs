@@ -19,6 +19,10 @@ namespace SCoW.Core.Rules
 
         public int Next(int minInclusive, int maxExclusive)
         {
+            if (maxExclusive <= minInclusive)
+            {
+                return minInclusive;
+            }
             _state = _state * 6364136223846793005UL + 1442695040888963407UL;
             uint r = (uint)(_state >> 33);
             return minInclusive + (int)(r % (uint)(maxExclusive - minInclusive));

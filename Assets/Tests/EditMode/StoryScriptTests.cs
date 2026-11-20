@@ -69,6 +69,30 @@ namespace SCoW.Tests
         }
 
         [Test]
+        public void Load_FailedWhen_IsFalseAndScriptNull()
+        {
+            StoryLoadResult r = StoryScriptLoader.Load(
+                "{\"topics\":[{\"id\":\"t\",\"cases\":[{\"when\":\"flag:\",\"node\":\"a\"}]}],\"nodes\":{\"a\":{\"text\":\"x\"}}}");
+            Assert.IsFalse(r.Ok);
+            Assert.IsNull(r.Script, "오류가 있으면 Script 는 null");
+            Assert.IsNotNull(StoryScriptLoader.Load("{\"nodes\":{\"a\":{}}}").Script);
+        }
+
+        [Test]
+        public void MiniJson_UnicodeEscape_StrictHex()
+        {
+            string err;
+            Assert.AreEqual("Aé", MiniJson.Parse("\"" + @"\u0041\u00E9" + "\"", out err));
+            Assert.IsNull(err);
+            MiniJson.Parse("\"" + @"\u+041" + "\"", out err);
+            Assert.IsNotNull(err);
+            MiniJson.Parse("\"" + @"\u 041" + "\"", out err);
+            Assert.IsNotNull(err);
+            MiniJson.Parse("\"" + @"\u00" + "\"", out err);
+            Assert.IsNotNull(err);
+        }
+
+        [Test]
         public void MiniJson_Basics()
         {
             string err;

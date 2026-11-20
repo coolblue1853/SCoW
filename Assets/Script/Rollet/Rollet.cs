@@ -131,14 +131,7 @@ public class Rollet : MonoBehaviour
     }
     public void SetRollet(string skill, string point_sting, int point_int, string subject, string Enemy = "")
     {
-        if (point_int >= 90)
-        {
-            point_int = 90;
-        }
-        if (point_int < 0)
-        {
-            point_int = 0;
-        }
+        point_int = SkillCheck.ClampTarget(point_int);
         enemySubject = Enemy;
         SoundManager.Instance.PaperClipPlay();
         DataBaseManager.isRollet = true;
@@ -822,8 +815,8 @@ public class Rollet : MonoBehaviour
         }
         else if (sanRolletText.text == "Rise sanity")
         {
-            int SanRollet = (Random.Range(0, 3));
-            if (SanRollet == 1)
+            int sanUp = SanCheck.RollLoss(UnityRng.Instance);
+            if (sanUp == 10)
             {
                 detailSan.text = "Rise sanity : 10\n\nThe current sanity rised by 10 Point.";
                 BillowUIManager.Instance.SanUp(10);

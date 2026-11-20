@@ -288,5 +288,13 @@ namespace SCoW.Tests
             }
             Assert.AreEqual(1.0 / 3, ten / (double)n, 0.02);
         }
+
+        [Test]
+        public void SeededRng_EmptyRange_ReturnsMin()
+        {
+            var rng = new SeededRng(1);
+            Assert.AreEqual(5, rng.Next(5, 5));
+            Assert.AreEqual(5, rng.Next(5, 3));
+        }
     }
 }

@@ -43,10 +43,13 @@ namespace SCoW.Core.Story
             public DslError(string m) : base(m) { }
         }
 
+        private const int MaxDepth = 64;
+
         private sealed class Cursor
         {
             public readonly string S;
             public int Pos;
+            public int Depth;
             public Cursor(string s) { S = s; }
             public bool End { get { return Pos >= S.Length; } }
             public char Peek { get { return S[Pos]; } }
@@ -88,6 +91,19 @@ namespace SCoW.Core.Story
 
         private static Condition ParseUnary(Cursor c)
         {
+            if (++c.Depth > MaxDepth) { throw new DslError("중첩이 너무 깊음"); }
+            try
+            {
+                return ParseUnaryCore(c);
+            }
+            finally
+            {
+                c.Depth--;
+            }
+        }
+
+        private static Condition ParseUnaryCore(Cursor c)
+        {
             c.SkipWs();
             if (!c.End && c.Peek == '!')
             {
@@ -128,9 +144,20 @@ namespace SCoW.Core.Story
                 {
                     break;
                 }
+                if (!IsAtomChar(ch))
+                {
+                    throw new DslError("허용되지 않는 글자 '" + ch + "' (위치 " + c.Pos + ")");
+                }
                 c.Pos++;
             }
             return c.S.Substring(start, c.Pos - start);
+        }
+
+        // 키·값에 쓸 수 있는 글자: 글자·숫자·_ . - 와 접두 ':', 비교 연산자 문자 = < > ! 부호 + (그 밖은 오류).
+        private static bool IsAtomChar(char ch)
+        {
+            return char.IsLetterOrDigit(ch) || ch == '_' || ch == '.' || ch == '-' || ch == '+' || ch == ':'
+                || ch == '=' || ch == '<' || ch == '>' || ch == '!';
         }
 
         private static Condition ParseAtom(string a)
@@ -153,7 +180,8 @@ namespace SCoW.Core.Story
             {
                 return ParseCmp(a.Substring(8), a);
             }
-            if (a.StartsWith("time", System.StringComparison.Ordinal))
+            if (a.StartsWith(TimeCounter, System.StringComparison.Ordinal)
+                && a.Length > TimeCounter.Length && "<>=!".IndexOf(a[TimeCounter.Length]) >= 0)
             {
                 return ParseCmp(a, a);
             }
