@@ -24,6 +24,11 @@ bash Tools/u.sh call manage_camera '{"action":"screenshot","properties":{"includ
 ```
 
 ## 2. 규칙
+- 🔴 **(11-21 사용자) SCoW 에디터 창을 절대 앞으로 가져오지 않는다.** 사용자가 게임 중일 수 있다.
+  - 업그레이드·컴파일 확인은 가능하면 배치 모드(`Unity.exe -batchmode -nographics -quit -projectPath ... -logFile ...`, 에디터가 꺼져 있을 때만).
+  - 에디터를 띄울 때는 최소화로: `powershell -NoProfile -Command "Start-Process -WindowStyle Minimized -FilePath 'C:\Program Files\Unity\Hub\Editor\6000.4.0f1\Editor\Unity.exe' -ArgumentList '-projectPath','C:/Users/user/SCoW'"`. Hub 로 열지 않는다. 꺼진 에디터를 다시 켤 때도 같다.
+  - 이미 떠 있는 창은 Win32 `ShowWindowAsync(hwnd, 7)`(SW_SHOWMINNOACTIVE, 활성화 없이 최소화)로 내린다.
+  - 플레이 진입은 Game 뷰 PlayUnfocused 설정(`Tools/probes/play_unfocused.cs`) 뒤에만. 창을 활성화·포커스하는 메뉴·API(`EditorWindow.Focus`, `FocusWindowIfItsOpen` 등)는 쓰지 않는다. 스크린샷은 `manage_camera screenshot`(게임 뷰 렌더)만.
 - 프로브(`Tools/probes/*.cs`)는 메서드 본문이다. 마지막에 `return 문자열;`.
 - 플레이 중에는 컴파일을 일으키지 않는다(스크립트 수정은 플레이 종료 후).
 - Unity 창을 앞으로 가져오지 않는다. `Tools/probes/play_unfocused.cs` 로 플레이 시 포커스를 뺏지 않게 한다.
