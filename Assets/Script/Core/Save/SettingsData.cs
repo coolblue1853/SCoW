@@ -15,6 +15,10 @@ namespace SCoW.Core.Save
         public float TextDelay = DefaultTextDelay;
         public bool FullScreen = true;
         public int ResolutionIndex = 1;
+        /// <summary>대사 글자 속도 1~5단계(P8). 추가 필드: 옛 설정 파일에는 없고 기본값 3.</summary>
+        public int TextSpeedLevel = 3;
+        /// <summary>스킵이 안 읽은 줄도 넘기나(P8). 기본은 읽은 것만.</summary>
+        public bool SkipAll = false;
 
         /// <summary>손상·수동 편집으로 범위를 벗어난 값을 안전한 값으로 되돌린다.</summary>
         public void Sanitize()
@@ -24,6 +28,10 @@ namespace SCoW.Core.Save
             if (float.IsNaN(TextDelay) || float.IsInfinity(TextDelay) || TextDelay < 0f || TextDelay > 1f)
             {
                 TextDelay = DefaultTextDelay;
+            }
+            if (TextSpeedLevel < 1 || TextSpeedLevel > 5)
+            {
+                TextSpeedLevel = 3;
             }
             if (ResolutionIndex < 0 || ResolutionIndex >= ResolutionCount)
             {
