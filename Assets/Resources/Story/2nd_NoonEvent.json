@@ -1,0 +1,63 @@
+{
+  "id": "2nd_NoonEvent",
+  "topics": [
+    { "id": "NoonEvent_FirstDailog_Detective", "cases": [
+      { "when": "!flag:intelQuestHouse1", "node": "phone_noquest" },
+      { "when": "flag:intelMissingPeople1 || flag:intelMissingPeople2", "node": "phone_missing" },
+      { "node": "phone_nomissing" }
+    ] },
+    { "id": "NoonEvent_ClientHouse", "cases": [ { "node": "NoonEvent_ClientHouse" } ] },
+    { "id": "NoonEvent_Witness_Dialog", "cases": [
+      { "when": "!flag:witnessFirstDailog", "pre": "set:witnessFirstDailog", "node": "witness_first" },
+      { "node": "witness_repeat" }
+    ] },
+    { "id": "NoonEvent_Witness_Look", "cases": [ { "node": "NoonEvent_Witness_Look" } ] },
+    { "id": "NoonEvent_DoorPolice_Dialog", "cases": [
+      { "when": "!flag:doorPoliceFirstDailog", "pre": "set:doorPoliceFirstDailog", "node": "doorpolice_first" },
+      { "node": "doorpolice_repeat" }
+    ] },
+    { "id": "NoonEvent_DoorPolice_Look", "cases": [ { "node": "NoonEvent_DoorPolice_Look" } ] },
+    { "id": "NoonEvent_FirstDoor", "cases": [ { "node": "NoonEvent_FirstDoor" } ] },
+    { "id": "NoonEvent_InsidePolice_Dialog", "cases": [
+      { "when": "!flag:insidePoliceFirstDailog", "pre": "set:insidePoliceFirstDailog", "node": "insidepolice_first" },
+      { "node": "insidepolice_repeat" }
+    ] },
+    { "id": "NoonEvent_InsidePolice_Look", "cases": [ { "node": "NoonEvent_InsidePolice_Look" } ] },
+    { "id": "NoonEvent_DeadBody_Dialog", "cases": [ { "node": "NoonEvent_DeadBody_Dialog" } ] },
+    { "id": "NoonEvent_DeadBody_Look", "cases": [
+      { "when": "flag:intelFishySmell1", "pre": "set:deadBodyFirstLook", "node": "deadbody_look_rumor" },
+      { "pre": "set:deadBodyFirstLook", "node": "deadbody_look_norumor" }
+    ] },
+    { "id": "NoonEvent_DeadBody_Look_Missing", "cases": [ { "node": "NoonEvent_DeadBody_Look_Missing" } ] },
+    { "id": "NoonEvent_DeadBody_Look_FishySmell", "cases": [ { "node": "NoonEvent_DeadBody_Look_FishySmell" } ] },
+    { "id": "NoonEvent_DeadBody_analysisSuccAfter", "cases": [ { "node": "NoonEvent_DeadBody_analysisSuccAfter" } ] },
+    { "id": "Accident Site_Dialog", "cases": [ { "node": "Accident Site_Dialog" } ] },
+    { "id": "Accident Site_Look", "cases": [ { "node": "Accident Site_Look" } ] },
+    { "id": "Site_analysisSuccAfter", "cases": [ { "node": "Site_analysisSuccAfter" } ] }
+  ],
+  "nodes": {
+    "phone_noquest": { "text": "2nd_NoonEvent:34-53" },
+    "phone_missing": { "text": "2nd_NoonEvent:17-33" },
+    "phone_nomissing": { "text": "2nd_NoonEvent:1-16" },
+    "NoonEvent_ClientHouse": { "text": "2nd_NoonEvent:54-55" },
+    "witness_first": { "text": "2nd_NoonEvent:56-59" },
+    "witness_repeat": { "text": "2nd_NoonEvent:60" },
+    "NoonEvent_Witness_Look": { "text": "2nd_NoonEvent:61" },
+    "doorpolice_first": { "text": "2nd_NoonEvent:96-100" },
+    "doorpolice_repeat": { "text": "2nd_NoonEvent:101" },
+    "NoonEvent_DoorPolice_Look": { "text": "2nd_NoonEvent:102-103" },
+    "NoonEvent_FirstDoor": { "text": "2nd_NoonEvent:114-119" },
+    "insidepolice_first": { "text": "2nd_NoonEvent:122-124" },
+    "insidepolice_repeat": { "text": "2nd_NoonEvent:125" },
+    "NoonEvent_InsidePolice_Look": { "text": "2nd_NoonEvent:126-127" },
+    "NoonEvent_DeadBody_Dialog": { "text": "2nd_NoonEvent:128" },
+    "deadbody_look_rumor": { "text": "2nd_NoonEvent:136-140" },
+    "deadbody_look_norumor": { "text": "2nd_NoonEvent:129-135" },
+    "NoonEvent_DeadBody_Look_Missing": { "text": "2nd_NoonEvent:141-143" },
+    "NoonEvent_DeadBody_Look_FishySmell": { "text": "2nd_NoonEvent:144-146" },
+    "NoonEvent_DeadBody_analysisSuccAfter": { "text": "2nd_NoonEvent:166-168" },
+    "Accident Site_Dialog": { "text": "2nd_NoonEvent:175" },
+    "Accident Site_Look": { "text": "2nd_NoonEvent:176-179" },
+    "Site_analysisSuccAfter": { "text": "2nd_NoonEvent:184-186" }
+  }
+}

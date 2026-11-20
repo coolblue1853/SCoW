@@ -6,6 +6,9 @@
     { "id": "DailyNews", "scripts": [ { "script": "1st_DailyNews" } ] },
     { "id": "University", "scripts": [ { "script": "1st_University" } ] },
     { "id": "Riverside", "scripts": [ { "script": "1st_Riverside" } ] },
-    { "id": "Hospital", "scripts": [ { "script": "1st_Hospital" } ] }
+    { "id": "Hospital", "scripts": [ { "script": "1st_Hospital" } ] },
+    { "id": "Policeoffice", "scripts": [ { "script": "1st_PoliceOffice" } ] },
+    { "id": "Slum", "scripts": [ { "script": "1st_Slum" } ] },
+    { "id": "NoonEvent", "scripts": [ { "script": "2nd_NoonEvent" } ] }
   ]
 }

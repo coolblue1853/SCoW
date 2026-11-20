@@ -1,0 +1,43 @@
+{
+  "id": "1st_PoliceOffice",
+  "topics": [
+    { "id": "A_FirstDialog", "cases": [
+      { "when": "flag:albertDeathKeyword && time>8 && flag:thirdDayPoliceADialog", "pre": "clear:thirdDayPoliceADialog; set:aFirstDialog", "node": "a_no_albert" },
+      { "when": "!flag:aFirstDialog", "pre": "set:aFirstDialog", "node": "a_first" },
+      { "node": "a_dialog" }
+    ] },
+    { "id": "B_FirstDialog", "cases": [
+      { "when": "flag:albertDeathKeyword && time>8 && flag:thirdDayPoliceBDialog", "pre": "clear:thirdDayPoliceBDialog; set:bFirstDialog", "node": "b_no_albert" },
+      { "when": "!flag:bFirstDialog", "pre": "set:bFirstDialog", "node": "b_first" },
+      { "node": "b_dialog" }
+    ] },
+    { "id": "Albert_FirstDialog", "cases": [
+      { "when": "time<7 && !flag:albertFirstDialog", "pre": "set:albertFirstDialog", "node": "albert_first" },
+      { "when": "time<7", "node": "albert_dialog" },
+      { "when": "time>8 && !flag:thirdDayAlbertDialog", "pre": "set:thirdDayAlbertDialog", "node": "albert_third_first" },
+      { "when": "time>8", "node": "albert_dialog" },
+      { "when": "!flag:albertFirstDialog", "pre": "set:albertFirstDialog; set:albertFirstAfterEvent", "node": "albert_first_after_event" },
+      { "when": "!flag:albertFirstAfterEvent", "pre": "set:albertFirstAfterEvent", "node": "albert_first_new" },
+      { "node": "albert_dialog" }
+    ] },
+    { "id": "A_Look", "cases": [ { "node": "A_Look" } ] },
+    { "id": "B_Look", "cases": [ { "node": "B_Look" } ] },
+    { "id": "Albert_Look", "cases": [ { "node": "Albert_Look" } ] }
+  ],
+  "nodes": {
+    "a_no_albert": { "text": "1st_PoliceOffice:225-228" },
+    "a_first": { "text": "1st_PoliceOffice:1-5" },
+    "a_dialog": { "text": "1st_PoliceOffice:6" },
+    "b_no_albert": { "text": "1st_PoliceOffice:229-232" },
+    "b_first": { "text": "1st_PoliceOffice:7-11" },
+    "b_dialog": { "text": "1st_PoliceOffice:12" },
+    "albert_first": { "text": "1st_PoliceOffice:13-37" },
+    "albert_dialog": { "text": "1st_PoliceOffice:38" },
+    "albert_third_first": { "text": "1st_PoliceOffice:192-212" },
+    "albert_first_after_event": { "text": "1st_PoliceOffice:116-134" },
+    "albert_first_new": { "text": "1st_PoliceOffice:135-139" },
+    "A_Look": { "text": "1st_PoliceOffice:48" },
+    "B_Look": { "text": "1st_PoliceOffice:49" },
+    "Albert_Look": { "text": "1st_PoliceOffice:50-51" }
+  }
+}

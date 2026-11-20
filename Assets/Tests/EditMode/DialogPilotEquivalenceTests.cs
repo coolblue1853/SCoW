@@ -15,6 +15,7 @@ namespace SCoW.Tests
     {
         private const string GoldenPath = "Assets/Tests/EditMode/Golden/DialogPilot.golden.txt";
         private const string GoldenPathP10a = "Assets/Tests/EditMode/Golden/DialogP10a.golden.txt";
+        private const string GoldenPathP10b = "Assets/Tests/EditMode/Golden/DialogP10b.golden.txt";
         private static readonly Dictionary<string, IList<StoryLine>> CsvCache = new Dictionary<string, IList<StoryLine>>();
 
         private static IList<StoryLine> Csv(string name)
@@ -58,6 +59,13 @@ namespace SCoW.Tests
         public void GoldenRows_P10a_MatchNewPath()
         {
             CheckGolden(GoldenPathP10a, 1000);
+        }
+
+        /// <summary>P10b 5장소(Policeoffice·Slum·2nd_NoonEvent·2ndDetectiveOffice·SafeLook).</summary>
+        [Test]
+        public void GoldenRows_P10b_MatchNewPath()
+        {
+            CheckGolden(GoldenPathP10b, 200);
         }
 
         private static void CheckGolden(string goldenPath, int minRows)
@@ -130,7 +138,10 @@ namespace SCoW.Tests
             GameState late = GameState.New();
             late.SetCounter("timeCount", 6);
             Assert.AreEqual("2nd_NoonEvent", cat.ScriptFor("Client'shouse", new GameStateAccess(late)));
-            Assert.IsNull(cat.ScriptFor("Slum", s));
+            Assert.AreEqual("1st_Slum", cat.ScriptFor("Slum", s));
+            Assert.AreEqual("1st_PoliceOffice", cat.ScriptFor("Policeoffice", s));
+            Assert.AreEqual("2nd_NoonEvent", cat.ScriptFor("NoonEvent", s));
+            Assert.IsNull(cat.ScriptFor("InSewer", s));
             Assert.IsNull(cat.ScriptFor(null, s));
         }
 

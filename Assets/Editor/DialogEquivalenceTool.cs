@@ -21,6 +21,8 @@ public static class DialogEquivalenceTool
     public const string CurrentPath = "Logs/playtest/DialogPilot.current.txt";
     public const string GoldenPathP10a = "Assets/Tests/EditMode/Golden/DialogP10a.golden.txt";
     public const string CurrentPathP10a = "Logs/playtest/DialogP10a.current.txt";
+    public const string GoldenPathP10b = "Assets/Tests/EditMode/Golden/DialogP10b.golden.txt";
+    public const string CurrentPathP10b = "Logs/playtest/DialogP10b.current.txt";
 
     private static readonly string[] BarTopics =
     {
@@ -88,6 +90,12 @@ public static class DialogEquivalenceTool
     [MenuItem("SCoW/Dialog/Dump P10a Current (Play Mode)")]
     private static void DumpCurrentP10a() { Dump(CurrentPathP10a, true); }
 
+    [MenuItem("SCoW/Dialog/Dump P10b Golden (Play Mode)")]
+    private static void DumpGoldenP10b() { Dump(GoldenPathP10b, 2); }
+
+    [MenuItem("SCoW/Dialog/Dump P10b Current (Play Mode)")]
+    private static void DumpCurrentP10b() { Dump(CurrentPathP10b, 2); }
+
     /// <summary>플래그 이름들의 모든 0/1 조합 x 시각(timeCount) 값들. 이름은 접두+시각+조합.</summary>
     private static List<Preset> Combos(string prefix, string[] flags, int[] times)
     {
@@ -116,6 +124,68 @@ public static class DialogEquivalenceTool
         public string[] Topics;
         public List<Preset> Presets;
         public Action<string> Run;
+        /// <summary>옛 경로가 읽는 CSV 이름(장소 CSV 가 아니라 호출부가 로드해 둔 CSV). null 이면 Script.</summary>
+        public string OldCsv;
+    }
+
+    private static Target T(string script, string[] topics, List<Preset> presets, Action<string> run, string oldCsv)
+    {
+        return new Target { Script = script, Topics = topics, Presets = presets, Run = run, OldCsv = oldCsv };
+    }
+
+    private static List<Preset> One(string name, string spec)
+    {
+        List<Preset> l = new List<Preset>();
+        l.Add(new Preset { Name = name, Spec = spec });
+        return l;
+    }
+
+    private static readonly string[] PoliceATopics = { "A_FirstDialog", "NoSuchTopic" };
+    private static readonly string[] PoliceBTopics = { "B_FirstDialog", "NoSuchTopic" };
+    private static readonly string[] PoliceAlbertTopics = { "Albert_FirstDialog", "NoSuchTopic" };
+    private static readonly string[] PoliceLookTopics = { "A_Look", "B_Look", "Albert_Look", "NoSuchTopic" };
+    private static readonly string[] SlumTopics =
+    {
+        "Dave_FirstDialog", "Dave_Ran1", "Dave_Ran2", "Dave_Ran3", "Dave_Ran4", "Dave_Ran5", "Dave_Ran6", "Dave_Ran7",
+        "Dave_Ran8", "Dave_Ran9", "Dave_NoMoney", "Dave_RanEnd", "AfterDaveDeath", "NoSuchTopic"
+    };
+    private static readonly string[] NoonPhoneTopics = { "NoonEvent_FirstDailog_Detective", "NoSuchTopic" };
+    private static readonly string[] NoonNpcTopics = { "NoonEvent_Witness_Dialog", "NoonEvent_DoorPolice_Dialog", "NoonEvent_InsidePolice_Dialog", "NoSuchTopic" };
+    private static readonly string[] NoonDeadTopics = { "NoonEvent_DeadBody_Look", "NoSuchTopic" };
+    private static readonly string[] NoonMiscTopics =
+    {
+        "NoonEvent_ClientHouse", "NoonEvent_Witness_Look", "NoonEvent_DoorPolice_Look", "NoonEvent_FirstDoor", "NoonEvent_InsidePolice_Look",
+        "NoonEvent_DeadBody_Dialog", "NoonEvent_DeadBody_Look_Missing", "NoonEvent_DeadBody_Look_FishySmell",
+        "NoonEvent_DeadBody_analysisSuccAfter", "Accident Site_Dialog", "Accident Site_Look", "Site_analysisSuccAfter", "NoSuchTopic"
+    };
+    private static readonly string[] Detective2ndTopics =
+    {
+        "Fab_Case1", "Fab_Case1After", "Fab_Case2", "Fab_Case2Succ", "Fab_Case2SuccAfter", "Fab_Case2Fail", "Fab_Case3", "NoSuchTopic"
+    };
+    private static readonly string[] SafeLookTopics =
+    {
+        "OldMap_Look", "Document_Look", "Safe_Look", "Safe_Fail", "Bracelet_Look", "Coat_Look", "SewergeKey_Look", "Map_Look", "NoSuchTopic"
+    };
+
+    private static List<Target> P10bTargets()
+    {
+        InteractionController ic = InteractionController.Instance;
+        List<Target> list = new List<Target>();
+        string[] pa = { "albertDeathKeyword", "thirdDayPoliceADialog", "aFirstDialog" };
+        string[] pb = { "albertDeathKeyword", "thirdDayPoliceBDialog", "bFirstDialog" };
+        string[] pal = { "albertFirstDialog", "thirdDayAlbertDialog", "albertFirstAfterEvent" };
+        list.Add(T("1st_PoliceOffice", PoliceATopics, Combos("pa", pa, new[] { 1, 9 }), ic.Start1stPoliceoffice, null));
+        list.Add(T("1st_PoliceOffice", PoliceBTopics, Combos("pb", pb, new[] { 1, 9 }), ic.Start1stPoliceoffice, null));
+        list.Add(T("1st_PoliceOffice", PoliceAlbertTopics, Combos("pl", pal, new[] { 1, 7, 8, 9 }), ic.Start1stPoliceoffice, null));
+        list.Add(T("1st_PoliceOffice", PoliceLookTopics, One("pk_default", "counter:timeCount=1"), ic.Start1stPoliceoffice, null));
+        list.Add(T("1st_Slum", SlumTopics, Combos("sl", new[] { "daveFirstDialog" }, new[] { 1 }), ic.Start1stSlum, null));
+        list.Add(T("2nd_NoonEvent", NoonPhoneTopics, Combos("np", new[] { "intelQuestHouse1", "intelMissingPeople1", "intelMissingPeople2" }, new[] { 4 }), ic.Start2ndNoonEvent, null));
+        list.Add(T("2nd_NoonEvent", NoonNpcTopics, Combos("nn", new[] { "witnessFirstDailog", "doorPoliceFirstDailog", "insidePoliceFirstDailog" }, new[] { 4 }), ic.Start2ndNoonEvent, null));
+        list.Add(T("2nd_NoonEvent", NoonDeadTopics, Combos("nd", new[] { "intelFishySmell1", "deadBodyFirstLook" }, new[] { 4 }), ic.Start2ndNoonEvent, null));
+        list.Add(T("2nd_NoonEvent", NoonMiscTopics, One("nm_default", "counter:timeCount=4"), ic.Start2ndNoonEvent, null));
+        list.Add(T("2nd_DetectiveOffice", Detective2ndTopics, One("fd_default", "counter:timeCount=4"), ic.Start2ndDetectiveOffice, "1st_DetectiveOffice"));
+        list.Add(T("SafeLook", SafeLookTopics, One("sf_default", "counter:timeCount=4"), ic.StartSafeLook, "1st_Item"));
+        return list;
     }
 
     private static List<Target> P10aTargets()
@@ -184,7 +254,9 @@ public static class DialogEquivalenceTool
         return list;
     }
 
-    private static void Dump(string path, bool p10a)
+    private static void Dump(string path, bool p10a) { Dump(path, p10a ? 1 : 0); }
+
+    private static void Dump(string path, int mode)
     {
         if (!EditorApplication.isPlaying || InteractionController.Instance == null)
         {
@@ -198,7 +270,11 @@ public static class DialogEquivalenceTool
             StringBuilder sb = new StringBuilder();
             sb.Append("# DialogPilot golden v1\n");
             List<Target> targets;
-            if (p10a)
+            if (mode == 2)
+            {
+                targets = P10bTargets();
+            }
+            else if (mode == 1)
             {
                 targets = P10aTargets();
             }
@@ -215,7 +291,7 @@ public static class DialogEquivalenceTool
             }
             for (int k = 0; k < targets.Count; k++)
             {
-                DumpScript(sb, targets[k].Script, targets[k].Topics, targets[k].Presets, targets[k].Run);
+                DumpScript(sb, targets[k].Script, targets[k].OldCsv ?? targets[k].Script, targets[k].Topics, targets[k].Presets, targets[k].Run);
             }
             string dir = Path.GetDirectoryName(path);
             if (!string.IsNullOrEmpty(dir)) { Directory.CreateDirectory(dir); }
@@ -229,14 +305,14 @@ public static class DialogEquivalenceTool
         }
     }
 
-    private static void DumpScript(StringBuilder sb, string script, string[] topics, List<Preset> presets, Action<string> run)
+    private static void DumpScript(StringBuilder sb, string script, string csv, string[] topics, List<Preset> presets, Action<string> run)
     {
         // 옛 경로는 DialogDatabaseManager 가 현재 장소 CSV 를 읽어 둔 상태를 전제한다(장소 도착 때 하던 일을 흉내).
         DialogDatabaseManager ddm = DialogDatabaseManager.instance;
         System.Reflection.MethodInfo setDialog = typeof(DialogDatabaseManager).GetMethod("SetDialog", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
         if (ddm == null || setDialog == null) { throw new InvalidOperationException("DialogDatabaseManager 를 찾지 못했다"); }
         ddm.check = false;
-        ddm.csvFileName = script;
+        ddm.csvFileName = csv;
         setDialog.Invoke(ddm, null);
         for (int p = 0; p < presets.Count; p++)
         {

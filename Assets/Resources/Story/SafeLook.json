@@ -1,0 +1,23 @@
+{
+  "id": "SafeLook",
+  "topics": [
+    { "id": "OldMap_Look", "cases": [ { "node": "OldMap_Look" } ] },
+    { "id": "Document_Look", "cases": [ { "node": "Document_Look" } ] },
+    { "id": "Safe_Look", "cases": [ { "node": "Safe_Look" } ] },
+    { "id": "Safe_Fail", "cases": [ { "node": "Safe_Fail" } ] },
+    { "id": "Bracelet_Look", "cases": [ { "node": "Bracelet_Look" } ] },
+    { "id": "Coat_Look", "cases": [ { "node": "Coat_Look" } ] },
+    { "id": "SewergeKey_Look", "cases": [ { "node": "SewergeKey_Look" } ] },
+    { "id": "Map_Look", "cases": [ { "node": "Map_Look" } ] }
+  ],
+  "nodes": {
+    "OldMap_Look": { "text": "1st_Item:28-30" },
+    "Document_Look": { "text": "1st_Item:16-27" },
+    "Safe_Look": { "text": "1st_Item:1-3" },
+    "Safe_Fail": { "text": "1st_Item:4" },
+    "Bracelet_Look": { "text": "1st_Item:6-7" },
+    "Coat_Look": { "text": "1st_Item:8-9" },
+    "SewergeKey_Look": { "text": "1st_Item:13" },
+    "Map_Look": { "text": "1st_Item:14" }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "1st_Slum",
+  "topics": [
+    { "id": "Dave_FirstDialog", "cases": [
+      { "when": "!flag:daveFirstDialog", "pre": "set:daveFirstDialog", "node": "dave_first" },
+      { "node": "dave_dialog" }
+    ] },
+    { "id": "Dave_Ran1", "cases": [ { "node": "Dave_Ran1" } ] },
+    { "id": "Dave_Ran2", "cases": [ { "node": "Dave_Ran2" } ] },
+    { "id": "Dave_Ran3", "cases": [ { "node": "Dave_Ran3" } ] },
+    { "id": "Dave_Ran4", "cases": [ { "node": "Dave_Ran4" } ] },
+    { "id": "Dave_Ran5", "cases": [ { "node": "Dave_Ran5" } ] },
+    { "id": "Dave_Ran6", "cases": [ { "node": "Dave_Ran6" } ] },
+    { "id": "Dave_Ran7", "cases": [ { "node": "Dave_Ran7" } ] },
+    { "id": "Dave_Ran8", "cases": [ { "node": "Dave_Ran8" } ] },
+    { "id": "Dave_Ran9", "cases": [ { "node": "Dave_Ran9" } ] },
+    { "id": "Dave_NoMoney", "cases": [ { "node": "Dave_NoMoney" } ] },
+    { "id": "Dave_RanEnd", "cases": [ { "node": "Dave_RanEnd" } ] },
+    { "id": "AfterDaveDeath", "cases": [ { "node": "AfterDaveDeath" } ] }
+  ],
+  "nodes": {
+    "dave_first": { "text": "1st_Slum:1-4" },
+    "dave_dialog": { "text": "1st_Slum:30" },
+    "Dave_Ran1": { "text": "1st_Slum:5-7" },
+    "Dave_Ran2": { "text": "1st_Slum:8-10" },
+    "Dave_Ran3": { "text": "1st_Slum:11-14" },
+    "Dave_Ran4": { "text": "1st_Slum:15-16" },
+    "Dave_Ran5": { "text": "1st_Slum:17-19" },
+    "Dave_Ran6": { "text": "1st_Slum:20-21" },
+    "Dave_Ran7": { "text": "1st_Slum:22-23" },
+    "Dave_Ran8": { "text": "1st_Slum:24-29" },
+    "Dave_Ran9": { "text": "1st_Slum:33-37" },
+    "Dave_NoMoney": { "text": "1st_Slum:31" },
+    "Dave_RanEnd": { "text": "1st_Slum:32" },
+    "AfterDaveDeath": { "text": "1st_Slum:61-62" }
+  }
+}
