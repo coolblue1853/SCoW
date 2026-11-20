@@ -207,3 +207,12 @@ New 전환 시 `UnityEngine.Input` 의 모든 호출은 **런타임에 `InvalidO
 - 디버그 키(RolletTest)는 별도 맵 대신 `GameInput.DebugKeyDown(Key)` → `Keyboard.current` 직접 조회. 에디터·Development 빌드 외에는 항상 false(출시 빌드 치트 차단).
 - 패드 A 는 Interact·Portal·PointerPrimary 에 공통 바인딩(가정 A-1).
 - 검증: 컴파일 error 0, EditMode 1/1, 씬 3개 플레이 콘솔 error 0, 액션별 바인딩 해석(키보드·마우스·가상 패드) 확인. **미검증:** 입력 이벤트 주입 동작(에디터 비포커스 상태에서 가상 장치 상태는 바뀌나 액션이 발화하지 않음 — `backgroundBehavior`/`editorInputBehaviorInPlayMode` 런타임 변경도 무효). 실제 키·클릭 동작은 사용자 플레이로 확인 필요.
+
+## 구현 기록 (C-2 P2b, 11-21)
+
+- 씬 3개 `StandaloneInputModule` → `InputSystemUIInputModule`(에디터 스크립트로 교체·저장, 액션은 런타임 OnEnable 이 기본 UI 액션 자동 할당). 씬은 Unity 6 재직렬화 diff 가 같이 들어갔다(Main 대용량).
+- DamageNumbersPro: asmdef `versionDefines` 가 이미 `DNP_NewInputSystem` 을 정의하므로 별도 심볼 불필요(무수정).
+- I2 `Input.touchSupported`: `#else`(비 PC·모바일 아님) 분기라 Windows 빌드에 컴파일되지 않음 — 무수정.
+- Text Animator: `TextAnimatorPlayer.WaitInput` 의 `Input.anyKeyDown` 을 `#if ENABLE_INPUT_SYSTEM` 로 Keyboard/Mouse/Gamepad(A) 입력 확인으로 패치, `Febucci.TextAnimator.Runtime.asmdef` 에 `Unity.InputSystem` 참조 추가(게임 데이터에서 waitinput 사용처는 없음).
+- `ProjectSettings.asset` `activeInputHandler: 1`(Input System Package New). 되돌리려면 2(Both).
+- 검증: 에디터 재시작 후 `UnityEngine.Input` 접근이 InvalidOperationException 을 던짐 확인, 씬 3개 플레이 콘솔 error 0, 플레이 중 모듈 `InputSystemUIInputModule` 액션(point·leftClick) 할당 확인. **미검증:** 실제 UI 클릭·키 입력(비포커스 에디터에서 입력 이벤트 주입 불가).

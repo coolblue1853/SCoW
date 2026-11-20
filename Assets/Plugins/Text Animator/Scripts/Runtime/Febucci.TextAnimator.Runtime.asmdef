@@ -1,7 +1,8 @@
 {
     "name": "Febucci.TextAnimator.Runtime",
     "references": [
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "Unity.InputSystem"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

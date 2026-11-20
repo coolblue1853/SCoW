@@ -87,8 +87,16 @@ namespace Febucci.UI
         /// <returns></returns>
         protected override IEnumerator WaitInput()
         {
+            // SCoW 패치(C-2 P2b): Input System 전용 설정에서는 UnityEngine.Input 을 쓸 수 없다.
+#if ENABLE_INPUT_SYSTEM
+            while (!((UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.anyKey.wasPressedThisFrame)
+                || (UnityEngine.InputSystem.Mouse.current != null && UnityEngine.InputSystem.Mouse.current.leftButton.wasPressedThisFrame)
+                || (UnityEngine.InputSystem.Gamepad.current != null && UnityEngine.InputSystem.Gamepad.current.buttonSouth.wasPressedThisFrame)))
+                yield return null;
+#else
             while (!Input.anyKeyDown)
                 yield return null;
+#endif
         }
 
     }

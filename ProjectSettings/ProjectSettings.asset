@@ -891,7 +891,7 @@ PlayerSettings:
     Nintendo Switch 2: UNITY_VISUAL_SCRIPTING;TextMeshPro
     PS4: UNITY_VISUAL_SCRIPTING;TextMeshPro;UNITY_POST_PROCESSING_STACK_V2
     PS5: UNITY_VISUAL_SCRIPTING;TextMeshPro
-    QNX: TextMeshPro
+    QNX: UNITY_VISUAL_SCRIPTING;TextMeshPro
     Server: UNITY_VISUAL_SCRIPTING
     Stadia: UNITY_VISUAL_SCRIPTING;TextMeshPro;UNITY_POST_PROCESSING_STACK_V2
     Standalone: UNITY_VISUAL_SCRIPTING;MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED;TextMeshPro;UNITY_POST_PROCESSING_STACK_V2
@@ -1016,7 +1016,7 @@ PlayerSettings:
   qnxGraphicConfPath: 
   apiCompatibilityLevel: 6
   captureStartupLogs: {}
-  activeInputHandler: 2
+  activeInputHandler: 1
   windowsGamepadBackendHint: 0
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
