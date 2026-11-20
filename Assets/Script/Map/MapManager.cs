@@ -878,6 +878,47 @@ public class MapManager : MonoBehaviour
         {
             DataBaseManager.secondisDirecting = false;
         }
+        // P4: 장소 이동이 끝났다. 대사·연출이 끝나 안정 상태가 되면 자동 슬롯에 저장한다.
+        StartCoroutine(SaveFlow.AutoSaveWhenStable());
+    }
+
+    /// <summary>
+    /// 불러오기 복원: nowPlace(이미 GameState 에서 주입됨)에 맞춰 플레이어·카메라·지도 UI 만 놓는다.
+    /// MoveChar 와 달리 시간·전투 카운터·도착 대사를 건드리지 않는다. 저장 가능 장소가 아니면 false.
+    /// </summary>
+    public bool RestorePlace()
+    {
+        Vector3 p;
+        Vector3 c;
+        float dir = -chInRommSize;
+        switch (DataBaseManager.nowPlace)
+        {
+            case "DetectiveOffice": p = playerDetectiveOffice; c = camDetectiveOffice; break;
+            case "Client'shouse": p = playerClientsHouse; c = camClientsHouse; break;
+            case "DailyNews": p = playerDailyNews; c = camDailyNews; break;
+            case "University": p = playerUnivercity; c = camUnivercity; break;
+            case "Riverside": p = playerRiverSide; c = camRiverSide; break;
+            case "Hospital": p = playerHospital; c = camHospital; break;
+            case "Policeoffice": p = playerPoliceoffice; c = camPoliceoffice; dir = chInRommSize; break;
+            case "Slum": p = playerSlum; c = camSlum; break;
+            case "Bar": p = playerBar; c = camBar; dir = chInRommSize; break;
+            case "Gunshop": p = playerGunshop; c = camGunshop; break;
+            case "SewerOffice": p = playerSewerOfficeMove; c = camSewerOfficeMove; break;
+            default: return false;
+        }
+        player.transform.localScale = new Vector3(dir, chInRommSize, 1);
+        player.transform.localPosition = p;
+        camera.transform.localPosition = c;
+        mapChainingUI.SetActive(false);
+        mapUI.SetActive(false);
+        DataBaseManager.isOpenMap = false;
+        DataBaseManager.isOpenUi = false;
+        if (DataBaseManager.nowPlace == "University")
+        {
+            student.SetActive((DataBaseManager.timeCount % 4) != 3);
+        }
+        CameraManager.Instance.isCheckEnd = true;
+        return true;
     }
     public void SuccAnalysis()
     {

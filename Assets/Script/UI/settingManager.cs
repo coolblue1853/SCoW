@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using SCoW.Core.Save;
 
 public class settingManager : MonoBehaviour
 {
@@ -27,6 +28,11 @@ public class settingManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+            // P4: 저장된 설정(해상도·전체화면)을 화면 UI 상태에 반영하고 저장/불러오기 버튼을 만든다.
+            SettingsData saved = SettingsService.Current;
+            changeInt = saved.ResolutionIndex;
+            isFullScrean = saved.FullScreen;
+            BuildSaveButtons();
         }
         else
         {
@@ -55,8 +61,89 @@ public class settingManager : MonoBehaviour
 
         }
     }
+    /// <summary>현재 설정(음량·해상도·전체화면)을 파일에 쓴다. 설정창을 닫을 때 호출.</summary>
+    private void PersistSettings()
+    {
+        SettingsData d = SettingsService.Current;
+        d.FullScreen = isFullScrean;
+        if (changeInt >= 0 && changeInt < SettingsData.ResolutionCount)
+        {
+            d.ResolutionIndex = changeInt;
+        }
+        SettingsService.Save();
+    }
+
+    /// <summary>SlotMenuView 가 기존 버튼 모양(글꼴·스프라이트)을 빌려 갈 때 쓴다.</summary>
+    public void GetButtonStyle(out Font font, out Sprite sprite)
+    {
+        font = null;
+        sprite = null;
+        Transform key = settingUi != null ? settingUi.transform.Find("Key") : null;
+        if (key == null)
+        {
+            return;
+        }
+        Text txt = key.GetComponentInChildren<Text>(true);
+        Image img = key.GetComponent<Image>();
+        font = txt != null ? txt.font : null;
+        sprite = img != null ? img.sprite : null;
+    }
+
+    /// <summary>불러오기로 씬이 바뀌기 직전 설정창을 소리 없이 닫는다.</summary>
+    public void HideForLoad()
+    {
+        DataBaseManager.isOpenUi = false;
+        setting.SetActive(false);
+        settingUi.SetActive(true);
+        tutorial.SetActive(false);
+        keySetting.SetActive(false);
+    }
+
+    private void BuildSaveButtons()
+    {
+        Transform key = settingUi != null ? settingUi.transform.Find("Key") : null;
+        if (key == null)
+        {
+            return;
+        }
+        MakeSlotButton(key, "SaveButton", SaveText.Pick("저장 ▶", "Save ▶"), -63f, SlotMenuView.Mode.Save);
+        MakeSlotButton(key, "LoadButton", SaveText.Pick("◀ 불러오기", "◀ Load"), 22f, SlotMenuView.Mode.Load);
+    }
+
+    private void MakeSlotButton(Transform template, string objName, string label, float y, SlotMenuView.Mode mode)
+    {
+        GameObject go = Instantiate(template.gameObject, template.parent);
+        go.name = objName;
+        Button old = go.GetComponent<Button>();
+        if (old != null)
+        {
+            DestroyImmediate(old);
+        }
+        Button b = go.AddComponent<Button>();
+        b.targetGraphic = go.GetComponent<Image>();
+        b.onClick.AddListener(() => OpenSlotMenu(mode));
+        RectTransform rt = (RectTransform)go.transform;
+        rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, y);
+        Text t = go.GetComponentInChildren<Text>(true);
+        if (t != null)
+        {
+            t.text = label;
+        }
+    }
+
+    public void OpenSlotMenu(SlotMenuView.Mode mode)
+    {
+        if (SlotMenuView.IsOpen)
+        {
+            return;
+        }
+        SoundManager.Instance.ClickSoundPlay();
+        SlotMenuView.Open(mode, null);
+    }
+
     public void CloseSetting()
     {
+        PersistSettings();
         SoundManager.Instance.ClickSoundPlay();
         DataBaseManager.isOpenUi = false;
         setting.SetActive(false);
@@ -70,6 +157,7 @@ public class settingManager : MonoBehaviour
     int changeInt = 1;
     bool isFullScrean = true;
 
+    // (OnFullScrean/OffFullScrean/AddInt/SubInt 로 바꾼 값은 CloseSetting → PersistSettings 에서 저장된다.)
     public void OnFullScrean()
     {
         SoundManager.Instance.ClickSoundPlay();
@@ -154,13 +242,29 @@ public class settingManager : MonoBehaviour
         {
             toMainButton.SetActive(true);
         }
-        if (GameInput.MenuDown && setting.activeSelf == true)
+        if (SlotMenuView.IsOpen)
+        {
+            // 저장/불러오기 창이 입력(메뉴·취소 키)을 쓰는 동안 설정창은 가만히 둔다.
+        }
+        else if (GameInput.MenuDown && setting.activeSelf == true)
         {
             CloseSetting();
         }
         else if (GameInput.MenuDown && setting.activeSelf == false)
         {
             OpenSetting();
+        }
+        else if (setting.activeSelf == true && settingUi.activeSelf == true)
+        {
+            // 키보드·패드 경로: 페이지 다음(D/→/RB)=저장, 이전(A/←/LB)=불러오기
+            if (GameInput.PageNextDown)
+            {
+                OpenSlotMenu(SlotMenuView.Mode.Save);
+            }
+            else if (GameInput.PagePrevDown)
+            {
+                OpenSlotMenu(SlotMenuView.Mode.Load);
+            }
         }
         if (isFullScrean == true)
         {

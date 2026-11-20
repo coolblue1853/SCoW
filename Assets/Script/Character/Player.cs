@@ -25,6 +25,11 @@ public class Player : MonoBehaviour
     }
     public void CheckChangeNomal()
     {
+        // 애니메이션 이벤트가 Start 보다 먼저 올 수 있다(플레이어를 SetActive(true) 한 첫 프레임).
+        if (anime == null)
+        {
+            anime = gameObject.GetComponent<Animator>();
+        }
         anime.SetBool("Nomal", false);
     }
     // Update is called once per frame

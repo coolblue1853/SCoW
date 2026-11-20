@@ -75,6 +75,13 @@ public class DirectingManager : MonoBehaviour
             player.SetActive(false);
             player.transform.position = playerStartPos;
             camera.transform.position = camStartPos;
+            if (SaveFlow.PendingRestore)
+            {
+                // P4 불러오기: 첫 대사 연출을 건너뛰고 저장된 장소로 바로 복원한다.
+                FadingBackGround.Instance.FadeOut();
+                Invoke("RestoreFromSave", 0.1f);
+                return;
+            }
             DataBaseManager.nowPlace = "DetectiveOffice";
             //원래라면 활성화 해 주어야 함.
             FadingBackGround.Instance.FadeOut();
@@ -92,6 +99,23 @@ public class DirectingManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+    void RestoreFromSave()
+    {
+        sitPlayer.SetActive(false);
+        sitPlayer2.SetActive(false);
+        player.SetActive(true);
+        DataBaseManager.isDirecting = false;
+        DataBaseManager.storyDirecting = false;
+        if (!MapManager.Instance.RestorePlace())
+        {
+            Debug.LogError("불러오기: 장소 복원 실패 nowPlace=" + DataBaseManager.nowPlace);
+        }
+        if (DataBaseManager.timeCount == 1)
+        {
+            newspaper.DOFade(1, 0.1f);
+        }
+        SaveFlow.CompleteRestore();
     }
     void StartGame()
     {
