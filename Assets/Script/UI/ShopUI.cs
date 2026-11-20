@@ -1,3 +1,4 @@
+using SCoW.Core.Ui;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,10 +66,10 @@ public class ShopUI : MonoBehaviour
     }
     void Update()
     {
-        if (GameInput.CancelDown && shopUIOb.activeSelf == true)
+        if (shopUIOb.activeSelf == true && UiGate.TryCancel(PanelKind.Shop))
         {
             SoundManager.Instance.ClickSoundPlay();
-            DataBaseManager.isOpenUi = false;
+            UiGate.Remove(PanelKind.Shop);
             shopUIOb.SetActive(false);
         }
         if (DataBaseManager.smallPistol > 0 && smallPistolSoldOut.activeSelf == false)
@@ -447,17 +448,17 @@ public class ShopUI : MonoBehaviour
     }
     public void OpenShopUI()
     {
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false)
+        if (UiGate.CanOpen(PanelKind.Shop))
         {
             SoundManager.Instance.PaperClipPlay();
             DataBaseManager.workSound = false;
-            DataBaseManager.isOpenUi = true;
+            UiGate.Push(PanelKind.Shop);
             shopUIOb.SetActive(true);
         }
     }
     public void CloseShop()
     {
-        DataBaseManager.isOpenUi = false;
+        UiGate.Remove(PanelKind.Shop);
         shopUIOb.SetActive(false);
     }
 }

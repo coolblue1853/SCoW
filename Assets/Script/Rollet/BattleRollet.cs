@@ -1,3 +1,4 @@
+using SCoW.Core.Ui;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -63,7 +64,7 @@ public class BattleRollet : MonoBehaviour
 
     private void Update()
     {
-        if (rolletUI.activeSelf == true && setUI.activeSelf == true && GameInput.CancelDown && subDialog != "SAN : Check")
+        if (rolletUI.activeSelf == true && setUI.activeSelf == true && UiGate.TryCancel(PanelKind.Rollet) && subDialog != "SAN : Check")
         {
             activeCheck = false;
             DataBaseManager.cancelJudge = true;

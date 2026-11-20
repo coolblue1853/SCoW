@@ -54,7 +54,7 @@ public class Intel_ObtoUI : MonoBehaviour
         }
         previousState = DataBaseManager.nowSelecter;
 
-        if ((GameInput.InteractDown && DataBaseManager.isActiveDialog2 == false && DataBaseManager.storyDirecting == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.isOpenUi == false))
+        if ((GameInput.InteractDown && UiGate.CanInteractWorld))
         {
             if (this.transform.name == DataBaseManager.selectObject)
             {

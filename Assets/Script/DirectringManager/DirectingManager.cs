@@ -58,18 +58,18 @@ public class DirectingManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneRouter.SceneEntered += OnSceneEntered;
     }
     private void OnDisable()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneRouter.SceneEntered -= OnSceneEntered;
         CancelInvoke("RestoreFromSave");
     }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneEntered(string sceneId)
     {
         // 씬이 호출될 때마다 초기화할 코드를 여기에 작성하세요.
         /* -- 다시 활성화 해 주어야 함         */
-        if (scene.name == "Main")
+        if (sceneId == SceneIds.Main)
         {
             backgroundOb.SetActive(true);
             Tween fadeTween2 = backGroundImg.DOFade(0, 1.5f);

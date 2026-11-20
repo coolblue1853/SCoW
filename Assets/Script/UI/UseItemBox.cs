@@ -1,3 +1,4 @@
+using SCoW.Core.Ui;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +22,7 @@ public class UseItemBox : MonoBehaviour
     {
         if (DataBaseManager.isDebuffDrugPhobia != true)
         {
-            DataBaseManager.isOpenUi = false;
+            UiGate.Remove(PanelKind.Inventory);
             useUI.SetActive(false);
             sisUI.SetActive(false);
             if (DataBaseManager.nowItem == "First aid kit")

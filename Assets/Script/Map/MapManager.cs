@@ -1,3 +1,4 @@
+using SCoW.Core.Ui;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -370,23 +371,23 @@ public class MapManager : MonoBehaviour
     {
         if(DataBaseManager.nowPlace != "InSewer")
         {
-            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.storyDirecting == false && DataBaseManager.potalWait == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad" && DataBaseManager.isOpenMap == false)
+            if (UiGate.CanOpen(PanelKind.Map))
             {
                 SoundManager.Instance.PaperClipPlay();
                 DataBaseManager.workSound = false;
-                DataBaseManager.isOpenUi = true;
+                UiGate.Push(PanelKind.Map);
                 mapChainingUI.SetActive(true);
             }
         }
         else
         {
-            if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.storyDirecting == false && DataBaseManager.potalWait == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad" && DataBaseManager.isOpenMap == false)
+            if (UiGate.CanOpen(PanelKind.Map))
             {
                 if (DataBaseManager.sewerMap == true)
                 {
                     SoundManager.Instance.PaperClipPlay();
                     DataBaseManager.workSound = false;
-                    DataBaseManager.isOpenUi = true;
+                    UiGate.Push(PanelKind.Map);
                     mapChainingUI.SetActive(true);
                 }
 
@@ -396,7 +397,7 @@ public class MapManager : MonoBehaviour
     public void CloseMap()
     {
         SoundManager.Instance.ClickSoundPlay();
-        DataBaseManager.isOpenUi = false;
+        UiGate.Remove(PanelKind.Map);
         mapChainingUI.SetActive(false);
     }
     public GameObject NomalMap;
@@ -423,14 +424,14 @@ public class MapManager : MonoBehaviour
                     DataBaseManager.workSound = false;
                     OpenMap();
                 }
-                else if (mapChainingUI.activeSelf == true)
+                else if (mapChainingUI.activeSelf == true && UiGate.Stack.IsTop(PanelKind.Map))
                 {
                     CloseMap();
                 }
             }
-            if (GameInput.CancelDown && mapChainingUI.activeSelf == true)
+            if (mapChainingUI.activeSelf == true && UiGate.TryCancel(PanelKind.Map))
             {
-                DataBaseManager.isOpenUi = false;
+                UiGate.Remove(PanelKind.Map);
                 mapChainingUI.SetActive(false);
             }
         }
@@ -698,7 +699,7 @@ public class MapManager : MonoBehaviour
             DataBaseManager.secondisDirecting = true;
         }
         DataBaseManager.isOpenMap = false;
-        DataBaseManager.isOpenUi = false;
+        UiGate.Clear();
         CameraManager.Instance.isCheckEnd = true;
         if (DataBaseManager.nowPlace == "DetectiveOffice")
         {
@@ -912,7 +913,7 @@ public class MapManager : MonoBehaviour
         mapChainingUI.SetActive(false);
         mapUI.SetActive(false);
         DataBaseManager.isOpenMap = false;
-        DataBaseManager.isOpenUi = false;
+        UiGate.Clear();
         if (DataBaseManager.nowPlace == "University")
         {
             student.SetActive((DataBaseManager.timeCount % 4) != 3);

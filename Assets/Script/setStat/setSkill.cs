@@ -68,7 +68,7 @@ public class setSkill : MonoBehaviour
     }
     public void GoToGame()
     {
-        SceneManager.LoadScene("Main");
+        SceneRouter.Go(SceneIds.Main);
     }
 
     private void Update()

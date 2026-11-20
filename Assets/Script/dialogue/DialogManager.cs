@@ -120,7 +120,7 @@ public class DialogManager : MonoBehaviour
     {
         SettingPlayerCon();
         TextCheker();
-        if (GameInput.InteractDown || (GameInput.AdvanceDown))
+        if (!UiGate.BlocksDialogueInput && (GameInput.InteractDown || (GameInput.AdvanceDown)))
         {
             if (zNext2 == true)
             {
@@ -145,7 +145,7 @@ public class DialogManager : MonoBehaviour
         {
             if (isNext)
             {
-                if (GameInput.InteractDown || (GameInput.AdvanceDown && DataBaseManager.daveCheck == false ))
+                if (!UiGate.BlocksDialogueInput && (GameInput.InteractDown || (GameInput.AdvanceDown && DataBaseManager.daveCheck == false )))
                 {
                     if (firstClick == true)
                     {

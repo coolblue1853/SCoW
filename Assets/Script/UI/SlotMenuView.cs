@@ -1,3 +1,4 @@
+using SCoW.Core.Ui;
 using System;
 using SCoW.Core.Save;
 using UnityEngine;
@@ -49,10 +50,12 @@ public sealed class SlotMenuView : MonoBehaviour
         v._onClosed = onClosed;
         v.Build();
         _current = v;
+        UiGate.Push(PanelKind.SlotMenu);
     }
 
     private void OnDestroy()
     {
+        UiGate.Remove(PanelKind.SlotMenu);
         if (_current == this)
         {
             _current = null;
@@ -222,7 +225,7 @@ public sealed class SlotMenuView : MonoBehaviour
         {
             Activate(_index);
         }
-        else if (GameInput.CancelDown || GameInput.MenuDown)
+        else if (UiGate.TryCancel(PanelKind.SlotMenu, true))
         {
             Close();
         }

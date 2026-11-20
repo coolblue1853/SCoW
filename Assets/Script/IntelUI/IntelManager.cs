@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using SCoW.Core.Ui;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -134,22 +135,22 @@ public class IntelManager : MonoBehaviour
     }
     public void OpenSetting()
     {
-        if (DataBaseManager.isActiveDialog1 == false  && DataBaseManager.isDebuffDyslexia != true && DataBaseManager.storyDirecting == false && DataBaseManager.potalWait == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isOpenMap == false)
+        if (UiGate.CanOpen(PanelKind.Intel))
         {
             SoundManager.Instance.PaperClipPlay();
-            DataBaseManager.isOpenUi = true;
+            UiGate.Push(PanelKind.Intel);
             intelUI.SetActive(true);
         }
     }
     public void CloseSetting()
     {
-        DataBaseManager.isOpenUi = false;
+        UiGate.Remove(PanelKind.Intel);
         intelUI.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
-        if ((GameInput.OpenIntelDown|| GameInput.CancelDown)  && intelUI.activeSelf == true)
+        if (intelUI.activeSelf == true && (UiGate.TryCancel(PanelKind.Intel) || (GameInput.OpenIntelDown && UiGate.Stack.IsTop(PanelKind.Intel))))
         {
             CloseSetting();
         }

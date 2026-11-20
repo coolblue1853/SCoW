@@ -129,7 +129,7 @@ public class ManageMain : MonoBehaviour
     private void Update()
     {
         // 설정창·슬롯창이 열려 있으면 무시.
-        if (SlotMenuView.IsOpen || DataBaseManager.isOpenUi)
+        if (SlotMenuView.IsOpen || UiGate.AnyOpen)
         {
             return;
         }
@@ -180,7 +180,7 @@ public class ManageMain : MonoBehaviour
     }
     public void GoSetCharacter()
     {
-        SceneManager.LoadScene("SetCharacter");
+        SceneRouter.Go(SceneIds.SetCharacter);
     }
     public void OpenTile()
     {

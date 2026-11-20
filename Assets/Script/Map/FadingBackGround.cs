@@ -15,7 +15,7 @@ public class FadingBackGround : MonoBehaviour
     public void GoToMain()
     {
         DataBaseManager.instance.ResetData();
-        SceneManager.LoadScene("Insert");
+        SceneRouter.Go(SceneIds.Insert);
     }
     public GameObject demoEndBack;
     public Image demoEndBackGround;

@@ -1,3 +1,4 @@
+using SCoW.Core.Ui;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -178,13 +179,13 @@ public class SIS_UIManager : MonoBehaviour
     // Update is called once per frame
     public void OpenMap()
     {
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.storyDirecting == false && DataBaseManager.potalWait == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.nowPlace != "BattleRoad" && DataBaseManager.isOpenMap == false)
+        if (UiGate.CanOpen(PanelKind.Inventory))
         {
             SoundManager.Instance.PaperClipPlay();
             DataBaseManager.isItemUI = true;
             OpenItemDetail();
             DataBaseManager.workSound = false;
-            DataBaseManager.isOpenUi = true;
+            UiGate.Push(PanelKind.Inventory);
             sisUI.SetActive(true);
         }
     }
@@ -206,7 +207,7 @@ public class SIS_UIManager : MonoBehaviour
         ResetDetail();
         debuffDetail.SetActive(false);
         DataBaseManager.isItemUI = false;
-        DataBaseManager.isOpenUi = false;
+        UiGate.Remove(PanelKind.Inventory);
         sisUI.SetActive(false);
     }
 
@@ -238,13 +239,13 @@ public class SIS_UIManager : MonoBehaviour
                     DataBaseManager.workSound = false;
                     OpenMap();
                 }
-                else if (sisUI.activeSelf == true)
+                else if (sisUI.activeSelf == true && UiGate.Stack.IsTop(PanelKind.Inventory))
                 {
                     CloseMap();
                 }
 
             }
-            if (GameInput.CancelDown && sisUI.activeSelf == true)
+            if (sisUI.activeSelf == true && UiGate.TryCancel(PanelKind.Inventory))
             {
                 CloseMap();
             }

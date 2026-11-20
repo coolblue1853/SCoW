@@ -3,7 +3,6 @@ using System.Collections;
 using SCoW.Core.Save;
 using SCoW.Core.State;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 저장·불러오기 흐름. 허용 지점 판단(CanSave), 슬롯 저장, 자동 저장, 불러오기 → Main 씬 → 장소 복원.
@@ -11,24 +10,12 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public static class SaveFlow
 {
-    public const string MainScene = "Main";
     private const float AutoSaveTimeoutSec = 180f;
     private static readonly WaitForSecondsRealtime AutoSaveWait = new WaitForSecondsRealtime(0.5f);
 
-    /// <summary>씬 전환 이음새. P5 SceneRouter 가 생기면 이 대리자만 갈아끼운다(이 파일의 유일한 LoadScene 호출).</summary>
-    public static Action<string> SceneLoader = DefaultSceneLoader;
-
-    /// <summary>"연출·대기 중인가" 판정 이음새. P5 에서 상태 기계 질의로 바꾼다. 기본은 기존 정적 플래그 묶음.</summary>
-    public static Func<bool> BusyProbe = DefaultBusy;
-
-    private static void DefaultSceneLoader(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
-
     public static bool InMainScene
     {
-        get { return SceneManager.GetActiveScene().name == MainScene; }
+        get { return SceneRouter.IsActive(SceneIds.Main); }
     }
 
     /// <summary>불러오기로 Main 씬을 열었고 아직 장소 복원 전이면 true.</summary>
@@ -40,8 +27,6 @@ public static class SaveFlow
     {
         PendingRestore = false;
         _autoSaveGeneration = 0;
-        SceneLoader = DefaultSceneLoader;
-        BusyProbe = DefaultBusy;
     }
 
     /// <summary>저장 가능한 장소: 장소 이동 직후의 안정 상태가 되는 11곳. 하수구 안·전투 길·낮 이벤트는 제외.</summary>
@@ -96,22 +81,10 @@ public static class SaveFlow
         return CanSave(out ko, out en);
     }
 
-    /// <summary>불러오기 복원 전이거나 BusyProbe 가 참이면 바쁨. 이때는 저장·불러오기 모두 금지.</summary>
+    /// <summary>불러오기 복원 전이거나 연출·대기 중(UiGate.IsBusy → BusyRules)이면 바쁨. 이때는 저장·불러오기 모두 금지.</summary>
     public static bool IsBusy
     {
-        get { return PendingRestore || BusyProbe(); }
-    }
-
-    /// <summary>연출·대기 중 플래그(전부 기존 정적 필드). isOpenUi 는 설정창 자신이 켜므로 보지 않는다.</summary>
-    private static bool DefaultBusy()
-    {
-        return DataBaseManager.isActiveDialog1 || DataBaseManager.isActiveDialog2
-            || DataBaseManager.storyDirecting || DataBaseManager.secondisDirecting || DataBaseManager.isDirecting
-            || DataBaseManager.isRollet || DataBaseManager.isBattleRollet
-            || DataBaseManager.potalWait || DataBaseManager.isOpenMap
-            || DataBaseManager.isScene || DataBaseManager.isSelect || DataBaseManager.selectionOn
-            || DataBaseManager.battleSan || DataBaseManager.strDialogOn || DataBaseManager.barMove
-            || DataBaseManager.isBattleBeforeDialog || DataBaseManager.afterBattle;
+        get { return PendingRestore || UiGate.IsBusy; }
     }
 
     /// <summary>수동·자동 공용 저장. CanSave 를 통과해야 한다.</summary>
@@ -165,7 +138,7 @@ public static class SaveFlow
         GameRoot.Instance.LoadState(r.State, r.Meta.PlayTimeSec);
         PendingRestore = true;
         _autoSaveGeneration++;
-        SceneLoader(MainScene);
+        SceneRouter.Go(SceneIds.Main);
         return SaveError.None;
     }
 

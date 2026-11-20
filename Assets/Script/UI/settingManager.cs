@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using SCoW.Core.Ui;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -45,7 +46,7 @@ public class settingManager : MonoBehaviour
     {
         DataBaseManager.instance.ResetData();
         setting.SetActive(false);
-        SceneManager.LoadScene("Insert");
+        SceneRouter.Go(SceneIds.Insert);
     }
 
     public GameObject setting;
@@ -53,10 +54,10 @@ public class settingManager : MonoBehaviour
     public bool isDalogOn = false;
     public void OpenSetting()
     {
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.storyDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.potalWait == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.secondisDirecting == false && DataBaseManager.isOpenMap == false)
+        if (UiGate.CanOpen(PanelKind.Setting))
         {
             SoundManager.Instance.PaperClipPlay();
-            DataBaseManager.isOpenUi = true;
+            UiGate.Push(PanelKind.Setting);
             setting.SetActive(true);
 
         }
@@ -92,7 +93,7 @@ public class settingManager : MonoBehaviour
     /// <summary>불러오기로 씬이 바뀌기 직전 설정창을 소리 없이 닫는다.</summary>
     public void HideForLoad()
     {
-        DataBaseManager.isOpenUi = false;
+        UiGate.Remove(PanelKind.Setting);
         setting.SetActive(false);
         settingUi.SetActive(true);
         tutorial.SetActive(false);
@@ -150,7 +151,7 @@ public class settingManager : MonoBehaviour
     {
         PersistSettings();
         SoundManager.Instance.ClickSoundPlay();
-        DataBaseManager.isOpenUi = false;
+        UiGate.Remove(PanelKind.Setting);
         setting.SetActive(false);
         settingUi.SetActive(true);
         tutorial.SetActive(false);
@@ -239,7 +240,7 @@ public class settingManager : MonoBehaviour
     public GameObject windowCheck;
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Insert")
+        if (SceneRouter.IsActive(SceneIds.Insert))
         {
             toMainButton.SetActive(false);
         }
@@ -251,11 +252,11 @@ public class settingManager : MonoBehaviour
         {
             // 저장/불러오기 창이 입력(메뉴·취소 키)을 쓰는 동안 설정창은 가만히 둔다.
         }
-        else if (GameInput.MenuDown && setting.activeSelf == true)
+        else if (setting.activeSelf == true && UiGate.TryCancel(PanelKind.Setting, true))
         {
             CloseSetting();
         }
-        else if (GameInput.MenuDown && setting.activeSelf == false)
+        else if (GameInput.MenuDown && setting.activeSelf == false && !UiGate.CancelConsumedThisFrame)
         {
             OpenSetting();
         }

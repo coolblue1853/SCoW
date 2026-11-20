@@ -267,7 +267,7 @@ public class SoundManager : MonoBehaviour
     }
     void ManageSfx()
     {
-        if ((DataBaseManager.isActiveDialog1 == true || DataBaseManager.isRollet == true || DataBaseManager.isDirecting == true || DataBaseManager.isOpenUi == true) && sfxSource.isPlaying == true)
+        if ((DataBaseManager.isActiveDialog1 == true || DataBaseManager.isRollet == true || DataBaseManager.isDirecting == true || UiGate.AnyOpen) && sfxSource.isPlaying == true)
         {
             sfxSource.Stop();
         }
@@ -350,18 +350,18 @@ public class SoundManager : MonoBehaviour
     public AudioClip nightmareBgmClip;
     public void BGMManage()
     {
-        if (SceneManager.GetActiveScene().name == "Insert" && mainBgmSource.clip != mainBgmClip)
+        if (SceneRouter.IsActive(SceneIds.Insert) && mainBgmSource.clip != mainBgmClip)
         {
             mainBgmSource.clip = mainBgmClip;
             mainBgmSource.Play();
         }
 
-        else if (SceneManager.GetActiveScene().name == "SetCharacter" && mainBgmSource.clip != setCharBgmClip)
+        else if (SceneRouter.IsActive(SceneIds.SetCharacter) && mainBgmSource.clip != setCharBgmClip)
         {
             mainBgmSource.clip = setCharBgmClip;
             mainBgmSource.Play();
         }
-        else if (SceneManager.GetActiveScene().name == "Main")
+        else if (SceneRouter.IsActive(SceneIds.Main))
         {
             if (DataBaseManager.nowPlace == "DetectiveOffice" && mainBgmSource.clip != detectiveBgmClip && DataBaseManager.isNightmare == false)
             {

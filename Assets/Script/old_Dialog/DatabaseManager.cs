@@ -324,7 +324,6 @@ public class DataBaseManager : MonoBehaviour
     public static int nowRevolver { get => S.GetCounter(CounterKeys.nowRevolver); set => S.SetCounter(CounterKeys.nowRevolver, value); }
     public static int nowRifle { get => S.GetCounter(CounterKeys.nowRifle); set => S.SetCounter(CounterKeys.nowRifle, value); }
     public static int nowShotgun { get => S.GetCounter(CounterKeys.nowShotgun); set => S.SetCounter(CounterKeys.nowShotgun, value); }
-    public static bool isOpenUi = false;
 
     //Map
     public static int timeCount { get => S.GetCounter(CounterKeys.timeCount); set => S.SetCounter(CounterKeys.timeCount, value); }
@@ -759,7 +758,7 @@ public class DataBaseManager : MonoBehaviour
         isBattleRollet = false;
         isDirecting = false;
         selectionOn = false;
-        isOpenUi = false;
+        UiGate.Clear();
         isRollet = false;
         isSelect = false;
         cancelJudge = false;

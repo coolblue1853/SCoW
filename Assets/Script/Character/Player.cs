@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
             anime.SetBool("Nomal", true);
             anime.SetBool("IsChange", false);
         }
-        if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.storyDirecting == false && DataBaseManager.isRollet == false && DataBaseManager.isDirecting == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false)
+        if (UiGate.CanMove)
         {
             anime.SetBool("Dialog", false);
             RunWalkChanger();

@@ -1,3 +1,4 @@
+using SCoW.Core.Ui;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +24,7 @@ public class KeyItemBox : MonoBehaviour
     }
     public void ClickYes()
     {
-        DataBaseManager.isOpenUi = false;
+        UiGate.Remove(PanelKind.Inventory);
 
         sisUI.SetActive(false);
         if (DataBaseManager.nowItem == "First aid kit")
@@ -35,43 +36,43 @@ public class KeyItemBox : MonoBehaviour
     {
         if (DataBaseManager.nowItem == "Document")
         {
-            DataBaseManager.isOpenUi = false;
+            UiGate.Remove(PanelKind.Inventory);
             InteractionController.Instance.StartSafeLook("Document_Look");
             sisUI.SetActive(false);
         }
         if (DataBaseManager.nowItem == "Safe")
         {
-            DataBaseManager.isOpenUi = false;
+            UiGate.Remove(PanelKind.Inventory);
             InteractionController.Instance.StartSafeLook("Safe_Look");
             sisUI.SetActive(false);
         }
         if (DataBaseManager.nowItem == "Bracelet")
         {
-            DataBaseManager.isOpenUi = false;
+            UiGate.Remove(PanelKind.Inventory);
             InteractionController.Instance.StartSafeLook("Bracelet_Look");
             sisUI.SetActive(false);
         }
         if (DataBaseManager.nowItem == "Coat")
         {
-            DataBaseManager.isOpenUi = false;
+            UiGate.Remove(PanelKind.Inventory);
             InteractionController.Instance.StartSafeLook("Coat_Look");
             sisUI.SetActive(false);
         }
         if (DataBaseManager.nowItem == "Sewerge Key")
         {
-            DataBaseManager.isOpenUi = false;
+            UiGate.Remove(PanelKind.Inventory);
             InteractionController.Instance.StartSafeLook("SewergeKey_Look");
             sisUI.SetActive(false);
         }
         if (DataBaseManager.nowItem == "Map")
         {
-            DataBaseManager.isOpenUi = false;
+            UiGate.Remove(PanelKind.Inventory);
             InteractionController.Instance.StartSafeLook("Map_Look");
             sisUI.SetActive(false);
         }
         if (DataBaseManager.nowItem == "OldMap")
         {
-            DataBaseManager.isOpenUi = false;
+            UiGate.Remove(PanelKind.Inventory);
             InteractionController.Instance.StartSafeLook("OldMap_Look");
             sisUI.SetActive(false);
         }
@@ -80,13 +81,13 @@ public class KeyItemBox : MonoBehaviour
     {
         if (DataBaseManager.nowItem == "Safe" && DataBaseManager.judgeSafeTryOpen == false)
         {
-            DataBaseManager.isOpenUi = false;
+            UiGate.Remove(PanelKind.Inventory);
             Rollet.Instance.SetRollet("Safe : Open", "Deftness-20", DataBaseManager.deftnessPoint - 20, "Item");
             sisUI.SetActive(false);
         }
         if (DataBaseManager.nowItem == "Coat" && DataBaseManager.judgeCoatTryDisguise == false)
         {
-            DataBaseManager.isOpenUi = false;
+            UiGate.Remove(PanelKind.Inventory);
             Rollet.Instance.SetRollet("Coat : Disguise", "Disguise", DataBaseManager.disguisePoint, "Item");
             sisUI.SetActive(false);
         }

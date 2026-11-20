@@ -1,3 +1,4 @@
+using SCoW.Core.Ui;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,7 +51,7 @@ public class Rollet : MonoBehaviour
     public GameObject rolletUI;
     private void Update()
     {
-        if (rolletUI.activeSelf == true && setUI.activeSelf == true && GameInput.CancelDown && (subDialog != "SAN : Check" || subDialog != "Fabian : Sneak Out"))
+        if (rolletUI.activeSelf == true && setUI.activeSelf == true && UiGate.TryCancel(PanelKind.Rollet) && (subDialog != "SAN : Check" || subDialog != "Fabian : Sneak Out"))
         {
             activeCheck = false;
             DataBaseManager.cancelJudge = true;
@@ -70,7 +71,7 @@ public class Rollet : MonoBehaviour
             DataBaseManager.isRollet = false;
             DataBaseManager.isActiveDialog1 = false;
             DataBaseManager.isDirecting = false;
-            DataBaseManager.isOpenUi = false;
+            UiGate.Remove(PanelKind.Rollet);
         }
         if (setUI.activeSelf == true && GameInput.InteractDown && activeCheck == true)
         {
@@ -140,7 +141,7 @@ public class Rollet : MonoBehaviour
         enemySubject = Enemy;
         SoundManager.Instance.PaperClipPlay();
         DataBaseManager.isRollet = true;
-        DataBaseManager.isOpenUi = true;
+        UiGate.Push(PanelKind.Rollet);
         this.subject = subject;
         subDialog = skill; // 나중에 다이얼로그 결과 전송시 사용
         ResetString();
@@ -411,7 +412,7 @@ public class Rollet : MonoBehaviour
     public void EndRollet()
     {
         SoundManager.Instance.EndDice();
-        DataBaseManager.isOpenUi = false;
+        UiGate.Remove(PanelKind.Rollet);
         DataBaseManager.isRollet = false;
         activeCheck = false;
         DataBaseManager.isRollet = false;
@@ -1157,7 +1158,7 @@ public class Rollet : MonoBehaviour
         rolletRollUI.SetActive(false);
 
         activeCheck = false;
-        DataBaseManager.isOpenUi = false;
+        UiGate.Remove(PanelKind.Rollet);
         DataBaseManager.isRollet = false;
         isClick = false;
         sanRollet.SetActive(false);

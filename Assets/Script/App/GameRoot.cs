@@ -1,4 +1,5 @@
 using SCoW.Core.State;
+using SCoW.Core.Ui;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +17,7 @@ public sealed class GameRoot
         // Enter Play Mode Options(도메인 리로드 끔) 대비: 정적 상태를 처음처럼 되돌린다.
         _instance = null;
         SaveFlow.ResetStatics();
+        UiGate.ResetStatics();
     }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -24,14 +26,14 @@ public sealed class GameRoot
         // 일시 정적 필드를 비우고 저장된 설정(음량·텍스트 속도·해상도)을 적용한다. ES3 는 이 시점부터 안전하다.
         DataBaseManager.ResetTransientStatics();
         SettingsService.Apply();
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneRouter.SceneEntered -= OnSceneEntered;
+        SceneRouter.SceneEntered += OnSceneEntered;
     }
 
-    private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private static void OnSceneEntered(string sceneId)
     {
         // 플레이 시간은 Main 씬에 있는 동안만 센다(타이틀·캐릭터 생성·설정 대기 제외).
-        Instance.SetClockRunning(scene.name == SaveFlow.MainScene);
+        Instance.SetClockRunning(sceneId == SceneIds.Main);
     }
 
     public static GameRoot Instance
@@ -51,6 +53,9 @@ public sealed class GameRoot
     private bool _clockRunning;
 
     public GameState State { get; private set; } = GameState.New();
+
+    /// <summary>열린 패널 스택(P5). 조회·조작은 UiGate 로.</summary>
+    public UiStack Panels { get; } = new UiStack();
 
     /// <summary>현재 슬롯의 누적 플레이 시간(초). 새 게임·불러오기 시점부터 실시간으로 센다.</summary>
     public long PlayTimeSec
