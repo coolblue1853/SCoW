@@ -12,5 +12,5 @@
 - P4 미해결: 한글 글꼴 없음(타이틀 "Continue" 영문), 텍스트 속도 UI·ReadLog 미착수, 실제 입력·전체 플레이 미검증. 사용자 플레이 확인 필요: 키·패드 동작(INPUT-1), 저장/불러오기.
 - 다음 큐: P4 리뷰·push → C-2 P5(UiStack·SceneRouter) → B-1 CSV 수정 반영. 문서: Architecture.md 단계표, CocDesign.md, DialogAudit.md.
 - 11-21 오전: C-2 P4~P10 완료·push(최신 7775d18). 저장/불러오기·UiStack/SceneRouter·판정 규칙 Core·스토리 파서·DialogueRunner(백로그·스킵·자동·속도)·장소 12곳 데이터 주도(동치 골든). EditMode 168. B-1 완료.
-- 진행 중: P11 키워드 대화 이행(builder). 한도 86% 에서 시작, 08:53 재개 예약. 재개 시 P11 결과 리뷰·push → P12(판정 결과 대사·InteractionController 축소).
+- P11 완료·push(8855d13, 골든 2054줄 diff 0, 리뷰 필수 0). 5시간 94% 로 정지, 08:53 재개 예약. 재개 시 P11 후속(로그 2곳) → P12(판정 결과 대사·InteractionController 축소).
 - 사용자 플레이 확인 필요: 실제 키·마우스·패드 입력 전반(비포커스라 자동 확인 불가), 저장/불러오기, 백로그·스킵, 대사창 버튼 클릭. 미결: OpenQuestions Q1·Q3~Q5, Q-P0a/b.
