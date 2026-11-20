@@ -195,7 +195,7 @@ public static class DialogEquivalenceTool
         list.Add(new Target
         {
             Script = "1st_Client'sHouse", Topics = ClientsHouseTopics, Run = ic.Start1stClientsHouse,
-            Presets = Combos("ch", new[] { "ellaEndDialog", "aidenFirstDialog", "getSafe" }, new[] { 1 })
+            Presets = Combos("ch", new[] { "ellaEndDialog", "aidenFirstDialog", "getSafe" }, new[] { 1, 6 })
         });
         list.Add(new Target
         {

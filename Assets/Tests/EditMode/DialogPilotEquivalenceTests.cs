@@ -145,6 +145,80 @@ namespace SCoW.Tests
             Assert.IsNull(cat.ScriptFor(null, s));
         }
 
+        /// <summary>
+        /// 의도된 차이(옛 버그 수정, C-2 P10 리뷰): Client'shouse 를 timeCount==6 에서 열면 옛 경로는 Intel_ObtoUI(time&lt;7)가 Start1stClientsHouse 를 불렀지만
+        /// DialogDatabaseManager 는 이미 2nd_NoonEvent CSV 를 로드해 1st 줄번호로 읽어 틀린 텍스트·KeyNotFound 였다.
+        /// 새 경로는 1st_Client'sHouse JSON 이 1st CSV 를 직접 지정하므로 time 과 무관하게 time1 과 같은 줄을 낸다.
+        /// 골든의 ch_t6_* 행 전부가 이 "옛 경로와 다른 줄" 목록이며(옛 골든 없음), 새 동작은 ch_t1_* 와 동일해야 한다.
+        /// 같은 경로: selectionUIManager.cs(Aiden_key_Safe_Str·Nothing), PotalPoint.cs(Aiden_key_FailForce·into_FirstRoom).
+        /// </summary>
+        [Test]
+        public void ClientsHouse_Time6_IntentionalFix_SameAsTime1()
+        {
+            string[] rows = File.ReadAllLines(Path.Combine(Path.GetDirectoryName(Application.dataPath), GoldenPathP10a));
+            Dictionary<string, string> t1 = new Dictionary<string, string>();
+            List<string[]> t6 = new List<string[]>();
+            for (int i = 0; i < rows.Length; i++)
+            {
+                if (!rows[i].StartsWith("1st_Client'sHouse|")) { continue; }
+                string[] f = rows[i].Split(new[] { '|' }, 4);
+                int ex = f[3].IndexOf("|EX=", System.StringComparison.Ordinal);
+                string result = ex >= 0 ? f[3].Substring(0, ex) : f[3];
+                if (f[2].StartsWith("ch_t1_")) { t1[f[1] + "|" + f[2].Substring(6)] = result; }
+                else if (f[2].StartsWith("ch_t6_")) { t6.Add(new[] { f[1], f[2].Substring(6), result }); }
+            }
+            Assert.IsTrue(t6.Count > 100, "ch_t6 행이 너무 적다: " + t6.Count);
+            for (int i = 0; i < t6.Count; i++)
+            {
+                string key = t6[i][0] + "|" + t6[i][1];
+                Assert.IsTrue(t1.ContainsKey(key), "t1 짝 없음: " + key);
+                Assert.AreEqual(t1[key], t6[i][2], "time6 가 time1 과 다르다: " + key);
+            }
+        }
+
+        /// <summary>Resources/Story/*.json(places.json 제외) 전부가 오류 0·Script 非 null 로 로드돼야 한다(오타가 조용히 실패하지 않게).</summary>
+        [Test]
+        public void AllStoryJson_LoadWithoutErrors()
+        {
+            TextAsset[] all = Resources.LoadAll<TextAsset>("Story");
+            int scripts = 0;
+            for (int i = 0; i < all.Length; i++)
+            {
+                if (all[i].name == "places") { continue; }
+                StoryLoadResult r = StoryScriptLoader.Load(all[i].text);
+                Assert.AreEqual(0, r.Errors.Count, all[i].name + ": " + string.Join(" | ", r.Errors));
+                Assert.IsNotNull(r.Script, all[i].name + ": Script null");
+                scripts++;
+            }
+            Assert.IsTrue(scripts >= 12, "스토리 JSON 이 너무 적다: " + scripts);
+        }
+
+        /// <summary>places.json 오류 0, 그리고 모든 PlaceDef.ScriptId 가 같은 이름의 Story JSON 과 CSV 로 풀린다(규약: script id = CSV 이름).</summary>
+        [Test]
+        public void PlaceCatalog_AllScriptIds_HaveJsonAndCsv()
+        {
+            TextAsset ta = Resources.Load<TextAsset>("Story/places");
+            Assert.IsNotNull(ta);
+            PlaceCatalog cat = PlaceCatalog.Load(ta.text);
+            Assert.AreEqual(0, cat.Errors.Count, string.Join(" | ", cat.Errors));
+            foreach (KeyValuePair<string, PlaceDef> kv in cat.Places)
+            {
+                for (int i = 0; i < kv.Value.Scripts.Count; i++)
+                {
+                    string id = kv.Value.Scripts[i].ScriptId;
+                    Assert.IsNotNull(Resources.Load<TextAsset>("Story/" + id), kv.Key + ": Story/" + id + ".json 없음");
+                    Assert.IsNotNull(Csv(id), kv.Key + ": CSV " + id + " 없음");
+                }
+            }
+        }
+
+        [Test]
+        public void PlaceCatalog_BadWhen_ReportsError()
+        {
+            PlaceCatalog cat = PlaceCatalog.Load("{\"places\":[{\"id\":\"X\",\"scripts\":[{\"when\":\"time<<6\",\"script\":\"s\"}]}]}");
+            Assert.IsFalse(cat.Ok);
+        }
+
         [Test]
         public void TextRef_ParsesRangeAndSingle()
         {
