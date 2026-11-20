@@ -9,7 +9,7 @@ public class DialogDatabaseManager : MonoBehaviour
     {
         if (DataBaseManager.isItemUI == false)
         {
-            // PlaceDef(Resources/Story/places.json)가 정의한 장소(DetectiveOffice·Bar)는 데이터로 CSV 를 고른다(C-2 P9).
+            // PlaceDef(Resources/Story/places.json)가 정의한 장소(DetectiveOffice·Bar·Client'shouse·DailyNews·University·Riverside·Hospital)는 데이터로 CSV 를 고른다(C-2 P9).
             string placeCsv = check ? StoryDatabase.ScriptForPlace(DataBaseManager.nowPlace) : null;
             if (placeCsv != null)
             {
@@ -17,49 +17,10 @@ public class DialogDatabaseManager : MonoBehaviour
                 csvFileName = placeCsv;
                 SetDialog();
             }
-            else if (DataBaseManager.nowPlace == "Client'shouse" && check == true)
-            {
-                if (DataBaseManager.timeCount < 6)
-                {
-                    check = false;
-                    csvFileName = "1st_Client'sHouse";
-                    SetDialog();
-                }
-                else
-                {
-                    check = false;
-                    csvFileName = "2nd_NoonEvent";
-                    SetDialog();
-                }
-            }
-            else if (DataBaseManager.nowPlace == "DailyNews" && check == true)
-            {
-                check = false;
-                csvFileName = "1st_DailyNews";
-                SetDialog();
-            }
             else if (DataBaseManager.nowPlace == "SewerOffice" && check == true)
             {
                 check = false;
                 csvFileName = "SewerOffice";
-                SetDialog();
-            }
-            else if (DataBaseManager.nowPlace == "University" && check == true)
-            {
-                check = false;
-                csvFileName = "1st_University";
-                SetDialog();
-            }
-            else if (DataBaseManager.nowPlace == "Riverside" && check == true)
-            {
-                check = false;
-                csvFileName = "1st_Riverside";
-                SetDialog();
-            }
-            else if (DataBaseManager.nowPlace == "Hospital" && check == true)
-            {
-                check = false;
-                csvFileName = "1st_Hospital";
                 SetDialog();
             }
             else if (DataBaseManager.nowPlace == "Policeoffice" && check == true)
@@ -131,23 +92,7 @@ public class DialogDatabaseManager : MonoBehaviour
         {
             csvFileName = "1st_Client'sHouse";
         }
-        if (DataBaseManager.nowPlace == "DailyNews")
-        {
-            csvFileName = "1st_DailyNews";
-        }
-        if (DataBaseManager.nowPlace == "University")
-        {
-            csvFileName = "1st_University";
-        }
-        if (DataBaseManager.nowPlace == "Riverside")
-        {
-            csvFileName = "1st_Riverside";
-        }
-        if (DataBaseManager.nowPlace == "Hospital")
-        {
-            csvFileName = "1st_Hospital";
-        }
-        else if (DataBaseManager.nowPlace == "Policeoffice")
+        if (DataBaseManager.nowPlace == "Policeoffice")
         {
             csvFileName = "1st_PoliceOffice";
         }
