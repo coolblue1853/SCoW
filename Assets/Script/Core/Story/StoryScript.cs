@@ -8,6 +8,16 @@ namespace SCoW.Core.Story
         public List<StoryTopic> Topics = new List<StoryTopic>();
         public Dictionary<string, StoryNode> Nodes = new Dictionary<string, StoryNode>();
 
+        /// <summary>이 id 의 Topic 이 있는가(Case 가 맞는지는 보지 않는다). 키워드 대사의 "NPC/*" 기본 토픽 대체 판단용.</summary>
+        public bool HasTopic(string topicId)
+        {
+            for (int i = 0; i < Topics.Count; i++)
+            {
+                if (Topics[i].Id == topicId) { return true; }
+            }
+            return false;
+        }
+
         /// <summary>위에서부터 첫 번째로 맞는 Case 의 노드 id. 없으면 null.</summary>
         public StoryCase Pick(string topicId, IStateReader s)
         {

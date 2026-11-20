@@ -11,6 +11,7 @@ public static class StoryDatabase
 {
     public const string ResourceFolder = "Story/";
     public const string PlacesResource = "Story/places";
+    public const string KeywordScript = "Keyword";
 
     private static readonly Dictionary<string, StoryScript> Scripts = new Dictionary<string, StoryScript>();
     private static readonly Dictionary<string, IList<StoryLine>> CsvLines = new Dictionary<string, IList<StoryLine>>();
@@ -59,6 +60,20 @@ public static class StoryDatabase
             dialogs[i] = CsvDialogs[res.Lines[i].File][res.Lines[i].Id];
         }
         return true;
+    }
+
+    /// <summary>
+    /// 키워드 대사(Resources/Story/Keyword.json). 토픽은 "NPC/키워드", 목록에 없는 키워드(또는 null)는 "NPC/*" 로 간다(옛 if 체인의 마지막 else).
+    /// NPC 가 JSON 에 없으면 false(옛 코드처럼 아무것도 안 띄움).
+    /// </summary>
+    public static bool TryRunKeyword(string npc, string keyword, out Dialog[] dialogs)
+    {
+        dialogs = null;
+        StoryScript script = LoadScript(KeywordScript);
+        if (script == null) { return false; }
+        string topic = npc + "/" + keyword;
+        if (keyword == null || !script.HasTopic(topic)) { topic = npc + "/*"; }
+        return TryRun(KeywordScript, topic, out dialogs);
     }
 
     private static PlaceCatalog Places()

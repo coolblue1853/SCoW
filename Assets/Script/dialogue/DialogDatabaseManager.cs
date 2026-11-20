@@ -9,7 +9,7 @@ public class DialogDatabaseManager : MonoBehaviour
     {
         if (DataBaseManager.isItemUI == false)
         {
-            // PlaceDef(Resources/Story/places.json)가 정의한 장소(DetectiveOffice·Bar·Client'shouse·DailyNews·University·Riverside·Hospital·Policeoffice·Slum·NoonEvent)는 데이터로 CSV 를 고른다(C-2 P9).
+            // PlaceDef(Resources/Story/places.json)가 정의한 장소(DetectiveOffice·Bar·Client'shouse·DailyNews·University·Riverside·Hospital·Policeoffice·Slum·NoonEvent·BattleRoad)는 데이터로 CSV 를 고른다(C-2 P9).
             string placeCsv = check ? StoryDatabase.ScriptForPlace(DataBaseManager.nowPlace) : null;
             if (placeCsv != null)
             {
@@ -27,12 +27,6 @@ public class DialogDatabaseManager : MonoBehaviour
             {
                 check = false;
                 csvFileName = "InSewer";
-                SetDialog();
-            }
-            else if (DataBaseManager.nowPlace == "BattleRoad" && check == true)
-            {
-                check = false;
-                csvFileName = "1st_Battle";
                 SetDialog();
             }
         }
