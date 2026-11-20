@@ -8,7 +8,7 @@
 
 **SCoW (Shadow Cast on Water)** — 사용자가 예전에 출시한 크툴루의 부름(CoC) 기반 TRPG 게임. 개선 작업 중.
 
-- **Unity:** 2021.3.21f1 / URP 12 / 2D
+- **Unity:** 6000.4.0f1 / URP 17.4 / 2D (11-21 2021.3.21f1 에서 업그레이드, 되돌릴 지점 태그 `pre-unity6`)
 - **주요 플러그인:** DOTween(Demigiant), Easy Save 3, I2 Localization, Text Animator, DamageNumbersPro
 - **씬:** `Assets/Scenes/Main.unity`, `Assets/Scenes/SetCharcter/SetCharacter.unity`, `Assets/Scenes/Insert.unity`
 - **코드:** `Assets/Script/`(UI·dialogue·IntelUI·Battle·setStat·Map·Rollet·Character 등)

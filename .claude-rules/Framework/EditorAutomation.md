@@ -2,13 +2,12 @@
 
 Project B 에서 쓰던 방식을 옮겼다. **SCoW 에는 아직 MCP for Unity 패키지가 없다** → 0절부터.
 
-## 0. 설치 (큐 SETUP-1)
-- **11-20 현황:** `Packages/manifest.json` 에 Project B 와 같은 커밋(`#da7b9ae4…`, 패키지 10.3.0, `"unity": "2021.3"` 최소 지원 → 호환)으로 등록했다. **이 PC 에 Unity 2021.3.21f1 이 없다**(Hub 에 6000.4.0f1 만). 에디터 설치 전까지 컴파일·플레이 검증 불가. 6000 으로 열면 프로젝트가 업그레이드되므로 열지 않는다(출시작).
-- 포트: MCP 설정(`MCPForUnity.HttpUrl`)은 EditorPrefs 라 Project B 와 공유된다. 8080 서버 하나에 두 에디터가 인스턴스로 붙는 구조이므로 포트를 바꾸지 않고, 두 에디터가 동시에 붙어 있으면 `set_active_instance`(이름 `SCoW@…`)로 고른다.
-- `Packages/manifest.json` 에 `"com.coplaydev.unity-mcp": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main"` 추가(Project B 와 같은 패키지). Unity 2021.3 지원 여부를 패키지 README 로 먼저 확인하고, 안 되면 2021 지원 태그로 고정한다.
-- 에디터에서 MCP 서버를 HTTP(`http://127.0.0.1:8080/mcp`)로 켠다. 저장소 루트 `.mcp.json` 에 같은 주소가 있다(Claude Code 가 처음 열 때 승인을 묻는다).
-- Project B 에디터와 동시에 켜면 포트가 겹친다. 한 번에 하나만 켜거나 포트를 바꾸고 `UNITY_MCP_URL` 환경 변수로 맞춘다.
-- `Tools/u.sh` 는 `uv`(`/c/Users/user/.local/bin`)와 python `mcp` 패키지를 쓴다(Project B 와 같은 환경).
+## 0. 설치·연결 (11-21 완료)
+- 에디터: Unity 6000.4.0f1(Project B 와 같은 버전). 실행: `"/c/Program Files/Unity/Hub/Editor/6000.4.0f1/Editor/Unity.exe" -projectPath C:/Users/user/SCoW`.
+- 패키지: `com.coplaydev.unity-mcp` 를 `#v10.3.0` 태그로 고정(커밋 해시가 아닌 PackageCache 지문으로 고정하면 해석 실패).
+- 서버: Project B 가 띄운 8080 HTTP 서버를 같이 쓴다(EditorPrefs 공유라 포트 분리 불가). 두 에디터가 붙어 있으면 먼저 `set_active_instance` 로 `SCoW@…` 를 고른다(`mcpforunity://instances` 로 이름 확인).
+- **"ping not answered" 가 반복되면** 에디터가 모달 창에 막힌 것이다(11-21: "URP Material upgrade" 확인창). Win32 로 창 목록·버튼을 찾아 `BM_CLICK` 을 보내 닫는다(포커스 안 뺏음). 창 목록 스크립트는 프로세스 ID 로 `EnumWindows`.
+- 플레이 진입 전 Game 뷰를 PlayUnfocused 로(`Tools/probes/play_unfocused.cs`, Unity 6 에서 동작).
 
 ## 1. 경로
 | 방식 | 사용 |
@@ -27,7 +26,7 @@ bash Tools/u.sh call manage_camera '{"action":"screenshot","properties":{"includ
 ## 2. 규칙
 - 프로브(`Tools/probes/*.cs`)는 메서드 본문이다. 마지막에 `return 문자열;`.
 - 플레이 중에는 컴파일을 일으키지 않는다(스크립트 수정은 플레이 종료 후).
-- Unity 창을 앞으로 가져오지 않는다. `Tools/probes/play_unfocused.cs` 는 2022.2+ 기능이라 2021.3 에서는 "property not found" 가 나올 수 있다.
+- Unity 창을 앞으로 가져오지 않는다. `Tools/probes/play_unfocused.cs` 로 플레이 시 포커스를 뺏지 않게 한다.
 - 에디터가 비포커스면 Input System 이 키보드를 끌 수 있다. 입력 시험은 Input System 의 "Run In Background"·가상 장치로 한다(Project B 방식).
 - 콘솔은 error 만 먼저 본다. 스크린샷은 `Logs/playtest/` 에 둔다(커밋 안 함).
 - 사용자가 에디터로 플레이 중이면 에디터·코드·세이브를 건드리지 않는다. 버그는 플레이가 끝난 뒤 본다.
