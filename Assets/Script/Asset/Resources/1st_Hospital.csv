@@ -21,7 +21,7 @@ ID,캐릭터이름,대사,
 20,Fabian,(He's busy^ just grimaces and doesn't react.),반복대사
 21,Fabian,@Hi^ I know you're busy^ but can I ask you a question?@,//Kate 오후 대사 최초
 22,Kate,@Yeah^ that's fine for now^ I'm pretty much done for the day.@,
-23,Fabian,((The names are scrawled across the chart she's holding.),
+23,Fabian,(The names are scrawled across the chart she's holding.),
 24,Fabian,@Maybe there's a lot of people around these days?@,
 25,Kate,@Yeah^ we've been having a bit of an ⓡ(insomnia)ⓦ epidemic lately^ so we're very busy during the day.@,
 26,Fabian,@I see. I've never heard of an ⓡ(insomnia)ⓦ epidemic before. Has this happened before?@,
@@ -40,7 +40,7 @@ ID,캐릭터이름,대사,
 39,Kate,@Hmm... I can't think of one^ so you'll have to ask the doctors!@,
 40,Fabian,@Is there anything special going on at the ⓑ(hospital)ⓦ?@,병원 - 신문기사
 41,Kate,@It's pretty much business as usual^ except for the influx of patients during the day.@,
-42,Kate,"@Ah^ I've seen a little less of the usual ""dangerous-looking"" patients lately.@",
+42,Kate,@Ah^ I've seen a little less of the usual @dangerous-looking@ patients lately.@,
 43,Fabian,@Have you noticed a characteristic ⓡ(fishy smell)ⓦ in your city lately that you don't normally smell?@,비릿한 냄새 1
 44,Kate,@ⓡ(Fishy smell)ⓦ? I don't think I've ever smelled that in a ⓑ(hospital)ⓦ.@,
 45,Kate,@Hmm...~ I'm not sure about that.@,Kate Nothing
@@ -111,7 +111,7 @@ ID,캐릭터이름,대사,
 110,Fabian,@I'm wondering if there's a body that was turned over here today. Her name is ⓖ(Ella triss)ⓦ.@,낮 이벤트 이후 추가 // 키워드 사용- 살인사건 - 물갈퀴 (시신 관찰력 판정)  // 살해당한 의뢰자 // 엘라 트리스의 사인
 111,Kate,@Uh^ I'm not sure of the name^ but there's a body that's been requested for autopsy.@,
 112,Kate,@It's probably best to ask docter for details.@,
-113,Kate,@Um... I think it's a (worker's outfit)ⓦ from the ⓑ(●4ⓦsewerage office)ⓦ side...?@,목격자의 증언>> 키워드 사용
+113,Kate,@Um... I think it's a ⓡ(worker's outfit)ⓦ from the ⓑ(●4ⓦsewerage office)ⓦ side...?@,목격자의 증언>> 키워드 사용
 114,Kate,@I had a cousin who worked there.@,인부복의 주인
 115,Fabian,'ⓑ(●1ⓢsewage office)ⓦ... Should I go there?',주소 획득
 116,Fabian,@I'm wondering if there's a body that was turned over here today.@,의사 - 살인사건 - 살인사건 - 물갈퀴 (시신 관찰력 판정)  // 살해당한 의뢰자 // 엘라 트리스의 사인

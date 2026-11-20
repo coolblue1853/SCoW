@@ -40,6 +40,7 @@ FOLDER_CSV = {
     "Battle": "1st_Battle", "NoonEvent": "2nd_NoonEvent", "Item": "1st_Item",
     "Ending": "InSewer",  # 가정: 엔딩 이벤트는 하수도 장소(InSewer)의 CSV 를 읽는다(코드에 Ending 장소 없음)
 }
+C_TRACK_CARRYOVER = {"aidenLookJudge"}  # 씬 미할당 필드. 씬/코드 수정이라 C 트랙으로 이월(DialogAudit 표시)
 KOREAN_ONLY = {"SCOW_SCV"}  # 코드가 로드하지 않는 한글 원본
 
 
@@ -207,7 +208,15 @@ def parse_csv(path):
             padding += 1
             continue
         if g.name != "" and all_empty:
-            mid_empty.append(g)
+            gi = g.idx - 1  # groups 리스트 0-기반 위치
+            prev_ok = gi >= 1 and any(t.strip() for _, t in groups[gi - 1].ctx)
+            next_ok = gi + 1 < len(groups) and any(t.strip() for _, t in groups[gi + 1].ctx)
+            if prev_ok and next_ok:
+                # 앞뒤가 모두 대사인 외톨이 빈 줄 = 말없는 한 박자(DailyNews 74 는 원래 공백 한 칸 " ").
+                # DialogManager 는 빈 대사를 특별 처리하지 않고 빈 대사창을 한 번 띄운다(클릭으로 넘김, 크래시 없음).
+                add(f, g.line, "정보", "연출 빈 줄", "앞뒤가 대사인 외톨이 빈 줄(말없는 한 박자로 간주, 빈 대사창이 한 번 뜸)")
+            else:
+                mid_empty.append(g)
         elif g.name == "" and not all_empty:
             add(f, g.line, "정보", "화자 없음", "대사는 있고 캐릭터이름이 빔(DialogManager 는 이름창 숨김 처리. 나레이션이면 정상)")
         for ln, t in g.ctx[1:]:
@@ -226,7 +235,8 @@ def parse_csv(path):
         if joined.count("(") != joined.count(")"):
             add(f, g.line, "경고", "괄호 짝", "( ) 개수 불일치 %d/%d" % (joined.count("("), joined.count(")")), "괄호 짝 맞추기")
         for ln, t in g.ctx:
-            op = len(re.findall("[ⓡⓖⓑⓨ⒳]\\(", t))
+            # ⒳ 는 회색 시작 표식(DialogManager 는 ⓦ 까지 회색, 괄호 짝 없음)이라 ⓡⓖⓑⓨ 만 센다. 예: InSewer 36 "⒳(Aiden) ... now.ⓦ"
+            op = len(re.findall("[ⓡⓖⓑⓨ]\\(", t))
             cl = len(re.findall("\\)ⓦ", t))
             if op != cl:
                 add(f, ln, "경고", "색 표식 짝", "색 표식 열림 %d / 닫힘 )ⓦ %d" % (op, cl), "ⓖ(..)ⓦ 짝 맞추기")
@@ -280,13 +290,18 @@ def parse_csv(path):
         while j + 1 < len(mid_empty) and mid_empty[j + 1].idx == mid_empty[j].idx + 1:
             j += 1
         a_, b_ = mid_empty[k], mid_empty[j]
-        add(f, a_.line, "경고", "빈 필수 칸", "인덱스 %d~%d(%d개, 줄 %d~%d)의 화자는 있는데 대사가 비어 있음(이벤트가 참조하면 빈 대사창)" % (a_.idx, b_.idx, j - k + 1, a_.line, b_.line),
+        add(f, a_.line, "경고", "미작성 장면", "인덱스 %d~%d(%d개, 줄 %d~%d)의 화자는 있는데 대사가 비어 있음(이벤트가 참조하면 빈 대사창)" % (a_.idx, b_.idx, j - k + 1, a_.line, b_.line),
             "대사를 채우거나(미작성 장면) 이벤트 범위에서 제외", story=True)
         k = j + 1
     for (nm, key), lns in texts_seen.items():
         if len(lns) > 1:
-            add(f, lns[0], "경고", "중복 문장", "같은 문장이 %d회(%s): %r" % (len(lns), ",".join(map(str, lns[:6])), key[:50]),
-                "의도적 반복인지 확인(분기 재사용이면 이벤트 범위 공유로 대체)", story=True)
+            if any(b_ - a_ == 1 for a_, b_ in zip(lns, lns[1:])):
+                # 같은 장면 안에서 바로 이어서 같은 문장 = 복붙 실수 후보 -> 경고
+                add(f, lns[0], "경고", "중복 문장", "같은 문장이 연속 %d회(%s): %r" % (len(lns), ",".join(map(str, lns[:6])), key[:50]),
+                    "복붙 실수면 한 줄 삭제")
+            else:
+                # 떨어진 반복은 장별 재방문·분기 복제(같은 장면을 날짜별로 다시 쓴 구조, 예: Bar 2/22, NoonEvent 2/18/35)라 의도로 본다 -> 정보
+                add(f, lns[0], "정보", "반복 문장", "같은 문장이 %d회(%s): %r" % (len(lns), ",".join(map(str, lns[:6])), key[:50]))
     # 화자 이름 일관성
     low = collections.defaultdict(list)
     for n_, c_ in names.items():
@@ -388,8 +403,15 @@ def check_events(csvs, scene):
             continue
         empties = [k for k in range(e["x"], e["y"] + 1)
                    if all(t.strip() == "" for _, t in c["groups"][k - 1].ctx)]
+        def is_beat(k):
+            # 앞뒤가 모두 대사이고 화자가 있는 외톨이 빈 줄 = 말없는 한 박자(parse_csv 의 '연출 빈 줄' 과 같은 기준)
+            gs = c["groups"]
+            return (gs[k - 1].name != "" and k >= 2 and k < len(gs)
+                    and any(t.strip() for _, t in gs[k - 2].ctx) and any(t.strip() for _, t in gs[k].ctx))
+        empties = [k for k in empties if not is_beat(k)]
+        # 빈 대사는 DialogManager 가 빈 대사창으로 띄울 뿐 크래시가 아니다. 통째로 빈 구간은 미작성 장면이라 오류가 아닌 경고(스토리 확인).
         if empties:
-            dedup.setdefault(("empty", place_csv, e["x"], e["y"], e["name"]), (c["file"], c["groups"][empties[0] - 1].line, "오류", "빈 대사 참조", "%s : 참조 범위에 빈 대사 %d개(%s)" % (tag, len(empties), ",".join(map(str, empties[:6]))), "대사를 채우거나(미작성 장면) 범위에서 제외", [], True))[6].append(e["chap"])
+            dedup.setdefault(("empty", place_csv, e["x"], e["y"], e["name"]), (c["file"], c["groups"][empties[0] - 1].line, "경고", "미작성 장면 참조", "%s : 참조 범위에 빈 대사 %d개(%s)" % (tag, len(empties), ",".join(map(str, empties[:6]))), "대사를 채우거나(미작성 장면) 범위에서 제외", [], True))[6].append(e["chap"])
         # 호출되는가: 씬의 다른 컴포넌트(InteractionController 필드 등)가 참조하는지
         goid, cid = e["go"], e["comp"]
         users = (scene["refd"].get(goid, set()) | scene["refd"].get(cid, set()))
@@ -470,6 +492,11 @@ def check_ic(scene):
             add(f, 0, "정보", "필드 직렬화", "필드 %s 가 씬 직렬화에 없음(씬 비교 불가)" % fl)
         elif v == "0":
             sev = "오류" if fl in used else "정보"
+            if fl in C_TRACK_CARRYOVER:
+                # 씬·코드 문제라 대사 CSV 점검(B-1) 범위 밖. 정보로 내리되 종류를 'C트랙 이월' 로 구분해 보이게 한다.
+                add(f, 0, "정보", "C트랙 이월", "InteractionController.%s 가 씬에서 비어 있음(코드가 .GetComponent<interactionEvent>() 호출 -> NullReference). C 트랙(씬·코드 수정)에서 처리" % fl,
+                    "씬에서 연결 또는 호출 코드 제거")
+                continue
             add(f, 0, sev, "빈 참조 필드", "InteractionController.%s 가 씬에서 비어 있음%s" % (fl, "(코드가 .GetComponent<interactionEvent>() 호출 -> NullReference)" if fl in used else "(코드에서도 안 쓰임)"),
                 "씬에서 연결 또는 필드 삭제")
         elif fl in used and v not in ev_go:
@@ -672,7 +699,7 @@ RULES = [
     ("코드↔자원 대조", "DialogDatabaseManager 가 부르는 CSV 이름, nowPlace 키 대 실제 파일·매핑", "오류/경고/정보"),
     ("플래그", "DataBaseManager 정적 bool 플래그: 검사만(항상 false) / 설정만 / 미사용", "경고/정보"),
 ]
-STORY_KINDS = ("한글 잔류", "중복 문장", "말투 혼용", "도달 불가 대사", "미호출 이벤트", "미참조 파일")
+STORY_KINDS = ("한글 잔류", "중복 문장", "미작성 장면", "미작성 장면 참조", "말투 혼용", "도달 불가 대사", "미호출 이벤트", "미참조 파일")
 
 
 def write_report(path, csvs, flags, i2, evmap, scene):
@@ -682,7 +709,17 @@ def write_report(path, csvs, flags, i2, evmap, scene):
     n_w = sum(1 for i in ISSUES if i.sev == "경고")
     n_i = sum(1 for i in ISSUES if i.sev == "정보")
     w("# 대사 데이터 점검표 (DialogAudit)\n\n")
-    w("`Tools/dialog_lint.py` 가 자동 생성한 표다(`python -I Tools/dialog_lint.py --report Docs/Playtest/DialogAudit.md --dot`). CSV 수정은 아직 하지 않았다.\n\n")
+    w("`Tools/dialog_lint.py` 가 자동 생성한 표다(`python -I Tools/dialog_lint.py --report Docs/Playtest/DialogAudit.md --dot`).\n\n")
+    w("## 0. B-1 반영 결과 (작업 직전 실측 252건 -> 후 %d건. 이전 기록 268건은 플래그 코드 정리 전 수치)\n\n" % (n_e + n_w))
+    w("| 구분 | 전 | 후 | 처리 |\n|---|---:|---:|---|\n")
+    w("| 오류 | 6 | %d | 빈 대사 참조 5건은 크래시가 아니라 빈 대사창이라 `미작성 장면 참조`(경고, 스토리 확인)로 재분류, `aidenLookJudge` 1건은 C 트랙 이월(정보) |\n" % n_e)
+    w("| 경고(서식) | 12 | 0 | 깨진 @ 5(SCV 1 포함)·날 쌍따옴표 1·색 표식 짝 4·괄호 1은 CSV 수정, `InSewer.csv:36` 은 검사기 오탐(⒳ 는 괄호 짝 없는 회색 표식)이라 규칙 수정 |\n")
+    w("| 경고(중복 문장 211) | 211 | 0 | 같은 장면 연속 중복 0건. 떨어진 반복은 장별 재방문·분기 복제라 의도로 보고 정보(`반복 문장`)로 강등 |\n")
+    w("| 경고(빈 칸) | 3 | 1 | `DailyNews:75`, `Item:19` 은 앞뒤가 대사인 한 박자(`연출 빈 줄`, 정보). `Client'sHouse:102~124` 는 미작성 장면으로 남김 |\n")
+    w("| 경고(남은 것) | - | %d | 모두 분류됨: 스토리 확인(6절) = 미작성 장면 4(참조 3: Aiden 심리치료 성공 2·Item OldMap 1, 빈 구간 1: Client'sHouse 102~124)·도달 불가 대사 9·말투 혼용 1, 코드 정리 = 플래그 7·장소 키 3 |\n\n" % n_w)
+    w("- 오류 6건 중 빈 대사 참조: 원문이 저장소 어디에도 없어(git 이력 2커밋 모두 빈 칸, `SCOW_SCV.csv` 는 탐정 사무소 도입부 한글본이라 해당 장면 없음) 복원 불가 -> 지어내지 않고 6절 `미작성 장면` 목록으로.\n")
+    w("- `DailyNews.csv:185` 쉼표 잘림: 현재 검사기가 잡지 않음. 쉼표는 메모 열(4열)이고 파서는 앞 3열만 쓰므로 영향 없음(따옴표 감쌈 불필요).\n")
+    w("- **C 트랙 이월:** `InteractionController.aidenLookJudge` 가 씬에서 비어 있음(코드가 `.GetComponent<interactionEvent>()` 호출 -> NullReference). 씬·코드 문제라 대사 CSV 범위 밖.\n\n")
     w("- 총 문제 **%d건** = 오류 %d + 경고 %d (정보 %d건은 건수에 넣지 않음)\n" % (n_e + n_w, n_e, n_w, n_i))
     w("- 대상: CSV %d개(`Assets/Script/Asset/Resources/`), 씬 이벤트 %d개(`Main.unity`), DataBaseManager 플래그 %d개, I2Languages\n\n" % (
         len(csvs), len(scene["events"]) if scene else 0, flags["total"]))
