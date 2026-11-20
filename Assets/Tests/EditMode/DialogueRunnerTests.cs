@@ -254,5 +254,17 @@ namespace SCoW.Tests
             Assert.AreEqual(LineKind.Normal, LineMarks.Classify("plain"));
             Assert.AreEqual(LineKind.Normal, LineMarks.Classify(null));
         }
+
+        [Test]
+        public void ForceNextAdvancesEvenWhileChoicePendingAndOnlyOnce()
+        {
+            ReadLog read;
+            DialogueRunner r = Make(out read);
+            Show(r, "1");
+            r.SetPending(Pending.Choice);
+            Assert.AreEqual(RunnerAction.None, r.Advance());
+            Assert.AreEqual(RunnerAction.NextLine, r.ForceNext());
+            Assert.AreEqual(RunnerAction.None, r.ForceNext());
+        }
     }
 }

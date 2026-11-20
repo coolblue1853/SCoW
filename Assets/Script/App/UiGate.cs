@@ -1,5 +1,9 @@
+using System.Collections.Generic;
 using SCoW.Core.Ui;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 /// <summary>
 /// UI 열림·막힘 질의의 App 쪽 문(P5). 옛 DataBaseManager 정적 bool 을 BusyFlags 로 읽어 Core 의 BusyRules 에 넘기고,
@@ -9,6 +13,7 @@ public static class UiGate
 {
     private static int _cancelFrame = -1;
     private static int _closeFrame = -1;
+    private static readonly List<RaycastResult> _hits = new List<RaycastResult>();
 
     public static void ResetStatics()
     {
@@ -68,6 +73,35 @@ public static class UiGate
     public static bool CanUsePortal
     {
         get { return BusyRules.CanUsePortal(Flags()); }
+    }
+
+    /// <summary>
+    /// 마우스 좌클릭을 누른 프레임에 포인터 맨 위가 버튼 같은 Selectable 인가. 대사창 버튼 클릭이 좌클릭 Advance 로 겹쳐 새지 않게 한다
+    /// (배경 Image 는 Selectable 이 아니라 해당 없음). 마우스 클릭이 아닌 입력(패드·키)은 항상 false.
+    /// </summary>
+    public static bool PointerOverButton()
+    {
+        Mouse mouse = Mouse.current;
+        EventSystem es = EventSystem.current;
+        if (mouse == null || es == null || !mouse.leftButton.wasPressedThisFrame)
+        {
+            return false;
+        }
+        PointerEventData data = new PointerEventData(es);
+        data.position = mouse.position.ReadValue();
+        _hits.Clear();
+        es.RaycastAll(data, _hits);
+        for (int i = 0; i < _hits.Count; i++)
+        {
+            GameObject go = _hits[i].gameObject;
+            if (go == null)
+            {
+                continue;
+            }
+            Selectable sel = go.GetComponentInParent<Selectable>();
+            return sel != null && sel.IsInteractable();
+        }
+        return false;
     }
 
     /// <summary>패널이 하나라도 열려 있나(옛 isOpenUi).</summary>

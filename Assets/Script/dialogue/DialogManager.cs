@@ -225,7 +225,7 @@ public class DialogManager : MonoBehaviour
         SyncSkipUi();
 
         RunnerAction action = RunnerAction.None;
-        if (!UiGate.BlocksDialogueInput && (GameInput.InteractDown || GameInput.AdvanceDown))
+        if (!UiGate.BlocksDialogueInput && (GameInput.InteractDown || (GameInput.AdvanceDown && !UiGate.PointerOverButton())))
         {
             action = _runner.Advance();
         }
@@ -284,8 +284,8 @@ public class DialogManager : MonoBehaviour
         {
             return;
         }
-        _logButton = CloneSkipButton("LogButton", "log", new Vector2(-110f, 0f), OpenBacklog, out _);
-        _autoButton = CloneSkipButton("AutoButton", "auto", new Vector2(-220f, 0f), ToggleAuto, out _autoLabel);
+        _logButton = CloneSkipButton("LogButton", UiText.DialogLog, new Vector2(-110f, 0f), OpenBacklog, out _);
+        _autoButton = CloneSkipButton("AutoButton", UiText.DialogAuto, new Vector2(-220f, 0f), ToggleAuto, out _autoLabel);
     }
 
     GameObject CloneSkipButton(string objName, string label, Vector2 offset, UnityEngine.Events.UnityAction onClick, out Text labelText)
@@ -311,7 +311,7 @@ public class DialogManager : MonoBehaviour
         _runner.AutoOn = on;
         if (_autoLabel != null)
         {
-            _autoLabel.text = on ? "AUTO ON" : "auto";
+            _autoLabel.text = on ? UiText.DialogAutoOn : UiText.DialogAuto;
         }
     }
 
@@ -383,7 +383,7 @@ public class DialogManager : MonoBehaviour
     /// <summary>선택지 버튼이 고른 뒤 부른다. 대기 중인 줄이 있으면 다음으로 넘긴다.</summary>
     public void ChoiceExNextPageT()
     {
-        if (isDialog && isNext)
+        if (isDialog && isNext && _runner.ForceNext() == RunnerAction.NextLine)
         {
             AdvanceLine();
         }

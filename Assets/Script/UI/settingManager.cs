@@ -142,7 +142,7 @@ public class settingManager : MonoBehaviour
         Text lt = l.GetComponentInChildren<Text>(true);
         if (lt != null)
         {
-            lt.text = "TEXT";
+            lt.text = UiText.SettingTextSpeed;
         }
 
         GameObject b = Instantiate(key.gameObject, key.parent);

@@ -167,6 +167,17 @@ namespace SCoW.Core.Story
             return Step();
         }
 
+        /// <summary>선택지 결과처럼 뷰가 줄을 강제로 넘길 때. 글자 중이든 대기 중이든(Pending 무관) 다음 줄로 가며, 줄이 없으면(Idle) None.</summary>
+        public RunnerAction ForceNext()
+        {
+            if (State == RunnerState.Idle)
+            {
+                return RunnerAction.None;
+            }
+            State = RunnerState.Idle;
+            return RunnerAction.NextLine;
+        }
+
         /// <summary>매 프레임(대사 중). 스킵·자동 진행.</summary>
         public RunnerAction Tick(float dt)
         {
