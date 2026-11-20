@@ -16,5 +16,5 @@
 - [x] **A-1** (a545a8c) CoC 7판 대조 설계 `.claude-rules/Game/CocDesign.md`: 성장 체크·Push·행운·보너스/페널티 주사위·성공 단계·광기·신화 지식·단서 대체 경로·직업 선택지·대립 판정 → 효과·비용·스토리 영향 표, 우선순위, 원작 근거. 구현은 C 뒤.
 - [~] **B-1** (검사기·점검표 de37813, CSV 수정 남음) 대사 CSV 15개·I2 전수 점검: `Tools/dialog_lint.py`(깨진 줄·누락·끊긴 분기·잘못된 다음 ID·도달 불가·막다른 길) → 결과표 → 수정 → 재검사 0건. 스토리 내용 변경은 목록으로 사용자 확인. I2 통합 방향은 설계 문서 추천안.
 - [x] **C-1** (a545a8c) 아키텍처 설계 `.claude-rules/Game/Architecture.md`: 정적 플래그 → 상태 객체·저장 데이터, InteractionController·TimeManagere 분리, 데이터 주도 대화, 판정·전투 순수 C#+EditMode 테스트, 저장·백로그·스킵·자동 진행, New Input System(INPUT-1 흡수). 단계 P0~ 로 나눔.
-- [ ] **C-2 P4 선행(P3 리뷰 권장, 5f291ab)**: 연출 대기 플래그 `strDialogOn`·`battleSan`·`barMove`(DatabaseManager.cs:127,236,300)를 일시로 옮기거나 저장 제외. GameState Dictionary 열거 순서 비결정 확인, SchemaVersion 을 meta 와 함께 저장. Enter Play Mode Options 켤 때 `SubsystemRegistration` 에서 GameRoot·일시 정적 리셋.
+- [x] **C-2 P4 선행(P3 리뷰 권장, 5f291ab) 완료(P4 와 함께)**: 연출 대기 플래그 `strDialogOn`·`battleSan`·`barMove`(DatabaseManager.cs:127,236,300)를 일시로 옮기거나 저장 제외. GameState Dictionary 열거 순서 비결정 확인, SchemaVersion 을 meta 와 함께 저장. Enter Play Mode Options 켤 때 `SubsystemRegistration` 에서 GameRoot·일시 정적 리셋.
 - [ ] **C-2~** 단계별 builder 구현. 단계마다 컴파일·EditMode 테스트·처음부터 엔딩까지 플레이·reviewer-code·reviewer-arch [필수] 반영 후 커밋. 마지막에 기능 묶음별(대화·판정·전투·수첩·UI·저장) 리뷰 1회 더.
