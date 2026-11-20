@@ -124,7 +124,8 @@ public class DataBaseManager : MonoBehaviour
     public static bool thirdDayAlanDialog { get => S.GetFlag(FlagKeys.thirdDayAlanDialog); set => S.SetFlag(FlagKeys.thirdDayAlanDialog, value); }
     //2일차
     public static bool barDrinkSanCheck { get => S.GetFlag(FlagKeys.barDrinkSanCheck); set => S.SetFlag(FlagKeys.barDrinkSanCheck, value); }
-    public static bool barMove { get => S.GetFlag(FlagKeys.barMove); set => S.SetFlag(FlagKeys.barMove, value); }
+    // P4: 연출 대기 신호(DialogManager→DirectingManager 1프레임)라 저장하지 않는다. 일시 정적 필드(ResetTransientStatics 에서 초기화).
+    public static bool barMove = false;
     public static bool barArrive { get => S.GetFlag(FlagKeys.barArrive); set => S.SetFlag(FlagKeys.barArrive, value); }
 
     public static bool daveDeathKeyword { get => S.GetFlag(FlagKeys.daveDeathKeyword); set => S.SetFlag(FlagKeys.daveDeathKeyword, value); }
@@ -233,7 +234,7 @@ public class DataBaseManager : MonoBehaviour
     public static bool workSound = false;
 
     //Battle
-    public static bool battleSan { get => S.GetFlag(FlagKeys.battleSan); set => S.SetFlag(FlagKeys.battleSan, value); }
+    public static bool battleSan = false; // P4: 일시(저장 제외)
     public static bool isBattleBeforeDialog { get => S.GetFlag(FlagKeys.isBattleBeforeDialog); set => S.SetFlag(FlagKeys.isBattleBeforeDialog, value); }
     public static bool afterBattle { get => S.GetFlag(FlagKeys.afterBattle); set => S.SetFlag(FlagKeys.afterBattle, value); }
     public static bool isBattleRollet = false;
@@ -297,7 +298,7 @@ public class DataBaseManager : MonoBehaviour
     public static bool isFirst2st { get => S.GetFlag(FlagKeys.isFirst2st); set => S.SetFlag(FlagKeys.isFirst2st, value); }
     public static bool isFirstRoom { get => S.GetFlag(FlagKeys.isFirstRoom); set => S.SetFlag(FlagKeys.isFirstRoom, value); }
     public static bool getSafe { get => S.GetFlag(FlagKeys.getSafe); set => S.SetFlag(FlagKeys.getSafe, value); }
-    public static bool strDialogOn { get => S.GetFlag(FlagKeys.strDialogOn); set => S.SetFlag(FlagKeys.strDialogOn, value); }
+    public static bool strDialogOn = false; // P4: 일시(저장 제외)
     public static int aidenKeywordCount { get => S.GetCounter(CounterKeys.aidenKeywordCount); set => S.SetCounter(CounterKeys.aidenKeywordCount, value); }
     public static bool failTwoKeyword { get => S.GetFlag(FlagKeys.failTwoKeyword); set => S.SetFlag(FlagKeys.failTwoKeyword, value); }
 
@@ -744,6 +745,9 @@ public class DataBaseManager : MonoBehaviour
     // 옛 ResetData 가 되돌리던 비영구(일시·화면·설정) 정적 필드. 영구 상태는 GameRoot.NewGame 이 맡는다.
     public static void ResetTransientStatics()
     {
+        barMove = false;
+        battleSan = false;
+        strDialogOn = false;
         potalWait = false;
         setIntelCharDetail = false;
         isOpenMap = false;
@@ -841,6 +845,6 @@ public class DataBaseManager : MonoBehaviour
         nowPageGunsmith = 1;
         nowPageSewageMaintenanceOffice = 1;
         nowPageWharf = 1;
-        textDelay = 0.07f;
+        textDelay = SettingsService.Current.TextDelay; // 설정은 새 게임·타이틀 복귀로 되돌리지 않는다
     }
 }
