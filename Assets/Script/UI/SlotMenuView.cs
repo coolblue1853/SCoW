@@ -286,7 +286,7 @@ public sealed class SlotMenuView : MonoBehaviour
             Say(SaveText.ErrorMessage(known), true);
             return;
         }
-        bool inGame = SceneManager.GetActiveScene().name == SaveFlow.MainScene;
+        bool inGame = SaveFlow.InMainScene;
         if (inGame && _confirmIndex != slot)
         {
             _confirmIndex = slot;

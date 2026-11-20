@@ -10,6 +10,10 @@ namespace SCoW.Core.Save
         Corrupt,
         NewerVersion,
         IoError,
+        /// <summary>지금은 저장·불러오기를 할 수 없는 상태(연출 중, 불러오기 진행 중 등).</summary>
+        NotAllowed,
+        /// <summary>읽었지만 이 빌드가 복원할 수 없는 장소.</summary>
+        PlaceUnsupported,
     }
 
     /// <summary>슬롯 목록 화면용 요약. state 를 읽지 않고 meta 만으로 그린다.</summary>

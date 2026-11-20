@@ -127,5 +127,65 @@ namespace SCoW.Tests
             Assert.AreEqual(SettingsData.DefaultTextDelay, d.TextDelay);
             Assert.AreEqual(1, d.ResolutionIndex);
         }
+
+        [Test]
+        public void Slot_RoundTrip_SingleString()
+        {
+            GameState a = Sample();
+            SaveMeta m = new SaveMeta { SchemaVersion = a.SchemaVersion, SavedAtUtcTicks = 123456789L, PlayTimeSec = 99, PlaceId = "Bar", TimeCount = 7 };
+            string text = SaveCodec.EncodeSlot(m, a);
+            SaveMeta m2;
+            GameState b;
+            Assert.AreEqual(SaveError.None, SaveCodec.TryDecodeSlot(text, out m2, out b));
+            Assert.IsTrue(a.Equals(b));
+            Assert.AreEqual(99, m2.PlayTimeSec);
+            Assert.AreEqual("Bar", m2.PlaceId);
+        }
+
+        [Test]
+        public void Slot_Truncated_Or_MissingState_IsCorrupt()
+        {
+            GameState a = Sample();
+            SaveMeta m = new SaveMeta { SchemaVersion = a.SchemaVersion, PlaceId = "Bar", TimeCount = 1 };
+            string text = SaveCodec.EncodeSlot(m, a);
+            SaveMeta m2;
+            GameState b;
+            Assert.AreEqual(SaveError.Corrupt, SaveCodec.TryDecodeSlot(text.Substring(0, text.Length - 8), out m2, out b));
+            Assert.AreEqual(SaveError.Corrupt, SaveCodec.TryDecodeSlot(SaveCodec.EncodeMeta(m), out m2, out b));
+            Assert.AreEqual(SaveError.Corrupt, SaveCodec.TryDecodeSlot(string.Empty, out m2, out b));
+        }
+
+        [Test]
+        public void State_Decode_IgnoresUnknownRecordKinds_ForwardCompat()
+        {
+            GameState a = Sample();
+            string text = SaveCodec.EncodeState(a);
+            int n = a.Flags.Count + a.Counters.Count + a.Texts.Count;
+            string withExtra = text.Replace("END " + n + "\n", "X\tfuture\tvalue\nEND " + (n + 1) + "\n");
+            Assert.AreNotEqual(text, withExtra);
+            GameState b;
+            Assert.AreEqual(SaveError.None, SaveCodec.TryDecodeState(withExtra, out b));
+            Assert.IsTrue(a.Equals(b));
+            Assert.AreEqual(SaveError.Corrupt, SaveCodec.TryDecodeState(text.Replace("END " + n + "\n", "garbage line\nEND " + (n + 1) + "\n"), out b));
+        }
+
+        [Test]
+        public void Migrator_Default_ChainCoversEveryVersionUpToCurrent()
+        {
+            for (int v = 1; v <= SaveMigrator.Default.CurrentVersion; v++)
+            {
+                GameState s = new GameState { SchemaVersion = v };
+                Assert.AreEqual(SaveError.None, SaveMigrator.Default.Migrate(s), "v" + v);
+                Assert.AreEqual(SaveMigrator.Default.CurrentVersion, s.SchemaVersion);
+            }
+        }
+
+        [Test]
+        public void Migrator_GapInChain_IsCorrupt_EvenIfLaterStepsExist()
+        {
+            SaveMigrator mig = new SaveMigrator(4, new ISaveMigration[] { new AddCounterMigration() }); // 2→3 만 있고 1→2, 3→4 없음
+            Assert.AreEqual(SaveError.Corrupt, mig.Migrate(new GameState { SchemaVersion = 1 }));
+            Assert.AreEqual(SaveError.Corrupt, mig.Migrate(new GameState { SchemaVersion = 2 }));
+        }
     }
 }

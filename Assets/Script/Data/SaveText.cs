@@ -107,6 +107,8 @@ public static class SaveText
             case SaveError.Missing: return Pick("저장 파일이 없습니다.", "No save file.");
             case SaveError.Corrupt: return Pick("저장 파일이 손상되어 불러올 수 없습니다.", "This save file is damaged and cannot be loaded.");
             case SaveError.NewerVersion: return Pick("더 새로운 버전의 저장 파일입니다.", "This save was made by a newer version.");
+            case SaveError.NotAllowed: return Pick("지금은 저장하거나 불러올 수 없습니다.", "You cannot save or load right now.");
+            case SaveError.PlaceUnsupported: return Pick("이 저장의 장소는 불러올 수 없습니다.", "The place in this save cannot be restored.");
             default: return Pick("저장 또는 불러오기에 실패했습니다.", "Saving or loading failed.");
         }
     }

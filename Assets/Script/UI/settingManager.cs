@@ -119,6 +119,11 @@ public class settingManager : MonoBehaviour
         {
             DestroyImmediate(old);
         }
+        UnityEngine.EventSystems.EventTrigger oldTrigger = go.GetComponent<UnityEngine.EventSystems.EventTrigger>();
+        if (oldTrigger != null)
+        {
+            DestroyImmediate(oldTrigger); // 복제본이 원본의 설정 진입/호버 이벤트를 물려받지 않게
+        }
         Button b = go.AddComponent<Button>();
         b.targetGraphic = go.GetComponent<Image>();
         b.onClick.AddListener(() => OpenSlotMenu(mode));

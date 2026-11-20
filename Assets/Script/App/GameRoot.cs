@@ -1,5 +1,6 @@
 using SCoW.Core.State;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 진행 상태 보유(P3) + 플레이 시간·불러오기 주입(P4). 씬 오브젝트·DontDestroyOnLoad 없이 첫 접근 때 만들어진다.
@@ -23,6 +24,14 @@ public sealed class GameRoot
         // 일시 정적 필드를 비우고 저장된 설정(음량·텍스트 속도·해상도)을 적용한다. ES3 는 이 시점부터 안전하다.
         DataBaseManager.ResetTransientStatics();
         SettingsService.Apply();
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 플레이 시간은 Main 씬에 있는 동안만 센다(타이틀·캐릭터 생성·설정 대기 제외).
+        Instance.SetClockRunning(scene.name == SaveFlow.MainScene);
     }
 
     public static GameRoot Instance
@@ -38,14 +47,15 @@ public sealed class GameRoot
     }
 
     private double _playBaseSec;
-    private double _playStartRealtime = Time.realtimeSinceStartupAsDouble;
+    private double _playStartRealtime;
+    private bool _clockRunning;
 
     public GameState State { get; private set; } = GameState.New();
 
     /// <summary>현재 슬롯의 누적 플레이 시간(초). 새 게임·불러오기 시점부터 실시간으로 센다.</summary>
     public long PlayTimeSec
     {
-        get { return (long)(_playBaseSec + (Time.realtimeSinceStartupAsDouble - _playStartRealtime)); }
+        get { return (long)(_playBaseSec + (_clockRunning ? Time.realtimeSinceStartupAsDouble - _playStartRealtime : 0.0)); }
     }
 
     /// <summary>진행 상태를 새 게임 기본값으로 되돌린다.</summary>
@@ -67,5 +77,23 @@ public sealed class GameRoot
     {
         _playBaseSec = baseSec;
         _playStartRealtime = Time.realtimeSinceStartupAsDouble;
+    }
+
+    private void SetClockRunning(bool running)
+    {
+        if (running == _clockRunning)
+        {
+            return;
+        }
+        double now = Time.realtimeSinceStartupAsDouble;
+        if (running)
+        {
+            _playStartRealtime = now;
+        }
+        else
+        {
+            _playBaseSec += now - _playStartRealtime;
+        }
+        _clockRunning = running;
     }
 }

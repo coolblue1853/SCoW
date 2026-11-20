@@ -91,6 +91,11 @@ namespace SCoW.Core.Save
                     s.Texts[Unesc(f[1])] = Unesc(f[2]);
                     n++;
                 }
+                else if (f.Length >= 2 && f[0].Length == 1 && f[0][0] >= 'A' && f[0][0] <= 'Z' && f[0] != "F" && f[0] != "C" && f[0] != "T")
+                {
+                    // 전방 호환: 같은 SchemaVersion 에서 새 빌드가 추가한 레코드 종류는 무시한다(END 개수에는 포함).
+                    n++;
+                }
                 else if (f.Length == 1 && f[0].StartsWith("END ", StringComparison.Ordinal))
                 {
                     if (!int.TryParse(f[0].Substring(4), NumberStyles.Integer, CultureInfo.InvariantCulture, out endCount) || endCount < 0)
@@ -121,6 +126,46 @@ namespace SCoW.Core.Save
             sb.Append("time\t").Append(m.TimeCount.ToString(CultureInfo.InvariantCulture)).Append('\n');
             sb.Append("END ").Append(MetaFieldCount.ToString(CultureInfo.InvariantCulture)).Append('\n');
             return sb.ToString();
+        }
+
+        /// <summary>슬롯 한 개 = meta 텍스트 + state 텍스트를 이어 붙인 문자열 하나(한 키로 저장해 원자성 확보).</summary>
+        public static string EncodeSlot(SaveMeta meta, GameState state)
+        {
+            return EncodeMeta(meta) + EncodeState(state);
+        }
+
+        public static SaveError TryDecodeSlot(string text, out SaveMeta meta, out GameState state)
+        {
+            meta = null;
+            state = null;
+            if (string.IsNullOrEmpty(text))
+            {
+                return SaveError.Corrupt;
+            }
+            int cut = text.IndexOf("\n" + StateHeader + " ", StringComparison.Ordinal);
+            if (cut < 0)
+            {
+                return SaveError.Corrupt;
+            }
+            SaveMeta m;
+            SaveError e = TryDecodeMeta(text.Substring(0, cut + 1), out m);
+            if (e != SaveError.None)
+            {
+                return e;
+            }
+            GameState s;
+            e = TryDecodeState(text.Substring(cut + 1), out s);
+            if (e != SaveError.None)
+            {
+                return e;
+            }
+            if (s.SchemaVersion != m.SchemaVersion)
+            {
+                return SaveError.Corrupt;
+            }
+            meta = m;
+            state = s;
+            return SaveError.None;
         }
 
         public static SaveError TryDecodeMeta(string text, out SaveMeta meta)

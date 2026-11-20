@@ -63,6 +63,7 @@ public class DirectingManager : MonoBehaviour
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        CancelInvoke("RestoreFromSave");
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {

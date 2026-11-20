@@ -20,9 +20,54 @@ public class ManageMain : MonoBehaviour
     // P4: 타이틀 "이어하기"(저장 파일이 있을 때만). 씬을 고치지 않고 시작 버튼을 복제해 코드로 만든다.
     private GameObject _continueButton;
 
+    // 키보드·패드 탐색: 시작·(이어하기)·옵션·종료 순. NavUp/Down 으로 고르고 Interact 로 누른다.
+    private readonly List<Transform> _navItems = new List<Transform>();
+    private int _navIndex = -1;
+
     private void Start()
     {
         BuildContinueButton();
+        BuildNavItems();
+    }
+
+    private void BuildNavItems()
+    {
+        _navItems.Clear();
+        if (select1 == null || select2 == null || select3 == null)
+        {
+            return;
+        }
+        _navItems.Add(select1.transform.parent);
+        if (_continueButton != null)
+        {
+            _navItems.Add(_continueButton.transform);
+        }
+        _navItems.Add(select2.transform.parent);
+        _navItems.Add(select3.transform.parent);
+    }
+
+    private void MoveNav(int dir)
+    {
+        if (_navItems.Count == 0)
+        {
+            return;
+        }
+        SetNavHighlight(_navIndex, false);
+        _navIndex = _navIndex < 0 ? (dir > 0 ? 0 : _navItems.Count - 1) : (_navIndex + dir + _navItems.Count) % _navItems.Count;
+        SetNavHighlight(_navIndex, true);
+    }
+
+    private void SetNavHighlight(int index, bool on)
+    {
+        if (index < 0 || index >= _navItems.Count || _navItems[index] == null)
+        {
+            return;
+        }
+        Transform h = _navItems[index].Find("Select");
+        if (h != null)
+        {
+            h.gameObject.SetActive(on);
+        }
     }
 
     private void BuildContinueButton()
@@ -83,10 +128,31 @@ public class ManageMain : MonoBehaviour
 
     private void Update()
     {
-        // 키보드·패드: E / 패드 남쪽 버튼으로 이어하기. 설정창·슬롯창이 열려 있으면 무시.
-        if (_continueButton != null && GameInput.InteractDown && !SlotMenuView.IsOpen && !DataBaseManager.isOpenUi)
+        // 설정창·슬롯창이 열려 있으면 무시.
+        if (SlotMenuView.IsOpen || DataBaseManager.isOpenUi)
         {
-            OpenContinue();
+            return;
+        }
+        if (GameInput.NavUpDown)
+        {
+            MoveNav(-1);
+        }
+        else if (GameInput.NavDownDown)
+        {
+            MoveNav(1);
+        }
+        else if (GameInput.InteractDown)
+        {
+            if (_navIndex >= 0 && _navIndex < _navItems.Count && _navItems[_navIndex] != null)
+            {
+                UnityEngine.EventSystems.ExecuteEvents.Execute(_navItems[_navIndex].gameObject,
+                    new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current),
+                    UnityEngine.EventSystems.ExecuteEvents.pointerClickHandler);
+            }
+            else if (_continueButton != null)
+            {
+                OpenContinue(); // 선택 없이 E/패드 남쪽: 이어하기(기존 동작)
+            }
         }
     }
 
