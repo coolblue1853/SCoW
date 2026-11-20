@@ -31,3 +31,10 @@
 - 한 작업이 5시간 창 안에 못 끝날 만하면(대형 빌드·장시간 캡처) 5-hour 70% 이상에서는 시작하지 않는다.
 - 틱마다 보고하지 않는다. 사용자에게는 막혔을 때와 stop 때만 말한다.
 - 실측 기록: 큰 작업 전후 5-hour %, Weekly % 를 `Docs/AutomationLog.md` 에 한 줄씩 남겨 1시간당 소모율을 갱신한다.
+
+## SCoW 한도 운영 (11-21 사용자: 5시간 한도 끝까지 쓰고 스스로 재개, 멈춰서 묻지 않음)
+- 작업(builder 위임) 사이마다 `mcp__ccd_session_mgmt__get_usage` 로 5-hour % 와 resetsAt 을 본다.
+- 5-hour **95% 이상**이면 새 builder 를 띄우지 않는다. 진행 중인 것은 끝내고 이어갈 지점을 `Docs/Handoff/state.md` 에 3줄 적는다.
+- 멈추기 전 반드시 재개 예약: `CronCreate`(ToolSearch 로 로드)로 resetsAt + 2분 이후 30분 간격 반복 틱, 프롬프트 "state.md·queue.md 를 읽고 SCoW 3트랙 작업을 이어서 진행". `CronList` 로 확인. 깨어나면 큐 다음 항목부터. 재개 뒤 필요 없어진 예약은 `CronDelete`.
+- 주간 한도는 11-25 까지 상한 없음. 주간 99% 근처에서만 멈춘다.
+- 큐가 비거나 사용자 확인이 필요한 것만 남으면 `Docs/OpenQuestions.md` 에 쌓고 멈춘다. 일을 억지로 만들지 않는다.
