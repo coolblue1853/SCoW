@@ -1,0 +1,11 @@
+{
+  "id": "1st_Battle",
+  "topics": [
+    { "id": "start", "cases": [ { "node": "battle_start" } ] },
+    { "id": "End", "cases": [ { "node": "battle_end" } ] }
+  ],
+  "nodes": {
+    "battle_start": { "text": "1st_Battle:1-5" },
+    "battle_end": { "text": "1st_Battle:11" }
+  }
+}

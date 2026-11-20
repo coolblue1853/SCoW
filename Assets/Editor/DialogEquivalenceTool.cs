@@ -15,7 +15,7 @@ using UnityEngine;
 /// EditMode 테스트(DialogPilotEquivalenceTests)는 같은 골든을 새 경로(StoryResolver)와 대조한다.
 /// 줄 형식: 스크립트|토픽|프리셋|n=줄수|first=|last=|ids=압축ID|post=상태변화
 /// </summary>
-public static class DialogEquivalenceTool
+public static partial class DialogEquivalenceTool
 {
     public const string GoldenPath = "Assets/Tests/EditMode/Golden/DialogPilot.golden.txt";
     public const string CurrentPath = "Logs/playtest/DialogPilot.current.txt";
@@ -270,7 +270,11 @@ public static class DialogEquivalenceTool
             StringBuilder sb = new StringBuilder();
             sb.Append("# DialogPilot golden v1\n");
             List<Target> targets;
-            if (mode == 2)
+            if (mode == 3)
+            {
+                targets = P11Targets();
+            }
+            else if (mode == 2)
             {
                 targets = P10bTargets();
             }

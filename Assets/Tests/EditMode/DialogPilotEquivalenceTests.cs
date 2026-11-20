@@ -16,6 +16,7 @@ namespace SCoW.Tests
         private const string GoldenPath = "Assets/Tests/EditMode/Golden/DialogPilot.golden.txt";
         private const string GoldenPathP10a = "Assets/Tests/EditMode/Golden/DialogP10a.golden.txt";
         private const string GoldenPathP10b = "Assets/Tests/EditMode/Golden/DialogP10b.golden.txt";
+        private const string GoldenPathP11 = "Assets/Tests/EditMode/Golden/DialogP11.golden.txt";
         private static readonly Dictionary<string, IList<StoryLine>> CsvCache = new Dictionary<string, IList<StoryLine>>();
 
         private static IList<StoryLine> Csv(string name)
@@ -66,6 +67,35 @@ namespace SCoW.Tests
         public void GoldenRows_P10b_MatchNewPath()
         {
             CheckGolden(GoldenPathP10b, 200);
+        }
+
+        /// <summary>
+        /// P11 키워드 대사(Keyword.json, 토픽 "NPC/키워드")와 전투 대사(1st_Battle.json). 키워드 x 플래그·시각 조합 전부.
+        /// 의도된 차이: 없음. 옛 코드의 죽은 가지 하나는 그대로 보존했다(Maeve "Missing People &amp; Fishy Smell" 안의 중첩 키워드 비교는 항상 거짓이라 CauseX 만 나온다).
+        /// </summary>
+        [Test]
+        public void GoldenRows_P11_Keyword_MatchNewPath()
+        {
+            CheckGolden(GoldenPathP11, 1500);
+        }
+
+        /// <summary>모든 NPC 는 "NPC/*" 기본 토픽을 가진다(목록 밖 키워드의 마지막 else).</summary>
+        [Test]
+        public void Keyword_EveryNpcHasDefaultTopic()
+        {
+            StoryScript sc = Script("Keyword");
+            HashSet<string> npcs = new HashSet<string>();
+            HashSet<string> defaults = new HashSet<string>();
+            for (int i = 0; i < sc.Topics.Count; i++)
+            {
+                string id = sc.Topics[i].Id;
+                int slash = id.IndexOf('/');
+                Assert.Greater(slash, 0, "NPC/키워드 형식 아님: " + id);
+                npcs.Add(id.Substring(0, slash));
+                if (id.EndsWith("/*", System.StringComparison.Ordinal)) { defaults.Add(id.Substring(0, slash)); }
+            }
+            Assert.AreEqual(12, npcs.Count);
+            Assert.AreEqual(npcs.Count, defaults.Count, "기본 토픽(NPC/*) 없는 NPC 가 있다");
         }
 
         private static void CheckGolden(string goldenPath, int minRows)
