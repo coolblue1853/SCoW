@@ -43,7 +43,9 @@ public class ES3ScriptingDefineSymbols : IActiveBuildTargetChanged
         foreach (var target in GetAllNamedBuildTargets())
         {
             string[] defines;
-            PlayerSettings.GetScriptingDefineSymbols(target, out defines);
+            // SCoW: Unity 6 에서 폐지된 플랫폼(Stadia 등)은 ArgumentException → 건너뜀
+            try { PlayerSettings.GetScriptingDefineSymbols(target, out defines); }
+            catch (ArgumentException) { continue; }
             if(!defines.Contains(symbol))
                 PlayerSettings.SetScriptingDefineSymbols(target, symbol);
         }
