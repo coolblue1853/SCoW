@@ -8,3 +8,6 @@
 - 11-21 UPG-1 완료: Unity 6000.4.0f1 업그레이드(태그 `pre-unity6`), unity-mcp v10.3.0 이 8080 공유 서버에 `SCoW@…` 로 연결. 업그레이드 후 TMP 글자 네모 깨짐 → 옛 TMP 셰이더를 ugui 2.0 판으로 교체해 해결, ES3 Stadia 에러 우회.
 - 씬 3개(Insert 타이틀·SetCharacter·Main 첫 대사) 플레이·콘솔 error 0 확인. 처음부터 엔딩까지 흐름은 미검증.
 - 문서 트랙: A-1 `CocDesign.md`(규칙 버그 7건)·C-1 `Architecture.md`(P0~P16)·B-1 `dialog_lint.py`+`DialogAudit.md`(오류 6·경고 262) 완료. 다음: FIX-P0 → C-2(Architecture P0 부터) → B-1 CSV 수정.
+- 11-21 한도 정지(5시간 100%, 03:50 재개 예약): C-2 P0~P3·FIX-P0·INPUT-1 push 완료. **P4 저장·불러오기 커밋 b5cb2f3·76833a6·084dc0e 는 로컬만(push 전)** — 재개하면 reviewer-code·reviewer-arch 리뷰 → [필수] 반영 → push.
+- P4 미해결: 한글 글꼴 없음(타이틀 "Continue" 영문), 텍스트 속도 UI·ReadLog 미착수, 실제 입력·전체 플레이 미검증. 사용자 플레이 확인 필요: 키·패드 동작(INPUT-1), 저장/불러오기.
+- 다음 큐: P4 리뷰·push → C-2 P5(UiStack·SceneRouter) → B-1 CSV 수정 반영. 문서: Architecture.md 단계표, CocDesign.md, DialogAudit.md.
