@@ -163,15 +163,20 @@ public sealed class BattleEngine {                      // 턴제 규칙. 연출
 - 기존 DDOL 싱글턴 12개(`BillowUIManager MapManager FadingBackGround DialogManager InteractionController selectionUIManager IntelManager IntelCharacterDetail settingManager SoundManager End_Look_Judge DataBaseManager`)는 각 단계에서 (a) 상태는 `GameRoot` 로, (b) 객체는 씬 로컬 View 로 내리고 DDOL 을 제거. 씬 로컬 싱글턴은 `Awake` 에 등록, `OnDestroy` 에 해제(정적 참조 누수 방지).
 - 정적 `DataBaseManager` 는 파사드(프로퍼티가 `GameRoot.State` 로 위임)로 남아 4325줄 호출을 한 번에 안 고쳐도 되게 한다. 호출처를 새 API 로 바꾸는 만큼 파사드 필드를 지우고 최종 단계에서 클래스째 삭제.
 
-## 3. 상태 분류표 (P3 입력 — builder 가 생성 스크립트로 채움)
-| 구분 | 이행 | 예 |
-|---|---|---|
-| 영구 bool | `GameState.Flags` | `maeveFirstDialog`, `intelFishySmell1`, `ending*`, `isDebuff*`, `sewer*` |
-| 영구 int/string | `Counters`/`Texts`/전용 필드 | `enemyDeathCount`, `posionDebuff`, `timeCount`, `nowPlace` |
-| 설정 | `SettingsData` | `soundVolume`, `sfxVolume`, `textDelay`, 해상도 |
-| 일시 | `RuntimeState`(저장 금지) | `isOpenUi`, `isDirecting`, `isRollet`, `potalWait`, `skipActive`, `isTest`, `isItemUI` |
-| 화면 상태 | 각 View 로 이동 | `nowPage*`, `buttonCount*`, `condition`, `selectObject`, `lookObject`, `nowSelecter` |
-- 애매한 항목(예: `*SanCheck` 플래그, `battleWeapon`, `nowItem`)은 builder 가 사용처 grep 으로 판정해 표에 기록한다. 연출 중 저장을 막으므로 `*SanCheck` 대기 상태는 영구(진행 기록)로 취급하는 쪽이 안전(미결 Q3).
+## 3. 상태 분류표 (P3 완료 11-21, 생성 스크립트로 분류)
+| 구분 | 수 | 이행 | 내용 |
+|---|---|---|---|
+| 영구 bool | 393 | `GameState.Flags`(true 만 보관) → `FlagKeys` | 진행 플래그 전부(`maeveFirstDialog`, `intel*`, `ending*`, `isDebuff*`, `sewer*`, 디버프). 초기값 true 는 `bgmChangeChecker` 하나 |
+| 영구 int | 59 | `GameState.Counters`(0 은 미보관) → `CounterKeys` | `timeCount`, `enemyDeathCount`, `posionDebuff`, 스탯, 기능 포인트(초기값 0 아님: `martialArtsPoint` 25 등 16개), 인벤 수량, `gain*Int` |
+| 영구 string | 3 | `GameState.Texts`(빈 값 미보관) → `TextKeys` | `nowPlace`(초기 `DetectiveOffice`), `potalPlace`, `battleWeapon` |
+| 일시 | 26 | 정적 필드 유지(이후 `RuntimeState`) | `isOpenUi isDirecting isRollet potalWait isItemUI skipActive isTest isOpenMap secondisDirecting storyDirecting setIntelCharDetail conntectMouse workSound isBattleRollet isSelect cancelJudge isKeyword isJudge isScene isPresentation isOption endDialogLine isActiveDialog1/2 selectionOn isFinish` |
+| 화면 상태 | 76 | 정적 필드 유지(이후 각 View) | `nowPage*`·`buttonCount*` 68개, `condition selectObject lookObject nowSelecter nowItem keywordMain keywordUpper keywordDowner` |
+| 설정 | 3 | 정적 필드 유지(P4 `SettingsData`) | `soundVolume`(0.5) `sfxVolume`(0.5) `textDelay`(0.07) |
+
+- 애매한 것(`*SanCheck`, `battleSan`, `barMove`, `strDialogOn`, `isBattleBeforeDialog`, `afterBattle` 등 연출 대기 플래그, `battleWeapon`)은 영구로 둠(Q3 가정, 저장은 안정 시점에서만). 사용처가 `DialogManager`→`DirectingManager` 1프레임 신호인 것들이라 P4 에서 일시로 내릴지 재검토.
+- `ResetData()` = `GameRoot.Instance.NewGame()`(영구 전부 `GameState.New()`) + `ResetTransientStatics()`(옛 ResetData 가 되돌리던 일시·화면·`textDelay`). 옛 ResetData 가 빠뜨렸던 `endingLadderSan endingSwin sewerMap sewerFirstIn sewerFirstInSanCheck sewerDeepOneFirstSanCheck` 는 이제 리셋된다(의도한 수정). `isTest soundVolume sfxVolume keyword* isFinish` 는 옛 동작대로 리셋 안 함.
+- 파사드: 영구 455개는 `DataBaseManager` 정적 프로퍼티(같은 이름, `S.GetFlag(FlagKeys.x)`)로 바뀌었다. 호출 4325줄 무변경·컴파일 통과(`ref/out` 없음). 읽기 비용 실측 약 20ns(3M 읽기 60ms) → 필드 백킹 불필요. `GameRoot` 는 최소판(순수 클래스, 지연 생성 `GameRoot.Instance.State`, DDOL 없음).
+- 생성 스크립트는 저장소에 없다. `FlagKeys.cs` 는 자동 생성물이라 키 추가는 직접 편집(추가만).
 
 ## 4. 비 UTF-8 .cs 방침
 - 목록: Audit D-2 의 21개(`DatabaseManager`, `TimeManagere`, `BattleManager`, `Rollet`, `BattleRollet`, `setSkill`, `MapManager`, `FadingBackGround`, `DirectingManager`, `End_Look_Judge` 등). 추정이므로 변환 도구가 엄격 디코드로 재확정한다.
@@ -191,7 +196,7 @@ public sealed class BattleEngine {                      // 턴제 규칙. 연출
 | P1 ✅ d89dda4 | 비 UTF-8 일괄 UTF-8 변환(4절) | .cs 21개 내외(내용 불변) | 변환 전용 커밋, 문자열 리터럴 동치 검증, 한글 UI 스크린샷 | 잘못된 코드페이지 추정 → 문자 깨짐. 반드시 U+FFFD 0 검증 |
 | P2 ✅ | `GameInput` 도입 + 레거시 `Input.*` 교체(= INPUT-1 단계 0~6, `Input` 문서 4절 순서). EventSystem·Active Input Handling 전환(7·8단계)은 P2b 로 분리 | `Input/GameInput.cs`, `Assets/Resources/Input/*.inputactions`, 20개 파일 | 에디터에서 KB·마우스·가상 패드로 각 UI 동작, `Input.*` grep 0(서드파티 제외), 스모크 S | 한 키 이중 소비 유지(소비 금지), 전투 적 선택 패드 불가(Q·A-2) |
 | P2b ✅ | 3개 씬 `StandaloneInputModule`→`InputSystemUIInputModule`, DNP·I2·Text Animator 서드파티 대응, Active Input Handling New | 씬 3개(에디터 MCP 로만), 서드파티 최소 패치 | Console 에 `InvalidOperationException ... Input class` 0, UI 클릭 전부 동작 | 단독 커밋(되돌릴 수 있게). 씬 직렬화 |
-| P3 | `GameState` 도입 + `DataBaseManager` 파사드. 3절 분류표 작성, 생성 스크립트(스크래치)로 `FlagKeys.cs`·프로퍼티 파사드 생성, `ResetData()` 를 `GameRoot.NewGame()` 위임으로 교체. `GameRoot` 최소판(상태만) | `Core/State/*`, `App/GameRoot.cs`, `old_Dialog/DatabaseManager.cs`(P1 후) | 테스트: 모든 영구 키 `New()` 시 기본값, `Clone` 왕복. 스모크 S 에서 두 번째 새 게임의 `enemyDeathCount`·`posionDebuff`·`ending*` 가 0/false | 560개 중 분류 오류(영구/일시). 파사드 프로퍼티는 읽기 비용이 `HashSet` 조회로 늘어남(매 프레임 폴링 호출처 `TimeManagere.Update` 주의, 확인 필요). 초기값이 0 아닌 필드(`soundVolume` 0.5 등) 보존 |
+| P3 ✅ | `GameState` 도입 + `DataBaseManager` 파사드. 3절 분류표 작성, 생성 스크립트(스크래치)로 `FlagKeys.cs`·프로퍼티 파사드 생성, `ResetData()` 를 `GameRoot.NewGame()` 위임으로 교체. `GameRoot` 최소판(상태만) | `Core/State/*`, `App/GameRoot.cs`, `old_Dialog/DatabaseManager.cs`(P1 후) | 테스트: 모든 영구 키 `New()` 시 기본값, `Clone` 왕복. 스모크 S 에서 두 번째 새 게임의 `enemyDeathCount`·`posionDebuff`·`ending*` 가 0/false | 560개 중 분류 오류(영구/일시). 파사드 프로퍼티는 읽기 비용이 `HashSet` 조회로 늘어남(매 프레임 폴링 호출처 `TimeManagere.Update` 주의, 확인 필요). 초기값이 0 아닌 필드(`soundVolume` 0.5 등) 보존 |
 | P4 | 저장·불러오기·설정 저장: `SaveService`/`SettingsService`(ES3), 슬롯 UI(타이틀 "이어하기", 설정창), 자동 저장, 마이그레이션 훅, `ReadLog` 기록 시작 | `Data/*`, `UI/settingManager.cs`, `Main/ManageMain.cs`, 신규 View | 저장→앱 재기동→불러오기에서 장소·시간·스탯·인벤·플래그 동일(수동 비교 로그), 손상 파일 로드 시 오류 UI(크래시 아님), 설정이 재실행 후 유지 | 씬 오브젝트 상태(`SetActive`) 복원은 `TimeManagere.Update` 가 플래그로 재현하는 부분만 가능 → 저장 허용 지점을 "장소 이동 직후 안정 상태"로 제한. 저장 중 DOTween 진행. ES3 비 UTF-8 경로(윈도우 한글 사용자명) 확인 |
 | P5 | `UiStack`·`IsBusy`·`SceneRouter`. 8플래그 AND 복제 제거, Esc 우선순위 통일, `LoadScene` 6곳 통합(`SceneIds`) | `App/*`, `settingManager`, `MapManager`, `ShopUI`, `SIS_UIManager`, `IntelManager`, `Rollet`, `BattleRollet`, `ManageMain`, `setSkill`, `FadingBackGround` | 다중 패널 상태에서 Esc 가 맨 위 하나만 닫음, 대사 중 설정창 열림(Audit B-4) | UI 열림 규칙 변경이 흐름을 바꿀 수 있음 → 기존 막히던 상황 목록을 테스트로 고정 |
 | P6 | 순수 규칙 추출: `IRng`·`DiceExpr`·`SkillCheck`·`SanCheck`. `Rollet`·`BattleRollet` 이 `SkillCheck` 를 호출하도록(동작 동일). 골든 테스트 | `Core/Rules/*`, `Tests/*`, `Rollet/Rollet.cs`, `BattleRollet.cs` | 시드 고정 분포 테스트·경계값 테스트 통과, 룰렛 UI 판정 결과가 이전과 같은 시드에서 동일 | 현 규칙의 의도 불명(M1·M2). **포팅만, 정정 금지**. 연출(룰렛 회전)과 결과 결정 순서가 코드에 섞임 |
