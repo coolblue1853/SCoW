@@ -52,7 +52,7 @@ public class PotalPoint : MonoBehaviour
     {
         if (playerInTrigger == true)
         {
-            if (Input.GetKeyDown(KeyCode.F) && DataBaseManager.isDirecting == false && DataBaseManager.isActiveDialog1 == false && DataBaseManager.potalWait == false)
+            if (GameInput.PortalDown && DataBaseManager.isDirecting == false && DataBaseManager.isActiveDialog1 == false && DataBaseManager.potalWait == false)
             {
                 if ((DataBaseManager.nowPlace == "Client'shouse" || DataBaseManager.nowPlace == "NoonEvent") && DataBaseManager.timeCount >= 6)
                 {

@@ -54,7 +54,7 @@ public class Intel_ObtoUI : MonoBehaviour
         }
         previousState = DataBaseManager.nowSelecter;
 
-        if ((Input.GetKeyDown(KeyCode.E) && DataBaseManager.isActiveDialog2 == false && DataBaseManager.storyDirecting == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.isOpenUi == false))
+        if ((GameInput.InteractDown && DataBaseManager.isActiveDialog2 == false && DataBaseManager.storyDirecting == false && DataBaseManager.isDirecting == false && DataBaseManager.isOpenUi == false && DataBaseManager.isOpenUi == false))
         {
             if (this.transform.name == DataBaseManager.selectObject)
             {
@@ -404,7 +404,7 @@ public class Intel_ObtoUI : MonoBehaviour
         }
         if (Rollet.Instance.rolletSetUi.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
+            if (GameInput.PageNextDown || GameInput.PagePrevDown)
             {
                 if (blackWellJudge == "deftness")
                 {
@@ -444,7 +444,7 @@ public class Intel_ObtoUI : MonoBehaviour
         }
         if (Rollet.Instance.rolletSetUi.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (GameInput.PageNextDown)
             {
                 if (aidenJudge == "medicine")
                 {
@@ -487,7 +487,7 @@ public class Intel_ObtoUI : MonoBehaviour
                     }
                 }
             }
-            if (Input.GetKeyDown(KeyCode.A))
+            if (GameInput.PagePrevDown)
             {
                 if (aidenJudge == "medicine")
                 {
@@ -541,7 +541,7 @@ public class Intel_ObtoUI : MonoBehaviour
         }
         if (Rollet.Instance.rolletSetUi.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (GameInput.PageNextDown)
             {
                 if (deadBodyJudge == "medicine")
                 {
@@ -617,7 +617,7 @@ public class Intel_ObtoUI : MonoBehaviour
                     }
                 }
             }
-            if (Input.GetKeyDown(KeyCode.A))
+            if (GameInput.PagePrevDown)
             {
                 if (deadBodyJudge == "medicine")
                 {

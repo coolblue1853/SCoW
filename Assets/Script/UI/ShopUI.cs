@@ -65,7 +65,7 @@ public class ShopUI : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && shopUIOb.activeSelf == true)
+        if (GameInput.CancelDown && shopUIOb.activeSelf == true)
         {
             SoundManager.Instance.ClickSoundPlay();
             DataBaseManager.isOpenUi = false;

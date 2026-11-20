@@ -88,7 +88,7 @@ public class IntelCharacterDetail : MonoBehaviour
         BlackWellDetail();
 
         if (nextButtonAiden.activeSelf == true || nextButtonAlbert.activeSelf == true || nextButtonBlackWell.activeSelf == true || nextButtonCane.activeSelf == true || nextButtonElla.activeSelf == true || nextButtonMeiv.activeSelf == true || nextButtonSewerWorker.activeSelf == true || nextButtonDave.activeSelf == true || nextButtonSwain.activeSelf == true)    {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (GameInput.PageNextDown)
             {
                 NextPage();
             }
@@ -96,7 +96,7 @@ public class IntelCharacterDetail : MonoBehaviour
 
         if (prevButtonAiden.activeSelf == true || prevButtonAlbert.activeSelf == true || prevButtonBlackWell.activeSelf == true || prevButtonCane.activeSelf == true || prevButtonElla.activeSelf == true || prevButtonMeiv.activeSelf == true || prevButtonSewerWorker.activeSelf == true || nextButtonDave.activeSelf == true || prevButtonSwain.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (GameInput.PagePrevDown)
             {
                 PrevPage();
             }

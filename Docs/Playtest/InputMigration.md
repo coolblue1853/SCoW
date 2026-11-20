@@ -200,3 +200,10 @@ New 전환 시 `UnityEngine.Input` 의 모든 호출은 **런타임에 `InvalidO
 - A-5 패드 UI 는 기존 단축키 방식 유지(포커스 이동 UI 신설 안 함).
 - A-6 `Esc` 로 Cancel/Menu 이중 바인딩 구조 유지.
 - A-7 패드 기본 배치: A=확인/상호작용, B=취소, Start=설정, Y=정보, X=지도, Select=SIS, LB/RB=이전/다음 페이지.
+
+## 구현 기록 (C-2 P2, 11-21)
+
+- `Assets/Script/Input/GameInput.cs`(정적 래퍼, 소비 없는 순수 조회) + `Assets/Resources/Input/SCoWInput.inputactions`(Gameplay·UI 맵, Keyboard&Mouse·Gamepad 스킴). 20개 파일 `Input.*` 교체(레거시 호출 0건).
+- 디버그 키(RolletTest)는 별도 맵 대신 `GameInput.DebugKeyDown(Key)` → `Keyboard.current` 직접 조회. 에디터·Development 빌드 외에는 항상 false(출시 빌드 치트 차단).
+- 패드 A 는 Interact·Portal·PointerPrimary 에 공통 바인딩(가정 A-1).
+- 검증: 컴파일 error 0, EditMode 1/1, 씬 3개 플레이 콘솔 error 0, 액션별 바인딩 해석(키보드·마우스·가상 패드) 확인. **미검증:** 입력 이벤트 주입 동작(에디터 비포커스 상태에서 가상 장치 상태는 바뀌나 액션이 발화하지 않음 — `backgroundBehavior`/`editorInputBehaviorInPlayMode` 런타임 변경도 무효). 실제 키·클릭 동작은 사용자 플레이로 확인 필요.

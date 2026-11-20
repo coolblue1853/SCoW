@@ -14,14 +14,14 @@ public class EventButtonManage : MonoBehaviour
 
          if (upButton.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (GameInput.NavUpDown)
             {
                 ClickUpButton();
             }
         }
          if (downButton.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.S))
+            if (GameInput.NavDownDown)
             {
                 ClickDownButton();
             }

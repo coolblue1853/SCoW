@@ -63,11 +63,11 @@ public class Player : MonoBehaviour
     }
     void RunWalkChanger()
     {
-        if (Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Horizontal") < 0)
+        if (GameInput.MoveX > 0 || GameInput.MoveX < 0)
         {
             anime.SetFloat("move", 1);
         }
-        else if (Input.GetAxisRaw("Horizontal") == 0)
+        else if (GameInput.MoveX == 0)
         {
             anime.SetFloat("move", 0);
         }
@@ -75,14 +75,14 @@ public class Player : MonoBehaviour
     void Move()
     {
         Vector3 moveVelocity = Vector3.zero;
-        if (Input.GetAxisRaw("Horizontal") < 0)
+        if (GameInput.MoveX < 0)
         {
             DataBaseManager.workSound = true;
             moveVelocity = Vector3.left;
             transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
             //X값 스케일을 -1로 주어 좌우반전
         }
-        else if (Input.GetAxisRaw("Horizontal") > 0)
+        else if (GameInput.MoveX > 0)
         {
             DataBaseManager.workSound = true;
             moveVelocity = Vector3.right;

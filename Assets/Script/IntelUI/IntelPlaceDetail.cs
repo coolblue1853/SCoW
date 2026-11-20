@@ -378,14 +378,14 @@ public class IntelPlaceDetail : MonoBehaviour
     {
         if (nextButtonBar.activeSelf == true || nextButtonDetectiveOffice.activeSelf == true || nextButtonGunsmith.activeSelf == true || nextButtonHospital.activeSelf == true || nextButtonNewspaper.activeSelf == true || nextButtonPoliceOffice.activeSelf == true || nextButtonQuestHouse.activeSelf == true || nextButtonSewer.activeSelf == true || nextButtonRiverside.activeSelf == true || nextButtonSewageMaintenanceOffice.activeSelf == true || nextButtonSlum.activeSelf == true || nextButtonStation.activeSelf == true || nextButtonUniversity.activeSelf == true || nextButtonWharf.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (GameInput.PageNextDown)
             {
                 NextPage();
             }
         }
         if (prevButtonBar.activeSelf == true || prevButtonDetectiveOffice.activeSelf == true || prevButtonGunsmith.activeSelf == true || prevButtonHospital.activeSelf == true || prevButtonNewspaper.activeSelf == true || prevButtonPoliceOffice.activeSelf == true || prevButtonQuestHouse.activeSelf == true || prevButtonSewer.activeSelf == true || prevButtonRiverside.activeSelf == true || prevButtonSewageMaintenanceOffice.activeSelf == true || prevButtonSlum.activeSelf == true || prevButtonStation.activeSelf == true || prevButtonUniversity.activeSelf == true || prevButtonWharf.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (GameInput.PagePrevDown)
             {
                 PrevPage();
             }

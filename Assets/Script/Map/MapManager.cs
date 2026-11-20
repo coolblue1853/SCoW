@@ -416,7 +416,7 @@ public class MapManager : MonoBehaviour
         ButtonChecker();
         if (DataBaseManager.isActiveDialog1 == false)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (GameInput.OpenMapDown)
             {
                 if(mapChainingUI.activeSelf == false)
                 {
@@ -428,7 +428,7 @@ public class MapManager : MonoBehaviour
                     CloseMap();
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Escape) && mapChainingUI.activeSelf == true)
+            if (GameInput.CancelDown && mapChainingUI.activeSelf == true)
             {
                 DataBaseManager.isOpenUi = false;
                 mapChainingUI.SetActive(false);

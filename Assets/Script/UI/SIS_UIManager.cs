@@ -230,7 +230,7 @@ public class SIS_UIManager : MonoBehaviour
         }
         if (DataBaseManager.isActiveDialog1 == false)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha3))
+            if (GameInput.OpenSISDown)
             {
                 if (sisUI.activeSelf == false)
                 {
@@ -244,7 +244,7 @@ public class SIS_UIManager : MonoBehaviour
                 }
 
             }
-            if (Input.GetKeyDown(KeyCode.Escape) && sisUI.activeSelf == true)
+            if (GameInput.CancelDown && sisUI.activeSelf == true)
             {
                 CloseMap();
             }

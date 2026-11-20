@@ -12,28 +12,28 @@ public class PlaceButtonManage : MonoBehaviour
         }
         if (upButton2.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (GameInput.NavUpDown)
             {
                 ClickUpButton2();
             }
         }
         else if (upButton.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (GameInput.NavUpDown)
             {
                 ClickUpButton();
             }
         }
         if (downButton2.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.S))
+            if (GameInput.NavDownDown)
             {
                 ClickDownButton2();
             }
         }
         else if (downButton.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.S))
+            if (GameInput.NavDownDown)
             {
                 ClickDownButton();
             }

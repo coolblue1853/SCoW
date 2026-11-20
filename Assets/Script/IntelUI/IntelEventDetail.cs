@@ -315,14 +315,14 @@ public class IntelEventDetail : MonoBehaviour
 
         if (nextButtonCreepyEyes.activeSelf == true || nextButtonFishySmell.activeSelf == true || nextButtonInsomnia.activeSelf == true || nextButtonMissingPeople.activeSelf == true || nextButtonNightmare.activeSelf == true || nextButtonParanoia.activeSelf == true || nextButtonPlanetarySequence.activeSelf == true || nextButtonRiverWaterQuality.activeSelf == true || nextButtonSafe.activeSelf == true || nextButtonSewerGhostStory.activeSelf == true || nextButtonMurderCase.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (GameInput.PageNextDown)
             {
                 NextPage();
             }
         }
         if (prevButtonCreepyEyes.activeSelf == true || prevButtonFishySmell.activeSelf == true || prevButtonInsomnia.activeSelf == true || prevButtonMissingPeople.activeSelf == true || prevButtonNightmare.activeSelf == true || prevButtonParanoia.activeSelf == true || prevButtonPlanetarySequence.activeSelf == true || prevButtonRiverWaterQuality.activeSelf == true || prevButtonSafe.activeSelf == true || prevButtonSewerGhostStory.activeSelf == true || prevButtonMurderCase.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (GameInput.PagePrevDown)
             {
                 PrevPage();
             }

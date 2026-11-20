@@ -89,7 +89,7 @@ public class End_Look_Judge : MonoBehaviour
     {
         if (checker.gameObject.activeSelf == true && DataBaseManager.isSelect == false)
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (GameInput.PageNextDown)
             {
                 if (endBack.color.a > 0)
                 {
@@ -159,7 +159,7 @@ public class End_Look_Judge : MonoBehaviour
 
                 }
             }
-            if (Input.GetKeyDown(KeyCode.A))
+            if (GameInput.PagePrevDown)
             {
                 if (endBack.color.a > 0)
                 {

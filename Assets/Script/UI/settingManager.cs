@@ -154,11 +154,11 @@ public class settingManager : MonoBehaviour
         {
             toMainButton.SetActive(true);
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && setting.activeSelf == true)
+        if (GameInput.MenuDown && setting.activeSelf == true)
         {
             CloseSetting();
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && setting.activeSelf == false)
+        else if (GameInput.MenuDown && setting.activeSelf == false)
         {
             OpenSetting();
         }

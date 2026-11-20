@@ -32,7 +32,7 @@ public class EnemySelectButton : MonoBehaviour
         if (BattleManager.Instance.battleState == "selectEnemy")
         {
             isSetTrun = false;
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 마우스 위치 가져오기
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(GameInput.PointerPosition); // 마우스 위치 가져오기
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero); // 마우스 위치에서 Raycast
             if (hit.collider != null)
             {
@@ -42,7 +42,7 @@ public class EnemySelectButton : MonoBehaviour
                     {
                         BattleManager.Instance.onPointerEnemy = this.transform.name;
                         box2d.size = new Vector2(5f, 6.2f);
-                        if (Input.GetMouseButton(0))
+                        if (GameInput.PointerHeld)
                         {
                             ButtonClick();
                         }

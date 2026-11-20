@@ -78,7 +78,7 @@ public class RolletTest : MonoBehaviour
            Debug.Log("isOpenMap :" + DataBaseManager.isOpenMap);
           */
 
-        if (Input.GetKeyDown(KeyCode.F12))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.F12))
         {
             //   player.transform.position = player_SecretHouse;
             // cam.transform.position = Cam_SecretHouse;
@@ -90,31 +90,31 @@ public class RolletTest : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.F10))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.F10))
         {
             DataBaseManager.endingDeathCheck = true;
 
             DataBaseManager.nowPlace = "InSewer";
 
         }
-        if (Input.GetKeyDown(KeyCode.F7))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.F7))
         {
             DataBaseManager.nowPlace = "InSewer";
             DataBaseManager.startSewerBattle = true;
 
         }
-        if (Input.GetKeyDown(KeyCode.F8))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.F8))
         {
             //BillowUIManager.Instance.HP_Battledown(5);
 
 
         }
-        if (Input.GetKeyDown(KeyCode.F9))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.F9))
         {
             TimeManagere.Instance.MakeSewerMapEnemy();
 
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.Digit1))
         {
 
 
@@ -129,50 +129,50 @@ public class RolletTest : MonoBehaviour
             //One();
             // NewsRollet();
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.Digit2))
         {
 
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.Digit3))
         {
 
 
 
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.Digit4))
         {
 
         }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.Digit5))
         {
 
         }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.Digit6))
         {
 
         }
 
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.F1))
         {
             DataBaseManager.condition = "Worst";
 
         }
-        if (Input.GetKeyDown(KeyCode.F2))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.F2))
         {
             DataBaseManager.tightwad = true;
             // BillowUIManager.Instance.HP_down(5);
         }
-        if (Input.GetKeyDown(KeyCode.F3))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.F3))
         {
             BillowUIManager.Instance.HpUp(5);
 
         }
-        if (Input.GetKeyDown(KeyCode.F4))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.F4))
         {
 
             //BillowUIManager.Instance.San_up(10);
         }
-        if (Input.GetKeyDown(KeyCode.F5))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.F5))
         {
 
             DataBaseManager.intelMurderCase1 = true;
@@ -186,16 +186,16 @@ public class RolletTest : MonoBehaviour
             DataBaseManager.swainDeathKeyword = true;
 
         }
-        if (Input.GetKeyDown(KeyCode.F6))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.F6))
         {
             DataBaseManager.wearCoat = true;
         }
-        if (Input.GetKeyDown(KeyCode.F7))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.F7))
         {
             DataBaseManager.wearCoat = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.P))
         {
 
         }

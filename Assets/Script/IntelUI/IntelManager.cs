@@ -149,11 +149,11 @@ public class IntelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Alpha1)|| Input.GetKeyDown(KeyCode.Escape))  && intelUI.activeSelf == true)
+        if ((GameInput.OpenIntelDown|| GameInput.CancelDown)  && intelUI.activeSelf == true)
         {
             CloseSetting();
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha1) && intelUI.activeSelf == false)
+        else if (GameInput.OpenIntelDown && intelUI.activeSelf == false)
         {
             OpenSetting();
         }

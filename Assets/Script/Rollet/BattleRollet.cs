@@ -63,7 +63,7 @@ public class BattleRollet : MonoBehaviour
 
     private void Update()
     {
-        if (rolletUI.activeSelf == true && setUI.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) && subDialog != "SAN : Check")
+        if (rolletUI.activeSelf == true && setUI.activeSelf == true && GameInput.CancelDown && subDialog != "SAN : Check")
         {
             activeCheck = false;
             DataBaseManager.cancelJudge = true;
@@ -90,19 +90,19 @@ public class BattleRollet : MonoBehaviour
             rolletSetUi.SetActive(false);
             DataBaseManager.isRollet = false;
         }
-        if (setUI.activeSelf == true && Input.GetKeyDown(KeyCode.E) && activeCheck == true)
+        if (setUI.activeSelf == true && GameInput.InteractDown && activeCheck == true)
         {
             activeCheck = false;
             ActiveRollet();
         }
-        if (endButton.activeSelf == true && Input.GetKeyDown(KeyCode.E))
+        if (endButton.activeSelf == true && GameInput.InteractDown)
         {
             EndRollet();
         }
         {
             if (isClick == false && isActiveRollet == true)
             {
-                if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E))
+                if (GameInput.AdvanceDown || GameInput.InteractDown)
                 {
                     SoundManager.Instance.EndDice();
                     CancelInvoke();
