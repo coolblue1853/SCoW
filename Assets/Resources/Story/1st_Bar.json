@@ -1,0 +1,45 @@
+{
+  "id": "1st_Bar",
+  "topics": [
+    { "id": "Maeve_FirstDialog", "cases": [
+      { "when": "!flag:maeveFirstDialog && flag:intelQuestHouse1 && time==12", "pre": "set:maeveFirstDialog", "node": "maeve_day3_quest" },
+      { "when": "!flag:maeveFirstDialog && flag:intelQuestHouse1", "pre": "set:maeveFirstDialog", "node": "maeve_first_quest" },
+      { "when": "!flag:maeveFirstDialog && time==12", "pre": "set:maeveFirstDialog", "node": "maeve_day3_noquest" },
+      { "when": "!flag:maeveFirstDialog", "pre": "set:maeveFirstDialog", "node": "maeve_first_noquest" },
+      { "node": "maeve_dialog" }
+    ] },
+    { "id": "Maeve_Look", "cases": [ { "node": "maeve_look" } ] },
+    { "id": "Worker_FirstDialog", "cases": [
+      { "when": "!flag:workerFirstDialog", "pre": "set:workerFirstDialog", "node": "worker_first" },
+      { "node": "worker_dialog" }
+    ] },
+    { "id": "Worker_Look", "cases": [
+      { "when": "any(flag:intelFishySmell1,flag:intelFishySmell2,flag:intelFishySmell3,flag:intelFishySmell4)", "node": "worker_look_smell" },
+      { "node": "worker_look_nosmell" }
+    ] },
+    { "id": "BarArrive", "cases": [
+      { "when": "any(flag:intelFishySmell1,flag:intelFishySmell2,flag:intelFishySmell3,flag:intelFishySmell4)", "node": "day2_smell" },
+      { "node": "day2_nosmell" }
+    ] },
+    { "id": "Meave2ndDialog", "cases": [
+      { "when": "flag:isBar", "node": "day2_bar_in" },
+      { "node": "day2_first_bar" }
+    ] }
+  ],
+  "nodes": {
+    "maeve_day3_quest": { "text": "1st_Bar:200-206" },
+    "maeve_first_quest": { "text": "1st_Bar:1-20" },
+    "maeve_day3_noquest": { "text": "1st_Bar:207-211" },
+    "maeve_first_noquest": { "text": "1st_Bar:21-39" },
+    "maeve_dialog": { "text": "1st_Bar:41" },
+    "maeve_look": { "text": "1st_Bar:40" },
+    "worker_first": { "text": "1st_Bar:76-79" },
+    "worker_dialog": { "text": "1st_Bar:80" },
+    "worker_look_smell": { "text": "1st_Bar:85-89" },
+    "worker_look_nosmell": { "text": "1st_Bar:81-84" },
+    "day2_smell": { "text": "1st_Bar:115-119" },
+    "day2_nosmell": { "text": "1st_Bar:120-124" },
+    "day2_bar_in": { "text": "1st_Bar:125-141" },
+    "day2_first_bar": { "text": "1st_Bar:142-158" }
+  }
+}

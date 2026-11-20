@@ -9,6 +9,18 @@ using UnityEngine;
 /// </summary>
 public class DialogPaser : MonoBehaviour
 {
+    /// <summary>CSV 한 줄을 Dialog 로. Prase 와 StoryDatabase 가 같은 변환을 쓴다.</summary>
+    public static Dialog ToDialog(StoryLine line, string csvName)
+    {
+        Dialog dialog = new Dialog();
+        dialog.name = line.Speaker;
+        dialog.contexts = new string[] { line.Text };
+        dialog.spriteName = new string[0];
+        dialog.scriptId = csvName;
+        dialog.lineId = line.Id;
+        return dialog;
+    }
+
     public Dialog[] Prase(string _CVSFileName)
     {
         TextAsset csvData = Resources.Load<TextAsset>(_CVSFileName);
@@ -25,14 +37,7 @@ public class DialogPaser : MonoBehaviour
         List<Dialog> dialogList = new List<Dialog>(result.Lines.Count);
         for (int i = 0; i < result.Lines.Count; i++)
         {
-            StoryLine line = result.Lines[i];
-            Dialog dialog = new Dialog();
-            dialog.name = line.Speaker;
-            dialog.contexts = new string[] { line.Text };
-            dialog.spriteName = new string[0];
-            dialog.scriptId = _CVSFileName;
-            dialog.lineId = line.Id;
-            dialogList.Add(dialog);
+            dialogList.Add(ToDialog(result.Lines[i], _CVSFileName));
         }
         return dialogList.ToArray();
     }

@@ -1,0 +1,6 @@
+{
+  "places": [
+    { "id": "DetectiveOffice", "scripts": [ { "script": "1st_DetectiveOffice" } ] },
+    { "id": "Bar", "scripts": [ { "script": "1st_Bar" } ] }
+  ]
+}
