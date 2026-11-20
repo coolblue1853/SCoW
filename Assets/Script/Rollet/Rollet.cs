@@ -1,3 +1,4 @@
+using SCoW.Core.Rules;
 using SCoW.Core.Ui;
 using System.Collections;
 using System.Collections.Generic;
@@ -245,161 +246,32 @@ public class Rollet : MonoBehaviour
     void ChangeRollet()
     {
         isActiveRollet = true;
-        nomalRollet1Txt.text = Random.Range(0, 10).ToString();
-        int nom_10t = (Random.Range(0, 10) * 10);
-        if (nom_10t != 0)
-        {
-            nomalRollet10Txt.text = nom_10t.ToString();
-        }
-        else
-        {
-            nomalRollet10Txt.text = "00";
-        }
-        badRollet1Txt.text = Random.Range(0, 10).ToString();
-        int bad_10t = (Random.Range(0, 10) * 10);
-        if (bad_10t != 0)
-        {
-            badRollet10Txt.text = bad_10t.ToString();
-        }
-        else
-        {
-            badRollet10Txt.text = "00";
-        }
-        goodRollet1Txt.text = Random.Range(0, 10).ToString();
-        int good_10t = (Random.Range(0, 10) * 10);
-        if (good_10t != 0)
-        {
-            goodRollet10Txt.text = good_10t.ToString();
-        }
-        else
-        {
-            goodRollet10Txt.text = "00";
-        }
+        DiceFaces f = SkillCheck.RollFaces(UnityRng.Instance);
+        nomalRollet1Txt.text = f.Units.ToString();
+        nomalRollet10Txt.text = TensText(f.Tens);
+        badRollet1Txt.text = f.BadUnits.ToString();
+        badRollet10Txt.text = TensText(f.BadTens);
+        goodRollet1Txt.text = f.GoodUnits.ToString();
+        goodRollet10Txt.text = TensText(f.GoodTens);
+    }
+    static string TensText(int tens)
+    {
+        return tens != 0 ? tens.ToString() : "00";
     }
     void GetIntResult()
     {
         SoundManager.Instance.PenLine();
-        if (DataBaseManager.condition == "Nomal")
-        {
-            resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
-            if (resultInt == 0)
-            {
-                resultInt = 100;
-            }
-            resultString.text = "Dice : " + resultInt.ToString();
-        }
-        else if (DataBaseManager.condition == "Good")
-        {
-            if (int.Parse(nomalRollet1Txt.text) > int.Parse(goodRollet1Txt.text))
-            {
-                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(goodRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-            else
-            {
-                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-        }
-        else if (DataBaseManager.condition == "Best")
-        {
-            if (int.Parse(nomalRollet10Txt.text) > int.Parse(goodRollet10Txt.text))
-            {
-                resultInt = int.Parse(goodRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-            else
-            {
-                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-        }
-        else if (DataBaseManager.condition == "Bad")
-        {
-            if (int.Parse(nomalRollet1Txt.text) > int.Parse(badRollet1Txt.text))
-            {
-                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-            else
-            {
-                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(badRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-        }
-        else if (DataBaseManager.condition == "Worst")
-        {
-            if (int.Parse(nomalRollet10Txt.text) > int.Parse(badRollet10Txt.text))
-            {
-                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-            else
-            {
-                resultInt = int.Parse(badRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-        }
+        DiceFaces faces = new DiceFaces(int.Parse(nomalRollet1Txt.text), int.Parse(nomalRollet10Txt.text),
+            int.Parse(badRollet1Txt.text), int.Parse(badRollet10Txt.text),
+            int.Parse(goodRollet1Txt.text), int.Parse(goodRollet10Txt.text));
+        resultInt = SkillCheck.ResolveValue(SkillCheck.ParseCondition(DataBaseManager.condition), faces);
+        resultString.text = "Dice : " + resultInt.ToString();
         Invoke("GetStringResult", 0.5f);
     }
     void GetStringResult()
     {
         SoundManager.Instance.PenCircle();
-        if (resultInt >= 95)
-        {
-            resultEnd.text = "Result : Fumble";
-        }
-        else if (resultInt <= skillPoint / 3f)
-        {
-            resultEnd.text = "Result : Critical Success";
-        }
-        else if (resultInt <= skillPoint)
-        {
-            if (DataBaseManager.isDebuffPerfectionism == true)
-            {
-                resultEnd.text = "Result : Failure";
-            }
-            else
-            {
-                resultEnd.text = "Result : Success";
-            }
-        }
-        else
-        {
-            resultEnd.text = "Result : Failure";
-        }
+        resultEnd.text = SkillCheck.ToLegacyString(SkillCheck.Evaluate(resultInt, skillPoint, DataBaseManager.isDebuffPerfectionism));
         if (@string == "Sanity")
         {
             Invoke("OpenSanRollet", 1f);
@@ -616,135 +488,24 @@ public class Rollet : MonoBehaviour
         Invoke("WaitOneSec2", 0.1f);
         if (resultEnd.text == "Result : Fumble" || resultEnd.text == "Result : Failure")
         {
-            if (DataBaseManager.debuff == 0)
-            {
-                if (DataBaseManager.condition != "Worst")
-                {
-                    sanName.text = "!Sanity check failed!";
-                    slot1Name.text = "Sanity Decline";
-                    slot1Percent.text = "50%";
-                    slot1Int = 50;
-                    slot2Name.text = "Manifest Insanity";
-                    slot2Percent.text = "30%";
-                    slot2Int = slot1Int + 30;
-                    slot3Name.text = "Deconditioning";
-                    slot3Percent.text = "20%";
-                    slot3Int = slot2Int + 20;
-                }
-                else
-                {
-                    sanName.text = "!Sanity check failed!";
-                    slot1Name.text = "Sanity Decline";
-                    slot1Percent.text = "50%";
-                    slot1Int = 50;
-                    slot2Name.text = "Manifest Insanity";
-                    slot2Percent.text = "50%";
-                    slot2Int = slot1Int + 50;
-                    slot3Name.text = "Deconditioning";
-                    slot3Percent.text = "---";
-                    slot3Int = slot2Int + 999;
-                }
-
-            }
-            else if (DataBaseManager.debuff == 1)
-            {
-                if (DataBaseManager.condition != "Worst")
-                {
-                    sanName.text = "!Sanity check failed!";
-                    slot1Name.text = "Sanity Decline";
-                    slot1Percent.text = "30%";
-                    slot1Int = 30;
-                    slot2Name.text = "Manifest Insanity";
-                    slot2Percent.text = "50%";
-                    slot2Int = slot1Int + 50;
-                    slot3Name.text = "Deconditioning";
-                    slot3Percent.text = "20%";
-                    slot3Int = slot2Int + 20;
-                }
-                else
-                {
-                    sanName.text = "!Sanity check failed!";
-                    slot1Name.text = "Sanity Decline";
-                    slot1Percent.text = "30%";
-                    slot1Int = 30;
-                    slot2Name.text = "Manifest Insanity";
-                    slot2Percent.text = "70%";
-                    slot2Int = slot1Int + 70;
-                    slot3Name.text = "Deconditioning";
-                    slot3Percent.text = "---";
-                    slot3Int = slot2Int + 999;
-                }
-            }
-            else if (DataBaseManager.debuff == 2)
-            {
-                if (DataBaseManager.condition != "Worst")
-                {
-                    sanName.text = "!Sanity check failed!";
-                    slot1Name.text = "Sanity Decline";
-                    slot1Percent.text = "20%";
-                    slot1Int = 20;
-                    slot2Name.text = "Manifest Insanity";
-                    slot2Percent.text = "60%";
-                    slot2Int = slot1Int + 60;
-                    slot3Name.text = "Deconditioning";
-                    slot3Percent.text = "20%";
-                    slot3Int = slot2Int + 20;
-                }
-                else
-                {
-                    sanName.text = "!Sanity check failed!";
-                    slot1Name.text = "Sanity Decline";
-                    slot1Percent.text = "20%";
-                    slot1Int = 20;
-                    slot2Name.text = "Manifest Insanity";
-                    slot2Percent.text = "80%";
-                    slot2Int = slot1Int + 80;
-                    slot3Name.text = "Deconditioning";
-                    slot3Percent.text = "---";
-                    slot3Int = slot2Int + 999;
-                }
-            }
-            else if (DataBaseManager.debuff == 3)
-            {
-                if (DataBaseManager.condition != "Worst")
-                {
-                    sanName.text = "!Sanity check failed!";
-                    slot1Name.text = "Sanity Decline";
-                    slot1Percent.text = "40%";
-                    slot1Int = 40;
-                    slot2Name.text = "Manifest Insanity";
-                    slot2Percent.text = "---";
-                    slot3Name.text = "Deconditioning";
-                    slot3Percent.text = "60%";
-                    slot3Int = slot2Int + 60;
-                }
-                else
-                {
-                    sanName.text = "!Sanity check failed!";
-                    slot1Name.text = "Sanity Decline";
-                    slot1Percent.text = "100%";
-                    slot1Int = 100;
-                    slot2Name.text = "Manifest Insanity";
-                    slot2Percent.text = "---%";
-                    slot2Int = slot1Int + 999;
-                    slot3Name.text = "Deconditioning";
-                    slot3Percent.text = "---";
-                    slot3Int = slot2Int + 999;
-                }
-            }
+            SanCheck.FailurePercents(DataBaseManager.debuff, DataBaseManager.condition == "Worst", out int p1, out int p2, out int p3);
+            sanName.text = "!Sanity check failed!";
+            slot1Name.text = "Sanity Decline";
+            slot1Percent.text = p1 + "%";
+            slot2Name.text = "Manifest Insanity";
+            slot2Percent.text = p2 > 0 ? p2 + "%" : "---";
+            slot3Name.text = "Deconditioning";
+            slot3Percent.text = p3 > 0 ? p3 + "%" : "---";
         }
         else
         {
             sanName.text = "Sanity check Success";
             slot1Name.text = "No change";
-            slot1Percent.text = "80%";
-            slot1Int = 80;
+            slot1Percent.text = SanCheck.SuccessNoChangePct + "%";
             slot2Name.text = "Rise sanity";
-            slot2Percent.text = "15%";
-            slot2Int = 95;
+            slot2Percent.text = SanCheck.SuccessRisePct + "%";
             slot3Name.text = "Raise Condition";
-            slot3Percent.text = "5%";
-            slot3Int = 100;
+            slot3Percent.text = SanCheck.SuccessRaiseConditionPct + "%";
         }
     }
     public GameObject activeButton;
@@ -762,52 +523,13 @@ public class Rollet : MonoBehaviour
         SoundManager.Instance.PenLine();
         if (sanName.text == "!Sanity check failed!")
         {
-            int SanRollet = (Random.Range(1, 101));
-            Debug.Log(SanRollet);
-
-            if (DataBaseManager.debuff == 3)
-            {
-                if (SanRollet <= slot1Int && SanRollet <= slot3Int)
-                {
-                    sanRolletText.text = "Sanity Decline";
-                }
-                else
-                {
-                    sanRolletText.text = "Deconditioning";
-                }
-            }
-            else
-            {
-                if (SanRollet <= slot1Int && SanRollet <= slot2Int && SanRollet <= slot3Int)
-                {
-                    sanRolletText.text = "Sanity Decline";
-                }
-                else if (SanRollet >= slot1Int && SanRollet <= slot2Int && SanRollet <= slot3Int)
-                {
-                    sanRolletText.text = "Manifest Insanity";
-                }
-                else if (SanRollet >= slot1Int && SanRollet >= slot2Int && SanRollet <= slot3Int)
-                {
-                    sanRolletText.text = "Deconditioning";
-                }
-            }
+            SanFailOutcome o = SanCheck.RollFailure(UnityRng.Instance, DataBaseManager.debuff, DataBaseManager.condition == "Worst");
+            sanRolletText.text = o == SanFailOutcome.Decline ? "Sanity Decline" : (o == SanFailOutcome.Insanity ? "Manifest Insanity" : "Deconditioning");
         }
         else if (sanName.text == "Sanity check Success")
         {
-            int SanRollet = (Random.Range(1, 101));
-            Debug.Log(SanRollet);
-            if (SanRollet <= slot1Int)
-            {
-                sanRolletText.text = "No change";
-            }
-            else if (SanRollet <= slot2Int)
-            {
-                sanRolletText.text = "Rise sanity";
-            }
-            else
-            {
-                sanRolletText.text = "Raise Condition";
-            }
+            SanSuccessOutcome o = SanCheck.RollSuccess(UnityRng.Instance);
+            sanRolletText.text = o == SanSuccessOutcome.NoChange ? "No change" : (o == SanSuccessOutcome.Rise ? "Rise sanity" : "Raise Condition");
         }
         Invoke("ResultRollet", 1);
     }
@@ -816,8 +538,7 @@ public class Rollet : MonoBehaviour
         SoundManager.Instance.PenCircle();
         if (sanRolletText.text == "Sanity Decline")
         {
-            int SanRollet = (Random.Range(0, 3));
-            if (SanRollet == 1)
+            if (SanCheck.RollLoss(UnityRng.Instance) == 10)
             {
                 detailSan.text = "Sanity Decline : 10\n\nThe current sanity reduced by 10 Point.";
                 BillowUIManager.Instance.SanDown(10);

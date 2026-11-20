@@ -1,3 +1,4 @@
+using SCoW.Core.Rules;
 using SCoW.Core.Ui;
 using System.Collections;
 using System.Collections.Generic;
@@ -253,195 +254,39 @@ public class BattleRollet : MonoBehaviour
     void ChangeRollet()
     {
         isActiveRollet = true;
-        nomalRollet1Txt.text = Random.Range(0, 10).ToString();
-        int nom_10t = (Random.Range(0, 10) * 10);
-        if (nom_10t != 0)
-        {
-            nomalRollet10Txt.text = nom_10t.ToString();
-        }
-        else
-        {
-            nomalRollet10Txt.text = "00";
-        }
-        badRollet1Txt.text = Random.Range(0, 10).ToString();
-        int bad_10t = (Random.Range(0, 10) * 10);
-        if (bad_10t != 0)
-        {
-            badRollet10Txt.text = bad_10t.ToString();
-        }
-        else
-        {
-            badRollet10Txt.text = "00";
-        }
-        goodRollet1Txt.text = Random.Range(0, 10).ToString();
-        int good_10t = (Random.Range(0, 10) * 10);
-        if (good_10t != 0)
-        {
-            goodRollet10Txt.text = good_10t.ToString();
-        }
-        else
-        {
-            goodRollet10Txt.text = "00";
-        }
+        DiceFaces f = SkillCheck.RollFaces(UnityRng.Instance);
+        nomalRollet1Txt.text = f.Units.ToString();
+        nomalRollet10Txt.text = TensText(f.Tens);
+        badRollet1Txt.text = f.BadUnits.ToString();
+        badRollet10Txt.text = TensText(f.BadTens);
+        goodRollet1Txt.text = f.GoodUnits.ToString();
+        goodRollet10Txt.text = TensText(f.GoodTens);
         //적
-        enemyNomalRollet1Txt.text = Random.Range(0, 10).ToString();
-        int E_nom_10t = (Random.Range(0, 10) * 10);
-        if (E_nom_10t != 0)
-        {
-            enemyNomalRollet10Txt.text = E_nom_10t.ToString();
-        }
-        else
-        {
-            enemyNomalRollet10Txt.text = "00";
-        }
+        enemyNomalRollet1Txt.text = UnityRng.Instance.Next(0, 10).ToString();
+        enemyNomalRollet10Txt.text = TensText(UnityRng.Instance.Next(0, 10) * 10);
+    }
+    static string TensText(int tens)
+    {
+        return tens != 0 ? tens.ToString() : "00";
     }
     void GetIntResult()
     {
         SoundManager.Instance.PenLine();
-        if (DataBaseManager.condition == "Nomal")
-        {
-            resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
-            if (resultInt == 0)
-            {
-                resultInt = 100;
-            }
-            resultString.text = "Dice : " + resultInt.ToString();
-        }
-        else if (DataBaseManager.condition == "Good")
-        {
-            if (int.Parse(nomalRollet1Txt.text) > int.Parse(goodRollet1Txt.text))
-            {
-                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(goodRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-            else
-            {
-                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-        }
-        else if (DataBaseManager.condition == "Best")
-        {
-            if (int.Parse(nomalRollet10Txt.text) > int.Parse(goodRollet10Txt.text))
-            {
-                resultInt = int.Parse(goodRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-            else
-            {
-                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-        }
-        else if (DataBaseManager.condition == "Bad")
-        {
-            if (int.Parse(nomalRollet1Txt.text) > int.Parse(badRollet1Txt.text))
-            {
-                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-            else
-            {
-                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(badRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-        }
-        else if (DataBaseManager.condition == "Worst")
-        {
-            if (int.Parse(nomalRollet10Txt.text) > int.Parse(badRollet10Txt.text))
-            {
-                resultInt = int.Parse(nomalRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-            else
-            {
-                resultInt = int.Parse(badRollet10Txt.text) + int.Parse(nomalRollet1Txt.text);
-                if (resultInt == 0)
-                {
-                    resultInt = 100;
-                }
-                resultString.text = "Dice : " + resultInt.ToString();
-            }
-        }
+        DiceFaces faces = new DiceFaces(int.Parse(nomalRollet1Txt.text), int.Parse(nomalRollet10Txt.text),
+            int.Parse(badRollet1Txt.text), int.Parse(badRollet10Txt.text),
+            int.Parse(goodRollet1Txt.text), int.Parse(goodRollet10Txt.text));
+        resultInt = SkillCheck.ResolveValue(SkillCheck.ParseCondition(DataBaseManager.condition), faces);
+        resultString.text = "Dice : " + resultInt.ToString();
         //적 관련
-        enemyResultInt = int.Parse(enemyNomalRollet10Txt.text) + int.Parse(enemyNomalRollet1Txt.text);
-        if (enemyResultInt == 0)
-        {
-            enemyResultInt = 100;
-        }
+        enemyResultInt = SkillCheck.ResolveValue(Condition.Nomal, new DiceFaces(int.Parse(enemyNomalRollet1Txt.text), int.Parse(enemyNomalRollet10Txt.text), 0, 0, 0, 0));
         enemyResultString.text = "Dice : " + enemyResultInt.ToString();
         Invoke("GetStringResult", 0.5f);
     }
     void GetStringResult()
     {
         SoundManager.Instance.PenCircle();
-        if (resultInt >= 95)
-        {
-            resultEnd.text = "Result : Fumble";
-        }
-        else if (resultInt <= skillPoint / 3f)
-        {
-            resultEnd.text = "Result : Critical Success";
-        }
-        else if (resultInt <= skillPoint)
-        {
-            if (DataBaseManager.isDebuffPerfectionism == true)
-            {
-                resultEnd.text = "Result : Failure";
-            }
-            else
-            {
-                resultEnd.text = "Result : Success";
-            }
-        }
-        else
-        {
-            resultEnd.text = "Result : Failure";
-        }
-        if (enemyResultInt >= 95)
-        {
-            enemyResultEnd.text = "Result : Fumble";
-        }
-        else if (enemyResultInt <= enemySkillPoint / 3f)
-        {
-            enemyResultEnd.text = "Result : Critical Success";
-        }
-        else if (enemyResultInt <= enemySkillPoint)
-        {
-            enemyResultEnd.text = "Result : Success";
-        }
-        else
-        {
-            enemyResultEnd.text = "Result : Failure";
-        }
+        resultEnd.text = SkillCheck.ToLegacyString(SkillCheck.Evaluate(resultInt, skillPoint, DataBaseManager.isDebuffPerfectionism));
+        enemyResultEnd.text = SkillCheck.ToLegacyString(SkillCheck.Evaluate(enemyResultInt, enemySkillPoint));
         Invoke("GetFinalResult", 0.5f);
     }
 
