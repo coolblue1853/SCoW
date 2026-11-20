@@ -328,7 +328,7 @@ public class BattleManager : MonoBehaviour
             if (DataBaseManager.posionDebuff > 0)
             {
                 DataBaseManager.posionDebuff -= 1;
-                OnDamageObject("player", Random.Range(1, 2) * 5);
+                OnDamageObject("player", Random.Range(1, 3) * 5);
             }
             BattleItemManager.Instance.ManageItem();
             battleState = "PlayerChoice";
@@ -1598,7 +1598,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOneHybrid1SC.HittedByAxeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, axeAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 7) + 2) * 5))//1D8
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 9)) * 5))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Axe_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -1762,7 +1762,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOneHybrid2SC.HittedByAxeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, axeAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 7) + 2) * 5))//1D8
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 9)) * 5))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Axe_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -1929,7 +1929,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOneHybrid3SC.HittedByAxeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, axeAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 7) + 2) * 5))//1D8
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 9)) * 5))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Axe_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -2096,7 +2096,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOneHybrid4SC.HittedByAxeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, axeAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 7) + 2) * 5))//1D8
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 9)) * 5))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Axe_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -2268,7 +2268,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOne1SC.HittedByAxeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, axeAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOne1", (Random.Range(1, 7) + 2) * 5))//1D8
+                        .AppendCallback(() => OnDamageObject("DeepOne1", (Random.Range(1, 9)) * 5))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Axe_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))

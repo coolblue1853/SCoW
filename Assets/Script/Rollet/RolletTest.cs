@@ -16,6 +16,7 @@ public class RolletTest : MonoBehaviour
     Vector3 camSymbol = new Vector3(-1217.2f, -195f, -15);
     private void Awake()
     {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
 
         DataBaseManager.intl = 99;
         DataBaseManager.str = (Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7)) * 5;
@@ -44,6 +45,7 @@ public class RolletTest : MonoBehaviour
 
       //  DataBaseManager.isDebuff_CognitiveBreakdown = true;
        
+#endif
     }
     public void NewsRollet()
     {
@@ -64,6 +66,7 @@ public class RolletTest : MonoBehaviour
     }
     private void Update()
     {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
 
         /*   
            Debug.Log("isActiveDialog1 :" + DataBaseManager.isActiveDialog1);
@@ -196,10 +199,12 @@ public class RolletTest : MonoBehaviour
         {
 
         }
+#endif
     }
 
     public void One()
     {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
         DataBaseManager.intelElla1 = true;
         DataBaseManager.intelAiden1 = true;
         DataBaseManager.intelCane1 = true;
@@ -235,9 +240,11 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.intelGunsmith1 = true;
         DataBaseManager.intelSewageMaintenanceOffice1 = true;
         DataBaseManager.intelWharf1 = true;
+#endif
     }
     public void Two()
     {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
         DataBaseManager.intelElla2 = true;
         DataBaseManager.intelAiden2 = true;
         DataBaseManager.intelCane2 = true;
@@ -275,9 +282,11 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.intelWharf2 = true;
 
 
+#endif
     }
     public void Three()
     {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
         DataBaseManager.intelElla3 = true;
         DataBaseManager.intelAiden3 = true;
         DataBaseManager.intelCane3 = true;
@@ -312,9 +321,11 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.intelGunsmith3 = true;
         DataBaseManager.intelSewageMaintenanceOffice3 = true;
         DataBaseManager.intelWharf3 = true;
+#endif
     }
     public void Four()
     {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
         DataBaseManager.intelElla4 = true;
         DataBaseManager.intelAiden4 = true;
         DataBaseManager.intelCane4 = true;
@@ -349,9 +360,11 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.intelGunsmith4 = true;
         DataBaseManager.intelSewageMaintenanceOffice4 = true;
         DataBaseManager.intelWharf4 = true;
+#endif
     }
     public void Five()
     {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
         DataBaseManager.intelElla5 = true;
         DataBaseManager.intelAiden5 = true;
         DataBaseManager.intelCane5 = true;
@@ -387,10 +400,12 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.intelGunsmith5 = true;
         DataBaseManager.intelSewageMaintenanceOffice5 = true;
         DataBaseManager.intelWharf5 = true;
+#endif
     }
 
     public void Six()
     {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
         DataBaseManager.intelElla6 = true;
         DataBaseManager.intelAiden6 = true;
         DataBaseManager.intelCane6 = true;
@@ -426,6 +441,7 @@ public class RolletTest : MonoBehaviour
         DataBaseManager.intelGunsmith6 = true;
         DataBaseManager.intelSewageMaintenanceOffice6 = true;
         DataBaseManager.intelWharf6 = true;
+#endif
     }
 
 }
