@@ -814,185 +814,20 @@ public class InteractionController : MonoBehaviour
             theDM.ShowDialog(blackWellDialogLook.transform.GetComponent<interactionEvent>().GetDialogs());
         }
     }
+    /// <summary>낮 사건 대사(C-2 P10b 이후 데이터 주도: Resources/Story/2nd_NoonEvent.json).</summary>
     public void Start2ndNoonEvent(string setDialog)
     {
-        if (setDialog == "NoonEvent_FirstDailog_Detective")
-        {
-            if (DataBaseManager.intelQuestHouse1 == false)
-            {
-                theDM.ShowDialog(noonEventFirstDailogNoquest.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-            else if (DataBaseManager.intelMissingPeople1 == true || DataBaseManager.intelMissingPeople2 == true)
-            {
-                theDM.ShowDialog(noonEventFirstDailogMissingPeople.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-            else
-            {
-                theDM.ShowDialog(noonEventFirstDailogNoMissing.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-        }
-        if (setDialog == "NoonEvent_ClientHouse")
-        {
-            theDM.ShowDialog(noonEventClientHouse.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "NoonEvent_Witness_Dialog")
-        {
-            if (DataBaseManager.witnessFirstDailog == false)
-            {
-                DataBaseManager.witnessFirstDailog = true;
-                theDM.ShowDialog(noonEventWitnessFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-            else
-            {
-                theDM.ShowDialog(noonEventWitnessRepeatDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-        }
-        if (setDialog == "NoonEvent_Witness_Look")
-        {
-            theDM.ShowDialog(noonEventWitnessLook.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "NoonEvent_DoorPolice_Dialog")
-        {
-            if (DataBaseManager.doorPoliceFirstDailog == false)
-            {
-                DataBaseManager.doorPoliceFirstDailog = true;
-                theDM.ShowDialog(noonEventDoorPoliceFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-            else
-            {
-                theDM.ShowDialog(noonEventDoorPoliceRepeatDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-        }
-        if (setDialog == "NoonEvent_DoorPolice_Look")
-        {
-            theDM.ShowDialog(noonEventDoorPoliceLook.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "NoonEvent_FirstDoor")
-        {
-            theDM.ShowDialog(noonEventFirstDoor.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "NoonEvent_InsidePolice_Dialog")
-        {
-            if (DataBaseManager.insidePoliceFirstDailog == false)
-            {
-                DataBaseManager.insidePoliceFirstDailog = true;
-                theDM.ShowDialog(noonEventInsidePoliceFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-            else
-            {
-                theDM.ShowDialog(noonEventInsidePoliceRepeatDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-        }
-        if (setDialog == "NoonEvent_InsidePolice_Look")
-        {
-            theDM.ShowDialog(noonEventInsidePoliceLook.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "NoonEvent_DeadBody_Dialog")
-        {
-            theDM.ShowDialog(noonEventDeadBodyDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "NoonEvent_DeadBody_Look")
-        {
-            DataBaseManager.deadBodyFirstLook = true;
-            if (DataBaseManager.intelFishySmell1 == true)
-            {
-                theDM.ShowDialog(noonEventDeadBodyLookYesRumor.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-            else
-            {
-                theDM.ShowDialog(noonEventDeadBodyLookNoRumor.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-        }
-        if (setDialog == "NoonEvent_DeadBody_Look_Missing")
-        {
-            theDM.ShowDialog(noonEventDeadBodyLookMissing.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "NoonEvent_DeadBody_Look_FishySmell")
-        {
-            theDM.ShowDialog(noonEventDeadBodyLookFishySmell.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "NoonEvent_DeadBody_analysisSuccAfter")
-        {
-            theDM.ShowDialog(noonEventDeadBodyAnalysisSuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Accident Site_Dialog")
-        {
-            theDM.ShowDialog(siteDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Accident Site_Look")
-        {
-            theDM.ShowDialog(siteLook.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Site_analysisSuccAfter")
-        {
-            theDM.ShowDialog(siteAnalysisSuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
+        RunStory("2nd_NoonEvent", setDialog);
     }
+    /// <summary>2일차 탐정사무소 시작 대사(C-2 P10b 이후 데이터 주도: Resources/Story/2nd_DetectiveOffice.json, 줄은 1st_DetectiveOffice CSV).</summary>
     public void Start2ndDetectiveOffice(string setDialog)
     {
-        if (setDialog == "Fab_Case1")
-        {
-            theDM.ShowDialog(fabCase1.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        else if (setDialog == "Fab_Case1After")
-        {
-            theDM.ShowDialog(fabCase1After.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        else if (setDialog == "Fab_Case2")
-        {
-            theDM.ShowDialog(fabCase2.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        else if (setDialog == "Fab_Case2Succ")
-        {
-            theDM.ShowDialog(fabCase2Succ.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        else if (setDialog == "Fab_Case2SuccAfter")
-        {
-            theDM.ShowDialog(fabCase2SuccAfter.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        else if (setDialog == "Fab_Case2Fail")
-        {
-            theDM.ShowDialog(fabCase2Fail.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        else if (setDialog == "Fab_Case3")
-        {
-            theDM.ShowDialog(fabCase3.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
+        RunStory("2nd_DetectiveOffice", setDialog);
     }
+    /// <summary>금고·아이템 살펴보기 대사(C-2 P10b 이후 데이터 주도: Resources/Story/SafeLook.json, 줄은 1st_Item CSV).</summary>
     public void StartSafeLook(string setDialog)
     {
-        if (setDialog == "OldMap_Look")
-        {
-            theDM.ShowDialog(oldMapLook.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Document_Look")
-        {
-            theDM.ShowDialog(documentLook.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Safe_Look")
-        {
-            theDM.ShowDialog(safeLook.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Safe_Fail")
-        {
-            theDM.ShowDialog(safeFail.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Bracelet_Look")
-        {
-            theDM.ShowDialog(braceletLook.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Coat_Look")
-        {
-            theDM.ShowDialog(itemCoatLook.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "SewergeKey_Look")
-        {
-            theDM.ShowDialog(sewergeKeyLook.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Map_Look")
-        {
-            theDM.ShowDialog(itemMapLook.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
+        RunStory("SafeLook", setDialog);
     }
     // 1st
     /// <summary>StoryDatabase 로 topic 을 풀어 대사를 띄운다. 맞는 Topic 이 없으면 아무것도 안 한다(옛 if 체인과 같음).</summary>
@@ -1029,176 +864,31 @@ public class InteractionController : MonoBehaviour
     {
         RunStory("1st_Hospital", setDialog);
     }
+    /// <summary>경찰서 대사(C-2 P10b 이후 데이터 주도: Resources/Story/1st_PoliceOffice.json).</summary>
     public void Start1stPoliceoffice(string setDialog)
     {
-
-        if (setDialog == "A_FirstDialog")
-        {
-            if (DataBaseManager.albertDeathKeyword == true && DataBaseManager.timeCount > 8 && DataBaseManager.thirdDayPoliceADialog == true)
-            {
-                DataBaseManager.thirdDayPoliceADialog = false;
-                DataBaseManager.aFirstDialog = true;
-                theDM.ShowDialog(policeANoAlbert.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-            else if (DataBaseManager.aFirstDialog == false)
-            {
-                DataBaseManager.aFirstDialog = true;
-                theDM.ShowDialog(aFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-            else
-            {
-                theDM.ShowDialog(aDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-        }
-        if (setDialog == "B_FirstDialog")
-        {
-            if (DataBaseManager.albertDeathKeyword == true && DataBaseManager.timeCount > 8 && DataBaseManager.thirdDayPoliceBDialog == true)
-            {
-                DataBaseManager.thirdDayPoliceBDialog = false;
-                DataBaseManager.bFirstDialog = true;
-                theDM.ShowDialog(policeBNoAlbert.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-            else if (DataBaseManager.bFirstDialog == false)
-            {
-                DataBaseManager.bFirstDialog = true;
-                theDM.ShowDialog(bFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-            else
-            {
-                theDM.ShowDialog(bDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-        }
-        if (setDialog == "Albert_FirstDialog")
-        {
-            if (DataBaseManager.timeCount < 7)
-            {
-                if (DataBaseManager.albertFirstDialog == false)
-                {
-                    DataBaseManager.albertFirstDialog = true;
-                    theDM.ShowDialog(albertFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-                }
-                else
-                {
-                    theDM.ShowDialog(albertDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-                }
-            }
-            else if (DataBaseManager.timeCount > 8)
-            {
-                if (DataBaseManager.thirdDayAlbertDialog == false)
-                {
-                    DataBaseManager.thirdDayAlbertDialog = true;
-                    theDM.ShowDialog(albertThirdFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-                }
-                else
-                {
-                    theDM.ShowDialog(albertDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-                }
-            }
-            else
-            {
-                if (DataBaseManager.albertFirstDialog == false)
-                {
-                    DataBaseManager.albertFirstDialog = true;
-                    DataBaseManager.albertFirstAfterEvent = true;
-                    theDM.ShowDialog(albertFirstDialogAfterEvent.transform.GetComponent<interactionEvent>().GetDialogs());
-                }
-                else if (DataBaseManager.albertFirstAfterEvent == false)
-                {
-                    DataBaseManager.albertFirstAfterEvent = true;
-                    theDM.ShowDialog(albertFirstDialogNew.transform.GetComponent<interactionEvent>().GetDialogs());
-                }
-                else
-                {
-                    theDM.ShowDialog(albertDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-                }
-            }
-        }
-        if (setDialog == "A_Look")
-        {
-            theDM.ShowDialog(aLook.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "B_Look")
-        {
-            theDM.ShowDialog(bLook.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Albert_Look")
-        {
-            theDM.ShowDialog(albertLook.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
+        RunStory("1st_PoliceOffice", setDialog);
     }
+    /// <summary>빈민가 대사(C-2 P10b 이후 데이터 주도: Resources/Story/1st_Slum.json). 데이브 랜덤 대사는 대사 전에 키워드 UI 를 켜는 씬 부수효과가 있어 여기서 먼저 한다(옛 순서 그대로).</summary>
     public void Start1stSlum(string setDialog)
     {
-        if (setDialog == "Dave_FirstDialog")
+        switch (setDialog)
         {
-            if (DataBaseManager.daveFirstDialog == false)
-            {
-                DataBaseManager.daveFirstDialog = true;
-                theDM.ShowDialog(daveFirstDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
-            else
-            {
-                theDM.ShowDialog(daveDialog.transform.GetComponent<interactionEvent>().GetDialogs());
-            }
+            case "Dave_Ran1":
+            case "Dave_Ran2":
+            case "Dave_Ran3":
+            case "Dave_Ran4":
+            case "Dave_Ran5":
+            case "Dave_Ran6":
+            case "Dave_Ran7":
+            case "Dave_Ran8":
+            case "Dave_Ran9":
+            case "Dave_NoMoney":
+            case "Dave_RanEnd":
+                End_Look_Judge.Instance.DaveRandActive();
+                break;
         }
-        if (setDialog == "Dave_Ran1")
-        {
-            End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(daveRand1.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Dave_Ran2")
-        {
-            End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(daveRand2.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Dave_Ran3")
-        {
-            End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(daveRand3.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Dave_Ran4")
-        {
-            End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(daveRand4.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Dave_Ran5")
-        {
-            End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(daveRand5.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Dave_Ran6")
-        {
-            End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(daveRand6.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Dave_Ran7")
-        {
-            End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(daveRand7.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Dave_Ran8")
-        {
-            End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(daveRand8.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Dave_Ran9")
-        {
-            End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(daveRand9.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Dave_NoMoney")
-        {
-            End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(daveNoMoney.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "Dave_RanEnd")
-        {
-            End_Look_Judge.Instance.DaveRandActive();
-            theDM.ShowDialog(daveRandEnd.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
-        if (setDialog == "AfterDaveDeath")
-        {
-            theDM.ShowDialog(afterDaveDeath.transform.GetComponent<interactionEvent>().GetDialogs());
-        }
+        RunStory("1st_Slum", setDialog);
     }
     /// <summary>바 대사(C-2 P9 이후 데이터 주도: Resources/Story/1st_Bar.json).</summary>
     public void Start1stBar(string setDialog)

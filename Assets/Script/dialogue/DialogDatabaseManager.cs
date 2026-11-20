@@ -9,7 +9,7 @@ public class DialogDatabaseManager : MonoBehaviour
     {
         if (DataBaseManager.isItemUI == false)
         {
-            // PlaceDef(Resources/Story/places.json)가 정의한 장소(DetectiveOffice·Bar·Client'shouse·DailyNews·University·Riverside·Hospital)는 데이터로 CSV 를 고른다(C-2 P9).
+            // PlaceDef(Resources/Story/places.json)가 정의한 장소(DetectiveOffice·Bar·Client'shouse·DailyNews·University·Riverside·Hospital·Policeoffice·Slum·NoonEvent)는 데이터로 CSV 를 고른다(C-2 P9).
             string placeCsv = check ? StoryDatabase.ScriptForPlace(DataBaseManager.nowPlace) : null;
             if (placeCsv != null)
             {
@@ -23,18 +23,6 @@ public class DialogDatabaseManager : MonoBehaviour
                 csvFileName = "SewerOffice";
                 SetDialog();
             }
-            else if (DataBaseManager.nowPlace == "Policeoffice" && check == true)
-            {
-                check = false;
-                csvFileName = "1st_PoliceOffice";
-                SetDialog();
-            }
-            else if (DataBaseManager.nowPlace == "Slum" && check == true)
-            {
-                check = false;
-                csvFileName = "1st_Slum";
-                SetDialog();
-            }
             else if (DataBaseManager.nowPlace == "InSewer" && check == true)
             {
                 check = false;
@@ -45,12 +33,6 @@ public class DialogDatabaseManager : MonoBehaviour
             {
                 check = false;
                 csvFileName = "1st_Battle";
-                SetDialog();
-            }
-            else if (DataBaseManager.nowPlace == "NoonEvent" && check == true)
-            {
-                check = false;
-                csvFileName = "2nd_NoonEvent";
                 SetDialog();
             }
         }
@@ -92,15 +74,7 @@ public class DialogDatabaseManager : MonoBehaviour
         {
             csvFileName = "1st_Client'sHouse";
         }
-        if (DataBaseManager.nowPlace == "Policeoffice")
-        {
-            csvFileName = "1st_PoliceOffice";
-        }
-        else if (DataBaseManager.nowPlace == "Slum")
-        {
-            csvFileName = "1st_Slum";
-        }
-        else if (DataBaseManager.nowPlace == "InSewer")
+        if (DataBaseManager.nowPlace == "InSewer")
         {
             csvFileName = "InSewer";
         }
