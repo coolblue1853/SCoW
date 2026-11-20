@@ -1,0 +1,934 @@
+# DialogPilot golden v1
+@preset bar_m0w0q0t1nb0|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=0
+@preset bar_m0w0q0t1nb1|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=1
+@preset bar_m0w0q0t1f1b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m0w0q0t1f1b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m0w0q0t1f4b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m0w0q0t1f4b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell4=1
+@preset bar_m0w0q0t12nb0|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=0
+@preset bar_m0w0q0t12nb1|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=1
+@preset bar_m0w0q0t12f1b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m0w0q0t12f1b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m0w0q0t12f4b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m0w0q0t12f4b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell4=1
+@preset bar_m0w0q1t1nb0|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=0
+@preset bar_m0w0q1t1nb1|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=1
+@preset bar_m0w0q1t1f1b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m0w0q1t1f1b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m0w0q1t1f4b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m0w0q1t1f4b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell4=1
+@preset bar_m0w0q1t12nb0|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=0
+@preset bar_m0w0q1t12nb1|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=1
+@preset bar_m0w0q1t12f1b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m0w0q1t12f1b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m0w0q1t12f4b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m0w0q1t12f4b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell4=1
+@preset bar_m0w1q0t1nb0|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=0
+@preset bar_m0w1q0t1nb1|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=1
+@preset bar_m0w1q0t1f1b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m0w1q0t1f1b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m0w1q0t1f4b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m0w1q0t1f4b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell4=1
+@preset bar_m0w1q0t12nb0|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=0
+@preset bar_m0w1q0t12nb1|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=1
+@preset bar_m0w1q0t12f1b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m0w1q0t12f1b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m0w1q0t12f4b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m0w1q0t12f4b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell4=1
+@preset bar_m0w1q1t1nb0|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=0
+@preset bar_m0w1q1t1nb1|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=1
+@preset bar_m0w1q1t1f1b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m0w1q1t1f1b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m0w1q1t1f4b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m0w1q1t1f4b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell4=1
+@preset bar_m0w1q1t12nb0|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=0
+@preset bar_m0w1q1t12nb1|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=1
+@preset bar_m0w1q1t12f1b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m0w1q1t12f1b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m0w1q1t12f4b0|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m0w1q1t12f4b1|flag:maeveFirstDialog=0;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell4=1
+@preset bar_m1w0q0t1nb0|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=0
+@preset bar_m1w0q0t1nb1|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=1
+@preset bar_m1w0q0t1f1b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m1w0q0t1f1b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m1w0q0t1f4b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m1w0q0t1f4b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell4=1
+@preset bar_m1w0q0t12nb0|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=0
+@preset bar_m1w0q0t12nb1|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=1
+@preset bar_m1w0q0t12f1b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m1w0q0t12f1b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m1w0q0t12f4b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m1w0q0t12f4b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell4=1
+@preset bar_m1w0q1t1nb0|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=0
+@preset bar_m1w0q1t1nb1|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=1
+@preset bar_m1w0q1t1f1b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m1w0q1t1f1b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m1w0q1t1f4b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m1w0q1t1f4b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell4=1
+@preset bar_m1w0q1t12nb0|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=0
+@preset bar_m1w0q1t12nb1|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=1
+@preset bar_m1w0q1t12f1b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m1w0q1t12f1b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m1w0q1t12f4b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m1w0q1t12f4b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=0;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell4=1
+@preset bar_m1w1q0t1nb0|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=0
+@preset bar_m1w1q0t1nb1|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=1
+@preset bar_m1w1q0t1f1b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m1w1q0t1f1b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m1w1q0t1f4b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m1w1q0t1f4b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell4=1
+@preset bar_m1w1q0t12nb0|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=0
+@preset bar_m1w1q0t12nb1|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=1
+@preset bar_m1w1q0t12f1b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m1w1q0t12f1b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m1w1q0t12f4b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m1w1q0t12f4b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=0;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell4=1
+@preset bar_m1w1q1t1nb0|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=0
+@preset bar_m1w1q1t1nb1|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=1
+@preset bar_m1w1q1t1f1b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m1w1q1t1f1b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m1w1q1t1f4b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m1w1q1t1f4b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=1;flag:isBar=1;flag:intelFishySmell4=1
+@preset bar_m1w1q1t12nb0|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=0
+@preset bar_m1w1q1t12nb1|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=1
+@preset bar_m1w1q1t12f1b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell1=1
+@preset bar_m1w1q1t12f1b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell1=1
+@preset bar_m1w1q1t12f4b0|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=0;flag:intelFishySmell4=1
+@preset bar_m1w1q1t12f4b1|flag:maeveFirstDialog=1;flag:workerFirstDialog=1;flag:intelQuestHouse1=1;counter:timeCount=12;flag:isBar=1;flag:intelFishySmell4=1
+@preset det_default|
+@preset det_timeOn5|counter:fstDetectivTimeOn=5
+@preset det_day3|counter:timeCount=12;flag:intelQuestHouse1=1
+1st_Bar|Maeve_FirstDialog|bar_m0w0q0t1nb0|n=19|first=1st_Bar:21|last=1st_Bar:39|ids=21-39|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q0t1nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q0t1nb0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q0t1nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w0q0t1nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q0t1nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q0t1nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q0t1nb1|n=19|first=1st_Bar:21|last=1st_Bar:39|ids=21-39|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q0t1nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q0t1nb1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q0t1nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w0q0t1nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q0t1nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q0t1nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q0t1f1b0|n=19|first=1st_Bar:21|last=1st_Bar:39|ids=21-39|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q0t1f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q0t1f1b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q0t1f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q0t1f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q0t1f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q0t1f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q0t1f1b1|n=19|first=1st_Bar:21|last=1st_Bar:39|ids=21-39|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q0t1f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q0t1f1b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q0t1f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q0t1f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q0t1f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q0t1f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q0t1f4b0|n=19|first=1st_Bar:21|last=1st_Bar:39|ids=21-39|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q0t1f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q0t1f4b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q0t1f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q0t1f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q0t1f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q0t1f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q0t1f4b1|n=19|first=1st_Bar:21|last=1st_Bar:39|ids=21-39|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q0t1f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q0t1f4b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q0t1f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q0t1f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q0t1f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q0t1f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q0t12nb0|n=5|first=1st_Bar:207|last=1st_Bar:211|ids=207-211|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q0t12nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q0t12nb0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q0t12nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w0q0t12nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q0t12nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q0t12nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q0t12nb1|n=5|first=1st_Bar:207|last=1st_Bar:211|ids=207-211|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q0t12nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q0t12nb1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q0t12nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w0q0t12nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q0t12nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q0t12nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q0t12f1b0|n=5|first=1st_Bar:207|last=1st_Bar:211|ids=207-211|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q0t12f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q0t12f1b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q0t12f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q0t12f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q0t12f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q0t12f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q0t12f1b1|n=5|first=1st_Bar:207|last=1st_Bar:211|ids=207-211|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q0t12f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q0t12f1b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q0t12f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q0t12f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q0t12f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q0t12f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q0t12f4b0|n=5|first=1st_Bar:207|last=1st_Bar:211|ids=207-211|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q0t12f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q0t12f4b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q0t12f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q0t12f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q0t12f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q0t12f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q0t12f4b1|n=5|first=1st_Bar:207|last=1st_Bar:211|ids=207-211|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q0t12f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q0t12f4b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q0t12f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q0t12f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q0t12f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q0t12f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q1t1nb0|n=20|first=1st_Bar:1|last=1st_Bar:20|ids=1-20|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q1t1nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q1t1nb0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q1t1nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w0q1t1nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q1t1nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q1t1nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q1t1nb1|n=20|first=1st_Bar:1|last=1st_Bar:20|ids=1-20|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q1t1nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q1t1nb1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q1t1nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w0q1t1nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q1t1nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q1t1nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q1t1f1b0|n=20|first=1st_Bar:1|last=1st_Bar:20|ids=1-20|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q1t1f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q1t1f1b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q1t1f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q1t1f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q1t1f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q1t1f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q1t1f1b1|n=20|first=1st_Bar:1|last=1st_Bar:20|ids=1-20|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q1t1f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q1t1f1b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q1t1f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q1t1f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q1t1f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q1t1f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q1t1f4b0|n=20|first=1st_Bar:1|last=1st_Bar:20|ids=1-20|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q1t1f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q1t1f4b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q1t1f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q1t1f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q1t1f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q1t1f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q1t1f4b1|n=20|first=1st_Bar:1|last=1st_Bar:20|ids=1-20|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q1t1f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q1t1f4b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q1t1f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q1t1f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q1t1f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q1t1f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q1t12nb0|n=7|first=1st_Bar:200|last=1st_Bar:206|ids=200-206|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q1t12nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q1t12nb0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q1t12nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w0q1t12nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q1t12nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q1t12nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q1t12nb1|n=7|first=1st_Bar:200|last=1st_Bar:206|ids=200-206|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q1t12nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q1t12nb1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q1t12nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w0q1t12nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q1t12nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q1t12nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q1t12f1b0|n=7|first=1st_Bar:200|last=1st_Bar:206|ids=200-206|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q1t12f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q1t12f1b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q1t12f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q1t12f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q1t12f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q1t12f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q1t12f1b1|n=7|first=1st_Bar:200|last=1st_Bar:206|ids=200-206|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q1t12f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q1t12f1b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q1t12f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q1t12f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q1t12f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q1t12f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q1t12f4b0|n=7|first=1st_Bar:200|last=1st_Bar:206|ids=200-206|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q1t12f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q1t12f4b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q1t12f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q1t12f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q1t12f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q1t12f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w0q1t12f4b1|n=7|first=1st_Bar:200|last=1st_Bar:206|ids=200-206|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w0q1t12f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w0q1t12f4b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m0w0q1t12f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w0q1t12f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w0q1t12f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w0q1t12f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q0t1nb0|n=19|first=1st_Bar:21|last=1st_Bar:39|ids=21-39|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q0t1nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q0t1nb0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q0t1nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w1q0t1nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q0t1nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q0t1nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q0t1nb1|n=19|first=1st_Bar:21|last=1st_Bar:39|ids=21-39|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q0t1nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q0t1nb1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q0t1nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w1q0t1nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q0t1nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q0t1nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q0t1f1b0|n=19|first=1st_Bar:21|last=1st_Bar:39|ids=21-39|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q0t1f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q0t1f1b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q0t1f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q0t1f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q0t1f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q0t1f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q0t1f1b1|n=19|first=1st_Bar:21|last=1st_Bar:39|ids=21-39|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q0t1f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q0t1f1b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q0t1f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q0t1f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q0t1f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q0t1f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q0t1f4b0|n=19|first=1st_Bar:21|last=1st_Bar:39|ids=21-39|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q0t1f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q0t1f4b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q0t1f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q0t1f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q0t1f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q0t1f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q0t1f4b1|n=19|first=1st_Bar:21|last=1st_Bar:39|ids=21-39|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q0t1f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q0t1f4b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q0t1f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q0t1f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q0t1f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q0t1f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q0t12nb0|n=5|first=1st_Bar:207|last=1st_Bar:211|ids=207-211|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q0t12nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q0t12nb0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q0t12nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w1q0t12nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q0t12nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q0t12nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q0t12nb1|n=5|first=1st_Bar:207|last=1st_Bar:211|ids=207-211|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q0t12nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q0t12nb1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q0t12nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w1q0t12nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q0t12nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q0t12nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q0t12f1b0|n=5|first=1st_Bar:207|last=1st_Bar:211|ids=207-211|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q0t12f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q0t12f1b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q0t12f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q0t12f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q0t12f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q0t12f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q0t12f1b1|n=5|first=1st_Bar:207|last=1st_Bar:211|ids=207-211|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q0t12f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q0t12f1b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q0t12f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q0t12f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q0t12f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q0t12f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q0t12f4b0|n=5|first=1st_Bar:207|last=1st_Bar:211|ids=207-211|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q0t12f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q0t12f4b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q0t12f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q0t12f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q0t12f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q0t12f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q0t12f4b1|n=5|first=1st_Bar:207|last=1st_Bar:211|ids=207-211|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q0t12f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q0t12f4b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q0t12f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q0t12f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q0t12f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q0t12f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q1t1nb0|n=20|first=1st_Bar:1|last=1st_Bar:20|ids=1-20|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q1t1nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q1t1nb0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q1t1nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w1q1t1nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q1t1nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q1t1nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q1t1nb1|n=20|first=1st_Bar:1|last=1st_Bar:20|ids=1-20|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q1t1nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q1t1nb1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q1t1nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w1q1t1nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q1t1nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q1t1nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q1t1f1b0|n=20|first=1st_Bar:1|last=1st_Bar:20|ids=1-20|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q1t1f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q1t1f1b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q1t1f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q1t1f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q1t1f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q1t1f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q1t1f1b1|n=20|first=1st_Bar:1|last=1st_Bar:20|ids=1-20|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q1t1f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q1t1f1b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q1t1f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q1t1f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q1t1f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q1t1f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q1t1f4b0|n=20|first=1st_Bar:1|last=1st_Bar:20|ids=1-20|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q1t1f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q1t1f4b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q1t1f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q1t1f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q1t1f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q1t1f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q1t1f4b1|n=20|first=1st_Bar:1|last=1st_Bar:20|ids=1-20|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q1t1f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q1t1f4b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q1t1f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q1t1f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q1t1f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q1t1f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q1t12nb0|n=7|first=1st_Bar:200|last=1st_Bar:206|ids=200-206|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q1t12nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q1t12nb0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q1t12nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w1q1t12nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q1t12nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q1t12nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q1t12nb1|n=7|first=1st_Bar:200|last=1st_Bar:206|ids=200-206|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q1t12nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q1t12nb1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q1t12nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m0w1q1t12nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q1t12nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q1t12nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q1t12f1b0|n=7|first=1st_Bar:200|last=1st_Bar:206|ids=200-206|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q1t12f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q1t12f1b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q1t12f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q1t12f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q1t12f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q1t12f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q1t12f1b1|n=7|first=1st_Bar:200|last=1st_Bar:206|ids=200-206|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q1t12f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q1t12f1b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q1t12f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q1t12f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q1t12f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q1t12f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q1t12f4b0|n=7|first=1st_Bar:200|last=1st_Bar:206|ids=200-206|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q1t12f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q1t12f4b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q1t12f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q1t12f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q1t12f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q1t12f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m0w1q1t12f4b1|n=7|first=1st_Bar:200|last=1st_Bar:206|ids=200-206|post=+flag:maeveFirstDialog
+1st_Bar|Maeve_Look|bar_m0w1q1t12f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m0w1q1t12f4b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m0w1q1t12f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m0w1q1t12f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m0w1q1t12f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m0w1q1t12f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q0t1nb0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q0t1nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q0t1nb0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q0t1nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w0q0t1nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q0t1nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q0t1nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q0t1nb1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q0t1nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q0t1nb1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q0t1nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w0q0t1nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q0t1nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q0t1nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q0t1f1b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q0t1f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q0t1f1b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q0t1f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q0t1f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q0t1f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q0t1f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q0t1f1b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q0t1f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q0t1f1b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q0t1f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q0t1f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q0t1f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q0t1f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q0t1f4b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q0t1f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q0t1f4b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q0t1f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q0t1f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q0t1f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q0t1f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q0t1f4b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q0t1f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q0t1f4b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q0t1f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q0t1f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q0t1f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q0t1f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q0t12nb0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q0t12nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q0t12nb0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q0t12nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w0q0t12nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q0t12nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q0t12nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q0t12nb1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q0t12nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q0t12nb1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q0t12nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w0q0t12nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q0t12nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q0t12nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q0t12f1b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q0t12f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q0t12f1b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q0t12f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q0t12f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q0t12f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q0t12f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q0t12f1b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q0t12f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q0t12f1b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q0t12f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q0t12f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q0t12f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q0t12f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q0t12f4b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q0t12f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q0t12f4b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q0t12f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q0t12f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q0t12f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q0t12f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q0t12f4b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q0t12f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q0t12f4b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q0t12f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q0t12f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q0t12f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q0t12f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q1t1nb0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q1t1nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q1t1nb0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q1t1nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w0q1t1nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q1t1nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q1t1nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q1t1nb1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q1t1nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q1t1nb1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q1t1nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w0q1t1nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q1t1nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q1t1nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q1t1f1b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q1t1f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q1t1f1b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q1t1f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q1t1f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q1t1f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q1t1f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q1t1f1b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q1t1f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q1t1f1b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q1t1f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q1t1f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q1t1f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q1t1f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q1t1f4b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q1t1f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q1t1f4b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q1t1f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q1t1f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q1t1f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q1t1f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q1t1f4b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q1t1f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q1t1f4b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q1t1f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q1t1f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q1t1f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q1t1f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q1t12nb0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q1t12nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q1t12nb0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q1t12nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w0q1t12nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q1t12nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q1t12nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q1t12nb1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q1t12nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q1t12nb1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q1t12nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w0q1t12nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q1t12nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q1t12nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q1t12f1b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q1t12f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q1t12f1b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q1t12f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q1t12f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q1t12f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q1t12f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q1t12f1b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q1t12f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q1t12f1b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q1t12f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q1t12f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q1t12f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q1t12f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q1t12f4b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q1t12f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q1t12f4b0|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q1t12f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q1t12f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q1t12f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q1t12f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w0q1t12f4b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w0q1t12f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w0q1t12f4b1|n=4|first=1st_Bar:76|last=1st_Bar:79|ids=76-79|post=+flag:workerFirstDialog
+1st_Bar|Worker_Look|bar_m1w0q1t12f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w0q1t12f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w0q1t12f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w0q1t12f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q0t1nb0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q0t1nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q0t1nb0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q0t1nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w1q0t1nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q0t1nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q0t1nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q0t1nb1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q0t1nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q0t1nb1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q0t1nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w1q0t1nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q0t1nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q0t1nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q0t1f1b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q0t1f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q0t1f1b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q0t1f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q0t1f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q0t1f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q0t1f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q0t1f1b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q0t1f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q0t1f1b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q0t1f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q0t1f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q0t1f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q0t1f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q0t1f4b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q0t1f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q0t1f4b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q0t1f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q0t1f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q0t1f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q0t1f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q0t1f4b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q0t1f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q0t1f4b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q0t1f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q0t1f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q0t1f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q0t1f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q0t12nb0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q0t12nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q0t12nb0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q0t12nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w1q0t12nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q0t12nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q0t12nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q0t12nb1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q0t12nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q0t12nb1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q0t12nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w1q0t12nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q0t12nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q0t12nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q0t12f1b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q0t12f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q0t12f1b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q0t12f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q0t12f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q0t12f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q0t12f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q0t12f1b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q0t12f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q0t12f1b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q0t12f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q0t12f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q0t12f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q0t12f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q0t12f4b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q0t12f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q0t12f4b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q0t12f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q0t12f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q0t12f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q0t12f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q0t12f4b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q0t12f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q0t12f4b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q0t12f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q0t12f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q0t12f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q0t12f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q1t1nb0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q1t1nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q1t1nb0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q1t1nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w1q1t1nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q1t1nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q1t1nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q1t1nb1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q1t1nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q1t1nb1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q1t1nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w1q1t1nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q1t1nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q1t1nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q1t1f1b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q1t1f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q1t1f1b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q1t1f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q1t1f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q1t1f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q1t1f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q1t1f1b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q1t1f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q1t1f1b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q1t1f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q1t1f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q1t1f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q1t1f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q1t1f4b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q1t1f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q1t1f4b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q1t1f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q1t1f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q1t1f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q1t1f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q1t1f4b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q1t1f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q1t1f4b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q1t1f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q1t1f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q1t1f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q1t1f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q1t12nb0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q1t12nb0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q1t12nb0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q1t12nb0|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w1q1t12nb0|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q1t12nb0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q1t12nb0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q1t12nb1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q1t12nb1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q1t12nb1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q1t12nb1|n=4|first=1st_Bar:81|last=1st_Bar:84|ids=81-84|post=-
+1st_Bar|BarArrive|bar_m1w1q1t12nb1|n=5|first=1st_Bar:120|last=1st_Bar:124|ids=120-124|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q1t12nb1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q1t12nb1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q1t12f1b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q1t12f1b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q1t12f1b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q1t12f1b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q1t12f1b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q1t12f1b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q1t12f1b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q1t12f1b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q1t12f1b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q1t12f1b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q1t12f1b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q1t12f1b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q1t12f1b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q1t12f1b1|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q1t12f4b0|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q1t12f4b0|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q1t12f4b0|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q1t12f4b0|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q1t12f4b0|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q1t12f4b0|n=17|first=1st_Bar:142|last=1st_Bar:158|ids=142-158|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q1t12f4b0|n=0|first=-|last=-|ids=-|post=-
+1st_Bar|Maeve_FirstDialog|bar_m1w1q1t12f4b1|n=1|first=1st_Bar:41|last=1st_Bar:41|ids=41|post=-
+1st_Bar|Maeve_Look|bar_m1w1q1t12f4b1|n=1|first=1st_Bar:40|last=1st_Bar:40|ids=40|post=-
+1st_Bar|Worker_FirstDialog|bar_m1w1q1t12f4b1|n=1|first=1st_Bar:80|last=1st_Bar:80|ids=80|post=-
+1st_Bar|Worker_Look|bar_m1w1q1t12f4b1|n=5|first=1st_Bar:85|last=1st_Bar:89|ids=85-89|post=-
+1st_Bar|BarArrive|bar_m1w1q1t12f4b1|n=5|first=1st_Bar:115|last=1st_Bar:119|ids=115-119|post=-
+1st_Bar|Meave2ndDialog|bar_m1w1q1t12f4b1|n=17|first=1st_Bar:125|last=1st_Bar:141|ids=125-141|post=-
+1st_Bar|NoSuchTopic|bar_m1w1q1t12f4b1|n=0|first=-|last=-|ids=-|post=-
+1st_DetectiveOffice|start|det_default|n=17|first=1st_DetectiveOffice:1|last=1st_DetectiveOffice:17|ids=1-17|post=-
+1st_DetectiveOffice|NewsPaper_Active|det_default|n=1|first=1st_DetectiveOffice:18|last=1st_DetectiveOffice:18|ids=18|post=-
+1st_DetectiveOffice|NewsPaper_Look|det_default|n=11|first=1st_DetectiveOffice:19|last=1st_DetectiveOffice:29|ids=19-29|post=counter:fstDetectivTimeOn=1
+1st_DetectiveOffice|Desk_Active|det_default|n=1|first=1st_DetectiveOffice:49|last=1st_DetectiveOffice:49|ids=49|post=-
+1st_DetectiveOffice|Desk_Look|det_default|n=2|first=1st_DetectiveOffice:50|last=1st_DetectiveOffice:51|ids=50-51|post=counter:fstDetectivTimeOn=1
+1st_DetectiveOffice|Stove_Active|det_default|n=1|first=1st_DetectiveOffice:41|last=1st_DetectiveOffice:41|ids=41|post=-
+1st_DetectiveOffice|Stove_Look|det_default|n=1|first=1st_DetectiveOffice:42|last=1st_DetectiveOffice:42|ids=42|post=counter:fstDetectivTimeOn=1
+1st_DetectiveOffice|Directing_Nock|det_default|n=2|first=1st_DetectiveOffice:52|last=1st_DetectiveOffice:53|ids=52-53|post=counter:fstDetectivTimeOn=-99
+1st_DetectiveOffice|Directing_Door|det_default|n=2|first=1st_DetectiveOffice:54|last=1st_DetectiveOffice:55|ids=54-55|post=counter:fstDetectivTimeOn=-999
+1st_DetectiveOffice|Directing_AfterDoor|det_default|n=21|first=1st_DetectiveOffice:56|last=1st_DetectiveOffice:76|ids=56-76|post=-
+1st_DetectiveOffice|Select_AboutCrime|det_default|n=12|first=1st_DetectiveOffice:77|last=1st_DetectiveOffice:88|ids=77-88|post=-
+1st_DetectiveOffice|Select_AboutHospital|det_default|n=22|first=1st_DetectiveOffice:89|last=1st_DetectiveOffice:110|ids=89-110|post=-
+1st_DetectiveOffice|Select_AboutRunAway|det_default|n=19|first=1st_DetectiveOffice:111|last=1st_DetectiveOffice:129|ids=111-129|post=-
+1st_DetectiveOffice|Accept_Request|det_default|n=35|first=1st_DetectiveOffice:130|last=1st_DetectiveOffice:164|ids=130-164|post=-
+1st_DetectiveOffice|Accept_AfterSelectYes|det_default|n=5|first=1st_DetectiveOffice:165|last=1st_DetectiveOffice:169|ids=165-169|post=-
+1st_DetectiveOffice|Reject_Request|det_default|n=9|first=1st_DetectiveOffice:170|last=1st_DetectiveOffice:178|ids=170-178|post=-
+1st_DetectiveOffice|Accept_AfterSelectNo|det_default|n=3|first=1st_DetectiveOffice:179|last=1st_DetectiveOffice:181|ids=179-181|post=-
+1st_DetectiveOffice|Fab_FirstDialog|det_default|n=1|first=1st_DetectiveOffice:182|last=1st_DetectiveOffice:182|ids=182|post=-
+1st_DetectiveOffice|Fab_Aiden1|det_default|n=3|first=1st_DetectiveOffice:183|last=1st_DetectiveOffice:185|ids=183-185|post=-
+1st_DetectiveOffice|Fab_Safe1|det_default|n=1|first=1st_DetectiveOffice:186|last=1st_DetectiveOffice:186|ids=186|post=-
+1st_DetectiveOffice|Fab_Nightmare1|det_default|n=1|first=1st_DetectiveOffice:188|last=1st_DetectiveOffice:188|ids=188|post=-
+1st_DetectiveOffice|Fab_Nightmare2|det_default|n=1|first=1st_DetectiveOffice:189|last=1st_DetectiveOffice:189|ids=189|post=-
+1st_DetectiveOffice|Fab_Nightmare3|det_default|n=1|first=1st_DetectiveOffice:190|last=1st_DetectiveOffice:190|ids=190|post=-
+1st_DetectiveOffice|Fab_Nightmare4|det_default|n=1|first=1st_DetectiveOffice:191|last=1st_DetectiveOffice:191|ids=191|post=-
+1st_DetectiveOffice|Fab_Insomnia1|det_default|n=1|first=1st_DetectiveOffice:192|last=1st_DetectiveOffice:192|ids=192|post=-
+1st_DetectiveOffice|Fab_Insomnia2|det_default|n=2|first=1st_DetectiveOffice:193|last=1st_DetectiveOffice:194|ids=193-194|post=-
+1st_DetectiveOffice|Fab_PlanetarySequence1|det_default|n=1|first=1st_DetectiveOffice:195|last=1st_DetectiveOffice:195|ids=195|post=-
+1st_DetectiveOffice|Fab_Univ1|det_default|n=1|first=1st_DetectiveOffice:196|last=1st_DetectiveOffice:196|ids=196|post=-
+1st_DetectiveOffice|Fab_Meiv2|det_default|n=1|first=1st_DetectiveOffice:197|last=1st_DetectiveOffice:197|ids=197|post=-
+1st_DetectiveOffice|Fab_MissingPeople|det_default|n=2|first=1st_DetectiveOffice:198|last=1st_DetectiveOffice:199|ids=198-199|post=-
+1st_DetectiveOffice|Fab_GhostStory1|det_default|n=1|first=1st_DetectiveOffice:200|last=1st_DetectiveOffice:200|ids=200|post=-
+1st_DetectiveOffice|Fab_GhostStory2|det_default|n=1|first=1st_DetectiveOffice:201|last=1st_DetectiveOffice:201|ids=201|post=-
+1st_DetectiveOffice|Fab_CreepyEye|det_default|n=1|first=1st_DetectiveOffice:202|last=1st_DetectiveOffice:202|ids=202|post=-
+1st_DetectiveOffice|Fab_Worker1|det_default|n=1|first=1st_DetectiveOffice:203|last=1st_DetectiveOffice:203|ids=203|post=-
+1st_DetectiveOffice|Fab_FishySmell1|det_default|n=1|first=1st_DetectiveOffice:204|last=1st_DetectiveOffice:204|ids=204|post=-
+1st_DetectiveOffice|Fab_FishySmell2|det_default|n=1|first=1st_DetectiveOffice:205|last=1st_DetectiveOffice:205|ids=205|post=-
+1st_DetectiveOffice|Fab_FishySmell3|det_default|n=2|first=1st_DetectiveOffice:206|last=1st_DetectiveOffice:207|ids=206-207|post=-
+1st_DetectiveOffice|Fab_EndDay|det_default|n=15|first=1st_DetectiveOffice:208|last=1st_DetectiveOffice:222|ids=208-222|post=-
+1st_DetectiveOffice|Fab_Connect|det_default|n=1|first=1st_DetectiveOffice:187|last=1st_DetectiveOffice:187|ids=187|post=-
+1st_DetectiveOffice|Fab_Witness|det_default|n=3|first=1st_DetectiveOffice:257|last=1st_DetectiveOffice:259|ids=257-259|post=-
+1st_DetectiveOffice|Fab_OwnerofUnifrom|det_default|n=1|first=1st_DetectiveOffice:260|last=1st_DetectiveOffice:260|ids=260|post=-
+1st_DetectiveOffice|Fab_CauseofDeath|det_default|n=3|first=1st_DetectiveOffice:261|last=1st_DetectiveOffice:263|ids=261-263|post=-
+1st_DetectiveOffice|Fab_WebbedFeet|det_default|n=3|first=1st_DetectiveOffice:264|last=1st_DetectiveOffice:266|ids=264-266|post=-
+1st_DetectiveOffice|Fab_Runway|det_default|n=3|first=1st_DetectiveOffice:267|last=1st_DetectiveOffice:269|ids=267-269|post=-
+1st_DetectiveOffice|Fab_FishySmellMissing|det_default|n=3|first=1st_DetectiveOffice:270|last=1st_DetectiveOffice:272|ids=270-272|post=-
+1st_DetectiveOffice|Fab_TheClupet|det_default|n=6|first=1st_DetectiveOffice:273|last=1st_DetectiveOffice:278|ids=273-278|post=-
+1st_DetectiveOffice|Fab_Both|det_default|n=7|first=1st_DetectiveOffice:279|last=1st_DetectiveOffice:285|ids=279-285|post=-
+1st_DetectiveOffice|Fab_WarnOrRoot|det_default|n=3|first=1st_DetectiveOffice:286|last=1st_DetectiveOffice:288|ids=286-288|post=-
+1st_DetectiveOffice|Fab_SwainSewer|det_default|n=2|first=1st_DetectiveOffice:289|last=1st_DetectiveOffice:290|ids=289-290|post=-
+1st_DetectiveOffice|Fab_2ndConnectStart|det_default|n=3|first=1st_DetectiveOffice:254|last=1st_DetectiveOffice:256|ids=254-256|post=-
+1st_DetectiveOffice|SecondDream|det_default|n=15|first=1st_DetectiveOffice:291|last=1st_DetectiveOffice:305|ids=291-305|post=-
+1st_DetectiveOffice|ThirdNightmare|det_default|n=15|first=1st_DetectiveOffice:317|last=1st_DetectiveOffice:331|ids=317-331|post=-
+1st_DetectiveOffice|FourthNightmare|det_default|n=19|first=1st_DetectiveOffice:343|last=1st_DetectiveOffice:361|ids=343-361|post=-
+1st_DetectiveOffice|NoSuchTopic|det_default|n=0|first=-|last=-|ids=-|post=-
+1st_DetectiveOffice|start|det_timeOn5|n=17|first=1st_DetectiveOffice:1|last=1st_DetectiveOffice:17|ids=1-17|post=-
+1st_DetectiveOffice|NewsPaper_Active|det_timeOn5|n=1|first=1st_DetectiveOffice:18|last=1st_DetectiveOffice:18|ids=18|post=-
+1st_DetectiveOffice|NewsPaper_Look|det_timeOn5|n=11|first=1st_DetectiveOffice:19|last=1st_DetectiveOffice:29|ids=19-29|post=counter:fstDetectivTimeOn=6
+1st_DetectiveOffice|Desk_Active|det_timeOn5|n=1|first=1st_DetectiveOffice:49|last=1st_DetectiveOffice:49|ids=49|post=-
+1st_DetectiveOffice|Desk_Look|det_timeOn5|n=2|first=1st_DetectiveOffice:50|last=1st_DetectiveOffice:51|ids=50-51|post=counter:fstDetectivTimeOn=6
+1st_DetectiveOffice|Stove_Active|det_timeOn5|n=1|first=1st_DetectiveOffice:41|last=1st_DetectiveOffice:41|ids=41|post=-
+1st_DetectiveOffice|Stove_Look|det_timeOn5|n=1|first=1st_DetectiveOffice:42|last=1st_DetectiveOffice:42|ids=42|post=counter:fstDetectivTimeOn=6
+1st_DetectiveOffice|Directing_Nock|det_timeOn5|n=2|first=1st_DetectiveOffice:52|last=1st_DetectiveOffice:53|ids=52-53|post=counter:fstDetectivTimeOn=-99
+1st_DetectiveOffice|Directing_Door|det_timeOn5|n=2|first=1st_DetectiveOffice:54|last=1st_DetectiveOffice:55|ids=54-55|post=counter:fstDetectivTimeOn=-999
+1st_DetectiveOffice|Directing_AfterDoor|det_timeOn5|n=21|first=1st_DetectiveOffice:56|last=1st_DetectiveOffice:76|ids=56-76|post=-
+1st_DetectiveOffice|Select_AboutCrime|det_timeOn5|n=12|first=1st_DetectiveOffice:77|last=1st_DetectiveOffice:88|ids=77-88|post=-
+1st_DetectiveOffice|Select_AboutHospital|det_timeOn5|n=22|first=1st_DetectiveOffice:89|last=1st_DetectiveOffice:110|ids=89-110|post=-
+1st_DetectiveOffice|Select_AboutRunAway|det_timeOn5|n=19|first=1st_DetectiveOffice:111|last=1st_DetectiveOffice:129|ids=111-129|post=-
+1st_DetectiveOffice|Accept_Request|det_timeOn5|n=35|first=1st_DetectiveOffice:130|last=1st_DetectiveOffice:164|ids=130-164|post=-
+1st_DetectiveOffice|Accept_AfterSelectYes|det_timeOn5|n=5|first=1st_DetectiveOffice:165|last=1st_DetectiveOffice:169|ids=165-169|post=-
+1st_DetectiveOffice|Reject_Request|det_timeOn5|n=9|first=1st_DetectiveOffice:170|last=1st_DetectiveOffice:178|ids=170-178|post=-
+1st_DetectiveOffice|Accept_AfterSelectNo|det_timeOn5|n=3|first=1st_DetectiveOffice:179|last=1st_DetectiveOffice:181|ids=179-181|post=-
+1st_DetectiveOffice|Fab_FirstDialog|det_timeOn5|n=1|first=1st_DetectiveOffice:182|last=1st_DetectiveOffice:182|ids=182|post=-
+1st_DetectiveOffice|Fab_Aiden1|det_timeOn5|n=3|first=1st_DetectiveOffice:183|last=1st_DetectiveOffice:185|ids=183-185|post=-
+1st_DetectiveOffice|Fab_Safe1|det_timeOn5|n=1|first=1st_DetectiveOffice:186|last=1st_DetectiveOffice:186|ids=186|post=-
+1st_DetectiveOffice|Fab_Nightmare1|det_timeOn5|n=1|first=1st_DetectiveOffice:188|last=1st_DetectiveOffice:188|ids=188|post=-
+1st_DetectiveOffice|Fab_Nightmare2|det_timeOn5|n=1|first=1st_DetectiveOffice:189|last=1st_DetectiveOffice:189|ids=189|post=-
+1st_DetectiveOffice|Fab_Nightmare3|det_timeOn5|n=1|first=1st_DetectiveOffice:190|last=1st_DetectiveOffice:190|ids=190|post=-
+1st_DetectiveOffice|Fab_Nightmare4|det_timeOn5|n=1|first=1st_DetectiveOffice:191|last=1st_DetectiveOffice:191|ids=191|post=-
+1st_DetectiveOffice|Fab_Insomnia1|det_timeOn5|n=1|first=1st_DetectiveOffice:192|last=1st_DetectiveOffice:192|ids=192|post=-
+1st_DetectiveOffice|Fab_Insomnia2|det_timeOn5|n=2|first=1st_DetectiveOffice:193|last=1st_DetectiveOffice:194|ids=193-194|post=-
+1st_DetectiveOffice|Fab_PlanetarySequence1|det_timeOn5|n=1|first=1st_DetectiveOffice:195|last=1st_DetectiveOffice:195|ids=195|post=-
+1st_DetectiveOffice|Fab_Univ1|det_timeOn5|n=1|first=1st_DetectiveOffice:196|last=1st_DetectiveOffice:196|ids=196|post=-
+1st_DetectiveOffice|Fab_Meiv2|det_timeOn5|n=1|first=1st_DetectiveOffice:197|last=1st_DetectiveOffice:197|ids=197|post=-
+1st_DetectiveOffice|Fab_MissingPeople|det_timeOn5|n=2|first=1st_DetectiveOffice:198|last=1st_DetectiveOffice:199|ids=198-199|post=-
+1st_DetectiveOffice|Fab_GhostStory1|det_timeOn5|n=1|first=1st_DetectiveOffice:200|last=1st_DetectiveOffice:200|ids=200|post=-
+1st_DetectiveOffice|Fab_GhostStory2|det_timeOn5|n=1|first=1st_DetectiveOffice:201|last=1st_DetectiveOffice:201|ids=201|post=-
+1st_DetectiveOffice|Fab_CreepyEye|det_timeOn5|n=1|first=1st_DetectiveOffice:202|last=1st_DetectiveOffice:202|ids=202|post=-
+1st_DetectiveOffice|Fab_Worker1|det_timeOn5|n=1|first=1st_DetectiveOffice:203|last=1st_DetectiveOffice:203|ids=203|post=-
+1st_DetectiveOffice|Fab_FishySmell1|det_timeOn5|n=1|first=1st_DetectiveOffice:204|last=1st_DetectiveOffice:204|ids=204|post=-
+1st_DetectiveOffice|Fab_FishySmell2|det_timeOn5|n=1|first=1st_DetectiveOffice:205|last=1st_DetectiveOffice:205|ids=205|post=-
+1st_DetectiveOffice|Fab_FishySmell3|det_timeOn5|n=2|first=1st_DetectiveOffice:206|last=1st_DetectiveOffice:207|ids=206-207|post=-
+1st_DetectiveOffice|Fab_EndDay|det_timeOn5|n=15|first=1st_DetectiveOffice:208|last=1st_DetectiveOffice:222|ids=208-222|post=-
+1st_DetectiveOffice|Fab_Connect|det_timeOn5|n=1|first=1st_DetectiveOffice:187|last=1st_DetectiveOffice:187|ids=187|post=-
+1st_DetectiveOffice|Fab_Witness|det_timeOn5|n=3|first=1st_DetectiveOffice:257|last=1st_DetectiveOffice:259|ids=257-259|post=-
+1st_DetectiveOffice|Fab_OwnerofUnifrom|det_timeOn5|n=1|first=1st_DetectiveOffice:260|last=1st_DetectiveOffice:260|ids=260|post=-
+1st_DetectiveOffice|Fab_CauseofDeath|det_timeOn5|n=3|first=1st_DetectiveOffice:261|last=1st_DetectiveOffice:263|ids=261-263|post=-
+1st_DetectiveOffice|Fab_WebbedFeet|det_timeOn5|n=3|first=1st_DetectiveOffice:264|last=1st_DetectiveOffice:266|ids=264-266|post=-
+1st_DetectiveOffice|Fab_Runway|det_timeOn5|n=3|first=1st_DetectiveOffice:267|last=1st_DetectiveOffice:269|ids=267-269|post=-
+1st_DetectiveOffice|Fab_FishySmellMissing|det_timeOn5|n=3|first=1st_DetectiveOffice:270|last=1st_DetectiveOffice:272|ids=270-272|post=-
+1st_DetectiveOffice|Fab_TheClupet|det_timeOn5|n=6|first=1st_DetectiveOffice:273|last=1st_DetectiveOffice:278|ids=273-278|post=-
+1st_DetectiveOffice|Fab_Both|det_timeOn5|n=7|first=1st_DetectiveOffice:279|last=1st_DetectiveOffice:285|ids=279-285|post=-
+1st_DetectiveOffice|Fab_WarnOrRoot|det_timeOn5|n=3|first=1st_DetectiveOffice:286|last=1st_DetectiveOffice:288|ids=286-288|post=-
+1st_DetectiveOffice|Fab_SwainSewer|det_timeOn5|n=2|first=1st_DetectiveOffice:289|last=1st_DetectiveOffice:290|ids=289-290|post=-
+1st_DetectiveOffice|Fab_2ndConnectStart|det_timeOn5|n=3|first=1st_DetectiveOffice:254|last=1st_DetectiveOffice:256|ids=254-256|post=-
+1st_DetectiveOffice|SecondDream|det_timeOn5|n=15|first=1st_DetectiveOffice:291|last=1st_DetectiveOffice:305|ids=291-305|post=-
+1st_DetectiveOffice|ThirdNightmare|det_timeOn5|n=15|first=1st_DetectiveOffice:317|last=1st_DetectiveOffice:331|ids=317-331|post=-
+1st_DetectiveOffice|FourthNightmare|det_timeOn5|n=19|first=1st_DetectiveOffice:343|last=1st_DetectiveOffice:361|ids=343-361|post=-
+1st_DetectiveOffice|NoSuchTopic|det_timeOn5|n=0|first=-|last=-|ids=-|post=-
+1st_DetectiveOffice|start|det_day3|n=17|first=1st_DetectiveOffice:1|last=1st_DetectiveOffice:17|ids=1-17|post=-
+1st_DetectiveOffice|NewsPaper_Active|det_day3|n=1|first=1st_DetectiveOffice:18|last=1st_DetectiveOffice:18|ids=18|post=-
+1st_DetectiveOffice|NewsPaper_Look|det_day3|n=11|first=1st_DetectiveOffice:19|last=1st_DetectiveOffice:29|ids=19-29|post=counter:fstDetectivTimeOn=1
+1st_DetectiveOffice|Desk_Active|det_day3|n=1|first=1st_DetectiveOffice:49|last=1st_DetectiveOffice:49|ids=49|post=-
+1st_DetectiveOffice|Desk_Look|det_day3|n=2|first=1st_DetectiveOffice:50|last=1st_DetectiveOffice:51|ids=50-51|post=counter:fstDetectivTimeOn=1
+1st_DetectiveOffice|Stove_Active|det_day3|n=1|first=1st_DetectiveOffice:41|last=1st_DetectiveOffice:41|ids=41|post=-
+1st_DetectiveOffice|Stove_Look|det_day3|n=1|first=1st_DetectiveOffice:42|last=1st_DetectiveOffice:42|ids=42|post=counter:fstDetectivTimeOn=1
+1st_DetectiveOffice|Directing_Nock|det_day3|n=2|first=1st_DetectiveOffice:52|last=1st_DetectiveOffice:53|ids=52-53|post=counter:fstDetectivTimeOn=-99
+1st_DetectiveOffice|Directing_Door|det_day3|n=2|first=1st_DetectiveOffice:54|last=1st_DetectiveOffice:55|ids=54-55|post=counter:fstDetectivTimeOn=-999
+1st_DetectiveOffice|Directing_AfterDoor|det_day3|n=21|first=1st_DetectiveOffice:56|last=1st_DetectiveOffice:76|ids=56-76|post=-
+1st_DetectiveOffice|Select_AboutCrime|det_day3|n=12|first=1st_DetectiveOffice:77|last=1st_DetectiveOffice:88|ids=77-88|post=-
+1st_DetectiveOffice|Select_AboutHospital|det_day3|n=22|first=1st_DetectiveOffice:89|last=1st_DetectiveOffice:110|ids=89-110|post=-
+1st_DetectiveOffice|Select_AboutRunAway|det_day3|n=19|first=1st_DetectiveOffice:111|last=1st_DetectiveOffice:129|ids=111-129|post=-
+1st_DetectiveOffice|Accept_Request|det_day3|n=35|first=1st_DetectiveOffice:130|last=1st_DetectiveOffice:164|ids=130-164|post=-
+1st_DetectiveOffice|Accept_AfterSelectYes|det_day3|n=5|first=1st_DetectiveOffice:165|last=1st_DetectiveOffice:169|ids=165-169|post=-
+1st_DetectiveOffice|Reject_Request|det_day3|n=9|first=1st_DetectiveOffice:170|last=1st_DetectiveOffice:178|ids=170-178|post=-
+1st_DetectiveOffice|Accept_AfterSelectNo|det_day3|n=3|first=1st_DetectiveOffice:179|last=1st_DetectiveOffice:181|ids=179-181|post=-
+1st_DetectiveOffice|Fab_FirstDialog|det_day3|n=1|first=1st_DetectiveOffice:182|last=1st_DetectiveOffice:182|ids=182|post=-
+1st_DetectiveOffice|Fab_Aiden1|det_day3|n=3|first=1st_DetectiveOffice:183|last=1st_DetectiveOffice:185|ids=183-185|post=-
+1st_DetectiveOffice|Fab_Safe1|det_day3|n=1|first=1st_DetectiveOffice:186|last=1st_DetectiveOffice:186|ids=186|post=-
+1st_DetectiveOffice|Fab_Nightmare1|det_day3|n=1|first=1st_DetectiveOffice:188|last=1st_DetectiveOffice:188|ids=188|post=-
+1st_DetectiveOffice|Fab_Nightmare2|det_day3|n=1|first=1st_DetectiveOffice:189|last=1st_DetectiveOffice:189|ids=189|post=-
+1st_DetectiveOffice|Fab_Nightmare3|det_day3|n=1|first=1st_DetectiveOffice:190|last=1st_DetectiveOffice:190|ids=190|post=-
+1st_DetectiveOffice|Fab_Nightmare4|det_day3|n=1|first=1st_DetectiveOffice:191|last=1st_DetectiveOffice:191|ids=191|post=-
+1st_DetectiveOffice|Fab_Insomnia1|det_day3|n=1|first=1st_DetectiveOffice:192|last=1st_DetectiveOffice:192|ids=192|post=-
+1st_DetectiveOffice|Fab_Insomnia2|det_day3|n=2|first=1st_DetectiveOffice:193|last=1st_DetectiveOffice:194|ids=193-194|post=-
+1st_DetectiveOffice|Fab_PlanetarySequence1|det_day3|n=1|first=1st_DetectiveOffice:195|last=1st_DetectiveOffice:195|ids=195|post=-
+1st_DetectiveOffice|Fab_Univ1|det_day3|n=1|first=1st_DetectiveOffice:196|last=1st_DetectiveOffice:196|ids=196|post=-
+1st_DetectiveOffice|Fab_Meiv2|det_day3|n=1|first=1st_DetectiveOffice:197|last=1st_DetectiveOffice:197|ids=197|post=-
+1st_DetectiveOffice|Fab_MissingPeople|det_day3|n=2|first=1st_DetectiveOffice:198|last=1st_DetectiveOffice:199|ids=198-199|post=-
+1st_DetectiveOffice|Fab_GhostStory1|det_day3|n=1|first=1st_DetectiveOffice:200|last=1st_DetectiveOffice:200|ids=200|post=-
+1st_DetectiveOffice|Fab_GhostStory2|det_day3|n=1|first=1st_DetectiveOffice:201|last=1st_DetectiveOffice:201|ids=201|post=-
+1st_DetectiveOffice|Fab_CreepyEye|det_day3|n=1|first=1st_DetectiveOffice:202|last=1st_DetectiveOffice:202|ids=202|post=-
+1st_DetectiveOffice|Fab_Worker1|det_day3|n=1|first=1st_DetectiveOffice:203|last=1st_DetectiveOffice:203|ids=203|post=-
+1st_DetectiveOffice|Fab_FishySmell1|det_day3|n=1|first=1st_DetectiveOffice:204|last=1st_DetectiveOffice:204|ids=204|post=-
+1st_DetectiveOffice|Fab_FishySmell2|det_day3|n=1|first=1st_DetectiveOffice:205|last=1st_DetectiveOffice:205|ids=205|post=-
+1st_DetectiveOffice|Fab_FishySmell3|det_day3|n=2|first=1st_DetectiveOffice:206|last=1st_DetectiveOffice:207|ids=206-207|post=-
+1st_DetectiveOffice|Fab_EndDay|det_day3|n=15|first=1st_DetectiveOffice:208|last=1st_DetectiveOffice:222|ids=208-222|post=-
+1st_DetectiveOffice|Fab_Connect|det_day3|n=1|first=1st_DetectiveOffice:187|last=1st_DetectiveOffice:187|ids=187|post=-
+1st_DetectiveOffice|Fab_Witness|det_day3|n=3|first=1st_DetectiveOffice:257|last=1st_DetectiveOffice:259|ids=257-259|post=-
+1st_DetectiveOffice|Fab_OwnerofUnifrom|det_day3|n=1|first=1st_DetectiveOffice:260|last=1st_DetectiveOffice:260|ids=260|post=-
+1st_DetectiveOffice|Fab_CauseofDeath|det_day3|n=3|first=1st_DetectiveOffice:261|last=1st_DetectiveOffice:263|ids=261-263|post=-
+1st_DetectiveOffice|Fab_WebbedFeet|det_day3|n=3|first=1st_DetectiveOffice:264|last=1st_DetectiveOffice:266|ids=264-266|post=-
+1st_DetectiveOffice|Fab_Runway|det_day3|n=3|first=1st_DetectiveOffice:267|last=1st_DetectiveOffice:269|ids=267-269|post=-
+1st_DetectiveOffice|Fab_FishySmellMissing|det_day3|n=3|first=1st_DetectiveOffice:270|last=1st_DetectiveOffice:272|ids=270-272|post=-
+1st_DetectiveOffice|Fab_TheClupet|det_day3|n=6|first=1st_DetectiveOffice:273|last=1st_DetectiveOffice:278|ids=273-278|post=-
+1st_DetectiveOffice|Fab_Both|det_day3|n=7|first=1st_DetectiveOffice:279|last=1st_DetectiveOffice:285|ids=279-285|post=-
+1st_DetectiveOffice|Fab_WarnOrRoot|det_day3|n=3|first=1st_DetectiveOffice:286|last=1st_DetectiveOffice:288|ids=286-288|post=-
+1st_DetectiveOffice|Fab_SwainSewer|det_day3|n=2|first=1st_DetectiveOffice:289|last=1st_DetectiveOffice:290|ids=289-290|post=-
+1st_DetectiveOffice|Fab_2ndConnectStart|det_day3|n=3|first=1st_DetectiveOffice:254|last=1st_DetectiveOffice:256|ids=254-256|post=-
+1st_DetectiveOffice|SecondDream|det_day3|n=15|first=1st_DetectiveOffice:291|last=1st_DetectiveOffice:305|ids=291-305|post=-
+1st_DetectiveOffice|ThirdNightmare|det_day3|n=15|first=1st_DetectiveOffice:317|last=1st_DetectiveOffice:331|ids=317-331|post=-
+1st_DetectiveOffice|FourthNightmare|det_day3|n=19|first=1st_DetectiveOffice:343|last=1st_DetectiveOffice:361|ids=343-361|post=-
+1st_DetectiveOffice|NoSuchTopic|det_day3|n=0|first=-|last=-|ids=-|post=-

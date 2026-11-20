@@ -42,7 +42,7 @@ namespace SCoW.Tests
             GameState gs;
             GameStateAccess a = Acc(out gs);
             gs.SetCounter("enemyDeathCount", 3);
-            gs.SetCounter("time", 12);
+            gs.SetCounter("timeCount", 12);
             gs.SetText("nowPlace", "Bar");
             Assert.IsTrue(Eval("counter:enemyDeathCount>=3", a));
             Assert.IsFalse(Eval("counter:enemyDeathCount>3", a));

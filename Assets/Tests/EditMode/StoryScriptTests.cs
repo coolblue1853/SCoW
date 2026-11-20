@@ -48,7 +48,7 @@ namespace SCoW.Tests
             GameState gs = new GameState();
             GameStateAccess a = new GameStateAccess(gs);
             Assert.AreEqual("fallback", sc.Pick("Maeve_FirstDialog", a).NodeId);
-            gs.SetCounter("time", 13);
+            gs.SetCounter("timeCount", 13);
             StoryCase c = sc.Pick("Maeve_FirstDialog", a);
             Assert.AreEqual("first", c.NodeId);
             EffectRunner.ApplyAll(c.Pre, a, a, null);

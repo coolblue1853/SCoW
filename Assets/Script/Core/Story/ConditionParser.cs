@@ -3,13 +3,15 @@ using System.Collections.Generic;
 namespace SCoW.Core.Story
 {
     /// <summary>
-    /// 조건 DSL. 원자: flag:이름, counter:이름 op 정수(공백 없이), time op 정수(카운터 "time"), place:이름(텍스트 "nowPlace"), true, false.
+    /// 조건 DSL. 원자: flag:이름, counter:이름 op 정수(공백 없이), time op 정수(카운터 "timeCount"), place:이름(텍스트 "nowPlace"), true, false.
     /// 조합: ! , &amp;&amp; , || (&amp;&amp; 가 먼저), 괄호, any(a,b,..) = OR, all(a,b,..) = AND. op = &gt;= &lt;= &gt; &lt; == !=.
     /// 빈 문자열은 항상 참.
     /// </summary>
     public static class ConditionParser
     {
-        public const string TimeCounter = "time";
+        public const string TimeKeyword = "time";
+        /// <summary>`time` 원자가 읽는 실제 GameState 카운터(CounterKeys.timeCount).</summary>
+        public const string TimeCounter = "timeCount";
         public const string PlaceText = "nowPlace";
 
         public static ParseOutcome<Condition> Parse(string src)
@@ -180,10 +182,10 @@ namespace SCoW.Core.Story
             {
                 return ParseCmp(a.Substring(8), a);
             }
-            if (a.StartsWith(TimeCounter, System.StringComparison.Ordinal)
-                && a.Length > TimeCounter.Length && "<>=!".IndexOf(a[TimeCounter.Length]) >= 0)
+            if (a.StartsWith(TimeKeyword, System.StringComparison.Ordinal)
+                && a.Length > TimeKeyword.Length && "<>=!".IndexOf(a[TimeKeyword.Length]) >= 0)
             {
-                return ParseCmp(a, a);
+                return ParseCmp(TimeCounter + a.Substring(TimeKeyword.Length), a);
             }
             throw new DslError("알 수 없는 조건 '" + a + "'");
         }

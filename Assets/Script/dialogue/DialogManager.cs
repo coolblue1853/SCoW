@@ -435,8 +435,15 @@ public class DialogManager : MonoBehaviour
         End_Look_Judge.Instance.Inactive();
     }
 
+    /// <summary>동치 도구 전용 이음새(C-2 P9). 값이 있으면 대사창을 띄우지 않고 이 호출로 대신한다. 도구가 끝나면 반드시 null 로 되돌린다.</summary>
+    public static System.Action<Dialog[]> ShowDialogProbe;
     public void ShowDialog(Dialog[] P_dialogs)
     {
+        if (ShowDialogProbe != null)
+        {
+            ShowDialogProbe(P_dialogs);
+            return;
+        }
         EnsureRunner();
         _lastSkipUi = -1;
         DataBaseManager.isActiveDialog1 = true;
