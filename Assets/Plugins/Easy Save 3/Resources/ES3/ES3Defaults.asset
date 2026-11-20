@@ -40,6 +40,8 @@ MonoBehaviour:
     - ScriptablePacker
     - Febucci.TextAnimator.Editor
     - Febucci.TextAnimator.Demo.Runtime
+    - SCoW.Tests.EditMode
+    - SCoW.Core
     - Febucci.TextAnimator.Demo.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
