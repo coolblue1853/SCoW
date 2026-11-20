@@ -56,7 +56,7 @@ public class InteractionController : MonoBehaviour
     public GameObject fabFishySmell3;
     public GameObject fabEndDay;
     public GameObject fabConnect;
-    // 1st Clinet'sOffice
+    // 1st Clinet'sOffice (ellaKey*·aidenKey* 필드 대부분은 C-2 P11 부터 코드에서 안 쓰지만 Main 씬 직렬화 참조가 있어 남긴다)
     public GameObject firstArrive;
     public GameObject nockDoor;
     public GameObject ellaFirstDialog;

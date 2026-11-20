@@ -70,11 +70,18 @@ public static class StoryDatabase
     {
         dialogs = null;
         StoryScript script = LoadScript(KeywordScript);
-        if (script == null) { return false; }
+        if (script == null)
+        {
+            Debug.LogError("StoryDatabase: Keyword.json 로드 실패 - 키워드 대사 " + npc + "/" + keyword + " 를 건너뜀");
+            return false;
+        }
         string topic = npc + "/" + keyword;
         if (keyword == null || !script.HasTopic(topic)) { topic = npc + "/*"; }
         return TryRun(KeywordScript, topic, out dialogs);
     }
+
+    /// <summary>places.json 을 읽을 수 있는지(실패하면 장소 대사가 안 뜨므로 호출측이 폴백한다).</summary>
+    public static bool PlacesAvailable { get { return Places() != null; } }
 
     private static PlaceCatalog Places()
     {

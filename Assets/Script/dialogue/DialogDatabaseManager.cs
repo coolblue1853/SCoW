@@ -10,6 +10,13 @@ public class DialogDatabaseManager : MonoBehaviour
         if (DataBaseManager.isItemUI == false)
         {
             // PlaceDef(Resources/Story/places.json)가 정의한 장소(DetectiveOffice·Bar·Client'shouse·DailyNews·University·Riverside·Hospital·Policeoffice·Slum·NoonEvent·BattleRoad)는 데이터로 CSV 를 고른다(C-2 P9).
+            if (check && !StoryDatabase.PlacesAvailable && DataBaseManager.nowPlace != "SewerOffice" && DataBaseManager.nowPlace != "InSewer")
+            {
+                // places.json 로드 실패: 장소 대사를 고를 수 없다(오류는 StoryDatabase 가 이미 로그). 매 프레임 재시도하지 않도록 내린다.
+                Debug.LogError("DialogDatabaseManager: places.json 없음 - 장소 대사 건너뜀: " + DataBaseManager.nowPlace);
+                check = false;
+                return;
+            }
             string placeCsv = check ? StoryDatabase.ScriptForPlace(DataBaseManager.nowPlace) : null;
             if (placeCsv != null)
             {
