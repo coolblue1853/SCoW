@@ -49,8 +49,8 @@ public class RolletTest : MonoBehaviour
     }
     public void NewsRollet()
     {
-        //BattleRollet.Instance.setBattleRollet("ÆÄºñ¾È : È¸ÇÇ", "È¸ÇÇ", 50, "evasion", "??? : °ø°İ", "±ÙÁ¢°ø°İ", 40);
-        //Rollet.Instance.setRollet("½Å¹® : »ìÆìº¸±â", "ÀÚ·áÁ¶»ç", 55, "dialog");
+        //BattleRollet.Instance.setBattleRollet("íŒŒë¹„ì•ˆ : íšŒí”¼", "íšŒí”¼", 50, "evasion", "??? : ê³µê²©", "ê·¼ì ‘ê³µê²©", 40);
+        //Rollet.Instance.setRollet("ì‹ ë¬¸ : ì‚´í´ë³´ê¸°", "ìë£Œì¡°ì‚¬", 55, "dialog");
     }
     private void Start()
     {
@@ -125,7 +125,7 @@ public class RolletTest : MonoBehaviour
             // Five();
             // Six();
             //  DirectingManager.Instance.OrganizeKeywordFunc();
-            //DataBaseManager.Ä«¸Ş¶ó¿ŞÂÊ¿öÅ·¿Â¿ÀÇÁ = true;
+            //DataBaseManager.ì¹´ë©”ë¼ì™¼ìª½ì›Œí‚¹ì˜¨ì˜¤í”„ = true;
             //One();
             // NewsRollet();
         }

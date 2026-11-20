@@ -4,11 +4,11 @@ using UnityEngine;
 using DG.Tweening;
 public class PotalPoint : MonoBehaviour
 {
-    float chInRommSize = 2.383215f; // -ÀÌ¸é ¿ÞÂÊ +¸é ¿À¸¥ÂÊ
+    float chInRommSize = 2.383215f; // -ì´ë©´ ì™¼ìª½ +ë©´ ì˜¤ë¥¸ìª½
     public GameObject player;
     public GameObject camera;
     bool playerInTrigger;
-    //°­°¡
+    //ê°•ê°€
     Vector2 playerRtoL = new Vector3(-289.31f, 1.56f);
     Vector3 camRtoL = new Vector3(-309.79f, 1.5f, -15);
     Vector2 playerLtoR = new Vector3(-196.4f, 1.56f);
@@ -31,13 +31,13 @@ public class PotalPoint : MonoBehaviour
     Vector2 player2stToRoom = new Vector3(-1573.03f, 1.1f);
     Vector3 cam2stTo2Room = new Vector3(-1554.97f, 1.3f, -15);
 
-    // ÇÏ¼öÁ¤ºñ½Ã¼³
+    // í•˜ìˆ˜ì •ë¹„ì‹œì„¤
     Vector2 playerSewerInside = new Vector3(-1363.46f, -78.46f);
     Vector3 camSewerInside = new Vector3(-1374.97f, -81.1f, -15);
     Vector2 playerSewerOutside = new Vector3(-1214.113f, -81f);
     Vector3 camSewerOutside = new Vector3(-1222.3f, -81.1f, -15);
 
-    // ÇØ´ç ÀÌµ¿Àº °­°¡ ÇÏºÎÀÇ Åë·Î¸¦ ÅëÇØ ÇÏ¼öµµ¿¡ µé¾î°¬À» ¶§
+    // í•´ë‹¹ ì´ë™ì€ ê°•ê°€ í•˜ë¶€ì˜ í†µë¡œë¥¼ í†µí•´ í•˜ìˆ˜ë„ì— ë“¤ì–´ê°”ì„ ë•Œ
     Vector2 playerSewer = new Vector3(-1241.24f, -193.57f);
     Vector3 camSewer = new Vector3(-1221.3f, -195f, -15);
     Vector2 playerSewerRight = new Vector3(-1194.19f, -193.57f);
@@ -64,7 +64,7 @@ public class PotalPoint : MonoBehaviour
                             {
                                 Sequence sequence = DOTween.Sequence()
                                 .AppendCallback(() => DialogManager.Instance.AlphaChange(0, 0.01f))
-                                .AppendInterval(0.1f) // 2ÃÊ ´ë±â
+                                .AppendInterval(0.1f) // 2ì´ˆ ëŒ€ê¸°
                                 .AppendCallback(() => DialogManager.Instance.ActiveBlackImage())
                                 .AppendCallback(() => DialogManager.Instance.AlphaChange(1, 1f));
 
@@ -136,7 +136,7 @@ public class PotalPoint : MonoBehaviour
     void MovePlayer()
     {
         DataBaseManager.potalWait = true;
-        //°­°¡
+        //ê°•ê°€
         if (this.name == "RtoL")
         {
             DataBaseManager.isDirecting = true;
@@ -169,7 +169,7 @@ public class PotalPoint : MonoBehaviour
             player.transform.localPosition = playerDtoU;
             camera.transform.localPosition = camDtoU;
         }
-        //Áý
+        //ì§‘
         else if (this.name == "to1st")
         {
             DataBaseManager.isDirecting = true;

@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 public class SafeChecker : MonoBehaviour
 {
-    public Sprite spriteBefore; // º¯°æ Àü ½ºÇÁ¶óÀÌÆ®
-    public Sprite spriteAfter; // º¯°æ ÈÄ ½ºÇÁ¶óÀÌÆ®
-    private SpriteRenderer spriteRenderer; // ½ºÇÁ¶óÀÌÆ® ·»´õ·¯ ÄÄÆ÷³ÍÆ®
+    public Sprite spriteBefore; // ë³€ê²½ ì „ ìŠ¤í”„ë¼ì´íŠ¸
+    public Sprite spriteAfter; // ë³€ê²½ í›„ ìŠ¤í”„ë¼ì´íŠ¸
+    private SpriteRenderer spriteRenderer; // ìŠ¤í”„ë¼ì´íŠ¸ ë Œë”ëŸ¬ ì»´í¬ë„ŒíŠ¸
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        // ½ÃÀÛ ½Ã ½ºÇÁ¶óÀÌÆ®¸¦ spriteA·Î ¼³Á¤
+        // ì‹œì‘ ì‹œ ìŠ¤í”„ë¼ì´íŠ¸ë¥¼ spriteAë¡œ ì„¤ì •
         spriteRenderer.sprite = spriteBefore;
     }
     bool once = false;
     private void Update()
     {
-        // Á¶°ÇÀ» ÃæÁ·ÇÒ ¶§ ½ºÇÁ¶óÀÌÆ® º¯°æ
+        // ì¡°ê±´ì„ ì¶©ì¡±í•  ë•Œ ìŠ¤í”„ë¼ì´íŠ¸ ë³€ê²½
         if (DataBaseManager.getSafe == true && once == false)
         {
             once = true;

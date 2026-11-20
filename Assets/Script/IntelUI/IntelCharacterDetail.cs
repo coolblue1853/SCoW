@@ -142,7 +142,7 @@ public class IntelCharacterDetail : MonoBehaviour
     }
      string nowPage;
 
-    //¿¤¶ó
+    //ì—˜ë¼
      GameObject detailElla1;
      GameObject detailElla2;
      GameObject detailElla3;
@@ -162,7 +162,7 @@ public class IntelCharacterDetail : MonoBehaviour
     public GameObject nextButtonElla;
     public GameObject prevButtonElla;
 
-    //¿¡ÀÌµç
+    //ì—ì´ë“ 
      GameObject detailAiden1;
      GameObject detailAiden2;
      GameObject detailAiden3;
@@ -183,7 +183,7 @@ public class IntelCharacterDetail : MonoBehaviour
     public GameObject prevButtonAiden;
     //
 
-    //½º¿ÍÀÎ
+    //ìŠ¤ì™€ì¸
      GameObject detailSwain1;
      GameObject detailSwain2;
      GameObject detailSwain3;
@@ -204,7 +204,7 @@ public class IntelCharacterDetail : MonoBehaviour
     public GameObject prevButtonSwain;
 
 
-    //ÄÉÀÎ
+    //ì¼€ì¸
      GameObject detailCane1;
      GameObject detailCane2;
      GameObject detailCane3;
@@ -281,7 +281,7 @@ public class IntelCharacterDetail : MonoBehaviour
     public GameObject nextButtonBlackWell;
     public GameObject prevButtonBlackWell;
 
-    //ÇÏ¼öµµ ³ëµ¿ÀÚ
+    //í•˜ìˆ˜ë„ ë…¸ë™ì
     GameObject detailSewerWorker1;
     GameObject detailSewerWorker2;
     GameObject detailSewerWorker3;
@@ -301,7 +301,7 @@ public class IntelCharacterDetail : MonoBehaviour
     public GameObject nextButtonSewerWorker;
     public GameObject prevButtonSewerWorker;
 
-    //µ¥ÀÌºê
+    //ë°ì´ë¸Œ
     public GameObject detailDave1;
     public GameObject detailDave2;
     public GameObject detailDave3;

@@ -19,7 +19,7 @@ public class KeywordButton : MonoBehaviour
             subjectUpper = parts[0];
             subjectDetail = parts[1];
         }
-        // Å°¿öµå - EVENT
+        // í‚¤ì›Œë“œ - EVENT
         if (subjectUpper == "PlanetaryParade")
         {
             DataBaseManager.keywordMain = "Event";
@@ -120,7 +120,7 @@ public class KeywordButton : MonoBehaviour
             DataBaseManager.keywordDowner = KeyWordManager.Instance.murderCaseList[indexDetail];
         }
 
-        // Å°¿öµå - PLACE
+        // í‚¤ì›Œë“œ - PLACE
         if (subjectUpper == "Wharf")
         {
             DataBaseManager.keywordMain = "Place";
@@ -186,7 +186,7 @@ public class KeywordButton : MonoBehaviour
             DataBaseManager.keywordDowner = KeyWordManager.Instance.sewerList[indexDetail];
         }
 
-        // Å°¿öµå - Character
+        // í‚¤ì›Œë“œ - Character
         if (subjectUpper == "Ella Triss")
         {
             DataBaseManager.keywordMain = "Character";
@@ -248,9 +248,9 @@ public class KeywordButton : MonoBehaviour
         {
             if (list[i] == target)
             {
-                return i; // ÇØ´ç ¹®ÀÚ¿­À» Ã£À¸¸é ÀÎµ¦½º ¹İÈ¯
+                return i; // í•´ë‹¹ ë¬¸ìì—´ì„ ì°¾ìœ¼ë©´ ì¸ë±ìŠ¤ ë°˜í™˜
             }
         }
-        return -1; // ÇØ´ç ¹®ÀÚ¿­ÀÌ ¸®½ºÆ®¿¡ ¾øÀ» °æ¿ì -1 ¹İÈ¯
+        return -1; // í•´ë‹¹ ë¬¸ìì—´ì´ ë¦¬ìŠ¤íŠ¸ì— ì—†ì„ ê²½ìš° -1 ë°˜í™˜
     }
 }

@@ -142,7 +142,7 @@ public class Rollet : MonoBehaviour
         DataBaseManager.isRollet = true;
         DataBaseManager.isOpenUi = true;
         this.subject = subject;
-        subDialog = skill; // ³ªÁß¿¡ ´ÙÀÌ¾ó·Î±× °á°ú Àü¼Û½Ã »ç¿ë
+        subDialog = skill; // ë‚˜ì¤‘ì— ë‹¤ì´ì–¼ë¡œê·¸ ê²°ê³¼ ì „ì†¡ì‹œ ì‚¬ìš©
         ResetString();
         rolletSetUi.SetActive(true);
         this.skill.text = skill;
@@ -421,7 +421,7 @@ public class Rollet : MonoBehaviour
         rolletRollUI.SetActive(false);
         endButton.SetActive(false);
 
-        // °á°ú°ªÀ» Àü´ŞÇÏ´Â ÇÔ¼ö ÇÊ¿ä
+        // ê²°ê³¼ê°’ì„ ì „ë‹¬í•˜ëŠ” í•¨ìˆ˜ í•„ìš”
         if (subject == "dialog")
         {
             InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text, enemySubject);
@@ -544,7 +544,7 @@ public class Rollet : MonoBehaviour
         {
             BattleManager.Instance.RetrunRolletResult(subject, resultEnd.text, enemySubject);
         }
-        if (subject == "Case2IntCheck") // ÀÌ¼ºÆÇÁ¤ ±¤·Ã
+        if (subject == "Case2IntCheck") // ì´ì„±íŒì • ê´‘ë ¨
         {
             InteractionController.Instance.RetrunDialogResult("Case2IntCheck", resultEnd.text);
         }
@@ -991,11 +991,11 @@ public class Rollet : MonoBehaviour
                         SIS_UIManager.Instance.TightwadOpen();
                         break;
                     case 8:
-                        hallucinations.SetActive(true);      // ³ªÁß¿¡ ¿¬Ãâ·Î ÇØ¼­ ³Ö±â~~~~~~~~~~~~
+                        hallucinations.SetActive(true);      // ë‚˜ì¤‘ì— ì—°ì¶œë¡œ í•´ì„œ ë„£ê¸°~~~~~~~~~~~~
                         SIS_UIManager.Instance.HallucinationsOpen();
                         break;
                     case 9:
-                        medicaldistrust.SetActive(true);   // ³ªÁß¿¡ »óÁ¡ Ãß°¡µÈ µÚ¿¡ ÇØ¼­ ³Ö±â~~~~~~~~~~~~
+                        medicaldistrust.SetActive(true);   // ë‚˜ì¤‘ì— ìƒì  ì¶”ê°€ëœ ë’¤ì— í•´ì„œ ë„£ê¸°~~~~~~~~~~~~
                         SIS_UIManager.Instance.MedicaldistrustOpen();
                         break;
                 }
@@ -1163,7 +1163,7 @@ public class Rollet : MonoBehaviour
         sanRollet.SetActive(false);
         endButton2.SetActive(false);
         ResetSanRollet();
-        // °á°ú°ªÀ» Àü´ŞÇÏ´Â ÇÔ¼ö ÇÊ¿ä
+        // ê²°ê³¼ê°’ì„ ì „ë‹¬í•˜ëŠ” í•¨ìˆ˜ í•„ìš”
         if (subject == "RoadBattle1")
         {
             InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text);
@@ -1289,7 +1289,7 @@ public class Rollet : MonoBehaviour
         worst.SetActive(false);
     }
 
-    // Áß¿ä!!!!!!!
+    // ì¤‘ìš”!!!!!!!
     private void ResetString()
     {
         nomalRollet1Txt.text = "-";

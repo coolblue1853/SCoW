@@ -47,7 +47,7 @@ public class BattleRollet : MonoBehaviour
     private static BattleRollet instance = null;
     public GameObject endButton;
 
-    // Àû Ä­
+    // ì  ì¹¸
     public string enemySubject;
     public TextMeshProUGUI enemySkill;
     public TextMeshProUGUI enemyPoint;
@@ -130,7 +130,7 @@ public class BattleRollet : MonoBehaviour
     {
         activeCheck = true;
     }
-    //°ÔÀÓ ¸Å´ÏÀú ÀÎ½ºÅÏ½º¿¡ Á¢±ÙÇÒ ¼ö ÀÖ´Â ÇÁ·ÎÆÛÆ¼. staticÀÌ¹Ç·Î ´Ù¸¥ Å¬·¡½º¿¡¼­ ¸¾²¯ È£ÃâÇÒ ¼ö ÀÖ´Ù.
+    //ê²Œì„ ë§¤ë‹ˆì € ì¸ìŠ¤í„´ìŠ¤ì— ì ‘ê·¼í•  ìˆ˜ ìˆëŠ” í”„ë¡œí¼í‹°. staticì´ë¯€ë¡œ ë‹¤ë¥¸ í´ë˜ìŠ¤ì—ì„œ ë§˜ê» í˜¸ì¶œí•  ìˆ˜ ìˆë‹¤.
     public static BattleRollet Instance
     {
         get
@@ -147,13 +147,13 @@ public class BattleRollet : MonoBehaviour
         SoundManager.Instance.PaperClipPlay();
         DataBaseManager.isRollet = true;
         this.subject = subject;
-        subDialog = skill; // ³ªÁß¿¡ ´ÙÀÌ¾ó·Î±× Result Àü¼Û½Ã »ç¿ë
+        subDialog = skill; // ë‚˜ì¤‘ì— ë‹¤ì´ì–¼ë¡œê·¸ Result ì „ì†¡ì‹œ ì‚¬ìš©
         ResetString();
         rolletSetUi.SetActive(true);
-        //ÇÃ·¹ÀÌ¾î
+        //í”Œë ˆì´ì–´
         this.skill.text = skill;
         point.text = point_sting + " : " + point_int;
-        //Àû
+        //ì 
         enemySubject = EnemyName;
         enemySkill.text = E_skill;
         enemyPoint.text = E_point_string + " :  ??";
@@ -210,7 +210,7 @@ public class BattleRollet : MonoBehaviour
             succesProbability = (skillPoint10 * skillPoint10 * 0.01f) + skillPoint1 * 0.001f;
         }
 
-        // Àû È®·ü °è»ê.
+        // ì  í™•ë¥  ê³„ì‚°.
         enemyExpect.text = "Probability : ???";
 
         if (succesProbability < 0.20)
@@ -282,7 +282,7 @@ public class BattleRollet : MonoBehaviour
         {
             goodRollet10Txt.text = "00";
         }
-        //Àû
+        //ì 
         enemyNomalRollet1Txt.text = Random.Range(0, 10).ToString();
         int E_nom_10t = (Random.Range(0, 10) * 10);
         if (E_nom_10t != 0)
@@ -390,7 +390,7 @@ public class BattleRollet : MonoBehaviour
                 resultString.text = "Dice : " + resultInt.ToString();
             }
         }
-        //Àû °ü·Ã
+        //ì  ê´€ë ¨
         enemyResultInt = int.Parse(enemyNomalRollet10Txt.text) + int.Parse(enemyNomalRollet1Txt.text);
         if (enemyResultInt == 0)
         {
@@ -490,7 +490,7 @@ public class BattleRollet : MonoBehaviour
                 finalResult = "Failure";
                 finalResultTxt.text = "Evasion : " + finalResult;
             }
-        } // À¯¸®Result ¿¹Á¦
+        } // ìœ ë¦¬Result ì˜ˆì œ
         if (subject == "counterattack")
         {
             if (resultEnd.text == "Result : Critical Success" && enemyResultEnd.text != "Result : Critical Success")
@@ -513,8 +513,8 @@ public class BattleRollet : MonoBehaviour
                 finalResult = "Failure";
                 finalResultTxt.text = "CounterAttack : " + finalResult;
             }
-        } //ºÒ¸®Result ¿¹Á¦
-        // ÇÃ·¹ÀÌ¾îÇàµ¿
+        } //ë¶ˆë¦¬Result ì˜ˆì œ
+        // í”Œë ˆì´ì–´í–‰ë™
         if (subject == "MA_attack_Counter")
         {
             if (resultEnd.text == "Result : Critical Success")
@@ -678,7 +678,7 @@ public class BattleRollet : MonoBehaviour
             }
         }
 
-        //ÇÃ·¹ÀÌ¾îÇàµ¿
+        //í”Œë ˆì´ì–´í–‰ë™
         if (subject == "MA_attack_Counter")
         {
             if (enemySubject == "DeepOneHybrid")
@@ -705,8 +705,8 @@ public class BattleRollet : MonoBehaviour
         if (subject == "dialog")
         {
             InteractionController.Instance.RetrunDialogResult(subDialog, resultEnd.text);
-            // ¿©±â¿¡ DialogÇÔ¼ö Àû¿ë   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
-            // DilaogManager¿¡¼­´Â ÇØ´ç ÇÔ¼ö¿¡ interacitionMager¸¦ ¿¬°áÇØ¼­ ¹ŞÀº ÁÖÁ¦¿Í Result°ª¿¡ µû¸¥ ¹®ÀÚ¸¦ Ãâ·ÂÇÏµµ·Ï ÇÔ
+            // ì—¬ê¸°ì— Dialogí•¨ìˆ˜ ì ìš©   DialogManager.Instance.RetrunDialogResult(Sub_Dialog,result_End.text);
+            // DilaogManagerì—ì„œëŠ” í•´ë‹¹ í•¨ìˆ˜ì— interacitionMagerë¥¼ ì—°ê²°í•´ì„œ ë°›ì€ ì£¼ì œì™€ Resultê°’ì— ë”°ë¥¸ ë¬¸ìë¥¼ ì¶œë ¥í•˜ë„ë¡ í•¨
         }
         if (subject == "RunAway")
         {
@@ -729,7 +729,7 @@ public class BattleRollet : MonoBehaviour
         }
     }
 
-    // Áß¿ä!!!!!!!
+    // ì¤‘ìš”!!!!!!!
     private void ResetString()
     {
         enemyNomalRollet1Txt.text = "-";

@@ -21,7 +21,7 @@ public class DataBaseManager : MonoBehaviour
 
     public static bool sewerMap;
     public static bool ifGotRequset = false;
-    //µğ¹öÇÁ 3´Ü°è
+    //ë””ë²„í”„ 3ë‹¨ê³„
     public static bool sewerFirstIn;
     public static bool sewerFirstInSanCheck;
     public static bool sewerDeepOneFirstSanCheck;
@@ -101,7 +101,7 @@ public class DataBaseManager : MonoBehaviour
     public static bool tryObserLokcer = false;
     public static bool moveSewerOfficeWindow = false;
 
-    // 4ÀÏÂ÷MorningMove_2nd
+    // 4ì¼ì°¨MorningMove_2nd
     public static int battleEnemyCount = 0;
     public static bool morningMove2nd = false;
     public static bool morningMove4th = false;
@@ -118,7 +118,7 @@ public class DataBaseManager : MonoBehaviour
     public static bool thirdDayPoliceADialog = false;
     public static bool thirdDayPoliceBDialog = false;
     public static bool thirdDayAlanDialog = false;
-    //2ÀÏÂ÷
+    //2ì¼ì°¨
     public static bool barDrinkSanCheck = false;
     public static bool barMove = false;
     public static bool barArrive = false;
@@ -143,7 +143,7 @@ public class DataBaseManager : MonoBehaviour
     public static bool swainDie = false;
     public static bool kaneSlimeSan = false;
 
-    //³· °­Á¦ ÀÌº¥Æ®
+    //ë‚® ê°•ì œ ì´ë²¤íŠ¸
     public static bool noonMorningMove = false;
     public static bool secondDetectiveNoonEvent = false;
     public static bool noonEventMovetoClient = false;
@@ -250,40 +250,40 @@ public class DataBaseManager : MonoBehaviour
     public static bool firstClientsHouse = false;
     public static bool firstClientsHouseEnd = false;
 
-    //1ÀÏÂ÷ ¼úÁı
+    //1ì¼ì°¨ ìˆ ì§‘
     public static bool isBar = false;
     public static bool maeveFirstDialog = false;
     public static bool workerFirstDialog = false;
 
-    //1ÀÏÂ÷ ºó¹Î°¡
+    //1ì¼ì°¨ ë¹ˆë¯¼ê°€
     public static bool daveFirstDialog = false;
 
-    //1ÀÏÂ÷ °æÂû¼­
+    //1ì¼ì°¨ ê²½ì°°ì„œ
     public static bool aFirstDialog = false;
     public static bool bFirstDialog = false;
     public static bool albertFirstDialog = false;
 
-    //1ÀÏÂ÷ º´¿ø
+    //1ì¼ì°¨ ë³‘ì›
     public static bool alanFirstDialog = false;
     public static bool kateDisapear = false;
     public static bool kateNoonFirstDialog = false;
     public static bool alanNoonFirstDialog = false;
 
-    //1ÀÏÂ÷ °­°¡
+    //1ì¼ì°¨ ê°•ê°€
     public static bool kaneFirstDialog = false;
     public static bool sewerFirstDialog = false;
     public static bool sewerObservation = false;
     public static bool sewerObservationEnd = false;
     public static bool sewerSan = false;
 
-    //1ÀÏÂ÷ ´ëÇĞ
+    //1ì¼ì°¨ ëŒ€í•™
     public static bool univFirstDialog = false;
 
-    //1ÀÏÂ÷ ½Å¹®»ç
+    //1ì¼ì°¨ ì‹ ë¬¸ì‚¬
     public static bool swainFirstDialog = false;
     public static bool isSwainTalkMissingpeople = false;
 
-    //1ÀÏÂ÷ ÀÇ·ÚÀÚÀÇ Áı
+    //1ì¼ì°¨ ì˜ë¢°ìì˜ ì§‘
     public static bool aidenFirstDialog = false;
     public static bool aidenObservation = false;
     public static bool aidenMedicine = false;
@@ -297,7 +297,7 @@ public class DataBaseManager : MonoBehaviour
     public static int aidenKeywordCount = 0;
     public static bool failTwoKeyword = false;
 
-    //1ÀÏÂ÷ ¿ÀÀü Å½Á¤»ç¹«¼Ò
+    //1ì¼ì°¨ ì˜¤ì „ íƒì •ì‚¬ë¬´ì†Œ
     public static bool endDemo = false;
     public static bool endDay = false;
     public static bool connectKey = false;
@@ -336,7 +336,7 @@ public class DataBaseManager : MonoBehaviour
     public static bool isKeyword;
     public static bool isJudge;
     public static string lookObject = "";
-    public static string nowSelecter = "End"; // End_Look_Judge Á¸Àç
+    public static string nowSelecter = "End"; // End_Look_Judge ì¡´ì¬
     public static bool isScene;
     public static bool isPresentation;
     public static bool isOption;
@@ -408,10 +408,10 @@ public class DataBaseManager : MonoBehaviour
     public bool[] switches;
 
     //Event
-    // ÇöÀç È¹µæÇÑ »ç°ÇÁ¤º¸°¡Áö¼ö
-    // Çà¼º´ëÁ÷·Ä ÇöÀç ÆäÀÌÁö
-    //Çà¼º´ëÁ÷·Ä Á¤º¸
-    //ÀÎ¹°Á¤º¸
+    // í˜„ì¬ íšë“í•œ ì‚¬ê±´ì •ë³´ê°€ì§€ìˆ˜
+    // í–‰ì„±ëŒ€ì§ë ¬ í˜„ì¬ í˜ì´ì§€
+    //í–‰ì„±ëŒ€ì§ë ¬ ì •ë³´
+    //ì¸ë¬¼ì •ë³´
     public static int nowPageElla = 1;
     public static int nowPageAiden = 1;
     public static int nowPageCane = 1;
@@ -479,7 +479,7 @@ public class DataBaseManager : MonoBehaviour
     public static bool intelBlackWell5 = false;
     public static bool intelBlackWell6 = false;
 
-    //»ç°Ç Á¤º¸
+    //ì‚¬ê±´ ì •ë³´
     public static int nowPagePlanetaryParade = 1;
     public static int nowPageNightmare = 1;
     public static int nowPageParanoia = 1;
@@ -601,7 +601,7 @@ public class DataBaseManager : MonoBehaviour
     public static bool intelMurderCase5 = false;
     public static bool intelMurderCase6 = false;
 
-    //Àå¼ÒÁ¤º¸
+    //ì¥ì†Œì •ë³´
     public static int buttonCountDetectiveOffice = -1;
     public static int buttonCountHospital = -1;
     public static int buttonCountNewspaper = -1;
@@ -785,34 +785,34 @@ public class DataBaseManager : MonoBehaviour
         //Directing
         isDirecting = false;
         firstClientsHouse = false;
-        //1ÀÏÂ÷ ¼úÁı
+        //1ì¼ì°¨ ìˆ ì§‘
         isBar = false;
         maeveFirstDialog = false;
         workerFirstDialog = false;
-        //1ÀÏÂ÷ ºó¹Î°¡
+        //1ì¼ì°¨ ë¹ˆë¯¼ê°€
         daveFirstDialog = false;
 
-        //1ÀÏÂ÷ °æÂû¼­
+        //1ì¼ì°¨ ê²½ì°°ì„œ
         aFirstDialog = false;
         bFirstDialog = false;
         albertFirstDialog = false;
-        //1ÀÏÂ÷ º´¿ø
+        //1ì¼ì°¨ ë³‘ì›
         alanFirstDialog = false;
         kateDisapear = false;
         kateNoonFirstDialog = false;
         alanNoonFirstDialog = false;
-        //1ÀÏÂ÷ °­°¡
+        //1ì¼ì°¨ ê°•ê°€
         kaneFirstDialog = false;
         sewerFirstDialog = false;
         sewerObservation = false;
         sewerObservationEnd = false;
         sewerSan = false;
-        //1ÀÏÂ÷ ´ëÇĞ
+        //1ì¼ì°¨ ëŒ€í•™
         univFirstDialog = false;
-        //1ÀÏÂ÷ ½Å¹®»ç
+        //1ì¼ì°¨ ì‹ ë¬¸ì‚¬
         swainFirstDialog = false;
         isSwainTalkMissingpeople = false;
-        //1ÀÏÂ÷ ÀÇ·ÚÀÚÀÇ Áı
+        //1ì¼ì°¨ ì˜ë¢°ìì˜ ì§‘
         aidenFirstDialog = false;
         aidenObservation = false;
         aidenMedicine = false;
@@ -826,7 +826,7 @@ public class DataBaseManager : MonoBehaviour
         aidenKeywordCount = 0;
         failTwoKeyword = false;
 
-        //1ÀÏÂ÷ ¿ÀÀü Å½Á¤»ç¹«¼Ò
+        //1ì¼ì°¨ ì˜¤ì „ íƒì •ì‚¬ë¬´ì†Œ
         endDemo = false;
         endDay = false;
         connectKey = false;
@@ -860,7 +860,7 @@ public class DataBaseManager : MonoBehaviour
         isKeyword = false;
         isJudge = false;
         lookObject = "";
-        nowSelecter = "End"; // End_Look_Judge Á¸Àç
+        nowSelecter = "End"; // End_Look_Judge ì¡´ì¬
         isScene = false;
         isPresentation = false;
         isOption = false;
@@ -975,7 +975,7 @@ public class DataBaseManager : MonoBehaviour
         intelBlackWell5 = false;
         intelBlackWell6 = false;
 
-        //»ç°Ç Á¤º¸
+        //ì‚¬ê±´ ì •ë³´
         nowPagePlanetaryParade = 1;
         nowPageNightmare = 1;
         nowPageParanoia = 1;
@@ -1097,7 +1097,7 @@ public class DataBaseManager : MonoBehaviour
         intelMurderCase5 = false;
         intelMurderCase6 = false;
 
-        //Àå¼ÒÁ¤º¸
+        //ì¥ì†Œì •ë³´
         buttonCountDetectiveOffice = -1;
         buttonCountHospital = -1;
         buttonCountNewspaper = -1;
@@ -1228,7 +1228,7 @@ public class DataBaseManager : MonoBehaviour
         intelWharf5 = false;
         intelWharf6 = false;
 
-        // FIX-P0: ¼±¾ğ ÃÊ±â°ª°ú °°Àº °ªÀ¸·Î ÃÊ±âÈ­(´©¶ôºĞ)
+        // FIX-P0: ì„ ì–¸ ì´ˆê¸°ê°’ê³¼ ê°™ì€ ê°’ìœ¼ë¡œ ì´ˆê¸°í™”(ëˆ„ë½ë¶„)
         isNightmare = false;
         endingDoorCheck = false;
         endingDeathCheck = false;

@@ -56,7 +56,7 @@ public class BillowUIManager : MonoBehaviour
     {
         healthBar.ResetHp();
     }
-    //Ã¼·Â¹Ù °ü·Ã
+    //ì²´ë ¥ë°” ê´€ë ¨
     private void ResetMHp()
     {
         setHP = 1;
@@ -179,7 +179,7 @@ public class BillowUIManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    //°ÔÀÓ ¸Å´ÏÀú ÀÎ½ºÅÏ½º¿¡ Á¢±ÙÇÒ ¼ö ÀÖ´Â ÇÁ·ÎÆÛÆ¼. staticÀÌ¹Ç·Î ´Ù¸¥ Å¬·¡½º¿¡¼­ ¸¾²¯ È£ÃâÇÒ ¼ö ÀÖ´Ù.
+    //ê²Œì„ ë§¤ë‹ˆì € ì¸ìŠ¤í„´ìŠ¤ì— ì ‘ê·¼í•  ìˆ˜ ìˆëŠ” í”„ë¡œí¼í‹°. staticì´ë¯€ë¡œ ë‹¤ë¥¸ í´ë˜ìŠ¤ì—ì„œ ë§˜ê» í˜¸ì¶œí•  ìˆ˜ ìˆë‹¤.
     public static BillowUIManager Instance
     {
         get

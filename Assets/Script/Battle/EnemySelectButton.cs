@@ -32,13 +32,13 @@ public class EnemySelectButton : MonoBehaviour
         if (BattleManager.Instance.battleState == "selectEnemy")
         {
             isSetTrun = false;
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // ¸¶¿ì½º À§Ä¡ °¡Á®¿À±â
-            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero); // ¸¶¿ì½º À§Ä¡¿¡¼­ Raycast
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // ë§ˆìš°ìŠ¤ ìœ„ì¹˜ ê°€ì ¸ì˜¤ê¸°
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero); // ë§ˆìš°ìŠ¤ ìœ„ì¹˜ì—ì„œ Raycast
             if (hit.collider != null)
             {
                 if (hit.collider.gameObject.name == this.transform.name)
                 {
-                    if (hit.collider.CompareTag("Enemy")) // Raycast°¡ ¹«¾ğ°¡¿¡ ´êÀº °æ¿ì, ÅÂ±×¸¦ È®ÀÎ
+                    if (hit.collider.CompareTag("Enemy")) // Raycastê°€ ë¬´ì–¸ê°€ì— ë‹¿ì€ ê²½ìš°, íƒœê·¸ë¥¼ í™•ì¸
                     {
                         BattleManager.Instance.onPointerEnemy = this.transform.name;
                         box2d.size = new Vector2(5f, 6.2f);

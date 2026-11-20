@@ -399,7 +399,7 @@ public class ShopUI : MonoBehaviour
             }
         }
     }
-    //»óÁ¡ÆäÀÌÁö ¿­±â
+    //ìƒì í˜ì´ì§€ ì—´ê¸°
     public void OpenPageFirearm()
     {
         SoundManager.Instance.ClickSoundPlay();

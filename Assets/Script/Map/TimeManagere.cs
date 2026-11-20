@@ -26,7 +26,7 @@ public class TimeManagere : MonoBehaviour
     public GameObject pipe;
     public GameObject cage;
     public GameObject symbol;
-    //ÀüÅõ ¸Ê
+    //ì „íˆ¬ ë§µ
     public GameObject sewerFlatBattle;
     public GameObject sewerRoundBattle;
     public GameObject burbRound1Battle;
@@ -142,18 +142,18 @@ public class TimeManagere : MonoBehaviour
     public void MakeSewer()
     {
         enemyOb.SetActive(false);
-        // Áöµµ°¡ ¾ø´Ù¸é
+        // ì§€ë„ê°€ ì—†ë‹¤ë©´
         if (DataBaseManager.gainMap == false)
         {
             int RandLuk = Random.Range(1, 101);
-            Debug.Log("·° : " + DataBaseManager.luk + "// ÆÇÁ¤°ª : " + RandLuk);
-            //¼º°ø
+            Debug.Log("ëŸ­ : " + DataBaseManager.luk + "// íŒì •ê°’ : " + RandLuk);
+            //ì„±ê³µ
             if (RandLuk < DataBaseManager.luk)
             {
-                if (RandLuk < (DataBaseManager.luk / 3)) // ±Ø´ÜÀû ¼º°øÀÏ½Ã
+                if (RandLuk < (DataBaseManager.luk / 3)) // ê·¹ë‹¨ì  ì„±ê³µì¼ì‹œ
                 {
                     MakeSighnLand();
-                    Debug.Log("¹®¾ç µµÂø");
+                    Debug.Log("ë¬¸ì–‘ ë„ì°©");
                 }
                 else
                 {
@@ -161,32 +161,32 @@ public class TimeManagere : MonoBehaviour
                     if (RandInt == 0)
                     {
                         MakeHouseLand();
-                        Debug.Log("ºñ¹Ğ±âÁö µµÂø");
+                        Debug.Log("ë¹„ë°€ê¸°ì§€ ë„ì°©");
                     }
                     else if (RandInt == 1)
                     {
                         MakeSewerMapNomal();
-                        Debug.Log("¾ÆÀÌÅÛÀÌ ¶³¾îÁø °÷ µµÂø");
+                        Debug.Log("ì•„ì´í…œì´ ë–¨ì–´ì§„ ê³³ ë„ì°©");
                     }
                     else if (RandInt == 2)
                     {
                         MakeCageLand();
-                        Debug.Log("ÄÉÀÌÁö°¡ ÀÖ´Â°÷ µµÂø");
+                        Debug.Log("ì¼€ì´ì§€ê°€ ìˆëŠ”ê³³ ë„ì°©");
                     }
                     else
                     {
                         MakeSewerMapNomal();
-                        Debug.Log("ºó¹æ µµÂø");
+                        Debug.Log("ë¹ˆë°© ë„ì°©");
                     }
                 }
             }
-            //½ÇÆĞ
+            //ì‹¤íŒ¨
             else
             {
-                if (DataBaseManager.sewerEnemyCounter > 2 && DataBaseManager.sewerHouseIn == false)  // ÃÖÃÊ·Î ºñ¹Ğ±âÁö µµÂø
+                if (DataBaseManager.sewerEnemyCounter > 2 && DataBaseManager.sewerHouseIn == false)  // ìµœì´ˆë¡œ ë¹„ë°€ê¸°ì§€ ë„ì°©
                 {
                     MakeHouseLand();
-                    Debug.Log("ºñ¹Ğ±âÁö µµÂø");
+                    Debug.Log("ë¹„ë°€ê¸°ì§€ ë„ì°©");
                 }
                 else if (DataBaseManager.sewerEnemyCounter > 2)
                 {
@@ -194,12 +194,12 @@ public class TimeManagere : MonoBehaviour
                     if (RandInt == 0)
                     {
                         MakeHouseLand();
-                        Debug.Log("ºñ¹Ğ±âÁö µµÂø");
+                        Debug.Log("ë¹„ë°€ê¸°ì§€ ë„ì°©");
                     }
                     else
                     {
                         MakeSewerMapNomal();
-                        Debug.Log("ºó¹æ µµÂø");
+                        Debug.Log("ë¹ˆë°© ë„ì°©");
                     }
                 }
                 else
@@ -220,7 +220,7 @@ public class TimeManagere : MonoBehaviour
                     }
                     int RandInt = Random.Range(0, 3);
                     MakeSewerMapEnemy();
-                    Debug.Log("Àû µîÀå");
+                    Debug.Log("ì  ë“±ì¥");
                     if (DataBaseManager.wearCoat == true)
                     {
                         DataBaseManager.isInsmusMeetSewer = false;
@@ -232,22 +232,22 @@ public class TimeManagere : MonoBehaviour
                 }
             }
         }
-        // Áöµµ°¡ ÀÖ´Ù¸é
+        // ì§€ë„ê°€ ìˆë‹¤ë©´
         else
         {
             int RandLuk = Random.Range(1, 101);
-            Debug.Log("·° : " + DataBaseManager.luk + "// ÆÇÁ¤°ª : " + RandLuk);
+            Debug.Log("ëŸ­ : " + DataBaseManager.luk + "// íŒì •ê°’ : " + RandLuk);
 
             int RandIntel = Random.Range(1, 101);
-            Debug.Log("Áö´É : " + DataBaseManager.intl + "// ÆÇÁ¤°ª : " + RandIntel);
+            Debug.Log("ì§€ëŠ¥ : " + DataBaseManager.intl + "// íŒì •ê°’ : " + RandIntel);
 
-            //¼º°ø
+            //ì„±ê³µ
             if (RandLuk < DataBaseManager.luk || RandIntel < DataBaseManager.intl)
             {
-                if (RandLuk < (DataBaseManager.luk / 3) || RandIntel < (DataBaseManager.intl / 3)) // ±Ø´ÜÀû ¼º°øÀÏ½Ã
+                if (RandLuk < (DataBaseManager.luk / 3) || RandIntel < (DataBaseManager.intl / 3)) // ê·¹ë‹¨ì  ì„±ê³µì¼ì‹œ
                 {
                     MakeSighnLand();
-                    Debug.Log("¹®¾ç µµÂø");
+                    Debug.Log("ë¬¸ì–‘ ë„ì°©");
                 }
                 else
                 {
@@ -255,27 +255,27 @@ public class TimeManagere : MonoBehaviour
                     if (RandInt == 0)
                     {
                         MakeHouseLand();
-                        Debug.Log("ºñ¹Ğ±âÁö µµÂø");
+                        Debug.Log("ë¹„ë°€ê¸°ì§€ ë„ì°©");
                     }
                     else if (RandInt == 1)
                     {
                         MakeSewerMapNomal();
-                        Debug.Log("¾ÆÀÌÅÛÀÌ ¶³¾îÁø °÷ µµÂø");
+                        Debug.Log("ì•„ì´í…œì´ ë–¨ì–´ì§„ ê³³ ë„ì°©");
                     }
                     else
                     {
                         MakeSewerMapNomal();
-                        Debug.Log("ºó¹æ µµÂø");
+                        Debug.Log("ë¹ˆë°© ë„ì°©");
                     }
                 }
             }
-            //½ÇÆĞ
+            //ì‹¤íŒ¨
             else
             {
-                if (DataBaseManager.sewerEnemyCounter > 2 && DataBaseManager.sewerHouseIn == false)  // ÃÖÃÊ·Î ºñ¹Ğ±âÁö µµÂø
+                if (DataBaseManager.sewerEnemyCounter > 2 && DataBaseManager.sewerHouseIn == false)  // ìµœì´ˆë¡œ ë¹„ë°€ê¸°ì§€ ë„ì°©
                 {
                     MakeHouseLand();
-                    Debug.Log("ºñ¹Ğ±âÁö µµÂø");
+                    Debug.Log("ë¹„ë°€ê¸°ì§€ ë„ì°©");
                 }
                 else if (DataBaseManager.sewerEnemyCounter > 2)
                 {
@@ -283,12 +283,12 @@ public class TimeManagere : MonoBehaviour
                     if (RandInt == 0)
                     {
                         MakeHouseLand();
-                        Debug.Log("ºñ¹Ğ±âÁö µµÂø");
+                        Debug.Log("ë¹„ë°€ê¸°ì§€ ë„ì°©");
                     }
                     else
                     {
                         MakeSewerMapNomal();
-                        Debug.Log("ºó¹æ µµÂø");
+                        Debug.Log("ë¹ˆë°© ë„ì°©");
                     }
                 }
                 else
@@ -297,7 +297,7 @@ public class TimeManagere : MonoBehaviour
                     int RandInt = Random.Range(0, 3);
 
                     MakeSewerMapEnemy();
-                    Debug.Log("Àû µîÀå");
+                    Debug.Log("ì  ë“±ì¥");
 
                     if (DataBaseManager.wearCoat == true)
                     {
@@ -330,7 +330,7 @@ public class TimeManagere : MonoBehaviour
     public GameObject camera;
     Vector2 playerSewerRight = new Vector3(-1194.19f, -193.57f);
     Vector3 camSewerRight = new Vector3(-1217.02f, -195f, -15);
-    float chInRommSize = 2.383215f; // -ÀÌ¸é ¿ŞÂÊ +¸é ¿À¸¥ÂÊ
+    float chInRommSize = 2.383215f; // -ì´ë©´ ì™¼ìª½ +ë©´ ì˜¤ë¥¸ìª½
     public void SewerMapMove()
     {
         TimeManagere.Instance.MakeSighnLand();
@@ -786,7 +786,7 @@ public class TimeManagere : MonoBehaviour
             afNoonEvent.transform.localPosition = new Vector3(0, 0, 0);
             policeLine.transform.localPosition = new Vector3(-58.1f, 4.06f, 0);
 
-            //¸Ê ½ºÇÁ¶óÀÌÆ® º¯°æ
+            //ë§µ ìŠ¤í”„ë¼ì´íŠ¸ ë³€ê²½
 
             clientsHouseRoom.sprite = messClientsHouseRoom;
         }

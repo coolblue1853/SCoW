@@ -19,7 +19,7 @@ public class BattleManager : MonoBehaviour
     public BattleResetUI battleResetUI;
     public DamageNumber numberPrefab;
 
-    //ÇÃ·¹ÀÌ¾î °ü·Ã
+    //í”Œë ˆì´ì–´ ê´€ë ¨
     public GameObject player;
     public Vector3 originPoint;
     public SpriteRenderer playerRender;
@@ -68,7 +68,7 @@ public class BattleManager : MonoBehaviour
     EnemyClass.DeepOneHybrid deepOneHybrid3 = new EnemyClass.DeepOneHybrid();
     EnemyClass.DeepOneHybrid deepOneHybrid4 = new EnemyClass.DeepOneHybrid();
     EnemyClass.DeepOne deepOne1 = new EnemyClass.DeepOne();
-    //Àû ¿ÀºêÁ§Æ® °ü·Ã
+    //ì  ì˜¤ë¸Œì íŠ¸ ê´€ë ¨
     public GameObject deepOneHybrid1Ob;
     public GameObject deepOneHybrid2Ob;
     public GameObject deepOneHybrid3Ob;
@@ -256,7 +256,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    // ÅÏ ÃÖ¼ÒÁöÁ¡ -130, ÃÖ´ëÁöÁ¡ +130
+    // í„´ ìµœì†Œì§€ì  -130, ìµœëŒ€ì§€ì  +130
     // Start is called before the first frame update
     void Start()
     {
@@ -484,7 +484,7 @@ public class BattleManager : MonoBehaviour
             }
             Sequence sequence = DOTween.Sequence()
             .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolReload))
-            .AppendInterval(2f) // 2ÃÊ ´ë±â
+            .AppendInterval(2f) // 2ì´ˆ ëŒ€ê¸°
             .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
             .AppendCallback(() => BattleCameraMove.Instance.ResetCam())
             .AppendCallback(() => TurnEnd());
@@ -503,7 +503,7 @@ public class BattleManager : MonoBehaviour
             }
             Sequence sequence = DOTween.Sequence()
             .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverReload))
-            .AppendInterval(2f) // 2ÃÊ ´ë±â
+            .AppendInterval(2f) // 2ì´ˆ ëŒ€ê¸°
             .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
             .AppendCallback(() => BattleCameraMove.Instance.ResetCam())
             .AppendCallback(() => TurnEnd());
@@ -522,7 +522,7 @@ public class BattleManager : MonoBehaviour
             }
             Sequence sequence = DOTween.Sequence()
             .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleReload))
-            .AppendInterval(2f) // 2ÃÊ ´ë±â
+            .AppendInterval(2f) // 2ì´ˆ ëŒ€ê¸°
             .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
             .AppendCallback(() => BattleCameraMove.Instance.ResetCam())
             .AppendCallback(() => TurnEnd());
@@ -541,7 +541,7 @@ public class BattleManager : MonoBehaviour
             }
             Sequence sequence = DOTween.Sequence()
             .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunReload))
-            .AppendInterval(2f) // 2ÃÊ ´ë±â
+            .AppendInterval(2f) // 2ì´ˆ ëŒ€ê¸°
             .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
             .AppendCallback(() => BattleCameraMove.Instance.ResetCam())
             .AppendCallback(() => TurnEnd());
@@ -587,7 +587,7 @@ public class BattleManager : MonoBehaviour
     }
     void EnemySetAction()
     {
-        // ÃßÈÄ ÀÌ°÷¿¡ ÀûÀÇ Çàµ¿ ¿ä·ÉÀ» ÅëÇØ ¾î¶²½ÄÀ¸·Î ÀÛµ¿ÇÏ´ÂÁö ½áµÖ¾ß ÇÒµí
+        // ì¶”í›„ ì´ê³³ì— ì ì˜ í–‰ë™ ìš”ë ¹ì„ í†µí•´ ì–´ë–¤ì‹ìœ¼ë¡œ ì‘ë™í•˜ëŠ”ì§€ ì¨ë‘¬ì•¼ í• ë“¯
         roundGameObject.SetActive(false);
         if (battleState == "DeepOneHybrid3Attack")
         {
@@ -596,19 +596,19 @@ public class BattleManager : MonoBehaviour
         }
         else if (battleState == "DeepOne1Attack")
         {
-            // ½ÉÇØÀÎ °ø°İ
+            // ì‹¬í•´ì¸ ê³µê²©
             int Randint = Random.Range(0, 4);
-            if (Randint == 0) // ÀÌ¼º °ø°İ
+            if (Randint == 0) // ì´ì„± ê³µê²©
             {
                 OpenRoundObject("An enemy tries to initiate suspicious behavior.");
                 Invoke("DeepOneSanAttack", 1.5f);
             }
-            else if (Randint == 1) // µ¶ µµÆ® °ø°İ
+            else if (Randint == 1) // ë… ë„íŠ¸ ê³µê²©
             {
                 OpenRoundObject("An enemy tries to initiate suspicious behavior.");
                 Invoke("DeepOnePosionAttack", 1.5f);
             }
-            else // ÀÏ¹İ °ø°İ
+            else // ì¼ë°˜ ê³µê²©
             {
                 OpenRoundObject("An enemy tries to attack you with a Swordsmanship.");
                 playerChoiceUi.SetActive(true);
@@ -624,14 +624,14 @@ public class BattleManager : MonoBehaviour
     {
         deepOne1SC.DeepOneSanAttackChange();
         cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
-        // ¿¬Ãâ »ğÀÔ
+        // ì—°ì¶œ ì‚½ì…
         Sequence sequence = DOTween.Sequence()
         .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
         .AppendCallback(() => battlePlayer.PlayerHittedSanAttack())
         .AppendCallback(() => SoundManager.Instance.BattleSound("San_Attack"))
         .Join(cam.transform.DOShakePosition(1, 2, 90))
         .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
-        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
         .AppendCallback(() => Rollet.Instance.SetRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "BattleSan_DeepOne1"));
     }
     public void EndDeepOneSanAttack()
@@ -734,13 +734,13 @@ public class BattleManager : MonoBehaviour
                     BattleCameraMove.Instance.ZoomMidle();
                     deepOneHybrid1SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
                     .Append(player.transform.DOMove(new Vector3(player.transform.position.x - 4f, deepOneHybrid1Ob.transform.position.y), 0.7f))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1.5f, player.transform.position.y - 0.2f, -1), 0.7f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid1SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -753,7 +753,7 @@ public class BattleManager : MonoBehaviour
                     BattleCameraMove.Instance.ZoomMidle();
                     deepOneHybrid1SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
@@ -763,7 +763,7 @@ public class BattleManager : MonoBehaviour
                     .Join(player.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid1SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -782,13 +782,13 @@ public class BattleManager : MonoBehaviour
                     BattleCameraMove.Instance.ZoomDown();
                     deepOneHybrid2SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
                     .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1.5f, player.transform.position.y - 0.2f, -1), 0.7f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid2SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -801,7 +801,7 @@ public class BattleManager : MonoBehaviour
                     BattleCameraMove.Instance.ZoomDown();
                     deepOneHybrid2SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
@@ -812,7 +812,7 @@ public class BattleManager : MonoBehaviour
                     .Join(player.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid2SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => battlePlayer.resetPlayer())
@@ -833,13 +833,13 @@ public class BattleManager : MonoBehaviour
                     BattleCameraMove.Instance.ZoomUp();
                     deepOneHybrid3SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
                     .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1.5f, player.transform.position.y - 0.2f, -1), 0.7f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid3SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -852,7 +852,7 @@ public class BattleManager : MonoBehaviour
                     BattleCameraMove.Instance.ZoomUp();
                     deepOneHybrid3SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
@@ -862,7 +862,7 @@ public class BattleManager : MonoBehaviour
                     .Join(player.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid3SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -881,13 +881,13 @@ public class BattleManager : MonoBehaviour
                     BattleCameraMove.Instance.ZoomUp();
                     deepOneHybrid4SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
                     .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1.5f, player.transform.position.y - 0.2f, -1), 0.7f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid4SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -900,7 +900,7 @@ public class BattleManager : MonoBehaviour
                     //  BattleCameraMove.Instance.ZoomUp();
                     deepOneHybrid4SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
@@ -910,7 +910,7 @@ public class BattleManager : MonoBehaviour
                     .Join(player.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid4SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => battlePlayer.resetPlayer())
@@ -930,13 +930,13 @@ public class BattleManager : MonoBehaviour
 
                     deepOne1SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
                     .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1.5f, player.transform.position.y - 0.2f, -1), 0.7f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOne1SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -948,7 +948,7 @@ public class BattleManager : MonoBehaviour
                 {
                     deepOne1SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
@@ -959,7 +959,7 @@ public class BattleManager : MonoBehaviour
                     .Join(player.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOne1SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => battlePlayer.resetPlayer())
@@ -982,7 +982,7 @@ public class BattleManager : MonoBehaviour
                 {
                     deepOneHybrid1SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
@@ -997,7 +997,7 @@ public class BattleManager : MonoBehaviour
                     .Join(deepOneHybrid1Ob.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 8f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x + 2, player.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid1SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -1009,7 +1009,7 @@ public class BattleManager : MonoBehaviour
                 {
                     deepOneHybrid1SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
@@ -1019,7 +1019,7 @@ public class BattleManager : MonoBehaviour
                     .Join(player.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid1SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -1038,7 +1038,7 @@ public class BattleManager : MonoBehaviour
                 {
                     deepOneHybrid2SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
@@ -1053,7 +1053,7 @@ public class BattleManager : MonoBehaviour
                     .Join(deepOneHybrid2Ob.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 8f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x + 2, player.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid2SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -1065,7 +1065,7 @@ public class BattleManager : MonoBehaviour
                 {
                     deepOneHybrid2SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
@@ -1076,7 +1076,7 @@ public class BattleManager : MonoBehaviour
                     .Join(player.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid2SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => battlePlayer.resetPlayer())
@@ -1096,7 +1096,7 @@ public class BattleManager : MonoBehaviour
                 {
                     deepOneHybrid3SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
@@ -1111,7 +1111,7 @@ public class BattleManager : MonoBehaviour
                     .Join(deepOneHybrid3Ob.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 8f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x + 2, player.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid3SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -1123,7 +1123,7 @@ public class BattleManager : MonoBehaviour
                 {
                     deepOneHybrid3SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
@@ -1133,7 +1133,7 @@ public class BattleManager : MonoBehaviour
                     .Join(player.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid3SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -1152,7 +1152,7 @@ public class BattleManager : MonoBehaviour
                 {
                     deepOneHybrid4SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
@@ -1167,7 +1167,7 @@ public class BattleManager : MonoBehaviour
                     .Join(deepOneHybrid4Ob.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 8f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x + 2, player.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid4SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -1179,7 +1179,7 @@ public class BattleManager : MonoBehaviour
                 {
                     deepOneHybrid4SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
@@ -1189,7 +1189,7 @@ public class BattleManager : MonoBehaviour
                     .Join(player.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid4SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => battlePlayer.resetPlayer())
@@ -1208,7 +1208,7 @@ public class BattleManager : MonoBehaviour
                 {
                     deepOne1SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
@@ -1223,7 +1223,7 @@ public class BattleManager : MonoBehaviour
                     .Join(deepOne1Ob.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 8f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x + 2, player.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOne1SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -1235,7 +1235,7 @@ public class BattleManager : MonoBehaviour
                 {
                     deepOne1SC.DeepOneHybridPunchChange();
                     cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
@@ -1246,7 +1246,7 @@ public class BattleManager : MonoBehaviour
                     .Join(player.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOne1SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => battlePlayer.resetPlayer())
@@ -1268,7 +1268,7 @@ public class BattleManager : MonoBehaviour
                 {
                     playerRender.sprite = punch;
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => deepOneHybrid1SC.HittedByPunchChange())
@@ -1278,7 +1278,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid1SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -1289,7 +1289,7 @@ public class BattleManager : MonoBehaviour
                 {
                     playerRender.sprite = punch;
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(deepOneHybrid1Ob.transform.position.x - 5.5f, deepOneHybrid1Ob.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
@@ -1304,7 +1304,7 @@ public class BattleManager : MonoBehaviour
                     .Join(deepOneHybrid1Ob.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid1SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -1322,7 +1322,7 @@ public class BattleManager : MonoBehaviour
                 {
                     playerRender.sprite = punch;
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => deepOneHybrid2SC.HittedByPunchChange())
@@ -1332,7 +1332,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid2SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -1343,7 +1343,7 @@ public class BattleManager : MonoBehaviour
                 {
                     playerRender.sprite = punch;
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(deepOneHybrid2Ob.transform.position.x - 5.5f, deepOneHybrid2Ob.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
@@ -1358,7 +1358,7 @@ public class BattleManager : MonoBehaviour
                     .Join(deepOneHybrid2Ob.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid2SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => battlePlayer.resetPlayer())
@@ -1376,7 +1376,7 @@ public class BattleManager : MonoBehaviour
                 {
                     playerRender.sprite = punch;
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => deepOneHybrid3SC.HittedByPunchChange())
@@ -1386,7 +1386,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid3SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -1397,7 +1397,7 @@ public class BattleManager : MonoBehaviour
                 {
                     playerRender.sprite = punch;
                     cam.transform.DORotate(new Vector3(0, 0, 5), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(deepOneHybrid3Ob.transform.position.x - 5.5f, deepOneHybrid3Ob.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
@@ -1412,7 +1412,7 @@ public class BattleManager : MonoBehaviour
                     .Join(deepOneHybrid3Ob.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid3SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -1429,7 +1429,7 @@ public class BattleManager : MonoBehaviour
                 {
                     playerRender.sprite = punch;
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => deepOneHybrid4SC.HittedByPunchChange())
@@ -1439,7 +1439,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid4SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => CamRotate(0))
@@ -1451,7 +1451,7 @@ public class BattleManager : MonoBehaviour
                 {
                     playerRender.sprite = punch;
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(deepOneHybrid4Ob.transform.position.x - 5.5f, deepOneHybrid4Ob.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
@@ -1466,7 +1466,7 @@ public class BattleManager : MonoBehaviour
                     .Join(deepOneHybrid4Ob.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOneHybrid4SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => battlePlayer.resetPlayer())
@@ -1484,7 +1484,7 @@ public class BattleManager : MonoBehaviour
                 {
                     playerRender.sprite = punch;
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => deepOne1SC.HittedByPunchChange())
@@ -1494,7 +1494,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOne1SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => TurnEnd())
@@ -1506,7 +1506,7 @@ public class BattleManager : MonoBehaviour
                 {
                     playerRender.sprite = punch;
                     cam.transform.DORotate(new Vector3(0, 0, 1), 0.5f);
-                    // ¿¬Ãâ »ğÀÔ
+                    // ì—°ì¶œ ì‚½ì…
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(deepOne1Ob.transform.position.x - 5.5f, deepOne1Ob.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
@@ -1521,7 +1521,7 @@ public class BattleManager : MonoBehaviour
                     .Join(deepOne1Ob.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                    .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                    .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                     .AppendCallback(() => deepOne1SC.StandChange())
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                     .AppendCallback(() => battlePlayer.resetPlayer())
@@ -1566,7 +1566,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -1585,7 +1585,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -1604,7 +1604,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -1643,7 +1643,7 @@ public class BattleManager : MonoBehaviour
                    .Join(deepOneHybrid1Ob.transform.DOShakePosition(1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                   .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                   .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                    .AppendCallback(() => deepOneHybrid1SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                    .AppendCallback(() => TurnEnd())
@@ -1666,7 +1666,7 @@ public class BattleManager : MonoBehaviour
                    .Join(deepOneHybrid1Ob.transform.DOShakePosition(1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                   .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                   .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                    .AppendCallback(() => deepOneHybrid1SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                    .AppendCallback(() => TurnEnd())
@@ -1689,7 +1689,7 @@ public class BattleManager : MonoBehaviour
                    .Join(deepOneHybrid1Ob.transform.DOShakePosition(1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                   .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                   .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                    .AppendCallback(() => deepOneHybrid1SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                    .AppendCallback(() => TurnEnd())
@@ -1730,7 +1730,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid2SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -1749,7 +1749,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid2SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -1768,7 +1768,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid2SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -1807,7 +1807,7 @@ public class BattleManager : MonoBehaviour
                    .Join(deepOneHybrid2Ob.transform.DOShakePosition(1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                   .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                   .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                    .AppendCallback(() => deepOneHybrid2SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                    .AppendCallback(() => battlePlayer.resetPlayer())
@@ -1831,7 +1831,7 @@ public class BattleManager : MonoBehaviour
                    .Join(deepOneHybrid2Ob.transform.DOShakePosition(1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                   .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                   .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                    .AppendCallback(() => deepOneHybrid2SC.StandChange())
                    .AppendCallback(() => battlePlayer.resetPlayer())
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
@@ -1855,7 +1855,7 @@ public class BattleManager : MonoBehaviour
                    .Join(deepOneHybrid2Ob.transform.DOShakePosition(1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                   .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                   .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                    .AppendCallback(() => deepOneHybrid2SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                    .AppendCallback(() => battlePlayer.resetPlayer())
@@ -1897,7 +1897,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid3SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -1916,7 +1916,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid3SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -1935,7 +1935,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid3SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -1974,7 +1974,7 @@ public class BattleManager : MonoBehaviour
                    .Join(deepOneHybrid3Ob.transform.DOShakePosition(1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                   .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                   .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                    .AppendCallback(() => deepOneHybrid3SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                    .AppendCallback(() => TurnEnd())
@@ -1997,7 +1997,7 @@ public class BattleManager : MonoBehaviour
                    .Join(deepOneHybrid3Ob.transform.DOShakePosition(1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                   .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                   .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                    .AppendCallback(() => deepOneHybrid3SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                    .AppendCallback(() => TurnEnd())
@@ -2020,7 +2020,7 @@ public class BattleManager : MonoBehaviour
                    .Join(deepOneHybrid3Ob.transform.DOShakePosition(1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                   .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                   .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                    .AppendCallback(() => deepOneHybrid3SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                    .AppendCallback(() => TurnEnd())
@@ -2062,7 +2062,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid4SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => CamRotate(0))
@@ -2082,7 +2082,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid4SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => CamRotate(0))
@@ -2102,7 +2102,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid4SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => CamRotate(0))
@@ -2142,7 +2142,7 @@ public class BattleManager : MonoBehaviour
                    .Join(deepOneHybrid4Ob.transform.DOShakePosition(1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                   .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                   .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                    .AppendCallback(() => deepOneHybrid4SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                    .AppendCallback(() => battlePlayer.resetPlayer())
@@ -2167,7 +2167,7 @@ public class BattleManager : MonoBehaviour
                    .Join(deepOneHybrid4Ob.transform.DOShakePosition(1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                   .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                   .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                    .AppendCallback(() => deepOneHybrid4SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                    .AppendCallback(() => battlePlayer.resetPlayer())
@@ -2192,7 +2192,7 @@ public class BattleManager : MonoBehaviour
                    .Join(deepOneHybrid4Ob.transform.DOShakePosition(1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                   .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                   .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                    .AppendCallback(() => deepOneHybrid4SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                    .AppendCallback(() => battlePlayer.resetPlayer())
@@ -2234,7 +2234,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOne1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2254,7 +2254,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOne1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2274,7 +2274,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOne1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2314,7 +2314,7 @@ public class BattleManager : MonoBehaviour
                    .Join(deepOne1Ob.transform.DOShakePosition(1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                   .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                   .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                    .AppendCallback(() => deepOne1SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                    .AppendCallback(() => battlePlayer.resetPlayer())
@@ -2339,7 +2339,7 @@ public class BattleManager : MonoBehaviour
                    .Join(deepOne1Ob.transform.DOShakePosition(1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                   .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                   .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                    .AppendCallback(() => deepOne1SC.StandChange())
                    .AppendCallback(() => battlePlayer.resetPlayer())
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
@@ -2364,7 +2364,7 @@ public class BattleManager : MonoBehaviour
                    .Join(deepOne1Ob.transform.DOShakePosition(1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
-                   .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                   .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                    .AppendCallback(() => deepOne1SC.StandChange())
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                    .AppendCallback(() => battlePlayer.resetPlayer())
@@ -2415,7 +2415,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2434,7 +2434,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2453,7 +2453,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2472,7 +2472,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2505,7 +2505,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Attack"))//1D6
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2518,7 +2518,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2531,7 +2531,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2544,7 +2544,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2590,7 +2590,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid2SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2609,7 +2609,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid2SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2628,7 +2628,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid2SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2647,7 +2647,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid2SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2680,7 +2680,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Attack"))//1D6
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid2SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2693,7 +2693,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid2SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2706,7 +2706,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid2SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2719,7 +2719,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid2SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2764,7 +2764,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid3SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2783,7 +2783,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid3SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2802,7 +2802,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid3SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2821,7 +2821,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid3SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2854,7 +2854,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Attack"))//1D6
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid3SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2867,7 +2867,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid3SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2880,7 +2880,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid3SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2893,7 +2893,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid3SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -2938,7 +2938,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid4SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => CamRotate(0))
@@ -2958,7 +2958,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid4SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => CamRotate(0))
@@ -2978,7 +2978,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid4SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => CamRotate(0))
@@ -2998,7 +2998,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid4SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => CamRotate(0))
@@ -3033,7 +3033,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Attack"))//1D6
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid4SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => CamRotate(0))
@@ -3047,7 +3047,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid4SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => CamRotate(0))
@@ -3061,7 +3061,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid4SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => CamRotate(0))
@@ -3075,7 +3075,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid4SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => CamRotate(0))
@@ -3121,7 +3121,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOne1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3141,7 +3141,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOne1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3161,7 +3161,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOne1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3181,7 +3181,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOne1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3215,7 +3215,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Attack"))//1D6
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOne1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3229,7 +3229,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOne1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3243,7 +3243,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOne1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3257,7 +3257,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Attack"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOne1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3298,7 +3298,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3316,7 +3316,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3341,7 +3341,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3354,7 +3354,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3392,7 +3392,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid2SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3410,7 +3410,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid2SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3435,7 +3435,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid2SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3448,7 +3448,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid2SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3485,7 +3485,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid3SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3503,7 +3503,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid3SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3528,7 +3528,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid3SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3541,7 +3541,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid3SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3578,7 +3578,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid4SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => CamRotate(0))
@@ -3597,7 +3597,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid4SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => CamRotate(0))
@@ -3623,7 +3623,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid4SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => CamRotate(0))
@@ -3637,7 +3637,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOneHybrid4SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => CamRotate(0))
@@ -3674,7 +3674,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOne1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3693,7 +3693,7 @@ public class BattleManager : MonoBehaviour
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOne1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3719,7 +3719,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOne1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3733,7 +3733,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("DeftNess_Miss"))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
-                        .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                        .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                         .AppendCallback(() => deepOne1SC.StandChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                         .AppendCallback(() => TurnEnd())
@@ -3756,7 +3756,7 @@ public class BattleManager : MonoBehaviour
             {
                 deepOneHybrid3SC.DeepOneHybridPunchChange();
                 cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
-                // ¿¬Ãâ »ğÀÔ
+                // ì—°ì¶œ ì‚½ì…
                 Sequence sequence = DOTween.Sequence()
                 .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
                 .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
@@ -3765,7 +3765,7 @@ public class BattleManager : MonoBehaviour
                 .Join(cam.transform.DOShakePosition(1, 2, 90))
                 .Join(player.transform.DOShakePosition(1, 2, 90))
                 .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
-                .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                 .AppendCallback(() => deepOneHybrid3SC.StandChange())
                 .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                 .AppendCallback(() => battlePlayer.resetPlayer())
@@ -3778,11 +3778,11 @@ public class BattleManager : MonoBehaviour
             {
                 deepOneHybrid3SC.DeepOneHybridPunchChange();
                 cam.transform.DORotate(new Vector3(0, 0, -5), 0.5f);
-                // ¿¬Ãâ »ğÀÔ
+                // ì—°ì¶œ ì‚½ì…
                 Sequence sequence = DOTween.Sequence()
                 .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
                 .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
-                .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                 .AppendCallback(() => deepOneHybrid3SC.StandChange())
                 .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                 .AppendCallback(() => TurnEnd())
@@ -3800,7 +3800,7 @@ public class BattleManager : MonoBehaviour
             {
                 deepOne1SC.DeepOnePoisonChange();
                 cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
-                // ¿¬Ãâ »ğÀÔ
+                // ì—°ì¶œ ì‚½ì…
                 Sequence sequence = DOTween.Sequence()
                 .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
                 .AppendCallback(() => DataBaseManager.posionDebuff = 3)
@@ -3809,7 +3809,7 @@ public class BattleManager : MonoBehaviour
                 .Join(cam.transform.DOShakePosition(1, 2, 90))
                 .Join(player.transform.DOShakePosition(1, 2, 90))
                 .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
-                .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                 .AppendCallback(() => deepOne1SC.StandChange())
                 .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                 .AppendCallback(() => battlePlayer.resetPlayer())
@@ -3822,11 +3822,11 @@ public class BattleManager : MonoBehaviour
             {
                 deepOne1SC.DeepOneHybridPunchChange();
                 cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
-                // ¿¬Ãâ »ğÀÔ
+                // ì—°ì¶œ ì‚½ì…
                 Sequence sequence = DOTween.Sequence()
                 .AppendCallback(() => SoundManager.Instance.BattleSound("Evaision"))
                 .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
-                .AppendInterval(0.5f) // 2ÃÊ ´ë±â
+                .AppendInterval(0.5f) // 2ì´ˆ ëŒ€ê¸°
                 .AppendCallback(() => deepOne1SC.StandChange())
                 .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
                 .AppendCallback(() => TurnEnd())

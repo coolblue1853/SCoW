@@ -18,9 +18,9 @@ public class ChangeMapButton : MonoBehaviour
         }
         else if (DataBaseManager.isDebuffCognitiveDisorder == true && DataBaseManager.nowPlace != "BattleRoad")
         {
-            if (DataBaseManager.timeCount % 4 == 1) // ¾ÆÄ§
+            if (DataBaseManager.timeCount % 4 == 1) // ì•„ì¹¨
             {
-                Debug.Log("ÀÎÁöÀå¾Ö ÀÛµ¿Áß");
+                Debug.Log("ì¸ì§€ì¥ì•  ì‘ë™ì¤‘");
                 List<string> unityList = new List<string> { "Client'shouse", "DailyNews", "University", "Riverside", "Hospital", "Policeoffice", "Slum", "Gunshop" };
                 if (DataBaseManager.intelSewageMaintenanceOffice1 == true)
                 {
@@ -34,7 +34,7 @@ public class ChangeMapButton : MonoBehaviour
                 string selectedElement = unityList[randomIndex];
                 DataBaseManager.nowPlace = selectedElement;
             }
-            else if (DataBaseManager.timeCount % 4 == 2) // ³·
+            else if (DataBaseManager.timeCount % 4 == 2) // ë‚®
             {
                 List<string> unityList = new List<string> { "Client'shouse", "DailyNews", "University", "Riverside", "Hospital", "Policeoffice", "Slum", "Gunshop" };
                 if (DataBaseManager.intelSewageMaintenanceOffice1 == true)
@@ -49,7 +49,7 @@ public class ChangeMapButton : MonoBehaviour
                 string selectedElement = unityList[randomIndex];
                 DataBaseManager.nowPlace = selectedElement;
             }
-            else if (DataBaseManager.timeCount % 4 == 3) // ¿ÀÈÄ
+            else if (DataBaseManager.timeCount % 4 == 3) // ì˜¤í›„
             {
                 List<string> unityList = new List<string> { "DetectiveOffice", "Bar" };
                 if (DataBaseManager.intelSewageMaintenanceOffice1 == true)
@@ -64,7 +64,7 @@ public class ChangeMapButton : MonoBehaviour
                 string selectedElement = unityList[randomIndex];
                 DataBaseManager.nowPlace = selectedElement;
             }
-            else if (DataBaseManager.timeCount % 4 == 0) // ¿ÀÈÄ
+            else if (DataBaseManager.timeCount % 4 == 0) // ì˜¤í›„
             {
                 DataBaseManager.nowPlace = "DetectiveOffice";
             }

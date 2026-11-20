@@ -19,7 +19,7 @@ public class DirectingManager : MonoBehaviour
     public GameObject battleObject;
     Vector2 battlePlayerRoad = new Vector3(-213.58f, 209.2012f);
     Vector2 battlePlayerSewer = new Vector3(-220.9f, 204.5f);
-    float chInRommSize = 2.383215f; // -ÀÌ¸é ¿ŞÂÊ +¸é ¿À¸¥ÂÊ
+    float chInRommSize = 2.383215f; // -ì´ë©´ ì™¼ìª½ +ë©´ ì˜¤ë¥¸ìª½
     Vector2 playerOutsideTo1st = new Vector3(-1217.79f, 2.13f);
     Vector3 CamOutsideTo1st = new Vector3(-1198, 1.5f, -15);
     Vector2 player1stTo2st = new Vector3(-1380.6f, 7f);
@@ -37,9 +37,9 @@ public class DirectingManager : MonoBehaviour
     private static DirectingManager instance = null;
     public GameObject player;
     public GameObject camera;
-    //º´¿ø
+    //ë³‘ì›
     public GameObject kateNoon;
-    //Å½Á¤»ç¹«¼Ò
+    //íƒì •ì‚¬ë¬´ì†Œ
     public GameObject sitPlayer;
     public GameObject sitPlayer2;
     public GameObject sitNoNewspaperPlayer;
@@ -66,8 +66,8 @@ public class DirectingManager : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // ¾ÀÀÌ È£ÃâµÉ ¶§¸¶´Ù ÃÊ±âÈ­ÇÒ ÄÚµå¸¦ ¿©±â¿¡ ÀÛ¼ºÇÏ¼¼¿ä.
-        /* -- ´Ù½Ã È°¼ºÈ­ ÇØ ÁÖ¾î¾ß ÇÔ         */
+        // ì”¬ì´ í˜¸ì¶œë  ë•Œë§ˆë‹¤ ì´ˆê¸°í™”í•  ì½”ë“œë¥¼ ì—¬ê¸°ì— ì‘ì„±í•˜ì„¸ìš”.
+        /* -- ë‹¤ì‹œ í™œì„±í™” í•´ ì£¼ì–´ì•¼ í•¨         */
         if (scene.name == "Main")
         {
             backgroundOb.SetActive(true);
@@ -76,7 +76,7 @@ public class DirectingManager : MonoBehaviour
             player.transform.position = playerStartPos;
             camera.transform.position = camStartPos;
             DataBaseManager.nowPlace = "DetectiveOffice";
-            //¿ø·¡¶ó¸é È°¼ºÈ­ ÇØ ÁÖ¾î¾ß ÇÔ.
+            //ì›ë˜ë¼ë©´ í™œì„±í™” í•´ ì£¼ì–´ì•¼ í•¨.
             FadingBackGround.Instance.FadeOut();
             Invoke("StartGame", 2f);
             DataBaseManager.isDirecting = true;
@@ -151,7 +151,7 @@ public class DirectingManager : MonoBehaviour
             if (DataBaseManager.isActiveDialog1 == false && DataBaseManager.isActiveDialog2 == false)
             {
                 SoundManager.Instance.NockSound();
-                // ³ëÅ©¼Ò¸® ¹ßµ¿
+                // ë…¸í¬ì†Œë¦¬ ë°œë™
                 DataBaseManager.isActiveDialog2 = true;
                 Invoke("AfterNockSound", 1);
             }
@@ -183,7 +183,7 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.fstDetectiveEndSelect = false;
             DetectiveOfficeFadeOut("EndSelectDirecting");
         }
-        // ÀÇ·ÚÀÚÀÇ Áı
+        // ì˜ë¢°ìì˜ ì§‘
         if (DataBaseManager.firstClientsHouse == true && DataBaseManager.timeCount < 6)
         {
             DataBaseManager.firstClientsHouse = false;
@@ -203,7 +203,7 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.aidenKeywordCount = 2;
             DetectiveOfficeFadeIn("Go2stForce");
         }
-        //°­°¡
+        //ê°•ê°€
         if (DataBaseManager.sewerObservation == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.sewerObservation = false;
@@ -214,7 +214,7 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.sewerSan = false;
             Rollet.Instance.SetRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "dialog");
         }
-        //º´¿ø
+        //ë³‘ì›
         if (DataBaseManager.kateDisapear == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.kateDisapear = false;
@@ -354,7 +354,7 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.daveCheck = false;
             selectionUIManager.Instance.EndDialog();
         }
-        //ÀüÅõ
+        //ì „íˆ¬
         if (DataBaseManager.battleSan == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.battleSan = false;
@@ -377,7 +377,7 @@ public class DirectingManager : MonoBehaviour
             DirectingManager.Instance.EndBattle();
             MapManager.Instance.MapOn();
         }
-        //ÇÏ¼öµµ 
+        //í•˜ìˆ˜ë„ 
         if (DataBaseManager.startSewerBattle == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.startSewerBattle = false;
@@ -388,7 +388,7 @@ public class DirectingManager : MonoBehaviour
         if (DataBaseManager.inSewerStealthSucc == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.inSewerStealthSucc = false;
-            FadingBackGround.Instance.FadeInOut(); // ÀÌ°Å ¹®Á¦ Ã¼Å©
+            FadingBackGround.Instance.FadeInOut(); // ì´ê±° ë¬¸ì œ ì²´í¬
             Invoke("InSewerFabianMove", 1.1f);
         }
         if (DataBaseManager.inSewerStealthFail == true && DataBaseManager.isActiveDialog1 == false)
@@ -416,7 +416,7 @@ public class DirectingManager : MonoBehaviour
             Rollet.Instance.SetRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "DeepOneFirstSan");
         }
 
-        //2ÀÏÂ÷ ³· °­Á¦ ÀÌº¥Æ®
+        //2ì¼ì°¨ ë‚® ê°•ì œ ì´ë²¤íŠ¸
         if (DataBaseManager.secondDetectiveNoonEvent == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.secondDetectiveNoonEvent = false;
@@ -508,7 +508,7 @@ public class DirectingManager : MonoBehaviour
                 Invoke("AfterDaveDeathDailog", 10f);
             }
         }
-        //ÇÏ¼öµµ ³»ºÎ
+        //í•˜ìˆ˜ë„ ë‚´ë¶€
         if (DataBaseManager.insmusRhtoric == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.insmusRhtoric = false;
@@ -540,7 +540,7 @@ public class DirectingManager : MonoBehaviour
         }
         if (DataBaseManager.nowHP <= 0 && DataBaseManager.timeCount > 1)
         {
-            //Á×¾úÀ»¶§
+            //ì£½ì—ˆì„ë•Œ
             //DataBaseManager.EndDemo = true;
         }
         if (DataBaseManager.endingSwin == true && DataBaseManager.isActiveDialog1 == false)
@@ -594,7 +594,7 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.endingDeathCheck = false;
             if (DataBaseManager.enemyDeathCount == 0)
             {
-                // °á¸» Àå¸é »ğÀÔ
+                // ê²°ë§ ì¥ë©´ ì‚½ì…
             }
             else
             {
@@ -604,7 +604,7 @@ public class DirectingManager : MonoBehaviour
                     int LuckInt = Random.Range(1, DataBaseManager.luk);
                     if (LuckInt <= DataBaseManager.luk)
                     {
-                        //  °á¸» Àå¸é »ğÀÔ.
+                        //  ê²°ë§ ì¥ë©´ ì‚½ì….
                     }
                     else
                     {
@@ -671,7 +671,7 @@ public class DirectingManager : MonoBehaviour
         InteractionController.Instance.Start2ndNoonEvent("NoonEvent_ClientHouse");
         DataBaseManager.storyDirecting = false;
     }
-    // °­Á¦ ÀÌº¥Æ®
+    // ê°•ì œ ì´ë²¤íŠ¸
     public void MoveToClient()
     {
         MapManager.Instance.MapOn();
@@ -682,7 +682,7 @@ public class DirectingManager : MonoBehaviour
         InteractionController.Instance.Start2ndNoonEvent("NoonEvent_FirstDailog_Detective");
     }
 
-    //2ÀÏÂ÷
+    //2ì¼ì°¨
     public void ScendDayStartDialog()
     {
         if (DataBaseManager.intelNightmare3 == true || DataBaseManager.intelNightmare3 == true)
@@ -708,7 +708,7 @@ public class DirectingManager : MonoBehaviour
     }
 
 
-    // 1ÀÏÂ÷
+    // 1ì¼ì°¨
     public void BeforeBattle()
     {
         battleObject.transform.localPosition = battlePlayerRoad;
@@ -755,7 +755,7 @@ public class DirectingManager : MonoBehaviour
         InteractionController.Instance.BattleDialog("start");
     }
 
-    //ÀüÅõ 
+    //ì „íˆ¬ 
     public void GotoBattle()
     {
         roadBattleBackground.SetActive(true);
@@ -881,7 +881,7 @@ public class DirectingManager : MonoBehaviour
         }
     }
 
-    //º´¿ø ¿¬Ãâ
+    //ë³‘ì› ì—°ì¶œ
     public void Kate_Disapear()
     {
         DataBaseManager.isDirecting = true;
@@ -893,7 +893,7 @@ public class DirectingManager : MonoBehaviour
         kateNoon.SetActive(false);
         DataBaseManager.isDirecting = false;
     }
-    // 1ÀÏÂ÷ ³· ÀÇ·ÚÀÚÀÇ Áı ¿¬Ãâ
+    // 1ì¼ì°¨ ë‚® ì˜ë¢°ìì˜ ì§‘ ì—°ì¶œ
     public void DoorNocking()
     {
         DataBaseManager.isDirecting = true;
@@ -952,7 +952,7 @@ public class DirectingManager : MonoBehaviour
         DataBaseManager.isDirecting = false;
         InteractionController.Instance.Start1stClientsHouse("Aiden_key_FailForce");
     }
-    // 1ÀÏÂ÷ ¿ÀÀü Å½Á¤»ç¹«¼Ò ¿¬Ãâ
+    // 1ì¼ì°¨ ì˜¤ì „ íƒì •ì‚¬ë¬´ì†Œ ì—°ì¶œ
     void AfterNockSound()
     {
         DataBaseManager.isDirecting = false;
@@ -1185,16 +1185,16 @@ public class DirectingManager : MonoBehaviour
         {
             int randomIndex = 0;
             System.Action selectedFunction = functionList[randomIndex];
-            // ¼±ÅÃµÈ ÇÔ¼ö ½ÇÇà
+            // ì„ íƒëœ í•¨ìˆ˜ ì‹¤í–‰
             selectedFunction();
-            // ½ÇÇàµÈ ÇÔ¼ö´Â ¸®½ºÆ®¿¡¼­ Á¦°Å
+            // ì‹¤í–‰ëœ í•¨ìˆ˜ëŠ” ë¦¬ìŠ¤íŠ¸ì—ì„œ ì œê±°
             functionList.RemoveAt(randomIndex);
         }
         else
         {
             DataBaseManager.endDay = true;
         }
-        // ÇÔ¼ö ¸®½ºÆ®¿¡¼­ ¹«ÀÛÀ§·Î ÇÔ¼ö ¼±ÅÃ
+        // í•¨ìˆ˜ ë¦¬ìŠ¤íŠ¸ì—ì„œ ë¬´ì‘ìœ„ë¡œ í•¨ìˆ˜ ì„ íƒ
     }
 
     private void FabFirstDialog()

@@ -10,7 +10,7 @@ public class MapManager : MonoBehaviour
     public Animator chaingUiAnim;
     public GameObject upper;
     public GameObject downer;
-    float chInRommSize = 2.383215f; // -ÀÌ¸é ¿ŞÂÊ +¸é ¿À¸¥ÂÊ
+    float chInRommSize = 2.383215f; // -ì´ë©´ ì™¼ìª½ +ë©´ ì˜¤ë¥¸ìª½
     public GameObject chaingUi;
     public GameObject ring1;
     public GameObject ring2;
@@ -21,7 +21,7 @@ public class MapManager : MonoBehaviour
     public GameObject mapChainingUI;
     public GameObject mapUI;
 
-    //´ëÇĞ±³
+    //ëŒ€í•™êµ
     public GameObject student;
 
     Vector3 playerSewerOfficeMove = new Vector3(-1202.4f, -81f);

@@ -6,7 +6,7 @@ public class Intel_ObtoUI : MonoBehaviour
     private static Intel_ObtoUI instance = null;
     public GameObject arrow;
     public int keywordCounter;
-    //°ÔÀÓ ¸Å´ÏÀú ÀÎ½ºÅÏ½º¿¡ Á¢±ÙÇÒ ¼ö ÀÖ´Â ÇÁ·ÎÆÛÆ¼. staticÀÌ¹Ç·Î ´Ù¸¥ Å¬·¡½º¿¡¼­ ¸¾²¯ È£ÃâÇÒ ¼ö ÀÖ´Ù.
+    //ê²Œì„ ë§¤ë‹ˆì € ì¸ìŠ¤í„´ìŠ¤ì— ì ‘ê·¼í•  ìˆ˜ ìˆëŠ” í”„ë¡œí¼í‹°. staticì´ë¯€ë¡œ ë‹¤ë¥¸ í´ë˜ìŠ¤ì—ì„œ ë§˜ê» í˜¸ì¶œí•  ìˆ˜ ìˆë‹¤.
     public bool canKeyword;
     public bool canJudge;
     public string name;

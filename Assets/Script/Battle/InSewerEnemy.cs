@@ -16,7 +16,7 @@ public class InSewerEnemy : MonoBehaviour
                 {
 
                 }
-                else // Àû ÆÇÁ¤ ¼º°ø
+                else // ì  íŒì • ì„±ê³µ
                 {
                     InteractionController.Instance.InSewerDialog("Sewer_DisgauseFail");
                 }

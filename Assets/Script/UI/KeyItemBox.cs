@@ -90,7 +90,7 @@ public class KeyItemBox : MonoBehaviour
             Rollet.Instance.SetRollet("Coat : Disguise", "Disguise", DataBaseManager.disguisePoint, "Item");
             sisUI.SetActive(false);
         }
-        //¿À·¡µÈ Áöµµ -> »ç¿ëÇÏ¸é ¾Æ¿¹ ÁöµµÃ¢À¸·Î ¹Ù·Î º¸³»ÁÖ±â.
+        //ì˜¤ëž˜ëœ ì§€ë„ -> ì‚¬ìš©í•˜ë©´ ì•„ì˜ˆ ì§€ë„ì°½ìœ¼ë¡œ ë°”ë¡œ ë³´ë‚´ì£¼ê¸°.
     }
     // Update is called once per frame
     void Update()

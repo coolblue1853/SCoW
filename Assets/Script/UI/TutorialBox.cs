@@ -4,38 +4,38 @@ using UnityEngine;
 using UnityEngine.Serialization;
 public class TutorialBox : MonoBehaviour
 {
-    public GameObject[] childObjects; // ÀÚ½Ä ¿ÀºêÁ§Æ®µéÀ» ¹è¿­·Î ÀúÀåÇÕ´Ï´Ù.
-    private int currentIndex = 0; // ÇöÀç ÀÚ½Ä ¿ÀºêÁ§Æ®ÀÇ ÀÎµ¦½º¸¦ ÃßÀûÇÕ´Ï´Ù.
+    public GameObject[] childObjects; // ìì‹ ì˜¤ë¸Œì íŠ¸ë“¤ì„ ë°°ì—´ë¡œ ì €ì¥í•©ë‹ˆë‹¤.
+    private int currentIndex = 0; // í˜„ì¬ ìì‹ ì˜¤ë¸Œì íŠ¸ì˜ ì¸ë±ìŠ¤ë¥¼ ì¶”ì í•©ë‹ˆë‹¤.
 
     private void Start()
     {
-        // ¸ğµç ÀÚ½Ä ¿ÀºêÁ§Æ®¸¦ ºñÈ°¼ºÈ­ÇÕ´Ï´Ù.
+        // ëª¨ë“  ìì‹ ì˜¤ë¸Œì íŠ¸ë¥¼ ë¹„í™œì„±í™”í•©ë‹ˆë‹¤.
         foreach (GameObject childObject in childObjects)
         {
             childObject.SetActive(false);
         }
-        // Ã¹ ¹øÂ° ÀÚ½Ä ¿ÀºêÁ§Æ®¸¦ È°¼ºÈ­ÇÕ´Ï´Ù.
+        // ì²« ë²ˆì§¸ ìì‹ ì˜¤ë¸Œì íŠ¸ë¥¼ í™œì„±í™”í•©ë‹ˆë‹¤.
         childObjects[currentIndex].SetActive(true);
     }
 
     public void OnButtonClick()
     {
         SoundManager.Instance.ClickSoundPlay();
-        // ÇöÀç ÀÚ½Ä ¿ÀºêÁ§Æ®¸¦ ºñÈ°¼ºÈ­ÇÕ´Ï´Ù.
+        // í˜„ì¬ ìì‹ ì˜¤ë¸Œì íŠ¸ë¥¼ ë¹„í™œì„±í™”í•©ë‹ˆë‹¤.
         childObjects[currentIndex].SetActive(false);
-        // ´ÙÀ½ ÀÚ½Ä ¿ÀºêÁ§Æ®ÀÇ ÀÎµ¦½º¸¦ °è»êÇÕ´Ï´Ù.
+        // ë‹¤ìŒ ìì‹ ì˜¤ë¸Œì íŠ¸ì˜ ì¸ë±ìŠ¤ë¥¼ ê³„ì‚°í•©ë‹ˆë‹¤.
         currentIndex = (currentIndex + 1) % childObjects.Length;
-        // ´ÙÀ½ ÀÚ½Ä ¿ÀºêÁ§Æ®¸¦ È°¼ºÈ­ÇÕ´Ï´Ù.
+        // ë‹¤ìŒ ìì‹ ì˜¤ë¸Œì íŠ¸ë¥¼ í™œì„±í™”í•©ë‹ˆë‹¤.
         childObjects[currentIndex].SetActive(true);
     }
     public void OnBackButtonClick()
     {
         SoundManager.Instance.ClickSoundPlay();
-        // ÇöÀç ÀÚ½Ä ¿ÀºêÁ§Æ®¸¦ ºñÈ°¼ºÈ­ÇÕ´Ï´Ù.
+        // í˜„ì¬ ìì‹ ì˜¤ë¸Œì íŠ¸ë¥¼ ë¹„í™œì„±í™”í•©ë‹ˆë‹¤.
         childObjects[currentIndex].SetActive(false);
-        // ÀÌÀü ÀÚ½Ä ¿ÀºêÁ§Æ®ÀÇ ÀÎµ¦½º¸¦ °è»êÇÕ´Ï´Ù.
+        // ì´ì „ ìì‹ ì˜¤ë¸Œì íŠ¸ì˜ ì¸ë±ìŠ¤ë¥¼ ê³„ì‚°í•©ë‹ˆë‹¤.
         currentIndex = (currentIndex - 1 + childObjects.Length) % childObjects.Length;
-        // ÀÌÀü ÀÚ½Ä ¿ÀºêÁ§Æ®¸¦ È°¼ºÈ­ÇÕ´Ï´Ù.
+        // ì´ì „ ìì‹ ì˜¤ë¸Œì íŠ¸ë¥¼ í™œì„±í™”í•©ë‹ˆë‹¤.
         childObjects[currentIndex].SetActive(true);
     }
 }

@@ -302,7 +302,7 @@ public class setSkill : MonoBehaviour
         }
     }
 
-    // Èû°ü·Ã ±â¼úµé 
+    // íž˜ê´€ë ¨ ê¸°ìˆ ë“¤ 
     public void RandStr()
     {
         SoundManager.Instance.ClickSoundPlay();

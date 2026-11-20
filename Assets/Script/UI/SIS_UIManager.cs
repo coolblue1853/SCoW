@@ -82,8 +82,8 @@ public class SIS_UIManager : MonoBehaviour
     public GameObject disorder2;
     public GameObject disorder3;
     public GameObject itemBoxNomal;
-    string inputString; // »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ¹®ÀÚ¿­
-    string[] resultArray; // ¹®ÀÚ¿­À» ÀúÀåÇÒ ¹è¿­
+    string inputString; // ì‚¬ìš©ìê°€ ì…ë ¥í•œ ë¬¸ìì—´
+    string[] resultArray; // ë¬¸ìì—´ì„ ì €ì¥í•  ë°°ì—´
     int arrayInt = 0;
     public GameObject visionLoss;
     public GameObject thinWallets;
@@ -720,14 +720,14 @@ public class SIS_UIManager : MonoBehaviour
     }
     public void ActivateObjectWithName(GameObject subject, string objectName)
     {
-        // ÀÚ½Ä ¿ÀºêÁ§Æ®µéÀ» ¸ğµÎ °¡Á®¿É´Ï´Ù.
+        // ìì‹ ì˜¤ë¸Œì íŠ¸ë“¤ì„ ëª¨ë‘ ê°€ì ¸ì˜µë‹ˆë‹¤.
         Transform[] children = subject.GetComponentsInChildren<Transform>(true);
         foreach (Transform child in children)
         {
-            // ÀÚ½Ä ¿ÀºêÁ§Æ®ÀÇ ÀÌ¸§ÀÌ ÁöÁ¤ÇÑ ÀÌ¸§°ú ÀÏÄ¡ÇÏ´ÂÁö È®ÀÎÇÕ´Ï´Ù.
+            // ìì‹ ì˜¤ë¸Œì íŠ¸ì˜ ì´ë¦„ì´ ì§€ì •í•œ ì´ë¦„ê³¼ ì¼ì¹˜í•˜ëŠ”ì§€ í™•ì¸í•©ë‹ˆë‹¤.
             if (child.name == objectName && child.gameObject.activeSelf == false)
             {
-                // ¿ÀºêÁ§Æ®¸¦ È°¼ºÈ­ÇÕ´Ï´Ù.
+                // ì˜¤ë¸Œì íŠ¸ë¥¼ í™œì„±í™”í•©ë‹ˆë‹¤.
                 child.transform.SetAsLastSibling();
                 child.gameObject.SetActive(true);
                 return;
@@ -736,27 +736,27 @@ public class SIS_UIManager : MonoBehaviour
     }
     public void DeactivateObjectWithName(GameObject subject, string objectName)
     {
-        // ÀÚ½Ä ¿ÀºêÁ§Æ®µéÀ» ¸ğµÎ °¡Á®¿É´Ï´Ù.
+        // ìì‹ ì˜¤ë¸Œì íŠ¸ë“¤ì„ ëª¨ë‘ ê°€ì ¸ì˜µë‹ˆë‹¤.
         Transform[] children = subject.GetComponentsInChildren<Transform>(true);
 
         foreach (Transform child in children)
         {
-            // ÀÚ½Ä ¿ÀºêÁ§Æ®ÀÇ ÀÌ¸§ÀÌ ÁöÁ¤ÇÑ ÀÌ¸§°ú ÀÏÄ¡ÇÏ´ÂÁö È®ÀÎÇÕ´Ï´Ù.
+            // ìì‹ ì˜¤ë¸Œì íŠ¸ì˜ ì´ë¦„ì´ ì§€ì •í•œ ì´ë¦„ê³¼ ì¼ì¹˜í•˜ëŠ”ì§€ í™•ì¸í•©ë‹ˆë‹¤.
             if (child.name == objectName)
             {
-                // ¿ÀºêÁ§Æ®¸¦ È°¼ºÈ­ÇÕ´Ï´Ù.
+                // ì˜¤ë¸Œì íŠ¸ë¥¼ í™œì„±í™”í•©ë‹ˆë‹¤.
                 child.gameObject.SetActive(false);
                 return;
             }
         }
-        // ÁöÁ¤ÇÑ ÀÌ¸§À» °¡Áø ¿ÀºêÁ§Æ®¸¦ Ã£Áö ¸øÇÑ °æ¿ì¿¡´Â ¿À·ù ¸Ş½ÃÁö¸¦ Ãâ·ÂÇÕ´Ï´Ù.
+        // ì§€ì •í•œ ì´ë¦„ì„ ê°€ì§„ ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¾ì§€ ëª»í•œ ê²½ìš°ì—ëŠ” ì˜¤ë¥˜ ë©”ì‹œì§€ë¥¼ ì¶œë ¥í•©ë‹ˆë‹¤.
         Debug.LogError("Object with name " + objectName + " not found in children.");
     }
 
     public void CareLessActive()
     {
-        // ¹è¿­ ÃÊ±âÈ­
-        int maxWeapons = 13; // ¹«±â¿Í ¾ÆÀÌÅÛÀÇ ÃÑ °³¼ö
+        // ë°°ì—´ ì´ˆê¸°í™”
+        int maxWeapons = 13; // ë¬´ê¸°ì™€ ì•„ì´í…œì˜ ì´ ê°œìˆ˜
         resultArray = new string[maxWeapons];
 
         if (DataBaseManager.shotgun > 0)
