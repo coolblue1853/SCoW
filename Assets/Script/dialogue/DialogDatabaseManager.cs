@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using SCoW.Core.State;
 public class DialogDatabaseManager : MonoBehaviour
 {
     // 장소 CSV 를 다시 읽을 차례인가. 장소 도착 코드가 true 로 만든다. 옛 매 프레임 Update 폴링은 없앴다(C-2 P12):
@@ -15,6 +16,7 @@ public class DialogDatabaseManager : MonoBehaviour
         set
         {
             _check = value;
+            // 비활성(OnDisable 뒤)이면 요청은 버려진다. 다시 켜질 때 OnEnable 이 _check 를 보고 다시 요청한다.
             if (value) { RequestRefresh(); }
         }
     }
@@ -23,16 +25,23 @@ public class DialogDatabaseManager : MonoBehaviour
 
     private void OnEnable()
     {
-        DataBaseManager.PlaceChanged += RequestRefresh;
-        DataBaseManager.ItemUiChanged += RequestRefresh;
+        GameRoot.StateChanged += OnStateChanged;
         if (_check || DataBaseManager.isItemUI) { RequestRefresh(); }
     }
 
     private void OnDisable()
     {
-        DataBaseManager.PlaceChanged -= RequestRefresh;
-        DataBaseManager.ItemUiChanged -= RequestRefresh;
+        GameRoot.StateChanged -= OnStateChanged;
         _refreshPending = false;
+    }
+
+    // 장소가 바뀌거나 아이템 UI 가 열리고 닫힐 때만 다시 읽는다(옛 PlaceChanged·ItemUiChanged 와 같은 조건, 이제 단일 통지 위). 상태 통째 교체(키 null)는 옛 동작대로 무시.
+    private void OnStateChanged(string key)
+    {
+        if (key == TextKeys.nowPlace || key == DataBaseManager.ItemUiKey)
+        {
+            RequestRefresh();
+        }
     }
 
     private void RequestRefresh()

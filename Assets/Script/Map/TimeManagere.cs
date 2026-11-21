@@ -45,17 +45,7 @@ public class TimeManagere : MonoBehaviour
     public GameObject groundWater;
     public GameObject groundWaterLand2;
 
-    void BulbCheck()
-    {
-        if (detectiveNightBulb.activeSelf == false && DataBaseManager.timeCount % 4 == 0)
-        {
-            detectiveNightBulb.SetActive(true);
-        }
-        else if (detectiveNightBulb.activeSelf == true && DataBaseManager.timeCount % 4 != 0)
-        {
-            detectiveNightBulb.SetActive(false);
-        }
-    }
+    // 월드 동기화(옛 Update·BulbCheck)는 WorldBinder + Core/World/WorldRules 로 옮겼다(C-2 P13). 이 클래스는 하수도 생성·인스펙터 참조를 맡는다.
     public void CloseOldMap()
     {
         oldMap.SetActive(false);
@@ -712,135 +702,6 @@ public class TimeManagere : MonoBehaviour
     }
     public GameObject Manhole;
 
-    void Update()
-    {
-        BulbCheck();
-        if (endDoorDetective.activeSelf == false && DataBaseManager.endingDoorCheck == true)
-        {
-            endDoorDetective.SetActive(true);
-        }
-        if (Manhole.activeSelf == false && DataBaseManager.deadBodyGotoSwere == true)
-        {
-            Manhole.SetActive(true);
-        }
-        if (riverActive.activeSelf == true && (DataBaseManager.sewerPicingSucc == true || DataBaseManager.sewerageKey == true))
-        {
-            riverPotal.SetActive(true);
-            riverActive.SetActive(false);
-        }
-        if (DataBaseManager.blackRechSuccCanTalck == true && blackWell.canKeyword == false)
-        {
-            blackWell.canKeyword = true;
-        }
-        if ((DataBaseManager.timeCount % 4 == 1) || (DataBaseManager.timeCount % 4 == 2) && DataBaseManager.sewerDoorOpen == false)
-        {
-            DataBaseManager.sewerDoorOpen = true;
-            sewerDoorPotal.transform.localPosition = new Vector3(-65.10986f, 5, 0);
-            sewerDoorDialog.transform.localPosition = new Vector3(-65.10986f, 33, 0);
-            blackWellOb.transform.localPosition = new Vector3(-224.6f, 4.08f, 0);
-            sewerOfficeWindow.canJudge = false;
-            sewerOfficeLocker.canJudge = false;
-        }
-        if ((DataBaseManager.timeCount % 4 == 3) || (DataBaseManager.timeCount % 4 == 0) && DataBaseManager.sewerDoorOpen == true)
-        {
-            blackWellOb.transform.localPosition = new Vector3(-224.6f, 29.6f, 0);
-            DataBaseManager.sewerDoorOpen = false;
-            if (DataBaseManager.sewerDoorOpenDeftness == true)
-            {
-                sewerDoorPotal.transform.localPosition = new Vector3(-65.10986f, 5, 0);
-                sewerDoorDialog.transform.localPosition = new Vector3(-65.10986f, 33, 0);
-            }
-            else
-            {
-                sewerDoorPotal.transform.localPosition = new Vector3(-65.10986f, 33, 0);
-                sewerDoorDialog.transform.localPosition = new Vector3(-65.10986f, 5, 0);
-            }
-
-            if (DataBaseManager.tryBrokenWindow == true)
-            {
-                sewerOfficeWindow.canJudge = false;
-            }
-            else
-            {
-                sewerOfficeWindow.canJudge = true;
-            }
-            if (DataBaseManager.tryObserLokcer == true)
-            {
-                sewerOfficeLocker.canJudge = false;
-            }
-            else
-            {
-                sewerOfficeLocker.canJudge = true;
-            }
-        }
-        if (DataBaseManager.sewerDoorOpenCheck == true)
-        {
-            DataBaseManager.sewerDoorOpenCheck = false;
-            sewerDoorPotal.transform.localPosition = new Vector3(-65.10986f, 5, 0);
-            sewerDoorDialog.transform.localPosition = new Vector3(-65.10986f, 33, 0);
-        }
-
-        if (DataBaseManager.timeCount >= 6 && afNoonEvent.transform.localPosition.y > 30)
-        {
-            bfNoonEvent.transform.localPosition = new Vector3(0, 60, 0);
-            afNoonEvent.transform.localPosition = new Vector3(0, 0, 0);
-            policeLine.transform.localPosition = new Vector3(-58.1f, 4.06f, 0);
-
-            //맵 스프라이트 변경
-
-            clientsHouseRoom.sprite = messClientsHouseRoom;
-        }
-        if (DataBaseManager.timeCount >= 7 && witness.activeSelf == true)
-        {
-            meave.canJudge = true;
-            witness.SetActive(false);
-            deadBody.SetActive(false);
-            site.transform.localPosition = new Vector3(-250.6001f, 0.4400024f, 0);
-            kane.transform.localPosition = new Vector3(253.27f, -79.6f, 0);
-            student.transform.localPosition = new Vector3(-41.67f, 40.9f, 0);
-        }
-        if (DataBaseManager.timeCount >= 11 && meave.canJudge == true)
-        {
-            meave.canJudge = false;
-        }
-        if (DataBaseManager.timeCount == 8 && barPeople1.activeSelf == true)
-        {
-            barPeople1.SetActive(false);
-            barPeople2.SetActive(false);
-        }
-        if (DataBaseManager.albertDeathKeyword && albert.activeSelf == true && DataBaseManager.timeCount % 4 == 0 && DataBaseManager.timeCount >= 8)
-        {
-            DataBaseManager.thirdDayPoliceADialog = true;
-            DataBaseManager.thirdDayPoliceBDialog = true;
-            albert.SetActive(false);
-        }
-        if (DataBaseManager.daveDeathKeyword && dave.activeSelf == true && DataBaseManager.timeCount % 4 == 0)
-        {
-            DataBaseManager.afterDaveDeathFirstSlum = true;
-            dave.SetActive(false);
-        }
-        if (DataBaseManager.swainDeathKeyword && swain.activeSelf == true && DataBaseManager.timeCount % 4 == 0)
-        {
-            journalist.transform.localPosition = new Vector3(-61.37f, 3.4f, 0);
-            swain.SetActive(false);
-        }
-        if ((DataBaseManager.timeCount % 4) == 1)
-        {
-            lightColorController.time = 0.2f;
-        }
-        if ((DataBaseManager.timeCount % 4) == 2)
-        {
-            lightColorController.time = 0.4f;
-        }
-        if ((DataBaseManager.timeCount % 4) == 3)
-        {
-            lightColorController.time = 0.64f;
-        }
-        if ((DataBaseManager.timeCount % 4) == 0)
-        {
-            lightColorController.time = 0.9f;
-        }
-    }
     private static TimeManagere instance = null;
     public static TimeManagere Instance
     {
@@ -858,6 +719,10 @@ public class TimeManagere : MonoBehaviour
         if (null == instance)
         {
             instance = this;
+            if (GetComponent<WorldBinder>() == null)
+            {
+                gameObject.AddComponent<WorldBinder>();
+            }
         }
         else
         {

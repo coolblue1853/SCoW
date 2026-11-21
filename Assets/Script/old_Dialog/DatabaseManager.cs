@@ -205,7 +205,9 @@ public class DataBaseManager : MonoBehaviour
 
     //Inventory
     private static bool _isItemUI = false;
-    /// <summary>인벤토리(아이템 UI) 열림. 바뀔 때 ItemUiChanged 를 올린다(DialogDatabaseManager 가 아이템 CSV 로 바꿨다 되돌린다, C-2 P12).</summary>
+    /// <summary>GameRoot.StateChanged 로 알리는 일시 키 이름(isItemUI).</summary>
+    public const string ItemUiKey = "isItemUI";
+    /// <summary>인벤토리(아이템 UI) 열림. 바뀔 때 GameRoot.StateChanged(ItemUiKey)를 올린다(DialogDatabaseManager 가 아이템 CSV 로 바꿨다 되돌린다, C-2 P12·P13).</summary>
     public static bool isItemUI
     {
         get => _isItemUI;
@@ -213,12 +215,9 @@ public class DataBaseManager : MonoBehaviour
         {
             if (_isItemUI == value) { return; }
             _isItemUI = value;
-            ItemUiChanged?.Invoke();
+            GameRoot.NotifyTransient(ItemUiKey);
         }
     }
-    public static event System.Action ItemUiChanged;
-    /// <summary>nowPlace 가 바뀔 때(DialogDatabaseManager 가 장소 CSV 를 다시 고른다, C-2 P12).</summary>
-    public static event System.Action PlaceChanged;
     public static bool isUseSafe { get => S.GetFlag(FlagKeys.isUseSafe); set => S.SetFlag(FlagKeys.isUseSafe, value); }
 
     public static string nowItem = "";
@@ -256,16 +255,8 @@ public class DataBaseManager : MonoBehaviour
     public static bool roadBattleEnd { get => S.GetFlag(FlagKeys.roadBattleEnd); set => S.SetFlag(FlagKeys.roadBattleEnd, value); }
 
     // Map
-    public static string nowPlace
-    {
-        get => S.GetText(TextKeys.nowPlace);
-        set
-        {
-            string old = S.GetText(TextKeys.nowPlace);
-            S.SetText(TextKeys.nowPlace, value);
-            if (old != value) { PlaceChanged?.Invoke(); }
-        }
-    }
+    // nowPlace 가 바뀌면 GameState 가 변경을 알린다(GameRoot.StateChanged, C-2 P13). DialogDatabaseManager·WorldBinder 가 구독.
+    public static string nowPlace { get => S.GetText(TextKeys.nowPlace); set => S.SetText(TextKeys.nowPlace, value); }
     public static string potalPlace { get => S.GetText(TextKeys.potalPlace); set => S.SetText(TextKeys.potalPlace, value); }
 
     //keyword

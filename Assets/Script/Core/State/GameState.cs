@@ -12,6 +12,10 @@ namespace SCoW.Core.State
     {
         public const int CurrentSchemaVersion = 1;
 
+        /// <summary>값이 실제로 바뀐 키(플래그·카운터·텍스트 공통, C-2 P13). 월드 동기화·대사 장소 갱신이 구독한다. 직렬화·복제·비교 대상이 아니다. 상태를 통째로 갈아 끼울 때의 알림은 GameRoot 가 맡는다.</summary>
+        [field: NonSerialized]
+        public event Action<string> Changed;
+
         public int SchemaVersion = CurrentSchemaVersion;
 
         /// <summary>true 인 플래그 키만 보관. 없으면 false.</summary>
@@ -49,13 +53,10 @@ namespace SCoW.Core.State
 
         public void SetFlag(string key, bool value)
         {
-            if (value)
+            bool changed = value ? Flags.Add(key) : Flags.Remove(key);
+            if (changed)
             {
-                Flags.Add(key);
-            }
-            else
-            {
-                Flags.Remove(key);
+                RaiseChanged(key);
             }
         }
 
@@ -67,6 +68,10 @@ namespace SCoW.Core.State
 
         public void SetCounter(string key, int value)
         {
+            if (GetCounter(key) == value)
+            {
+                return;
+            }
             if (value == 0)
             {
                 Counters.Remove(key);
@@ -75,6 +80,7 @@ namespace SCoW.Core.State
             {
                 Counters[key] = value;
             }
+            RaiseChanged(key);
         }
 
         public string GetText(string key)
@@ -85,6 +91,10 @@ namespace SCoW.Core.State
 
         public void SetText(string key, string value)
         {
+            if (GetText(key) == (value ?? string.Empty))
+            {
+                return;
+            }
             if (string.IsNullOrEmpty(value))
             {
                 Texts.Remove(key);
@@ -92,6 +102,16 @@ namespace SCoW.Core.State
             else
             {
                 Texts[key] = value;
+            }
+            RaiseChanged(key);
+        }
+
+        private void RaiseChanged(string key)
+        {
+            Action<string> handler = Changed;
+            if (handler != null)
+            {
+                handler(key);
             }
         }
 

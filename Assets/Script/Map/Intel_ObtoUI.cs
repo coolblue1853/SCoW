@@ -729,6 +729,8 @@ public class Intel_ObtoUI : MonoBehaviour
             DataBaseManager.cancelJudge = false;
             isJudge = true;
             canJudge = true;
+            // 옛 TimeManagere.Update 는 매 프레임 사무실 문 상태에 맞춰 canJudge 를 덮어썼다. 지금은 알림이 올 때만 평가한다(C-2 P13).
+            GameRoot.NotifyTransient(SCoW.Core.World.WorldIds.RefreshKey);
         }
     }
     bool resetCheck = false;
@@ -737,6 +739,7 @@ public class Intel_ObtoUI : MonoBehaviour
     {
         isJudge = true;
         canJudge = true;
+        GameRoot.NotifyTransient(SCoW.Core.World.WorldIds.RefreshKey);
         if (this.name == "Ella Triss")
         {
             keywordCounter = 3;

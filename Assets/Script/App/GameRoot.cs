@@ -16,6 +16,7 @@ public sealed class GameRoot
     {
         // Enter Play Mode Options(도메인 리로드 끔) 대비: 정적 상태를 처음처럼 되돌린다.
         _instance = null;
+        StateChanged = null;
         SaveFlow.ResetStatics();
         UiGate.ResetStatics();
     }
@@ -52,7 +53,51 @@ public sealed class GameRoot
     private double _playStartRealtime;
     private bool _clockRunning;
 
-    public GameState State { get; private set; } = GameState.New();
+    private GameState _state;
+
+    public GameState State
+    {
+        get { return _state; }
+        private set { AttachState(value); }
+    }
+
+    /// <summary>
+    /// 상태 변경 통지(C-2 P13). 값이 실제로 바뀐 키(플래그·카운터·텍스트 키, 또는 NotifyTransient 로 올린 일시 키)를 알린다.
+    /// 상태를 통째로 갈아 끼우면(새 게임·불러오기) 키 null 로 한 번 알린다. 정적 이벤트라 GameRoot 가 다시 만들어져도 구독이 유지된다.
+    /// 구독자는 OnEnable 에서 구독하고 OnDisable 에서 해제한다.
+    /// </summary>
+    public static event System.Action<string> StateChanged;
+
+    /// <summary>상태에 저장하지 않는 일시 값(예: 아이템 UI 열림)의 변경을 같은 통지로 올린다.</summary>
+    public static void NotifyTransient(string key)
+    {
+        System.Action<string> handler = StateChanged;
+        if (handler != null)
+        {
+            handler(key);
+        }
+    }
+
+    private GameRoot()
+    {
+        _state = GameState.New();
+        _state.Changed += NotifyTransient;
+    }
+
+    private void AttachState(GameState next)
+    {
+        if (next == null)
+        {
+            throw new System.ArgumentNullException("next");
+        }
+        if (_state != null)
+        {
+            _state.Changed -= NotifyTransient;
+        }
+        _state = next;
+        _state.Changed += NotifyTransient;
+        NotifyTransient(null);
+    }
 
     /// <summary>열린 패널 스택(P5). 조회·조작은 UiGate 로.</summary>
     public UiStack Panels { get; } = new UiStack();
