@@ -156,3 +156,9 @@
 7. `Cancel` 이 Picker → 선택 행 순서로 한 겹씩만 닫는지(UiStack), 수첩에서 돌아와도 선택 유지.
 8. 콘솔 error 0, `Keyword.json` 159 토픽 중 무작위 20개를 제시해 폴백으로 새지 않는지.
 9. 조작 횟수 측정: 인물 키워드 1개 제시를 입력 로그로 세어 목표(3~5) 이내.
+
+## 6. K1 결과 (11-21)
+- 완료: `Editor/KeywordCatalogExporter.cs`(메뉴 `SCoW/Keyword/Export Catalog`, 옛 `KeyWordManager` 소스를 정규식으로 읽음) → `Resources/Story/KeywordCatalog.json`(상위 27·하위 57·의심 토픽 9). `Core/Keyword/KeywordCatalog.cs`·`KeywordBook.cs`(획득·분류·상위/하위 목록·NPC별 제시 가능·`Reaction`). 골든 `Golden/KeywordBook.golden.txt`(352 프리셋, 도구 `SCoW/Keyword/Dump Golden (Play Mode)`, 옛 매니저를 임시 생성해 덤프) 대조 `Tests/EditMode/KeywordBookTests.cs`. UI·씬 무변경.
+- 카탈로그 `suspect`(기록만, 고치지 않음): ① 케인(`Osborn Louis Kane`/`노교수`)·강가(`Riverside`/`미스캐토닉 강`)는 옛 3단이 하위를 다른 이름으로 비교해 옛 UI 로 하위 선택 불가(K2 에서 자연 해소). ② `Keyword.json` 어느 NPC 에도 전용 토픽이 없는 키워드. ③ `suspectTopics`: 대학생·케인 노드 범위 오류(StoryImprove A-1, 스토리 P0 몫).
+- 순서: 목록 순서는 옛 코드 검사 순서. 옛 실제 동작은 획득 순서였으므로 K4 의 본 키워드 집합으로 획득 순서를 얹을 것. `displayKey` 는 예약값(I2 미등록, 표시는 `id` 폴백).
+- `unlockFlag` 로 `KeywordBook` 은 `GameState` 를 직접 받는다(`IStateReader` 어댑터 불필요).
