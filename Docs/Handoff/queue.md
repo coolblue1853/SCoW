@@ -21,3 +21,10 @@
 - [x] **C-2 P11 후속(4793559 리뷰 권장, 11-21 완료: Keyword.json·places.json 실패 LogError·폴백, ellaKey*/aidenKey* 필드는 Main 씬 직렬화 참조가 있어 유지·주석만. 키워드 UI 클릭 흐름 사용자 확인은 남음)**: StoryDatabase.cs:72 Keyword.json 로드 실패 시 Debug.LogError, DialogDatabaseManager.cs:14 Places() 실패 시 로그·폴백(전투 대사 소실 방지). InteractionController 의 ellaKey*/aidenKey* 미사용 필드 정리. 키워드 UI 클릭 흐름 사용자 확인.
 - [x] **C-2 P13 설계 메모(P12 리뷰 권장, 11-21 완료: GameState.Changed·GameRoot.StateChanged 단일 통지, WorldBinder+WorldRules, 스냅샷 diff 0. Case2IntCheck CSV 는 DetectiveOffice 확인. BOM 혼재 정리는 P16 에 남음)**: GameState 에 단일 변경 통지 `Changed(key)` 를 두고 DialogDatabaseManager(PlaceChanged/ItemUiChanged)·WorldBinder 가 함께 구독. DDM check setter 비활성 시 요청 버림 주석. Case2IntCheck 의 DDM CSV 가 DetectiveOffice 인지 확인. BOM 혼재 정리(P16).
 - [ ] **C-2~** 단계별 builder 구현. 단계마다 컴파일·EditMode 테스트·처음부터 엔딩까지 플레이·reviewer-code·reviewer-arch [필수] 반영 후 커밋. 마지막에 기능 묶음별(대화·판정·전투·수첩·UI·저장) 리뷰 1회 더.
+
+## 11-21 사용자 추가 요청(기획 → 설계 문서 먼저)
+- [ ] **STORY-1** 대사 CSV 전수 읽고 `Game/Story.md`(줄거리·인물·단서·엔딩) + `Game/StoryImprove.md`(세부 수정·흐름·자유도·광기 연출). designer 진행 중.
+- [ ] **SEWER-1** 하수도 내부 개선(사용자: "되게 별로"). 구조·탐색·연출·전투 배치 문제 실측 → 개선 설계 → 구현.
+- [ ] **PARTY-1** 동료 동행: 스토리의 친구 2명을 최대 3인 파티로 탐색·전투에 데리고 다님. 동료 능력치로 판정 보조(도움 판정·대신 판정 등). STORY-1 결과로 인물 확정 후 설계. **P14b(전투 View)는 파티 설계 확정 뒤 진행**(전투 엔진이 다인원 전제를 가져야 함).
+- [ ] **KEYWORD-1** 키워드 시스템 사용성 개선(사용자: "쓰기 어려워 보임"). 현행 흐름 실측(KeyWordManager·Intel_ObtoUI·수첩) → 마우스·키보드·패드 3경로 개선 설계 → 구현. 기존 세이브·I2 키 유지.
+- [ ] **P14b 메모(P14a 리뷰 권장, 4bbac2e)**: 실전투 플레이 확인(MCP 서버 다운으로 미검증). EnemyState 5필드·이름 박힌 슬롯 분기(46곳+)를 EnemyState[]+인덱스 루프로, BattleManager.cs:595 `EnemyDefs.DeepOne1` 하드코딩 → 슬롯 state.Def, EnemyDefs.Get(id)/All. ChooseIntent 종류 분기 → EnemyDef 가중치 데이터. 피해식은 Def.AttackDamage 로 통일(현재 BattleDamage 직접 호출), PoisonTickDamage·StepGauge out 미사용 정리, battleState 문자열 → enum. SymbolUp 매 프레임 문자열 비교 → bool. EnemyClass 빈 껍데기 삭제(P15). 파티(PARTY-1) 다인원 전제로 설계.
