@@ -14,3 +14,4 @@
 - 11-21 오전: C-2 P4~P10 완료·push(최신 7775d18). 저장/불러오기·UiStack/SceneRouter·판정 규칙 Core·스토리 파서·DialogueRunner(백로그·스킵·자동·속도)·장소 12곳 데이터 주도(동치 골든). EditMode 168. B-1 완료.
 - P11 완료·push(8855d13, 골든 2054줄 diff 0, 리뷰 필수 0). 5시간 94% 로 정지, 08:53 재개 예약. 재개 시 P11 후속(로그 2곳) → P12(판정 결과 대사·InteractionController 축소).
 - 사용자 플레이 확인 필요: 실제 키·마우스·패드 입력 전반(비포커스라 자동 확인 불가), 저장/불러오기, 백로그·스킵, 대사창 버튼 클릭. 미결: OpenQuestions Q1·Q3~Q5, Q-P0a/b.
+- 11-21 P13 완료·push(167dbe9): WorldBinder+WorldRules, 상태 변경 단일 통지, 0.5초 안전망(창문·사물함 canJudge 밤 복구 플레이 확인). EditMode 195. 다음 P14a(전투 엔진 Core) builder 진행 중.
