@@ -5,6 +5,7 @@ using TMPro;
 using DG.Tweening;
 using DamageNumbersPro;
 using UnityEngine.Serialization;
+using SCoW.Core.Rules;
 public class BattleManager : MonoBehaviour
 {
     public GameObject uiButton;
@@ -63,11 +64,11 @@ public class BattleManager : MonoBehaviour
     public GameObject playerDeftnessUi;
     public GameObject enemySelectUI;
     public BattlePlayer battlePlayer;
-    EnemyClass.DeepOneHybrid deepOneHybrid1 = new EnemyClass.DeepOneHybrid();
-    EnemyClass.DeepOneHybrid deepOneHybrid2 = new EnemyClass.DeepOneHybrid();
-    EnemyClass.DeepOneHybrid deepOneHybrid3 = new EnemyClass.DeepOneHybrid();
-    EnemyClass.DeepOneHybrid deepOneHybrid4 = new EnemyClass.DeepOneHybrid();
-    EnemyClass.DeepOne deepOne1 = new EnemyClass.DeepOne();
+    EnemyState deepOneHybrid1 = new EnemyState(EnemyDefs.DeepOneHybrid1);
+    EnemyState deepOneHybrid2 = new EnemyState(EnemyDefs.DeepOneHybrid2);
+    EnemyState deepOneHybrid3 = new EnemyState(EnemyDefs.DeepOneHybrid3);
+    EnemyState deepOneHybrid4 = new EnemyState(EnemyDefs.DeepOneHybrid4);
+    EnemyState deepOne1 = new EnemyState(EnemyDefs.DeepOne1);
     //적 오브젝트 관련
     public GameObject deepOneHybrid1Ob;
     public GameObject deepOneHybrid2Ob;
@@ -192,23 +193,23 @@ public class BattleManager : MonoBehaviour
     }
     public void SetDeepOneHybrid1()
     {
-        deepOneHybrid1.SetStatDeepOneHybrid();
+        deepOneHybrid1.Roll(UnityRng.Instance);
     }
     public void SetDeepOneHybrid2()
     {
-        deepOneHybrid2.SetStatDeepOneHybrid();
+        deepOneHybrid2.Roll(UnityRng.Instance);
     }
     public void SetDeepOneHybrid3()
     {
-        deepOneHybrid3.SetStatDeepOneHybrid();
+        deepOneHybrid3.Roll(UnityRng.Instance);
     }
     public void SetDeepOneHybrid4()
     {
-        deepOneHybrid4.SetStatDeepOneHybrid();
+        deepOneHybrid4.Roll(UnityRng.Instance);
     }
     public void SetDeepOne1()
     {
-        deepOne1.SetStatDeepOne();
+        deepOne1.Roll(UnityRng.Instance);
     }
     public void TimeWait()
     {
@@ -227,26 +228,26 @@ public class BattleManager : MonoBehaviour
                 {
                     if (enemyTrunSymbol1.activeSelf == true)
                     {
-                        SymbolUp(enemyTrunSymbol1, deepOneHybrid1.dex, "DeepOneHybrid1");
+                        SymbolUp(enemyTrunSymbol1, deepOneHybrid1.Dex, "DeepOneHybrid1");
                     }
                     if (enemyTrunSymbol2.activeSelf == true)
                     {
-                        SymbolUp(enemyTrunSymbol2, deepOneHybrid2.dex, "DeepOneHybrid2");
+                        SymbolUp(enemyTrunSymbol2, deepOneHybrid2.Dex, "DeepOneHybrid2");
                     }
                     if (enemyTrunSymbol3.activeSelf == true)
                     {
-                        SymbolUp(enemyTrunSymbol3, deepOneHybrid3.dex, "DeepOneHybrid3");
+                        SymbolUp(enemyTrunSymbol3, deepOneHybrid3.Dex, "DeepOneHybrid3");
                     }
                 }
                 else
                 {
                     if (enemyTrunSymbol1.activeSelf == true)
                     {
-                        SymbolUp(enemyTrunSymbol1, deepOneHybrid4.dex, "DeepOneHybrid4");
+                        SymbolUp(enemyTrunSymbol1, deepOneHybrid4.Dex, "DeepOneHybrid4");
                     }
                     if (enemyTrunSymbol2.activeSelf == true)
                     {
-                        SymbolUp(enemyTrunSymbol2, deepOne1.dex, "DeepOne1");
+                        SymbolUp(enemyTrunSymbol2, deepOne1.Dex, "DeepOne1");
                     }
                     if (enemyTrunSymbol3.activeSelf == true)
                     {
@@ -268,14 +269,8 @@ public class BattleManager : MonoBehaviour
         {
             if (symbol.transform.localPosition.y < 130)
             {
-                if (Target == "Player")
-                {
-                    symbol.transform.localPosition = new Vector2(symbol.transform.localPosition.x, symbol.transform.localPosition.y + ((1 + (dex / 100)) * 2f));
-                }
-                else
-                {
-                    symbol.transform.localPosition = new Vector2(symbol.transform.localPosition.x, symbol.transform.localPosition.y + ((1 + (dex / 100)) * 1.9f));
-                }
+                bool turnStart;
+                symbol.transform.localPosition = new Vector2(symbol.transform.localPosition.x, BattleEngine.StepGauge(symbol.transform.localPosition.y, dex, Target == "Player", out turnStart));
             }
             else
             {
@@ -328,7 +323,7 @@ public class BattleManager : MonoBehaviour
             if (DataBaseManager.posionDebuff > 0)
             {
                 DataBaseManager.posionDebuff -= 1;
-                OnDamageObject("player", Random.Range(1, 3) * 5);
+                OnDamageObject("player", BattleDamage.Poison.Roll(UnityRng.Instance));
             }
             BattleItemManager.Instance.ManageItem();
             battleState = "PlayerChoice";
@@ -577,7 +572,7 @@ public class BattleManager : MonoBehaviour
     public void RunYes()
     {
         SoundManager.Instance.ClickSoundPlay();
-        BattleRollet.Instance.SetBattleRollet("Fabian : Runaway", "DEX / " + enemyCount, DataBaseManager.dex / enemyCount, "RunAway", "DeepOneHybrid", "??? : Hold", "Dex", deepOneHybrid1.dex);
+        BattleRollet.Instance.SetBattleRollet("Fabian : Runaway", "DEX / " + enemyCount, DataBaseManager.dex / enemyCount, "RunAway", "DeepOneHybrid", "??? : Hold", "Dex", deepOneHybrid1.Dex);
         runAwayObject.SetActive(false);
     }
     public void RunNo()
@@ -597,13 +592,13 @@ public class BattleManager : MonoBehaviour
         else if (battleState == "DeepOne1Attack")
         {
             // 심해인 공격
-            int Randint = Random.Range(0, 4);
-            if (Randint == 0) // 이성 공격
+            EnemyIntent intent = BattleEngine.ChooseIntent(EnemyDefs.DeepOne1, UnityRng.Instance);
+            if (intent == EnemyIntent.SanAttack) // 이성 공격
             {
                 OpenRoundObject("An enemy tries to initiate suspicious behavior.");
                 Invoke("DeepOneSanAttack", 1.5f);
             }
-            else if (Randint == 1) // 독 도트 공격
+            else if (intent == EnemyIntent.PoisonAttack) // 독 도트 공격
             {
                 OpenRoundObject("An enemy tries to initiate suspicious behavior.");
                 Invoke("DeepOnePosionAttack", 1.5f);
@@ -646,11 +641,11 @@ public class BattleManager : MonoBehaviour
     }
     public void DeepOnePosionAttack()
     {
-        Rollet.Instance.SetRollet("??? : Deftness", "Deftness", deepOne1.dex, "DeepOneDeftness", "DeepOne");
+        Rollet.Instance.SetRollet("??? : Deftness", "Deftness", deepOne1.Dex, "DeepOneDeftness", "DeepOne");
     }
     public void EnemyAttackWithDeftness()
     {
-        Rollet.Instance.SetRollet("??? : Deftness", "Deftness", deepOneHybrid3.dex, "EnemyDeftness", "DeepOneHybrid");
+        Rollet.Instance.SetRollet("??? : Deftness", "Deftness", deepOneHybrid3.Dex, "EnemyDeftness", "DeepOneHybrid");
     }
     public void ChoiceEvasion()
     {
@@ -659,31 +654,31 @@ public class BattleManager : MonoBehaviour
         {
             playerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid1.deepOneHybridMatialArts);
+            BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid1.MartialArts);
         }
         if (battleState == "DeepOneHybrid2Attack")
         {
             playerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid2.deepOneHybridMatialArts);
+            BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid2.MartialArts);
         }
         if (battleState == "DeepOneHybrid3Attack")
         {
             playerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid3.deepOneHybridMatialArts);
+            BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid3.MartialArts);
         }
         if (battleState == "DeepOneHybrid4Attack")
         {
             playerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid4.deepOneHybridMatialArts);
+            BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid4.MartialArts);
         }
         if (battleState == "DeepOne1Attack")
         {
             playerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOne", "??? : Poking", "SwordsManship", deepOne1.deepOneSewerdManShip);
+            BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOne", "??? : Poking", "SwordsManship", deepOne1.Swordsmanship);
         }
     }
     public void ChoiceCounterAttack()
@@ -693,31 +688,31 @@ public class BattleManager : MonoBehaviour
         {
             playerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid1.deepOneHybridMatialArts);
+            BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid1.MartialArts);
         }
         if (battleState == "DeepOneHybrid2Attack")
         {
             playerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid2.deepOneHybridMatialArts);
+            BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid2.MartialArts);
         }
         if (battleState == "DeepOneHybrid3Attack")
         {
             playerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid3.deepOneHybridMatialArts);
+            BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid3.MartialArts);
         }
         if (battleState == "DeepOneHybrid4Attack")
         {
             playerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid4.deepOneHybridMatialArts);
+            BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid4.MartialArts);
         }
         if (battleState == "DeepOne1Attack")
         {
             playerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOne", "??? : Poking", "SwordsManship", deepOne1.deepOneSewerdManShip);
+            BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOne", "??? : Poking", "SwordsManship", deepOne1.Swordsmanship);
         }
     }
     public void RetrunRolletResult(string PlayerAction, string Success, string Enemy)
@@ -757,7 +752,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOShakePosition(1, 2, 90))
@@ -805,7 +800,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + 1) * 5))
+                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -856,7 +851,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOShakePosition(1, 2, 90))
@@ -904,7 +899,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
-                    .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + 1) * 5))
+                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOShakePosition(1, 2, 90))
@@ -952,7 +947,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + Random.Range(1, 4)) * 5))
+                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit2D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -991,7 +986,7 @@ public class BattleManager : MonoBehaviour
                     .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 0.2f))
                     .AppendCallback(() => deepOneHybrid1SC.HittedByPunchChange())
                     .AppendCallback(() => CamRotate(+5))
-                    .AppendCallback(() => OnDamageObject("DeepOneHybrid1", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(deepOneHybrid1Ob.transform.DOShakePosition(1, 2, 90))
@@ -1013,7 +1008,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOShakePosition(1, 2, 90))
@@ -1047,7 +1042,7 @@ public class BattleManager : MonoBehaviour
                     .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 0.2f))
                     .AppendCallback(() => deepOneHybrid2SC.HittedByPunchChange())
                     .AppendCallback(() => CamRotate(+5))
-                    .AppendCallback(() => OnDamageObject("DeepOneHybrid2", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(deepOneHybrid2Ob.transform.DOShakePosition(1, 2, 90))
@@ -1069,7 +1064,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + 1) * 5))
+                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1105,7 +1100,7 @@ public class BattleManager : MonoBehaviour
                     .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 0.2f))
                     .AppendCallback(() => deepOneHybrid3SC.HittedByPunchChange())
                     .AppendCallback(() => CamRotate(+5))
-                    .AppendCallback(() => OnDamageObject("DeepOneHybrid3", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(deepOneHybrid3Ob.transform.DOShakePosition(1, 2, 90))
@@ -1127,7 +1122,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOShakePosition(1, 2, 90))
@@ -1161,7 +1156,7 @@ public class BattleManager : MonoBehaviour
                     .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 0.2f))
                     .AppendCallback(() => deepOneHybrid4SC.HittedByPunchChange())
                     .AppendCallback(() => CamRotate(+1))
-                    .AppendCallback(() => OnDamageObject("DeepOneHybrid4", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(deepOneHybrid4Ob.transform.DOShakePosition(1, 2, 90))
@@ -1183,7 +1178,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
-                    .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + 1) * 5))
+                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOShakePosition(1, 2, 90))
@@ -1217,7 +1212,7 @@ public class BattleManager : MonoBehaviour
                     .Append(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 0.2f))
                     .AppendCallback(() => deepOne1SC.HittedByPunchChange())
                     .AppendCallback(() => CamRotate(+1))
-                    .AppendCallback(() => OnDamageObject("DeepOne1", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(deepOne1Ob.transform.DOShakePosition(1, 2, 90))
@@ -1239,7 +1234,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + Random.Range(1, 4)) * 5))
+                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit2D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1272,7 +1267,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => deepOneHybrid1SC.HittedByPunchChange())
-                    .AppendCallback(() => OnDamageObject("DeepOneHybrid1", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -1297,7 +1292,7 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => deepOneHybrid1SC.DeepOneHybridPunchChange())
                     .Append(obj.transform.DOMove(new Vector3(deepOneHybrid1Ob.transform.position.x - 2f, deepOneHybrid1Ob.transform.position.y, -2), 0.2f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .AppendCallback(() => CamRotate(-5))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1326,7 +1321,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => deepOneHybrid2SC.HittedByPunchChange())
-                    .AppendCallback(() => OnDamageObject("DeepOneHybrid2", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -1351,7 +1346,7 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => deepOneHybrid2SC.DeepOneHybridPunchChange())
                     .Append(obj.transform.DOMove(new Vector3(deepOneHybrid2Ob.transform.position.x - 2f, deepOneHybrid2Ob.transform.position.y, -2), 0.2f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + 1) * 5))
+                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .AppendCallback(() => CamRotate(-5))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1380,7 +1375,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => deepOneHybrid3SC.HittedByPunchChange())
-                    .AppendCallback(() => OnDamageObject("DeepOneHybrid3", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -1405,7 +1400,7 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => deepOneHybrid3SC.DeepOneHybridPunchChange())
                     .Append(obj.transform.DOMove(new Vector3(deepOneHybrid3Ob.transform.position.x - 2f, deepOneHybrid3Ob.transform.position.y, -2), 0.2f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .AppendCallback(() => CamRotate(-5))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1433,7 +1428,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => deepOneHybrid4SC.HittedByPunchChange())
-                    .AppendCallback(() => OnDamageObject("DeepOneHybrid4", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -1459,7 +1454,7 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => deepOneHybrid4SC.DeepOneHybridPunchChange())
                     .Append(obj.transform.DOMove(new Vector3(deepOneHybrid4Ob.transform.position.x - 2f, deepOneHybrid4Ob.transform.position.y, -2), 0.2f))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
-                    .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + 1) * 5))
+                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .AppendCallback(() => CamRotate(-1))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1488,7 +1483,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 5.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => deepOne1SC.HittedByPunchChange())
-                    .AppendCallback(() => OnDamageObject("DeepOne1", Random.Range(1, 4) * 5))
+                    .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -1514,7 +1509,7 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => deepOne1SC.DeepOneHybridPunchChange())
                     .Append(obj.transform.DOMove(new Vector3(deepOne1Ob.transform.position.x - 2f, deepOne1Ob.transform.position.y, -2), 0.2f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + Random.Range(1, 4)) * 5))
+                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit2D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .AppendCallback(() => CamRotate(-1))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1561,7 +1556,7 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => deepOneHybrid1SC.HittedByNifeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, daggerAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 5) + 2) * 5))//1D4 + 2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Dagger.Roll(UnityRng.Instance)))//1D4 + 2
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
@@ -1579,7 +1574,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOneHybrid1SC.HittedByBatChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, batAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 9)) * 5))//1D8
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Bat.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Bat_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -1598,7 +1593,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOneHybrid1SC.HittedByAxeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, axeAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 9)) * 5))//1D8
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Axe.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Axe_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -1636,7 +1631,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid1SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid1Ob.transform.position.x - 2f, deepOneHybrid1Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1659,7 +1654,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid1SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid1Ob.transform.position.x - 2f, deepOneHybrid1Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1682,7 +1677,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid1SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid1Ob.transform.position.x - 2f, deepOneHybrid1Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1724,7 +1719,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOneHybrid2SC.HittedByNifeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, daggerAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 5) + 2) * 5))//1D4 + 2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Dagger.Roll(UnityRng.Instance)))//1D4 + 2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -1743,7 +1738,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOneHybrid2SC.HittedByBatChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, batAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 9)) * 5))//1D8
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Bat.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Bat_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -1762,7 +1757,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOneHybrid2SC.HittedByAxeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, axeAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 9)) * 5))//1D8
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Axe.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Axe_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -1800,7 +1795,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid2SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid2Ob.transform.position.x - 2f, deepOneHybrid2Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + 1) * 5))
+                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1824,7 +1819,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid2SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid2Ob.transform.position.x - 2f, deepOneHybrid2Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + 1) * 5))
+                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1848,7 +1843,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid2SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid2Ob.transform.position.x - 2f, deepOneHybrid2Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + 1) * 5))
+                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1891,7 +1886,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOneHybrid3SC.HittedByNifeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, daggerAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 5) + 2) * 5))//1D4 + 2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Dagger.Roll(UnityRng.Instance)))//1D4 + 2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -1910,7 +1905,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOneHybrid3SC.HittedByBatChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, batAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 9)) * 5))//1D8
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Bat.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Bat_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -1929,7 +1924,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOneHybrid3SC.HittedByAxeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, axeAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 9)) * 5))//1D8
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Axe.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Axe_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -1967,7 +1962,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid3SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid3Ob.transform.position.x - 2f, deepOneHybrid3Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1990,7 +1985,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid3SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid3Ob.transform.position.x - 2f, deepOneHybrid3Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2013,7 +2008,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid3SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid3Ob.transform.position.x - 2f, deepOneHybrid3Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2056,7 +2051,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOneHybrid4SC.HittedByNifeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, daggerAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 5) + 2) * 5))//1D4 + 2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Dagger.Roll(UnityRng.Instance)))//1D4 + 2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -2076,7 +2071,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOneHybrid4SC.HittedByBatChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, batAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 9)) * 5))//1D8
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Bat.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Bat_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -2096,7 +2091,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOneHybrid4SC.HittedByAxeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, axeAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 9)) * 5))//1D8
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Axe.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Axe_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -2135,7 +2130,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid4SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid4Ob.transform.position.x - 2f, deepOneHybrid4Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => battlePlayer.PlayerHittedDagger())
-                   .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + 1) * 5))
+                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2160,7 +2155,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid4SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid4Ob.transform.position.x - 2f, deepOneHybrid4Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => battlePlayer.PlayerHittedDagger())
-                   .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + 1) * 5))
+                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2185,7 +2180,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid4SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid4Ob.transform.position.x - 2f, deepOneHybrid4Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => battlePlayer.PlayerHittedDagger())
-                   .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + 1) * 5))
+                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2228,7 +2223,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOne1SC.HittedByNifeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, daggerAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOne1", (Random.Range(1, 5) + 2) * 5))//1D4 + 2
+                        .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Dagger.Roll(UnityRng.Instance)))//1D4 + 2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -2248,7 +2243,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOne1SC.HittedByBatChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, batAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOne1", (Random.Range(1, 9)) * 5))//1D8
+                        .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Bat.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Bat_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -2268,7 +2263,7 @@ public class BattleManager : MonoBehaviour
                         .Append(player.transform.DOMove(new Vector3(obj.transform.position.x - 3.5f, obj.transform.position.y - 0.2f, -1), 0.5f))
                         .AppendCallback(() => deepOne1SC.HittedByAxeChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, axeAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOne1", (Random.Range(1, 9)) * 5))//1D8
+                        .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Axe.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Axe_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -2307,7 +2302,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOne1SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOne1Ob.transform.position.x - 2f, deepOne1Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + Random.Range(1, 4)) * 5))
+                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit2D3.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2332,7 +2327,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOne1SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOne1Ob.transform.position.x - 2f, deepOne1Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + Random.Range(1, 4)) * 5))
+                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit2D3.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2357,7 +2352,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOne1SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOne1Ob.transform.position.x - 2f, deepOne1Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", (Random.Range(1, 4) + Random.Range(1, 4)) * 5))
+                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit2D3.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2408,7 +2403,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid1SC.HittedBySmallPistolChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 7)) * 5))//1D6
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.SmallPistol.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2427,7 +2422,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid1SC.HittedByRevolverChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 11) + 2) * 5))//1d10+2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Revolver.Roll(UnityRng.Instance)))//1d10+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2446,7 +2441,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid1SC.HittedByRifleChnage())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2D6+2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Rifle.Roll(UnityRng.Instance)))//2D6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2465,7 +2460,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid1SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6)) * 5))//1D6
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Shotgun.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2583,7 +2578,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid2SC.HittedBySmallPistolChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 7)) * 5))//1D6
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.SmallPistol.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Attack"))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2602,7 +2597,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid2SC.HittedByRevolverChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 11) + 2) * 5))//1d10+2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Revolver.Roll(UnityRng.Instance)))//1d10+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2621,7 +2616,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid2SC.HittedByRifleChnage())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2D6+2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Rifle.Roll(UnityRng.Instance)))//2D6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2640,7 +2635,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid2SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6)) * 5))//1D6
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Shotgun.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2758,7 +2753,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid3SC.HittedBySmallPistolChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 7)) * 5))//1D6
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.SmallPistol.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Attack"))//1D6
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -2776,7 +2771,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid3SC.HittedByRevolverChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 11) + 2) * 5))//1d10+2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Revolver.Roll(UnityRng.Instance)))//1d10+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2795,7 +2790,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid3SC.HittedByRifleChnage())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2D6+2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Rifle.Roll(UnityRng.Instance)))//2D6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2814,7 +2809,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid3SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6)) * 5))//1D6
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Shotgun.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2932,7 +2927,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid4SC.HittedBySmallPistolChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 7)) * 5))//1D6
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.SmallPistol.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Attack"))//1D6
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -2951,7 +2946,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid4SC.HittedByRevolverChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 11) + 2) * 5))//1d10+2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Revolver.Roll(UnityRng.Instance)))//1d10+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2971,7 +2966,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid4SC.HittedByRifleChnage())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2D6+2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Rifle.Roll(UnityRng.Instance)))//2D6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2991,7 +2986,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid4SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6)) * 5))//1D6
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Shotgun.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -3114,7 +3109,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOne1SC.HittedBySmallPistolChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOne1", (Random.Range(1, 7)) * 5))//1D6
+                        .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.SmallPistol.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Attack"))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -3134,7 +3129,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOne1SC.HittedByRevolverChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, revolverAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOne1", (Random.Range(1, 11) + 2) * 5))//1d10+2
+                        .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Revolver.Roll(UnityRng.Instance)))//1d10+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -3154,7 +3149,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOne1SC.HittedByRifleChnage())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, rifleAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOne1", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2D6+2
+                        .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Rifle.Roll(UnityRng.Instance)))//2D6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -3174,7 +3169,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOne1SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, shotgunAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOne1", (Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6) + Random.Range(1, 6)) * 5))//1D6
+                        .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Shotgun.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Hit"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -3292,7 +3287,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid1SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 3)) * 5))//1D6
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Rock.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rock_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -3310,7 +3305,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid1SC.HittedByMolotovChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2d6+2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Molotov.Roll(UnityRng.Instance)))//2d6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Molotov_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -3386,7 +3381,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid2SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 3)) * 5))//1D6
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Rock.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rock_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -3404,7 +3399,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid2SC.HittedByMolotovChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2d6+2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Molotov.Roll(UnityRng.Instance)))//2d6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Molotov_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -3479,7 +3474,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid3SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 3)) * 5))//1D6
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Rock.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rock_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -3497,7 +3492,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid3SC.HittedByMolotovChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2d6+2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Molotov.Roll(UnityRng.Instance)))//2d6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Molotov_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -3572,7 +3567,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid3SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 3)) * 5))//1D6
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Rock.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rock_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -3591,7 +3586,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOneHybrid4SC.HittedByMolotovChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2d6+2
+                        .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Molotov.Roll(UnityRng.Instance)))//2d6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Molotov_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -3668,7 +3663,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOne1SC.HittedByShotgunChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOne1", (Random.Range(1, 3)) * 5))//1D6
+                        .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Rock.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rock_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -3687,7 +3682,7 @@ public class BattleManager : MonoBehaviour
                         Sequence sequence = DOTween.Sequence()
                         .AppendCallback(() => deepOne1SC.HittedByMolotovChange())
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
-                        .AppendCallback(() => OnDamageObject("DeepOne1", (Random.Range(1, 7) + Random.Range(1, 7) + 2) * 5))//2d6+2
+                        .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Molotov.Roll(UnityRng.Instance)))//2d6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Molotov_Attack"))
                         .Join(cam.transform.DOShakePosition(1, 2, 90))
                         .Join(obj.transform.DOShakePosition(1, 2, 90))
@@ -3759,7 +3754,7 @@ public class BattleManager : MonoBehaviour
                 // 연출 삽입
                 Sequence sequence = DOTween.Sequence()
                 .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                .AppendCallback(() => OnDamageObject("player", Random.Range(1, 4) * 5))
+                .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                 .AppendCallback(() => battlePlayer.PlayerHittedRock())
                 .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                 .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -3840,27 +3835,27 @@ public class BattleManager : MonoBehaviour
     {
         if (subject == "DeepOneHybrid1")
         {
-            deepOneHybrid1.nowHP -= damage;
+            deepOneHybrid1.TakeDamage(damage);
             DamageNumber damageNumber = numberPrefab.Spawn(deepOneHybrid1Ob.transform.position, damage);
         }
         if (subject == "DeepOneHybrid2")
         {
-            deepOneHybrid2.nowHP -= damage;
+            deepOneHybrid2.TakeDamage(damage);
             DamageNumber damageNumber = numberPrefab.Spawn(deepOneHybrid2Ob.transform.position, damage);
         }
         if (subject == "DeepOneHybrid3")
         {
-            deepOneHybrid3.nowHP -= damage;
+            deepOneHybrid3.TakeDamage(damage);
             DamageNumber damageNumber = numberPrefab.Spawn(deepOneHybrid3Ob.transform.position, damage);
         }
         if (subject == "DeepOneHybrid4")
         {
-            deepOneHybrid4.nowHP -= damage;
+            deepOneHybrid4.TakeDamage(damage);
             DamageNumber damageNumber = numberPrefab.Spawn(deepOneHybrid4Ob.transform.position, damage);
         }
         if (subject == "DeepOne1")
         {
-            deepOne1.nowHP -= damage;
+            deepOne1.TakeDamage(damage);
             DamageNumber damageNumber = numberPrefab.Spawn(deepOne1Ob.transform.position, damage);
         }
         if (subject == "player")
@@ -3886,31 +3881,31 @@ public class BattleManager : MonoBehaviour
     }
     void EnemyHealthCheck()
     {
-        if (deepOneHybrid1.nowHP <= 0 && battleState == "setTrun")
+        if (deepOneHybrid1.IsDead && battleState == "setTrun")
         {
             deepOneHybrid1Ob.SetActive(false);
             enemyTrunSymbol1.SetActive(false);
             DataBaseManager.enemyDeathCount += 1;
         }
-        if (deepOneHybrid2.nowHP <= 0 && battleState == "setTrun")
+        if (deepOneHybrid2.IsDead && battleState == "setTrun")
         {
             deepOneHybrid2Ob.SetActive(false);
             enemyTrunSymbol2.SetActive(false);
             DataBaseManager.enemyDeathCount += 1;
         }
-        if (deepOneHybrid3.nowHP <= 0 && battleState == "setTrun")
+        if (deepOneHybrid3.IsDead && battleState == "setTrun")
         {
             deepOneHybrid3Ob.SetActive(false);
             enemyTrunSymbol3.SetActive(false);
             DataBaseManager.enemyDeathCount += 1;
         }
-        if (deepOneHybrid4.nowHP <= 0 && battleState == "setTrun")
+        if (deepOneHybrid4.IsDead && battleState == "setTrun")
         {
             deepOneHybrid4Ob.SetActive(false);
             enemyTrunSymbol1.SetActive(false);
             DataBaseManager.enemyDeathCount += 1;
         }
-        if (deepOne1.nowHP <= 0 && battleState == "setTrun")
+        if (deepOne1.IsDead && battleState == "setTrun")
         {
             deepOne1Ob.SetActive(false);
             enemyTrunSymbol2.SetActive(false);
@@ -3983,7 +3978,7 @@ public class BattleManager : MonoBehaviour
                 playerMAUI.SetActive(false);
                 BattleManager.Instance.enemySelectUI.SetActive(false);
                 battleState = "Rollet";
-                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid1.deepOneHybridMatialArts);
+                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid1.MartialArts);
             }
             if (playerAction == "PlayerSwords")
             {
@@ -3991,17 +3986,17 @@ public class BattleManager : MonoBehaviour
                 if (DataBaseManager.battleWeapon == "Dagger")
                 {
                     battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid1.deepOneHybridMatialArts);
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid1.MartialArts);
                 }
                 if (DataBaseManager.battleWeapon == "Bat")
                 {
                     battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid1.deepOneHybridMatialArts);
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid1.MartialArts);
                 }
                 if (DataBaseManager.battleWeapon == "Axe")
                 {
                     battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid1.deepOneHybridMatialArts);
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid1.MartialArts);
                 }
             }
             if (playerAction == "PlayerMarkmen")
@@ -4049,7 +4044,7 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "martialarts")
             {
                 battleState = "Rollet";
-                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid2.deepOneHybridMatialArts);
+                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid2.MartialArts);
             }
             if (playerAction == "PlayerSwords")
             {
@@ -4057,17 +4052,17 @@ public class BattleManager : MonoBehaviour
                 if (DataBaseManager.battleWeapon == "Dagger")
                 {
                     battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid2.deepOneHybridMatialArts);
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid2.MartialArts);
                 }
                 if (DataBaseManager.battleWeapon == "Bat")
                 {
                     battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid2.deepOneHybridMatialArts);
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid2.MartialArts);
                 }
                 if (DataBaseManager.battleWeapon == "Axe")
                 {
                     battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid2.deepOneHybridMatialArts);
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid2.MartialArts);
                 }
             }
             if (playerAction == "PlayerMarkmen")
@@ -4114,7 +4109,7 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "martialarts")
             {
                 battleState = "Rollet";
-                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid3.deepOneHybridMatialArts);
+                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid3.MartialArts);
             }
             if (playerAction == "PlayerSwords")
             {
@@ -4122,17 +4117,17 @@ public class BattleManager : MonoBehaviour
                 if (DataBaseManager.battleWeapon == "Dagger")
                 {
                     battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid3.deepOneHybridMatialArts);
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid3.MartialArts);
                 }
                 if (DataBaseManager.battleWeapon == "Bat")
                 {
                     battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid3.deepOneHybridMatialArts);
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid3.MartialArts);
                 }
                 if (DataBaseManager.battleWeapon == "Axe")
                 {
                     battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid3.deepOneHybridMatialArts);
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid3.MartialArts);
                 }
             }
             if (playerAction == "PlayerMarkmen")
@@ -4180,7 +4175,7 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "martialarts")
             {
                 battleState = "Rollet";
-                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid4.deepOneHybridMatialArts);
+                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid4.MartialArts);
             }
             if (playerAction == "PlayerSwords")
             {
@@ -4188,17 +4183,17 @@ public class BattleManager : MonoBehaviour
                 if (DataBaseManager.battleWeapon == "Dagger")
                 {
                     battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid4.deepOneHybridMatialArts);
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid4.MartialArts);
                 }
                 if (DataBaseManager.battleWeapon == "Bat")
                 {
                     battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid4.deepOneHybridMatialArts);
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid4.MartialArts);
                 }
                 if (DataBaseManager.battleWeapon == "Axe")
                 {
                     battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid4.deepOneHybridMatialArts);
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid4.MartialArts);
                 }
             }
             if (playerAction == "PlayerMarkmen")
@@ -4248,7 +4243,7 @@ public class BattleManager : MonoBehaviour
             if (playerAction == "martialarts")
             {
                 battleState = "Rollet";
-                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOne", "??? : CounterAttack", "CounterAttack", deepOne1.deepOneMatialArts);
+                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOne", "??? : CounterAttack", "CounterAttack", deepOne1.MartialArts);
             }
             if (playerAction == "PlayerSwords")
             {
@@ -4256,17 +4251,17 @@ public class BattleManager : MonoBehaviour
                 if (DataBaseManager.battleWeapon == "Dagger")
                 {
                     battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOne", "??? : CounterAttack", "CounterAttack", deepOne1.deepOneMatialArts);
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOne", "??? : CounterAttack", "CounterAttack", deepOne1.MartialArts);
                 }
                 if (DataBaseManager.battleWeapon == "Bat")
                 {
                     battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOne", "??? : CounterAttack", "CounterAttack", deepOne1.deepOneMatialArts);
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOne", "??? : CounterAttack", "CounterAttack", deepOne1.MartialArts);
                 }
                 if (DataBaseManager.battleWeapon == "Axe")
                 {
                     battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOne", "??? : CounterAttack", "CounterAttack", deepOne1.deepOneMatialArts);
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOne", "??? : CounterAttack", "CounterAttack", deepOne1.MartialArts);
                 }
             }
             if (playerAction == "PlayerMarkmen")

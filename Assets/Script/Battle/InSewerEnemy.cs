@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SCoW.Core.Rules;
 public class InSewerEnemy : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
@@ -8,21 +9,9 @@ public class InSewerEnemy : MonoBehaviour
         if (collision.tag == "Player" && DataBaseManager.isInsmusMeetSewer == false)
         {
             DataBaseManager.isInsmusMeetSewer = true;
-            int RandInt = Random.Range(1, 101);
-            if (RandInt < 55)
+            if (BattleEngine.SewerDisguiseFails(DataBaseManager.dex, UnityRng.Instance)) // 적 판정 성공
             {
-                int RandIntTwo = Random.Range(1, 101);
-                if (DataBaseManager.dex > RandIntTwo)
-                {
-
-                }
-                else // 적 판정 성공
-                {
-                    InteractionController.Instance.InSewerDialog("Sewer_DisgauseFail");
-                }
-            }
-            else
-            {
+                InteractionController.Instance.InSewerDialog("Sewer_DisgauseFail");
             }
         }
     }

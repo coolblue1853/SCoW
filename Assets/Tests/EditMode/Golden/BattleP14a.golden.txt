@@ -1,0 +1,130 @@
+== road-win seed=11
+DeepOneHybrid1 hp=53 dex=73
+DeepOneHybrid2 hp=42 dex=78
+DeepOneHybrid3 hp=47 dex=52
+t77 P->DeepOneHybrid1 Fumble/Failure counter 10 php=590
+t78 DeepOneHybrid2 Normal evaded CriticalSuccess/CriticalSuccess
+t81 DeepOneHybrid1 Normal hit 10 Failure/Success php=580
+t94 DeepOneHybrid3 Deftness evaded Success/Failure
+t155 P->DeepOneHybrid1 CriticalSuccess/Fumble hit 5 hp=48
+t158 DeepOneHybrid2 Normal evaded Success/Failure
+t163 DeepOneHybrid1 Normal evaded Failure/Failure
+t189 DeepOneHybrid3 Deftness evaded Failure/Failure
+t233 P->DeepOneHybrid1 CriticalSuccess/Failure hit 15 hp=33
+t238 DeepOneHybrid2 Normal evaded CriticalSuccess/Success
+t245 DeepOneHybrid1 Normal evaded CriticalSuccess/CriticalSuccess
+t284 DeepOneHybrid3 Deftness evaded Success/Success
+t311 P->DeepOneHybrid1 Success/CriticalSuccess counter 15 php=565
+t318 DeepOneHybrid2 Normal evaded Success/Fumble
+t327 DeepOneHybrid1 Normal evaded CriticalSuccess/Failure
+t379 DeepOneHybrid3 Deftness hit 15 Fumble/Failure php=550
+t389 P->DeepOneHybrid1 Success/Failure hit 10 hp=23
+t398 DeepOneHybrid2 Normal evaded Success/Success
+t409 DeepOneHybrid1 Normal evaded Failure/Failure
+t467 P->DeepOneHybrid1 Failure/Failure hit 10 hp=13
+t475 DeepOneHybrid3 Deftness evaded Success/Failure
+t478 DeepOneHybrid2 Normal hit 10 Success/CriticalSuccess php=540
+t491 DeepOneHybrid1 Normal evaded Success/Fumble
+t545 P->DeepOneHybrid1 Success/Success hit 10 hp=3
+t558 DeepOneHybrid2 Normal evaded Success/Failure
+t571 DeepOneHybrid3 Deftness evaded Success/Success
+t573 DeepOneHybrid1 Normal evaded Success/Failure
+t623 P->DeepOneHybrid1 Fumble/Failure counter 10 php=530
+t638 DeepOneHybrid2 Normal evaded Failure/Failure
+t655 DeepOneHybrid1 Normal hit 10 Failure/Success php=520
+t667 DeepOneHybrid3 Deftness hit 15 Success/CriticalSuccess php=505
+t701 P->DeepOneHybrid1 Success/CriticalSuccess counter 10 php=495
+t718 DeepOneHybrid2 Normal evaded CriticalSuccess/Success
+t737 DeepOneHybrid1 Normal hit 10 Success/CriticalSuccess php=485
+t762 DeepOneHybrid3 Deftness evaded Failure/Failure
+t779 P->DeepOneHybrid1 Success/Success hit 15 hp=-12
+t798 DeepOneHybrid2 Normal evaded Failure/Fumble
+t856 DeepOneHybrid3 Deftness evaded CriticalSuccess/Fumble
+t857 P->DeepOneHybrid2 CriticalSuccess/Success hit 5 hp=37
+t877 DeepOneHybrid2 Normal evaded CriticalSuccess/CriticalSuccess
+t935 P->DeepOneHybrid2 CriticalSuccess/CriticalSuccess hit 10 hp=27
+t951 DeepOneHybrid3 Deftness evaded Success/Failure
+t956 DeepOneHybrid2 Normal evaded Success/Success
+t1013 P->DeepOneHybrid2 CriticalSuccess/Failure hit 10 hp=17
+t1035 DeepOneHybrid2 Normal evaded CriticalSuccess/Failure
+t1046 DeepOneHybrid3 Deftness evaded CriticalSuccess/Success
+t1091 P->DeepOneHybrid2 CriticalSuccess/CriticalSuccess hit 10 hp=7
+t1114 DeepOneHybrid2 Normal evaded CriticalSuccess/Failure
+t1140 DeepOneHybrid3 Deftness hit 10 Failure/Success php=475
+t1169 P->DeepOneHybrid2 Success/Fumble hit 5 hp=2
+t1193 DeepOneHybrid2 Normal evaded Success/Fumble
+t1234 DeepOneHybrid3 Deftness evaded Success/Success
+t1247 P->DeepOneHybrid2 Success/Failure hit 10 hp=-8
+t1325 P->DeepOneHybrid3 Success/Failure hit 10 hp=37
+t1328 DeepOneHybrid3 Deftness evaded CriticalSuccess/CriticalSuccess
+t1403 P->DeepOneHybrid3 Fumble/Success counter 10 php=465
+t1421 DeepOneHybrid3 Deftness evaded Success/Success
+t1481 P->DeepOneHybrid3 Success/Success hit 10 hp=27
+t1514 DeepOneHybrid3 Deftness evaded Success/Success
+t1559 P->DeepOneHybrid3 CriticalSuccess/Success hit 15 hp=12
+t1607 DeepOneHybrid3 Deftness evaded Success/Success
+t1637 P->DeepOneHybrid3 Success/Failure hit 10 hp=2
+t1700 DeepOneHybrid3 Deftness hit 15 Fumble/Failure php=450
+t1715 P->DeepOneHybrid3 Success/CriticalSuccess counter 10 php=440
+t1793 P->DeepOneHybrid3 CriticalSuccess/Failure hit 10 hp=-8
+RESULT WIN php=440
+== road-lose seed=12
+DeepOneHybrid1 hp=47 dex=52
+DeepOneHybrid2 hp=52 dex=46
+DeepOneHybrid3 hp=50 dex=77
+t78 DeepOneHybrid3 Deftness hit 15 Failure/CriticalSuccess php=5
+t91 DeepOneHybrid1 Normal evaded Failure/Failure
+t93 P->DeepOneHybrid1 Failure/Failure hit 5 hp=42
+t96 DeepOneHybrid2 Normal evaded Failure/Failure
+t160 DeepOneHybrid3 Deftness hit 10 Fumble/Failure php=-5
+RESULT LOSE php=-5
+== sewer-win seed=13
+DeepOneHybrid4 hp=41 dex=65
+DeepOne1 hp=107 dex=53
+t77 P->DeepOneHybrid4 Success/Failure hit 15 hp=26
+t84 DeepOneHybrid4 Normal evaded Success/Failure
+t92 DeepOne1 san-attack
+t155 P->DeepOneHybrid4 Success/Failure hit 10 hp=16
+t169 DeepOneHybrid4 Normal evaded Success/Fumble
+t185 DeepOne1 san-attack
+t233 P->DeepOneHybrid4 CriticalSuccess/Failure hit 15 hp=1
+t254 DeepOneHybrid4 Normal evaded Failure/Failure
+t278 DeepOne1 poison-attack
+t311 poison -5 php=595
+t311 P->DeepOneHybrid4 Success/Fumble hit 10 hp=-9
+t370 DeepOne1 san-attack
+t389 poison -10 php=585
+t389 P->DeepOne1 CriticalSuccess/Failure hit 10 hp=97
+t462 DeepOne1 Normal hit 20 Fumble/Failure php=565
+t467 poison -5 php=560
+t467 P->DeepOne1 CriticalSuccess/Failure hit 10 hp=87
+t545 P->DeepOne1 Failure/Failure hit 5 hp=82
+t555 DeepOne1 Normal evaded CriticalSuccess/CriticalSuccess
+t623 P->DeepOne1 Success/Failure hit 15 hp=67
+t647 DeepOne1 san-attack
+t701 P->DeepOne1 Success/Success hit 15 hp=52
+t739 DeepOne1 Normal evaded CriticalSuccess/CriticalSuccess
+t779 P->DeepOne1 Success/Success hit 5 hp=47
+t831 DeepOne1 san-attack
+t857 P->DeepOne1 Success/Failure hit 15 hp=32
+t923 DeepOne1 Normal evaded CriticalSuccess/Success
+t935 P->DeepOne1 CriticalSuccess/CriticalSuccess hit 5 hp=27
+t1013 P->DeepOne1 Success/Failure hit 10 hp=17
+t1016 DeepOne1 poison-attack
+t1091 poison -5 php=555
+t1091 P->DeepOne1 CriticalSuccess/CriticalSuccess hit 5 hp=12
+t1108 DeepOne1 Normal evaded Success/Failure
+t1169 poison -10 php=545
+t1169 P->DeepOne1 CriticalSuccess/CriticalSuccess hit 10 hp=2
+t1200 DeepOne1 Normal evaded CriticalSuccess/Success
+t1247 poison -10 php=535
+t1247 P->DeepOne1 CriticalSuccess/CriticalSuccess hit 10 hp=-8
+RESULT WIN php=535
+== sewer-lose seed=14
+DeepOneHybrid4 hp=50 dex=79
+DeepOne1 hp=107 dex=48
+t77 DeepOneHybrid4 Normal evaded Failure/Fumble
+t93 P->DeepOneHybrid4 Success/Success hit 5 hp=45
+t95 DeepOne1 Normal evaded Failure/Failure
+t156 DeepOneHybrid4 Normal hit 20 Failure/Success php=0
+RESULT LOSE php=0
