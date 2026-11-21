@@ -48,14 +48,17 @@ public sealed class KeywordPicker : MonoBehaviour
 
     private string _npc;
     private int _remaining;
+    private StoryScript _script;
     private Action<KeywordEntry> _onPick;
     private TMP_FontAsset _font;
     private readonly List<KeywordEntry>[] _lists = new List<KeywordEntry>[3];
     private readonly HashSet<string> _specific = new HashSet<string>();
+    private readonly HashSet<string> _asked = new HashSet<string>();
     private readonly List<Image> _tabImages = new List<Image>();
     private readonly List<Image> _rowImages = new List<Image>();
     private TextMeshProUGUI _emptyText;
     private TextMeshProUGUI _countText;
+    private TextMeshProUGUI _noticeText;
     private RectTransform _content;
     private ScrollRect _scroll;
     private int _tab;
@@ -139,6 +142,7 @@ public sealed class KeywordPicker : MonoBehaviour
     private void Collect(KeywordBook book, GameState state)
     {
         StoryScript script = StoryDatabase.KeywordScriptOrNull();
+        _script = script;
         HashSet<string> seen = new HashSet<string>();
         for (int i = 0; i < Tabs.Length; i++)
         {
@@ -151,6 +155,10 @@ public sealed class KeywordPicker : MonoBehaviour
                     continue;
                 }
                 list.Add(raw[k]);
+                if (KeywordAsk.IsAsked(state, _npc, raw[k].Id))
+                {
+                    _asked.Add(raw[k].Id);
+                }
                 if (KeywordBook.Reaction(script, _npc, raw[k].Id) == KeywordReaction.Specific)
                 {
                     _specific.Add(raw[k].Id);
@@ -257,16 +265,33 @@ public sealed class KeywordPicker : MonoBehaviour
     private void Confirm()
     {
         List<KeywordEntry> list = _lists[_tab];
-        if (_done || list.Count == 0 || _remaining <= 0)
+        if (_done || list.Count == 0)
         {
             return;
         }
         KeywordEntry picked = list[Mathf.Clamp(_index, 0, list.Count - 1)];
+        KeywordOutcome outcome = KeywordAsk.Decide(KeywordBook.Reaction(_script, _npc, picked.Id), _asked.Contains(picked.Id), _remaining);
+        if (outcome == KeywordOutcome.NoBudget || outcome == KeywordOutcome.AlreadyAsked)
+        {
+            ShowNotice(outcome);
+            return;
+        }
         Close();
         if (_onPick != null)
         {
             _onPick(picked);
         }
+    }
+
+    // 대사 없이 안내만(횟수 불변). TODO(I2): 문구를 새 I2 키(kw.no_budget / kw.already_asked)로 옮긴다.
+    private void ShowNotice(KeywordOutcome outcome)
+    {
+        if (_noticeText == null)
+        {
+            return;
+        }
+        _noticeText.text = outcome == KeywordOutcome.NoBudget ? "No questions left." : "You already asked about that.";
+        _noticeText.gameObject.SetActive(true);
     }
 
     // ---- 화면 만들기(임시 그래픽) ----
@@ -339,7 +364,12 @@ public sealed class KeywordPicker : MonoBehaviour
         _emptyText.color = new Color(0.7f, 0.7f, 0.7f, 1f);
         Stretch(_emptyText.rectTransform);
 
-        TextMeshProUGUI hint = MakeText("Hint", panel, "W S: Select   A D: Tab   E: Present   Esc: Close   * = reacts", 20, TextAlignmentOptions.Center);
+        _noticeText = MakeText("Notice", panel, string.Empty, 28, TextAlignmentOptions.Center);
+        _noticeText.color = new Color(1f, 0.55f, 0.45f, 1f);
+        Anchor(_noticeText.rectTransform, new Vector2(0.5f, 0f), new Vector2(0f, 66f), new Vector2(960f, 40f));
+        _noticeText.gameObject.SetActive(false);
+
+        TextMeshProUGUI hint = MakeText("Hint", panel, "W S: Select  A D: Tab  E: Present  Esc: Close  * reacts  ● asked", 18, TextAlignmentOptions.Center);
         hint.color = new Color(0.7f, 0.7f, 0.7f, 1f);
         Anchor(hint.rectTransform, new Vector2(0.5f, 0f), new Vector2(0f, 22f), new Vector2(960f, 36f));
 
@@ -413,7 +443,7 @@ public sealed class KeywordPicker : MonoBehaviour
         int idx = index;
         b.onClick.AddListener(() => { _index = idx; Confirm(); });
         row.gameObject.AddComponent<RowHover>().Init(() => { _index = idx; RefreshSelection(); });
-        string mark = _specific.Contains(entry.Id) ? "* " : "   ";
+        string mark = (_specific.Contains(entry.Id) ? "* " : "  ") + (_asked.Contains(entry.Id) ? "● " : "  ");
         TextMeshProUGUI t = MakeText("Label", row, mark + entry.Id, 32, TextAlignmentOptions.Left);
         Stretch(t.rectTransform);
         t.rectTransform.offsetMin = new Vector2(24f, 0f);
@@ -422,6 +452,10 @@ public sealed class KeywordPicker : MonoBehaviour
 
     private void RefreshSelection()
     {
+        if (_noticeText != null)
+        {
+            _noticeText.gameObject.SetActive(false);
+        }
         for (int i = 0; i < _tabImages.Count; i++)
         {
             Color c = i == _tab ? new Color(0.45f, 0.35f, 0.15f, 1f) : new Color(0.2f, 0.18f, 0.16f, 1f);

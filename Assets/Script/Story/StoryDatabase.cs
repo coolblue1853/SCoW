@@ -96,7 +96,15 @@ public static class StoryDatabase
     /// </summary>
     public static bool TryRunKeyword(string npc, string keyword, out Dialog[] dialogs)
     {
+        bool usedFallback;
+        return TryRunKeyword(npc, keyword, out dialogs, out usedFallback);
+    }
+
+    /// <summary>위와 같고, usedFallback 은 전용 토픽이 없어 "NPC/*" 로 갔는지(K3: 폴백이면 질문 횟수를 환불한다). false 로 끝날 때도 true 로 둔다(반응 없음 = 소모 없음).</summary>
+    public static bool TryRunKeyword(string npc, string keyword, out Dialog[] dialogs, out bool usedFallback)
+    {
         dialogs = null;
+        usedFallback = true;
         StoryScript script = LoadScript(KeywordScript);
         if (script == null)
         {
@@ -105,7 +113,10 @@ public static class StoryDatabase
         }
         string topic = npc + "/" + keyword;
         if (keyword == null || !script.HasTopic(topic)) { topic = npc + "/*"; }
-        return TryRun(KeywordScript, topic, out dialogs);
+        else { usedFallback = false; }
+        bool ok = TryRun(KeywordScript, topic, out dialogs);
+        if (!ok) { usedFallback = true; } // 맞는 Case 가 없어 대사가 안 뜨면 소모하지 않는다
+        return ok;
     }
 
     /// <summary>places.json 을 읽을 수 있는지(실패하면 장소 대사가 안 뜨므로 호출측이 폴백한다).</summary>

@@ -168,3 +168,9 @@
 - 검증: EditMode 270 통과. 플레이: 키보드(E 열기·S 이동)·가상 패드(A 열기, 십자, RB 탭, B 닫기, A 제시)·마우스(호버·클릭 이벤트)로 Ella 에게 `Contents of a Newspaper` 제시 → 옛 방식과 같은 노드(1st_Client'sHouse:213) 출력, 콘솔 error 0. 캡처 `Logs/playtest/KeywordPicker_*.png`.
 - 임시·미해결: 문구·분류 이름은 영문 하드코딩(TODO I2), 그래픽 임시(ART-2). 횟수 0 일 때 제시는 무반응(K3 에서 안내). `●`(이미 물음)은 AskedKeywords(K3) 후. 구 3단 선택기(`BillowUI/GameObject/KeyWord`)는 씬에 그대로 남고 이 경로가 값을 읽지 않는다(씬 직렬화 보호, K7 에서 제거). 가상 키보드는 에디터 비포커스 상태에서 한 번 끊겼다(패드는 정상, 같은 `GameInput` 코드 경로).
 - K1 리뷰 권장 반영: 주석 클래스명, 의심 표시 항목 단위(`EntryToList`), 상위 unlockFlags 빈 값 검사, 골든 352 정확 일치, `KeywordBook` null 가드.
+cat: /tmp/k3add.txt: No such file or directory
+
+## 8. K3 결과 (11-21)
+- 완료: `Core/Keyword/KeywordAsk.cs`(순수: `Decide` 결과 4종 Correct/Unrelated/AlreadyAsked/NoBudget, `Settle` 정산, 물음 기록 = GameState 플래그 `kwAsked:NPC/키워드`, 새 키만 추가). `StoryDatabase.TryRunKeyword(..., out usedFallback)`(대사 없음·맞는 Case 없음도 폴백 취급). `InteractionController.KeywordDialog` 가 usedFallback 을 반환하고, `Intel_ObtoUI.OnKeywordPicked` 는 선차감을 없애고 대사 뒤에 정산한다(Q-K1: 폴백 환불, 전용 응답만 -1). 선택 행 키워드 칸에 `keyword (N)`, Picker 에 `Questions left`·`●`(이미 물음)·횟수 0 / 이미 물음 안내 문구(대사 없이 창 유지). 횟수 0 이어도 키워드 칸이 열려 안내가 나온다(옛: 칸이 숨음).
+- 반응 3종 중 대사: 모름 = 기존 `NPC/*` 폴백 그대로, 이미 물음·횟수 0 = Picker 안내 문구(TODO I2 `kw.already_asked`/`kw.no_budget`). 말하기 곤란·짜증(연속 오답)은 Q-K4 대사가 올 때까지 보류.
+- 검증: EditMode 278(신규 8) 통과. 플레이(가상 패드): 정답 2→1·● 기록, 오답(Meetings) 2 유지, 이미 물음 안내, 횟수 0 안내(캡처 `Logs/playtest/K3_*.png`). 씬 직렬화 무변경.

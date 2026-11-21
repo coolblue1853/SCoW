@@ -101,7 +101,7 @@ public class Intel_ObtoUI : MonoBehaviour
                 {
                     isKeyword = true;
                 }
-                if (isKeyword == false || keywordCounter == 0)
+                if (isKeyword == false)
                 {
                     //    DataBaseManager.isKeyword = false;
                 }
@@ -270,12 +270,23 @@ public class Intel_ObtoUI : MonoBehaviour
         DataBaseManager.keywordMain = entry.Category.ToString();
         DataBaseManager.keywordUpper = entry.Upper;
         DialogManager.Instance.ChoiceExNextPage();
-        keywordCounter -= 1;
         DataBaseManager.isSelect = true;
-        InteractionController.Instance.KeywordDialog(this.name);
+        // K3: 전용 응답일 때만 횟수 소모(폴백은 환불)하고 물음을 기록한다. 정답 경로의 대사는 그대로.
+        bool usedFallback = InteractionController.Instance.KeywordDialog(this.name);
+        if (GameRoot.Instance == null) { return; }
+        keywordCounter = SCoW.Core.Keyword.KeywordAsk.Settle(GameRoot.Instance.State, this.name, entry.Id, usedFallback, keywordCounter);
+        RefreshKeywordLabel();
+    }
+    // 대화 선택 행의 키워드 칸에 남은 질문 수를 보인다(씬 텍스트라 NPC 가 바뀔 때마다 다시 쓴다).
+    private void RefreshKeywordLabel()
+    {
+        if (keywordOb == null) { return; }
+        TMPro.TMP_Text label = keywordOb.GetComponentInChildren<TMPro.TMP_Text>(true);
+        if (label != null) { label.text = "keyword (" + keywordCounter + ")"; }
     }
     public void Onkeyword()
     {
+        RefreshKeywordLabel();
         keywordOb.SetActive(true);
         keywordBackOb.SetActive(true);
         DataBaseManager.isKeyword = true;

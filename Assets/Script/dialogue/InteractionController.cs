@@ -100,7 +100,8 @@ public partial class InteractionController : MonoBehaviour
     /// 키워드 선택 대사(C-2 P11 이후 데이터 주도: Resources/Story/Keyword.json, 토픽 "NPC/키워드"). NPC 이름은 setDialog,
     /// 키워드는 DataBaseManager.keywordDowner. 씬 interactionEvent 오브젝트·인스펙터 범위는 남기되 이 경로는 읽지 않는다.
     /// </summary>
-    public void KeywordDialog(string setDialog)
+    /// <summary>전용 응답이 아니라 폴백("NPC/*") 대사로 갔거나 대사가 없으면 true(K3: 호출측이 질문 횟수를 환불한다).</summary>
+    public bool KeywordDialog(string setDialog)
     {
         if (setDialog == "Dusty Dave")
         {
@@ -108,10 +109,12 @@ public partial class InteractionController : MonoBehaviour
             selectionUIManager.Instance.EndDialog();
         }
         Dialog[] dialogs;
-        if (StoryDatabase.TryRunKeyword(setDialog, DataBaseManager.keywordDowner, out dialogs))
+        bool usedFallback;
+        if (StoryDatabase.TryRunKeyword(setDialog, DataBaseManager.keywordDowner, out dialogs, out usedFallback))
         {
             theDM.ShowDialog(dialogs);
         }
+        return usedFallback;
     }
     /// <summary>전투 시작·종료 대사(C-2 P11 이후 데이터 주도: Resources/Story/1st_Battle.json).</summary>
     public void BattleDialog(string setDialog)
