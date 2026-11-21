@@ -140,6 +140,7 @@ public class IntelManager : MonoBehaviour
             SoundManager.Instance.PaperClipPlay();
             UiGate.Push(PanelKind.Intel);
             intelUI.SetActive(true);
+            KeywordToast.OnIntelOpened();
         }
     }
     public void CloseSetting()

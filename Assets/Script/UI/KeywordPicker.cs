@@ -54,6 +54,7 @@ public sealed class KeywordPicker : MonoBehaviour
     private readonly List<KeywordEntry>[] _lists = new List<KeywordEntry>[3];
     private readonly HashSet<string> _specific = new HashSet<string>();
     private readonly HashSet<string> _asked = new HashSet<string>();
+    private readonly HashSet<string> _new = new HashSet<string>();
     private readonly List<Image> _tabImages = new List<Image>();
     private readonly List<Image> _rowImages = new List<Image>();
     private TextMeshProUGUI _emptyText;
@@ -87,6 +88,7 @@ public sealed class KeywordPicker : MonoBehaviour
         p._font = DialogManager.Instance != null ? DialogManager.Instance.DialogFont : null;
         p.Collect(book, GameRoot.Instance.State);
         p.Build();
+        KeywordNotice.MarkAllSeen(book, GameRoot.Instance.State); // NEW 는 이번에 한 번 보여 주고 지운다
         _current = p;
         UiGate.Push(PanelKind.Keyword);
         return true;
@@ -116,7 +118,7 @@ public sealed class KeywordPicker : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private static KeywordBook GetBook()
+    internal static KeywordBook GetBook()
     {
         if (_book != null)
         {
@@ -146,7 +148,7 @@ public sealed class KeywordPicker : MonoBehaviour
         HashSet<string> seen = new HashSet<string>();
         for (int i = 0; i < Tabs.Length; i++)
         {
-            List<KeywordEntry> raw = book.GetUnlocked(Tabs[i], state);
+            List<KeywordEntry> raw = KeywordNotice.SortByAcquisition(book.GetUnlocked(Tabs[i], state), state);
             List<KeywordEntry> list = new List<KeywordEntry>();
             for (int k = 0; k < raw.Count; k++)
             {
@@ -155,6 +157,10 @@ public sealed class KeywordPicker : MonoBehaviour
                     continue;
                 }
                 list.Add(raw[k]);
+                if (KeywordNotice.IsNew(state, raw[k].Id))
+                {
+                    _new.Add(raw[k].Id);
+                }
                 if (KeywordAsk.IsAsked(state, _npc, raw[k].Id))
                 {
                     _asked.Add(raw[k].Id);
@@ -444,7 +450,9 @@ public sealed class KeywordPicker : MonoBehaviour
         b.onClick.AddListener(() => { _index = idx; Confirm(); });
         row.gameObject.AddComponent<RowHover>().Init(() => { _index = idx; RefreshSelection(); });
         string mark = (_specific.Contains(entry.Id) ? "* " : "  ") + (_asked.Contains(entry.Id) ? "● " : "  ");
-        TextMeshProUGUI t = MakeText("Label", row, mark + entry.Id, 32, TextAlignmentOptions.Left);
+        string tag = _new.Contains(entry.Id) ? "<color=#FFD84A>NEW</color> " : string.Empty;
+        TextMeshProUGUI t = MakeText("Label", row, mark + tag + entry.Id, 32, TextAlignmentOptions.Left);
+        t.textWrappingMode = TextWrappingModes.NoWrap;
         Stretch(t.rectTransform);
         t.rectTransform.offsetMin = new Vector2(24f, 0f);
         _rowImages.Add(row.GetComponent<Image>());
