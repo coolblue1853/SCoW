@@ -30,7 +30,11 @@
 |------|------|
 | `Game/GameOverview.md` | 게임 개요·코드 구조 지도(첫 세션에서 채움) |
 | `Game/CocDesign.md` | CoC 판정·SAN·전투 실측, 7판 규칙 대조, 우선순위, 순수 C# 규칙 인터페이스 초안 |
+| `Game/Story.md` | 스토리 분석: 줄거리·인물·장소·시간(timeCount)·단서→키워드→수첩 사슬·판정·엔딩 분기(CSV ID 근거) |
+| `Game/StoryImprove.md` | 스토리 개선안 P0/P1/P2: 설정 모순·막힘·흐름·자유도·SAN/광기 장면별 연출, 데이터 주도 얹는 법 |
 | `Game/Architecture.md` | 코드 전면 재작성 설계: 구조 실측, 상태 객체·저장·데이터 주도 대화·Core asmdef·GameInput, 단계 P0~P16(스트랭글러), UTF-8 변환 방침 |
+| `Game/KeywordUX.md` | KEYWORD-1: 키워드 시스템 현행 조작 단계·문제(파일:줄), 카탈로그·KeywordPicker·3경로 입력·횟수/오답·새 키워드 알림 개선 설계, 단계 K1~K7 |
+| `Game/SewerImprove.md` | SEWER-1: 하수도 내부 현행 실측(랜덤 방·운 판정·조명/소리 없음)과 가설, 고정 그래프·조사 포인트·SAN 연동 공포 연출·조우 리듬, 단계 S0~S9 |
 
 ## 레퍼런스 게임 분석 (Project B 에서 옮김, 원본 추출 자료는 ProjectB 쪽 경로)
 
