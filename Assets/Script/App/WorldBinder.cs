@@ -18,6 +18,11 @@ public sealed class WorldBinder : MonoBehaviour, IWorldScene
     private bool _pending;
     private bool _evaluating;
     private bool _valid;
+    // 안전망(P13 리뷰 권장): 옛 코드는 매 프레임 덮어써서 판정 후 false 로 굳은 canJudge(하수도 창문·사물함 등)를
+    // 밤마다 되살렸다. 알림만으로는 그 복구가 없으므로 0.5초마다 한 번 재평가해 옛 동작에 맞춘다(평가는 순수·가벼움).
+    private const float SafetyNetInterval = 0.5f;
+    private static readonly WaitForSeconds SafetyNetWait = new WaitForSeconds(SafetyNetInterval);
+    private Coroutine _safetyNet;
 
     private void Awake()
     {
@@ -29,12 +34,30 @@ public sealed class WorldBinder : MonoBehaviour, IWorldScene
     {
         GameRoot.StateChanged += OnStateChanged;
         RequestEvaluate();
+        _safetyNet = StartCoroutine(SafetyNetLoop());
     }
 
     private void OnDisable()
     {
         GameRoot.StateChanged -= OnStateChanged;
         _pending = false;
+        if (_safetyNet != null)
+        {
+            StopCoroutine(_safetyNet);
+            _safetyNet = null;
+        }
+    }
+
+    private IEnumerator SafetyNetLoop()
+    {
+        while (true)
+        {
+            yield return SafetyNetWait;
+            if (!_pending)
+            {
+                EvaluateNow();
+            }
+        }
     }
 
     private void OnStateChanged(string key)
