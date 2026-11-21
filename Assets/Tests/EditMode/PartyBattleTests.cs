@@ -109,9 +109,18 @@ namespace SCoW.Tests
             return new BattleField(allies, enemies);
         }
 
-        private static BattleEvent[] Do(BattleField f, IBattleUnit actor, ActionKind kind, int rank, IRng rng)
+        private static BattleEvent[] Do(BattleField f, IBattleUnit actor, ActionKind kind, int rank, IRng rng, SuccessLevel? pre = null)
         {
-            return f.Resolve(new BattleCommand(actor, kind, rank), rng);
+            List<BattleEvent> events = new List<BattleEvent>();
+            f.Resolve(new BattleCommand(actor, kind, rank, pre), rng, events);
+            return events.ToArray();
+        }
+
+        private static List<BattleEvent> Settle(BattleField f)
+        {
+            List<BattleEvent> events = new List<BattleEvent>();
+            f.Settle(events);
+            return events;
         }
 
         private static bool Has(BattleEvent[] events, BattleEventKind kind)
@@ -283,7 +292,7 @@ namespace SCoW.Tests
                 if (f.BeginTurn(actor, rng, events) && !f.IsOver(out outcome))
                 {
                     BattleCommand cmd = actor.Side == Side.Enemy ? f.DecideEnemy((EnemyUnit)actor, rng) : AllyPolicy(f, (PartyMember)actor);
-                    events.AddRange(f.Resolve(cmd, rng));
+                    f.Resolve(cmd, rng, events);
                 }
                 for (int i = 0; i < events.Count; i++)
                 {
@@ -292,7 +301,7 @@ namespace SCoW.Tests
                 }
             }
             f.IsOver(out outcome);
-            List<BattleEvent> settle = f.Settle();
+            List<BattleEvent> settle = Settle(f);
             for (int i = 0; i < settle.Count; i++)
             {
                 log.Add("settle " + settle[i]);
@@ -517,19 +526,19 @@ namespace SCoW.Tests
             maeve.Hp = 0;
             BattleOutcome o;
             Assert.IsFalse(f.IsOver(out o));
-            Assert.IsEmpty(f.Settle(), "전투 중 정산은 무시");
+            Assert.IsEmpty(Settle(f), "전투 중 정산은 무시");
             // 파비안이 적을 쓰러뜨림: 무술 대성공 + 적 대실패, 피해 1d3
             BattleEvent[] ev = Do(f, fabian, ActionKind.Melee, 0, new ListRng(Cat(RollCrit, PlainFumble, new[] { 3 })));
             Assert.IsTrue(Has(ev, BattleEventKind.EnemyDown));
             Assert.IsTrue(f.IsOver(out o));
             Assert.AreEqual(BattleOutcome.Win, o);
-            List<BattleEvent> settle = f.Settle();
+            List<BattleEvent> settle = Settle(f);
             Assert.AreEqual(UnitStatus.Recovering, maeve.Status);
             Assert.AreEqual(1, maeve.Hp);
             Assert.IsFalse(maeve.Dead);
             Assert.AreEqual(UnitStatus.Ready, albert.Status);
             Assert.AreEqual(PartyBattleRules.StableHp, albert.Hp);
-            Assert.IsEmpty(f.Settle(), "정산은 한 번만");
+            Assert.IsEmpty(Settle(f), "정산은 한 번만");
             Assert.AreEqual(1, settle.Count);
         }
 
@@ -549,12 +558,12 @@ namespace SCoW.Tests
             BattleOutcome o;
             Assert.IsTrue(f.IsOver(out o));
             Assert.AreEqual(BattleOutcome.Fled, o);
-            List<BattleEvent> settle = f.Settle();
+            List<BattleEvent> settle = Settle(f);
             Assert.IsTrue(albert.Dead);
             Assert.IsTrue(maeve.Dead);
             Assert.IsFalse(fabian.Dead);
             Assert.AreEqual(2, settle.Count);
-            Assert.IsEmpty(f.Settle());
+            Assert.IsEmpty(Settle(f));
         }
 
         [Test]
@@ -845,7 +854,7 @@ namespace SCoW.Tests
             Assert.IsTrue(Has(Do(f, f.At(Side.Ally, 0), ActionKind.Calm, 1, rng), BattleEventKind.Invalid));
             maeve.Status = UnitStatus.Downed;
             Assert.IsTrue(Has(Do(f, maeve, ActionKind.Guard, 2, rng), BattleEventKind.Invalid), "행동 불가");
-            Assert.IsTrue(Has(f.Resolve(new BattleCommand(null, ActionKind.Guard, 0), rng), BattleEventKind.Invalid));
+            Assert.IsTrue(Has(Do(f, null, ActionKind.Guard, 0, rng), BattleEventKind.Invalid));
             Assert.AreEqual(0, rng.Draws);
         }
 
@@ -853,6 +862,255 @@ namespace SCoW.Tests
         public void Field_RejectsMoreThanThree()
         {
             Assert.Throws<ArgumentException>(() => Field(new[] { Albert(), Fabian(), Maeve(), Albert() }, Enemy(EnemyDefs.DeepOne1, "e0")));
+        }
+
+        // ---------- PT-2 리뷰 반영: 룰렛 주입·대응 대기·이벤트·정산·환원 ----------
+
+        private static BattleField ManualField(PartyMember leader, PartyMember other, EnemyUnit enemy)
+        {
+            return new BattleField(new[] { leader, other }, new[] { enemy }, new BattleOptions { ManualLeaderDefense = true });
+        }
+
+        [Test]
+        public void PreRolled_SkipsOwnRoll_ButEnemyStillRolls()
+        {
+            BattleField f = Field(new[] { Albert(), Fabian() }, Enemy(EnemyDefs.DeepOne1, "e0", 50, 100));
+            ListRng rng = new ListRng(Cat(PlainFumble, new[] { 1 }));
+            BattleEvent[] ev = Do(f, f.At(Side.Ally, 0), ActionKind.Ranged, 0, rng, SuccessLevel.CriticalSuccess);
+            Assert.AreEqual(3, rng.Consumed, "자기 판정 6개를 건너뛰고 적 2 + 피해 1 만 소비");
+            Assert.AreEqual(BattleEventKind.Hit, ev[0].Kind);
+            Assert.AreEqual((int)SuccessLevel.CriticalSuccess, ev[0].ActorLevel);
+            Assert.AreEqual((int)SuccessLevel.Fumble, ev[0].TargetLevel);
+            ListRng miss = new ListRng(PlainCrit);
+            Assert.IsTrue(Has(Do(f, f.Leader, ActionKind.Melee, 0, miss, SuccessLevel.Failure), BattleEventKind.Miss));
+            Assert.AreEqual(2, miss.Consumed);
+        }
+
+        [Test]
+        public void ManualDefense_WaitsForResponse_ThenAppliesEvasionOrCounter()
+        {
+            PartyMember leader = Fabian();
+            BattleField f = ManualField(leader, Albert(), Enemy(EnemyDefs.DeepOne1, "e0", 50, 5));
+            CountingRng none = new CountingRng();
+            IBattleUnit enemy = f.At(Side.Enemy, 0);
+            BattleEvent[] ev = Do(f, enemy, ActionKind.Melee, 0, none);
+            Assert.AreEqual(BattleEventKind.ResponseNeeded, ev[0].Kind);
+            Assert.AreEqual(0, none.Draws);
+            Assert.IsTrue(f.HasPendingResponse);
+            Assert.IsTrue(Has(Do(f, enemy, ActionKind.Melee, 0, none), BattleEventKind.Invalid), "대기 중에는 다른 지시 불가");
+            List<BattleEvent> r = new List<BattleEvent>();
+            f.ResolveResponse(DefenseChoice.Evasion, SuccessLevel.CriticalSuccess, new ListRng(PlainFumble), r);
+            Assert.IsTrue(r.Exists(e => e.Kind == BattleEventKind.Evade));
+            Assert.IsFalse(f.HasPendingResponse);
+
+            Do(f, enemy, ActionKind.Melee, 0, none);
+            r.Clear();
+            f.ResolveResponse(DefenseChoice.Counter, SuccessLevel.CriticalSuccess, new ListRng(Cat(PlainFumble, new[] { 3 })), r);
+            Assert.IsTrue(r.Exists(e => e.Kind == BattleEventKind.Hit && e.Detail == BattleDetail.Counter && e.ActorId == "fabian"));
+            Assert.IsTrue(r.Exists(e => e.Kind == BattleEventKind.EnemyDown));
+
+            r.Clear();
+            f.ResolveResponse(DefenseChoice.Evasion, null, none, r);
+            Assert.AreEqual(BattleEventKind.Invalid, r[0].Kind, "대기가 없으면 Invalid");
+        }
+
+        [Test]
+        public void ManualDefense_CounterFailure_LeaderTakesTheHit()
+        {
+            PartyMember leader = Fabian();
+            BattleField f = ManualField(leader, Albert(), Enemy(EnemyDefs.DeepOne1, "e0"));
+            Do(f, f.At(Side.Enemy, 0), ActionKind.Melee, 0, new CountingRng());
+            List<BattleEvent> r = new List<BattleEvent>();
+            f.ResolveResponse(DefenseChoice.Counter, SuccessLevel.Fumble, new ListRng(Cat(PlainCrit, new[] { 2, 2 })), r);
+            Assert.AreEqual(50 - 20, leader.Hp);
+            BattleEvent hit = r.Find(e => e.Kind == BattleEventKind.Hit);
+            Assert.AreEqual("fabian", hit.TargetId);
+            Assert.AreEqual(30, hit.Hp, "이벤트에 변화 후 HP");
+            Assert.AreEqual(52, hit.San);
+            Assert.AreEqual(0, hit.Rank);
+        }
+
+        [Test]
+        public void Events_CarryRankHpSanCauseAndLevels()
+        {
+            PartyMember maeve = Maeve();
+            BattleField f = Field(new[] { Albert(), Fabian(), maeve }, Enemy(EnemyDefs.DeepOne1, "d", 50, 100));
+            BattleEvent[] ev = Do(f, f.At(Side.Enemy, 0), ActionKind.SanAttack, 2, new ListRng(Cat(RollFumble, new[] { 2 })));
+            Assert.AreEqual(BattleEventKind.ActionStart, ev[0].Kind);
+            Assert.AreEqual(BattleDetail.SanAttack, ev[0].Detail);
+            BattleEvent loss = ev[1];
+            Assert.AreEqual(BattleEventKind.SanLoss, loss.Kind);
+            Assert.AreEqual("d", loss.ActorId, "SanLoss 에 원인");
+            Assert.AreEqual(60, loss.San);
+            Assert.AreEqual(2, loss.Rank);
+            Assert.AreEqual(5, loss.Value);
+            BattleEvent[] poison = Do(f, f.At(Side.Enemy, 0), ActionKind.PoisonAttack, 0, new ListRng());
+            Assert.AreEqual(BattleDetail.PoisonAttack, poison[0].Detail);
+            Assert.AreEqual(BattleEventKind.Invalid, Do(f, f.At(Side.Ally, 0), ActionKind.Throw, 0, new ListRng())[0].Kind, "자리만 확정한 행동");
+        }
+
+        [Test]
+        public void Events_EnemyDeath_EmitsCompactWithOldRank()
+        {
+            BattleField f = Field(new[] { Albert(), Fabian() }, Enemy(EnemyDefs.DeepOne1, "e0", 50, 5), Enemy(EnemyDefs.DeepOne1, "e1"));
+            BattleEvent[] ev = Do(f, f.At(Side.Ally, 0), ActionKind.Melee, 0, new ListRng(Cat(RollCrit, PlainFumble, new[] { 1 })));
+            int down = Array.FindIndex(ev, e => e.Kind == BattleEventKind.EnemyDown);
+            int compact = Array.FindIndex(ev, e => e.Kind == BattleEventKind.Compact);
+            Assert.That(down, Is.GreaterThanOrEqualTo(0));
+            Assert.That(compact, Is.GreaterThan(down));
+            Assert.AreEqual("e1", ev[compact].TargetId);
+            Assert.AreEqual(1, ev[compact].Value);
+            Assert.AreEqual(0, ev[compact].Rank);
+        }
+
+        [Test]
+        public void Events_SwapReportsNewRank_AndHitComesBeforeDown()
+        {
+            PartyMember albert = Albert();
+            BattleField f = Field(new[] { albert, Fabian() }, Enemy(EnemyDefs.DeepOne1, "e0"));
+            BattleEvent[] ev = Do(f, albert, ActionKind.Swap, 1, new ListRng());
+            Assert.AreEqual(1, ev[0].Value);
+            Assert.AreEqual(0, ev[0].Rank);
+            PartyMember weak = Albert(30);
+            BattleField g = Field(new[] { Fabian(), weak }, Enemy(EnemyDefs.DeepOne1, "e0"));
+            BattleEvent[] hit = Do(g, g.At(Side.Enemy, 0), ActionKind.Melee, 1, HitThatCannotBeEvaded());
+            Assert.AreEqual(BattleEventKind.Hit, hit[0].Kind);
+            Assert.AreEqual(0, hit[0].Hp);
+            Assert.AreEqual(BattleEventKind.Down, hit[1].Kind);
+        }
+
+        [Test]
+        public void Settle_Leader_DownedWinsToReady_LossAndFledLeaveLeader()
+        {
+            PartyMember leader = Fabian();
+            PartyMember albert = Albert();
+            BattleField f = Field(new[] { leader, albert }, Enemy(EnemyDefs.DeepOne1, "e0", 50, 5));
+            leader.Status = UnitStatus.Downed;
+            leader.Hp = 0;
+            Do(f, albert, ActionKind.Melee, 0, new ListRng(Cat(RollCrit, PlainFumble, new[] { 3 })));
+            Settle(f);
+            Assert.AreEqual(UnitStatus.Ready, leader.Status);
+            Assert.AreEqual(PartyBattleRules.StableHp, leader.Hp);
+            Assert.IsFalse(leader.Dead);
+
+            PartyMember l2 = Fabian();
+            PartyMember a2 = Albert();
+            BattleField g = Field(new[] { l2, a2 }, Enemy(EnemyDefs.DeepOne1, "e0"));
+            l2.Status = UnitStatus.Fallen;
+            Settle(g);
+            Assert.AreEqual(UnitStatus.Fallen, l2.Status, "패배한 파비안은 게임오버 경로: 상태 유지");
+            Assert.IsFalse(l2.Dead);
+        }
+
+        [Test]
+        public void Settle_BrokenCompanion_Departs_StatusKept()
+        {
+            PartyMember maeve = Maeve(55, 0);
+            maeve.Status = UnitStatus.Broken;
+            PartyMember albert = Albert();
+            BattleField f = Field(new[] { Fabian(), albert, maeve }, Enemy(EnemyDefs.DeepOne1, "e0", 50, 5));
+            Do(f, f.Leader, ActionKind.Melee, 0, new ListRng(Cat(RollCrit, PlainFumble, new[] { 3 })));
+            List<BattleEvent> s = Settle(f);
+            Assert.IsTrue(s.Exists(e => e.Kind == BattleEventKind.Departed && e.TargetId == "maeve"));
+            Assert.AreEqual(UnitStatus.Broken, maeve.Status);
+            Assert.IsFalse(maeve.Dead);
+        }
+
+        [Test]
+        public void Constructor_RejectsNullDuplicateAndTwoLeaders_OptionsOverride()
+        {
+            EnemyUnit e = Enemy(EnemyDefs.DeepOne1, "e0");
+            Assert.Throws<ArgumentNullException>(() => new BattleField(null, new[] { e }));
+            Assert.Throws<ArgumentException>(() => Field(new PartyMember[] { Albert(), null }, e));
+            Assert.Throws<ArgumentException>(() => Field(new[] { Albert(), Albert() }, e), "같은 Id");
+            Assert.Throws<ArgumentException>(() => Field(new[] { Fabian(), Fabian() }, e), "파비안 둘");
+            Assert.Throws<ArgumentException>(() => Field(new[] { Albert() }, e, Enemy(EnemyDefs.DeepOne1, "e0")), "적 Id 중복");
+            BattleField solo = new BattleField(new[] { Fabian() }, new[] { e }, new BattleOptions { LeaderDownRule = true, LeaderBoutEnabled = true });
+            Assert.IsTrue(solo.LeaderDownRule);
+            Assert.IsTrue(solo.LeaderBoutEnabled);
+            Assert.IsFalse(solo.ManualLeaderDefense);
+            Assert.IsTrue(Field(new[] { Fabian(), Albert() }, Enemy(EnemyDefs.DeepOne1, "x")).LeaderDownRule);
+        }
+
+        // ---------- 환원(PartyBattleBridge) ----------
+
+        [Test]
+        public void Bridge_NextMorning_FromEveryPhase()
+        {
+            Assert.AreEqual(5, PartyBattleBridge.NextMorning(4));
+            Assert.AreEqual(9, PartyBattleBridge.NextMorning(5));
+            Assert.AreEqual(9, PartyBattleBridge.NextMorning(6));
+            Assert.AreEqual(9, PartyBattleBridge.NextMorning(7));
+            Assert.AreEqual(9, PartyBattleBridge.NextMorning(8));
+        }
+
+        private static GameState JoinedBoth()
+        {
+            GameState s = GameState.New();
+            PartyState.Join(s, CompanionDefs.Albert);
+            PartyState.Join(s, CompanionDefs.Maeve);
+            return s;
+        }
+
+        private static GameState RoundTrip(GameState a)
+        {
+            GameState b;
+            Assert.AreEqual(SCoW.Core.Save.SaveError.None, SCoW.Core.Save.SaveCodec.TryDecodeState(SCoW.Core.Save.SaveCodec.EncodeState(a), out b));
+            return b;
+        }
+
+        [Test]
+        public void Bridge_BuildRoster_FollowsOrder_SkipsStandbyDeadAndNotDue()
+        {
+            GameState s = JoinedBoth();
+            PartyMember leader = Fabian();
+            List<PartyMember> roster = PartyBattleBridge.BuildRoster(s, leader, 10);
+            CollectionAssert.AreEqual(new[] { "fabian", "albert", "maeve" }, roster.ConvertAll(m => m.Id));
+            Assert.AreSame(leader, roster[0]);
+            Assert.AreEqual(75, roster[1].Hp);
+            s.SetFlag(PartyKeys.Standby("albert"), true);
+            PartyState.Kill(s, "maeve");
+            CollectionAssert.AreEqual(new[] { "fabian" }, PartyBattleBridge.BuildRoster(s, leader, 10).ConvertAll(m => m.Id));
+            s.SetFlag(PartyKeys.Standby("albert"), false);
+            PartyState.SetStatus(s, "albert", UnitStatus.Recovering);
+            s.SetCounter(PartyKeys.BackAt("albert"), 12);
+            PartyState.SetHp(s, CompanionDefs.Albert, 1);
+            Assert.AreEqual(1, PartyBattleBridge.BuildRoster(s, leader, 11).Count, "복귀 시각 전");
+            List<PartyMember> back = PartyBattleBridge.BuildRoster(s, leader, 12);
+            Assert.AreEqual(2, back.Count);
+            Assert.AreEqual(75 / 2, back[1].Hp);
+            Assert.AreEqual(UnitStatus.Ready, PartyState.GetStatus(s, "albert"));
+        }
+
+        [Test]
+        public void Bridge_WriteBack_RecoveringBrokenAndDeath_ThenSurvivesSave()
+        {
+            GameState s = JoinedBoth();
+            PartyMember leader = Fabian();
+            List<PartyMember> roster = PartyBattleBridge.BuildRoster(s, leader, 10);
+            PartyMember albert = roster[1];
+            PartyMember maeve = roster[2];
+            albert.Status = UnitStatus.Recovering;
+            albert.Hp = 1;
+            maeve.San = 0;
+            maeve.Status = UnitStatus.Broken;
+            PartyBattleBridge.WriteBack(s, roster, 10);
+            Assert.AreEqual(UnitStatus.Recovering, PartyState.GetStatus(s, "albert"));
+            Assert.AreEqual(1, PartyState.GetHp(s, "albert"));
+            Assert.AreEqual(11, s.GetCounter(PartyKeys.BackAt("albert")), "다음 시간대");
+            Assert.AreEqual(UnitStatus.Broken, PartyState.GetStatus(s, "maeve"));
+            Assert.AreEqual(13, s.GetCounter(PartyKeys.BackAt("maeve")), "t=10(낮) -> 다음 일차 아침 13");
+            GameState loaded = RoundTrip(s);
+            Assert.AreEqual(UnitStatus.Broken, PartyState.GetStatus(loaded, "maeve"));
+            List<PartyMember> next = PartyBattleBridge.BuildRoster(loaded, leader, 13);
+            Assert.AreEqual(3, next.Count, "알버트(다음 시간대)·메이브(다음 아침) 모두 복귀");
+            Assert.AreEqual(PartyBattleBridge.BrokenReturnSan, next[2].San, "재합류 SAN +5");
+
+            albert.Dead = true;
+            PartyBattleBridge.WriteBack(s, roster, 14);
+            Assert.IsTrue(PartyState.IsDead(s, "albert"));
+            Assert.AreEqual(0, PartyState.GetHp(s, "albert"));
+            Assert.IsFalse(PartyState.ActiveCompanions(s).Contains(CompanionDefs.Albert));
         }
     }
 }

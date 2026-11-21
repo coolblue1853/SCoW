@@ -12,6 +12,19 @@ namespace SCoW.Core.Rules
         public const int FirstAidHeal = 5;
         public const int StableHp = 5;
 
+        /// <summary>행동의 대상 쪽: 공격류는 반대편, 그 외는 자기편.</summary>
+        public static Side TargetSideOf(Side actorSide, ActionKind kind)
+        {
+            bool attack = kind == ActionKind.Melee || kind == ActionKind.Ranged || kind == ActionKind.Throw
+                || kind == ActionKind.SanAttack || kind == ActionKind.PoisonAttack;
+            return attack == (actorSide == Side.Ally) ? Side.Enemy : Side.Ally;
+        }
+
+        public static bool IsSuccess(SuccessLevel level)
+        {
+            return level == SuccessLevel.Success || level == SuccessLevel.CriticalSuccess;
+        }
+
         public static bool IsRangedWeapon(string weapon)
         {
             return weapon == "SmallPistol" || weapon == "Revolver" || weapon == "Rifle" || weapon == "Shotgun";

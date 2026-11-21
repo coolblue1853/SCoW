@@ -3,8 +3,19 @@ using System.Collections.Generic;
 
 namespace SCoW.Core.Rules
 {
+    /// <summary>전투 판 생성 옵션. 전부 선택.</summary>
+    public sealed class BattleOptions
+    {
+        /// <summary>파비안이 쓰러지면 카운트다운을 받는가. null 이면 아군이 2명 이상일 때만(솔로는 HP 0 즉시 패배, 옛 경로 불변).</summary>
+        public bool? LeaderDownRule;
+        /// <summary>파비안도 발작을 일으키는가. 기본 꺼짐(파비안 SAN 연출은 View 룰렛이 맡는다, Party.md 4-6절).</summary>
+        public bool LeaderBoutEnabled;
+        /// <summary>적이 파비안을 칠 때 Resolve 가 ResponseNeeded 로 멈추고 ResolveResponse 를 기다린다(회피·반격을 플레이어가 고른다).</summary>
+        public bool ManualLeaderDefense;
+    }
+
     /// <summary>
-    /// 아군·적 각 3칸(Rank 0 앞, 1 중, 2 뒤) 전투 판(Party.md 4절). 순수 C#, 헤드리스로 해결해 BattleEvent 를 낸다.
+    /// 아군·적 각 3칸(Rank 0 앞, 1 중, 2 뒤) 전투 판(Party.md 4절). 순수 C#, 헤드리스로 해결해 BattleEvent 를 호출자 버퍼에 쌓는다.
     /// 이 파일은 구조(칸·순서·대상·교환·승패·정산), 행동 해결은 BattleFieldActions.cs.
     /// </summary>
     public sealed partial class BattleField
@@ -14,23 +25,31 @@ namespace SCoW.Core.Rules
         public readonly BattleSlot[] Allies = new BattleSlot[Ranks];
         public readonly BattleSlot[] Enemies = new BattleSlot[Ranks];
 
-        /// <summary>파비안이 쓰러지면 카운트다운을 받는다(아군이 더 있을 때). 솔로는 HP 0 즉시 패배(옛 경로 불변).</summary>
-        public bool LeaderDownRule;
-        /// <summary>파비안도 발작을 일으키는가. 기본 꺼짐(파비안 SAN 연출은 View 룰렛이 맡는다, Party.md 4-6절).</summary>
-        public bool LeaderBoutEnabled;
+        public bool LeaderDownRule { get; private set; }
+        public bool LeaderBoutEnabled { get; private set; }
+        public bool ManualLeaderDefense { get; private set; }
+        /// <summary>Settle 을 이미 했는가(사망 정산은 한 번만).</summary>
+        public bool Settled { get; private set; }
 
         private readonly List<PartyMember> _roster = new List<PartyMember>();
         private readonly PartyMember _leader;
-        private bool _fled;
-        private bool _settled;
+        /// <summary>도주 성공처럼 슬롯 상태로 알 수 없는 종료. None 이면 슬롯 상태로 판단한다.</summary>
+        private BattleOutcome _forcedOutcome = BattleOutcome.None;
+        private readonly List<IBattleUnit> _orderBuf = new List<IBattleUnit>();
+        private readonly List<int> _targetBuf = new List<int>();
 
-        /// <summary>아군·적을 앞(Rank 0)부터 채운다. 각 3명 이하.</summary>
-        public BattleField(IList<PartyMember> allies, IList<EnemyUnit> enemies)
+        /// <summary>아군·적을 앞(Rank 0)부터 채운다. 각 3명 이하, null·중복(같은 Id)·파비안 둘은 거부한다.</summary>
+        public BattleField(IList<PartyMember> allies, IList<EnemyUnit> enemies, BattleOptions options = null)
         {
+            if (allies == null || enemies == null)
+            {
+                throw new ArgumentNullException(allies == null ? "allies" : "enemies");
+            }
             if (allies.Count > Ranks || enemies.Count > Ranks)
             {
                 throw new ArgumentException("칸은 편마다 3개다.");
             }
+            ValidateUnits(allies, enemies);
             for (int i = 0; i < Ranks; i++)
             {
                 Allies[i] = new BattleSlot(Side.Ally, i);
@@ -49,7 +68,35 @@ namespace SCoW.Core.Rules
             {
                 Place(Enemies[i], enemies[i]);
             }
-            LeaderDownRule = allies.Count > 1;
+            BattleOptions o = options ?? new BattleOptions();
+            LeaderDownRule = o.LeaderDownRule ?? allies.Count > 1;
+            LeaderBoutEnabled = o.LeaderBoutEnabled;
+            ManualLeaderDefense = o.ManualLeaderDefense;
+        }
+
+        private static void ValidateUnits(IList<PartyMember> allies, IList<EnemyUnit> enemies)
+        {
+            HashSet<string> ids = new HashSet<string>();
+            int leaders = 0;
+            for (int i = 0; i < allies.Count; i++)
+            {
+                if (allies[i] == null || !ids.Add(allies[i].Id))
+                {
+                    throw new ArgumentException(allies[i] == null ? "null 아군" : "중복 Id: " + allies[i].Id);
+                }
+                leaders += allies[i].IsLeader ? 1 : 0;
+            }
+            if (leaders > 1)
+            {
+                throw new ArgumentException("파비안은 한 명이다.");
+            }
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if (enemies[i] == null || !ids.Add(enemies[i].Id))
+                {
+                    throw new ArgumentException(enemies[i] == null ? "null 적" : "중복 Id: " + enemies[i].Id);
+                }
+            }
         }
 
         public PartyMember Leader => _leader;
@@ -91,10 +138,17 @@ namespace SCoW.Core.Rules
 
         // ---------- 순서 ----------
 
-        /// <summary>칸에 선 행위자 전원. 아군 0..2, 적 0..2(옛 1:1 은 플레이어 -> 적 슬롯 순).</summary>
+        /// <summary>칸에 선 행위자 전원(새 목록). 아군 0..2, 적 0..2(옛 1:1 은 플레이어 -> 적 슬롯 순).</summary>
         public List<IBattleUnit> Order()
         {
             List<IBattleUnit> list = new List<IBattleUnit>();
+            FillOrder(list);
+            return list;
+        }
+
+        private void FillOrder(List<IBattleUnit> list)
+        {
+            list.Clear();
             for (int i = 0; i < Ranks; i++)
             {
                 if (Allies[i].Unit != null)
@@ -109,17 +163,18 @@ namespace SCoW.Core.Rules
                     list.Add(Enemies[i].Unit);
                 }
             }
-            return list;
         }
 
         public IBattleUnit NextActor()
         {
-            return BattleTimeline.Next(Order());
+            FillOrder(_orderBuf);
+            return BattleTimeline.Next(_orderBuf);
         }
 
         public List<IBattleUnit> Preview(int n)
         {
-            return BattleTimeline.Preview(Order(), n);
+            FillOrder(_orderBuf);
+            return BattleTimeline.Preview(_orderBuf, n);
         }
 
         // ---------- 대상·위치 규칙 ----------
@@ -131,25 +186,35 @@ namespace SCoW.Core.Rules
         public List<int> ValidTargets(IBattleUnit actor, ActionKind kind)
         {
             List<int> result = new List<int>();
+            FillTargets(actor, kind, result);
+            return result;
+        }
+
+        private bool IsValidTarget(IBattleUnit actor, ActionKind kind, int rank)
+        {
+            FillTargets(actor, kind, _targetBuf);
+            return _targetBuf.Contains(rank);
+        }
+
+        private void FillTargets(IBattleUnit actor, ActionKind kind, List<int> result)
+        {
+            result.Clear();
             if (actor == null || !actor.IsActing)
             {
-                return result;
+                return;
             }
             PartyMember m = actor as PartyMember;
             bool ally = actor.Side == Side.Ally;
             switch (kind)
             {
                 case ActionKind.Melee:
-                    if (ally)
-                    {
-                        if (actor.Rank < 2)
-                        {
-                            AddOccupied(Enemies, result, 2);
-                        }
-                    }
-                    else
+                    if (!ally)
                     {
                         AddOccupied(Allies, result, Ranks);
+                    }
+                    else if (actor.Rank < 2)
+                    {
+                        AddOccupied(Enemies, result, 2);
                     }
                     break;
                 case ActionKind.Ranged:
@@ -196,7 +261,6 @@ namespace SCoW.Core.Rules
                     }
                     break;
             }
-            return result;
         }
 
         private void AddOccupied(BattleSlot[] slots, List<int> result, int maxRankExclusive)
@@ -255,7 +319,7 @@ namespace SCoW.Core.Rules
             }
         }
 
-        /// <summary>인접한 두 칸의 위치 교환(둘 다 점유). 쓰러짐·광기 상태도 교환 가능. 행동이 곧 자기 차례라는 처리는 호출 측(Resolve).</summary>
+        /// <summary>인접한 두 칸의 위치 교환(둘 다 점유, UI 직접 호출용 — 이벤트 없음). 쓰러짐·광기 상태도 교환 가능.</summary>
         public bool Swap(Side side, int rankA, int rankB)
         {
             if (rankA < 0 || rankB < 0 || rankA >= Ranks || rankB >= Ranks || Math.Abs(rankA - rankB) != 1)
@@ -279,7 +343,7 @@ namespace SCoW.Core.Rules
             Place(slots[b], ua);
         }
 
-        private void RemoveFromSlot(IBattleUnit unit)
+        private void RemoveFromSlot(IBattleUnit unit, List<BattleEvent> events)
         {
             BattleSlot[] slots = SlotsOf(unit.Side);
             for (int i = 0; i < Ranks; i++)
@@ -289,11 +353,11 @@ namespace SCoW.Core.Rules
                     slots[i].Unit = null;
                 }
             }
-            Compact(slots);
+            Compact(slots, events);
         }
 
-        /// <summary>빈 칸을 메워 뒤가 앞당겨진다(앞이 비면 압축).</summary>
-        private static void Compact(BattleSlot[] slots)
+        /// <summary>빈 칸을 메워 뒤가 앞당겨진다(앞이 비면 압축). 칸이 바뀐 유닛마다 Compact 이벤트(Value = 옛 칸).</summary>
+        private static void Compact(BattleSlot[] slots, List<BattleEvent> events)
         {
             List<IBattleUnit> kept = new List<IBattleUnit>();
             for (int i = 0; i < Ranks; i++)
@@ -305,8 +369,22 @@ namespace SCoW.Core.Rules
             }
             for (int i = 0; i < Ranks; i++)
             {
-                Place(slots[i], i < kept.Count ? kept[i] : null);
+                IBattleUnit u = i < kept.Count ? kept[i] : null;
+                int old = u == null ? -1 : u.Rank;
+                Place(slots[i], u);
+                if (u != null && old != i)
+                {
+                    events.Add(Make(BattleEventKind.Compact, u.Id, u, old));
+                }
             }
+        }
+
+        /// <summary>대상 유닛의 변화 후 칸·HP·SAN 을 채운 이벤트.</summary>
+        private static BattleEvent Make(BattleEventKind kind, string actorId, IBattleUnit target, int value = 0,
+            BattleDetail detail = BattleDetail.None, int actorLevel = -1, int targetLevel = -1)
+        {
+            return new BattleEvent(kind, actorId, target == null ? null : target.Id, value, detail, actorLevel, targetLevel,
+                target == null ? -1 : target.Rank, target == null ? -1 : target.Hp, target == null ? -1 : target.San);
         }
 
         // ---------- 승패·정산 ----------
@@ -315,9 +393,9 @@ namespace SCoW.Core.Rules
         public bool IsOver(out BattleOutcome outcome)
         {
             outcome = BattleOutcome.None;
-            if (_fled)
+            if (_forcedOutcome != BattleOutcome.None)
             {
-                outcome = BattleOutcome.Fled;
+                outcome = _forcedOutcome;
                 return true;
             }
             if (IsLost())
@@ -353,47 +431,52 @@ namespace SCoW.Core.Rules
         }
 
         /// <summary>
-        /// 전투 종료 정산(사망은 이 한 곳에서만, Party.md 9절). 승리: 전선 이탈자는 Recovering(HP 1), 쓰러진·안정 동료는 Ready 로 회복(HP 최소 5).
-        /// 도주·패배: 쓰러짐·안정·이탈 동료는 영구 사망. 파비안은 건드리지 않는다. 두 번째 호출은 빈 목록.
+        /// 전투 종료 정산(사망은 이 한 곳에서만, 원본은 PartyMember.Dead. Died 이벤트는 알림). 두 번째 호출은 아무것도 쌓지 않는다.
+        /// 승리: 동료 Fallen = Recovering(HP 1), Downed·Stable(파비안 포함) = Ready(HP 최소 5).
+        /// 도주·패배: 동료 Fallen·Downed·Stable = 영구 사망. 파비안은 그대로(패배 = 게임오버 경로, 도주 = 서 있는 채 탈출).
+        /// Broken 동료는 어느 결과든 Departed(파티 이탈, 다음 일차 아침 재합류는 PartyBattleBridge 가 backAt 으로 기록).
         /// </summary>
-        public List<BattleEvent> Settle()
+        public void Settle(List<BattleEvent> events)
         {
-            List<BattleEvent> events = new List<BattleEvent>();
             BattleOutcome outcome;
-            if (_settled || !IsOver(out outcome))
+            if (Settled || !IsOver(out outcome))
             {
-                return events;
+                return;
             }
-            _settled = true;
+            Settled = true;
             for (int i = 0; i < _roster.Count; i++)
             {
-                PartyMember m = _roster[i];
-                if (m.IsLeader)
-                {
-                    continue;
-                }
-                bool down = m.Status == UnitStatus.Fallen || m.Status == UnitStatus.Downed || m.Status == UnitStatus.Stable;
-                m.Poison = 0;
-                m.Guarding = false;
-                m.Bout = BoutKind.None;
-                m.BoutTurns = 0;
-                if (!down)
-                {
-                    continue;
-                }
-                if (outcome == BattleOutcome.Win)
-                {
-                    SettleWinner(m, events);
-                }
-                else
-                {
-                    m.Dead = true;
-                    m.Status = UnitStatus.Fallen;
-                    m.Hp = 0;
-                    events.Add(new BattleEvent(BattleEventKind.Died, m.Id, m.Id));
-                }
+                SettleMember(_roster[i], outcome, events);
             }
-            return events;
+        }
+
+        private static void SettleMember(PartyMember m, BattleOutcome outcome, List<BattleEvent> events)
+        {
+            bool down = m.Status == UnitStatus.Fallen || m.Status == UnitStatus.Downed || m.Status == UnitStatus.Stable;
+            m.Poison = 0;
+            m.Guarding = false;
+            m.Bout = BoutKind.None;
+            m.BoutTurns = 0;
+            if (m.Status == UnitStatus.Broken && !m.IsLeader)
+            {
+                events.Add(Make(BattleEventKind.Departed, m.Id, m));
+                return;
+            }
+            if (!down)
+            {
+                return;
+            }
+            if (outcome == BattleOutcome.Win)
+            {
+                SettleWinner(m, events);
+            }
+            else if (!m.IsLeader)
+            {
+                m.Dead = true;
+                m.Status = UnitStatus.Fallen;
+                m.Hp = 0;
+                events.Add(Make(BattleEventKind.Died, m.Id, m));
+            }
         }
 
         private static void SettleWinner(PartyMember m, List<BattleEvent> events)
@@ -402,7 +485,7 @@ namespace SCoW.Core.Rules
             {
                 m.Status = UnitStatus.Recovering;
                 m.Hp = 1;
-                events.Add(new BattleEvent(BattleEventKind.Recovering, m.Id, m.Id, 1));
+                events.Add(Make(BattleEventKind.Recovering, m.Id, m, 1));
             }
             else
             {

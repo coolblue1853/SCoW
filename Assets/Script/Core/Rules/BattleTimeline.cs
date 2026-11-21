@@ -9,9 +9,10 @@ namespace SCoW.Core.Rules
     /// </summary>
     public static class BattleTimeline
     {
+        /// <summary>무한 루프 방어. 게이지가 도는 행위자가 있으면 (130+130)/최대 속도 이내에 차례가 오므로 정상 전투에서는 닿지 않는다.</summary>
         public const int MaxTicks = 100000;
 
-        /// <summary>다음 차례 행위자. HasTurns 가 아무도 없으면 null. 호출하면 게이지가 실제로 갱신된다.</summary>
+        /// <summary>다음 차례 행위자. HasTurns 인 행위자가 아무도 없으면 null(호출 측은 IsOver 로 종료를 먼저 본다). 호출하면 게이지가 실제로 갱신된다.</summary>
         public static IBattleUnit Next(IReadOnlyList<IBattleUnit> order)
         {
             float[] g = Copy(order);

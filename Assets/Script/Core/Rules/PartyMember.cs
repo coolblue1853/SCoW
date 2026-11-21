@@ -70,6 +70,7 @@ namespace SCoW.Core.Rules
         public Side Side => Side.Ally;
         int IBattleUnit.Dex => Dex;
         int IBattleUnit.Hp => Hp;
+        int IBattleUnit.San => San;
         UnitStatus IBattleUnit.Status => Status;
         public bool IsActing => Status == UnitStatus.Ready;
         public bool HasTurns => Status == UnitStatus.Ready || Status == UnitStatus.Downed;

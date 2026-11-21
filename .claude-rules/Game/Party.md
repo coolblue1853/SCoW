@@ -171,7 +171,7 @@ public static RollResult RollWithAssist(IRng rng, int target, Condition conditio
 - 현행 단일 규칙을 일반화: 행위자(Actor)마다 `Gauge`. 한 "틱"에 모든 행위자가 `StepGauge` 와 같은 식(`+= (1 + dex/100) * speed`)으로 오르고, **130 이상이 된 행위자가 차례를 받는다**. 속도 상수: 아군 2.0, 적 1.9(현행 유지). 동시 도달 시 DEX 높은 쪽 → 아군 우선 → 슬롯 번호.
 - 현행 `StepGauge` 는 도달 시 -130 으로 리셋하는 형태이므로 **1:1 전투에서 옛 로그와 동치**가 되도록 틱 안의 처리 순서(아군 슬롯 0..2, 적 슬롯 0..2)를 고정한다. 옛 `SymbolUp`(`BattleManager.cs:266`) 의 호출 순서를 builder 가 먼저 읽고 맞춘다(**미확인 항목**).
 - 순수 클래스 `BattleTimeline`: `Actor Next(IRng, IList<IBattleUnit>)`, `IEnumerable<Actor> Preview(int n)`(상단 순서 바에 쓸 다음 n 명, 게이지 복사본을 시뮬레이트).
-- 상태 이상: 쓰러짐·이탈한 행위자는 게이지 정지. 기절/광기 `skip` 도 차례는 받되 행동만 건너뜀(차례 연출 유지).
+- 상태 이상: **Downed 는 게이지가 돈다**(자기 차례 도달이 카운트다운이라서, 행동은 못 함). Stable·Broken·Fallen 은 게이지 정지. 광기는 차례는 받되 행동만 자동(`BeginTurn` false, 차례 연출 유지).
 - 연출: 차례를 받는 행위자가 앞으로 반 걸음(기존 `SymbolUp` 아이콘 대신 순서 바 + 초상화 하이라이트).
 
 ### 4-5. 행동 해결(대립 판정)
@@ -357,4 +357,8 @@ namespace SCoW.Core.Rules {
   - **적 행동**: `DecideEnemy` = `ChooseIntent` -> `TargetWeightsFor`. 점유 칸만 가중 합산, 점유 칸 하나면 난수 없음, 가중 합 0 이면 균등. `Deftness` 의도는 일반 공격으로 처리(옛 의미 미확인). 독 = 3틱, 자기 차례 시작 1d2x5(Ready 만, 쓰러지면 해제).
   - **쓰러짐·정산**: Downed 또는 Stable 을 또 맞히면 즉시 Fallen. 동료 Fallen 은 칸에서 빠지고(압축) 남은 Ready 아군이 목격 SAN 판정(실패 -5, 발작 없음). 솔로(`LeaderDownRule` 꺼짐) 파비안 HP 0 = 즉시 Loss. 파비안 Fallen·SAN 0·행동할 Ready 아군 없음 = Loss. `Settle()` 은 한 번만: 승리 -> Fallen=Recovering(HP 1), Downed·Stable=Ready(HP 최소 5). 도주·패배 -> Fallen·Downed·Stable 동료 `Dead`.
   - **발작**: 손실 10 이상 + INT 판정 실패(`RollBout`). 파비안은 `LeaderBoutEnabled`(기본 꺼짐)일 때만. 광기 차례는 지시 없이 자동(`BeginTurn` false): Flee = 맨 뒤와 교환, Freeze = 건너뜀, Lash = 무작위 아군 무술 피해 + 상대 SAN -5, Despair = 방어만. 응급처치 = 의술 판정(Downed->Stable HP 5, 그 외 +5). 진정 = max(심리치료, 화술) 판정, 중·뒤 칸만, 성공 시 발작 해소 + SAN +5.
-  - **미구현(PT-5/7)**: 던지기·특수(Cover/Warning/Dirty trick/Stiff drink)·재장전·탄약·아이템·파비안 룰렛 결과 주입·`GameState` 환원·턴 칸 매핑 표 제거(View 쪽). `BattleCommand` 에서 `TargetSide` 는 행동 종류로 정해져 뺐다.
+  - **리뷰 반영(11-21)**: `BattleCommand` 에 `TargetSide`(행동 종류로 정해짐)·`Special`·`PreRolled`(`SuccessLevel?`, 행위자 자신의 판정을 굴리지 않고 룰렛 결과 주입) 추가, `ActionKind` 에 Throw/Special/Reload/Item 자리(Resolve 는 Invalid). 파비안 대응 선택은 `BattleOptions.ManualLeaderDefense` 일 때 Resolve 가 `ResponseNeeded` 로 멈추고 `ResolveResponse(DefenseChoice, preRolled)` 로 이어진다(반격 성공 = 파비안이 적을 침, 실패 = 맞음).
+  - **BattleEvent**: 판정 단계는 `ActorLevel`/`TargetLevel`(SuccessLevel 정수, 그 이벤트의 행위자·대상 기준), `Rank`/`Hp`/`San` = 대상의 변화 후 값, `Detail` enum(문자열 대신), `SanLoss.ActorId` = 원인. 새 종류: `Compact`(슬롯 압축, Value = 옛 칸), `Departed`, `ActionStart`(적 이성·독 공격 시작), `ResponseNeeded`. 피해 이벤트는 쓰러짐(Down/Fallen)보다 앞선다. `Resolve`·`Settle` 모두 호출자 버퍼 `List<BattleEvent>` 에 쌓는다(반환값 없음). `BattleOptions`(LeaderDownRule/LeaderBoutEnabled/ManualLeaderDefense)는 생성 시에만 정한다.
+  - **환원**: `Core/State/PartyBattleBridge`. `BuildRoster(state, leader, timeCount)` = `party.order` 순서(최대 3, standby·dead 제외, 복귀 시각 지난 Recovering·Broken 은 되살림: Recovering HP 최소 MaxHp/2, Broken SAN +5). `WriteBack` = Settle 뒤 HP·SAN·상태·`backAt`(Recovering = timeCount+1, Broken = 다음 일차 아침) 기록. 사망 원본은 `PartyMember.Dead`(Died 이벤트는 알림). Broken 은 `Departed` 이벤트, 어느 결과든 파티 이탈. 파비안은 Settle 에서 승리 시 Downed·Stable -> Ready(HP 5 이상), 패배·도주는 그대로.
+  - 골든(`PartyBattlePT2.golden.txt`)은 이벤트 형식(판정 단계·r/hp/san 열)과 순서(Hit -> Down, Compact 추가) 변경으로 재생성했다. 규칙·난수 소비 순서는 그대로.
+  - **미구현(PT-5/7)**: 던지기·특수(Cover/Warning/Dirty trick/Stiff drink)·재장전·탄약·아이템 구현·턴 칸 매핑 표 제거(View 쪽).
