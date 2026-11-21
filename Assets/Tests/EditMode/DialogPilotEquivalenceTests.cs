@@ -19,7 +19,7 @@ namespace SCoW.Tests
         private const string GoldenPathP11 = "Assets/Tests/EditMode/Golden/DialogP11.golden.txt";
         private static readonly Dictionary<string, IList<StoryLine>> CsvCache = new Dictionary<string, IList<StoryLine>>();
 
-        private static IList<StoryLine> Csv(string name)
+        internal static IList<StoryLine> Csv(string name)
         {
             IList<StoryLine> lines;
             if (CsvCache.TryGetValue(name, out lines)) { return lines; }
@@ -30,7 +30,7 @@ namespace SCoW.Tests
             return lines;
         }
 
-        private static StoryScript Script(string id)
+        internal static StoryScript Script(string id)
         {
             TextAsset ta = Resources.Load<TextAsset>("Story/" + id);
             Assert.IsNotNull(ta, "Story/" + id + ".json 없음");
@@ -98,7 +98,7 @@ namespace SCoW.Tests
             Assert.AreEqual(npcs.Count, defaults.Count, "기본 토픽(NPC/*) 없는 NPC 가 있다");
         }
 
-        private static void CheckGolden(string goldenPath, int minRows)
+        internal static void CheckGolden(string goldenPath, int minRows)
         {
             string[] rows = File.ReadAllLines(Path.Combine(Path.GetDirectoryName(Application.dataPath), goldenPath));
             Dictionary<string, string> presets = new Dictionary<string, string>();
@@ -171,7 +171,9 @@ namespace SCoW.Tests
             Assert.AreEqual("1st_Slum", cat.ScriptFor("Slum", s));
             Assert.AreEqual("1st_PoliceOffice", cat.ScriptFor("Policeoffice", s));
             Assert.AreEqual("2nd_NoonEvent", cat.ScriptFor("NoonEvent", s));
-            Assert.IsNull(cat.ScriptFor("InSewer", s));
+            Assert.AreEqual("InSewer", cat.ScriptFor("InSewer", s));
+            Assert.AreEqual("SewerOffice", cat.ScriptFor("SewerOffice", s));
+            Assert.IsNull(cat.ScriptFor("Home", s));
             Assert.IsNull(cat.ScriptFor(null, s));
         }
 

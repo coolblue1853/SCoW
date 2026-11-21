@@ -1,0 +1,930 @@
+{
+ "id": "Judge",
+ "topics": [
+  {
+   "id": "Newspaper : Read",
+   "cases": [
+    {
+     "node": "Newspaper : Read@0"
+    }
+   ]
+  },
+  {
+   "id": "Stove : Making coffee",
+   "cases": [
+    {
+     "node": "Stove : Making coffee@0"
+    }
+   ]
+  },
+  {
+   "id": "Aiden : Diagnosis",
+   "cases": [
+    {
+     "node": "Aiden : Diagnosis@0"
+    }
+   ]
+  },
+  {
+   "id": "Aiden : Look",
+   "cases": [
+    {
+     "node": "Aiden : Look@0"
+    }
+   ]
+  },
+  {
+   "id": "Aiden : Calming down",
+   "cases": [
+    {
+     "node": "Aiden : Calming down@0"
+    }
+   ]
+  },
+  {
+   "id": "Aiden : Persuasion",
+   "cases": [
+    {
+     "node": "Aiden : Persuasion@0"
+    }
+   ]
+  },
+  {
+   "id": "Aiden : TakeAway",
+   "cases": [
+    {
+     "node": "Aiden : TakeAway@0"
+    }
+   ]
+  },
+  {
+   "id": "Swain : Look",
+   "cases": [
+    {
+     "node": "Swain : Look@0"
+    }
+   ]
+  },
+  {
+   "id": "Witness : Eavesdropping",
+   "cases": [
+    {
+     "node": "Witness : Eavesdropping@0"
+    }
+   ]
+  },
+  {
+   "id": "Police : Persuasion",
+   "cases": [
+    {
+     "node": "Police : Persuasion@0"
+    }
+   ]
+  },
+  {
+   "id": "Maeve : Persuasion",
+   "cases": [
+    {
+     "node": "Maeve : Persuasion@0"
+    }
+   ]
+  },
+  {
+   "id": "Door : Picking doors",
+   "cases": [
+    {
+     "node": "Door : Picking doors@0"
+    }
+   ]
+  },
+  {
+   "id": "Window : Break",
+   "cases": [
+    {
+     "node": "Window : Break@0"
+    }
+   ]
+  },
+  {
+   "id": "Locker : Take a Look",
+   "cases": [
+    {
+     "node": "Locker : Take a Look@0"
+    }
+   ]
+  },
+  {
+   "id": "DeadBody : Diagnosis",
+   "cases": [
+    {
+     "node": "DeadBody : Diagnosis@0"
+    }
+   ]
+  },
+  {
+   "id": "DeadBody : Look",
+   "cases": [
+    {
+     "node": "DeadBody : Look@0"
+    }
+   ]
+  },
+  {
+   "id": "DeadBody : Check",
+   "cases": [
+    {
+     "node": "DeadBody : Check@0"
+    }
+   ]
+  },
+  {
+   "id": "DeadBody : Stealing",
+   "cases": [
+    {
+     "node": "DeadBody : Stealing@0"
+    }
+   ]
+  },
+  {
+   "id": "Accident Site : Check",
+   "cases": [
+    {
+     "node": "Accident Site : Check@0"
+    }
+   ]
+  },
+  {
+   "id": "Sewer : Look",
+   "cases": [
+    {
+     "when": "place:Riverside",
+     "node": "Sewer : Look@0"
+    }
+   ]
+  },
+  {
+   "id": "SAN : Check",
+   "cases": [
+    {
+     "when": "place:Riverside",
+     "node": "SAN : Check@0"
+    },
+    {
+     "when": "place:BattleRoad",
+     "node": "SAN : Check@1"
+    },
+    {
+     "when": "place:DetectiveOffice && time==5",
+     "node": "SAN : Check@2"
+    }
+   ]
+  },
+  {
+   "id": "Safe : Open",
+   "cases": [
+    {
+     "node": "Safe : Open@0"
+    }
+   ]
+  },
+  {
+   "id": "Coat : Disguise",
+   "cases": [
+    {
+     "node": "Coat : Disguise@0"
+    }
+   ]
+  },
+  {
+   "id": "Case2IntCheck",
+   "cases": [
+    {
+     "node": "Case2IntCheck@0"
+    }
+   ]
+  },
+  {
+   "id": "Warden : Steal",
+   "cases": [
+    {
+     "node": "Warden : Steal@0"
+    }
+   ]
+  },
+  {
+   "id": "Warden : Persuade",
+   "cases": [
+    {
+     "node": "Warden : Persuade@0"
+    }
+   ]
+  },
+  {
+   "id": "Fabian : Sneak Out",
+   "cases": [
+    {
+     "node": "Fabian : Sneak Out@0"
+    }
+   ]
+  },
+  {
+   "id": "??? : Give Excuse",
+   "cases": [
+    {
+     "node": "??? : Give Excuse@0"
+    }
+   ]
+  },
+  {
+   "id": "Book : Decryption",
+   "cases": [
+    {
+     "node": "Book : Decryption@0"
+    }
+   ]
+  },
+  {
+   "id": "Sewer : Picking",
+   "cases": [
+    {
+     "node": "Sewer : Picking@0"
+    }
+   ]
+  },
+  {
+   "id": "Symbol : Decryption",
+   "cases": [
+    {
+     "node": "Symbol : Decryption@0"
+    }
+   ]
+  },
+  {
+   "id": "Symbol : Break",
+   "cases": [
+    {
+     "node": "Symbol : Break@0"
+    }
+   ]
+  },
+  {
+   "id": "Fabian : Swimming",
+   "cases": [
+    {
+     "node": "Fabian : Swimming@0"
+    }
+   ]
+  },
+  {
+   "id": "SanCheck/Day_4_case1Health",
+   "cases": [
+    {
+     "node": "SanCheck/Day_4_case1Health@0"
+    }
+   ]
+  },
+  {
+   "id": "SanCheck/NoonEvent_FirstDoor",
+   "cases": [
+    {
+     "node": "SanCheck/NoonEvent_FirstDoor@0"
+    }
+   ]
+  },
+  {
+   "id": "SanCheck/KaneSan",
+   "cases": [
+    {
+     "node": "SanCheck/KaneSan@0"
+    }
+   ]
+  },
+  {
+   "id": "SanCheck/DrinkSan",
+   "cases": [
+    {
+     "node": "SanCheck/DrinkSan@0"
+    }
+   ]
+  },
+  {
+   "id": "SanCheck/ThirdDayStartSan",
+   "cases": [
+    {
+     "when": "any(flag:intelNightmare3,flag:intelNightmare4)",
+     "node": "SanCheck/ThirdDayStartSan@0"
+    },
+    {
+     "node": "SanCheck/ThirdDayStartSan@1"
+    }
+   ]
+  },
+  {
+   "id": "SanCheck/DayTwoCase2San",
+   "cases": [
+    {
+     "node": "SanCheck/DayTwoCase2San@0"
+    }
+   ]
+  },
+  {
+   "id": "SanCheck/JournalSan",
+   "cases": [
+    {
+     "node": "SanCheck/JournalSan@0"
+    }
+   ]
+  },
+  {
+   "id": "SanCheck/SymbolStrSan",
+   "cases": [
+    {
+     "node": "SanCheck/SymbolStrSan@0"
+    }
+   ]
+  },
+  {
+   "id": "SanCheck/Sewer_FirstInSan",
+   "cases": [
+    {
+     "node": "SanCheck/Sewer_FirstInSan@0"
+    }
+   ]
+  },
+  {
+   "id": "SanCheck/FourthDayStartSan",
+   "cases": [
+    {
+     "when": "any(flag:intelNightmare3,flag:intelNightmare4)",
+     "node": "SanCheck/FourthDayStartSan@0"
+    },
+    {
+     "node": "SanCheck/FourthDayStartSan@1"
+    }
+   ]
+  },
+  {
+   "id": "SanCheck/Fab_4th_QuestO_SanCheck",
+   "cases": [
+    {
+     "node": "SanCheck/Fab_4th_QuestO_SanCheck@0"
+    }
+   ]
+  },
+  {
+   "id": "SanCheck/BookSan",
+   "cases": [
+    {
+     "node": "SanCheck/BookSan@0"
+    }
+   ]
+  },
+  {
+   "id": "SanCheck/DeepOneFirstSan",
+   "cases": [
+    {
+     "node": "SanCheck/DeepOneFirstSan@0"
+    }
+   ]
+  },
+  {
+   "id": "SanCheck/EndingLedderSan",
+   "cases": [
+    {
+     "when": "counter:endingLadderSanInt==0",
+     "node": "SanCheck/EndingLedderSan@0"
+    },
+    {
+     "when": "counter:endingLadderSanInt==1",
+     "node": "SanCheck/EndingLedderSan@1"
+    },
+    {
+     "when": "counter:endingLadderSanInt==2",
+     "node": "SanCheck/EndingLedderSan@2"
+    },
+    {
+     "when": "counter:endingLadderSanInt==3",
+     "node": "SanCheck/EndingLedderSan@3"
+    },
+    {
+     "when": "counter:endingLadderSanInt==4",
+     "node": "SanCheck/EndingLedderSan@4"
+    },
+    {
+     "when": "counter:endingLadderSanInt==5",
+     "node": "SanCheck/EndingLedderSan@5"
+    },
+    {
+     "when": "counter:endingLadderSanInt==6",
+     "node": "SanCheck/EndingLedderSan@6"
+    },
+    {
+     "when": "counter:endingLadderSanInt==7",
+     "node": "SanCheck/EndingLedderSan@7"
+    },
+    {
+     "when": "counter:endingLadderSanInt==8",
+     "node": "SanCheck/EndingLedderSan@8"
+    }
+   ]
+  },
+  {
+   "id": "Aiden : Calming down@0.ok",
+   "cases": [
+    {
+     "when": "!flag:getSafe",
+     "node": "Aiden : Calming down@0.ok.0"
+    },
+    {
+     "node": "Aiden : Calming down@0.ok.1"
+    }
+   ]
+  },
+  {
+   "id": "Witness : Eavesdropping@0.ok",
+   "cases": [
+    {
+     "when": "!flag:intelQuestHouse1",
+     "node": "Witness : Eavesdropping@0.ok.0"
+    },
+    {
+     "when": "any(flag:intelMissingPeople1,flag:intelMissingPeople2)",
+     "node": "Witness : Eavesdropping@0.ok.1"
+    },
+    {
+     "node": "Witness : Eavesdropping@0.ok.2"
+    }
+   ]
+  }
+ ],
+ "nodes": {
+  "Newspaper : Read@0.ok": {
+   "text": "1st_DetectiveOffice:30-39"
+  },
+  "Newspaper : Read@0.fail": {
+   "text": "1st_DetectiveOffice:40"
+  },
+  "Newspaper : Read@0": {
+   "onEnter": "add:fstDetectivTimeOn,1",
+   "onSuccess": "Newspaper : Read@0.ok",
+   "onFail": "Newspaper : Read@0.fail"
+  },
+  "Stove : Making coffee@0.ok": {
+   "text": "1st_DetectiveOffice:43-45"
+  },
+  "Stove : Making coffee@0.fail": {
+   "text": "1st_DetectiveOffice:46-48"
+  },
+  "Stove : Making coffee@0": {
+   "onEnter": "add:fstDetectivTimeOn,1",
+   "onSuccess": "Stove : Making coffee@0.ok",
+   "onFail": "Stove : Making coffee@0.fail"
+  },
+  "Aiden : Diagnosis@0.ok": {
+   "text": "1st_Client'sHouse:97-99"
+  },
+  "Aiden : Diagnosis@0.fail": {
+   "text": "1st_Client'sHouse:100"
+  },
+  "Aiden : Diagnosis@0": {
+   "onEnter": "set:aidenMedicine",
+   "onSuccess": "Aiden : Diagnosis@0.ok",
+   "onFail": "Aiden : Diagnosis@0.fail"
+  },
+  "Aiden : Look@0.ok": {
+   "text": "1st_Client'sHouse:24-26"
+  },
+  "Aiden : Look@0.fail": {
+   "text": "1st_Client'sHouse:100"
+  },
+  "Aiden : Look@0": {
+   "onEnter": "set:aidenObservation",
+   "onSuccess": "Aiden : Look@0.ok",
+   "onFail": "Aiden : Look@0.fail"
+  },
+  "Aiden : Calming down@0.ok.0": {
+   "text": "1st_Client'sHouse:170-190",
+   "onEnter": "set:getSafe"
+  },
+  "Aiden : Calming down@0.ok.1": {
+   "text": "1st_Client'sHouse:149-169",
+   "onEnter": "set:getSafe"
+  },
+  "Aiden : Calming down@0.fail": {
+   "text": "1st_Client'sHouse:100"
+  },
+  "Aiden : Calming down@0": {
+   "onEnter": "set:aidenPsychotherapy",
+   "onSuccess": "Aiden : Calming down@0.ok",
+   "onFail": "Aiden : Calming down@0.fail"
+  },
+  "Aiden : Persuasion@0.ok": {
+   "text": "1st_Client'sHouse:79-84",
+   "onEnter": "set:getSafe"
+  },
+  "Aiden : Persuasion@0.fail": {
+   "text": "1st_Client'sHouse:85-87"
+  },
+  "Aiden : Persuasion@0": {
+   "onSuccess": "Aiden : Persuasion@0.ok",
+   "onFail": "Aiden : Persuasion@0.fail"
+  },
+  "Aiden : TakeAway@0.ok": {
+   "text": "1st_Client'sHouse:68-74",
+   "onEnter": "set:getSafe"
+  },
+  "Aiden : TakeAway@0.fail": {
+   "text": "1st_Client'sHouse:75-78"
+  },
+  "Aiden : TakeAway@0": {
+   "onSuccess": "Aiden : TakeAway@0.ok",
+   "onFail": "Aiden : TakeAway@0.fail"
+  },
+  "Swain : Look@0.ok": {
+   "text": "1st_DailyNews:15-16"
+  },
+  "Swain : Look@0.fail": {
+   "text": "1st_DailyNews:17"
+  },
+  "Swain : Look@0": {
+   "onSuccess": "Swain : Look@0.ok",
+   "onFail": "Swain : Look@0.fail"
+  },
+  "Witness : Eavesdropping@0.ok.0": {
+   "text": "2nd_NoonEvent:84-95"
+  },
+  "Witness : Eavesdropping@0.ok.1": {
+   "text": "2nd_NoonEvent:72-83"
+  },
+  "Witness : Eavesdropping@0.ok.2": {
+   "text": "2nd_NoonEvent:63-71"
+  },
+  "Witness : Eavesdropping@0.fail": {
+   "text": "2nd_NoonEvent:62"
+  },
+  "Witness : Eavesdropping@0": {
+   "onSuccess": "Witness : Eavesdropping@0.ok",
+   "onFail": "Witness : Eavesdropping@0.fail"
+  },
+  "Police : Persuasion@0.ok": {
+   "text": "2nd_NoonEvent:104-110",
+   "onEnter": "set:noonEventAccessAuthorization"
+  },
+  "Police : Persuasion@0.fail": {
+   "text": "2nd_NoonEvent:111-113"
+  },
+  "Police : Persuasion@0": {
+   "onSuccess": "Police : Persuasion@0.ok",
+   "onFail": "Police : Persuasion@0.fail"
+  },
+  "Maeve : Persuasion@0.ok": {
+   "text": "1st_Bar:183-192",
+   "onEnter": "set:noonEventAccessAuthorization"
+  },
+  "Maeve : Persuasion@0.fail": {
+   "text": "1st_Bar:199"
+  },
+  "Maeve : Persuasion@0": {
+   "onSuccess": "Maeve : Persuasion@0.ok",
+   "onFail": "Maeve : Persuasion@0.fail"
+  },
+  "Door : Picking doors@0.ok": {
+   "text": "SewerOffice:3",
+   "onEnter": "set:sewerDoorOpenDeftness;set:sewerDoorOpenCheck"
+  },
+  "Door : Picking doors@0.fail": {
+   "text": "SewerOffice:4"
+  },
+  "Door : Picking doors@0": {
+   "onSuccess": "Door : Picking doors@0.ok",
+   "onFail": "Door : Picking doors@0.fail"
+  },
+  "Window : Break@0.ok": {
+   "text": "SewerOffice:9-11",
+   "onEnter": "set:moveSewerOfficeWindow"
+  },
+  "Window : Break@0.fail": {
+   "text": "SewerOffice:12-15",
+   "onEnter": "set:moveSewerOfficeWindow"
+  },
+  "Window : Break@0": {
+   "onEnter": "set:sewerDoorOpenDeftness;set:sewerDoorOpenCheck;set:isSewerOfficeBrokenWindow;set:tryBrokenWindow",
+   "onSuccess": "Window : Break@0.ok",
+   "onFail": "Window : Break@0.fail"
+  },
+  "Locker : Take a Look@0.ok": {
+   "text": "SewerOffice:22-23"
+  },
+  "Locker : Take a Look@0.fail": {
+   "text": "SewerOffice:24"
+  },
+  "Locker : Take a Look@0": {
+   "onEnter": "set:tryObserLokcer",
+   "onSuccess": "Locker : Take a Look@0.ok",
+   "onFail": "Locker : Take a Look@0.fail"
+  },
+  "DeadBody : Diagnosis@0.ok": {
+   "text": "2nd_NoonEvent:147-154"
+  },
+  "DeadBody : Diagnosis@0.fail": {
+   "text": "2nd_NoonEvent:155-156"
+  },
+  "DeadBody : Diagnosis@0": {
+   "onEnter": "set:deadBodyMedicine",
+   "onSuccess": "DeadBody : Diagnosis@0.ok",
+   "onFail": "DeadBody : Diagnosis@0.fail"
+  },
+  "DeadBody : Look@0.ok": {
+   "text": "2nd_NoonEvent:157-160"
+  },
+  "DeadBody : Look@0.fail": {
+   "text": "2nd_NoonEvent:161"
+  },
+  "DeadBody : Look@0": {
+   "onEnter": "set:deadBodyObservational",
+   "onSuccess": "DeadBody : Look@0.ok",
+   "onFail": "DeadBody : Look@0.fail"
+  },
+  "DeadBody : Check@0.ok": {
+   "text": "2nd_NoonEvent:162-165"
+  },
+  "DeadBody : Check@0.fail": {
+   "text": "2nd_NoonEvent:169"
+  },
+  "DeadBody : Check@0": {
+   "onEnter": "set:deadBodyAnalyzing",
+   "onSuccess": "DeadBody : Check@0.ok",
+   "onFail": "DeadBody : Check@0.fail"
+  },
+  "DeadBody : Stealing@0.ok": {
+   "text": "2nd_NoonEvent:170-172"
+  },
+  "DeadBody : Stealing@0.fail": {
+   "text": "2nd_NoonEvent:173-174"
+  },
+  "DeadBody : Stealing@0": {
+   "onEnter": "set:deadBodyDeftness",
+   "onSuccess": "DeadBody : Stealing@0.ok",
+   "onFail": "DeadBody : Stealing@0.fail"
+  },
+  "Accident Site : Check@0.ok": {
+   "text": "2nd_NoonEvent:180-183"
+  },
+  "Accident Site : Check@0.fail": {
+   "text": "2nd_NoonEvent:187"
+  },
+  "Accident Site : Check@0": {
+   "onEnter": "set:siteAnalyzing",
+   "onSuccess": "Accident Site : Check@0.ok",
+   "onFail": "Accident Site : Check@0.fail"
+  },
+  "Sewer : Look@0.ok": {
+   "text": "1st_Riverside:16-23"
+  },
+  "Sewer : Look@0.fail": {
+   "text": "1st_Riverside:26"
+  },
+  "Sewer : Look@0": {
+   "onSuccess": "Sewer : Look@0.ok",
+   "onFail": "Sewer : Look@0.fail"
+  },
+  "SAN : Check@0.ok": {
+   "text": "1st_Riverside:27-28"
+  },
+  "SAN : Check@0.fail": {
+   "text": "1st_Riverside:24-25"
+  },
+  "SAN : Check@0": {
+   "onSuccess": "SAN : Check@0.ok",
+   "onFail": "SAN : Check@0.fail"
+  },
+  "SAN : Check@1.ok": {
+   "text": "1st_Battle:6-7"
+  },
+  "SAN : Check@1.fail": {
+   "text": "1st_Battle:9-10"
+  },
+  "SAN : Check@1": {
+   "onSuccess": "SAN : Check@1.ok",
+   "onFail": "SAN : Check@1.fail"
+  },
+  "SAN : Check@2": {
+   "text": "1st_DetectiveOffice:228-235"
+  },
+  "Safe : Open@0.ok": {
+   "text": "1st_Item:15",
+   "onEnter": "clear:getSafe"
+  },
+  "Safe : Open@0.fail": {
+   "text": "1st_Item:4"
+  },
+  "Safe : Open@0": {
+   "onEnter": "set:isUseSafe",
+   "onSuccess": "Safe : Open@0.ok",
+   "onFail": "Safe : Open@0.fail"
+  },
+  "Coat : Disguise@0.ok": {
+   "text": "1st_Item:10-11",
+   "onEnter": "set:wearCoat"
+  },
+  "Coat : Disguise@0.fail": {
+   "text": "1st_Item:12"
+  },
+  "Coat : Disguise@0": {
+   "onEnter": "set:judgeCoatTryDisguise",
+   "onSuccess": "Coat : Disguise@0.ok",
+   "onFail": "Coat : Disguise@0.fail"
+  },
+  "Case2IntCheck@0.ok": {
+   "text": "1st_DetectiveOffice:237-239"
+  },
+  "Case2IntCheck@0.fail": {
+   "text": "1st_DetectiveOffice:248-250"
+  },
+  "Case2IntCheck@0": {
+   "onSuccess": "Case2IntCheck@0.ok",
+   "onFail": "Case2IntCheck@0.fail"
+  },
+  "Warden : Steal@0.ok": {
+   "text": "SewerOffice:74-75"
+  },
+  "Warden : Steal@0.fail": {
+   "text": "SewerOffice:76"
+  },
+  "Warden : Steal@0": {
+   "onEnter": "set:blackDeftness",
+   "onSuccess": "Warden : Steal@0.ok",
+   "onFail": "Warden : Steal@0.fail"
+  },
+  "Warden : Persuade@0.ok": {
+   "text": "SewerOffice:42-71",
+   "onEnter": "set:blackRechSuccCanTalck"
+  },
+  "Warden : Persuade@0.fail": {
+   "text": "SewerOffice:72-73"
+  },
+  "Warden : Persuade@0": {
+   "onEnter": "set:blackRhethic",
+   "onSuccess": "Warden : Persuade@0.ok",
+   "onFail": "Warden : Persuade@0.fail"
+  },
+  "Fabian : Sneak Out@0.ok": {
+   "text": "InSewer:3"
+  },
+  "Fabian : Sneak Out@0.fail": {
+   "text": "InSewer:4-6"
+  },
+  "Fabian : Sneak Out@0": {
+   "onSuccess": "Fabian : Sneak Out@0.ok",
+   "onFail": "Fabian : Sneak Out@0.fail"
+  },
+  "??? : Give Excuse@0.ok": {
+   "text": "InSewer:10-11"
+  },
+  "??? : Give Excuse@0.fail": {
+   "text": "InSewer:12-13"
+  },
+  "??? : Give Excuse@0": {
+   "onSuccess": "??? : Give Excuse@0.ok",
+   "onFail": "??? : Give Excuse@0.fail"
+  },
+  "Book : Decryption@0.ok": {
+   "text": "InSewer:48-51"
+  },
+  "Book : Decryption@0.fail": {
+   "text": "InSewer:52-53"
+  },
+  "Book : Decryption@0": {
+   "onSuccess": "Book : Decryption@0.ok",
+   "onFail": "Book : Decryption@0.fail"
+  },
+  "Sewer : Picking@0.ok": {
+   "text": "1st_Riverside:70",
+   "onEnter": "set:sewerPicingSucc"
+  },
+  "Sewer : Picking@0.fail": {
+   "text": "1st_Riverside:71"
+  },
+  "Sewer : Picking@0": {
+   "onSuccess": "Sewer : Picking@0.ok",
+   "onFail": "Sewer : Picking@0.fail"
+  },
+  "Symbol : Decryption@0.ok": {
+   "text": "InSewer:61"
+  },
+  "Symbol : Decryption@0.fail": {
+   "text": "InSewer:62"
+  },
+  "Symbol : Decryption@0": {
+   "onEnter": "set:symbolOccultFirst",
+   "onSuccess": "Symbol : Decryption@0.ok",
+   "onFail": "Symbol : Decryption@0.fail"
+  },
+  "Symbol : Break@0.ok": {
+   "text": "InSewer:63-66"
+  },
+  "Symbol : Break@0.fail": {
+   "text": "InSewer:67-71"
+  },
+  "Symbol : Break@0": {
+   "onSuccess": "Symbol : Break@0.ok",
+   "onFail": "Symbol : Break@0.fail"
+  },
+  "Fabian : Swimming@0.ok": {
+   "text": "InSewer:106-112"
+  },
+  "Fabian : Swimming@0": {
+   "onSuccess": "Fabian : Swimming@0.ok"
+  },
+  "SanCheck/Day_4_case1Health@0.ok": {
+   "text": "1st_DetectiveOffice:336-337"
+  },
+  "SanCheck/Day_4_case1Health@0.fail": {
+   "text": "1st_DetectiveOffice:338",
+   "onEnter": "set:morningMove4th;set:morningMove_3rd;set:morningMove2nd"
+  },
+  "SanCheck/Day_4_case1Health@0": {
+   "onSuccess": "SanCheck/Day_4_case1Health@0.ok",
+   "onFail": "SanCheck/Day_4_case1Health@0.fail"
+  },
+  "SanCheck/NoonEvent_FirstDoor@0": {
+   "text": "2nd_NoonEvent:120-121"
+  },
+  "SanCheck/KaneSan@0": {
+   "text": "1st_Riverside:64-65"
+  },
+  "SanCheck/DrinkSan@0": {
+   "text": "1st_Bar:193-198"
+  },
+  "SanCheck/ThirdDayStartSan@0": {
+   "text": "1st_DetectiveOffice:306-309"
+  },
+  "SanCheck/ThirdDayStartSan@1": {
+   "text": "1st_DetectiveOffice:313-316"
+  },
+  "SanCheck/DayTwoCase2San@0": {
+   "text": "1st_DetectiveOffice:310-312"
+  },
+  "SanCheck/JournalSan@0": {
+   "text": "InSewer:39-42",
+   "onEnter": "set:journalFirstSanCheck"
+  },
+  "SanCheck/SymbolStrSan@0": {
+   "text": "InSewer:72-73"
+  },
+  "SanCheck/Sewer_FirstInSan@0": {
+   "text": "InSewer:83-85"
+  },
+  "SanCheck/FourthDayStartSan@0": {
+   "text": "1st_DetectiveOffice:332-334"
+  },
+  "SanCheck/FourthDayStartSan@1": {
+   "text": "1st_DetectiveOffice:339-340"
+  },
+  "SanCheck/Fab_4th_QuestO_SanCheck@0": {
+   "text": "1st_DetectiveOffice:335"
+  },
+  "SanCheck/BookSan@0": {
+   "text": "InSewer:46-47"
+  },
+  "SanCheck/DeepOneFirstSan@0": {
+   "text": "InSewer:89-90"
+  },
+  "SanCheck/EndingLedderSan@0": {
+   "text": "InSewer:113-115",
+   "onEnter": "add:endingLadderSanInt,1"
+  },
+  "SanCheck/EndingLedderSan@1": {
+   "text": "InSewer:116-117",
+   "onEnter": "add:endingLadderSanInt,1"
+  },
+  "SanCheck/EndingLedderSan@2": {
+   "text": "InSewer:118-119",
+   "onEnter": "add:endingLadderSanInt,1"
+  },
+  "SanCheck/EndingLedderSan@3": {
+   "text": "InSewer:120",
+   "onEnter": "add:endingLadderSanInt,1"
+  },
+  "SanCheck/EndingLedderSan@4": {
+   "text": "InSewer:121",
+   "onEnter": "add:endingLadderSanInt,1"
+  },
+  "SanCheck/EndingLedderSan@5": {
+   "text": "InSewer:122",
+   "onEnter": "add:endingLadderSanInt,1"
+  },
+  "SanCheck/EndingLedderSan@6": {
+   "text": "InSewer:123",
+   "onEnter": "add:endingLadderSanInt,1"
+  },
+  "SanCheck/EndingLedderSan@7": {
+   "text": "InSewer:124",
+   "onEnter": "add:endingLadderSanInt,1"
+  },
+  "SanCheck/EndingLedderSan@8": {
+   "text": "InSewer:125",
+   "onEnter": "add:endingLadderSanInt,1"
+  }
+ }
+}

@@ -1,0 +1,333 @@
+{
+ "id": "InSewer",
+ "topics": [
+  {
+   "id": "Sewer_LadderUP",
+   "cases": [
+    {
+     "node": "Sewer_LadderUP"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_EnemySpawn",
+   "cases": [
+    {
+     "node": "Sewer_EnemySpawn"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_StealthSucc",
+   "cases": [
+    {
+     "node": "Sewer_StealthSucc"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_StealthFail",
+   "cases": [
+    {
+     "node": "Sewer_StealthFail"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_DisgauseFail",
+   "cases": [
+    {
+     "node": "Sewer_DisgauseFail"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_MapDialog",
+   "cases": [
+    {
+     "node": "Sewer_MapDialog"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_MapLook",
+   "cases": [
+    {
+     "node": "Sewer_MapLook"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_JournalDialog",
+   "cases": [
+    {
+     "node": "Sewer_JournalDialog"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_JornalLookAfterSanCheck",
+   "cases": [
+    {
+     "node": "Sewer_JornalLookAfterSanCheck"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_BookDialog",
+   "cases": [
+    {
+     "node": "Sewer_BookDialog"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_JornalLookSanCheck",
+   "cases": [
+    {
+     "node": "Sewer_JornalLookSanCheck"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_SymbolDialog",
+   "cases": [
+    {
+     "node": "Sewer_SymbolDialog"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_FirstIn",
+   "cases": [
+    {
+     "node": "Sewer_FirstIn"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_FirstDeepOne",
+   "cases": [
+    {
+     "node": "Sewer_FirstDeepOne"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_LadderDialog",
+   "cases": [
+    {
+     "node": "Sewer_LadderDialog"
+    }
+   ]
+  },
+  {
+   "id": "Ending_BreakSymbol",
+   "cases": [
+    {
+     "node": "Ending_BreakSymbol"
+    }
+   ]
+  },
+  {
+   "id": "Ending_IfNoPromiseAlbertDeath",
+   "cases": [
+    {
+     "node": "Ending_IfNoPromiseAlbertDeath"
+    }
+   ]
+  },
+  {
+   "id": "Ending_SwainDeathCheck",
+   "cases": [
+    {
+     "node": "Ending_SwainDeathCheck"
+    }
+   ]
+  },
+  {
+   "id": "Ending_Killing",
+   "cases": [
+    {
+     "node": "Ending_Killing"
+    }
+   ]
+  },
+  {
+   "id": "Ending_DoorEnd",
+   "cases": [
+    {
+     "node": "Ending_DoorEnd"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_JornalLook",
+   "cases": [
+    {
+     "when": "!flag:firstLookJournal",
+     "node": "Sewer_JornalLook.0"
+    },
+    {
+     "node": "Sewer_JornalLook.1"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_BookLook",
+   "cases": [
+    {
+     "when": "!flag:bookLookFirst",
+     "node": "Sewer_BookLook.0"
+    },
+    {
+     "node": "Sewer_BookLook.1"
+    }
+   ]
+  },
+  {
+   "id": "Sewer_SymbolLook",
+   "cases": [
+    {
+     "when": "flag:journalFirstSanCheck",
+     "node": "Sewer_SymbolLook.0"
+    },
+    {
+     "when": "!flag:symbolOccultFirst",
+     "node": "Sewer_SymbolLook.1"
+    },
+    {
+     "node": "Sewer_SymbolLook.2"
+    }
+   ]
+  },
+  {
+   "id": "Ending_isPromise",
+   "cases": [
+    {
+     "when": "flag:intelMeiv2 && !flag:albertDeathKeyword",
+     "node": "Ending_isPromise.0"
+    },
+    {
+     "when": "flag:intelMeiv2",
+     "node": "Ending_isPromise.1"
+    },
+    {
+     "node": "Ending_isPromise.2"
+    }
+   ]
+  },
+  {
+   "id": "Ending_RequestCheck",
+   "cases": [
+    {
+     "when": "flag:ifGotRequset",
+     "node": "Ending_RequestCheck.0"
+    },
+    {
+     "node": "Ending_RequestCheck.1"
+    }
+   ]
+  }
+ ],
+ "nodes": {
+  "Sewer_LadderUP": {
+   "text": "InSewer:93-105"
+  },
+  "Sewer_EnemySpawn": {
+   "text": "InSewer:1-2"
+  },
+  "Sewer_StealthSucc": {
+   "text": "InSewer:3"
+  },
+  "Sewer_StealthFail": {
+   "text": "InSewer:4-6"
+  },
+  "Sewer_DisgauseFail": {
+   "text": "InSewer:7-9"
+  },
+  "Sewer_MapDialog": {
+   "text": "InSewer:14"
+  },
+  "Sewer_MapLook": {
+   "text": "InSewer:15-18"
+  },
+  "Sewer_JournalDialog": {
+   "text": "InSewer:19"
+  },
+  "Sewer_JornalLookAfterSanCheck": {
+   "text": "InSewer:20-42"
+  },
+  "Sewer_BookDialog": {
+   "text": "InSewer:43"
+  },
+  "Sewer_JornalLookSanCheck": {
+   "text": "InSewer:39-42"
+  },
+  "Sewer_SymbolDialog": {
+   "text": "InSewer:54-55"
+  },
+  "Sewer_FirstIn": {
+   "text": "InSewer:78-82"
+  },
+  "Sewer_FirstDeepOne": {
+   "text": "InSewer:86-88"
+  },
+  "Sewer_LadderDialog": {
+   "text": "InSewer:91-92"
+  },
+  "Ending_BreakSymbol": {
+   "text": "InSewer:139-145"
+  },
+  "Ending_IfNoPromiseAlbertDeath": {
+   "text": "InSewer:157-161"
+  },
+  "Ending_SwainDeathCheck": {
+   "text": "InSewer:162-163"
+  },
+  "Ending_Killing": {
+   "text": "InSewer:183-184"
+  },
+  "Ending_DoorEnd": {
+   "text": "InSewer:185-190"
+  },
+  "Sewer_JornalLook.0": {
+   "text": "InSewer:20-38",
+   "onEnter": "set:firstLookJournal"
+  },
+  "Sewer_JornalLook.1": {
+   "text": "InSewer:20-42"
+  },
+  "Sewer_BookLook.0": {
+   "text": "InSewer:44-45",
+   "onEnter": "set:bookLookFirst"
+  },
+  "Sewer_BookLook.1": {
+   "text": "InSewer:53"
+  },
+  "Sewer_SymbolLook.0": {
+   "text": "InSewer:56-58"
+  },
+  "Sewer_SymbolLook.1": {
+   "text": "InSewer:59-60"
+  },
+  "Sewer_SymbolLook.2": {
+   "text": "InSewer:59"
+  },
+  "Ending_isPromise.0": {
+   "text": "InSewer:146-147"
+  },
+  "Ending_isPromise.1": {
+   "text": "InSewer:148-153"
+  },
+  "Ending_isPromise.2": {
+   "text": "InSewer:154-156"
+  },
+  "Ending_RequestCheck.0": {
+   "text": "InSewer:164-172"
+  },
+  "Ending_RequestCheck.1": {
+   "text": "InSewer:173-182"
+  }
+ }
+}

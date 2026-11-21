@@ -1,0 +1,100 @@
+# DialogPilot golden v1
+@preset is_default|counter:timeCount=1
+@preset ij_t1_0|counter:timeCount=1;flag:firstLookJournal=0
+@preset ij_t1_1|counter:timeCount=1;flag:firstLookJournal=1
+@preset ib_t1_0|counter:timeCount=1;flag:bookLookFirst=0
+@preset ib_t1_1|counter:timeCount=1;flag:bookLookFirst=1
+@preset iy_t1_00|counter:timeCount=1;flag:journalFirstSanCheck=0;flag:symbolOccultFirst=0
+@preset iy_t1_10|counter:timeCount=1;flag:journalFirstSanCheck=1;flag:symbolOccultFirst=0
+@preset iy_t1_01|counter:timeCount=1;flag:journalFirstSanCheck=0;flag:symbolOccultFirst=1
+@preset iy_t1_11|counter:timeCount=1;flag:journalFirstSanCheck=1;flag:symbolOccultFirst=1
+@preset ip_t1_00|counter:timeCount=1;flag:intelMeiv2=0;flag:albertDeathKeyword=0
+@preset ip_t1_10|counter:timeCount=1;flag:intelMeiv2=1;flag:albertDeathKeyword=0
+@preset ip_t1_01|counter:timeCount=1;flag:intelMeiv2=0;flag:albertDeathKeyword=1
+@preset ip_t1_11|counter:timeCount=1;flag:intelMeiv2=1;flag:albertDeathKeyword=1
+@preset ir_t1_0|counter:timeCount=1;flag:ifGotRequset=0
+@preset ir_t1_1|counter:timeCount=1;flag:ifGotRequset=1
+@preset so_default|counter:timeCount=1
+@preset sw_t1_|counter:timeCount=1
+@preset sw_t2_|counter:timeCount=2
+@preset sw_t3_|counter:timeCount=3
+@preset sw_t4_|counter:timeCount=4
+@preset sk_t1_0|counter:timeCount=1;flag:blackRechSuccCanTalck=0
+@preset sk_t1_1|counter:timeCount=1;flag:blackRechSuccCanTalck=1
+@preset sk_t2_0|counter:timeCount=2;flag:blackRechSuccCanTalck=0
+@preset sk_t2_1|counter:timeCount=2;flag:blackRechSuccCanTalck=1
+@preset sk_t3_0|counter:timeCount=3;flag:blackRechSuccCanTalck=0
+@preset sk_t3_1|counter:timeCount=3;flag:blackRechSuccCanTalck=1
+@preset sk_t4_0|counter:timeCount=4;flag:blackRechSuccCanTalck=0
+@preset sk_t4_1|counter:timeCount=4;flag:blackRechSuccCanTalck=1
+@preset sb_t1_0|counter:timeCount=1;flag:blackFirstDialog=0
+@preset sb_t1_1|counter:timeCount=1;flag:blackFirstDialog=1
+InSewer|Sewer_LadderUP|is_default|n=13|first=InSewer:93|last=InSewer:105|ids=93-105|post=-
+InSewer|Sewer_EnemySpawn|is_default|n=2|first=InSewer:1|last=InSewer:2|ids=1-2|post=-
+InSewer|Sewer_StealthSucc|is_default|n=1|first=InSewer:3|last=InSewer:3|ids=3|post=-
+InSewer|Sewer_StealthFail|is_default|n=3|first=InSewer:4|last=InSewer:6|ids=4-6|post=-
+InSewer|Sewer_DisgauseFail|is_default|n=3|first=InSewer:7|last=InSewer:9|ids=7-9|post=-
+InSewer|Sewer_MapDialog|is_default|n=1|first=InSewer:14|last=InSewer:14|ids=14|post=-
+InSewer|Sewer_MapLook|is_default|n=4|first=InSewer:15|last=InSewer:18|ids=15-18|post=-
+InSewer|Sewer_JournalDialog|is_default|n=1|first=InSewer:19|last=InSewer:19|ids=19|post=-
+InSewer|Sewer_JornalLookAfterSanCheck|is_default|n=23|first=InSewer:20|last=InSewer:42|ids=20-42|post=-
+InSewer|Sewer_BookDialog|is_default|n=1|first=InSewer:43|last=InSewer:43|ids=43|post=-
+InSewer|Sewer_JornalLookSanCheck|is_default|n=4|first=InSewer:39|last=InSewer:42|ids=39-42|post=-
+InSewer|Sewer_SymbolDialog|is_default|n=2|first=InSewer:54|last=InSewer:55|ids=54-55|post=-
+InSewer|Sewer_FirstIn|is_default|n=5|first=InSewer:78|last=InSewer:82|ids=78-82|post=-
+InSewer|Sewer_FirstDeepOne|is_default|n=3|first=InSewer:86|last=InSewer:88|ids=86-88|post=-
+InSewer|Sewer_LadderDialog|is_default|n=2|first=InSewer:91|last=InSewer:92|ids=91-92|post=-
+InSewer|Ending_BreakSymbol|is_default|n=7|first=InSewer:139|last=InSewer:145|ids=139-145|post=-
+InSewer|Ending_IfNoPromiseAlbertDeath|is_default|n=5|first=InSewer:157|last=InSewer:161|ids=157-161|post=-
+InSewer|Ending_SwainDeathCheck|is_default|n=2|first=InSewer:162|last=InSewer:163|ids=162-163|post=-
+InSewer|Ending_Killing|is_default|n=2|first=InSewer:183|last=InSewer:184|ids=183-184|post=-
+InSewer|Ending_DoorEnd|is_default|n=6|first=InSewer:185|last=InSewer:190|ids=185-190|post=-
+InSewer|NoSuchTopic|is_default|n=0|first=-|last=-|ids=-|post=-
+InSewer|Sewer_JornalLook|ij_t1_0|n=19|first=InSewer:20|last=InSewer:38|ids=20-38|post=+flag:firstLookJournal
+InSewer|Sewer_JornalLook|ij_t1_1|n=23|first=InSewer:20|last=InSewer:42|ids=20-42|post=-
+InSewer|Sewer_BookLook|ib_t1_0|n=2|first=InSewer:44|last=InSewer:45|ids=44-45|post=+flag:bookLookFirst
+InSewer|Sewer_BookLook|ib_t1_1|n=1|first=InSewer:53|last=InSewer:53|ids=53|post=-
+InSewer|Sewer_SymbolLook|iy_t1_00|n=2|first=InSewer:59|last=InSewer:60|ids=59-60|post=-
+InSewer|Sewer_SymbolLook|iy_t1_10|n=3|first=InSewer:56|last=InSewer:58|ids=56-58|post=-
+InSewer|Sewer_SymbolLook|iy_t1_01|n=1|first=InSewer:59|last=InSewer:59|ids=59|post=-
+InSewer|Sewer_SymbolLook|iy_t1_11|n=3|first=InSewer:56|last=InSewer:58|ids=56-58|post=-
+InSewer|Ending_isPromise|ip_t1_00|n=3|first=InSewer:154|last=InSewer:156|ids=154-156|post=-
+InSewer|Ending_isPromise|ip_t1_10|n=2|first=InSewer:146|last=InSewer:147|ids=146-147|post=-
+InSewer|Ending_isPromise|ip_t1_01|n=3|first=InSewer:154|last=InSewer:156|ids=154-156|post=-
+InSewer|Ending_isPromise|ip_t1_11|n=6|first=InSewer:148|last=InSewer:153|ids=148-153|post=-
+InSewer|Ending_RequestCheck|ir_t1_0|n=10|first=InSewer:173|last=InSewer:182|ids=173-182|post=-
+InSewer|Ending_RequestCheck|ir_t1_1|n=9|first=InSewer:164|last=InSewer:172|ids=164-172|post=-
+SewerOffice|SewerDoordialog|so_default|n=1|first=SewerOffice:1|last=SewerOffice:1|ids=1|post=-
+SewerOffice|SewerDoorLook|so_default|n=1|first=SewerOffice:2|last=SewerOffice:2|ids=2|post=-
+SewerOffice|BlackWell_look|so_default|n=2|first=SewerOffice:40|last=SewerOffice:41|ids=40-41|post=-
+SewerOffice|NoSuchTopic|so_default|n=0|first=-|last=-|ids=-|post=-
+SewerOffice|Window_dialog|sw_t1_|n=1|first=SewerOffice:5|last=SewerOffice:5|ids=5|post=-
+SewerOffice|Window_look|sw_t1_|n=1|first=SewerOffice:6|last=SewerOffice:6|ids=6|post=-
+SewerOffice|Map_dialog|sw_t1_|n=1|first=SewerOffice:25|last=SewerOffice:25|ids=25|post=-
+SewerOffice|Map_look|sw_t1_|n=1|first=SewerOffice:26|last=SewerOffice:26|ids=26|post=-
+SewerOffice|Locker_dialog|sw_t1_|n=1|first=SewerOffice:16|last=SewerOffice:16|ids=16|post=-
+SewerOffice|Window_dialog|sw_t2_|n=1|first=SewerOffice:5|last=SewerOffice:5|ids=5|post=-
+SewerOffice|Window_look|sw_t2_|n=1|first=SewerOffice:6|last=SewerOffice:6|ids=6|post=-
+SewerOffice|Map_dialog|sw_t2_|n=1|first=SewerOffice:25|last=SewerOffice:25|ids=25|post=-
+SewerOffice|Map_look|sw_t2_|n=1|first=SewerOffice:26|last=SewerOffice:26|ids=26|post=-
+SewerOffice|Locker_dialog|sw_t2_|n=1|first=SewerOffice:16|last=SewerOffice:16|ids=16|post=-
+SewerOffice|Window_dialog|sw_t3_|n=1|first=SewerOffice:7|last=SewerOffice:7|ids=7|post=-
+SewerOffice|Window_look|sw_t3_|n=1|first=SewerOffice:8|last=SewerOffice:8|ids=8|post=-
+SewerOffice|Map_dialog|sw_t3_|n=1|first=SewerOffice:27|last=SewerOffice:27|ids=27|post=-
+SewerOffice|Map_look|sw_t3_|n=3|first=SewerOffice:28|last=SewerOffice:30|ids=28-30|post=-
+SewerOffice|Locker_dialog|sw_t3_|n=1|first=SewerOffice:18|last=SewerOffice:18|ids=18|post=-
+SewerOffice|Window_dialog|sw_t4_|n=1|first=SewerOffice:7|last=SewerOffice:7|ids=7|post=-
+SewerOffice|Window_look|sw_t4_|n=1|first=SewerOffice:8|last=SewerOffice:8|ids=8|post=-
+SewerOffice|Map_dialog|sw_t4_|n=1|first=SewerOffice:27|last=SewerOffice:27|ids=27|post=-
+SewerOffice|Map_look|sw_t4_|n=3|first=SewerOffice:28|last=SewerOffice:30|ids=28-30|post=-
+SewerOffice|Locker_dialog|sw_t4_|n=1|first=SewerOffice:18|last=SewerOffice:18|ids=18|post=-
+SewerOffice|Locker_look|sk_t1_0|n=1|first=SewerOffice:17|last=SewerOffice:17|ids=17|post=-
+SewerOffice|Locker_look|sk_t1_1|n=3|first=SewerOffice:90|last=SewerOffice:92|ids=90-92|post=-
+SewerOffice|Locker_look|sk_t2_0|n=1|first=SewerOffice:17|last=SewerOffice:17|ids=17|post=-
+SewerOffice|Locker_look|sk_t2_1|n=3|first=SewerOffice:90|last=SewerOffice:92|ids=90-92|post=-
+SewerOffice|Locker_look|sk_t3_0|n=3|first=SewerOffice:19|last=SewerOffice:21|ids=19-21|post=-
+SewerOffice|Locker_look|sk_t3_1|n=3|first=SewerOffice:19|last=SewerOffice:21|ids=19-21|post=-
+SewerOffice|Locker_look|sk_t4_0|n=3|first=SewerOffice:19|last=SewerOffice:21|ids=19-21|post=-
+SewerOffice|Locker_look|sk_t4_1|n=3|first=SewerOffice:19|last=SewerOffice:21|ids=19-21|post=-
+SewerOffice|BlackWell_dialog|sb_t1_0|n=8|first=SewerOffice:31|last=SewerOffice:38|ids=31-38|post=+flag:blackFirstDialog
+SewerOffice|BlackWell_dialog|sb_t1_1|n=1|first=SewerOffice:39|last=SewerOffice:39|ids=39|post=-

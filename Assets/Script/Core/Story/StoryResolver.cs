@@ -54,7 +54,10 @@ namespace SCoW.Core.Story
 
     public sealed class StoryResolution
     {
+        /// <summary>마지막으로 들어간 노드(판정이면 결과 가지 노드).</summary>
         public string NodeId = "";
+        /// <summary>거친 노드 전부(판정 노드 → 가지 노드 순). 테스트가 도달 범위를 셀 때 쓴다.</summary>
+        public List<string> NodeIds = new List<string>();
         public List<StoryLineRef> Lines = new List<StoryLineRef>();
     }
 
@@ -72,12 +75,54 @@ namespace SCoW.Core.Story
             StoryNode node;
             if (!script.Nodes.TryGetValue(c.NodeId, out node)) { errors.Add("없는 노드 '" + c.NodeId + "'"); return null; }
 
+            return EnterNode(node, c.Pre, r, w, csv, errors);
+        }
+
+        private static StoryResolution EnterNode(StoryNode node, Effect[] pre, IStateReader r, IStateWriter w,
+            Func<string, IList<StoryLine>> csv, List<string> errors)
+        {
             StoryResolution res = new StoryResolution();
             res.NodeId = node.Id;
+            res.NodeIds.Add(node.Id);
             if (node.TextKey.Length > 0 && !ExpandText(node.TextKey, csv, res.Lines, errors)) { return null; }
 
+            EffectRunner.ApplyAll(pre, w, r, null);
+            EffectRunner.ApplyAll(node.OnEnter, w, r, null);
+            return res;
+        }
+
+        /// <summary>
+        /// 판정 결과 해석(C-2 P12). topicId 의 첫 맞는 Case 노드가 판정 노드(OnSuccess/OnFail 등)면 먼저 Case.Pre·노드 OnEnter(결과와 무관한 효과)를
+        /// 적용하고, 결과에 맞는 가지(노드 id 또는 Topic id)를 풀어 그 줄과 효과를 더한다. 가지가 없거나 결과가 None 이면 줄 0개.
+        /// 판정 노드가 아니면 일반 Resolve 와 같다. 맞는 Topic·Case 가 없으면 null.
+        /// </summary>
+        public static StoryResolution ResolveJudge(StoryScript script, string topicId, JudgeOutcome outcome, IStateReader r, IStateWriter w,
+            Func<string, IList<StoryLine>> csv, List<string> errors)
+        {
+            StoryCase c = script.Pick(topicId, r);
+            if (c == null) { return null; }
+            StoryNode node;
+            if (!script.Nodes.TryGetValue(c.NodeId, out node)) { errors.Add("없는 노드 '" + c.NodeId + "'"); return null; }
+            if (!node.IsJudge) { return EnterNode(node, c.Pre, r, w, csv, errors); }
+
+            StoryResolution res = new StoryResolution();
+            res.NodeId = node.Id;
+            res.NodeIds.Add(node.Id);
             EffectRunner.ApplyAll(c.Pre, w, r, null);
             EffectRunner.ApplyAll(node.OnEnter, w, r, null);
+            string next = JudgeOutcomes.Branch(node, outcome);
+            if (next.Length == 0) { return res; }
+            StoryResolution inner;
+            StoryNode branch;
+            if (script.HasTopic(next)) { inner = Resolve(script, next, r, w, csv, errors); }
+            else if (script.Nodes.TryGetValue(next, out branch)) { inner = EnterNode(branch, new Effect[0], r, w, csv, errors); }
+            else { errors.Add("없는 노드·토픽 '" + next + "'"); return res; }
+            if (inner != null)
+            {
+                res.NodeId = inner.NodeId;
+                res.NodeIds.AddRange(inner.NodeIds);
+                res.Lines.AddRange(inner.Lines);
+            }
             return res;
         }
 

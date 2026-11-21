@@ -270,7 +270,11 @@ public static partial class DialogEquivalenceTool
             StringBuilder sb = new StringBuilder();
             sb.Append("# DialogPilot golden v1\n");
             List<Target> targets;
-            if (mode == 3)
+            if (mode == 4)
+            {
+                targets = P12Targets();
+            }
+            else if (mode == 3)
             {
                 targets = P11Targets();
             }

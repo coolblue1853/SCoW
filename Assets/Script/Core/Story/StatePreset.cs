@@ -29,6 +29,10 @@ namespace SCoW.Core.Story
                 {
                     s.SetFlag(key.Substring(5), val == "1");
                 }
+                else if (key.StartsWith("text:", StringComparison.Ordinal))
+                {
+                    s.SetText(key.Substring(5), val);
+                }
                 else if (key.StartsWith("counter:", StringComparison.Ordinal))
                 {
                     s.SetCounter(key.Substring(8), int.Parse(val, NumberStyles.AllowLeadingSign, CultureInfo.InvariantCulture));
@@ -39,6 +43,24 @@ namespace SCoW.Core.Story
                 }
             }
             return s;
+        }
+
+        /// <summary>
+        /// 판정 한 번이 낸 대사 호출들(호출마다 "파일:ID" 목록)을 한 줄로. 호출 없음 "calls=0", 있으면 호출마다 "n=..first=..last=..ids=.." 를 " ;; " 로 잇는다.
+        /// </summary>
+        public static string DescribeCalls(IList<IList<string>> calls, string post)
+        {
+            if (calls.Count == 0) { return "calls=0|post=" + post; }
+            List<string> parts = new List<string>();
+            for (int i = 0; i < calls.Count; i++)
+            {
+                IList<string> refs = calls[i];
+                if (refs.Count == 0) { parts.Add("n=0"); continue; }
+                List<string> ids = new List<string>();
+                for (int j = 0; j < refs.Count; j++) { ids.Add(refs[j].Substring(refs[j].IndexOf(':') + 1)); }
+                parts.Add("n=" + refs.Count + ",first=" + refs[0] + ",last=" + refs[refs.Count - 1] + ",ids=" + CompactIds(ids));
+            }
+            return "calls=" + calls.Count + "|" + string.Join(" ;; ", parts.ToArray()) + "|post=" + post;
         }
 
         /// <summary>전·후 상태의 플래그·카운터 차이를 정렬된 한 줄 문자열로. 차이 없으면 "-".</summary>

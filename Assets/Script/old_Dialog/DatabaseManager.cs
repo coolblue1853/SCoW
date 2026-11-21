@@ -204,7 +204,21 @@ public class DataBaseManager : MonoBehaviour
     public static bool perfectionism { get => S.GetFlag(FlagKeys.perfectionism); set => S.SetFlag(FlagKeys.perfectionism, value); }
 
     //Inventory
-    public static bool isItemUI = false;
+    private static bool _isItemUI = false;
+    /// <summary>인벤토리(아이템 UI) 열림. 바뀔 때 ItemUiChanged 를 올린다(DialogDatabaseManager 가 아이템 CSV 로 바꿨다 되돌린다, C-2 P12).</summary>
+    public static bool isItemUI
+    {
+        get => _isItemUI;
+        set
+        {
+            if (_isItemUI == value) { return; }
+            _isItemUI = value;
+            ItemUiChanged?.Invoke();
+        }
+    }
+    public static event System.Action ItemUiChanged;
+    /// <summary>nowPlace 가 바뀔 때(DialogDatabaseManager 가 장소 CSV 를 다시 고른다, C-2 P12).</summary>
+    public static event System.Action PlaceChanged;
     public static bool isUseSafe { get => S.GetFlag(FlagKeys.isUseSafe); set => S.SetFlag(FlagKeys.isUseSafe, value); }
 
     public static string nowItem = "";
@@ -242,7 +256,16 @@ public class DataBaseManager : MonoBehaviour
     public static bool roadBattleEnd { get => S.GetFlag(FlagKeys.roadBattleEnd); set => S.SetFlag(FlagKeys.roadBattleEnd, value); }
 
     // Map
-    public static string nowPlace { get => S.GetText(TextKeys.nowPlace); set => S.SetText(TextKeys.nowPlace, value); }
+    public static string nowPlace
+    {
+        get => S.GetText(TextKeys.nowPlace);
+        set
+        {
+            string old = S.GetText(TextKeys.nowPlace);
+            S.SetText(TextKeys.nowPlace, value);
+            if (old != value) { PlaceChanged?.Invoke(); }
+        }
+    }
     public static string potalPlace { get => S.GetText(TextKeys.potalPlace); set => S.SetText(TextKeys.potalPlace, value); }
 
     //keyword

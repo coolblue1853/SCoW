@@ -10,6 +10,8 @@
     { "id": "Policeoffice", "scripts": [ { "script": "1st_PoliceOffice" } ] },
     { "id": "Slum", "scripts": [ { "script": "1st_Slum" } ] },
     { "id": "NoonEvent", "scripts": [ { "script": "2nd_NoonEvent" } ] },
-    { "id": "BattleRoad", "scripts": [ { "script": "1st_Battle" } ] }
+    { "id": "BattleRoad", "scripts": [ { "script": "1st_Battle" } ] },
+    { "id": "SewerOffice", "scripts": [ { "script": "SewerOffice" } ] },
+    { "id": "InSewer", "scripts": [ { "script": "InSewer" } ] }
   ]
 }

@@ -66,8 +66,18 @@ namespace SCoW.Core.Story
         public string Next = "";
         /// <summary>판정이 있으면 "skill,difficulty".</summary>
         public string CheckId = "";
+        /// <summary>
+        /// 판정 노드의 결과별 다음(노드 id 또는 Topic id. Topic 이면 Case 조건으로 다시 고른다). 하나라도 있으면 판정 노드다(StoryResolver.ResolveJudge).
+        /// 대성공/대실패 칸이 비면 각각 OnSuccess/OnFail 로 간다(옛 InteractionController.RetrunDialogResult 는 대성공=성공, 대실패=실패로 같이 다뤘다).
+        /// </summary>
         public string OnSuccess = "";
         public string OnFail = "";
+        public string OnCritSuccess = "";
         public string OnCritFail = "";
+
+        public bool IsJudge
+        {
+            get { return OnSuccess.Length > 0 || OnFail.Length > 0 || OnCritSuccess.Length > 0 || OnCritFail.Length > 0; }
+        }
     }
 }

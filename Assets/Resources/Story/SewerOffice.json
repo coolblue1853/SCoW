@@ -1,0 +1,174 @@
+{
+ "id": "SewerOffice",
+ "topics": [
+  {
+   "id": "SewerDoordialog",
+   "cases": [
+    {
+     "node": "SewerDoordialog"
+    }
+   ]
+  },
+  {
+   "id": "SewerDoorLook",
+   "cases": [
+    {
+     "node": "SewerDoorLook"
+    }
+   ]
+  },
+  {
+   "id": "BlackWell_look",
+   "cases": [
+    {
+     "node": "BlackWell_look"
+    }
+   ]
+  },
+  {
+   "id": "Window_dialog",
+   "cases": [
+    {
+     "when": "any(time%4==1,time%4==2)",
+     "node": "Window_dialog.0"
+    },
+    {
+     "node": "Window_dialog.1"
+    }
+   ]
+  },
+  {
+   "id": "Window_look",
+   "cases": [
+    {
+     "when": "any(time%4==1,time%4==2)",
+     "node": "Window_look.0"
+    },
+    {
+     "node": "Window_look.1"
+    }
+   ]
+  },
+  {
+   "id": "Map_dialog",
+   "cases": [
+    {
+     "when": "any(time%4==1,time%4==2)",
+     "node": "Map_dialog.0"
+    },
+    {
+     "node": "Map_dialog.1"
+    }
+   ]
+  },
+  {
+   "id": "Map_look",
+   "cases": [
+    {
+     "when": "any(time%4==1,time%4==2)",
+     "node": "Map_look.0"
+    },
+    {
+     "node": "Map_look.1"
+    }
+   ]
+  },
+  {
+   "id": "Locker_dialog",
+   "cases": [
+    {
+     "when": "any(time%4==1,time%4==2)",
+     "node": "Locker_dialog.0"
+    },
+    {
+     "node": "Locker_dialog.1"
+    }
+   ]
+  },
+  {
+   "id": "Locker_look",
+   "cases": [
+    {
+     "when": "any(time%4==1,time%4==2) && flag:blackRechSuccCanTalck",
+     "node": "Locker_look.0"
+    },
+    {
+     "when": "any(time%4==1,time%4==2)",
+     "node": "Locker_look.1"
+    },
+    {
+     "node": "Locker_look.2"
+    }
+   ]
+  },
+  {
+   "id": "BlackWell_dialog",
+   "cases": [
+    {
+     "when": "!flag:blackFirstDialog",
+     "node": "BlackWell_dialog.0"
+    },
+    {
+     "node": "BlackWell_dialog.1"
+    }
+   ]
+  }
+ ],
+ "nodes": {
+  "SewerDoordialog": {
+   "text": "SewerOffice:1"
+  },
+  "SewerDoorLook": {
+   "text": "SewerOffice:2"
+  },
+  "BlackWell_look": {
+   "text": "SewerOffice:40-41"
+  },
+  "Window_dialog.0": {
+   "text": "SewerOffice:5"
+  },
+  "Window_dialog.1": {
+   "text": "SewerOffice:7"
+  },
+  "Window_look.0": {
+   "text": "SewerOffice:6"
+  },
+  "Window_look.1": {
+   "text": "SewerOffice:8"
+  },
+  "Map_dialog.0": {
+   "text": "SewerOffice:25"
+  },
+  "Map_dialog.1": {
+   "text": "SewerOffice:27"
+  },
+  "Map_look.0": {
+   "text": "SewerOffice:26"
+  },
+  "Map_look.1": {
+   "text": "SewerOffice:28-30"
+  },
+  "Locker_dialog.0": {
+   "text": "SewerOffice:16"
+  },
+  "Locker_dialog.1": {
+   "text": "SewerOffice:18"
+  },
+  "Locker_look.0": {
+   "text": "SewerOffice:90-92"
+  },
+  "Locker_look.1": {
+   "text": "SewerOffice:17"
+  },
+  "Locker_look.2": {
+   "text": "SewerOffice:19-21"
+  },
+  "BlackWell_dialog.0": {
+   "text": "SewerOffice:31-38",
+   "onEnter": "set:blackFirstDialog"
+  },
+  "BlackWell_dialog.1": {
+   "text": "SewerOffice:39"
+  }
+ }
+}

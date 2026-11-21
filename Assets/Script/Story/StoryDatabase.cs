@@ -12,6 +12,7 @@ public static class StoryDatabase
     public const string ResourceFolder = "Story/";
     public const string PlacesResource = "Story/places";
     public const string KeywordScript = "Keyword";
+    public const string JudgeScript = "Judge";
 
     private static readonly Dictionary<string, StoryScript> Scripts = new Dictionary<string, StoryScript>();
     private static readonly Dictionary<string, IList<StoryLine>> CsvLines = new Dictionary<string, IList<StoryLine>>();
@@ -54,12 +55,39 @@ public static class StoryDatabase
             Debug.LogError("StoryDatabase " + scriptId + "/" + topicId + ": " + errors[i]);
         }
         if (res == null) { return false; }
-        dialogs = new Dialog[res.Lines.Count];
+        dialogs = ToDialogs(res);
+        return true;
+    }
+
+    /// <summary>
+    /// 판정 결과 대사(Resources/Story/Judge.json, C-2 P12). key = 판정 이름(옛 Sub_Dialog) 또는 "SanCheck/키", legacyResult = Rollet 결과 문자열 그대로.
+    /// 결과와 무관한 효과(Case.Pre·판정 노드 OnEnter)와 가지 효과는 이미 GameState 에 적용된다. 띄울 줄이 없으면(맞는 Case 없음·가지 없음) false.
+    /// </summary>
+    public static bool TryRunJudge(string key, string legacyResult, out Dialog[] dialogs)
+    {
+        dialogs = null;
+        StoryScript script = LoadScript(JudgeScript);
+        if (script == null) { return false; }
+        GameStateAccess state = new GameStateAccess(GameRoot.Instance.State);
+        List<string> errors = new List<string>();
+        StoryResolution res = StoryResolver.ResolveJudge(script, key, JudgeOutcomes.FromLegacy(legacyResult), state, state, Lines, errors);
+        for (int i = 0; i < errors.Count; i++)
+        {
+            Debug.LogError("StoryDatabase " + JudgeScript + "/" + key + ": " + errors[i]);
+        }
+        if (res == null || res.Lines.Count == 0) { return false; }
+        dialogs = ToDialogs(res);
+        return true;
+    }
+
+    private static Dialog[] ToDialogs(StoryResolution res)
+    {
+        Dialog[] dialogs = new Dialog[res.Lines.Count];
         for (int i = 0; i < dialogs.Length; i++)
         {
             dialogs[i] = CsvDialogs[res.Lines[i].File][res.Lines[i].Id];
         }
-        return true;
+        return dialogs;
     }
 
     /// <summary>

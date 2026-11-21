@@ -1,0 +1,427 @@
+# DialogP12 judge golden v1
+@preset jd0|text:nowPlace=DetectiveOffice;counter:timeCount=1
+@preset jd1|text:nowPlace=Client'shouse;counter:timeCount=1
+@preset jd2|text:nowPlace=Client'shouse;counter:timeCount=1;flag:getSafe=0
+@preset jd3|text:nowPlace=Client'shouse;counter:timeCount=1;flag:getSafe=1
+@preset jd4|text:nowPlace=DailyNews;counter:timeCount=1
+@preset jd5|text:nowPlace=NoonEvent;counter:timeCount=1;flag:intelQuestHouse1=0;flag:intelMissingPeople1=0;flag:intelMissingPeople2=0
+@preset jd6|text:nowPlace=NoonEvent;counter:timeCount=1;flag:intelQuestHouse1=1;flag:intelMissingPeople1=0;flag:intelMissingPeople2=0
+@preset jd7|text:nowPlace=NoonEvent;counter:timeCount=1;flag:intelQuestHouse1=0;flag:intelMissingPeople1=1;flag:intelMissingPeople2=0
+@preset jd8|text:nowPlace=NoonEvent;counter:timeCount=1;flag:intelQuestHouse1=1;flag:intelMissingPeople1=1;flag:intelMissingPeople2=0
+@preset jd9|text:nowPlace=NoonEvent;counter:timeCount=1;flag:intelQuestHouse1=0;flag:intelMissingPeople1=0;flag:intelMissingPeople2=1
+@preset jd10|text:nowPlace=NoonEvent;counter:timeCount=1;flag:intelQuestHouse1=1;flag:intelMissingPeople1=0;flag:intelMissingPeople2=1
+@preset jd11|text:nowPlace=NoonEvent;counter:timeCount=1;flag:intelQuestHouse1=0;flag:intelMissingPeople1=1;flag:intelMissingPeople2=1
+@preset jd12|text:nowPlace=NoonEvent;counter:timeCount=1;flag:intelQuestHouse1=1;flag:intelMissingPeople1=1;flag:intelMissingPeople2=1
+@preset jd13|text:nowPlace=NoonEvent;counter:timeCount=1
+@preset jd14|text:nowPlace=Bar;counter:timeCount=1
+@preset jd15|text:nowPlace=SewerOffice;counter:timeCount=1
+@preset jd16|text:nowPlace=Riverside;counter:timeCount=1
+@preset jd17|text:nowPlace=InSewer;counter:timeCount=1
+@preset jd18|text:nowPlace=BattleRoad;counter:timeCount=1
+@preset jd19|text:nowPlace=DetectiveOffice;counter:timeCount=1;counter:timeCount=5
+@preset jd20|text:nowPlace=DetectiveOffice;counter:timeCount=1;counter:timeCount=1
+@preset jd21|text:nowPlace=DetectiveOffice;counter:timeCount=1;flag:intelNightmare3=0;flag:intelNightmare4=0
+@preset jd22|text:nowPlace=DetectiveOffice;counter:timeCount=1;flag:intelNightmare3=1;flag:intelNightmare4=0
+@preset jd23|text:nowPlace=DetectiveOffice;counter:timeCount=1;flag:intelNightmare3=0;flag:intelNightmare4=1
+@preset jd24|text:nowPlace=DetectiveOffice;counter:timeCount=1;flag:intelNightmare3=1;flag:intelNightmare4=1
+@preset jd25|text:nowPlace=InSewer;counter:timeCount=1;counter:endingLadderSanInt=0
+@preset jd26|text:nowPlace=InSewer;counter:timeCount=1;counter:endingLadderSanInt=1
+@preset jd27|text:nowPlace=InSewer;counter:timeCount=1;counter:endingLadderSanInt=2
+@preset jd28|text:nowPlace=InSewer;counter:timeCount=1;counter:endingLadderSanInt=3
+@preset jd29|text:nowPlace=InSewer;counter:timeCount=1;counter:endingLadderSanInt=4
+@preset jd30|text:nowPlace=InSewer;counter:timeCount=1;counter:endingLadderSanInt=5
+@preset jd31|text:nowPlace=InSewer;counter:timeCount=1;counter:endingLadderSanInt=6
+@preset jd32|text:nowPlace=InSewer;counter:timeCount=1;counter:endingLadderSanInt=7
+@preset jd33|text:nowPlace=InSewer;counter:timeCount=1;counter:endingLadderSanInt=8
+@preset jd34|text:nowPlace=InSewer;counter:timeCount=1;counter:endingLadderSanInt=9
+@preset jd35|text:nowPlace=InSewer;counter:timeCount=1;counter:endingLadderSanInt=10
+J|Newspaper : Read||Result : Success|jd0|calls=1|n=10,first=1st_DetectiveOffice:30,last=1st_DetectiveOffice:39,ids=30-39|post=counter:fstDetectivTimeOn=1|ext=-
+J|Newspaper : Read||Result : Critical Success|jd0|calls=1|n=10,first=1st_DetectiveOffice:30,last=1st_DetectiveOffice:39,ids=30-39|post=counter:fstDetectivTimeOn=1|ext=-
+J|Newspaper : Read||Result : Failure|jd0|calls=1|n=1,first=1st_DetectiveOffice:40,last=1st_DetectiveOffice:40,ids=40|post=counter:fstDetectivTimeOn=1|ext=-
+J|Newspaper : Read||Result : Fumble|jd0|calls=1|n=1,first=1st_DetectiveOffice:40,last=1st_DetectiveOffice:40,ids=40|post=counter:fstDetectivTimeOn=1|ext=-
+J|Newspaper : Read||Result : --|jd0|calls=0|post=counter:fstDetectivTimeOn=1|ext=-
+J|Stove : Making coffee||Result : Success|jd0|calls=1|n=3,first=1st_DetectiveOffice:43,last=1st_DetectiveOffice:45,ids=43-45|post=counter:fstDetectivTimeOn=1|ext=cond:Good
+J|Stove : Making coffee||Result : Critical Success|jd0|calls=1|n=3,first=1st_DetectiveOffice:43,last=1st_DetectiveOffice:45,ids=43-45|post=counter:fstDetectivTimeOn=1|ext=cond:Good
+J|Stove : Making coffee||Result : Failure|jd0|calls=1|n=3,first=1st_DetectiveOffice:46,last=1st_DetectiveOffice:48,ids=46-48|post=counter:fstDetectivTimeOn=1|ext=-
+J|Stove : Making coffee||Result : Fumble|jd0|calls=1|n=3,first=1st_DetectiveOffice:46,last=1st_DetectiveOffice:48,ids=46-48|post=counter:fstDetectivTimeOn=1|ext=-
+J|Stove : Making coffee||Result : --|jd0|calls=0|post=counter:fstDetectivTimeOn=1|ext=-
+J|Case2IntCheck||Result : Success|jd0|calls=1|n=3,first=1st_DetectiveOffice:237,last=1st_DetectiveOffice:239,ids=237-239|post=-|ext=-
+J|Case2IntCheck||Result : Critical Success|jd0|calls=1|n=3,first=1st_DetectiveOffice:237,last=1st_DetectiveOffice:239,ids=237-239|post=-|ext=-
+J|Case2IntCheck||Result : Failure|jd0|calls=1|n=3,first=1st_DetectiveOffice:248,last=1st_DetectiveOffice:250,ids=248-250|post=-|ext=-
+J|Case2IntCheck||Result : Fumble|jd0|calls=1|n=3,first=1st_DetectiveOffice:248,last=1st_DetectiveOffice:250,ids=248-250|post=-|ext=-
+J|Case2IntCheck||Result : --|jd0|calls=0|post=-|ext=-
+J|Aiden : Diagnosis||Result : Success|jd1|calls=1|n=3,first=1st_Client'sHouse:97,last=1st_Client'sHouse:99,ids=97-99|post=+flag:aidenMedicine|ext=-
+J|Aiden : Diagnosis||Result : Critical Success|jd1|calls=1|n=3,first=1st_Client'sHouse:97,last=1st_Client'sHouse:99,ids=97-99|post=+flag:aidenMedicine|ext=-
+J|Aiden : Diagnosis||Result : Failure|jd1|calls=1|n=1,first=1st_Client'sHouse:100,last=1st_Client'sHouse:100,ids=100|post=+flag:aidenMedicine|ext=-
+J|Aiden : Diagnosis||Result : Fumble|jd1|calls=1|n=1,first=1st_Client'sHouse:100,last=1st_Client'sHouse:100,ids=100|post=+flag:aidenMedicine|ext=-
+J|Aiden : Diagnosis||Result : --|jd1|calls=0|post=+flag:aidenMedicine|ext=-
+J|Aiden : Look||Result : Success|jd1|calls=1|n=3,first=1st_Client'sHouse:24,last=1st_Client'sHouse:26,ids=24-26|post=+flag:aidenObservation|ext=-
+J|Aiden : Look||Result : Critical Success|jd1|calls=1|n=3,first=1st_Client'sHouse:24,last=1st_Client'sHouse:26,ids=24-26|post=+flag:aidenObservation|ext=-
+J|Aiden : Look||Result : Failure|jd1|calls=1|n=1,first=1st_Client'sHouse:100,last=1st_Client'sHouse:100,ids=100|post=+flag:aidenObservation|ext=-
+J|Aiden : Look||Result : Fumble|jd1|calls=1|n=1,first=1st_Client'sHouse:100,last=1st_Client'sHouse:100,ids=100|post=+flag:aidenObservation|ext=-
+J|Aiden : Look||Result : --|jd1|calls=0|post=+flag:aidenObservation|ext=-
+J|Aiden : Calming down||Result : Success|jd2|calls=1|n=21,first=1st_Client'sHouse:170,last=1st_Client'sHouse:190,ids=170-190|post=+flag:aidenPsychotherapy,+flag:getSafe|ext=-
+J|Aiden : Calming down||Result : Critical Success|jd2|calls=1|n=21,first=1st_Client'sHouse:170,last=1st_Client'sHouse:190,ids=170-190|post=+flag:aidenPsychotherapy,+flag:getSafe|ext=-
+J|Aiden : Calming down||Result : Failure|jd2|calls=1|n=1,first=1st_Client'sHouse:100,last=1st_Client'sHouse:100,ids=100|post=+flag:aidenPsychotherapy|ext=-
+J|Aiden : Calming down||Result : Fumble|jd2|calls=1|n=1,first=1st_Client'sHouse:100,last=1st_Client'sHouse:100,ids=100|post=+flag:aidenPsychotherapy|ext=-
+J|Aiden : Calming down||Result : --|jd2|calls=0|post=+flag:aidenPsychotherapy|ext=-
+J|Aiden : Calming down||Result : Success|jd3|calls=1|n=21,first=1st_Client'sHouse:149,last=1st_Client'sHouse:169,ids=149-169|post=+flag:aidenPsychotherapy|ext=-
+J|Aiden : Calming down||Result : Critical Success|jd3|calls=1|n=21,first=1st_Client'sHouse:149,last=1st_Client'sHouse:169,ids=149-169|post=+flag:aidenPsychotherapy|ext=-
+J|Aiden : Calming down||Result : Failure|jd3|calls=1|n=1,first=1st_Client'sHouse:100,last=1st_Client'sHouse:100,ids=100|post=+flag:aidenPsychotherapy|ext=-
+J|Aiden : Calming down||Result : Fumble|jd3|calls=1|n=1,first=1st_Client'sHouse:100,last=1st_Client'sHouse:100,ids=100|post=+flag:aidenPsychotherapy|ext=-
+J|Aiden : Calming down||Result : --|jd3|calls=0|post=+flag:aidenPsychotherapy|ext=-
+J|Aiden : Persuasion||Result : Success|jd1|calls=1|n=6,first=1st_Client'sHouse:79,last=1st_Client'sHouse:84,ids=79-84|post=+flag:getSafe|ext=-
+J|Aiden : Persuasion||Result : Critical Success|jd1|calls=1|n=6,first=1st_Client'sHouse:79,last=1st_Client'sHouse:84,ids=79-84|post=+flag:getSafe|ext=-
+J|Aiden : Persuasion||Result : Failure|jd1|calls=1|n=3,first=1st_Client'sHouse:85,last=1st_Client'sHouse:87,ids=85-87|post=-|ext=-
+J|Aiden : Persuasion||Result : Fumble|jd1|calls=1|n=3,first=1st_Client'sHouse:85,last=1st_Client'sHouse:87,ids=85-87|post=-|ext=-
+J|Aiden : Persuasion||Result : --|jd1|calls=0|post=-|ext=-
+J|Aiden : TakeAway||Result : Success|jd1|calls=1|n=7,first=1st_Client'sHouse:68,last=1st_Client'sHouse:74,ids=68-74|post=+flag:getSafe|ext=-
+J|Aiden : TakeAway||Result : Critical Success|jd1|calls=1|n=7,first=1st_Client'sHouse:68,last=1st_Client'sHouse:74,ids=68-74|post=+flag:getSafe|ext=-
+J|Aiden : TakeAway||Result : Failure|jd1|calls=1|n=4,first=1st_Client'sHouse:75,last=1st_Client'sHouse:78,ids=75-78|post=-|ext=-
+J|Aiden : TakeAway||Result : Fumble|jd1|calls=1|n=4,first=1st_Client'sHouse:75,last=1st_Client'sHouse:78,ids=75-78|post=-|ext=-
+J|Aiden : TakeAway||Result : --|jd1|calls=0|post=-|ext=-
+J|Swain : Look||Result : Success|jd4|calls=1|n=2,first=1st_DailyNews:15,last=1st_DailyNews:16,ids=15-16|post=-|ext=-
+J|Swain : Look||Result : Critical Success|jd4|calls=1|n=2,first=1st_DailyNews:15,last=1st_DailyNews:16,ids=15-16|post=-|ext=-
+J|Swain : Look||Result : Failure|jd4|calls=1|n=1,first=1st_DailyNews:17,last=1st_DailyNews:17,ids=17|post=-|ext=-
+J|Swain : Look||Result : Fumble|jd4|calls=1|n=1,first=1st_DailyNews:17,last=1st_DailyNews:17,ids=17|post=-|ext=-
+J|Swain : Look||Result : --|jd4|calls=0|post=-|ext=-
+J|Witness : Eavesdropping||Result : Success|jd5|calls=1|n=12,first=2nd_NoonEvent:84,last=2nd_NoonEvent:95,ids=84-95|post=-|ext=-
+J|Witness : Eavesdropping||Result : Critical Success|jd5|calls=1|n=12,first=2nd_NoonEvent:84,last=2nd_NoonEvent:95,ids=84-95|post=-|ext=-
+J|Witness : Eavesdropping||Result : Failure|jd5|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : Fumble|jd5|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : --|jd5|calls=0|post=-|ext=-
+J|Witness : Eavesdropping||Result : Success|jd6|calls=1|n=9,first=2nd_NoonEvent:63,last=2nd_NoonEvent:71,ids=63-71|post=-|ext=-
+J|Witness : Eavesdropping||Result : Critical Success|jd6|calls=1|n=9,first=2nd_NoonEvent:63,last=2nd_NoonEvent:71,ids=63-71|post=-|ext=-
+J|Witness : Eavesdropping||Result : Failure|jd6|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : Fumble|jd6|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : --|jd6|calls=0|post=-|ext=-
+J|Witness : Eavesdropping||Result : Success|jd7|calls=1|n=12,first=2nd_NoonEvent:84,last=2nd_NoonEvent:95,ids=84-95|post=-|ext=-
+J|Witness : Eavesdropping||Result : Critical Success|jd7|calls=1|n=12,first=2nd_NoonEvent:84,last=2nd_NoonEvent:95,ids=84-95|post=-|ext=-
+J|Witness : Eavesdropping||Result : Failure|jd7|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : Fumble|jd7|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : --|jd7|calls=0|post=-|ext=-
+J|Witness : Eavesdropping||Result : Success|jd8|calls=1|n=12,first=2nd_NoonEvent:72,last=2nd_NoonEvent:83,ids=72-83|post=-|ext=-
+J|Witness : Eavesdropping||Result : Critical Success|jd8|calls=1|n=12,first=2nd_NoonEvent:72,last=2nd_NoonEvent:83,ids=72-83|post=-|ext=-
+J|Witness : Eavesdropping||Result : Failure|jd8|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : Fumble|jd8|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : --|jd8|calls=0|post=-|ext=-
+J|Witness : Eavesdropping||Result : Success|jd9|calls=1|n=12,first=2nd_NoonEvent:84,last=2nd_NoonEvent:95,ids=84-95|post=-|ext=-
+J|Witness : Eavesdropping||Result : Critical Success|jd9|calls=1|n=12,first=2nd_NoonEvent:84,last=2nd_NoonEvent:95,ids=84-95|post=-|ext=-
+J|Witness : Eavesdropping||Result : Failure|jd9|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : Fumble|jd9|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : --|jd9|calls=0|post=-|ext=-
+J|Witness : Eavesdropping||Result : Success|jd10|calls=1|n=12,first=2nd_NoonEvent:72,last=2nd_NoonEvent:83,ids=72-83|post=-|ext=-
+J|Witness : Eavesdropping||Result : Critical Success|jd10|calls=1|n=12,first=2nd_NoonEvent:72,last=2nd_NoonEvent:83,ids=72-83|post=-|ext=-
+J|Witness : Eavesdropping||Result : Failure|jd10|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : Fumble|jd10|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : --|jd10|calls=0|post=-|ext=-
+J|Witness : Eavesdropping||Result : Success|jd11|calls=1|n=12,first=2nd_NoonEvent:84,last=2nd_NoonEvent:95,ids=84-95|post=-|ext=-
+J|Witness : Eavesdropping||Result : Critical Success|jd11|calls=1|n=12,first=2nd_NoonEvent:84,last=2nd_NoonEvent:95,ids=84-95|post=-|ext=-
+J|Witness : Eavesdropping||Result : Failure|jd11|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : Fumble|jd11|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : --|jd11|calls=0|post=-|ext=-
+J|Witness : Eavesdropping||Result : Success|jd12|calls=1|n=12,first=2nd_NoonEvent:72,last=2nd_NoonEvent:83,ids=72-83|post=-|ext=-
+J|Witness : Eavesdropping||Result : Critical Success|jd12|calls=1|n=12,first=2nd_NoonEvent:72,last=2nd_NoonEvent:83,ids=72-83|post=-|ext=-
+J|Witness : Eavesdropping||Result : Failure|jd12|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : Fumble|jd12|calls=1|n=1,first=2nd_NoonEvent:62,last=2nd_NoonEvent:62,ids=62|post=-|ext=-
+J|Witness : Eavesdropping||Result : --|jd12|calls=0|post=-|ext=-
+J|Police : Persuasion||Result : Success|jd13|calls=1|n=7,first=2nd_NoonEvent:104,last=2nd_NoonEvent:110,ids=104-110|post=+flag:noonEventAccessAuthorization|ext=-
+J|Police : Persuasion||Result : Critical Success|jd13|calls=1|n=7,first=2nd_NoonEvent:104,last=2nd_NoonEvent:110,ids=104-110|post=+flag:noonEventAccessAuthorization|ext=-
+J|Police : Persuasion||Result : Failure|jd13|calls=1|n=3,first=2nd_NoonEvent:111,last=2nd_NoonEvent:113,ids=111-113|post=-|ext=-
+J|Police : Persuasion||Result : Fumble|jd13|calls=1|n=3,first=2nd_NoonEvent:111,last=2nd_NoonEvent:113,ids=111-113|post=-|ext=-
+J|Police : Persuasion||Result : --|jd13|calls=0|post=-|ext=-
+J|DeadBody : Diagnosis||Result : Success|jd13|calls=1|n=8,first=2nd_NoonEvent:147,last=2nd_NoonEvent:154,ids=147-154|post=+flag:deadBodyMedicine|ext=-
+J|DeadBody : Diagnosis||Result : Critical Success|jd13|calls=1|n=8,first=2nd_NoonEvent:147,last=2nd_NoonEvent:154,ids=147-154|post=+flag:deadBodyMedicine|ext=-
+J|DeadBody : Diagnosis||Result : Failure|jd13|calls=1|n=2,first=2nd_NoonEvent:155,last=2nd_NoonEvent:156,ids=155-156|post=+flag:deadBodyMedicine|ext=-
+J|DeadBody : Diagnosis||Result : Fumble|jd13|calls=1|n=2,first=2nd_NoonEvent:155,last=2nd_NoonEvent:156,ids=155-156|post=+flag:deadBodyMedicine|ext=-
+J|DeadBody : Diagnosis||Result : --|jd13|calls=0|post=+flag:deadBodyMedicine|ext=-
+J|DeadBody : Look||Result : Success|jd13|calls=1|n=4,first=2nd_NoonEvent:157,last=2nd_NoonEvent:160,ids=157-160|post=+flag:deadBodyObservational|ext=-
+J|DeadBody : Look||Result : Critical Success|jd13|calls=1|n=4,first=2nd_NoonEvent:157,last=2nd_NoonEvent:160,ids=157-160|post=+flag:deadBodyObservational|ext=-
+J|DeadBody : Look||Result : Failure|jd13|calls=1|n=1,first=2nd_NoonEvent:161,last=2nd_NoonEvent:161,ids=161|post=+flag:deadBodyObservational|ext=-
+J|DeadBody : Look||Result : Fumble|jd13|calls=1|n=1,first=2nd_NoonEvent:161,last=2nd_NoonEvent:161,ids=161|post=+flag:deadBodyObservational|ext=-
+J|DeadBody : Look||Result : --|jd13|calls=0|post=+flag:deadBodyObservational|ext=-
+J|DeadBody : Check||Result : Success|jd13|calls=1|n=4,first=2nd_NoonEvent:162,last=2nd_NoonEvent:165,ids=162-165|post=+flag:deadBodyAnalyzing|ext=-
+J|DeadBody : Check||Result : Critical Success|jd13|calls=1|n=4,first=2nd_NoonEvent:162,last=2nd_NoonEvent:165,ids=162-165|post=+flag:deadBodyAnalyzing|ext=-
+J|DeadBody : Check||Result : Failure|jd13|calls=1|n=1,first=2nd_NoonEvent:169,last=2nd_NoonEvent:169,ids=169|post=+flag:deadBodyAnalyzing|ext=-
+J|DeadBody : Check||Result : Fumble|jd13|calls=1|n=1,first=2nd_NoonEvent:169,last=2nd_NoonEvent:169,ids=169|post=+flag:deadBodyAnalyzing|ext=-
+J|DeadBody : Check||Result : --|jd13|calls=0|post=+flag:deadBodyAnalyzing|ext=-
+J|DeadBody : Stealing||Result : Success|jd13|calls=1|n=3,first=2nd_NoonEvent:170,last=2nd_NoonEvent:172,ids=170-172|post=+flag:deadBodyDeftness|ext=-
+J|DeadBody : Stealing||Result : Critical Success|jd13|calls=1|n=3,first=2nd_NoonEvent:170,last=2nd_NoonEvent:172,ids=170-172|post=+flag:deadBodyDeftness|ext=-
+J|DeadBody : Stealing||Result : Failure|jd13|calls=1|n=2,first=2nd_NoonEvent:173,last=2nd_NoonEvent:174,ids=173-174|post=+flag:deadBodyDeftness|ext=-
+J|DeadBody : Stealing||Result : Fumble|jd13|calls=1|n=2,first=2nd_NoonEvent:173,last=2nd_NoonEvent:174,ids=173-174|post=+flag:deadBodyDeftness|ext=-
+J|DeadBody : Stealing||Result : --|jd13|calls=0|post=+flag:deadBodyDeftness|ext=-
+J|Accident Site : Check||Result : Success|jd13|calls=1|n=4,first=2nd_NoonEvent:180,last=2nd_NoonEvent:183,ids=180-183|post=+flag:siteAnalyzing|ext=-
+J|Accident Site : Check||Result : Critical Success|jd13|calls=1|n=4,first=2nd_NoonEvent:180,last=2nd_NoonEvent:183,ids=180-183|post=+flag:siteAnalyzing|ext=-
+J|Accident Site : Check||Result : Failure|jd13|calls=1|n=1,first=2nd_NoonEvent:187,last=2nd_NoonEvent:187,ids=187|post=+flag:siteAnalyzing|ext=-
+J|Accident Site : Check||Result : Fumble|jd13|calls=1|n=1,first=2nd_NoonEvent:187,last=2nd_NoonEvent:187,ids=187|post=+flag:siteAnalyzing|ext=-
+J|Accident Site : Check||Result : --|jd13|calls=0|post=+flag:siteAnalyzing|ext=-
+J|Maeve : Persuasion||Result : Success|jd14|calls=1|n=10,first=1st_Bar:183,last=1st_Bar:192,ids=183-192|post=+flag:noonEventAccessAuthorization|ext=-
+J|Maeve : Persuasion||Result : Critical Success|jd14|calls=1|n=10,first=1st_Bar:183,last=1st_Bar:192,ids=183-192|post=+flag:noonEventAccessAuthorization|ext=-
+J|Maeve : Persuasion||Result : Failure|jd14|calls=1|n=1,first=1st_Bar:199,last=1st_Bar:199,ids=199|post=-|ext=-
+J|Maeve : Persuasion||Result : Fumble|jd14|calls=1|n=1,first=1st_Bar:199,last=1st_Bar:199,ids=199|post=-|ext=-
+J|Maeve : Persuasion||Result : --|jd14|calls=0|post=-|ext=-
+J|Door : Picking doors||Result : Success|jd15|calls=1|n=1,first=SewerOffice:3,last=SewerOffice:3,ids=3|post=+flag:sewerDoorOpenCheck,+flag:sewerDoorOpenDeftness|ext=-
+J|Door : Picking doors||Result : Critical Success|jd15|calls=1|n=1,first=SewerOffice:3,last=SewerOffice:3,ids=3|post=+flag:sewerDoorOpenCheck,+flag:sewerDoorOpenDeftness|ext=-
+J|Door : Picking doors||Result : Failure|jd15|calls=1|n=1,first=SewerOffice:4,last=SewerOffice:4,ids=4|post=-|ext=-
+J|Door : Picking doors||Result : Fumble|jd15|calls=1|n=1,first=SewerOffice:4,last=SewerOffice:4,ids=4|post=-|ext=-
+J|Door : Picking doors||Result : --|jd15|calls=0|post=-|ext=-
+J|Window : Break||Result : Success|jd15|calls=1|n=3,first=SewerOffice:9,last=SewerOffice:11,ids=9-11|post=+flag:isSewerOfficeBrokenWindow,+flag:moveSewerOfficeWindow,+flag:sewerDoorOpenCheck,+flag:sewerDoorOpenDeftness,+flag:tryBrokenWindow|ext=-
+J|Window : Break||Result : Critical Success|jd15|calls=1|n=3,first=SewerOffice:9,last=SewerOffice:11,ids=9-11|post=+flag:isSewerOfficeBrokenWindow,+flag:moveSewerOfficeWindow,+flag:sewerDoorOpenCheck,+flag:sewerDoorOpenDeftness,+flag:tryBrokenWindow|ext=-
+J|Window : Break||Result : Failure|jd15|calls=1|n=4,first=SewerOffice:12,last=SewerOffice:15,ids=12-15|post=+flag:isSewerOfficeBrokenWindow,+flag:moveSewerOfficeWindow,+flag:sewerDoorOpenCheck,+flag:sewerDoorOpenDeftness,+flag:tryBrokenWindow|ext=-
+J|Window : Break||Result : Fumble|jd15|calls=1|n=4,first=SewerOffice:12,last=SewerOffice:15,ids=12-15|post=+flag:isSewerOfficeBrokenWindow,+flag:moveSewerOfficeWindow,+flag:sewerDoorOpenCheck,+flag:sewerDoorOpenDeftness,+flag:tryBrokenWindow|ext=-
+J|Window : Break||Result : --|jd15|calls=0|post=+flag:isSewerOfficeBrokenWindow,+flag:sewerDoorOpenCheck,+flag:sewerDoorOpenDeftness,+flag:tryBrokenWindow|ext=-
+J|Locker : Take a Look||Result : Success|jd15|calls=1|n=2,first=SewerOffice:22,last=SewerOffice:23,ids=22-23|post=+flag:tryObserLokcer|ext=-
+J|Locker : Take a Look||Result : Critical Success|jd15|calls=1|n=2,first=SewerOffice:22,last=SewerOffice:23,ids=22-23|post=+flag:tryObserLokcer|ext=-
+J|Locker : Take a Look||Result : Failure|jd15|calls=1|n=1,first=SewerOffice:24,last=SewerOffice:24,ids=24|post=+flag:tryObserLokcer|ext=-
+J|Locker : Take a Look||Result : Fumble|jd15|calls=1|n=1,first=SewerOffice:24,last=SewerOffice:24,ids=24|post=+flag:tryObserLokcer|ext=-
+J|Locker : Take a Look||Result : --|jd15|calls=0|post=+flag:tryObserLokcer|ext=-
+J|Warden : Steal||Result : Success|jd15|calls=1|n=2,first=SewerOffice:74,last=SewerOffice:75,ids=74-75|post=+flag:blackDeftness|ext=-
+J|Warden : Steal||Result : Critical Success|jd15|calls=1|n=2,first=SewerOffice:74,last=SewerOffice:75,ids=74-75|post=+flag:blackDeftness|ext=-
+J|Warden : Steal||Result : Failure|jd15|calls=1|n=1,first=SewerOffice:76,last=SewerOffice:76,ids=76|post=+flag:blackDeftness|ext=-
+J|Warden : Steal||Result : Fumble|jd15|calls=1|n=1,first=SewerOffice:76,last=SewerOffice:76,ids=76|post=+flag:blackDeftness|ext=-
+J|Warden : Steal||Result : --|jd15|calls=0|post=+flag:blackDeftness|ext=-
+J|Warden : Persuade||Result : Success|jd15|calls=1|n=30,first=SewerOffice:42,last=SewerOffice:71,ids=42-71|post=+flag:blackRechSuccCanTalck,+flag:blackRhethic|ext=-
+J|Warden : Persuade||Result : Critical Success|jd15|calls=1|n=30,first=SewerOffice:42,last=SewerOffice:71,ids=42-71|post=+flag:blackRechSuccCanTalck,+flag:blackRhethic|ext=-
+J|Warden : Persuade||Result : Failure|jd15|calls=1|n=2,first=SewerOffice:72,last=SewerOffice:73,ids=72-73|post=+flag:blackRhethic|ext=-
+J|Warden : Persuade||Result : Fumble|jd15|calls=1|n=2,first=SewerOffice:72,last=SewerOffice:73,ids=72-73|post=+flag:blackRhethic|ext=-
+J|Warden : Persuade||Result : --|jd15|calls=0|post=+flag:blackRhethic|ext=-
+J|Sewer : Look||Result : Success|jd16|calls=1|n=8,first=1st_Riverside:16,last=1st_Riverside:23,ids=16-23|post=-|ext=-
+J|Sewer : Look||Result : Critical Success|jd16|calls=1|n=8,first=1st_Riverside:16,last=1st_Riverside:23,ids=16-23|post=-|ext=-
+J|Sewer : Look||Result : Failure|jd16|calls=1|n=1,first=1st_Riverside:26,last=1st_Riverside:26,ids=26|post=-|ext=-
+J|Sewer : Look||Result : Fumble|jd16|calls=1|n=1,first=1st_Riverside:26,last=1st_Riverside:26,ids=26|post=-|ext=-
+J|Sewer : Look||Result : --|jd16|calls=0|post=-|ext=-
+J|Sewer : Picking||Result : Success|jd16|calls=1|n=1,first=1st_Riverside:70,last=1st_Riverside:70,ids=70|post=+flag:sewerPicingSucc|ext=-
+J|Sewer : Picking||Result : Critical Success|jd16|calls=1|n=1,first=1st_Riverside:70,last=1st_Riverside:70,ids=70|post=+flag:sewerPicingSucc|ext=-
+J|Sewer : Picking||Result : Failure|jd16|calls=1|n=1,first=1st_Riverside:71,last=1st_Riverside:71,ids=71|post=-|ext=-
+J|Sewer : Picking||Result : Fumble|jd16|calls=1|n=1,first=1st_Riverside:71,last=1st_Riverside:71,ids=71|post=-|ext=-
+J|Sewer : Picking||Result : --|jd16|calls=0|post=-|ext=-
+J|Sewer : Look||Result : Success|jd0|calls=0|post=-|ext=-
+J|Sewer : Look||Result : Critical Success|jd0|calls=0|post=-|ext=-
+J|Sewer : Look||Result : Failure|jd0|calls=0|post=-|ext=-
+J|Sewer : Look||Result : Fumble|jd0|calls=0|post=-|ext=-
+J|Sewer : Look||Result : --|jd0|calls=0|post=-|ext=-
+J|Safe : Open||Result : Success|jd0|calls=1|n=1,first=1st_Item:15,last=1st_Item:15,ids=15|post=+flag:isUseSafe|ext=-
+J|Safe : Open||Result : Critical Success|jd0|calls=1|n=1,first=1st_Item:15,last=1st_Item:15,ids=15|post=+flag:isUseSafe|ext=-
+J|Safe : Open||Result : Failure|jd0|calls=1|n=1,first=1st_Item:4,last=1st_Item:4,ids=4|post=+flag:isUseSafe|ext=-
+J|Safe : Open||Result : Fumble|jd0|calls=1|n=1,first=1st_Item:4,last=1st_Item:4,ids=4|post=+flag:isUseSafe|ext=-
+J|Safe : Open||Result : --|jd0|calls=0|post=+flag:isUseSafe|ext=-
+J|Coat : Disguise||Result : Success|jd0|calls=1|n=2,first=1st_Item:10,last=1st_Item:11,ids=10-11|post=+flag:judgeCoatTryDisguise,+flag:wearCoat|ext=-
+J|Coat : Disguise||Result : Critical Success|jd0|calls=1|n=2,first=1st_Item:10,last=1st_Item:11,ids=10-11|post=+flag:judgeCoatTryDisguise,+flag:wearCoat|ext=-
+J|Coat : Disguise||Result : Failure|jd0|calls=1|n=1,first=1st_Item:12,last=1st_Item:12,ids=12|post=+flag:judgeCoatTryDisguise|ext=-
+J|Coat : Disguise||Result : Fumble|jd0|calls=1|n=1,first=1st_Item:12,last=1st_Item:12,ids=12|post=+flag:judgeCoatTryDisguise|ext=-
+J|Coat : Disguise||Result : --|jd0|calls=0|post=+flag:judgeCoatTryDisguise|ext=-
+J|Fabian : Sneak Out||Result : Success|jd17|calls=1|n=1,first=InSewer:3,last=InSewer:3,ids=3|post=-|ext=-
+J|Fabian : Sneak Out||Result : Critical Success|jd17|calls=1|n=1,first=InSewer:3,last=InSewer:3,ids=3|post=-|ext=-
+J|Fabian : Sneak Out||Result : Failure|jd17|calls=1|n=3,first=InSewer:4,last=InSewer:6,ids=4-6|post=-|ext=-
+J|Fabian : Sneak Out||Result : Fumble|jd17|calls=1|n=3,first=InSewer:4,last=InSewer:6,ids=4-6|post=-|ext=-
+J|Fabian : Sneak Out||Result : --|jd17|calls=0|post=-|ext=-
+J|??? : Give Excuse||Result : Success|jd17|calls=1|n=2,first=InSewer:10,last=InSewer:11,ids=10-11|post=-|ext=-
+J|??? : Give Excuse||Result : Critical Success|jd17|calls=1|n=2,first=InSewer:10,last=InSewer:11,ids=10-11|post=-|ext=-
+J|??? : Give Excuse||Result : Failure|jd17|calls=1|n=2,first=InSewer:12,last=InSewer:13,ids=12-13|post=-|ext=-
+J|??? : Give Excuse||Result : Fumble|jd17|calls=1|n=2,first=InSewer:12,last=InSewer:13,ids=12-13|post=-|ext=-
+J|??? : Give Excuse||Result : --|jd17|calls=0|post=-|ext=-
+J|Book : Decryption||Result : Success|jd17|calls=1|n=4,first=InSewer:48,last=InSewer:51,ids=48-51|post=-|ext=-
+J|Book : Decryption||Result : Critical Success|jd17|calls=1|n=4,first=InSewer:48,last=InSewer:51,ids=48-51|post=-|ext=-
+J|Book : Decryption||Result : Failure|jd17|calls=1|n=2,first=InSewer:52,last=InSewer:53,ids=52-53|post=-|ext=-
+J|Book : Decryption||Result : Fumble|jd17|calls=1|n=2,first=InSewer:52,last=InSewer:53,ids=52-53|post=-|ext=-
+J|Book : Decryption||Result : --|jd17|calls=0|post=-|ext=-
+J|Symbol : Decryption||Result : Success|jd17|calls=1|n=1,first=InSewer:61,last=InSewer:61,ids=61|post=+flag:symbolOccultFirst|ext=-
+J|Symbol : Decryption||Result : Critical Success|jd17|calls=1|n=1,first=InSewer:61,last=InSewer:61,ids=61|post=+flag:symbolOccultFirst|ext=-
+J|Symbol : Decryption||Result : Failure|jd17|calls=1|n=1,first=InSewer:62,last=InSewer:62,ids=62|post=+flag:symbolOccultFirst|ext=-
+J|Symbol : Decryption||Result : Fumble|jd17|calls=1|n=1,first=InSewer:62,last=InSewer:62,ids=62|post=+flag:symbolOccultFirst|ext=-
+J|Symbol : Decryption||Result : --|jd17|calls=0|post=+flag:symbolOccultFirst|ext=-
+J|Symbol : Break||Result : Success|jd17|calls=1|n=4,first=InSewer:63,last=InSewer:66,ids=63-66|post=-|ext=sd
+J|Symbol : Break||Result : Critical Success|jd17|calls=1|n=4,first=InSewer:63,last=InSewer:66,ids=63-66|post=-|ext=sd
+J|Symbol : Break||Result : Failure|jd17|calls=1|n=5,first=InSewer:67,last=InSewer:71,ids=67-71|post=-|ext=sd
+J|Symbol : Break||Result : Fumble|jd17|calls=1|n=5,first=InSewer:67,last=InSewer:71,ids=67-71|post=-|ext=sd
+J|Symbol : Break||Result : --|jd17|calls=0|post=-|ext=sd
+J|Fabian : Swimming||Result : Success|jd17|calls=1|n=7,first=InSewer:106,last=InSewer:112,ids=106-112|post=-|ext=-
+J|Fabian : Swimming||Result : Critical Success|jd17|calls=1|n=7,first=InSewer:106,last=InSewer:112,ids=106-112|post=-|ext=-
+J|Fabian : Swimming||Result : Failure|jd17|calls=0|post=-|ext=-
+J|Fabian : Swimming||Result : Fumble|jd17|calls=0|post=-|ext=-
+J|Fabian : Swimming||Result : --|jd17|calls=0|post=-|ext=-
+J|SAN : Check||Result : Success|jd16|calls=1|n=2,first=1st_Riverside:27,last=1st_Riverside:28,ids=27-28|post=-|ext=-
+J|SAN : Check||Result : Critical Success|jd16|calls=1|n=2,first=1st_Riverside:27,last=1st_Riverside:28,ids=27-28|post=-|ext=-
+J|SAN : Check||Result : Failure|jd16|calls=1|n=2,first=1st_Riverside:24,last=1st_Riverside:25,ids=24-25|post=-|ext=-
+J|SAN : Check||Result : Fumble|jd16|calls=1|n=2,first=1st_Riverside:24,last=1st_Riverside:25,ids=24-25|post=-|ext=-
+J|SAN : Check||Result : --|jd16|calls=0|post=-|ext=-
+J|SAN : Check||Result : Success|jd18|calls=1|n=2,first=1st_Battle:6,last=1st_Battle:7,ids=6-7|post=-|ext=-
+J|SAN : Check||Result : Critical Success|jd18|calls=1|n=2,first=1st_Battle:6,last=1st_Battle:7,ids=6-7|post=-|ext=-
+J|SAN : Check||Result : Failure|jd18|calls=1|n=2,first=1st_Battle:9,last=1st_Battle:10,ids=9-10|post=-|ext=-
+J|SAN : Check||Result : Fumble|jd18|calls=1|n=2,first=1st_Battle:9,last=1st_Battle:10,ids=9-10|post=-|ext=-
+J|SAN : Check||Result : --|jd18|calls=0|post=-|ext=-
+J|SAN : Check||Result : Success|jd19|calls=1|n=8,first=1st_DetectiveOffice:228,last=1st_DetectiveOffice:235,ids=228-235|post=-|ext=-
+J|SAN : Check||Result : Critical Success|jd19|calls=1|n=8,first=1st_DetectiveOffice:228,last=1st_DetectiveOffice:235,ids=228-235|post=-|ext=-
+J|SAN : Check||Result : Failure|jd19|calls=1|n=8,first=1st_DetectiveOffice:228,last=1st_DetectiveOffice:235,ids=228-235|post=-|ext=-
+J|SAN : Check||Result : Fumble|jd19|calls=1|n=8,first=1st_DetectiveOffice:228,last=1st_DetectiveOffice:235,ids=228-235|post=-|ext=-
+J|SAN : Check||Result : --|jd19|calls=1|n=8,first=1st_DetectiveOffice:228,last=1st_DetectiveOffice:235,ids=228-235|post=-|ext=-
+J|SAN : Check||Result : Success|jd20|calls=0|post=-|ext=-
+J|SAN : Check||Result : Critical Success|jd20|calls=0|post=-|ext=-
+J|SAN : Check||Result : Failure|jd20|calls=0|post=-|ext=-
+J|SAN : Check||Result : Fumble|jd20|calls=0|post=-|ext=-
+J|SAN : Check||Result : --|jd20|calls=0|post=-|ext=-
+J|SAN : Check||Result : Success|jd17|calls=0|post=-|ext=-
+J|SAN : Check||Result : Critical Success|jd17|calls=0|post=-|ext=-
+J|SAN : Check||Result : Failure|jd17|calls=0|post=-|ext=-
+J|SAN : Check||Result : Fumble|jd17|calls=0|post=-|ext=-
+J|SAN : Check||Result : --|jd17|calls=0|post=-|ext=-
+J|SAN : Check|NoonEvent_FirstDoor|Result : Success|jd13|calls=1|n=2,first=2nd_NoonEvent:120,last=2nd_NoonEvent:121,ids=120-121|post=-|ext=-
+J|SAN : Check|NoonEvent_FirstDoor|Result : Critical Success|jd13|calls=1|n=2,first=2nd_NoonEvent:120,last=2nd_NoonEvent:121,ids=120-121|post=-|ext=-
+J|SAN : Check|NoonEvent_FirstDoor|Result : Failure|jd13|calls=1|n=2,first=2nd_NoonEvent:120,last=2nd_NoonEvent:121,ids=120-121|post=-|ext=-
+J|SAN : Check|NoonEvent_FirstDoor|Result : Fumble|jd13|calls=1|n=2,first=2nd_NoonEvent:120,last=2nd_NoonEvent:121,ids=120-121|post=-|ext=-
+J|SAN : Check|NoonEvent_FirstDoor|Result : --|jd13|calls=1|n=2,first=2nd_NoonEvent:120,last=2nd_NoonEvent:121,ids=120-121|post=-|ext=-
+J|SAN : Check|KaneSan|Result : Success|jd16|calls=2|n=2,first=1st_Riverside:27,last=1st_Riverside:28,ids=27-28 ;; n=2,first=1st_Riverside:64,last=1st_Riverside:65,ids=64-65|post=-|ext=-
+J|SAN : Check|KaneSan|Result : Critical Success|jd16|calls=2|n=2,first=1st_Riverside:27,last=1st_Riverside:28,ids=27-28 ;; n=2,first=1st_Riverside:64,last=1st_Riverside:65,ids=64-65|post=-|ext=-
+J|SAN : Check|KaneSan|Result : Failure|jd16|calls=2|n=2,first=1st_Riverside:24,last=1st_Riverside:25,ids=24-25 ;; n=2,first=1st_Riverside:64,last=1st_Riverside:65,ids=64-65|post=-|ext=-
+J|SAN : Check|KaneSan|Result : Fumble|jd16|calls=2|n=2,first=1st_Riverside:24,last=1st_Riverside:25,ids=24-25 ;; n=2,first=1st_Riverside:64,last=1st_Riverside:65,ids=64-65|post=-|ext=-
+J|SAN : Check|KaneSan|Result : --|jd16|calls=1|n=2,first=1st_Riverside:64,last=1st_Riverside:65,ids=64-65|post=-|ext=-
+J|SAN : Check|DrinkSan|Result : Success|jd14|calls=1|n=6,first=1st_Bar:193,last=1st_Bar:198,ids=193-198|post=-|ext=-
+J|SAN : Check|DrinkSan|Result : Critical Success|jd14|calls=1|n=6,first=1st_Bar:193,last=1st_Bar:198,ids=193-198|post=-|ext=-
+J|SAN : Check|DrinkSan|Result : Failure|jd14|calls=1|n=6,first=1st_Bar:193,last=1st_Bar:198,ids=193-198|post=-|ext=-
+J|SAN : Check|DrinkSan|Result : Fumble|jd14|calls=1|n=6,first=1st_Bar:193,last=1st_Bar:198,ids=193-198|post=-|ext=-
+J|SAN : Check|DrinkSan|Result : --|jd14|calls=1|n=6,first=1st_Bar:193,last=1st_Bar:198,ids=193-198|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Success|jd21|calls=1|n=4,first=1st_DetectiveOffice:313,last=1st_DetectiveOffice:316,ids=313-316|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Critical Success|jd21|calls=1|n=4,first=1st_DetectiveOffice:313,last=1st_DetectiveOffice:316,ids=313-316|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Failure|jd21|calls=1|n=4,first=1st_DetectiveOffice:313,last=1st_DetectiveOffice:316,ids=313-316|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Fumble|jd21|calls=1|n=4,first=1st_DetectiveOffice:313,last=1st_DetectiveOffice:316,ids=313-316|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : --|jd21|calls=1|n=4,first=1st_DetectiveOffice:313,last=1st_DetectiveOffice:316,ids=313-316|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Success|jd22|calls=1|n=4,first=1st_DetectiveOffice:306,last=1st_DetectiveOffice:309,ids=306-309|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Critical Success|jd22|calls=1|n=4,first=1st_DetectiveOffice:306,last=1st_DetectiveOffice:309,ids=306-309|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Failure|jd22|calls=1|n=4,first=1st_DetectiveOffice:306,last=1st_DetectiveOffice:309,ids=306-309|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Fumble|jd22|calls=1|n=4,first=1st_DetectiveOffice:306,last=1st_DetectiveOffice:309,ids=306-309|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : --|jd22|calls=1|n=4,first=1st_DetectiveOffice:306,last=1st_DetectiveOffice:309,ids=306-309|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Success|jd23|calls=1|n=4,first=1st_DetectiveOffice:306,last=1st_DetectiveOffice:309,ids=306-309|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Critical Success|jd23|calls=1|n=4,first=1st_DetectiveOffice:306,last=1st_DetectiveOffice:309,ids=306-309|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Failure|jd23|calls=1|n=4,first=1st_DetectiveOffice:306,last=1st_DetectiveOffice:309,ids=306-309|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Fumble|jd23|calls=1|n=4,first=1st_DetectiveOffice:306,last=1st_DetectiveOffice:309,ids=306-309|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : --|jd23|calls=1|n=4,first=1st_DetectiveOffice:306,last=1st_DetectiveOffice:309,ids=306-309|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Success|jd24|calls=1|n=4,first=1st_DetectiveOffice:306,last=1st_DetectiveOffice:309,ids=306-309|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Critical Success|jd24|calls=1|n=4,first=1st_DetectiveOffice:306,last=1st_DetectiveOffice:309,ids=306-309|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Failure|jd24|calls=1|n=4,first=1st_DetectiveOffice:306,last=1st_DetectiveOffice:309,ids=306-309|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : Fumble|jd24|calls=1|n=4,first=1st_DetectiveOffice:306,last=1st_DetectiveOffice:309,ids=306-309|post=-|ext=-
+J|SAN : Check|ThirdDayStartSan|Result : --|jd24|calls=1|n=4,first=1st_DetectiveOffice:306,last=1st_DetectiveOffice:309,ids=306-309|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Success|jd21|calls=1|n=2,first=1st_DetectiveOffice:339,last=1st_DetectiveOffice:340,ids=339-340|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Critical Success|jd21|calls=1|n=2,first=1st_DetectiveOffice:339,last=1st_DetectiveOffice:340,ids=339-340|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Failure|jd21|calls=1|n=2,first=1st_DetectiveOffice:339,last=1st_DetectiveOffice:340,ids=339-340|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Fumble|jd21|calls=1|n=2,first=1st_DetectiveOffice:339,last=1st_DetectiveOffice:340,ids=339-340|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : --|jd21|calls=1|n=2,first=1st_DetectiveOffice:339,last=1st_DetectiveOffice:340,ids=339-340|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Success|jd22|calls=1|n=3,first=1st_DetectiveOffice:332,last=1st_DetectiveOffice:334,ids=332-334|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Critical Success|jd22|calls=1|n=3,first=1st_DetectiveOffice:332,last=1st_DetectiveOffice:334,ids=332-334|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Failure|jd22|calls=1|n=3,first=1st_DetectiveOffice:332,last=1st_DetectiveOffice:334,ids=332-334|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Fumble|jd22|calls=1|n=3,first=1st_DetectiveOffice:332,last=1st_DetectiveOffice:334,ids=332-334|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : --|jd22|calls=1|n=3,first=1st_DetectiveOffice:332,last=1st_DetectiveOffice:334,ids=332-334|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Success|jd23|calls=1|n=3,first=1st_DetectiveOffice:332,last=1st_DetectiveOffice:334,ids=332-334|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Critical Success|jd23|calls=1|n=3,first=1st_DetectiveOffice:332,last=1st_DetectiveOffice:334,ids=332-334|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Failure|jd23|calls=1|n=3,first=1st_DetectiveOffice:332,last=1st_DetectiveOffice:334,ids=332-334|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Fumble|jd23|calls=1|n=3,first=1st_DetectiveOffice:332,last=1st_DetectiveOffice:334,ids=332-334|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : --|jd23|calls=1|n=3,first=1st_DetectiveOffice:332,last=1st_DetectiveOffice:334,ids=332-334|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Success|jd24|calls=1|n=3,first=1st_DetectiveOffice:332,last=1st_DetectiveOffice:334,ids=332-334|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Critical Success|jd24|calls=1|n=3,first=1st_DetectiveOffice:332,last=1st_DetectiveOffice:334,ids=332-334|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Failure|jd24|calls=1|n=3,first=1st_DetectiveOffice:332,last=1st_DetectiveOffice:334,ids=332-334|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : Fumble|jd24|calls=1|n=3,first=1st_DetectiveOffice:332,last=1st_DetectiveOffice:334,ids=332-334|post=-|ext=-
+J|SAN : Check|FourthDayStartSan|Result : --|jd24|calls=1|n=3,first=1st_DetectiveOffice:332,last=1st_DetectiveOffice:334,ids=332-334|post=-|ext=-
+J|SAN : Check|DayTwoCase2San|Result : Success|jd0|calls=1|n=3,first=1st_DetectiveOffice:310,last=1st_DetectiveOffice:312,ids=310-312|post=-|ext=-
+J|SAN : Check|DayTwoCase2San|Result : Critical Success|jd0|calls=1|n=3,first=1st_DetectiveOffice:310,last=1st_DetectiveOffice:312,ids=310-312|post=-|ext=-
+J|SAN : Check|DayTwoCase2San|Result : Failure|jd0|calls=1|n=3,first=1st_DetectiveOffice:310,last=1st_DetectiveOffice:312,ids=310-312|post=-|ext=-
+J|SAN : Check|DayTwoCase2San|Result : Fumble|jd0|calls=1|n=3,first=1st_DetectiveOffice:310,last=1st_DetectiveOffice:312,ids=310-312|post=-|ext=-
+J|SAN : Check|DayTwoCase2San|Result : --|jd0|calls=1|n=3,first=1st_DetectiveOffice:310,last=1st_DetectiveOffice:312,ids=310-312|post=-|ext=-
+J|SAN : Check|DayTwoCase2San|Result : Success|jd19|calls=2|n=8,first=1st_DetectiveOffice:228,last=1st_DetectiveOffice:235,ids=228-235 ;; n=3,first=1st_DetectiveOffice:310,last=1st_DetectiveOffice:312,ids=310-312|post=-|ext=-
+J|SAN : Check|DayTwoCase2San|Result : Critical Success|jd19|calls=2|n=8,first=1st_DetectiveOffice:228,last=1st_DetectiveOffice:235,ids=228-235 ;; n=3,first=1st_DetectiveOffice:310,last=1st_DetectiveOffice:312,ids=310-312|post=-|ext=-
+J|SAN : Check|DayTwoCase2San|Result : Failure|jd19|calls=2|n=8,first=1st_DetectiveOffice:228,last=1st_DetectiveOffice:235,ids=228-235 ;; n=3,first=1st_DetectiveOffice:310,last=1st_DetectiveOffice:312,ids=310-312|post=-|ext=-
+J|SAN : Check|DayTwoCase2San|Result : Fumble|jd19|calls=2|n=8,first=1st_DetectiveOffice:228,last=1st_DetectiveOffice:235,ids=228-235 ;; n=3,first=1st_DetectiveOffice:310,last=1st_DetectiveOffice:312,ids=310-312|post=-|ext=-
+J|SAN : Check|DayTwoCase2San|Result : --|jd19|calls=2|n=8,first=1st_DetectiveOffice:228,last=1st_DetectiveOffice:235,ids=228-235 ;; n=3,first=1st_DetectiveOffice:310,last=1st_DetectiveOffice:312,ids=310-312|post=-|ext=-
+J|SAN : Check|Fab_4th_QuestO_SanCheck|Result : Success|jd0|calls=1|n=1,first=1st_DetectiveOffice:335,last=1st_DetectiveOffice:335,ids=335|post=-|ext=-
+J|SAN : Check|Fab_4th_QuestO_SanCheck|Result : Critical Success|jd0|calls=1|n=1,first=1st_DetectiveOffice:335,last=1st_DetectiveOffice:335,ids=335|post=-|ext=-
+J|SAN : Check|Fab_4th_QuestO_SanCheck|Result : Failure|jd0|calls=1|n=1,first=1st_DetectiveOffice:335,last=1st_DetectiveOffice:335,ids=335|post=-|ext=-
+J|SAN : Check|Fab_4th_QuestO_SanCheck|Result : Fumble|jd0|calls=1|n=1,first=1st_DetectiveOffice:335,last=1st_DetectiveOffice:335,ids=335|post=-|ext=-
+J|SAN : Check|Fab_4th_QuestO_SanCheck|Result : --|jd0|calls=1|n=1,first=1st_DetectiveOffice:335,last=1st_DetectiveOffice:335,ids=335|post=-|ext=-
+J|SAN : Check|Day_4_case1Health|Result : Success|jd0|calls=1|n=2,first=1st_DetectiveOffice:336,last=1st_DetectiveOffice:337,ids=336-337|post=-|ext=-
+J|SAN : Check|Day_4_case1Health|Result : Critical Success|jd0|calls=1|n=2,first=1st_DetectiveOffice:336,last=1st_DetectiveOffice:337,ids=336-337|post=-|ext=-
+J|SAN : Check|Day_4_case1Health|Result : Failure|jd0|calls=1|n=1,first=1st_DetectiveOffice:338,last=1st_DetectiveOffice:338,ids=338|post=+flag:morningMove2nd,+flag:morningMove4th,+flag:morningMove_3rd|ext=-
+J|SAN : Check|Day_4_case1Health|Result : Fumble|jd0|calls=1|n=1,first=1st_DetectiveOffice:338,last=1st_DetectiveOffice:338,ids=338|post=+flag:morningMove2nd,+flag:morningMove4th,+flag:morningMove_3rd|ext=-
+J|SAN : Check|Day_4_case1Health|Result : --|jd0|calls=0|post=-|ext=-
+J|SAN : Check|JournalSan|Result : Success|jd17|calls=1|n=4,first=InSewer:39,last=InSewer:42,ids=39-42|post=+flag:journalFirstSanCheck|ext=-
+J|SAN : Check|JournalSan|Result : Critical Success|jd17|calls=1|n=4,first=InSewer:39,last=InSewer:42,ids=39-42|post=+flag:journalFirstSanCheck|ext=-
+J|SAN : Check|JournalSan|Result : Failure|jd17|calls=1|n=4,first=InSewer:39,last=InSewer:42,ids=39-42|post=+flag:journalFirstSanCheck|ext=-
+J|SAN : Check|JournalSan|Result : Fumble|jd17|calls=1|n=4,first=InSewer:39,last=InSewer:42,ids=39-42|post=+flag:journalFirstSanCheck|ext=-
+J|SAN : Check|JournalSan|Result : --|jd17|calls=1|n=4,first=InSewer:39,last=InSewer:42,ids=39-42|post=+flag:journalFirstSanCheck|ext=-
+J|SAN : Check|SymbolStrSan|Result : Success|jd17|calls=1|n=2,first=InSewer:72,last=InSewer:73,ids=72-73|post=-|ext=-
+J|SAN : Check|SymbolStrSan|Result : Critical Success|jd17|calls=1|n=2,first=InSewer:72,last=InSewer:73,ids=72-73|post=-|ext=-
+J|SAN : Check|SymbolStrSan|Result : Failure|jd17|calls=1|n=2,first=InSewer:72,last=InSewer:73,ids=72-73|post=-|ext=-
+J|SAN : Check|SymbolStrSan|Result : Fumble|jd17|calls=1|n=2,first=InSewer:72,last=InSewer:73,ids=72-73|post=-|ext=-
+J|SAN : Check|SymbolStrSan|Result : --|jd17|calls=1|n=2,first=InSewer:72,last=InSewer:73,ids=72-73|post=-|ext=-
+J|SAN : Check|Sewer_FirstInSan|Result : Success|jd17|calls=1|n=3,first=InSewer:83,last=InSewer:85,ids=83-85|post=-|ext=-
+J|SAN : Check|Sewer_FirstInSan|Result : Critical Success|jd17|calls=1|n=3,first=InSewer:83,last=InSewer:85,ids=83-85|post=-|ext=-
+J|SAN : Check|Sewer_FirstInSan|Result : Failure|jd17|calls=1|n=3,first=InSewer:83,last=InSewer:85,ids=83-85|post=-|ext=-
+J|SAN : Check|Sewer_FirstInSan|Result : Fumble|jd17|calls=1|n=3,first=InSewer:83,last=InSewer:85,ids=83-85|post=-|ext=-
+J|SAN : Check|Sewer_FirstInSan|Result : --|jd17|calls=1|n=3,first=InSewer:83,last=InSewer:85,ids=83-85|post=-|ext=-
+J|SAN : Check|BookSan|Result : Success|jd17|calls=1|n=2,first=InSewer:46,last=InSewer:47,ids=46-47|post=-|ext=-
+J|SAN : Check|BookSan|Result : Critical Success|jd17|calls=1|n=2,first=InSewer:46,last=InSewer:47,ids=46-47|post=-|ext=-
+J|SAN : Check|BookSan|Result : Failure|jd17|calls=1|n=2,first=InSewer:46,last=InSewer:47,ids=46-47|post=-|ext=-
+J|SAN : Check|BookSan|Result : Fumble|jd17|calls=1|n=2,first=InSewer:46,last=InSewer:47,ids=46-47|post=-|ext=-
+J|SAN : Check|BookSan|Result : --|jd17|calls=1|n=2,first=InSewer:46,last=InSewer:47,ids=46-47|post=-|ext=-
+J|SAN : Check|DeepOneFirstSan|Result : Success|jd17|calls=1|n=2,first=InSewer:89,last=InSewer:90,ids=89-90|post=-|ext=-
+J|SAN : Check|DeepOneFirstSan|Result : Critical Success|jd17|calls=1|n=2,first=InSewer:89,last=InSewer:90,ids=89-90|post=-|ext=-
+J|SAN : Check|DeepOneFirstSan|Result : Failure|jd17|calls=1|n=2,first=InSewer:89,last=InSewer:90,ids=89-90|post=-|ext=-
+J|SAN : Check|DeepOneFirstSan|Result : Fumble|jd17|calls=1|n=2,first=InSewer:89,last=InSewer:90,ids=89-90|post=-|ext=-
+J|SAN : Check|DeepOneFirstSan|Result : --|jd17|calls=1|n=2,first=InSewer:89,last=InSewer:90,ids=89-90|post=-|ext=-
+J|SAN : Check|EndingLedderSan|Result : Success|jd25|calls=1|n=3,first=InSewer:113,last=InSewer:115,ids=113-115|post=counter:endingLadderSanInt=1|ext=-
+J|SAN : Check|EndingLedderSan|Result : Critical Success|jd25|calls=1|n=3,first=InSewer:113,last=InSewer:115,ids=113-115|post=counter:endingLadderSanInt=1|ext=-
+J|SAN : Check|EndingLedderSan|Result : Failure|jd25|calls=1|n=3,first=InSewer:113,last=InSewer:115,ids=113-115|post=counter:endingLadderSanInt=1|ext=-
+J|SAN : Check|EndingLedderSan|Result : Fumble|jd25|calls=1|n=3,first=InSewer:113,last=InSewer:115,ids=113-115|post=counter:endingLadderSanInt=1|ext=-
+J|SAN : Check|EndingLedderSan|Result : --|jd25|calls=1|n=3,first=InSewer:113,last=InSewer:115,ids=113-115|post=counter:endingLadderSanInt=1|ext=-
+J|SAN : Check|EndingLedderSan|Result : Success|jd26|calls=1|n=2,first=InSewer:116,last=InSewer:117,ids=116-117|post=counter:endingLadderSanInt=2|ext=-
+J|SAN : Check|EndingLedderSan|Result : Critical Success|jd26|calls=1|n=2,first=InSewer:116,last=InSewer:117,ids=116-117|post=counter:endingLadderSanInt=2|ext=-
+J|SAN : Check|EndingLedderSan|Result : Failure|jd26|calls=1|n=2,first=InSewer:116,last=InSewer:117,ids=116-117|post=counter:endingLadderSanInt=2|ext=-
+J|SAN : Check|EndingLedderSan|Result : Fumble|jd26|calls=1|n=2,first=InSewer:116,last=InSewer:117,ids=116-117|post=counter:endingLadderSanInt=2|ext=-
+J|SAN : Check|EndingLedderSan|Result : --|jd26|calls=1|n=2,first=InSewer:116,last=InSewer:117,ids=116-117|post=counter:endingLadderSanInt=2|ext=-
+J|SAN : Check|EndingLedderSan|Result : Success|jd27|calls=1|n=2,first=InSewer:118,last=InSewer:119,ids=118-119|post=counter:endingLadderSanInt=3|ext=-
+J|SAN : Check|EndingLedderSan|Result : Critical Success|jd27|calls=1|n=2,first=InSewer:118,last=InSewer:119,ids=118-119|post=counter:endingLadderSanInt=3|ext=-
+J|SAN : Check|EndingLedderSan|Result : Failure|jd27|calls=1|n=2,first=InSewer:118,last=InSewer:119,ids=118-119|post=counter:endingLadderSanInt=3|ext=-
+J|SAN : Check|EndingLedderSan|Result : Fumble|jd27|calls=1|n=2,first=InSewer:118,last=InSewer:119,ids=118-119|post=counter:endingLadderSanInt=3|ext=-
+J|SAN : Check|EndingLedderSan|Result : --|jd27|calls=1|n=2,first=InSewer:118,last=InSewer:119,ids=118-119|post=counter:endingLadderSanInt=3|ext=-
+J|SAN : Check|EndingLedderSan|Result : Success|jd28|calls=1|n=1,first=InSewer:120,last=InSewer:120,ids=120|post=counter:endingLadderSanInt=4|ext=-
+J|SAN : Check|EndingLedderSan|Result : Critical Success|jd28|calls=1|n=1,first=InSewer:120,last=InSewer:120,ids=120|post=counter:endingLadderSanInt=4|ext=-
+J|SAN : Check|EndingLedderSan|Result : Failure|jd28|calls=1|n=1,first=InSewer:120,last=InSewer:120,ids=120|post=counter:endingLadderSanInt=4|ext=-
+J|SAN : Check|EndingLedderSan|Result : Fumble|jd28|calls=1|n=1,first=InSewer:120,last=InSewer:120,ids=120|post=counter:endingLadderSanInt=4|ext=-
+J|SAN : Check|EndingLedderSan|Result : --|jd28|calls=1|n=1,first=InSewer:120,last=InSewer:120,ids=120|post=counter:endingLadderSanInt=4|ext=-
+J|SAN : Check|EndingLedderSan|Result : Success|jd29|calls=1|n=1,first=InSewer:121,last=InSewer:121,ids=121|post=counter:endingLadderSanInt=5|ext=-
+J|SAN : Check|EndingLedderSan|Result : Critical Success|jd29|calls=1|n=1,first=InSewer:121,last=InSewer:121,ids=121|post=counter:endingLadderSanInt=5|ext=-
+J|SAN : Check|EndingLedderSan|Result : Failure|jd29|calls=1|n=1,first=InSewer:121,last=InSewer:121,ids=121|post=counter:endingLadderSanInt=5|ext=-
+J|SAN : Check|EndingLedderSan|Result : Fumble|jd29|calls=1|n=1,first=InSewer:121,last=InSewer:121,ids=121|post=counter:endingLadderSanInt=5|ext=-
+J|SAN : Check|EndingLedderSan|Result : --|jd29|calls=1|n=1,first=InSewer:121,last=InSewer:121,ids=121|post=counter:endingLadderSanInt=5|ext=-
+J|SAN : Check|EndingLedderSan|Result : Success|jd30|calls=1|n=1,first=InSewer:122,last=InSewer:122,ids=122|post=counter:endingLadderSanInt=6|ext=-
+J|SAN : Check|EndingLedderSan|Result : Critical Success|jd30|calls=1|n=1,first=InSewer:122,last=InSewer:122,ids=122|post=counter:endingLadderSanInt=6|ext=-
+J|SAN : Check|EndingLedderSan|Result : Failure|jd30|calls=1|n=1,first=InSewer:122,last=InSewer:122,ids=122|post=counter:endingLadderSanInt=6|ext=-
+J|SAN : Check|EndingLedderSan|Result : Fumble|jd30|calls=1|n=1,first=InSewer:122,last=InSewer:122,ids=122|post=counter:endingLadderSanInt=6|ext=-
+J|SAN : Check|EndingLedderSan|Result : --|jd30|calls=1|n=1,first=InSewer:122,last=InSewer:122,ids=122|post=counter:endingLadderSanInt=6|ext=-
+J|SAN : Check|EndingLedderSan|Result : Success|jd31|calls=1|n=1,first=InSewer:123,last=InSewer:123,ids=123|post=counter:endingLadderSanInt=7|ext=-
+J|SAN : Check|EndingLedderSan|Result : Critical Success|jd31|calls=1|n=1,first=InSewer:123,last=InSewer:123,ids=123|post=counter:endingLadderSanInt=7|ext=-
+J|SAN : Check|EndingLedderSan|Result : Failure|jd31|calls=1|n=1,first=InSewer:123,last=InSewer:123,ids=123|post=counter:endingLadderSanInt=7|ext=-
+J|SAN : Check|EndingLedderSan|Result : Fumble|jd31|calls=1|n=1,first=InSewer:123,last=InSewer:123,ids=123|post=counter:endingLadderSanInt=7|ext=-
+J|SAN : Check|EndingLedderSan|Result : --|jd31|calls=1|n=1,first=InSewer:123,last=InSewer:123,ids=123|post=counter:endingLadderSanInt=7|ext=-
+J|SAN : Check|EndingLedderSan|Result : Success|jd32|calls=1|n=1,first=InSewer:124,last=InSewer:124,ids=124|post=counter:endingLadderSanInt=8|ext=-
+J|SAN : Check|EndingLedderSan|Result : Critical Success|jd32|calls=1|n=1,first=InSewer:124,last=InSewer:124,ids=124|post=counter:endingLadderSanInt=8|ext=-
+J|SAN : Check|EndingLedderSan|Result : Failure|jd32|calls=1|n=1,first=InSewer:124,last=InSewer:124,ids=124|post=counter:endingLadderSanInt=8|ext=-
+J|SAN : Check|EndingLedderSan|Result : Fumble|jd32|calls=1|n=1,first=InSewer:124,last=InSewer:124,ids=124|post=counter:endingLadderSanInt=8|ext=-
+J|SAN : Check|EndingLedderSan|Result : --|jd32|calls=1|n=1,first=InSewer:124,last=InSewer:124,ids=124|post=counter:endingLadderSanInt=8|ext=-
+J|SAN : Check|EndingLedderSan|Result : Success|jd33|calls=1|n=1,first=InSewer:125,last=InSewer:125,ids=125|post=counter:endingLadderSanInt=9|ext=-
+J|SAN : Check|EndingLedderSan|Result : Critical Success|jd33|calls=1|n=1,first=InSewer:125,last=InSewer:125,ids=125|post=counter:endingLadderSanInt=9|ext=-
+J|SAN : Check|EndingLedderSan|Result : Failure|jd33|calls=1|n=1,first=InSewer:125,last=InSewer:125,ids=125|post=counter:endingLadderSanInt=9|ext=-
+J|SAN : Check|EndingLedderSan|Result : Fumble|jd33|calls=1|n=1,first=InSewer:125,last=InSewer:125,ids=125|post=counter:endingLadderSanInt=9|ext=-
+J|SAN : Check|EndingLedderSan|Result : --|jd33|calls=1|n=1,first=InSewer:125,last=InSewer:125,ids=125|post=counter:endingLadderSanInt=9|ext=-
+J|SAN : Check|EndingLedderSan|Result : Success|jd34|calls=0|post=-|ext=-
+J|SAN : Check|EndingLedderSan|Result : Critical Success|jd34|calls=0|post=-|ext=-
+J|SAN : Check|EndingLedderSan|Result : Failure|jd34|calls=0|post=-|ext=-
+J|SAN : Check|EndingLedderSan|Result : Fumble|jd34|calls=0|post=-|ext=-
+J|SAN : Check|EndingLedderSan|Result : --|jd34|calls=0|post=-|ext=-
+J|SAN : Check|EndingLedderSan|Result : Success|jd35|calls=0|post=-|ext=-
+J|SAN : Check|EndingLedderSan|Result : Critical Success|jd35|calls=0|post=-|ext=-
+J|SAN : Check|EndingLedderSan|Result : Failure|jd35|calls=0|post=-|ext=-
+J|SAN : Check|EndingLedderSan|Result : Fumble|jd35|calls=0|post=-|ext=-
+J|SAN : Check|EndingLedderSan|Result : --|jd35|calls=0|post=-|ext=-
+J|Unknown : Check||Result : Success|jd17|calls=0|post=-|ext=-
+J|Unknown : Check||Result : Critical Success|jd17|calls=0|post=-|ext=-
+J|Unknown : Check||Result : Failure|jd17|calls=0|post=-|ext=-
+J|Unknown : Check||Result : Fumble|jd17|calls=0|post=-|ext=-
+J|Unknown : Check||Result : --|jd17|calls=0|post=-|ext=-

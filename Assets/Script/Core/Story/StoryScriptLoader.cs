@@ -113,6 +113,7 @@ namespace SCoW.Core.Story
             node.CheckId = Str(n, "check");
             node.OnSuccess = Str(n, "onSuccess");
             node.OnFail = Str(n, "onFail");
+            node.OnCritSuccess = Str(n, "onCritSuccess");
             node.OnCritFail = Str(n, "onCritFail");
             List<object> choices = Get<List<object>>(n, "choices");
             if (choices != null)
@@ -146,11 +147,18 @@ namespace SCoW.Core.Story
             {
                 string w = "node '" + n.Id + "'";
                 Ref(sc, n.Next, w + " next", false, errors);
-                Ref(sc, n.OnSuccess, w + " onSuccess", false, errors);
-                Ref(sc, n.OnFail, w + " onFail", false, errors);
-                Ref(sc, n.OnCritFail, w + " onCritFail", false, errors);
+                RefNodeOrTopic(sc, n.OnSuccess, w + " onSuccess", errors);
+                RefNodeOrTopic(sc, n.OnFail, w + " onFail", errors);
+                RefNodeOrTopic(sc, n.OnCritSuccess, w + " onCritSuccess", errors);
+                RefNodeOrTopic(sc, n.OnCritFail, w + " onCritFail", errors);
                 foreach (StoryChoice ch in n.Choices) { Ref(sc, ch.Next, w + " choice next", true, errors); }
             }
+        }
+
+        private static void RefNodeOrTopic(StoryScript sc, string id, string where, List<string> errors)
+        {
+            if (string.IsNullOrEmpty(id)) { return; }
+            if (!sc.Nodes.ContainsKey(id) && !sc.HasTopic(id)) { errors.Add(where + ": 없는 노드·토픽 '" + id + "'"); }
         }
 
         private static void Ref(StoryScript sc, string id, string where, bool required, List<string> errors)
