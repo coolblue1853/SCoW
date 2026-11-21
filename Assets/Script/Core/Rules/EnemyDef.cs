@@ -62,7 +62,10 @@ namespace SCoW.Core.Rules
         public bool UsesDeftness;
         /// <summary>행동 종류 가중치(ChooseIntent 가 읽는다). UsesDeftness 슬롯은 쓰지 않는다.</summary>
         public IntentWeights Intent;
-        /// <summary>일반 공격의 아군 칸(앞·중·뒤) 가중치. 다인원 전투(PT-2)가 읽는다. 지금 1:1 전투는 쓰지 않는다.</summary>
+        /// <summary>
+        /// 아군 칸(앞·중·뒤) 가중치 3종. PT-2(다인원 전투)에서 사용, 현재 미사용(1:1 전투는 읽지 않는다).
+        /// 일반 공격 5:3:2.
+        /// </summary>
         public int[] TargetWeights = { 5, 3, 2 };
         /// <summary>이성 공격(시선)은 전 칸 무작위.</summary>
         public int[] SanTargetWeights = { 1, 1, 1 };
@@ -169,6 +172,8 @@ namespace SCoW.Core.Rules
         public int MartialArts;
         public int Swordsmanship;
         public int Evasion;
+        /// <summary>사망 처리(오브젝트·턴 심볼 끄기, 사망 수 집계)를 이미 했는가. 재굴림하면 지워진다.</summary>
+        public bool DeathHandled;
 
         public EnemyState(EnemyDef def)
         {
@@ -190,6 +195,7 @@ namespace SCoW.Core.Rules
             MartialArts = Def.MartialArts;
             Swordsmanship = Def.Swordsmanship;
             Evasion = Def.Evasion;
+            DeathHandled = false;
         }
 
         public void TakeDamage(int damage)

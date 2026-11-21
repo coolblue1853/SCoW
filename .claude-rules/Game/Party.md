@@ -322,6 +322,7 @@ namespace SCoW.Core.Rules {
 
 ## 9. 함정
 
+- **턴 칸 매핑(PT-1 잔여)**: `BattleManager` 의 적 인덱스 <-> 턴 게이지 칸 표(`RoadSymbolEnemy`/`SewerSymbolEnemy`/`EnemySymbolSlot`)는 1:1 외형 유지용 장소별 고정표라 하수도에서 혼혈4·심해인1 이 칸0·1 을 겹쳐 쓴다. PT-2 에서 `BattleField.Enemies[3]`/`Rank` 로 "등장하는 적 -> 칸" 을 전투마다 만들어 이 표를 없앤다.
 - **`BattleManager` 3900줄**: 46곳 분기를 한 번에 바꾸려 하지 말고 PT-1 에서 `EnemyState[]` 로 바꾼 뒤 View 재생기(PT-5)에서 분기를 줄인다.
 - `Random.Range(int,int)` 상한 제외, 새 보너스 다이스 난수 소비 순서는 기존 시퀀스 뒤에 붙인다(시드 동치).
 - 알버트 치명 키워드 로직(`WorldRules`)과 `party.albert.joined` 우선순위: 합류 후 `albertDeathKeyword` 가 서 있어도 소멸시키지 않음(대신 대사 1줄 변주). 에필로그는 `albertDead` 합집합을 **새 케이스 맨 앞**에서 평가(기존 케이스는 뒤에 보존).

@@ -112,19 +112,19 @@ public class BattleManager : MonoBehaviour
     {
         return onPointerEnemy == EnemyDefs.All[slot].Id;
     }
-    // 턴 게이지 칸(0~2) -> 적 인덱스. 귀가길은 혼혈 1~3, 하수도는 칸0 혼혈4, 칸1 심해인 1, 칸2 비어 있음.
+    // 적 인덱스 <-> 턴 게이지 칸(0~2) 매핑은 이 표 한 곳에만 둔다.
+    // 지금(1:1 외형 유지)은 장소별 고정표다: 귀가길 혼혈1~3 이 칸0~2, 하수도 혼혈4 가 칸0, 심해인1 이 칸1 을 쓴다(칸이 겹친다).
+    // PT-2 에서 BattleField.Enemies[3]/Rank 로 "등장하는 적 -> 칸" 을 매 전투 만들며 이 표를 없앤다.
+    private static readonly int[] RoadSymbolEnemy = { SlotHybrid1, SlotHybrid2, SlotHybrid3 };
+    private static readonly int[] SewerSymbolEnemy = { SlotHybrid4, SlotDeepOne1, -1 };
+    private static readonly int[] EnemySymbolSlot = { 0, 1, 2, 0, 1 };
     private static int EnemyIndexForSymbol(int symbolSlot, bool inSewer)
     {
-        if (!inSewer)
-        {
-            return symbolSlot;
-        }
-        return symbolSlot == 0 ? SlotHybrid4 : (symbolSlot == 1 ? SlotDeepOne1 : -1);
+        return (inSewer ? SewerSymbolEnemy : RoadSymbolEnemy)[symbolSlot];
     }
-    // 적 인덱스 -> 자기가 쓰는 턴 게이지 칸. 혼혈4·심해인1 은 하수도에서 칸0·칸1 을 쓴다.
     private static int SymbolSlotOf(int enemy)
     {
-        return enemy < 3 ? enemy : enemy - 3;
+        return EnemySymbolSlot[enemy];
     }
     private static string KindName(EnemyDef def)
     {
@@ -3830,8 +3830,10 @@ public class BattleManager : MonoBehaviour
     {
         for (int i = 0; i < _enemies.Length; i++)
         {
-            if (_enemies[i].IsDead && battleState == BattlePhase.SetTurn)
+            if (_enemies[i].IsDead && !_enemies[i].DeathHandled && battleState == BattlePhase.SetTurn)
             {
+                // 의도적 차이: 옛 코드는 죽은 적을 매 프레임 다시 처리해 사망 수가 계속 늘고, 이전 전투에서 죽은 적의 칸이 다른 적의 턴 심볼을 껐다. 한 번만 처리한다.
+                _enemies[i].DeathHandled = true;
                 _enemyObs[i].SetActive(false);
                 _enemySymbols[SymbolSlotOf(i)].SetActive(false);
                 DataBaseManager.enemyDeathCount += 1;
