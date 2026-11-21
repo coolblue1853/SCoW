@@ -127,6 +127,12 @@ public static class StoryDatabase
         return cat;
     }
 
+    /// <summary>Keyword.json 스크립트(키워드 선택 창이 NPC 별 반응 종류를 미리 볼 때 쓴다). 못 읽으면 null.</summary>
+    public static StoryScript KeywordScriptOrNull()
+    {
+        return LoadScript(KeywordScript);
+    }
+
     private static StoryScript LoadScript(string scriptId)
     {
         StoryScript sc;

@@ -162,3 +162,9 @@
 - 카탈로그 `suspect`(기록만, 고치지 않음): ① 케인(`Osborn Louis Kane`/`노교수`)·강가(`Riverside`/`미스캐토닉 강`)는 옛 3단이 하위를 다른 이름으로 비교해 옛 UI 로 하위 선택 불가(K2 에서 자연 해소). ② `Keyword.json` 어느 NPC 에도 전용 토픽이 없는 키워드. ③ `suspectTopics`: 대학생·케인 노드 범위 오류(StoryImprove A-1, 스토리 P0 몫).
 - 순서: 목록 순서는 옛 코드 검사 순서. 옛 실제 동작은 획득 순서였으므로 K4 의 본 키워드 집합으로 획득 순서를 얹을 것. `displayKey` 는 예약값(I2 미등록, 표시는 `id` 폴백).
 - `unlockFlag` 로 `KeywordBook` 은 `GameState` 를 직접 받는다(`IStateReader` 어댑터 불필요).
+
+## 7. K2 결과 (11-21)
+- 완료: `UI/KeywordPicker.cs`(코드 생성 오버레이, 씬 무수정, `PanelKind.Keyword`). 선택 행에서 Keyword 를 확정하면 `Intel_ObtoUI` 가 Picker 를 열고, 확정 콜백 `OnKeywordPicked` 가 옛 흐름(차감·`keywordDowner` 설정·`KeywordDialog`)을 그대로 탄다. 입력: 이동 NavUp/Down·호버, 탭 PagePrev/Next·클릭(빈 탭 건너뜀), 제시 Interact·클릭, 닫기 Cancel·바깥 클릭. `*` = 이 NPC 전용 토픽 있음. 빈 상태 문구 "No clues yet.".
+- 검증: EditMode 270 통과. 플레이: 키보드(E 열기·S 이동)·가상 패드(A 열기, 십자, RB 탭, B 닫기, A 제시)·마우스(호버·클릭 이벤트)로 Ella 에게 `Contents of a Newspaper` 제시 → 옛 방식과 같은 노드(1st_Client'sHouse:213) 출력, 콘솔 error 0. 캡처 `Logs/playtest/KeywordPicker_*.png`.
+- 임시·미해결: 문구·분류 이름은 영문 하드코딩(TODO I2), 그래픽 임시(ART-2). 횟수 0 일 때 제시는 무반응(K3 에서 안내). `●`(이미 물음)은 AskedKeywords(K3) 후. 구 3단 선택기(`BillowUI/GameObject/KeyWord`)는 씬에 그대로 남고 이 경로가 값을 읽지 않는다(씬 직렬화 보호, K7 에서 제거). 가상 키보드는 에디터 비포커스 상태에서 한 번 끊겼다(패드는 정상, 같은 `GameInput` 코드 경로).
+- K1 리뷰 권장 반영: 주석 클래스명, 의심 표시 항목 단위(`EntryToList`), 상위 unlockFlags 빈 값 검사, 골든 352 정확 일치, `KeywordBook` null 가드.

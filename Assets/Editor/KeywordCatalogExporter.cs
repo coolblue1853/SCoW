@@ -11,7 +11,7 @@ using UnityEngine;
 /// <summary>
 /// 키워드 카탈로그 생성 도구(KEYWORD-1 K1). 옛 KeyWordManager.cs 의 KeywordUpdate(상위)·DownKeywordUpdater(하위) 소스를 읽어
 /// Resources/Story/KeywordCatalog.json 을 만든다(손으로 옮기면 오타가 나므로 소스에서 뽑는다). 옛 코드는 고치지 않는다.
-/// 메뉴: SCoW/Keyword/Export Catalog. 결과가 바뀌면 KeywordBookEquivalenceTests 의 골든(SCoW/Keyword/Dump Golden)도 다시 뜬다.
+/// 메뉴: SCoW/Keyword/Export Catalog. 결과가 바뀌면 KeywordBookTests 의 골든(SCoW/Keyword/Dump Golden)도 다시 뜬다.
 /// "의심" 표시: 옛 3단 선택이 상위 이름을 다르게 비교하는 곳, Keyword.json 어디에도 전용 토픽이 없는 키워드, 스토리 문서가 지적한 범위 오류 토픽.
 /// </summary>
 public static class KeywordCatalogExporter
@@ -26,6 +26,8 @@ public static class KeywordCatalogExporter
         public KeywordCatalog Catalog = new KeywordCatalog();
         public Dictionary<string, string> ListToUpper = new Dictionary<string, string>();
         public Dictionary<string, string> UpperToField = new Dictionary<string, string>();
+        /// <summary>하위 키워드 → 옛 목록 필드명(불일치 의심 표시를 항목 단위로 좁히는 데 쓴다).</summary>
+        public Dictionary<KeywordEntry, string> EntryToList = new Dictionary<KeywordEntry, string>();
         public List<string> Warnings = new List<string>();
     }
 
@@ -88,6 +90,7 @@ public static class KeywordCatalogExporter
             KeywordEntry e = new KeywordEntry { Id = id, Category = upper.Category, Upper = upper.Id, UnlockFlag = flag, Order = order++ };
             e.DisplayKey = "Keyword/" + Slug(upper.Id, "u" + upper.Order) + "/" + Slug(id, "e" + e.Order);
             r.Catalog.Entries.Add(e);
+            r.EntryToList[e] = list;
             r.ListToUpper[list] = upper.Id;
         }
         MarkLegacyMismatch(r, legacyCheck);
@@ -133,8 +136,11 @@ public static class KeywordCatalogExporter
             if (!r.ListToUpper.TryGetValue(kv.Key, out upperId) || upperId == kv.Value) { continue; }
             string why = "옛 3단 선택이 하위를 keywordUpper == \"" + kv.Value + "\" 로 고르는데 상위 이름은 \"" + upperId
                 + "\" 라 옛 UI 로는 이 하위를 선택할 수 없음(옛 코드 불일치, 고치지 않음)";
-            foreach (KeywordUpperDef u in r.Catalog.Uppers) { if (u.Id == upperId) { u.Suspect = why; } }
-            foreach (KeywordEntry e in r.Catalog.Entries) { if (e.Upper == upperId) { e.Suspect = why; } }
+            foreach (KeywordEntry e in r.Catalog.Entries)
+            {
+                string entryList;
+                if (r.EntryToList.TryGetValue(e, out entryList) && entryList == kv.Key) { e.Suspect = why; }
+            }
         }
     }
 

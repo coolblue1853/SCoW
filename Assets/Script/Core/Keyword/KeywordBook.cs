@@ -28,6 +28,7 @@ namespace SCoW.Core.Keyword
 
         public KeywordBook(KeywordCatalog catalog)
         {
+            if (catalog == null) { throw new System.ArgumentNullException("catalog"); }
             _catalog = catalog;
             _uppers.AddRange(catalog.Uppers);
             _uppers.Sort(CompareUpper);

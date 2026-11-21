@@ -71,7 +71,7 @@ namespace SCoW.Tests
                 Assert.AreEqual(expected, actual, "프리셋 " + name);
                 checkedRows++;
             }
-            Assert.GreaterOrEqual(checkedRows, 300, "골든 행 수");
+            Assert.AreEqual(352, checkedRows, "골든 행 수");
         }
 
         [Test]
@@ -133,13 +133,13 @@ namespace SCoW.Tests
             KeywordCatalog cat = LoadCatalog();
             bool kane = false;
             bool river = false;
-            foreach (KeywordUpperDef u in cat.Uppers)
+            foreach (KeywordEntry e in cat.Entries)
             {
-                if (u.Id == "Osborn Louis Kane") { kane = u.Suspect.Length > 0; }
-                if (u.Id == "Riverside") { river = u.Suspect.Length > 0; }
+                if (e.Upper == "Osborn Louis Kane" && e.Suspect.Length > 0) { kane = true; }
+                if (e.Upper == "Riverside" && e.Suspect.Length > 0) { river = true; }
             }
-            Assert.IsTrue(kane, "케인 상위 의심 표시");
-            Assert.IsTrue(river, "강가 상위 의심 표시");
+            Assert.IsTrue(kane, "케인 하위 의심 표시");
+            Assert.IsTrue(river, "강가 하위 의심 표시");
             Assert.IsTrue(cat.SuspectTopics.Count >= 9, "Keyword.json 범위 오류 토픽 기록");
         }
 

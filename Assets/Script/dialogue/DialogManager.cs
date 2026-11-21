@@ -263,6 +263,12 @@ public class DialogManager : MonoBehaviour
         }
     }
 
+    /// <summary>대사창 글꼴(오버레이 창이 같은 톤을 쓰도록).</summary>
+    public TMP_FontAsset DialogFont
+    {
+        get { return txtDialog != null ? txtDialog.font : null; }
+    }
+
     public void OpenBacklog()
     {
         if (_runner == null || !isDialog || UiGate.AnyOpen)

@@ -118,10 +118,14 @@ public class Intel_ObtoUI : MonoBehaviour
                 {
                     if (DataBaseManager.nowSelecter == "Keyword")
                     {
-                        DialogManager.Instance.ChoiceExNextPage();
-                        keywordCounter -= 1;
-                        DataBaseManager.isSelect = true;
-                        InteractionController.Instance.KeywordDialog(this.name);
+                        // K2: 옛 3단 선택기 대신 한 화면 목록(KeywordPicker). 확정하면 옛 흐름(차감·대사)을 그대로 탄다.
+                        if (!KeywordPicker.ClosedThisFrame)
+                        {
+                            if (!KeywordPicker.Open(this.name, keywordCounter, OnKeywordPicked))
+                            {
+                                Debug.LogError("Intel_ObtoUI: 키워드 선택 창을 열지 못했다(" + this.name + ")");
+                            }
+                        }
                     }
                     else if (DataBaseManager.nowSelecter == "Look")
                     {
@@ -259,6 +263,16 @@ public class Intel_ObtoUI : MonoBehaviour
         judgeOb.SetActive(true);
         judgeBackOb.SetActive(true);
         DataBaseManager.isJudge = true;
+    }
+    private void OnKeywordPicked(SCoW.Core.Keyword.KeywordEntry entry)
+    {
+        DataBaseManager.keywordDowner = entry.Id;
+        DataBaseManager.keywordMain = entry.Category.ToString();
+        DataBaseManager.keywordUpper = entry.Upper;
+        DialogManager.Instance.ChoiceExNextPage();
+        keywordCounter -= 1;
+        DataBaseManager.isSelect = true;
+        InteractionController.Instance.KeywordDialog(this.name);
     }
     public void Onkeyword()
     {

@@ -13,6 +13,7 @@ namespace SCoW.Core.Ui
         Rollet,
         SlotMenu,
         Backlog,
+        Keyword,
     }
 
     /// <summary>

@@ -116,7 +116,11 @@ namespace SCoW.Core.Keyword
             else
             {
                 u.UnlockFlags = new string[flags.Count];
-                for (int i = 0; i < flags.Count; i++) { u.UnlockFlags[i] = flags[i] as string ?? ""; }
+                for (int i = 0; i < flags.Count; i++)
+                {
+                    u.UnlockFlags[i] = flags[i] as string ?? "";
+                    if (u.UnlockFlags[i].Length == 0) { errors.Add("upper '" + u.Id + "' unlockFlags[" + i + "] 가 빈 값"); }
+                }
             }
             cat.Uppers.Add(u);
         }
