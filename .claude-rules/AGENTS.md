@@ -30,6 +30,7 @@
 |------|------|
 | `Game/GameOverview.md` | 게임 개요·코드 구조 지도(첫 세션에서 채움) |
 | `Game/CocDesign.md` | CoC 판정·SAN·전투 실측, 7판 규칙 대조, 우선순위, 순수 C# 규칙 인터페이스 초안 |
+| `Game/ArtStyle.md` | 아트 스타일 초안: 1921년 아캄 도트 탐정 호러, 320×180·6배 격자, 팔레트 램프, 명암·외곽선, 캐릭터 비율, UI 톤, 림버스식 연출, PixelLab 사용 원칙(11-25 이후·생성 전 질문) |
 | `Game/Story.md` | 스토리 분석: 줄거리·인물·장소·시간(timeCount)·단서→키워드→수첩 사슬·판정·엔딩 분기(CSV ID 근거) |
 | `Game/StoryImprove.md` | 스토리 개선안 P0/P1/P2: 설정 모순·막힘·흐름·자유도·SAN/광기 장면별 연출, 데이터 주도 얹는 법 |
 | `Game/Architecture.md` | 코드 전면 재작성 설계: 구조 실측, 상태 객체·저장·데이터 주도 대화·Core asmdef·GameInput, 단계 P0~P16(스트랭글러), UTF-8 변환 방침 |
@@ -60,3 +61,5 @@
 | `Docs/Handoff/state.md` *(저장소 루트)* | 현재 상태 |
 | `Docs/OpenQuestions.md` *(저장소 루트)* | 사용자 확인이 필요한 기획 질문과 임시 가정 |
 | `Docs/Handoff/PortedFromProjectB.md` *(저장소 루트)* | Project B 에서 옮긴 것·안 옮긴 것 목록 |
+| `Docs/AssetPlan.md` *(저장소 루트)* | 보유 에셋 SCoW 기준 재분류(적용·후보·안 맞음), 적용할 파일 경로, 트랙 C 도구 판단(Dialogue System·Master Audio 불채택), Unity 6 위험도 |
+| `Docs/ArtInventory.md` *(저장소 루트)* | 그래픽 현황 실측(폴더별 장수·해상도·도트 배율·PPU·필터·색 수), 불일치, 다듬기 우선순위 표 |
