@@ -17,3 +17,5 @@
 - 11-21 P13 완료·push(167dbe9): WorldBinder+WorldRules, 상태 변경 단일 통지, 0.5초 안전망(창문·사물함 canJudge 밤 복구 플레이 확인). EditMode 195. 다음 P14a(전투 엔진 Core) builder 진행 중.
 - 11-21 오후: P14a push(4bbac2e, 실전투 플레이 미검증 — MCP 8080 서버 다운). 기획 문서 push: Story·StoryImprove·KeywordUX·SewerImprove·Party·ArtStyle·AssetPlan·ArtInventory. 다음: MCP 복구 후 P14a 실전투 확인 → PT-0~(P14b 포함)·KEYWORD K1~·SEWER S0~·스토리 P0 수정. 질문 Q7~Q19·Q-K·Q-S·Q-ART 임시 가정으로 진행.
 - 11-21 저녁: P14a 실전투 플레이 확인(귀가길 하이브리드 적 처치까지·하수도 DeepOne1 다수 턴, 콘솔 error 0, 룰렛·피해 정상, 시드 동치는 EditMode). PT-0 구현: Core/Rules/CompanionDef.cs(CompanionDefs), Core/State/PartyState.cs(PartyKeys `party.*`·PartyState), PartyTests 9개. EditMode 216/216. SaveCodec·FlagKeys.cs(자동생성) 불변. 다음 PT-1(P14b-a).
+- 11-21 저녁: P14a 실전투 확인, PT-0(34b5d83)·PT-1(7a2d008·dba6cb8)·PT-2(88a045a·b2fd2b3)·KEYWORD K1~K4(d98b289·9a19ca1·cbf95f5·ec17159) push. EditMode 285. 에디터 포커스 원인 = MCP 서버 focus nudge(UNITY_MCP_DISABLE_FOCUS_NUDGE=1). 5시간 86% 로 정지, 11-22 10:03 재개 예약.
+- 다음: KEYWORD K5~K7 → PT-3(합류 스토리)·PT-4(탐색 보조) → PT-5(전투 View 다인원) → SEWER S0~ → 스토리 P0. 사용자 확인 필요: 실제 키보드로 KeywordPicker(비포커스라 주입 불가), 동료 복귀 HP 절반 가정, Q-K5.
