@@ -9,3 +9,4 @@
 - Q-P0a 독 지속 피해(BattleManager 독 처리) 원식 `Range(1,2)*5`=항상 5. 저자가 1~2 포함 범위로 착각한 오타로 보고 `Range(1,3)*5`(5 또는 10)로 수정. 1d3(5~15)가 더 맞는지 — 가정: 1~2, 대기
 - Q-P0b 도끼 공격 `//1D8` 주석인데 `Range(1,7)+2`(3~8) 였던 5곳을 주석대로 `Range(1,9)`(1~8)로 수정(1582·1746 등 형제 줄과 동일식). 평균 피해 5.5→4.5 로 소폭 하향 — 가정: 주석 우선, 대기
 - Q5 (B-1) 대사가 통째로 빈 장면 3곳: Client'sHouse `Aiden_Judge_psychotherapy_Sucsses`(101~112)·`_Sucsses_End`(115~123), Item `OldMap_Look`(28~30). 도달하면 빈 대사창이 뜸. 원문·git 이력 모두 빈 칸 — 가정: 출시판에서도 비어 있던 미작성 장면, 대사는 사용자가 써야 함(지어내지 않음). 나머지 스토리 확인 14건은 `Docs/Playtest/DialogAudit.md` 6절 — 대기
+- Q6 (P13) 하수도 맵 생성(`TimeManagere` MakeSewer·MakeSewerMapNomal·MakeSewerMapEnemy·SewerMapMove 등, 맵 생성 약 570줄)을 프리팹 데이터화할지 — 임시 가정: **이번 P13 은 유지**. 생성 로직은 바꾸지 않았고 `TimeManagere` 에 그대로 남겼다(월드 동기화 Update·BulbCheck 만 `WorldBinder`+`WorldRules` 로 이동). 데이터화·`SewerMapBuilder` 분리는 P15/P16 정리 때 결정(Random 이 섞인 생성이라 동치 시험 난도가 높음). 사용자 결정 시 해당 단계에서 반영.
