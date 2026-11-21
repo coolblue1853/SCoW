@@ -310,7 +310,7 @@ namespace SCoW.Core.Rules {
 |---|---|:-:|---|---|
 | PT-0 (완료 11-21) | 데이터·세이브 | S | 없음 | `CompanionDefs`(2명 고정값), `FlagKeys` 키, `party.*` 저장·로드 EditMode 테스트, 구세이브 로드 시 파티 없음·크래시 없음 |
 | PT-1 | **P14b-a**: `EnemyState[]`+`EnemyUnit`, enum `BattlePhase`, `IntentWeights`/`TargetWeights` 데이터화, `DeepOne1` 하드코딩 제거. **1:1 전투 외형·시드 로그 동치** | M | | 시드 고정 전투 로그가 리팩터 전후 같음, 하수도 전투·귀가길 전투 플레이 모드 확인 |
-| PT-2 | Core 파티: `PartyMember`/`BattleSlot`/`BattleField`/`BattleTimeline`, 위치 규칙, 쓰러짐·광기, 응급처치·진정 | L | PT-1 | EditMode: ①1v1 이 옛 `StepGauge` 와 같은 차례 순서 ②3v3 시드 로그 ③근접 사거리·교환 ④쓰러짐 카운트·Fallen·승/도주 사망 ⑤발작 판정(분포) |
+| PT-2 (완료 11-21) | Core 파티: `PartyMember`/`BattleSlot`/`BattleField`/`BattleTimeline`, 위치 규칙, 쓰러짐·광기, 응급처치·진정 | L | PT-1 | EditMode: ①1v1 이 옛 `StepGauge` 와 같은 차례 순서 ②3v3 시드 로그 ③근접 사거리·교환 ④쓰러짐 카운트·Fallen·승/도주 사망 ⑤발작 판정(분포) |
 | PT-3 | 합류·이탈 스토리 연결(JSON·`WorldRules`): 알버트 합류 노드, 메이브 합류, NPC 자리 숨김, 키워드 대사 재사용, `Ending_Party*` 변주 | M | PT-0, 키워드 `Old route`(KEYWORD/C-2) | 플레이 모드: 3일차 경찰서에서 키워드 제시→합류→NPC 사라짐→키워드 사망 안 일어남. 엔딩 A 에서 `albertDead` 합집합 분기 검증(V-10 회귀 포함) |
 | PT-4 | 탐색 보조: `SkillCheck` 보너스 다이스 메서드, "도움/대신" 칩 UI, 동료 SAN 자동 판정, `Party.csv` 반응 대사 | M | PT-0 | EditMode: 도움 0개에서 난수 소비 동일(회귀), 보너스 다이스 분포(성공률 상승), 플레이 모드 소장 설득에 메이브 도움 |
 | PT-5 | **P14b-b 전투 View 다인원**: 3칸 초상화·순서 바·행동/대상 선택, 동료 자동 판정 재생, `BattleEvent` 재생기 | L | PT-2 | 플레이 모드: 하수도 3v3 전투 한 판 스크린샷 연속 캡처, 파비안 룰렛 정상 동작(회귀) |
@@ -349,3 +349,12 @@ namespace SCoW.Core.Rules {
 | V-P10 | 구세이브·ES3 | 새 키 없음 = 파티 없음, 저장→로드 후 파티 상태 동일 |
 
 - PT-0 구현 메모: 키는 자동생성 `FlagKeys.cs` 를 건드리지 않고 `Core/State/PartyState.cs` 의 `PartyKeys` 에 둔다. 합류 후의 HP 0 은 진짜 0(`Join` 이 최대값을 기록, 읽기는 `joined` 여부만 본다). `Join` 은 처음이면 `party.order` 에 `fabian` 을 먼저 넣는다.
+
+- PT-2 구현 메모(고유 설계로 정한 값, 전부 초안·플레이테스트 조정 대상). 코드: `Core/Rules/` `BattleUnits.cs`(enum·`IBattleUnit`·`EnemyUnit`·`BattleCommand`·`BattleEvent`), `PartyMember.cs`, `BattleTimeline.cs`, `BattleField.cs`(구조·대상·승패·정산)·`BattleFieldActions.cs`(차례 시작·행동 해결), `PartyBattleRules.cs`. 테스트 `PartyBattleTests`(30개, 골든 `PartyBattlePT2.golden.txt`).
+  - **턴 순서**: 한 틱에 아군 칸 0..2 -> 적 칸 0..2 순서로 보고, 먼저 130 이상인 한 명만 차례를 받는다(뒤 순서는 그 틱에 오르지 않음). 옛 `SymbolUp` 과 동치(1v1 테스트 통과). 4-4절의 "DEX 높은 쪽 우선" 타이브레이크는 쓰지 않는다(칸 순서). `Next(order)`·`Preview(order, n)` 는 난수 인자가 없다.
+  - **Downed 는 게이지가 돈다**(자기 차례 도달 3회가 카운트다운. 4-4절 "쓰러짐은 게이지 정지"와 충돌해 카운트다운 쪽을 택함). Stable·Broken·Fallen 은 정지.
+  - **판정**: 아군 공격 = 기능 판정 vs 적 `RollPlain`(근접은 적 무술, 사격은 적 회피, 난수 2개). 실패는 빗나감(반격 없음). 앞 칸 사격 = 불리 다이스(`Condition.Worst`), 방어 태세 = 보너스(`Best`), 절망 이웃 = 불리. 다중 보너스 다이스는 PT-4.
+  - **적 행동**: `DecideEnemy` = `ChooseIntent` -> `TargetWeightsFor`. 점유 칸만 가중 합산, 점유 칸 하나면 난수 없음, 가중 합 0 이면 균등. `Deftness` 의도는 일반 공격으로 처리(옛 의미 미확인). 독 = 3틱, 자기 차례 시작 1d2x5(Ready 만, 쓰러지면 해제).
+  - **쓰러짐·정산**: Downed 또는 Stable 을 또 맞히면 즉시 Fallen. 동료 Fallen 은 칸에서 빠지고(압축) 남은 Ready 아군이 목격 SAN 판정(실패 -5, 발작 없음). 솔로(`LeaderDownRule` 꺼짐) 파비안 HP 0 = 즉시 Loss. 파비안 Fallen·SAN 0·행동할 Ready 아군 없음 = Loss. `Settle()` 은 한 번만: 승리 -> Fallen=Recovering(HP 1), Downed·Stable=Ready(HP 최소 5). 도주·패배 -> Fallen·Downed·Stable 동료 `Dead`.
+  - **발작**: 손실 10 이상 + INT 판정 실패(`RollBout`). 파비안은 `LeaderBoutEnabled`(기본 꺼짐)일 때만. 광기 차례는 지시 없이 자동(`BeginTurn` false): Flee = 맨 뒤와 교환, Freeze = 건너뜀, Lash = 무작위 아군 무술 피해 + 상대 SAN -5, Despair = 방어만. 응급처치 = 의술 판정(Downed->Stable HP 5, 그 외 +5). 진정 = max(심리치료, 화술) 판정, 중·뒤 칸만, 성공 시 발작 해소 + SAN +5.
+  - **미구현(PT-5/7)**: 던지기·특수(Cover/Warning/Dirty trick/Stiff drink)·재장전·탄약·아이템·파비안 룰렛 결과 주입·`GameState` 환원·턴 칸 매핑 표 제거(View 쪽). `BattleCommand` 에서 `TargetSide` 는 행동 종류로 정해져 뺐다.

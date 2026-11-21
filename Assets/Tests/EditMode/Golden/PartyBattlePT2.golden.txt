@@ -1,0 +1,553 @@
+== road-strong seed=31
+DeepOneHybrid1#0 hp=47 dex=57
+DeepOneHybrid2#1 hp=40 dex=64
+DeepOneHybrid3#2 hp=49 dex=59
+t0 Turn maeve>maeve 0
+t0 Hit maeve>DeepOneHybrid1#0 30 Success/Fumble
+t1 Turn albert>albert 0
+t1 Hit albert>DeepOneHybrid1#0 15 Failure/Failure
+t2 Turn DeepOneHybrid2#1>DeepOneHybrid2#1 0
+t2 Evade albert>DeepOneHybrid2#1 0 Failure/Failure
+t3 Turn fabian>fabian 0
+t3 Hit fabian>DeepOneHybrid1#0 10 Success/Success
+t3 EnemyDown fabian>DeepOneHybrid1#0 0
+t4 Turn DeepOneHybrid3#2>DeepOneHybrid3#2 0
+t4 Evade maeve>DeepOneHybrid3#2 0 Failure/Fumble
+t5 Turn maeve>maeve 0
+t5 Hit maeve>DeepOneHybrid2#1 5 Failure/Failure
+t6 Turn albert>albert 0
+t6 Hit albert>DeepOneHybrid2#1 40 Success/Failure
+t6 EnemyDown albert>DeepOneHybrid2#1 0
+t7 Turn fabian>fabian 0
+t7 Hit fabian>DeepOneHybrid3#2 15 Failure/Failure
+t8 Turn DeepOneHybrid3#2>DeepOneHybrid3#2 0
+t8 Evade fabian>DeepOneHybrid3#2 0 Failure/Failure
+t9 Turn maeve>maeve 0
+t9 Hit maeve>DeepOneHybrid3#2 20 Success/Failure
+t10 Turn albert>albert 0
+t10 Hit albert>DeepOneHybrid3#2 20 Failure/Failure
+t10 EnemyDown albert>DeepOneHybrid3#2 0
+RESULT Win albert=Ready/75/55 fabian=Ready/50/52 maeve=Ready/55/65
+== sewer-weak seed=32
+DeepOneHybrid4#0 hp=41 dex=70
+DeepOne1#1 hp=105 dex=51
+DeepOne1#2 hp=107 dex=50
+t0 Turn DeepOneHybrid4#0>DeepOneHybrid4#0 0
+t0 Evade albert>DeepOneHybrid4#0 0 Failure/Failure
+t1 Turn maeve>maeve 0
+t1 Hit maeve>DeepOneHybrid4#0 5 Success/Failure
+t2 Turn albert>albert 0
+t2 Miss albert>DeepOneHybrid4#0 0 Failure/CriticalSuccess
+t3 Turn fabian>fabian 0
+t3 Hit fabian>DeepOneHybrid4#0 15 Success/Success
+t4 Turn DeepOne1#1>DeepOne1#1 0
+t4 Evade albert>DeepOne1#1 0 Success/Failure
+t5 Turn DeepOne1#2>DeepOne1#2 0
+t5 PoisonApplied DeepOne1#2>albert 3
+t6 Turn DeepOneHybrid4#0>DeepOneHybrid4#0 0
+t6 Hit DeepOneHybrid4#0>fabian 15 Success/CriticalSuccess
+t7 Turn maeve>maeve 0
+t7 Hit maeve>DeepOneHybrid4#0 5 CriticalSuccess/Failure
+t8 Turn albert>albert 0
+t8 PoisonTick albert>albert 5
+t8 Hit albert>DeepOneHybrid4#0 35 Success/Failure
+t8 EnemyDown albert>DeepOneHybrid4#0 0
+t9 Turn fabian>fabian 0
+t9 Hit fabian>DeepOne1#1 15 Success/Success
+t10 Turn DeepOne1#1>DeepOne1#1 0
+t10 PoisonApplied DeepOne1#1>albert 3
+t11 Turn DeepOne1#2>DeepOne1#2 0
+t11 Evade albert>DeepOne1#2 0 Failure/Failure
+t12 Turn maeve>maeve 0
+t12 Miss maeve>DeepOne1#1 0 Failure/Success
+t13 Turn albert>albert 0
+t13 PoisonTick albert>albert 10
+t13 Hit albert>DeepOne1#1 20 Failure/Failure
+t14 Turn fabian>fabian 0
+t14 Hit fabian>DeepOne1#1 15 CriticalSuccess/Success
+t15 Turn DeepOne1#1>DeepOne1#1 0
+t15 Hit DeepOne1#1>albert 20 Success/CriticalSuccess
+t15 Down DeepOne1#1>albert 3
+t16 Turn DeepOne1#2>DeepOne1#2 0
+t16 Hit DeepOne1#2>albert 20
+t16 Fallen albert>albert 0
+t16 SanLoss >maeve 5
+t17 Turn maeve>maeve 0
+t17 Hit maeve>DeepOne1#1 25 Failure/Failure
+t18 Turn fabian>fabian 0
+t18 Hit fabian>DeepOne1#1 5 Failure/Failure
+t19 Turn DeepOne1#1>DeepOne1#1 0
+t19 Evade maeve>DeepOne1#1 0 Failure/Fumble
+t20 Turn DeepOne1#2>DeepOne1#2 0
+t20 SanLoss >maeve 5
+t21 Turn maeve>maeve 0
+t21 Hit maeve>DeepOne1#1 5 CriticalSuccess/Failure
+t22 Turn fabian>fabian 0
+t22 Hit fabian>DeepOne1#1 5 Success/Fumble
+t23 Turn DeepOne1#1>DeepOne1#1 0
+t23 Evade fabian>DeepOne1#1 0 Failure/Failure
+t24 Turn DeepOne1#2>DeepOne1#2 0
+t24 Hit DeepOne1#2>maeve 20 Fumble/Success
+t24 Down DeepOne1#2>maeve 3
+t25 Turn maeve>maeve 0
+t25 Countdown maeve>maeve 2
+t26 Turn fabian>fabian 0
+t26 Miss fabian>maeve 0 FirstAid
+t27 Turn DeepOne1#1>DeepOne1#1 0
+t27 Evade fabian>DeepOne1#1 0 Failure/Failure
+t28 Turn DeepOne1#2>DeepOne1#2 0
+t28 Hit DeepOne1#2>maeve 25
+t28 Fallen maeve>maeve 0
+t28 SanLoss >fabian 5
+t29 Turn fabian>fabian 0
+t29 Hit fabian>DeepOne1#1 5 CriticalSuccess/Success
+t30 Turn DeepOne1#1>DeepOne1#1 0
+t30 PoisonApplied DeepOne1#1>fabian 3
+t31 Turn DeepOne1#2>DeepOne1#2 0
+t31 Evade fabian>DeepOne1#2 0 Success/Success
+t32 Turn fabian>fabian 0
+t32 PoisonTick fabian>fabian 5
+t32 Miss fabian>DeepOne1#1 0 Failure/Success
+t33 Turn DeepOne1#1>DeepOne1#1 0
+t33 SanLoss >fabian 10
+t34 Turn DeepOne1#2>DeepOne1#2 0
+t34 Hit DeepOne1#2>fabian 30 Failure/Success
+t34 Down DeepOne1#2>fabian 3
+settle Died albert>albert 0
+settle Died maeve>maeve 0
+RESULT Loss albert=Fallen/0/30/dead fabian=Downed/0/15 maeve=Fallen/0/10/dead
+== sewer-san seed=33
+DeepOne1#0 hp=100 dex=54
+DeepOne1#1 hp=105 dex=49
+DeepOne1#2 hp=113 dex=52
+t0 Turn maeve>maeve 0
+t0 Hit maeve>DeepOne1#0 25 CriticalSuccess/Failure
+t1 Turn albert>albert 0
+t1 Miss albert>DeepOne1#0 0 Failure/Success
+t2 Turn fabian>fabian 0
+t2 Miss fabian>DeepOne1#0 0 Failure/CriticalSuccess
+t3 Turn DeepOne1#0>DeepOne1#0 0
+t3 SanResist DeepOne1#0>maeve 0
+t4 Turn DeepOne1#2>DeepOne1#2 0
+t4 Hit DeepOne1#2>albert 20 Failure/Success
+t5 Turn DeepOne1#1>DeepOne1#1 0
+t5 Evade albert>DeepOne1#1 0 CriticalSuccess/Failure
+t6 Turn maeve>maeve 0
+t6 Hit maeve>DeepOne1#0 10 Failure/Failure
+t7 Turn albert>albert 0
+t7 Miss albert>DeepOne1#0 0 Fumble/Failure
+t8 Turn fabian>fabian 0
+t8 Hit fabian>DeepOne1#0 10 CriticalSuccess/Success
+t9 Turn DeepOne1#0>DeepOne1#0 0
+t9 Evade fabian>DeepOne1#0 0 Failure/Failure
+t10 Turn DeepOne1#2>DeepOne1#2 0
+t10 Evade albert>DeepOne1#2 0 CriticalSuccess/Success
+t11 Turn DeepOne1#1>DeepOne1#1 0
+t11 PoisonApplied DeepOne1#1>albert 3
+t12 Turn maeve>maeve 0
+t12 Hit maeve>DeepOne1#0 20 CriticalSuccess/Failure
+t13 Turn albert>albert 0
+t13 PoisonTick albert>albert 10
+t13 Hit albert>DeepOne1#0 60 Success/Failure
+t13 EnemyDown albert>DeepOne1#0 0
+t14 Turn fabian>fabian 0
+t14 Hit fabian>DeepOne1#1 10 Success/Failure
+t15 Turn DeepOne1#2>DeepOne1#2 0
+t15 PoisonApplied DeepOne1#2>albert 3
+t16 Turn DeepOne1#1>DeepOne1#1 0
+t16 Hit DeepOne1#1>albert 30 Failure/Success
+t17 Turn maeve>maeve 0
+t17 Miss maeve>DeepOne1#1 0 Fumble/Failure
+t18 Turn albert>albert 0
+t18 PoisonTick albert>albert 5
+t18 Miss albert>DeepOne1#1 0 Failure/Success
+t19 Turn fabian>fabian 0
+t19 Hit fabian>DeepOne1#1 15 Failure/Failure
+t20 Turn DeepOne1#2>DeepOne1#2 0
+t20 Hit DeepOne1#2>maeve 20 Failure/Success
+t21 Turn DeepOne1#1>DeepOne1#1 0
+t21 PoisonApplied DeepOne1#1>albert 3
+t22 Turn maeve>maeve 0
+t22 Miss maeve>DeepOne1#1 0 Failure/CriticalSuccess
+t23 Turn albert>albert 0
+t23 PoisonTick albert>albert 10
+t23 Down albert>albert 3
+t24 Turn fabian>fabian 0
+t24 Miss fabian>albert 0 FirstAid
+t25 Turn DeepOne1#2>DeepOne1#2 0
+t25 SanResist DeepOne1#2>maeve 0
+t26 Turn DeepOne1#1>DeepOne1#1 0
+t26 Hit DeepOne1#1>albert 10
+t26 Fallen albert>albert 0
+t27 Turn maeve>maeve 0
+t27 Hit maeve>DeepOne1#1 15 Failure/Failure
+t28 Turn fabian>fabian 0
+t28 Miss fabian>DeepOne1#1 0 Failure/Success
+t29 Turn DeepOne1#2>DeepOne1#2 0
+t29 PoisonApplied DeepOne1#2>fabian 3
+t30 Turn DeepOne1#1>DeepOne1#1 0
+t30 Evade maeve>DeepOne1#1 0 Failure/Fumble
+t31 Turn maeve>maeve 0
+t31 Miss maeve>DeepOne1#1 0 Success/CriticalSuccess
+t32 Turn fabian>fabian 0
+t32 PoisonTick fabian>fabian 5
+t32 Hit fabian>DeepOne1#1 5 Failure/Failure
+t33 Turn DeepOne1#2>DeepOne1#2 0
+t33 PoisonApplied DeepOne1#2>fabian 3
+t34 Turn DeepOne1#1>DeepOne1#1 0
+t34 Hit DeepOne1#1>fabian 20 Failure/CriticalSuccess
+t35 Turn maeve>maeve 0
+t35 Hit maeve>DeepOne1#1 5 Failure/Failure
+t36 Turn fabian>fabian 0
+t36 PoisonTick fabian>fabian 10
+t36 Hit fabian>DeepOne1#1 5 Failure/Failure
+t37 Turn maeve>maeve 0
+t37 Hit maeve>DeepOne1#1 5 Failure/Failure
+t38 Turn DeepOne1#2>DeepOne1#2 0
+t38 Evade fabian>DeepOne1#2 0 Failure/Failure
+t39 Turn DeepOne1#1>DeepOne1#1 0
+t39 PoisonApplied DeepOne1#1>fabian 3
+t40 Turn fabian>fabian 0
+t40 PoisonTick fabian>fabian 10
+t40 Miss fabian>DeepOne1#1 0 Success/CriticalSuccess
+t41 Turn maeve>maeve 0
+t41 Hit maeve>DeepOne1#1 25 Failure/Failure
+t42 Turn DeepOne1#2>DeepOne1#2 0
+t42 Hit DeepOne1#2>fabian 25 Failure/Success
+t42 Down DeepOne1#2>fabian 3
+t43 Turn DeepOne1#1>DeepOne1#1 0
+t43 SanLoss >fabian 5
+t44 Turn fabian>fabian 0
+t44 Countdown fabian>fabian 2
+t45 Turn maeve>maeve 0
+t45 Miss maeve>fabian 0 FirstAid
+t46 Turn DeepOne1#2>DeepOne1#2 0
+t46 Hit DeepOne1#2>maeve 15 Fumble/Success
+t47 Turn DeepOne1#1>DeepOne1#1 0
+t47 Hit DeepOne1#1>fabian 15
+t47 Fallen fabian>fabian 0
+settle Died albert>albert 0
+RESULT Loss albert=Fallen/0/55/dead fabian=Fallen/0/47 maeve=Ready/20/65
+== sewer-fragile-35 seed=35
+DeepOne1#0 hp=108 dex=52
+DeepOne1#1 hp=117 dex=51
+DeepOne1#2 hp=117 dex=54
+t0 Turn maeve>maeve 0
+t0 Hit maeve>DeepOne1#0 15 Failure/Failure
+t1 Turn albert>albert 0
+t1 Hit albert>DeepOne1#0 50 Success/Failure
+t2 Turn fabian>fabian 0
+t2 Hit fabian>DeepOne1#0 5 CriticalSuccess/CriticalSuccess
+t3 Turn DeepOne1#2>DeepOne1#2 0
+t3 SanLoss >fabian 5
+t4 Turn DeepOne1#0>DeepOne1#0 0
+t4 Evade fabian>DeepOne1#0 0 Failure/Failure
+t5 Turn DeepOne1#1>DeepOne1#1 0
+t5 Hit DeepOne1#1>fabian 30 Failure/CriticalSuccess
+t6 Turn maeve>maeve 0
+t6 Miss maeve>DeepOne1#0 0 Failure/CriticalSuccess
+t7 Turn albert>albert 0
+t7 Hit albert>DeepOne1#0 45 Failure/Failure
+t7 EnemyDown albert>DeepOne1#0 0
+t8 Turn fabian>fabian 0
+t8 Miss fabian>DeepOne1#1 0 Failure/Success
+t9 Turn DeepOne1#2>DeepOne1#2 0
+t9 PoisonApplied DeepOne1#2>albert 3
+t10 Turn DeepOne1#1>DeepOne1#1 0
+t10 SanResist DeepOne1#1>maeve 0
+t11 Turn maeve>maeve 0
+t11 Miss maeve>DeepOne1#1 0 Failure/Success
+t12 Turn albert>albert 0
+t12 PoisonTick albert>albert 10
+t12 Hit albert>DeepOne1#1 25 Success/Failure
+t13 Turn fabian>fabian 0
+t13 Hit fabian>DeepOne1#1 5 CriticalSuccess/Failure
+t14 Turn DeepOne1#2>DeepOne1#2 0
+t14 Evade albert>DeepOne1#2 0 Failure/Failure
+t15 Turn DeepOne1#1>DeepOne1#1 0
+t15 Hit DeepOne1#1>albert 15 Failure/Success
+t16 Turn maeve>maeve 0
+t16 Hit maeve>DeepOne1#1 10 Success/Failure
+t17 Turn albert>albert 0
+t17 PoisonTick albert>albert 10
+t17 Hit albert>DeepOne1#1 40 Failure/Failure
+t18 Turn fabian>fabian 0
+t18 Hit fabian>DeepOne1#1 15 Failure/Failure
+t19 Turn DeepOne1#2>DeepOne1#2 0
+t19 Evade maeve>DeepOne1#2 0 CriticalSuccess/Fumble
+t20 Turn DeepOne1#1>DeepOne1#1 0
+t20 SanLoss >fabian 5
+t21 Turn maeve>maeve 0
+t21 Hit maeve>DeepOne1#1 25 Success/Failure
+t21 EnemyDown maeve>DeepOne1#1 0
+t22 Turn albert>albert 0
+t22 PoisonTick albert>albert 10
+t22 Miss albert>DeepOne1#2 0 Failure/CriticalSuccess
+t23 Turn fabian>fabian 0
+t23 Hit fabian>DeepOne1#2 10 Success/Success
+t24 Turn DeepOne1#2>DeepOne1#2 0
+t24 Hit DeepOne1#2>fabian 25 Failure/CriticalSuccess
+t24 Down DeepOne1#2>fabian 3
+t25 Turn maeve>maeve 0
+t25 Miss maeve>fabian 0 FirstAid
+t26 Turn albert>albert 0
+t26 Miss albert>fabian 0 FirstAid
+t27 Turn fabian>fabian 0
+t27 Countdown fabian>fabian 2
+t28 Turn DeepOne1#2>DeepOne1#2 0
+t28 PoisonApplied DeepOne1#2>albert 3
+t29 Turn maeve>maeve 0
+t29 Miss maeve>fabian 0 FirstAid
+t30 Turn albert>albert 0
+t30 PoisonTick albert>albert 10
+t30 Miss albert>fabian 0 FirstAid
+t31 Turn fabian>fabian 0
+t31 Countdown fabian>fabian 1
+t32 Turn DeepOne1#2>DeepOne1#2 0
+t32 Hit DeepOne1#2>fabian 30
+t32 Fallen fabian>fabian 0
+RESULT Loss albert=Ready/20/25 fabian=Fallen/0/30 maeve=Ready/55/25
+== sewer-fragile-36 seed=36
+DeepOne1#0 hp=112 dex=46
+DeepOne1#1 hp=117 dex=48
+DeepOne1#2 hp=115 dex=47
+t0 Turn maeve>maeve 0
+t0 Hit maeve>DeepOne1#0 30 CriticalSuccess/Success
+t1 Turn albert>albert 0
+t1 Hit albert>DeepOne1#0 60 Failure/Failure
+t2 Turn fabian>fabian 0
+t2 Hit fabian>DeepOne1#0 10 CriticalSuccess/Failure
+t3 Turn DeepOne1#1>DeepOne1#1 0
+t3 PoisonApplied DeepOne1#1>albert 3
+t4 Turn DeepOne1#0>DeepOne1#0 0
+t4 Hit DeepOne1#0>albert 30 Failure/Success
+t5 Turn DeepOne1#2>DeepOne1#2 0
+t5 SanResist DeepOne1#2>maeve 0
+t6 Turn maeve>maeve 0
+t6 Hit maeve>DeepOne1#0 10 CriticalSuccess/Failure
+t7 Turn albert>albert 0
+t7 PoisonTick albert>albert 10
+t7 Miss albert>DeepOne1#0 0 Fumble/Failure
+t8 Turn fabian>fabian 0
+t8 Hit fabian>DeepOne1#0 5 Failure/Failure
+t8 EnemyDown fabian>DeepOne1#0 0
+t9 Turn DeepOne1#1>DeepOne1#1 0
+t9 Evade maeve>DeepOne1#1 0 Failure/Fumble
+t10 Turn DeepOne1#2>DeepOne1#2 0
+t10 PoisonApplied DeepOne1#2>albert 3
+t11 Turn maeve>maeve 0
+t11 Hit maeve>DeepOne1#1 10 Failure/Failure
+t12 Turn albert>albert 0
+t12 PoisonTick albert>albert 5
+t12 Miss albert>DeepOne1#1 0 Fumble/Failure
+t13 Turn fabian>fabian 0
+t13 Hit fabian>DeepOne1#1 10 Success/Failure
+t14 Turn DeepOne1#1>DeepOne1#1 0
+t14 Evade fabian>DeepOne1#1 0 Failure/Failure
+t15 Turn DeepOne1#2>DeepOne1#2 0
+t15 Hit DeepOne1#2>albert 20 Fumble/Success
+t16 Turn maeve>maeve 0
+t16 Hit maeve>DeepOne1#1 15 Failure/Failure
+t17 Turn albert>albert 0
+t17 PoisonTick albert>albert 10
+t17 Down albert>albert 3
+t18 Turn fabian>fabian 0
+t18 Miss fabian>albert 0 FirstAid
+t19 Turn DeepOne1#1>DeepOne1#1 0
+t19 Evade fabian>DeepOne1#1 0 Failure/Failure
+t20 Turn DeepOne1#2>DeepOne1#2 0
+t20 SanLoss >maeve 5
+t21 Turn maeve>maeve 0
+t21 Stable maeve>albert 5
+t22 Turn fabian>fabian 0
+t22 Miss fabian>DeepOne1#1 0 Failure/Success
+t23 Turn DeepOne1#1>DeepOne1#1 0
+t23 Miss DeepOne1#1>albert 0 Poison
+t24 Turn DeepOne1#2>DeepOne1#2 0
+t24 Evade maeve>DeepOne1#2 0 Failure/Failure
+t25 Turn maeve>maeve 0
+t25 Hit maeve>DeepOne1#1 15 CriticalSuccess/Success
+t26 Turn fabian>fabian 0
+t26 Hit fabian>DeepOne1#1 15 CriticalSuccess/Success
+t27 Turn DeepOne1#1>DeepOne1#1 0
+t27 Hit DeepOne1#1>albert 20
+t27 Fallen albert>albert 0
+t27 SanLoss >fabian 5
+t28 Turn maeve>maeve 0
+t28 Hit maeve>DeepOne1#1 20 CriticalSuccess/Failure
+t29 Turn DeepOne1#2>DeepOne1#2 0
+t29 Evade fabian>DeepOne1#2 0 CriticalSuccess/Failure
+t30 Turn fabian>fabian 0
+t30 Hit fabian>DeepOne1#1 10 Success/Failure
+t31 Turn maeve>maeve 0
+t31 Hit maeve>DeepOne1#1 30 Failure/Failure
+t31 EnemyDown maeve>DeepOne1#1 0
+t32 Turn DeepOne1#2>DeepOne1#2 0
+t32 Evade fabian>DeepOne1#2 0 Failure/Failure
+t33 Turn fabian>fabian 0
+t33 Hit fabian>DeepOne1#2 10 Success/Failure
+t34 Turn maeve>maeve 0
+t34 Miss maeve>DeepOne1#2 0 Failure/Success
+t35 Turn fabian>fabian 0
+t35 Hit fabian>DeepOne1#2 15 CriticalSuccess/Failure
+t36 Turn DeepOne1#2>DeepOne1#2 0
+t36 Evade fabian>DeepOne1#2 0 Success/Failure
+t37 Turn maeve>maeve 0
+t37 Hit maeve>DeepOne1#2 25 Success/Failure
+t38 Turn fabian>fabian 0
+t38 Miss fabian>DeepOne1#2 0 Failure/Success
+t39 Turn DeepOne1#2>DeepOne1#2 0
+t39 SanResist DeepOne1#2>maeve 0
+t40 Turn maeve>maeve 0
+t40 Hit maeve>DeepOne1#2 20 Failure/Fumble
+t41 Turn fabian>fabian 0
+t41 Hit fabian>DeepOne1#2 10 CriticalSuccess/CriticalSuccess
+t42 Turn DeepOne1#2>DeepOne1#2 0
+t42 Hit DeepOne1#2>fabian 30 Failure/Success
+t43 Turn maeve>maeve 0
+t43 Miss maeve>DeepOne1#2 0 Failure/Success
+t44 Turn fabian>fabian 0
+t44 Hit fabian>DeepOne1#2 10 Success/Success
+t45 Turn DeepOne1#2>DeepOne1#2 0
+t45 Evade fabian>DeepOne1#2 0 Success/Success
+t46 Turn maeve>maeve 0
+t46 Hit maeve>DeepOne1#2 20 Success/Failure
+t47 Turn fabian>fabian 0
+t47 Miss fabian>DeepOne1#2 0 Failure/CriticalSuccess
+t48 Turn DeepOne1#2>DeepOne1#2 0
+t48 PoisonApplied DeepOne1#2>fabian 3
+t49 Turn maeve>maeve 0
+t49 Hit maeve>DeepOne1#2 20 Success/Failure
+t49 EnemyDown maeve>DeepOne1#2 0
+settle Recovering albert>albert 1
+RESULT Win albert=Recovering/1/25 fabian=Ready/20/35 maeve=Ready/55/20
+== sewer-fragile-37 seed=37
+DeepOne1#0 hp=116 dex=49
+DeepOne1#1 hp=118 dex=46
+DeepOne1#2 hp=113 dex=47
+t0 Turn maeve>maeve 0
+t0 Hit maeve>DeepOne1#0 10 Success/Failure
+t1 Turn albert>albert 0
+t1 Hit albert>DeepOne1#0 20 Failure/Failure
+t2 Turn fabian>fabian 0
+t2 Miss fabian>DeepOne1#0 0 Success/CriticalSuccess
+t3 Turn DeepOne1#0>DeepOne1#0 0
+t3 PoisonApplied DeepOne1#0>albert 3
+t4 Turn DeepOne1#1>DeepOne1#1 0
+t4 Evade fabian>DeepOne1#1 0 Success/Success
+t5 Turn DeepOne1#2>DeepOne1#2 0
+t5 Evade albert>DeepOne1#2 0 Failure/Failure
+t6 Turn maeve>maeve 0
+t6 Hit maeve>DeepOne1#0 15 CriticalSuccess/Failure
+t7 Turn albert>albert 0
+t7 PoisonTick albert>albert 5
+t7 Hit albert>DeepOne1#0 55 Success/Success
+t8 Turn fabian>fabian 0
+t8 Miss fabian>DeepOne1#0 0 Fumble/Failure
+t9 Turn DeepOne1#0>DeepOne1#0 0
+t9 PoisonApplied DeepOne1#0>albert 3
+t10 Turn DeepOne1#1>DeepOne1#1 0
+t10 SanLoss >fabian 5
+t11 Turn DeepOne1#2>DeepOne1#2 0
+t11 SanLoss >albert 10
+t11 BoutStart albert>albert 2 Freeze
+t12 Turn maeve>maeve 0
+t12 Calm maeve>albert 5
+t13 Turn albert>albert 0
+t13 PoisonTick albert>albert 5
+t13 Hit albert>DeepOne1#0 50 Failure/Failure
+t13 EnemyDown albert>DeepOne1#0 0
+t14 Turn fabian>fabian 0
+t14 Hit fabian>DeepOne1#1 15 Failure/Failure
+t15 Turn DeepOne1#1>DeepOne1#1 0
+t15 Evade albert>DeepOne1#1 0 Success/Success
+t16 Turn DeepOne1#2>DeepOne1#2 0
+t16 Evade fabian>DeepOne1#2 0 Failure/Failure
+t17 Turn maeve>maeve 0
+t17 Hit maeve>DeepOne1#1 15 Failure/Failure
+t18 Turn albert>albert 0
+t18 PoisonTick albert>albert 10
+t18 Hit albert>DeepOne1#1 60 Failure/Failure
+t19 Turn fabian>fabian 0
+t19 Miss fabian>DeepOne1#1 0 Failure/CriticalSuccess
+t20 Turn DeepOne1#1>DeepOne1#1 0
+t20 PoisonApplied DeepOne1#1>albert 3
+t21 Turn DeepOne1#2>DeepOne1#2 0
+t21 Evade albert>DeepOne1#2 0 Failure/Failure
+t22 Turn maeve>maeve 0
+t22 Hit maeve>DeepOne1#1 5 Failure/Fumble
+t23 Turn albert>albert 0
+t23 PoisonTick albert>albert 5
+t23 Hit albert>DeepOne1#1 50 Failure/Failure
+t23 EnemyDown albert>DeepOne1#1 0
+t24 Turn fabian>fabian 0
+t24 Miss fabian>DeepOne1#2 0 Success/CriticalSuccess
+t25 Turn DeepOne1#2>DeepOne1#2 0
+t25 Evade albert>DeepOne1#2 0 Failure/Failure
+t26 Turn maeve>maeve 0
+t26 Hit maeve>DeepOne1#2 5 Success/Failure
+t27 Turn albert>albert 0
+t27 PoisonTick albert>albert 5
+t27 Hit albert>DeepOne1#2 20 Failure/Failure
+t28 Turn fabian>fabian 0
+t28 Hit fabian>DeepOne1#2 5 CriticalSuccess/Failure
+t29 Turn maeve>maeve 0
+t29 Hit maeve>DeepOne1#2 5 Failure/Failure
+t30 Turn albert>albert 0
+t30 PoisonTick albert>albert 10
+t30 Hit albert>DeepOne1#2 40 Failure/Failure
+t31 Turn DeepOne1#2>DeepOne1#2 0
+t31 PoisonApplied DeepOne1#2>albert 3
+t32 Turn fabian>fabian 0
+t32 Hit fabian>DeepOne1#2 10 Failure/Failure
+t33 Turn maeve>maeve 0
+t33 Hit maeve>DeepOne1#2 20 Failure/Failure
+t34 Turn albert>albert 0
+t34 PoisonTick albert>albert 10
+t34 Hit albert>DeepOne1#2 60 Failure/Failure
+t34 EnemyDown albert>DeepOne1#2 0
+RESULT Win albert=Ready/25/20 fabian=Ready/50/35 maeve=Ready/55/25
+== duo seed=34
+DeepOneHybrid1#0 hp=44 dex=63
+DeepOne1#1 hp=117 dex=46
+t0 Turn maeve>maeve 0
+t0 Hit maeve>DeepOneHybrid1#0 20 Failure/Failure
+t1 Turn DeepOneHybrid1#0>DeepOneHybrid1#0 0
+t1 Hit DeepOneHybrid1#0>fabian 10 Failure/Success
+t2 Turn fabian>fabian 0
+t2 Miss fabian>DeepOneHybrid1#0 0 Success/CriticalSuccess
+t3 Turn DeepOne1#1>DeepOne1#1 0
+t3 PoisonApplied DeepOne1#1>fabian 3
+t4 Turn maeve>maeve 0
+t4 Hit maeve>DeepOneHybrid1#0 25 Failure/Failure
+t4 EnemyDown maeve>DeepOneHybrid1#0 0
+t5 Turn fabian>fabian 0
+t5 PoisonTick fabian>fabian 10
+t5 Hit fabian>DeepOne1#1 5 CriticalSuccess/Success
+t6 Turn DeepOne1#1>DeepOne1#1 0
+t6 SanResist DeepOne1#1>maeve 0
+t7 Turn maeve>maeve 0
+t7 Hit maeve>DeepOne1#1 20 Failure/Failure
+t8 Turn fabian>fabian 0
+t8 PoisonTick fabian>fabian 5
+t8 Hit fabian>DeepOne1#1 10 Success/Fumble
+t9 Turn DeepOne1#1>DeepOne1#1 0
+t9 Evade fabian>DeepOne1#1 0 CriticalSuccess/Failure
+t10 Turn maeve>maeve 0
+t10 Hit maeve>DeepOne1#1 20 Success/Failure
+t11 Turn fabian>fabian 0
+t11 PoisonTick fabian>fabian 5
+t11 Hit fabian>DeepOne1#1 15 Success/Success
+t12 Turn DeepOne1#1>DeepOne1#1 0
+t12 PoisonApplied DeepOne1#1>fabian 3
+t13 Turn maeve>maeve 0
+t13 Hit maeve>DeepOne1#1 25 Failure/Failure
+t14 Turn fabian>fabian 0
+t14 PoisonTick fabian>fabian 10
+t14 Miss fabian>DeepOne1#1 0 Fumble/CriticalSuccess
+t15 Turn DeepOne1#1>DeepOne1#1 0
+t15 PoisonApplied DeepOne1#1>fabian 3
+t16 Turn maeve>maeve 0
+t16 Hit maeve>DeepOne1#1 25 Success/Failure
+t16 EnemyDown maeve>DeepOne1#1 0
+RESULT Win fabian=Ready/10/52 maeve=Ready/55/65
