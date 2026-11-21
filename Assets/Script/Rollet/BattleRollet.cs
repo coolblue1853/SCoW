@@ -72,13 +72,13 @@ public class BattleRollet : MonoBehaviour
             if (BattleManager.Instance.playerAction == "PlayerSwords")
             {
                 BattleManager.Instance.enemySelectUI.SetActive(true);
-                BattleManager.Instance.battleState = "selectEnemy";
+                BattleManager.Instance.battleState = BattlePhase.SelectEnemy;
                 BattleManager.Instance.PlayerSetSwords();
             }
             else if (BattleManager.Instance.playerAction == "martialarts")
             {
                 BattleManager.Instance.enemySelectUI.SetActive(true);
-                BattleManager.Instance.battleState = "selectEnemy";
+                BattleManager.Instance.battleState = BattlePhase.SelectEnemy;
                 BattleManager.Instance.SetAciton("martialarts");
             }
             else if (BattleManager.Instance.playerAction == "evasion")

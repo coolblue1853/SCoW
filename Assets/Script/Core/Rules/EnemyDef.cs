@@ -5,6 +5,26 @@ namespace SCoW.Core.Rules
     /// <summary>적이 자기 차례에 고르는 행동. 옛 BattleManager.EnemySetAction 의 분기.</summary>
     public enum EnemyIntent { Normal, Deftness, SanAttack, PoisonAttack }
 
+    /// <summary>
+    /// 행동 종류별 가중치. 합이 0 이면 난수 없이 일반 공격(옛 심해인 혼혈 슬롯).
+    /// 선택은 Range(0, 합) 한 번: 앞에서부터 이성 -> 독 -> 일반 순으로 구간을 나눈다(옛 Range(0,4) 의 0/1/그 외와 동치).
+    /// </summary>
+    public readonly struct IntentWeights
+    {
+        public readonly int SanAttack;
+        public readonly int PoisonAttack;
+        public readonly int Normal;
+
+        public IntentWeights(int sanAttack, int poisonAttack, int normal)
+        {
+            SanAttack = sanAttack;
+            PoisonAttack = poisonAttack;
+            Normal = normal;
+        }
+
+        public int Total => SanAttack + PoisonAttack + Normal;
+    }
+
     /// <summary>난수 구간. Random.Range(int,int) 와 같이 상한은 제외값.</summary>
     public readonly struct IntRange
     {
@@ -40,9 +60,27 @@ namespace SCoW.Core.Rules
         /// <summary>이 슬롯의 일반 공격 피해(플레이어가 회피·반격·공격에 실패했을 때 받는 값).</summary>
         public DiceExpr AttackDamage;
         public bool UsesDeftness;
+        /// <summary>행동 종류 가중치(ChooseIntent 가 읽는다). UsesDeftness 슬롯은 쓰지 않는다.</summary>
+        public IntentWeights Intent;
+        /// <summary>일반 공격의 아군 칸(앞·중·뒤) 가중치. 다인원 전투(PT-2)가 읽는다. 지금 1:1 전투는 쓰지 않는다.</summary>
+        public int[] TargetWeights = { 5, 3, 2 };
+        /// <summary>이성 공격(시선)은 전 칸 무작위.</summary>
+        public int[] SanTargetWeights = { 1, 1, 1 };
+        /// <summary>독 공격은 앞 칸 우선.</summary>
+        public int[] PoisonTargetWeights = { 1, 0, 0 };
+
+        public int[] TargetWeightsFor(EnemyIntent intent)
+        {
+            switch (intent)
+            {
+                case EnemyIntent.SanAttack: return SanTargetWeights;
+                case EnemyIntent.PoisonAttack: return PoisonTargetWeights;
+                default: return TargetWeights;
+            }
+        }
     }
 
-    /// <summary>현재 출시판 5개 슬롯. 슬롯 번호(1~4)는 옛 코드의 battleState 문자열과 1:1.</summary>
+    /// <summary>현재 출시판 5종. All 의 순서(0~4)가 BattleManager 의 적 배열 인덱스와 같다.</summary>
     public static class EnemyDefs
     {
         public static readonly EnemyDef DeepOneHybrid1 = Hybrid("DeepOneHybrid1", BattleDamage.Hit1D3, false);
@@ -63,8 +101,38 @@ namespace SCoW.Core.Rules
             MartialArts = 45,
             Swordsmanship = 50,
             Evasion = 25,
-            AttackDamage = BattleDamage.Hit2D3
+            AttackDamage = BattleDamage.Hit2D3,
+            Intent = new IntentWeights(1, 1, 2)
         };
+
+        /// <summary>인덱스 = 적 배열 슬롯. 0~3 혼혈 1~4, 4 심해인 1.</summary>
+        public static readonly EnemyDef[] All = { DeepOneHybrid1, DeepOneHybrid2, DeepOneHybrid3, DeepOneHybrid4, DeepOne1 };
+
+        /// <summary>Id 로 정의를 찾는다. 없으면 null.</summary>
+        public static EnemyDef Get(string id)
+        {
+            for (int i = 0; i < All.Length; i++)
+            {
+                if (All[i].Id == id)
+                {
+                    return All[i];
+                }
+            }
+            return null;
+        }
+
+        /// <summary>Id 로 All 인덱스를 찾는다. 없으면 -1.</summary>
+        public static int IndexOf(string id)
+        {
+            for (int i = 0; i < All.Length; i++)
+            {
+                if (All[i].Id == id)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
 
         private static EnemyDef Hybrid(string id, DiceExpr damage, bool deftness)
         {

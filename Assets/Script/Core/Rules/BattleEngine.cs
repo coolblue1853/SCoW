@@ -56,24 +56,21 @@ namespace SCoW.Core.Rules
         private const float PlayerGaugeSpeed = 2f;
         private const float EnemyGaugeSpeed = 1.9f;
 
-        /// <summary>
-        /// 턴 게이지 한 칸. y 가 130 미만이면 속도만큼 올리고, 아니면 -130 으로 되돌리며 턴 시작을 알린다.
-        /// 옛 SymbolUp 과 같은 float 연산 순서.
-        /// </summary>
-        public static float StepGauge(float y, float dex, bool isPlayer, out bool turnStart)
+        /// <summary>게이지가 가득 찼는가(턴 시작). 옛 SymbolUp 의 `y < 130` 의 반대.</summary>
+        public static bool IsGaugeFull(float y)
         {
-            if (y < GaugeMax)
-            {
-                turnStart = false;
-                return y + ((1 + (dex / 100)) * (isPlayer ? PlayerGaugeSpeed : EnemyGaugeSpeed));
-            }
-            turnStart = true;
-            return GaugeReset;
+            return !(y < GaugeMax);
+        }
+
+        /// <summary>턴 게이지 한 칸 상승. 옛 SymbolUp 과 같은 float 연산 순서. 가득 찬 뒤 처리(GaugeReset)는 호출 측.</summary>
+        public static float StepGauge(float y, float dex, bool isPlayer)
+        {
+            return y + ((1 + (dex / 100)) * (isPlayer ? PlayerGaugeSpeed : EnemyGaugeSpeed));
         }
 
         /// <summary>
-        /// 적 행동 선택. 심해인은 Range(0,4): 0 이성 공격, 1 독 공격, 그 외 일반. 손재주 슬롯은 난수 없이 손재주.
-        /// 그 외 적은 일반 공격(난수 없음).
+        /// 적 행동 선택. 손재주 슬롯은 난수 없이 손재주. 그 외에는 def.Intent 가중치 합이 0 이면 난수 없이 일반 공격,
+        /// 아니면 Range(0, 합) 한 번으로 이성 -> 독 -> 일반 구간을 고른다(심해인 1:1:2 = 옛 Range(0,4)).
         /// </summary>
         public static EnemyIntent ChooseIntent(EnemyDef def, IRng rng)
         {
@@ -81,25 +78,21 @@ namespace SCoW.Core.Rules
             {
                 return EnemyIntent.Deftness;
             }
-            if (def.Kind == EnemyKind.DeepOne)
+            int total = def.Intent.Total;
+            if (total <= 0)
             {
-                int r = rng.Next(0, 4);
-                if (r == 0)
-                {
-                    return EnemyIntent.SanAttack;
-                }
-                if (r == 1)
-                {
-                    return EnemyIntent.PoisonAttack;
-                }
+                return EnemyIntent.Normal;
+            }
+            int r = rng.Next(0, total);
+            if (r < def.Intent.SanAttack)
+            {
+                return EnemyIntent.SanAttack;
+            }
+            if (r < def.Intent.SanAttack + def.Intent.PoisonAttack)
+            {
+                return EnemyIntent.PoisonAttack;
             }
             return EnemyIntent.Normal;
-        }
-
-        /// <summary>플레이어 차례 시작 시 독 디버프 도트. 디버프 단계가 남아 있으면 피해를 반환(0 이면 없음).</summary>
-        public static int PoisonTickDamage(int poisonStacks, IRng rng)
-        {
-            return poisonStacks > 0 ? BattleDamage.Poison.Roll(rng) : 0;
         }
 
         /// <summary>

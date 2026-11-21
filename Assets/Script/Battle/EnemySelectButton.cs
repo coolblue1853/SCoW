@@ -1,3 +1,4 @@
+using SCoW.Core.Rules;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,14 +23,14 @@ public class EnemySelectButton : MonoBehaviour
     }
     void Update()
     {
-        if (BattleManager.Instance.battleState == "setTrun" && isSetTrun == false)
+        if (BattleManager.Instance.battleState == BattlePhase.SetTurn && isSetTrun == false)
         {
             isSelectEnemy1 = false;
             isSelectEnemy2 = false;
             isSetTrun = true;
             spriteRenderer.DOFade(1f, 0.3f).SetAutoKill(true);
         }
-        if (BattleManager.Instance.battleState == "selectEnemy")
+        if (BattleManager.Instance.battleState == BattlePhase.SelectEnemy)
         {
             isSetTrun = false;
             // 패드 조준은 미설계(Docs/Playtest/InputMigration.md A-2). 마우스일 때만 적 선택 동작.

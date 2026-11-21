@@ -59,13 +59,13 @@ public class Rollet : MonoBehaviour
             if (BattleManager.Instance.playerAction == "PlayerMarkmen")
             {
                 BattleManager.Instance.enemySelectUI.SetActive(true);
-                BattleManager.Instance.battleState = "selectEnemy";
+                BattleManager.Instance.battleState = BattlePhase.SelectEnemy;
                 BattleManager.Instance.PlayerSetMarkmenship();
             }
             else if (BattleManager.Instance.playerAction == "PlayerDeftness")
             {
                 BattleManager.Instance.enemySelectUI.SetActive(true);
-                BattleManager.Instance.battleState = "selectEnemy";
+                BattleManager.Instance.battleState = BattlePhase.SelectEnemy;
                 BattleManager.Instance.PlayerSetDeftness();
             }
             rolletSetUi.SetActive(false);

@@ -212,13 +212,11 @@ namespace SCoW.Tests
                     }
                     while (true)
                     {
-                        bool start;
-                        yNew = BattleEngine.StepGauge(yNew, dex, player, out start);
-                        if (start)
+                        if (BattleEngine.IsGaugeFull(yNew))
                         {
-                            Assert.AreEqual(-130f, yNew);
                             break;
                         }
+                        yNew = BattleEngine.StepGauge(yNew, dex, player);
                         stepsNew++;
                     }
                     Assert.AreEqual(stepsLegacy, stepsNew, "dex " + dex);
@@ -299,12 +297,45 @@ namespace SCoW.Tests
         }
 
         [Test]
-        public void Poison_TickOnlyWhenStacksLeft()
+        public void Poison_DamageIs1d2Times5()
         {
             SeededRng rng = new SeededRng(5);
-            Assert.AreEqual(0, BattleEngine.PoisonTickDamage(0, rng));
-            int d = BattleEngine.PoisonTickDamage(1, rng);
-            Assert.That(d, Is.InRange(5, 10));
+            for (int i = 0; i < 50; i++)
+            {
+                Assert.That(BattleDamage.Poison.Roll(rng), Is.InRange(5, 10));
+            }
+        }
+
+        [Test]
+        public void EnemyDefs_LookupAndOrder()
+        {
+            Assert.AreEqual(5, EnemyDefs.All.Length);
+            for (int i = 0; i < EnemyDefs.All.Length; i++)
+            {
+                Assert.AreSame(EnemyDefs.All[i], EnemyDefs.Get(EnemyDefs.All[i].Id));
+                Assert.AreEqual(i, EnemyDefs.IndexOf(EnemyDefs.All[i].Id));
+                Assert.AreEqual(3, EnemyDefs.All[i].TargetWeights.Length);
+            }
+            Assert.IsNull(EnemyDefs.Get("Nope"));
+            Assert.AreEqual(-1, EnemyDefs.IndexOf("Nope"));
+            Assert.AreSame(EnemyDefs.DeepOne1, EnemyDefs.All[4]);
+        }
+
+        [Test]
+        public void Intent_WeightsSplitIntervals()
+        {
+            EnemyDef d = new EnemyDef { Intent = new IntentWeights(2, 3, 5) };
+            int[] counts = new int[3];
+            SeededRng rng = new SeededRng(9);
+            for (int i = 0; i < 10000; i++)
+            {
+                EnemyIntent intent = BattleEngine.ChooseIntent(d, rng);
+                counts[intent == EnemyIntent.SanAttack ? 0 : (intent == EnemyIntent.PoisonAttack ? 1 : 2)]++;
+            }
+            Assert.That(counts[0], Is.InRange(1800, 2200));
+            Assert.That(counts[1], Is.InRange(2800, 3200));
+            Assert.That(counts[2], Is.InRange(4800, 5200));
+            Assert.AreEqual(EnemyIntent.Normal, BattleEngine.ChooseIntent(new EnemyDef(), rng));
         }
 
         // ---------- 헤드리스 시뮬레이션 + 골든 ----------
@@ -358,19 +389,33 @@ namespace SCoW.Tests
                 }
                 if (allDead) { result = "WIN"; break; }
                 if (php <= 0) { result = "LOSE"; break; }
-                bool turn;
-                py = BattleEngine.StepGauge(py, pc.Dex, true, out turn);
-                int who = turn ? -1 : -2;
+                int who = -2;
+                if (BattleEngine.IsGaugeFull(py))
+                {
+                    py = BattleEngine.GaugeReset;
+                    who = -1;
+                }
+                else
+                {
+                    py = BattleEngine.StepGauge(py, pc.Dex, true);
+                }
                 for (int i = 0; i < es.Length && who == -2; i++)
                 {
                     if (es[i].IsDead) { continue; }
-                    gy[i] = BattleEngine.StepGauge(gy[i], es[i].Dex, false, out turn);
-                    if (turn) { who = i; }
+                    if (BattleEngine.IsGaugeFull(gy[i]))
+                    {
+                        gy[i] = BattleEngine.GaugeReset;
+                        who = i;
+                    }
+                    else
+                    {
+                        gy[i] = BattleEngine.StepGauge(gy[i], es[i].Dex, false);
+                    }
                 }
                 if (who == -2) { continue; }
                 if (who == -1)
                 {
-                    int tickDmg = BattleEngine.PoisonTickDamage(poison, rng);
+                    int tickDmg = poison > 0 ? BattleDamage.Poison.Roll(rng) : 0;
                     if (tickDmg > 0)
                     {
                         poison--;

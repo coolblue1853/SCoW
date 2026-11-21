@@ -1,3 +1,4 @@
+using SCoW.Core.Rules;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,12 +47,12 @@ public class BattleCameraMove : MonoBehaviour
         {
             if (DataBaseManager.nowPlace != "InSewer")
             {
-                if (BattleManager.Instance.battleState == "setTrun" && isSetTurn == false)
+                if (BattleManager.Instance.battleState == BattlePhase.SetTurn && isSetTurn == false)
                 {
                     isSetTurn = true;
                     ResetCam();
                 }
-                if (BattleManager.Instance.battleState == "selectEnemy")
+                if (BattleManager.Instance.battleState == BattlePhase.SelectEnemy)
                 {
                     isSetTurn = false;
                     if (BattleManager.Instance.onPointerEnemy == "" && once == false)

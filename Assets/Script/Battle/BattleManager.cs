@@ -11,7 +11,8 @@ public class BattleManager : MonoBehaviour
     public GameObject uiButton;
     public GameObject cam;
     public GameObject roundGameObject;
-    public string battleState;
+    [System.NonSerialized] public BattlePhase battleState;
+    private int _actingEnemy;
     private float fDestroyTime = 0.01f;
     private float fTickTime;
     public bool startBattle = false;
@@ -64,11 +65,15 @@ public class BattleManager : MonoBehaviour
     public GameObject playerDeftnessUi;
     public GameObject enemySelectUI;
     public BattlePlayer battlePlayer;
-    EnemyState deepOneHybrid1 = new EnemyState(EnemyDefs.DeepOneHybrid1);
-    EnemyState deepOneHybrid2 = new EnemyState(EnemyDefs.DeepOneHybrid2);
-    EnemyState deepOneHybrid3 = new EnemyState(EnemyDefs.DeepOneHybrid3);
-    EnemyState deepOneHybrid4 = new EnemyState(EnemyDefs.DeepOneHybrid4);
-    EnemyState deepOne1 = new EnemyState(EnemyDefs.DeepOne1);
+    // 적 배열: 인덱스는 EnemyDefs.All 과 같다(0~3 혼혈 1~4, 4 심해인 1). 슬롯 상수는 옛 필드 이름과 1:1.
+    private const int SlotHybrid1 = 0;
+    private const int SlotHybrid2 = 1;
+    private const int SlotHybrid3 = 2;
+    private const int SlotHybrid4 = 3;
+    private const int SlotDeepOne1 = 4;
+    private readonly EnemyState[] _enemies = CreateEnemies();
+    private GameObject[] _enemyObs;
+    private GameObject[] _enemySymbols;
     //적 오브젝트 관련
     public GameObject deepOneHybrid1Ob;
     public GameObject deepOneHybrid2Ob;
@@ -90,6 +95,41 @@ public class BattleManager : MonoBehaviour
     public GameObject playerMAUI;
     public GameObject maBackButton;
 
+    private static EnemyState[] CreateEnemies()
+    {
+        EnemyState[] states = new EnemyState[EnemyDefs.All.Length];
+        for (int i = 0; i < states.Length; i++)
+        {
+            states[i] = new EnemyState(EnemyDefs.All[i]);
+        }
+        return states;
+    }
+    private bool IsEnemyAttack(int slot)
+    {
+        return battleState == BattlePhase.EnemyAttack && _actingEnemy == slot;
+    }
+    private bool IsPointer(int slot)
+    {
+        return onPointerEnemy == EnemyDefs.All[slot].Id;
+    }
+    // 턴 게이지 칸(0~2) -> 적 인덱스. 귀가길은 혼혈 1~3, 하수도는 칸0 혼혈4, 칸1 심해인 1, 칸2 비어 있음.
+    private static int EnemyIndexForSymbol(int symbolSlot, bool inSewer)
+    {
+        if (!inSewer)
+        {
+            return symbolSlot;
+        }
+        return symbolSlot == 0 ? SlotHybrid4 : (symbolSlot == 1 ? SlotDeepOne1 : -1);
+    }
+    // 적 인덱스 -> 자기가 쓰는 턴 게이지 칸. 혼혈4·심해인1 은 하수도에서 칸0·칸1 을 쓴다.
+    private static int SymbolSlotOf(int enemy)
+    {
+        return enemy < 3 ? enemy : enemy - 3;
+    }
+    private static string KindName(EnemyDef def)
+    {
+        return def.Kind == EnemyKind.DeepOne ? "DeepOne" : "DeepOneHybrid";
+    }
     public void OriginPointChange()
     {
         originPoint = player.transform.position;
@@ -139,7 +179,7 @@ public class BattleManager : MonoBehaviour
         playerActionUi.SetActive(false);
         uiButton.SetActive(true);
         InteractionController.Instance.BattleDialog("End");
-        battleState = "setTrun";
+        battleState = BattlePhase.SetTurn;
         enemyTrunSymbol1.transform.localPosition = new Vector2(enemyTrunSymbol1.transform.localPosition.x, -130);
         enemyTrunSymbol2.transform.localPosition = new Vector2(enemyTrunSymbol1.transform.localPosition.x, -130);
         enemyTrunSymbol3.transform.localPosition = new Vector2(enemyTrunSymbol1.transform.localPosition.x, -130);
@@ -177,11 +217,12 @@ public class BattleManager : MonoBehaviour
     void Awake()
     {
         playerRender = player.GetComponent<SpriteRenderer>();
-        SetDeepOneHybrid1();
-        SetDeepOneHybrid2();
-        SetDeepOneHybrid3();
-        SetDeepOneHybrid4();
-        SetDeepOne1();
+        _enemyObs = new[] { deepOneHybrid1Ob, deepOneHybrid2Ob, deepOneHybrid3Ob, deepOneHybrid4Ob, deepOne1Ob };
+        _enemySymbols = new[] { enemyTrunSymbol1, enemyTrunSymbol2, enemyTrunSymbol3 };
+        for (int i = 0; i < _enemies.Length; i++)
+        {
+            RollEnemy(i);
+        }
         if (null == instance)
         {
             instance = this;
@@ -191,29 +232,34 @@ public class BattleManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    /// <summary>적 한 마리 능력치 재굴림(옛 SetDeepOneHybrid1~4/SetDeepOne1 과 같은 난수 순서).</summary>
+    public void RollEnemy(int slot)
+    {
+        _enemies[slot].Roll(UnityRng.Instance);
+    }
     public void SetDeepOneHybrid1()
     {
-        deepOneHybrid1.Roll(UnityRng.Instance);
+        RollEnemy(SlotHybrid1);
     }
     public void SetDeepOneHybrid2()
     {
-        deepOneHybrid2.Roll(UnityRng.Instance);
+        RollEnemy(SlotHybrid2);
     }
     public void SetDeepOneHybrid3()
     {
-        deepOneHybrid3.Roll(UnityRng.Instance);
+        RollEnemy(SlotHybrid3);
     }
     public void SetDeepOneHybrid4()
     {
-        deepOneHybrid4.Roll(UnityRng.Instance);
+        RollEnemy(SlotHybrid4);
     }
     public void SetDeepOne1()
     {
-        deepOne1.Roll(UnityRng.Instance);
+        RollEnemy(SlotDeepOne1);
     }
     public void TimeWait()
     {
-        if (battleState == "setTrun")
+        if (battleState == BattlePhase.SetTurn)
         {
             fTickTime += Time.deltaTime;
             if (fTickTime >= fDestroyTime)
@@ -222,35 +268,15 @@ public class BattleManager : MonoBehaviour
                 fDestroyTime = fDestroyTime * 0.98f;
                 if (playerTrunSymbol.activeSelf == true)
                 {
-                    SymbolUp(playerTrunSymbol, DataBaseManager.dex, "Player");
+                    SymbolUp(playerTrunSymbol, DataBaseManager.dex, true, -1);
                 }
-                if (DataBaseManager.nowPlace != "InSewer")
+                bool inSewer = DataBaseManager.nowPlace == "InSewer";
+                for (int i = 0; i < _enemySymbols.Length; i++)
                 {
-                    if (enemyTrunSymbol1.activeSelf == true)
+                    int enemy = EnemyIndexForSymbol(i, inSewer);
+                    if (enemy >= 0 && _enemySymbols[i].activeSelf == true)
                     {
-                        SymbolUp(enemyTrunSymbol1, deepOneHybrid1.Dex, "DeepOneHybrid1");
-                    }
-                    if (enemyTrunSymbol2.activeSelf == true)
-                    {
-                        SymbolUp(enemyTrunSymbol2, deepOneHybrid2.Dex, "DeepOneHybrid2");
-                    }
-                    if (enemyTrunSymbol3.activeSelf == true)
-                    {
-                        SymbolUp(enemyTrunSymbol3, deepOneHybrid3.Dex, "DeepOneHybrid3");
-                    }
-                }
-                else
-                {
-                    if (enemyTrunSymbol1.activeSelf == true)
-                    {
-                        SymbolUp(enemyTrunSymbol1, deepOneHybrid4.Dex, "DeepOneHybrid4");
-                    }
-                    if (enemyTrunSymbol2.activeSelf == true)
-                    {
-                        SymbolUp(enemyTrunSymbol2, deepOne1.Dex, "DeepOne1");
-                    }
-                    if (enemyTrunSymbol3.activeSelf == true)
-                    {
+                        SymbolUp(_enemySymbols[i], _enemies[enemy].Dex, false, enemy);
                     }
                 }
             }
@@ -261,24 +287,24 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        battleState = "setTrun";
+        battleState = BattlePhase.SetTurn;
     }
-    public void SymbolUp(GameObject symbol, float dex, string Target)
+    public void SymbolUp(GameObject symbol, float dex, bool isPlayer, int enemyIndex)
     {
-        if (battleState == "setTrun")
+        if (battleState == BattlePhase.SetTurn)
         {
-            if (symbol.transform.localPosition.y < 130)
+            if (!BattleEngine.IsGaugeFull(symbol.transform.localPosition.y))
             {
-                bool turnStart;
-                symbol.transform.localPosition = new Vector2(symbol.transform.localPosition.x, BattleEngine.StepGauge(symbol.transform.localPosition.y, dex, Target == "Player", out turnStart));
+                symbol.transform.localPosition = new Vector2(symbol.transform.localPosition.x, BattleEngine.StepGauge(symbol.transform.localPosition.y, dex, isPlayer));
             }
             else
             {
                 SoundManager.Instance.SetTrunSoundPlay();
-                symbol.transform.localPosition = new Vector2(symbol.transform.localPosition.x, -130);
-                battleState = Target + "Trun";
+                symbol.transform.localPosition = new Vector2(symbol.transform.localPosition.x, BattleEngine.GaugeReset);
+                battleState = isPlayer ? BattlePhase.PlayerTurn : BattlePhase.EnemyTurn;
+                _actingEnemy = enemyIndex;
 
-                if (Target == "Player")
+                if (isPlayer)
                 {
                     roundText.text = "Player Trun";
                 }
@@ -293,32 +319,12 @@ public class BattleManager : MonoBehaviour
     }
     public void StateChecker()
     {
-        if (battleState == "DeepOneHybrid1Trun")
+        if (battleState == BattlePhase.EnemyTurn)
         {
-            battleState = "DeepOneHybrid1Attack";
+            battleState = BattlePhase.EnemyAttack;
             Invoke("EnemySetAction", 1);
         }
-        if (battleState == "DeepOneHybrid2Trun")
-        {
-            battleState = "DeepOneHybrid2Attack";
-            Invoke("EnemySetAction", 1);
-        }
-        if (battleState == "DeepOneHybrid3Trun")
-        {
-            battleState = "DeepOneHybrid3Attack";
-            Invoke("EnemySetAction", 1);
-        }
-        if (battleState == "DeepOneHybrid4Trun")
-        {
-            battleState = "DeepOneHybrid4Attack";
-            Invoke("EnemySetAction", 1);
-        }
-        if (battleState == "DeepOne1Trun")
-        {
-            battleState = "DeepOne1Attack";
-            Invoke("EnemySetAction", 1);
-        }
-        if (battleState == "PlayerTrun")
+        if (battleState == BattlePhase.PlayerTurn)
         {
             if (DataBaseManager.posionDebuff > 0)
             {
@@ -326,7 +332,7 @@ public class BattleManager : MonoBehaviour
                 OnDamageObject("player", BattleDamage.Poison.Roll(UnityRng.Instance));
             }
             BattleItemManager.Instance.ManageItem();
-            battleState = "PlayerChoice";
+            battleState = BattlePhase.PlayerChoice;
             Invoke("PlayerSetAction", 1);
         }
     }
@@ -340,14 +346,14 @@ public class BattleManager : MonoBehaviour
         SoundManager.Instance.ClickSoundPlay();
         enemySelectUI.SetActive(false);
         playerAttackUi.SetActive(false);
-        battleState = "PlayerChoice";
+        battleState = BattlePhase.PlayerChoice;
         playerActionUi.SetActive(true);
     }
     public void PlayerSetAttack()
     {
         SoundManager.Instance.ClickSoundPlay();
         playerActionUi.SetActive(false);
-        battleState = "PlayerAttack";
+        battleState = BattlePhase.PlayerAttack;
         playerAttackUi.SetActive(true);
     }
     public void PlayerSetSwords()
@@ -555,24 +561,19 @@ public class BattleManager : MonoBehaviour
         SoundManager.Instance.ClickSoundPlay();
         enemyCount = 0;
         runAwayObject.SetActive(true);
-        if (enemyTrunSymbol1.activeSelf == true)
+        for (int i = 0; i < _enemySymbols.Length; i++)
         {
-            enemyCount += 1;
-        }
-        if (enemyTrunSymbol2.activeSelf == true)
-        {
-            enemyCount += 1;
-        }
-        if (enemyTrunSymbol3.activeSelf == true)
-        {
-            enemyCount += 1;
+            if (_enemySymbols[i].activeSelf == true)
+            {
+                enemyCount += 1;
+            }
         }
         runAwayText.text = "Attempt to Runaway. You are penalized by the number of enemies.\n\nDex(" + DataBaseManager.dex + ") / " + enemyCount + " = " + DataBaseManager.dex / enemyCount;
     }
     public void RunYes()
     {
         SoundManager.Instance.ClickSoundPlay();
-        BattleRollet.Instance.SetBattleRollet("Fabian : Runaway", "DEX / " + enemyCount, DataBaseManager.dex / enemyCount, "RunAway", "DeepOneHybrid", "??? : Hold", "Dex", deepOneHybrid1.Dex);
+        BattleRollet.Instance.SetBattleRollet("Fabian : Runaway", "DEX / " + enemyCount, DataBaseManager.dex / enemyCount, "RunAway", "DeepOneHybrid", "??? : Hold", "Dex", _enemies[SlotHybrid1].Dex);
         runAwayObject.SetActive(false);
     }
     public void RunNo()
@@ -582,34 +583,31 @@ public class BattleManager : MonoBehaviour
     }
     void EnemySetAction()
     {
-        // 추후 이곳에 적의 행동 요령을 통해 어떤식으로 작동하는지 써둬야 할듯
+        // 행동 종류는 슬롯 Def 의 IntentWeights/UsesDeftness 데이터가 정한다(BattleEngine.ChooseIntent).
         roundGameObject.SetActive(false);
-        if (battleState == "DeepOneHybrid3Attack")
+        EnemyDef def = _enemies[_actingEnemy].Def;
+        EnemyIntent intent = BattleEngine.ChooseIntent(def, UnityRng.Instance);
+        if (intent == EnemyIntent.Deftness)
         {
             OpenRoundObject("An enemy tries to attack you with a Deftness.");
             Invoke("EnemyAttackWithDeftness", 1.5f);
         }
-        else if (battleState == "DeepOne1Attack")
+        else if (intent == EnemyIntent.SanAttack) // 이성 공격
         {
-            // 심해인 공격
-            EnemyIntent intent = BattleEngine.ChooseIntent(EnemyDefs.DeepOne1, UnityRng.Instance);
-            if (intent == EnemyIntent.SanAttack) // 이성 공격
-            {
-                OpenRoundObject("An enemy tries to initiate suspicious behavior.");
-                Invoke("DeepOneSanAttack", 1.5f);
-            }
-            else if (intent == EnemyIntent.PoisonAttack) // 독 도트 공격
-            {
-                OpenRoundObject("An enemy tries to initiate suspicious behavior.");
-                Invoke("DeepOnePosionAttack", 1.5f);
-            }
-            else // 일반 공격
-            {
-                OpenRoundObject("An enemy tries to attack you with a Swordsmanship.");
-                playerChoiceUi.SetActive(true);
-            }
+            OpenRoundObject("An enemy tries to initiate suspicious behavior.");
+            Invoke("DeepOneSanAttack", 1.5f);
         }
-        else
+        else if (intent == EnemyIntent.PoisonAttack) // 독 도트 공격
+        {
+            OpenRoundObject("An enemy tries to initiate suspicious behavior.");
+            Invoke("DeepOnePosionAttack", 1.5f);
+        }
+        else if (def.Kind == EnemyKind.DeepOne) // 일반 공격(심해인)
+        {
+            OpenRoundObject("An enemy tries to attack you with a Swordsmanship.");
+            playerChoiceUi.SetActive(true);
+        }
+        else // 일반 공격(혼혈)
         {
             OpenRoundObject("An enemy tries to attack you with a MartialArt.");
             playerChoiceUi.SetActive(true);
@@ -641,85 +639,53 @@ public class BattleManager : MonoBehaviour
     }
     public void DeepOnePosionAttack()
     {
-        Rollet.Instance.SetRollet("??? : Deftness", "Deftness", deepOne1.Dex, "DeepOneDeftness", "DeepOne");
+        Rollet.Instance.SetRollet("??? : Deftness", "Deftness", _enemies[SlotDeepOne1].Dex, "DeepOneDeftness", "DeepOne");
     }
     public void EnemyAttackWithDeftness()
     {
-        Rollet.Instance.SetRollet("??? : Deftness", "Deftness", deepOneHybrid3.Dex, "EnemyDeftness", "DeepOneHybrid");
+        Rollet.Instance.SetRollet("??? : Deftness", "Deftness", _enemies[SlotHybrid3].Dex, "EnemyDeftness", "DeepOneHybrid");
     }
     public void ChoiceEvasion()
     {
         playerAction = "evasion";
-        if (battleState == "DeepOneHybrid1Attack")
+        if (battleState == BattlePhase.EnemyAttack)
         {
             playerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid1.MartialArts);
-        }
-        if (battleState == "DeepOneHybrid2Attack")
-        {
-            playerChoiceUi.SetActive(false);
-            CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid2.MartialArts);
-        }
-        if (battleState == "DeepOneHybrid3Attack")
-        {
-            playerChoiceUi.SetActive(false);
-            CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid3.MartialArts);
-        }
-        if (battleState == "DeepOneHybrid4Attack")
-        {
-            playerChoiceUi.SetActive(false);
-            CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid4.MartialArts);
-        }
-        if (battleState == "DeepOne1Attack")
-        {
-            playerChoiceUi.SetActive(false);
-            CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", "DeepOne", "??? : Poking", "SwordsManship", deepOne1.Swordsmanship);
+            EnemyState e = _enemies[_actingEnemy];
+            if (e.Def.Kind == EnemyKind.DeepOne)
+            {
+                BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", KindName(e.Def), "??? : Poking", "SwordsManship", e.Swordsmanship);
+            }
+            else
+            {
+                BattleRollet.Instance.SetBattleRollet("Fabian : Evasion", "Evasion", DataBaseManager.evasionPoint, "evasion", KindName(e.Def), "??? : MartialArt", "MartialArt", e.MartialArts);
+            }
         }
     }
     public void ChoiceCounterAttack()
     {
         playerAction = "counterattack";
-        if (battleState == "DeepOneHybrid1Attack")
+        if (battleState == BattlePhase.EnemyAttack)
         {
             playerChoiceUi.SetActive(false);
             CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid1.MartialArts);
-        }
-        if (battleState == "DeepOneHybrid2Attack")
-        {
-            playerChoiceUi.SetActive(false);
-            CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid2.MartialArts);
-        }
-        if (battleState == "DeepOneHybrid3Attack")
-        {
-            playerChoiceUi.SetActive(false);
-            CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid3.MartialArts);
-        }
-        if (battleState == "DeepOneHybrid4Attack")
-        {
-            playerChoiceUi.SetActive(false);
-            CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOneHybrid", "??? : MartialArt", "MartialArt", deepOneHybrid4.MartialArts);
-        }
-        if (battleState == "DeepOne1Attack")
-        {
-            playerChoiceUi.SetActive(false);
-            CloseRoundObject();
-            BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", "DeepOne", "??? : Poking", "SwordsManship", deepOne1.Swordsmanship);
+            EnemyState e = _enemies[_actingEnemy];
+            if (e.Def.Kind == EnemyKind.DeepOne)
+            {
+                BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", KindName(e.Def), "??? : Poking", "SwordsManship", e.Swordsmanship);
+            }
+            else
+            {
+                BattleRollet.Instance.SetBattleRollet("Fabian : CounterAttack", "MartialArt", DataBaseManager.martialArtsPoint, "counterattack", KindName(e.Def), "??? : MartialArt", "MartialArt", e.MartialArts);
+            }
         }
     }
     public void RetrunRolletResult(string PlayerAction, string Success, string Enemy)
     {
         if (PlayerAction == "evasion")
         {
-            if (battleState == "DeepOneHybrid1Attack")
+            if (IsEnemyAttack(SlotHybrid1))
             {
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = deepOneHybrid1Ob.transform.position;
@@ -752,7 +718,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
+                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid1].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOShakePosition(1, 2, 90))
@@ -767,7 +733,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
             }
-            else if (battleState == "DeepOneHybrid2Attack")
+            else if (IsEnemyAttack(SlotHybrid2))
             {
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = deepOneHybrid2Ob.transform.position;
@@ -800,7 +766,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
+                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid2].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -817,7 +783,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
             }
-            else if (battleState == "DeepOneHybrid3Attack")
+            else if (IsEnemyAttack(SlotHybrid3))
             {
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = deepOneHybrid3Ob.transform.position;
@@ -851,7 +817,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
+                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid3].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOShakePosition(1, 2, 90))
@@ -866,7 +832,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
             }
-            else if (battleState == "DeepOneHybrid4Attack")
+            else if (IsEnemyAttack(SlotHybrid4))
             {
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = deepOneHybrid4Ob.transform.position;
@@ -899,7 +865,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
-                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
+                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid4].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOShakePosition(1, 2, 90))
@@ -915,7 +881,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
             }
-            else if (battleState == "DeepOne1Attack")
+            else if (IsEnemyAttack(SlotDeepOne1))
             {
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = deepOne1Ob.transform.position;
@@ -947,7 +913,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit2D3.Roll(UnityRng.Instance)))
+                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotDeepOne1].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -967,7 +933,7 @@ public class BattleManager : MonoBehaviour
         }
         if (PlayerAction == "counterattack")
         {
-            if (battleState == "DeepOneHybrid1Attack")
+            if (IsEnemyAttack(SlotHybrid1))
             {
                 Vector3 playerOrigin = player.transform.position;
                 BattleCameraMove.Instance.ZoomMidle();
@@ -1008,7 +974,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
+                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid1].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOShakePosition(1, 2, 90))
@@ -1023,7 +989,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
             }
-            else if (battleState == "DeepOneHybrid2Attack")
+            else if (IsEnemyAttack(SlotHybrid2))
             {
                 Vector3 playerOrigin = player.transform.position;
                 BattleCameraMove.Instance.ZoomDown();
@@ -1064,7 +1030,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
+                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid2].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1081,7 +1047,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
             }
-            else if (battleState == "DeepOneHybrid3Attack")
+            else if (IsEnemyAttack(SlotHybrid3))
             {
                 Vector3 playerOrigin = player.transform.position;
                 BattleCameraMove.Instance.ZoomUp();
@@ -1122,7 +1088,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
+                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid3].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOShakePosition(1, 2, 90))
@@ -1137,7 +1103,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
             }
-            else if (battleState == "DeepOneHybrid4Attack")
+            else if (IsEnemyAttack(SlotHybrid4))
             {
                 Vector3 playerOrigin = player.transform.position;
                 BattleCameraMove.Instance.ZoomUp();
@@ -1178,7 +1144,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
-                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
+                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid4].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
                     .Join(player.transform.DOShakePosition(1, 2, 90))
@@ -1194,7 +1160,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
             }
-            else if (battleState == "DeepOne1Attack")
+            else if (IsEnemyAttack(SlotDeepOne1))
             {
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = deepOne1Ob.transform.position;
@@ -1234,7 +1200,7 @@ public class BattleManager : MonoBehaviour
                     Sequence sequence = DOTween.Sequence()
                     .Append(obj.transform.DOMove(new Vector3(player.transform.position.x + 2.5f, player.transform.position.y - 0.2f, -1), 0.5f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit2D3.Roll(UnityRng.Instance)))
+                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotDeepOne1].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1254,7 +1220,7 @@ public class BattleManager : MonoBehaviour
         }
         if (PlayerAction == "MA_attack_Counter")
         {
-            if (onPointerEnemy == "DeepOneHybrid1")
+            if (IsPointer(SlotHybrid1))
             {
                 BattleCameraMove.Instance.ZoomMidle();
                 Vector3 enemyOrigin = deepOneHybrid1Ob.transform.position;
@@ -1292,7 +1258,7 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => deepOneHybrid1SC.DeepOneHybridPunchChange())
                     .Append(obj.transform.DOMove(new Vector3(deepOneHybrid1Ob.transform.position.x - 2f, deepOneHybrid1Ob.transform.position.y, -2), 0.2f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
+                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid1].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .AppendCallback(() => CamRotate(-5))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1307,7 +1273,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
             }
-            else if (onPointerEnemy == "DeepOneHybrid2")
+            else if (IsPointer(SlotHybrid2))
             {
                 BattleCameraMove.Instance.ZoomDown();
                 Vector3 enemyOrigin = deepOneHybrid2Ob.transform.position;
@@ -1346,7 +1312,7 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => deepOneHybrid2SC.DeepOneHybridPunchChange())
                     .Append(obj.transform.DOMove(new Vector3(deepOneHybrid2Ob.transform.position.x - 2f, deepOneHybrid2Ob.transform.position.y, -2), 0.2f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
+                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid2].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .AppendCallback(() => CamRotate(-5))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1362,7 +1328,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
             }
-            else if (onPointerEnemy == "DeepOneHybrid3")
+            else if (IsPointer(SlotHybrid3))
             {
                 BattleCameraMove.Instance.ZoomUp();
                 Vector3 enemyOrigin = deepOneHybrid3Ob.transform.position;
@@ -1400,7 +1366,7 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => deepOneHybrid3SC.DeepOneHybridPunchChange())
                     .Append(obj.transform.DOMove(new Vector3(deepOneHybrid3Ob.transform.position.x - 2f, deepOneHybrid3Ob.transform.position.y, -2), 0.2f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
+                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid3].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .AppendCallback(() => CamRotate(-5))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1415,7 +1381,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
             }
-            else if (onPointerEnemy == "DeepOneHybrid4")
+            else if (IsPointer(SlotHybrid4))
             {
                 BattleCameraMove.Instance.ZoomUp();
                 Vector3 enemyOrigin = deepOneHybrid4Ob.transform.position;
@@ -1454,7 +1420,7 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => deepOneHybrid4SC.DeepOneHybridPunchChange())
                     .Append(obj.transform.DOMove(new Vector3(deepOneHybrid4Ob.transform.position.x - 2f, deepOneHybrid4Ob.transform.position.y, -2), 0.2f))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
-                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
+                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid4].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .AppendCallback(() => CamRotate(-1))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1471,7 +1437,7 @@ public class BattleManager : MonoBehaviour
                     .Join(obj.transform.DOMove(enemyOrigin, 0.5f));
                 }
             }
-            else if (onPointerEnemy == "DeepOne1")
+            else if (IsPointer(SlotDeepOne1))
             {
                 Vector3 enemyOrigin = deepOne1Ob.transform.position;
                 GameObject obj = deepOne1Ob;
@@ -1509,7 +1475,7 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => deepOne1SC.DeepOneHybridPunchChange())
                     .Append(obj.transform.DOMove(new Vector3(deepOne1Ob.transform.position.x - 2f, deepOne1Ob.transform.position.y, -2), 0.2f))
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                    .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit2D3.Roll(UnityRng.Instance)))
+                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotDeepOne1].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .AppendCallback(() => CamRotate(-1))
                     .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1529,7 +1495,7 @@ public class BattleManager : MonoBehaviour
         }
         if (PlayerAction == "SS_attack_Counter")
         {
-            if (onPointerEnemy == "DeepOneHybrid1")
+            if (IsPointer(SlotHybrid1))
             {
                 BattleCameraMove.Instance.ZoomMidle();
                 Vector3 enemyOrigin = deepOneHybrid1Ob.transform.position;
@@ -1631,7 +1597,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid1SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid1Ob.transform.position.x - 2f, deepOneHybrid1Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
+                   .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid1].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1654,7 +1620,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid1SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid1Ob.transform.position.x - 2f, deepOneHybrid1Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
+                   .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid1].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1677,7 +1643,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid1SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid1Ob.transform.position.x - 2f, deepOneHybrid1Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
+                   .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid1].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1693,7 +1659,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
-            else if (onPointerEnemy == "DeepOneHybrid2")
+            else if (IsPointer(SlotHybrid2))
             {
                 BattleCameraMove.Instance.ZoomDown();
                 Vector3 enemyOrigin = deepOneHybrid2Ob.transform.position;
@@ -1795,7 +1761,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid2SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid2Ob.transform.position.x - 2f, deepOneHybrid2Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
+                   .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid2].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1819,7 +1785,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid2SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid2Ob.transform.position.x - 2f, deepOneHybrid2Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
+                   .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid2].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1843,7 +1809,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid2SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid2Ob.transform.position.x - 2f, deepOneHybrid2Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
+                   .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid2].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1860,7 +1826,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
-            else if (onPointerEnemy == "DeepOneHybrid3")
+            else if (IsPointer(SlotHybrid3))
             {
                 BattleCameraMove.Instance.ZoomUp();
                 Vector3 enemyOrigin = deepOneHybrid3Ob.transform.position;
@@ -1962,7 +1928,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid3SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid3Ob.transform.position.x - 2f, deepOneHybrid3Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
+                   .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid3].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -1985,7 +1951,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid3SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid3Ob.transform.position.x - 2f, deepOneHybrid3Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
+                   .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid3].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2008,7 +1974,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid3SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid3Ob.transform.position.x - 2f, deepOneHybrid3Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
+                   .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid3].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2024,7 +1990,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
-            else if (onPointerEnemy == "DeepOneHybrid4")
+            else if (IsPointer(SlotHybrid4))
             {
                 BattleCameraMove.Instance.ZoomUp();
                 Vector3 enemyOrigin = deepOneHybrid4Ob.transform.position;
@@ -2130,7 +2096,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid4SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid4Ob.transform.position.x - 2f, deepOneHybrid4Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => battlePlayer.PlayerHittedDagger())
-                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
+                   .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid4].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2155,7 +2121,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid4SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid4Ob.transform.position.x - 2f, deepOneHybrid4Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => battlePlayer.PlayerHittedDagger())
-                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
+                   .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid4].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2180,7 +2146,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOneHybrid4SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOneHybrid4Ob.transform.position.x - 2f, deepOneHybrid4Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => battlePlayer.PlayerHittedDagger())
-                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3Plus1.Roll(UnityRng.Instance)))
+                   .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid4].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2198,7 +2164,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
-            else if (onPointerEnemy == "DeepOne1")
+            else if (IsPointer(SlotDeepOne1))
             {
                 Vector3 enemyOrigin = deepOne1Ob.transform.position;
                 GameObject obj = deepOne1Ob;
@@ -2302,7 +2268,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOne1SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOne1Ob.transform.position.x - 2f, deepOne1Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit2D3.Roll(UnityRng.Instance)))
+                   .AppendCallback(() => OnDamageObject("player", _enemies[SlotDeepOne1].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2327,7 +2293,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOne1SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOne1Ob.transform.position.x - 2f, deepOne1Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit2D3.Roll(UnityRng.Instance)))
+                   .AppendCallback(() => OnDamageObject("player", _enemies[SlotDeepOne1].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2352,7 +2318,7 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => deepOne1SC.DeepOneHybridPunchChange())
                    .Append(obj.transform.DOMove(new Vector3(deepOne1Ob.transform.position.x - 2f, deepOne1Ob.transform.position.y, -2), 0.2f))
                    .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                   .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit2D3.Roll(UnityRng.Instance)))
+                   .AppendCallback(() => OnDamageObject("player", _enemies[SlotDeepOne1].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
                    .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -2373,7 +2339,7 @@ public class BattleManager : MonoBehaviour
         }
         if (PlayerAction == "MS_attack")
         {
-            if (onPointerEnemy == "DeepOneHybrid1")
+            if (IsPointer(SlotHybrid1))
             {
                 BattleCameraMove.Instance.ZoomMidle();
                 Vector3 enemyOrigin = deepOneHybrid1Ob.transform.position;
@@ -2548,7 +2514,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
-            else if (onPointerEnemy == "DeepOneHybrid2")
+            else if (IsPointer(SlotHybrid2))
             {
                 BattleCameraMove.Instance.ZoomDown();
                 Vector3 playerOrigin = player.transform.position;
@@ -2723,7 +2689,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
-            else if (onPointerEnemy == "DeepOneHybrid3")
+            else if (IsPointer(SlotHybrid3))
             {
                 BattleCameraMove.Instance.ZoomUp();
                 Vector3 playerOrigin = player.transform.position;
@@ -2897,7 +2863,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
-            else if (onPointerEnemy == "DeepOneHybrid4")
+            else if (IsPointer(SlotHybrid4))
             {
                 BattleCameraMove.Instance.ZoomUp();
                 Vector3 playerOrigin = player.transform.position;
@@ -3080,7 +3046,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
-            else if (onPointerEnemy == "DeepOne1")
+            else if (IsPointer(SlotDeepOne1))
             {
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = deepOne1Ob.transform.position;
@@ -3265,7 +3231,7 @@ public class BattleManager : MonoBehaviour
         }
         if (PlayerAction == "Deftness_attack")
         {
-            if (onPointerEnemy == "DeepOneHybrid1")
+            if (IsPointer(SlotHybrid1))
             {
                 BattleCameraMove.Instance.ZoomMidle();
                 Vector3 playerOrigin = player.transform.position;
@@ -3358,7 +3324,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
-            else if (onPointerEnemy == "DeepOneHybrid2")
+            else if (IsPointer(SlotHybrid2))
             {
                 BattleCameraMove.Instance.ZoomDown();
                 Vector3 playerOrigin = player.transform.position;
@@ -3452,7 +3418,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
-            else if (onPointerEnemy == "DeepOneHybrid3")
+            else if (IsPointer(SlotHybrid3))
             {
                 BattleCameraMove.Instance.ZoomUp();
                 Vector3 playerOrigin = player.transform.position;
@@ -3545,7 +3511,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
-            else if (onPointerEnemy == "DeepOneHybrid4")
+            else if (IsPointer(SlotHybrid4))
             {
                 BattleCameraMove.Instance.ZoomUp();
                 Vector3 playerOrigin = player.transform.position;
@@ -3642,7 +3608,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
-            else if (onPointerEnemy == "DeepOne1")
+            else if (IsPointer(SlotDeepOne1))
             {
                 Vector3 playerOrigin = player.transform.position;
                 Vector3 enemyOrigin = deepOne1Ob.transform.position;
@@ -3754,7 +3720,7 @@ public class BattleManager : MonoBehaviour
                 // 연출 삽입
                 Sequence sequence = DOTween.Sequence()
                 .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
-                .AppendCallback(() => OnDamageObject("player", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
+                .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid3].Def.AttackDamage.Roll(UnityRng.Instance)))
                 .AppendCallback(() => battlePlayer.PlayerHittedRock())
                 .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                 .Join(cam.transform.DOShakePosition(1, 2, 90))
@@ -3833,30 +3799,11 @@ public class BattleManager : MonoBehaviour
     }
     void OnDamageObject(string subject, int damage, string Weapon = "")
     {
-        if (subject == "DeepOneHybrid1")
+        int enemyIndex = EnemyDefs.IndexOf(subject);
+        if (enemyIndex >= 0)
         {
-            deepOneHybrid1.TakeDamage(damage);
-            DamageNumber damageNumber = numberPrefab.Spawn(deepOneHybrid1Ob.transform.position, damage);
-        }
-        if (subject == "DeepOneHybrid2")
-        {
-            deepOneHybrid2.TakeDamage(damage);
-            DamageNumber damageNumber = numberPrefab.Spawn(deepOneHybrid2Ob.transform.position, damage);
-        }
-        if (subject == "DeepOneHybrid3")
-        {
-            deepOneHybrid3.TakeDamage(damage);
-            DamageNumber damageNumber = numberPrefab.Spawn(deepOneHybrid3Ob.transform.position, damage);
-        }
-        if (subject == "DeepOneHybrid4")
-        {
-            deepOneHybrid4.TakeDamage(damage);
-            DamageNumber damageNumber = numberPrefab.Spawn(deepOneHybrid4Ob.transform.position, damage);
-        }
-        if (subject == "DeepOne1")
-        {
-            deepOne1.TakeDamage(damage);
-            DamageNumber damageNumber = numberPrefab.Spawn(deepOne1Ob.transform.position, damage);
+            _enemies[enemyIndex].TakeDamage(damage);
+            DamageNumber damageNumber = numberPrefab.Spawn(_enemyObs[enemyIndex].transform.position, damage);
         }
         if (subject == "player")
         {
@@ -3881,35 +3828,14 @@ public class BattleManager : MonoBehaviour
     }
     void EnemyHealthCheck()
     {
-        if (deepOneHybrid1.IsDead && battleState == "setTrun")
+        for (int i = 0; i < _enemies.Length; i++)
         {
-            deepOneHybrid1Ob.SetActive(false);
-            enemyTrunSymbol1.SetActive(false);
-            DataBaseManager.enemyDeathCount += 1;
-        }
-        if (deepOneHybrid2.IsDead && battleState == "setTrun")
-        {
-            deepOneHybrid2Ob.SetActive(false);
-            enemyTrunSymbol2.SetActive(false);
-            DataBaseManager.enemyDeathCount += 1;
-        }
-        if (deepOneHybrid3.IsDead && battleState == "setTrun")
-        {
-            deepOneHybrid3Ob.SetActive(false);
-            enemyTrunSymbol3.SetActive(false);
-            DataBaseManager.enemyDeathCount += 1;
-        }
-        if (deepOneHybrid4.IsDead && battleState == "setTrun")
-        {
-            deepOneHybrid4Ob.SetActive(false);
-            enemyTrunSymbol1.SetActive(false);
-            DataBaseManager.enemyDeathCount += 1;
-        }
-        if (deepOne1.IsDead && battleState == "setTrun")
-        {
-            deepOne1Ob.SetActive(false);
-            enemyTrunSymbol2.SetActive(false);
-            DataBaseManager.enemyDeathCount += 1;
+            if (_enemies[i].IsDead && battleState == BattlePhase.SetTurn)
+            {
+                _enemyObs[i].SetActive(false);
+                _enemySymbols[SymbolSlotOf(i)].SetActive(false);
+                DataBaseManager.enemyDeathCount += 1;
+            }
         }
     }
     public void CloseRoundObject()
@@ -3929,7 +3855,7 @@ public class BattleManager : MonoBehaviour
         onPointerEnemy = "";
         playerAction = "";
         selectEnemy = "";
-        battleState = "setTrun";
+        battleState = BattlePhase.SetTurn;
         fDestroyTime = 0.01f;
         BattleCameraMove.Instance.ResetCam();
 
@@ -3954,7 +3880,7 @@ public class BattleManager : MonoBehaviour
         playerActionUi.SetActive(false);
         playerAttackUi.SetActive(false);
         playerMAUI.SetActive(true);
-        battleState = "selectEnemy";
+        battleState = BattlePhase.SelectEnemy;
         playerAction = action;
     }
 
@@ -3965,104 +3891,48 @@ public class BattleManager : MonoBehaviour
         enemySelectUI.SetActive(false);
         playerAttackUi.SetActive(true);
         playerMAUI.SetActive(false);
-        battleState = "PlayerAttack";
+        battleState = BattlePhase.PlayerAttack;
     }
     public void SetEnemy(string enemy)
     {
         enemySelectUI.SetActive(false);
-        if (enemy == "DeepOneHybrid1")
+        int slot = EnemyDefs.IndexOf(enemy);
+        if (slot < 0)
         {
-            if (playerAction == "martialarts")
-            {
-                maBackButton.SetActive(false);
-                playerMAUI.SetActive(false);
-                BattleManager.Instance.enemySelectUI.SetActive(false);
-                battleState = "Rollet";
-                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid1.MartialArts);
-            }
-            if (playerAction == "PlayerSwords")
-            {
-                playerSwordsUi.SetActive(false);
-                if (DataBaseManager.battleWeapon == "Dagger")
-                {
-                    battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid1.MartialArts);
-                }
-                if (DataBaseManager.battleWeapon == "Bat")
-                {
-                    battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid1.MartialArts);
-                }
-                if (DataBaseManager.battleWeapon == "Axe")
-                {
-                    battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid1.MartialArts);
-                }
-            }
-            if (playerAction == "PlayerMarkmen")
-            {
-                playerMarkmenUi.SetActive(false);
-                if (DataBaseManager.battleWeapon == "SmallPistol")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
-                }
-                if (DataBaseManager.battleWeapon == "Rifle")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
-                }
-                if (DataBaseManager.battleWeapon == "Revolver")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
-                }
-                if (DataBaseManager.battleWeapon == "Shotgun")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
-                }
-            }
-            if (playerAction == "PlayerDeftness")
-            {
-                playerDeftnessUi.SetActive(false);
-                if (DataBaseManager.battleWeapon == "Rock")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
-                }
-                if (DataBaseManager.battleWeapon == "Molotov")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
-                }
-
-            }
+            return;
         }
-        if (enemy == "DeepOneHybrid2")
+        EnemyState target = _enemies[slot];
+        string kind = KindName(target.Def);
         {
             if (playerAction == "martialarts")
             {
-                battleState = "Rollet";
-                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid2.MartialArts);
+                if (slot == SlotHybrid1)
+                {
+                    // 옛 코드는 혼혈1 만 여기서 무술 UI 를 닫았다(동치 유지).
+                    maBackButton.SetActive(false);
+                    playerMAUI.SetActive(false);
+                    BattleManager.Instance.enemySelectUI.SetActive(false);
+                }
+                battleState = BattlePhase.Rollet;
+                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", kind, "??? : CounterAttack", "CounterAttack", target.MartialArts);
             }
             if (playerAction == "PlayerSwords")
             {
                 playerSwordsUi.SetActive(false);
                 if (DataBaseManager.battleWeapon == "Dagger")
                 {
-                    battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid2.MartialArts);
+                    battleState = BattlePhase.Rollet;
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", kind, "??? : CounterAttack", "CounterAttack", target.MartialArts);
                 }
                 if (DataBaseManager.battleWeapon == "Bat")
                 {
-                    battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid2.MartialArts);
+                    battleState = BattlePhase.Rollet;
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", kind, "??? : CounterAttack", "CounterAttack", target.MartialArts);
                 }
                 if (DataBaseManager.battleWeapon == "Axe")
                 {
-                    battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid2.MartialArts);
+                    battleState = BattlePhase.Rollet;
+                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", kind, "??? : CounterAttack", "CounterAttack", target.MartialArts);
                 }
             }
             if (playerAction == "PlayerMarkmen")
@@ -4070,23 +3940,23 @@ public class BattleManager : MonoBehaviour
                 playerMarkmenUi.SetActive(false);
                 if (DataBaseManager.battleWeapon == "SmallPistol")
                 {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
+                    battleState = BattlePhase.Rollet;
+                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", kind);
                 }
                 if (DataBaseManager.battleWeapon == "Rifle")
                 {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
+                    battleState = BattlePhase.Rollet;
+                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", kind);
                 }
                 if (DataBaseManager.battleWeapon == "Revolver")
                 {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
+                    battleState = BattlePhase.Rollet;
+                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", kind);
                 }
                 if (DataBaseManager.battleWeapon == "Shotgun")
                 {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
+                    battleState = BattlePhase.Rollet;
+                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", kind);
                 }
             }
             if (playerAction == "PlayerDeftness")
@@ -4094,214 +3964,17 @@ public class BattleManager : MonoBehaviour
                 playerDeftnessUi.SetActive(false);
                 if (DataBaseManager.battleWeapon == "Rock")
                 {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
+                    battleState = BattlePhase.Rollet;
+                    Rollet.Instance.SetRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", kind);
                 }
                 if (DataBaseManager.battleWeapon == "Molotov")
                 {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
-                }
-            }
-        }
-        if (enemy == "DeepOneHybrid3")
-        {
-            if (playerAction == "martialarts")
-            {
-                battleState = "Rollet";
-                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid3.MartialArts);
-            }
-            if (playerAction == "PlayerSwords")
-            {
-                playerSwordsUi.SetActive(false);
-                if (DataBaseManager.battleWeapon == "Dagger")
-                {
-                    battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid3.MartialArts);
-                }
-                if (DataBaseManager.battleWeapon == "Bat")
-                {
-                    battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid3.MartialArts);
-                }
-                if (DataBaseManager.battleWeapon == "Axe")
-                {
-                    battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid3.MartialArts);
-                }
-            }
-            if (playerAction == "PlayerMarkmen")
-            {
-                playerMarkmenUi.SetActive(false);
-                if (DataBaseManager.battleWeapon == "SmallPistol")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
-                }
-                if (DataBaseManager.battleWeapon == "Rifle")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
-                }
-                if (DataBaseManager.battleWeapon == "Revolver")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
-                }
-                if (DataBaseManager.battleWeapon == "Shotgun")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
-                }
-            }
-            if (playerAction == "PlayerDeftness")
-            {
-                playerDeftnessUi.SetActive(false);
-                if (DataBaseManager.battleWeapon == "Rock")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
-                }
-                if (DataBaseManager.battleWeapon == "Molotov")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
+                    battleState = BattlePhase.Rollet;
+                    Rollet.Instance.SetRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", kind);
                 }
 
             }
-        }
-        if (enemy == "DeepOneHybrid4")
-        {
-            if (playerAction == "martialarts")
-            {
-                battleState = "Rollet";
-                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid4.MartialArts);
-            }
-            if (playerAction == "PlayerSwords")
-            {
-                playerSwordsUi.SetActive(false);
-                if (DataBaseManager.battleWeapon == "Dagger")
-                {
-                    battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid4.MartialArts);
-                }
-                if (DataBaseManager.battleWeapon == "Bat")
-                {
-                    battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid4.MartialArts);
-                }
-                if (DataBaseManager.battleWeapon == "Axe")
-                {
-                    battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOneHybrid", "??? : CounterAttack", "CounterAttack", deepOneHybrid4.MartialArts);
-                }
-            }
-            if (playerAction == "PlayerMarkmen")
-            {
-                playerMarkmenUi.SetActive(false);
-                if (DataBaseManager.battleWeapon == "SmallPistol")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
-                }
-                if (DataBaseManager.battleWeapon == "Rifle")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
-                }
-                if (DataBaseManager.battleWeapon == "Revolver")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
-                }
-                if (DataBaseManager.battleWeapon == "Shotgun")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOneHybrid");
-                }
-            }
-            if (playerAction == "PlayerDeftness")
-            {
-                playerDeftnessUi.SetActive(false);
-                if (DataBaseManager.battleWeapon == "Rock")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
-                }
-                if (DataBaseManager.battleWeapon == "Molotov")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOneHybrid");
-                }
-
-            }
-        }
-
-
-        if (enemy == "DeepOne1")
-        {
-            if (playerAction == "martialarts")
-            {
-                battleState = "Rollet";
-                BattleRollet.Instance.SetBattleRollet("Fabian : Punching", "martialArtsPoint", DataBaseManager.martialArtsPoint, "MA_attack_Counter", "DeepOne", "??? : CounterAttack", "CounterAttack", deepOne1.MartialArts);
-            }
-            if (playerAction == "PlayerSwords")
-            {
-                playerSwordsUi.SetActive(false);
-                if (DataBaseManager.battleWeapon == "Dagger")
-                {
-                    battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Stab", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOne", "??? : CounterAttack", "CounterAttack", deepOne1.MartialArts);
-                }
-                if (DataBaseManager.battleWeapon == "Bat")
-                {
-                    battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOne", "??? : CounterAttack", "CounterAttack", deepOne1.MartialArts);
-                }
-                if (DataBaseManager.battleWeapon == "Axe")
-                {
-                    battleState = "Rollet";
-                    BattleRollet.Instance.SetBattleRollet("Fabian : Strike", "swordPoint", DataBaseManager.swordPoint, "SS_attack_Counter", "DeepOne", "??? : CounterAttack", "CounterAttack", deepOne1.MartialArts);
-                }
-            }
-            if (playerAction == "PlayerMarkmen")
-            {
-                playerMarkmenUi.SetActive(false);
-                if (DataBaseManager.battleWeapon == "SmallPistol")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOne");
-                }
-                if (DataBaseManager.battleWeapon == "Rifle")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOne");
-                }
-                if (DataBaseManager.battleWeapon == "Revolver")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOne");
-                }
-                if (DataBaseManager.battleWeapon == "Shotgun")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Shot", "MarkmenshipPoint", DataBaseManager.gunShotPoint, "MS_attack", "DeepOne");
-                }
-            }
-            if (playerAction == "PlayerDeftness")
-            {
-                playerDeftnessUi.SetActive(false);
-                if (DataBaseManager.battleWeapon == "Rock")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOne");
-                }
-                if (DataBaseManager.battleWeapon == "Molotov")
-                {
-                    battleState = "Rollet";
-                    Rollet.Instance.SetRollet("Fabian : Throw", "DeftnessPoint", DataBaseManager.deftnessPoint, "Deftness_attack", "DeepOne");
-                }
-            }
+        
         }
     }
 }

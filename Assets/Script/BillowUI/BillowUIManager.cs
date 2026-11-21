@@ -35,7 +35,7 @@ public class BillowUIManager : MonoBehaviour
     {
         if (DataBaseManager.hp == 0)
         {
-            Invoke("ResetMHP", 1);
+            Invoke("ResetMHp", 1);
         }
         else
         {

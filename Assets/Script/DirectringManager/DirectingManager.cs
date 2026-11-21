@@ -1,3 +1,4 @@
+using SCoW.Core.Rules;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -851,7 +852,7 @@ public class DirectingManager : MonoBehaviour
     public void EndBattleInvoke()
     {
         BattleManager.Instance.startBattle = false;
-        BattleManager.Instance.battleState = "setTrun";
+        BattleManager.Instance.battleState = BattlePhase.SetTurn;
         enemyTrunSymbol1.transform.localPosition = new Vector2(enemyTrunSymbol1.transform.localPosition.x, -130);
         enemyTrunSymbol2.transform.localPosition = new Vector2(enemyTrunSymbol1.transform.localPosition.x, -130);
         enemyTrunSymbol3.transform.localPosition = new Vector2(enemyTrunSymbol1.transform.localPosition.x, -130);

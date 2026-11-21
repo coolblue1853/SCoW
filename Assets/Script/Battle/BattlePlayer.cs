@@ -1,3 +1,4 @@
+using SCoW.Core.Rules;
 using UnityEngine;
 public class BattlePlayer : MonoBehaviour
 {
@@ -62,7 +63,7 @@ public class BattlePlayer : MonoBehaviour
         {
             posionActive.SetActive(false);
         }
-        if ((BattleManager.Instance.battleState == "PlayerAttack" || BattleManager.Instance.battleState == "selectEnemy"))
+        if ((BattleManager.Instance.battleState == BattlePhase.PlayerAttack || BattleManager.Instance.battleState == BattlePhase.SelectEnemy))
         {
             if (BattleManager.Instance.playerAction == "PlayerSwords")
             {
@@ -70,21 +71,21 @@ public class BattlePlayer : MonoBehaviour
                 {
                     SoundManager.Instance.BattleSound("Dagger_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
-                    BattleManager.Instance.battleState = "selectEnemy";
+                    BattleManager.Instance.battleState = BattlePhase.SelectEnemy;
                     playerRender.sprite = daggerReady;
                 }
                 else if (DataBaseManager.battleWeapon == "Bat" && playerRender.sprite != batReady)
                 {
                     SoundManager.Instance.BattleSound("Bat_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
-                    BattleManager.Instance.battleState = "selectEnemy";
+                    BattleManager.Instance.battleState = BattlePhase.SelectEnemy;
                     playerRender.sprite = batReady;
                 }
                 else if (DataBaseManager.battleWeapon == "Axe" && playerRender.sprite != axeReady)
                 {
                     SoundManager.Instance.BattleSound("Axe_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
-                    BattleManager.Instance.battleState = "selectEnemy";
+                    BattleManager.Instance.battleState = BattlePhase.SelectEnemy;
                     playerRender.sprite = axeReady;
                 }
             }
@@ -94,28 +95,28 @@ public class BattlePlayer : MonoBehaviour
                 {
                     SoundManager.Instance.BattleSound("SmallPisol_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
-                    BattleManager.Instance.battleState = "selectEnemy";
+                    BattleManager.Instance.battleState = BattlePhase.SelectEnemy;
                     playerRender.sprite = smallPistolReady;
                 }
                 else if (DataBaseManager.battleWeapon == "Revolver" && playerRender.sprite != revolverReady && DataBaseManager.nowRevolver > 0)
                 {
                     SoundManager.Instance.BattleSound("Revolver_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
-                    BattleManager.Instance.battleState = "selectEnemy";
+                    BattleManager.Instance.battleState = BattlePhase.SelectEnemy;
                     playerRender.sprite = revolverReady;
                 }
                 else if (DataBaseManager.battleWeapon == "Rifle" && playerRender.sprite != rifleReady && DataBaseManager.nowRifle > 0)
                 {
                     SoundManager.Instance.BattleSound("Rifle_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
-                    BattleManager.Instance.battleState = "selectEnemy";
+                    BattleManager.Instance.battleState = BattlePhase.SelectEnemy;
                     playerRender.sprite = rifleReady;
                 }
                 else if (DataBaseManager.battleWeapon == "Shotgun" && playerRender.sprite != shotgunReady && DataBaseManager.nowShotgun > 0)
                 {
                     SoundManager.Instance.BattleSound("Shotgun_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
-                    BattleManager.Instance.battleState = "selectEnemy";
+                    BattleManager.Instance.battleState = BattlePhase.SelectEnemy;
                     playerRender.sprite = shotgunReady;
                 }
             }
@@ -125,14 +126,14 @@ public class BattlePlayer : MonoBehaviour
                 {
                     SoundManager.Instance.BattleSound("Rock_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
-                    BattleManager.Instance.battleState = "selectEnemy";
+                    BattleManager.Instance.battleState = BattlePhase.SelectEnemy;
                     playerRender.sprite = rockReady;
                 }
                 else if (DataBaseManager.battleWeapon == "Molotov" && playerRender.sprite != molotovReady && DataBaseManager.molotov > 0)
                 {
                     SoundManager.Instance.BattleSound("Molotov_Reddy");
                     BattleManager.Instance.enemySelectUI.SetActive(true);
-                    BattleManager.Instance.battleState = "selectEnemy";
+                    BattleManager.Instance.battleState = BattlePhase.SelectEnemy;
                     playerRender.sprite = molotovReady;
                 }
             }
