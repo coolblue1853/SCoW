@@ -308,7 +308,7 @@ namespace SCoW.Core.Rules {
 
 | 단계 | 내용 | 비용 | 선행 | 검증 기준 |
 |---|---|:-:|---|---|
-| PT-0 | 데이터·세이브 | S | 없음 | `CompanionDefs`(2명 고정값), `FlagKeys` 키, `party.*` 저장·로드 EditMode 테스트, 구세이브 로드 시 파티 없음·크래시 없음 |
+| PT-0 (완료 11-21) | 데이터·세이브 | S | 없음 | `CompanionDefs`(2명 고정값), `FlagKeys` 키, `party.*` 저장·로드 EditMode 테스트, 구세이브 로드 시 파티 없음·크래시 없음 |
 | PT-1 | **P14b-a**: `EnemyState[]`+`EnemyUnit`, enum `BattlePhase`, `IntentWeights`/`TargetWeights` 데이터화, `DeepOne1` 하드코딩 제거. **1:1 전투 외형·시드 로그 동치** | M | | 시드 고정 전투 로그가 리팩터 전후 같음, 하수도 전투·귀가길 전투 플레이 모드 확인 |
 | PT-2 | Core 파티: `PartyMember`/`BattleSlot`/`BattleField`/`BattleTimeline`, 위치 규칙, 쓰러짐·광기, 응급처치·진정 | L | PT-1 | EditMode: ①1v1 이 옛 `StepGauge` 와 같은 차례 순서 ②3v3 시드 로그 ③근접 사거리·교환 ④쓰러짐 카운트·Fallen·승/도주 사망 ⑤발작 판정(분포) |
 | PT-3 | 합류·이탈 스토리 연결(JSON·`WorldRules`): 알버트 합류 노드, 메이브 합류, NPC 자리 숨김, 키워드 대사 재사용, `Ending_Party*` 변주 | M | PT-0, 키워드 `Old route`(KEYWORD/C-2) | 플레이 모드: 3일차 경찰서에서 키워드 제시→합류→NPC 사라짐→키워드 사망 안 일어남. 엔딩 A 에서 `albertDead` 합집합 분기 검증(V-10 회귀 포함) |
@@ -346,3 +346,5 @@ namespace SCoW.Core.Rules {
 | V-P8 | 쓰러짐 | 카운트다운, 응급처치 성공 시 Stable, 승리 후 Recovering, 도주 시 사망 → 에필로그 변주 |
 | V-P9 | 마우스·키보드·패드 | 대상·행동·교환 3경로 모두 완주 |
 | V-P10 | 구세이브·ES3 | 새 키 없음 = 파티 없음, 저장→로드 후 파티 상태 동일 |
+
+- PT-0 구현 메모: 키는 자동생성 `FlagKeys.cs` 를 건드리지 않고 `Core/State/PartyState.cs` 의 `PartyKeys` 에 둔다. 합류 후의 HP 0 은 진짜 0(`Join` 이 최대값을 기록, 읽기는 `joined` 여부만 본다). `Join` 은 처음이면 `party.order` 에 `fabian` 을 먼저 넣는다.

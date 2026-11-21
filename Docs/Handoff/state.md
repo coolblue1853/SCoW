@@ -16,3 +16,4 @@
 - 사용자 플레이 확인 필요: 실제 키·마우스·패드 입력 전반(비포커스라 자동 확인 불가), 저장/불러오기, 백로그·스킵, 대사창 버튼 클릭. 미결: OpenQuestions Q1·Q3~Q5, Q-P0a/b.
 - 11-21 P13 완료·push(167dbe9): WorldBinder+WorldRules, 상태 변경 단일 통지, 0.5초 안전망(창문·사물함 canJudge 밤 복구 플레이 확인). EditMode 195. 다음 P14a(전투 엔진 Core) builder 진행 중.
 - 11-21 오후: P14a push(4bbac2e, 실전투 플레이 미검증 — MCP 8080 서버 다운). 기획 문서 push: Story·StoryImprove·KeywordUX·SewerImprove·Party·ArtStyle·AssetPlan·ArtInventory. 다음: MCP 복구 후 P14a 실전투 확인 → PT-0~(P14b 포함)·KEYWORD K1~·SEWER S0~·스토리 P0 수정. 질문 Q7~Q19·Q-K·Q-S·Q-ART 임시 가정으로 진행.
+- 11-21 저녁: P14a 실전투 플레이 확인(귀가길 하이브리드 적 처치까지·하수도 DeepOne1 다수 턴, 콘솔 error 0, 룰렛·피해 정상, 시드 동치는 EditMode). PT-0 구현: Core/Rules/CompanionDef.cs(CompanionDefs), Core/State/PartyState.cs(PartyKeys `party.*`·PartyState), PartyTests 9개. EditMode 216/216. SaveCodec·FlagKeys.cs(자동생성) 불변. 다음 PT-1(P14b-a).
