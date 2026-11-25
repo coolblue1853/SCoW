@@ -126,7 +126,21 @@ namespace SCoW.Core.Story
             return res;
         }
 
+        /// <summary>
+        /// 본문 참조를 줄 목록으로 푼다. 쉼표로 이어 쓰면 여러 구간을 차례로 붙인다(예: `파일:182,파일:416-417`).
+        /// 구간 사이에 CSV 줄이 이어져 있지 않아도 되므로, 기존 줄 사이에 새 줄(CSV 끝에 추가)을 끼울 수 있다(스토리 P0).
+        /// </summary>
         private static bool ExpandText(string text, Func<string, IList<StoryLine>> csv, List<StoryLineRef> output, List<string> errors)
+        {
+            string[] parts = text.Split(',');
+            for (int p = 0; p < parts.Length; p++)
+            {
+                if (!ExpandOne(parts[p], csv, output, errors)) { return false; }
+            }
+            return true;
+        }
+
+        private static bool ExpandOne(string text, Func<string, IList<StoryLine>> csv, List<StoryLineRef> output, List<string> errors)
         {
             string err;
             StoryTextRef t = StoryTextRef.Parse(text, out err);

@@ -18,7 +18,11 @@
     { "id": "Accept_AfterSelectYes", "cases": [ { "node": "Accept_AfterSelectYes" } ] },
     { "id": "Reject_Request", "cases": [ { "node": "Reject_Request" } ] },
     { "id": "Accept_AfterSelectNo", "cases": [ { "node": "Accept_AfterSelectNo" } ] },
-    { "id": "Fab_FirstDialog", "cases": [ { "node": "Fab_FirstDialog" } ] },
+    { "id": "Fab_FirstDialog", "cases": [
+      { "when": "time==4 && !flag:aidenFirstDialog", "node": "Fab_FirstDialog_NoAiden" },
+      { "when": "time==12", "node": "Fab_FirstDialog_Night3" },
+      { "node": "Fab_FirstDialog" }
+    ] },
     { "id": "Fab_Aiden1", "cases": [ { "node": "Fab_Aiden1" } ] },
     { "id": "Fab_Safe1", "cases": [ { "node": "Fab_Safe1" } ] },
     { "id": "Fab_Nightmare1", "cases": [ { "node": "Fab_Nightmare1" } ] },
@@ -105,7 +109,9 @@
     "Fab_Both": { "text": "1st_DetectiveOffice:279-285" },
     "Fab_WarnOrRoot": { "text": "1st_DetectiveOffice:286-288" },
     "Fab_SwainSewer": { "text": "1st_DetectiveOffice:289-290" },
-    "Fab_2ndConnectStart": { "text": "1st_DetectiveOffice:254-256" },
+    "Fab_2ndConnectStart": { "text": "1st_DetectiveOffice:254,1st_DetectiveOffice:419-420,1st_DetectiveOffice:255-256" },
+    "Fab_FirstDialog_NoAiden": { "text": "1st_DetectiveOffice:182,1st_DetectiveOffice:416-417" },
+    "Fab_FirstDialog_Night3": { "text": "1st_DetectiveOffice:182,1st_DetectiveOffice:421-422" },
     "SecondDream": { "text": "1st_DetectiveOffice:291-305" },
     "ThirdNightmare": { "text": "1st_DetectiveOffice:317-331" },
     "FourthNightmare": { "text": "1st_DetectiveOffice:343-361" }

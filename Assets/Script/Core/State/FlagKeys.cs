@@ -843,6 +843,7 @@ namespace SCoW.Core.State
         public const string nowShotgun = "nowShotgun";
         public const string timeCount = "timeCount";
         public const string fstDetectivTimeOn = "fstDetectivTimeOn";
+        public const string lockerTryTime = "lockerTryTime";
         public const string str = "str";
         public const string intl = "intl";
         public const string dex = "dex";
@@ -905,6 +906,7 @@ namespace SCoW.Core.State
             nowShotgun,
             timeCount,
             fstDetectivTimeOn,
+            lockerTryTime,
             str,
             intl,
             dex,

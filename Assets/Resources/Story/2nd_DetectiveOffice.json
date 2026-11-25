@@ -2,20 +2,32 @@
   "id": "2nd_DetectiveOffice",
   "topics": [
     { "id": "Fab_Case1", "cases": [ { "node": "Fab_Case1" } ] },
-    { "id": "Fab_Case1After", "cases": [ { "node": "Fab_Case1After" } ] },
+    { "id": "Fab_Case1After", "cases": [
+      { "when": "!flag:aidenFirstDialog", "node": "Fab_Case1After_NoAiden" },
+      { "node": "Fab_Case1After" }
+    ] },
     { "id": "Fab_Case2", "cases": [ { "node": "Fab_Case2" } ] },
     { "id": "Fab_Case2Succ", "cases": [ { "node": "Fab_Case2Succ" } ] },
-    { "id": "Fab_Case2SuccAfter", "cases": [ { "node": "Fab_Case2SuccAfter" } ] },
-    { "id": "Fab_Case2Fail", "cases": [ { "node": "Fab_Case2Fail" } ] },
+    { "id": "Fab_Case2SuccAfter", "cases": [
+      { "when": "!flag:aidenFirstDialog", "node": "Fab_Case2SuccAfter_NoAiden" },
+      { "node": "Fab_Case2SuccAfter" }
+    ] },
+    { "id": "Fab_Case2Fail", "cases": [
+      { "when": "!flag:aidenFirstDialog", "node": "Fab_Case2Fail_NoAiden" },
+      { "node": "Fab_Case2Fail" }
+    ] },
     { "id": "Fab_Case3", "cases": [ { "node": "Fab_Case3" } ] }
   ],
   "nodes": {
     "Fab_Case1": { "text": "1st_DetectiveOffice:223-227" },
     "Fab_Case1After": { "text": "1st_DetectiveOffice:228-235" },
+    "Fab_Case1After_NoAiden": { "text": "1st_DetectiveOffice:228-234,1st_DetectiveOffice:418,1st_DetectiveOffice:235" },
     "Fab_Case2": { "text": "1st_DetectiveOffice:236" },
     "Fab_Case2Succ": { "text": "1st_DetectiveOffice:237-239" },
     "Fab_Case2SuccAfter": { "text": "1st_DetectiveOffice:239-247" },
+    "Fab_Case2SuccAfter_NoAiden": { "text": "1st_DetectiveOffice:239-246,1st_DetectiveOffice:418,1st_DetectiveOffice:247" },
     "Fab_Case2Fail": { "text": "1st_DetectiveOffice:248-250" },
+    "Fab_Case2Fail_NoAiden": { "text": "1st_DetectiveOffice:248-249,1st_DetectiveOffice:418,1st_DetectiveOffice:250" },
     "Fab_Case3": { "text": "1st_DetectiveOffice:251-253" }
   }
 }

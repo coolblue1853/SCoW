@@ -115,6 +115,14 @@ namespace SCoW.Tests
             "Sewer : Signboard@0", "Sewer : Signboard@0.ok", "Sewer : Signboard@0.fail",
         };
 
+        // 스토리 P0 신규 노드: 옛 코드에 없어 골든 행이 없다. StoryP0Tests 가 따로 덮는다.
+        internal static readonly HashSet<string> StoryP0Nodes = new HashSet<string>
+        {
+            "Fab_MorningMail", "Fab_MorningMailB",
+            "1st_DetectiveOffice/Fab_FirstDialog_NoAiden", "1st_DetectiveOffice/Fab_FirstDialog_Night3",
+            "2nd_DetectiveOffice/Fab_Case1After", "2nd_DetectiveOffice/Fab_Case2SuccAfter", "2nd_DetectiveOffice/Fab_Case2Fail",
+        };
+
         internal static void CheckGolden(string goldenPath, int minRows)
         {
             string[] rows = File.ReadAllLines(Path.Combine(Path.GetDirectoryName(Application.dataPath), goldenPath));
@@ -162,7 +170,7 @@ namespace SCoW.Tests
             {
                 foreach (string nodeId in kv.Value.Nodes.Keys)
                 {
-                    if (PartyOnlyNodes.Contains(kv.Key + "/" + nodeId) || SewerS2Nodes.Contains(kv.Key + "/" + nodeId)) { continue; }
+                    if (PartyOnlyNodes.Contains(kv.Key + "/" + nodeId) || SewerS2Nodes.Contains(kv.Key + "/" + nodeId) || StoryP0Nodes.Contains(kv.Key + "/" + nodeId)) { continue; }
                     Assert.IsTrue(reached.Contains(kv.Key + "/" + nodeId), "프리셋이 덮지 못한 노드: " + kv.Key + "/" + nodeId);
                 }
             }

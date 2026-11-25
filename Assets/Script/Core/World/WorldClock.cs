@@ -36,6 +36,19 @@ namespace SCoW.Core.World
             return timeCount <= 0 ? 1 : (timeCount - 1) % PhasesPerDay + 1;
         }
 
+        /// <summary>
+        /// 수첩 날짜 한 줄(스토리 P0 B-3). 사건은 7/11~7/14 나흘이고 행성이 늘어서는 건 15일 밤이다. 오늘 날짜(1일차 = 7/11)를 같이 적는다.
+        /// 4일을 넘기는 칸은 4일차로 본다.
+        /// </summary>
+        public static string DateLine(int timeCount, bool korean)
+        {
+            int day = Day(timeCount);
+            if (day > 4) { day = 4; }
+            int date = 10 + day;
+            if (korean) { return "날짜: 7/11~7/14 (오늘 7/" + date + ")"; }
+            return "Date: Jul 11-14 (today Jul " + date + ")";
+        }
+
         public static bool IsNight(int timeCount)
         {
             return Phase(timeCount) == 0;

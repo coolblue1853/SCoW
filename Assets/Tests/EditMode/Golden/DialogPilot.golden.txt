@@ -819,7 +819,7 @@
 1st_DetectiveOffice|Fab_Both|det_default|n=7|first=1st_DetectiveOffice:279|last=1st_DetectiveOffice:285|ids=279-285|post=-
 1st_DetectiveOffice|Fab_WarnOrRoot|det_default|n=3|first=1st_DetectiveOffice:286|last=1st_DetectiveOffice:288|ids=286-288|post=-
 1st_DetectiveOffice|Fab_SwainSewer|det_default|n=2|first=1st_DetectiveOffice:289|last=1st_DetectiveOffice:290|ids=289-290|post=-
-1st_DetectiveOffice|Fab_2ndConnectStart|det_default|n=3|first=1st_DetectiveOffice:254|last=1st_DetectiveOffice:256|ids=254-256|post=-
+1st_DetectiveOffice|Fab_2ndConnectStart|det_default|n=5|first=1st_DetectiveOffice:254|last=1st_DetectiveOffice:256|ids=254,419-420,255-256|post=-
 1st_DetectiveOffice|SecondDream|det_default|n=15|first=1st_DetectiveOffice:291|last=1st_DetectiveOffice:305|ids=291-305|post=-
 1st_DetectiveOffice|ThirdNightmare|det_default|n=15|first=1st_DetectiveOffice:317|last=1st_DetectiveOffice:331|ids=317-331|post=-
 1st_DetectiveOffice|FourthNightmare|det_default|n=19|first=1st_DetectiveOffice:343|last=1st_DetectiveOffice:361|ids=343-361|post=-
@@ -873,7 +873,7 @@
 1st_DetectiveOffice|Fab_Both|det_timeOn5|n=7|first=1st_DetectiveOffice:279|last=1st_DetectiveOffice:285|ids=279-285|post=-
 1st_DetectiveOffice|Fab_WarnOrRoot|det_timeOn5|n=3|first=1st_DetectiveOffice:286|last=1st_DetectiveOffice:288|ids=286-288|post=-
 1st_DetectiveOffice|Fab_SwainSewer|det_timeOn5|n=2|first=1st_DetectiveOffice:289|last=1st_DetectiveOffice:290|ids=289-290|post=-
-1st_DetectiveOffice|Fab_2ndConnectStart|det_timeOn5|n=3|first=1st_DetectiveOffice:254|last=1st_DetectiveOffice:256|ids=254-256|post=-
+1st_DetectiveOffice|Fab_2ndConnectStart|det_timeOn5|n=5|first=1st_DetectiveOffice:254|last=1st_DetectiveOffice:256|ids=254,419-420,255-256|post=-
 1st_DetectiveOffice|SecondDream|det_timeOn5|n=15|first=1st_DetectiveOffice:291|last=1st_DetectiveOffice:305|ids=291-305|post=-
 1st_DetectiveOffice|ThirdNightmare|det_timeOn5|n=15|first=1st_DetectiveOffice:317|last=1st_DetectiveOffice:331|ids=317-331|post=-
 1st_DetectiveOffice|FourthNightmare|det_timeOn5|n=19|first=1st_DetectiveOffice:343|last=1st_DetectiveOffice:361|ids=343-361|post=-
@@ -895,7 +895,7 @@
 1st_DetectiveOffice|Accept_AfterSelectYes|det_day3|n=5|first=1st_DetectiveOffice:165|last=1st_DetectiveOffice:169|ids=165-169|post=-
 1st_DetectiveOffice|Reject_Request|det_day3|n=9|first=1st_DetectiveOffice:170|last=1st_DetectiveOffice:178|ids=170-178|post=-
 1st_DetectiveOffice|Accept_AfterSelectNo|det_day3|n=3|first=1st_DetectiveOffice:179|last=1st_DetectiveOffice:181|ids=179-181|post=-
-1st_DetectiveOffice|Fab_FirstDialog|det_day3|n=1|first=1st_DetectiveOffice:182|last=1st_DetectiveOffice:182|ids=182|post=-
+1st_DetectiveOffice|Fab_FirstDialog|det_day3|n=3|first=1st_DetectiveOffice:182|last=1st_DetectiveOffice:422|ids=182,421-422|post=-
 1st_DetectiveOffice|Fab_Aiden1|det_day3|n=3|first=1st_DetectiveOffice:183|last=1st_DetectiveOffice:185|ids=183-185|post=-
 1st_DetectiveOffice|Fab_Safe1|det_day3|n=1|first=1st_DetectiveOffice:186|last=1st_DetectiveOffice:186|ids=186|post=-
 1st_DetectiveOffice|Fab_Nightmare1|det_day3|n=1|first=1st_DetectiveOffice:188|last=1st_DetectiveOffice:188|ids=188|post=-
@@ -927,7 +927,7 @@
 1st_DetectiveOffice|Fab_Both|det_day3|n=7|first=1st_DetectiveOffice:279|last=1st_DetectiveOffice:285|ids=279-285|post=-
 1st_DetectiveOffice|Fab_WarnOrRoot|det_day3|n=3|first=1st_DetectiveOffice:286|last=1st_DetectiveOffice:288|ids=286-288|post=-
 1st_DetectiveOffice|Fab_SwainSewer|det_day3|n=2|first=1st_DetectiveOffice:289|last=1st_DetectiveOffice:290|ids=289-290|post=-
-1st_DetectiveOffice|Fab_2ndConnectStart|det_day3|n=3|first=1st_DetectiveOffice:254|last=1st_DetectiveOffice:256|ids=254-256|post=-
+1st_DetectiveOffice|Fab_2ndConnectStart|det_day3|n=5|first=1st_DetectiveOffice:254|last=1st_DetectiveOffice:256|ids=254,419-420,255-256|post=-
 1st_DetectiveOffice|SecondDream|det_day3|n=15|first=1st_DetectiveOffice:291|last=1st_DetectiveOffice:305|ids=291-305|post=-
 1st_DetectiveOffice|ThirdNightmare|det_day3|n=15|first=1st_DetectiveOffice:317|last=1st_DetectiveOffice:331|ids=317-331|post=-
 1st_DetectiveOffice|FourthNightmare|det_day3|n=19|first=1st_DetectiveOffice:343|last=1st_DetectiveOffice:361|ids=343-361|post=-

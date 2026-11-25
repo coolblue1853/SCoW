@@ -343,6 +343,14 @@
    "id": "SanCheck/ThirdDayStartSan",
    "cases": [
     {
+     "when": "time>=9 && !flag:sewerageKey && !flag:sewerPicingSucc && any(flag:intelNightmare3,flag:intelNightmare4)",
+     "node": "Fab_MorningMail"
+    },
+    {
+     "when": "time>=9 && !flag:sewerageKey && !flag:sewerPicingSucc",
+     "node": "Fab_MorningMailB"
+    },
+    {
      "when": "any(flag:intelNightmare3,flag:intelNightmare4)",
      "node": "SanCheck/ThirdDayStartSan@0"
     },
@@ -931,6 +939,12 @@
   },
   "SanCheck/DrinkSan@0": {
    "text": "1st_Bar:193-198"
+  },
+  "Fab_MorningMail": {
+   "text": "1st_DetectiveOffice:423-425,1st_DetectiveOffice:306-309"
+  },
+  "Fab_MorningMailB": {
+   "text": "1st_DetectiveOffice:423-425,1st_DetectiveOffice:313-316"
   },
   "SanCheck/ThirdDayStartSan@0": {
    "text": "1st_DetectiveOffice:306-309"

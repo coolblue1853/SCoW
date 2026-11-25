@@ -62,7 +62,7 @@ namespace SCoW.Tests
             Assert.AreEqual(0, mismatches.Count, "동치 불일치:\n" + string.Join("\n", mismatches.ToArray()));
             foreach (string nodeId in script.Nodes.Keys)
             {
-                if (DialogPilotEquivalenceTests.SewerS2Nodes.Contains(nodeId)) { continue; }
+                if (DialogPilotEquivalenceTests.SewerS2Nodes.Contains(nodeId) || DialogPilotEquivalenceTests.StoryP0Nodes.Contains(nodeId)) { continue; }
                 Assert.IsTrue(reached.Contains(nodeId), "프리셋이 덮지 못한 노드: " + nodeId);
             }
         }

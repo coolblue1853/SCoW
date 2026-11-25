@@ -68,6 +68,7 @@ namespace SCoW.Core.World
                 w.SetCanKeyword(WorldIds.BlackWell, true);
             }
 
+            ApplyLockerRetry(s, t);
             ApplySewerDoor(s, w, phase);
 
             if (t >= 6 && w.LocalY(WorldIds.AfNoonEvent) > 30)
@@ -126,6 +127,30 @@ namespace SCoW.Core.World
             if (WorldClock.TryLightTime(t, out lightTime))
             {
                 w.SetLightTime(lightTime);
+            }
+        }
+
+        /// <summary>
+        /// 스토리 P0 B-2: 사물함 관찰 판정(tryObserLokcer)은 한 번 시도하면 막혀 열쇠를 못 얻으면 하수도 진입이 끊겼다.
+        /// 열쇠(sewerageKey)를 못 얻었으면 다음 시간대(timeCount 가 바뀐 뒤)에 다시 시도할 수 있게 시도 플래그를 푼다.
+        /// 시도한 칸은 카운터 lockerTryTime 에 적는다(0 = 기록 없음). 열쇠를 얻으면 더 풀지 않는다.
+        /// </summary>
+        private static void ApplyLockerRetry(GameState s, int t)
+        {
+            if (!s.GetFlag(FlagKeys.tryObserLokcer) || s.GetFlag(FlagKeys.sewerageKey))
+            {
+                if (s.GetCounter(CounterKeys.lockerTryTime) != 0) { s.SetCounter(CounterKeys.lockerTryTime, 0); }
+                return;
+            }
+            int stamp = s.GetCounter(CounterKeys.lockerTryTime);
+            if (stamp == 0)
+            {
+                s.SetCounter(CounterKeys.lockerTryTime, t);
+            }
+            else if (stamp != t)
+            {
+                s.SetFlag(FlagKeys.tryObserLokcer, false);
+                s.SetCounter(CounterKeys.lockerTryTime, 0);
             }
         }
 
