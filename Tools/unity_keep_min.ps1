@@ -15,11 +15,11 @@ public class W {
 "@
 $end = (Get-Date).AddSeconds($Seconds)
 do {
-  $unity = @(Get-Process Unity -ErrorAction SilentlyContinue | ForEach-Object { $_.Id })
+  $unity = @(Get-CimInstance Win32_Process -Filter "Name='Unity.exe'" -ErrorAction SilentlyContinue | Where-Object { $_.CommandLine -match 'SCoW' } | ForEach-Object { [int]$_.ProcessId })
   [W]::EnumWindows({ param($h,$l)
     $sb = New-Object Text.StringBuilder 512; [void][W]::GetWindowText($h,$sb,512); $t = $sb.ToString()
     $procId = 0; [void][W]::GetWindowThreadProcessId($h,[ref]$procId)
-    if ($unity -contains [int]$procId -and [W]::IsWindowVisible($h) -and -not [W]::IsIconic($h) -and $t -match '^SCoW|SCoW - ') {
+    if ($unity -contains [int]$procId -and [W]::IsWindowVisible($h) -and -not [W]::IsIconic($h) -and $t -ne '') {
       [void][W]::ShowWindowAsync($h,7); Write-Output "min: $t"
     }
     return $true }, [IntPtr]::Zero) | Out-Null
