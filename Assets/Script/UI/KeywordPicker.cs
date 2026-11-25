@@ -33,6 +33,12 @@ public sealed class KeywordPicker : MonoBehaviour
     }
 
     /// <summary>이번 프레임에 닫혔나(같은 입력이 선택 행을 다시 열지 않게 호출측이 확인한다).</summary>
+    /// <summary>수첩이 이 창 위로 열려 있어 창을 숨긴 상태인가(K6).</summary>
+    public static bool HiddenForIntel
+    {
+        get { return _current != null && _current._hidden; }
+    }
+
     public static bool ClosedThisFrame
     {
         get { return _closedFrame == Time.frameCount; }
@@ -66,6 +72,7 @@ public sealed class KeywordPicker : MonoBehaviour
     private int _index;
     private int _openedFrame;
     private bool _done;
+    private bool _hidden; // 수첩이 위로 열려 있는 동안 숨김(스택엔 남는다)
 
     /// <summary>선택 목록을 연다. remaining 은 남은 질문 수(표시용). 확정하면 onPick(entry) 후 닫힌다. 열 수 없으면 false.</summary>
     public static bool Open(string npc, int remaining, Action<KeywordEntry> onPick)
@@ -189,6 +196,10 @@ public sealed class KeywordPicker : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (_hidden)
+        {
+            IntelKeywordUseButton.Hide();
+        }
         if (GameRoot.Instance != null)
         {
             UiGate.Remove(PanelKind.Keyword);
@@ -208,6 +219,15 @@ public sealed class KeywordPicker : MonoBehaviour
         if (UiGate.TryCancel(PanelKind.Keyword, false))
         {
             Close();
+            return;
+        }
+        if (_hidden)
+        {
+            return;
+        }
+        if (Time.frameCount != _openedFrame && GameInput.OpenIntelDown)
+        {
+            OpenIntelForSelection();
             return;
         }
         if (GameInput.NavUpDown)
@@ -230,6 +250,68 @@ public sealed class KeywordPicker : MonoBehaviour
         {
             Confirm();
         }
+    }
+
+    // K6: 선택 항목 분류의 수첩 탭을 위로 연다. 수첩을 닫으면(Cancel) 이 창이 그대로 돌아온다.
+    private void OpenIntelForSelection()
+    {
+        IntelManager m = IntelManager.Instance;
+        if (m != null && m.OpenFromPicker(Tabs[_tab]))
+        {
+            SetHidden(true);
+        }
+    }
+
+    private void SetHidden(bool hidden)
+    {
+        _hidden = hidden;
+        Canvas c = GetComponent<Canvas>();
+        if (c != null)
+        {
+            c.enabled = !hidden;
+        }
+        if (!hidden)
+        {
+            _openedFrame = Time.frameCount; // 돌아온 프레임의 키가 확정으로 새지 않게
+        }
+    }
+
+    /// <summary>수첩이 닫혔다(IntelManager.CloseSetting). 숨겼던 창을 다시 보인다.</summary>
+    public static void OnIntelClosed()
+    {
+        if (_current != null && _current._hidden)
+        {
+            _current.SetHidden(false);
+        }
+    }
+
+    /// <summary>수첩의 "질문에 사용": 해당 상위 아래 풀린 첫 항목을 선택 상태로 둔다. 풀린 항목이 없으면 false.</summary>
+    public static bool FocusUpper(string upperId)
+    {
+        if (_current == null || _current._done)
+        {
+            return false;
+        }
+        return _current.SelectFirstOf(upperId);
+    }
+
+    private bool SelectFirstOf(string upperId)
+    {
+        for (int t = 0; t < _lists.Length; t++)
+        {
+            for (int i = 0; i < _lists[t].Count; i++)
+            {
+                if (_lists[t][i].Upper == upperId)
+                {
+                    _tab = t;
+                    _index = i;
+                    RebuildRows();
+                    return true;
+                }
+            }
+        }
+        ShowNoticeText("No unlocked clue under that notebook page.");
+        return false;
     }
 
     private void MoveIndex(int delta)
@@ -286,6 +368,15 @@ public sealed class KeywordPicker : MonoBehaviour
         if (_onPick != null)
         {
             _onPick(picked);
+        }
+    }
+
+    private void ShowNoticeText(string text)
+    {
+        if (_noticeText != null)
+        {
+            _noticeText.text = text;
+            _noticeText.gameObject.SetActive(true);
         }
     }
 
@@ -375,7 +466,7 @@ public sealed class KeywordPicker : MonoBehaviour
         Anchor(_noticeText.rectTransform, new Vector2(0.5f, 0f), new Vector2(0f, 66f), new Vector2(960f, 40f));
         _noticeText.gameObject.SetActive(false);
 
-        TextMeshProUGUI hint = MakeText("Hint", panel, "W S: Select  A D: Tab  E: Present  Esc: Close  * reacts  ● asked", 18, TextAlignmentOptions.Center);
+        TextMeshProUGUI hint = MakeText("Hint", panel, "W S: Select  A D: Tab  E: Present  1: Notebook  Esc: Close  * reacts  ● asked", 18, TextAlignmentOptions.Center);
         hint.color = new Color(0.7f, 0.7f, 0.7f, 1f);
         Anchor(hint.rectTransform, new Vector2(0.5f, 0f), new Vector2(0f, 22f), new Vector2(960f, 36f));
 

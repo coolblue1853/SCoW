@@ -183,3 +183,8 @@ cat: /tmp/k3add.txt: No such file or directory
 ## 9. K5 결과 (11-25)
 - 완료: `GameInput.PresentDown`(Gameplay 맵 `Present`, 키보드 F·패드 Y — Q-K3 임시 가정). `Intel_ObtoUI.PresentDirect` 가 선택 행(`End_Look_Judge.CanPresentKeyword`)에서 탭 순환 없이 Picker 를 연다. 겹침 처리: F=Portal 은 `PotalPoint` 에 `!KeywordPicker.IsOpen`, Y=OpenIntel 은 `IntelManager` 가 제시 가능한 선택 행에서 Present 우선, Interact 경로에도 `!IsOpen`.
 - 검증: EditMode 285, 플레이(가상 패드 Y)로 Picker 직행→A 제시→Ella 뉴스 장면 출력, 횟수 3→2. 캡처 `Logs/playtest/K5_present_*.png`. 강제 상태(인트로 대사 중)라 `DialogManager.cs:462` IndexOutOfRange 1건은 시험 설정 탓으로 추정(미확인).
+
+## 10. K6 결과 (11-25)
+- 완료: Picker 에서 `OpenIntel`(1 / 패드 Y) → `IntelManager.OpenFromPicker`(스택 Picker→수첩, 선택 항목 분류 탭, Picker 는 캔버스만 숨김, 수첩이 닫히면 `OnIntelClosed` 로 복귀). 수첩에서 `Present`(F / Y) 또는 "Use in question" 단추(`UI/IntelKeywordUseButton`, 코드 생성 오버레이) → 펼친 `*_Detail` 패널의 상위 키워드를 `Core/Keyword/IntelUpperMap`(패널 이름→카탈로그 상위 표, EditMode 테스트로 카탈로그와 대조)로 찾아 Picker 가 첫 풀린 항목을 선택. 페이지가 안 펼쳐졌으면 수첩 유지.
+- 한계: 수첩 패널의 항목(페이지) 단위 점프는 하지 않는다(탭 단위까지). 상세 패널 본문 무수정. 문구 TODO I2.
+- 검증: EditMode 287, 플레이(가상 패드 Y): Picker→수첩 열림(hidden)→Present 로 복귀·선택, 콘솔 error 0. 수첩 화면 자체는 인트로 대사 위에 안 보여 캡처 못 함(미검증).

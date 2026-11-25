@@ -147,13 +147,70 @@ public class IntelManager : MonoBehaviour
     {
         UiGate.Remove(PanelKind.Intel);
         intelUI.SetActive(false);
+        IntelKeywordUseButton.Hide();
+        KeywordPicker.OnIntelClosed();
+    }
+
+    private int _fromPickerFrame = -1;
+
+    /// <summary>K6: 키워드 제시 창 위로 수첩을 연다(스택: 제시 창 → 수첩). 열었으면 true.</summary>
+    public bool OpenFromPicker(SCoW.Core.Keyword.KeywordCategory category)
+    {
+        if (intelUI.activeSelf || !UiGate.Stack.IsTop(PanelKind.Keyword))
+        {
+            return false;
+        }
+        SoundManager.Instance.PaperClipPlay();
+        UiGate.Push(PanelKind.Intel);
+        intelUI.SetActive(true);
+        _fromPickerFrame = Time.frameCount;
+        switch (category)
+        {
+            case SCoW.Core.Keyword.KeywordCategory.Character:
+                OpenCharacter();
+                break;
+            case SCoW.Core.Keyword.KeywordCategory.Place:
+                OpenPlace();
+                break;
+            default:
+                OpenEvent();
+                break;
+        }
+        KeywordToast.OnIntelOpened();
+        IntelKeywordUseButton.Show(UseForQuestion);
+        return true;
+    }
+
+    /// <summary>K6: 지금 펼친 수첩 페이지의 상위 키워드를 제시 창에서 선택 상태로 두고 수첩을 닫는다.</summary>
+    public void UseForQuestion()
+    {
+        if (!intelUI.activeSelf || !KeywordPicker.HiddenForIntel)
+        {
+            return;
+        }
+        string upper = null;
+        Transform[] all = intelUI.GetComponentsInChildren<Transform>(false);
+        for (int i = 0; i < all.Length && upper == null; i++)
+        {
+            SCoW.Core.Keyword.IntelUpperMap.TryGetUpper(all[i].name, out upper);
+        }
+        if (upper == null)
+        {
+            return; // 펼친 페이지가 없거나 키워드 없는 페이지: 수첩을 그대로 둔다
+        }
+        CloseSetting();
+        KeywordPicker.FocusUpper(upper);
     }
     // Update is called once per frame
     void Update()
     {
-        if (intelUI.activeSelf == true && (UiGate.TryCancel(PanelKind.Intel) || (GameInput.OpenIntelDown && UiGate.Stack.IsTop(PanelKind.Intel))))
+        if (intelUI.activeSelf == true && (UiGate.TryCancel(PanelKind.Intel) || (GameInput.OpenIntelDown && UiGate.Stack.IsTop(PanelKind.Intel) && Time.frameCount != _fromPickerFrame)))
         {
             CloseSetting();
+        }
+        else if (intelUI.activeSelf == true && KeywordPicker.HiddenForIntel && GameInput.PresentDown && Time.frameCount != _fromPickerFrame)
+        {
+            UseForQuestion();
         }
         else if (GameInput.OpenIntelDown && intelUI.activeSelf == false && !IsPresentKeyDown())
         {
