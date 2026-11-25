@@ -188,3 +188,10 @@ cat: /tmp/k3add.txt: No such file or directory
 - 완료: Picker 에서 `OpenIntel`(1 / 패드 Y) → `IntelManager.OpenFromPicker`(스택 Picker→수첩, 선택 항목 분류 탭, Picker 는 캔버스만 숨김, 수첩이 닫히면 `OnIntelClosed` 로 복귀). 수첩에서 `Present`(F / Y) 또는 "Use in question" 단추(`UI/IntelKeywordUseButton`, 코드 생성 오버레이) → 펼친 `*_Detail` 패널의 상위 키워드를 `Core/Keyword/IntelUpperMap`(패널 이름→카탈로그 상위 표, EditMode 테스트로 카탈로그와 대조)로 찾아 Picker 가 첫 풀린 항목을 선택. 페이지가 안 펼쳐졌으면 수첩 유지.
 - 한계: 수첩 패널의 항목(페이지) 단위 점프는 하지 않는다(탭 단위까지). 상세 패널 본문 무수정. 문구 TODO I2.
 - 검증: EditMode 287, 플레이(가상 패드 Y): Picker→수첩 열림(hidden)→Present 로 복귀·선택, 콘솔 error 0. 수첩 화면 자체는 인트로 대사 위에 안 보여 캡처 못 함(미검증).
+
+## 11. K7 결과 (11-25)
+- 삭제: `BillowUI/KeyWordManager.cs`(1700줄)·`UI/KeywordButton.cs`, 씬 `BillowUICanvus/BillowUI/GameObject/KeyWord`(오브젝트 20개), 수첩 항목 버튼 57곳의 `KeywordButton` 컴포넌트와 그 onClick 지속 호출 57개(씬 에디터 API 로 제거, Main.unity GUID 참조 0·missing script 0 확인). `DataBaseManager.keywordMain/keywordUpper` 삭제(쓰는 곳 0), `keywordDowner` 는 대사 경로가 써서 유지.
+- 함께 삭제한 개발 도구: `Editor/KeywordCatalogExporter.cs`·`KeywordGoldenTool.cs`(옛 매니저 소스·인스턴스가 입력이라 쓸 수 없음). `KeywordCatalog.json`과 `Golden/KeywordBook.golden.txt` 는 이제 고정 스냅샷이며 카탈로그는 JSON 을 직접 고쳐 갱신한다(`KeywordBookTests`가 골든 대조).
+- 예산 이관: `Resources/Story/KeywordBudget.json` + `Core/Keyword/KeywordBudget.cs`(순수), `Intel_ObtoUI.ResetKeyCount` 11분기 → 표 조회(표에 없는 NPC 는 불변). `KeywordBudgetTests` 3개.
+- 검증: EditMode 290 통과, 플레이: 예산 Ella 3·Maeve 5 동일·GunshopMan 불변, Present→Picker→A 제시 경로 동작. `DialogManager.cs:462` IndexOutOfRange 는 인트로 대사가 도는 중에 대사를 강제로 얹은 시험 설정(lineCount 공유) 때문이며 K5 시점부터 같았다.
+- 발견(미착수): 수첩 항목 버튼 이름이 `상위_하위`(예 `Nightmare_Water and Nightmare`)라 항목 단위 "질문에 사용"을 새 컴포넌트로 되살릴 수 있다(옛 `KeywordButton` 이 하던 자리).

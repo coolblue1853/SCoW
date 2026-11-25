@@ -260,8 +260,6 @@ public class DataBaseManager : MonoBehaviour
     public static string potalPlace { get => S.GetText(TextKeys.potalPlace); set => S.SetText(TextKeys.potalPlace, value); }
 
     //keyword
-    public static string keywordMain;
-    public static string keywordUpper;
     public static string keywordDowner;
 
     //Directing

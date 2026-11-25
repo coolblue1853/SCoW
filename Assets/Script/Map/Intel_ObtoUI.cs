@@ -271,8 +271,6 @@ public class Intel_ObtoUI : MonoBehaviour
     private void OnKeywordPicked(SCoW.Core.Keyword.KeywordEntry entry)
     {
         DataBaseManager.keywordDowner = entry.Id;
-        DataBaseManager.keywordMain = entry.Category.ToString();
-        DataBaseManager.keywordUpper = entry.Upper;
         DialogManager.Instance.ChoiceExNextPage();
         DataBaseManager.isSelect = true;
         // K3: 전용 응답일 때만 횟수 소모(폴백은 환불)하고 물음을 기록한다. 정답 경로의 대사는 그대로.
@@ -788,49 +786,35 @@ public class Intel_ObtoUI : MonoBehaviour
         isJudge = true;
         canJudge = true;
         GameRoot.NotifyTransient(SCoW.Core.World.WorldIds.RefreshKey);
-        if (this.name == "Ella Triss")
+        // K7: NPC 별 횟수는 Resources/Story/KeywordBudget.json(KeywordBudget). 표에 없는 NPC 는 그대로 둔다.
+        int budget;
+        SCoW.Core.Keyword.KeywordBudget table = GetBudgetTable();
+        if (table != null && table.TryGet(this.name, out budget))
         {
-            keywordCounter = 3;
+            keywordCounter = budget;
         }
-        else if (this.name == "Aiden Triss")
+    }
+
+    private static SCoW.Core.Keyword.KeywordBudget _budgetTable;
+
+    private static SCoW.Core.Keyword.KeywordBudget GetBudgetTable()
+    {
+        if (_budgetTable != null)
         {
-            keywordCounter = 3;
+            return _budgetTable;
         }
-        else if (this.name == "Berkeley Swain")
+        TextAsset ta = Resources.Load<TextAsset>("Story/KeywordBudget");
+        if (ta == null)
         {
-            keywordCounter = 4;
+            Debug.LogError("Intel_ObtoUI: Resources/Story/KeywordBudget.json 를 찾지 못했다.");
+            return null;
         }
-        else if (this.name == "University student")
+        System.Collections.Generic.List<string> errors = new System.Collections.Generic.List<string>();
+        _budgetTable = SCoW.Core.Keyword.KeywordBudget.Load(ta.text, errors);
+        if (_budgetTable == null)
         {
-            keywordCounter = 3;
+            Debug.LogError("Intel_ObtoUI: KeywordBudget.json 오류 - " + string.Join(" | ", errors.ToArray()));
         }
-        else if (this.name == "Kane")
-        {
-            keywordCounter = 3;
-        }
-        else if (this.name == "Maeve")
-        {
-            keywordCounter = 5;
-        }
-        else if (this.name == "Kate Lizzie")
-        {
-            keywordCounter = 4;
-        }
-        else if (this.name == "Alan Parks")
-        {
-            keywordCounter = 4;
-        }
-        else if (this.name == "Albert Bradley")
-        {
-            keywordCounter = 4;
-        }
-        else if (this.name == "BlackWell")
-        {
-            keywordCounter = 3;
-        }
-        else if (this.name == "Dusty Dave")
-        {
-            keywordCounter = 3;
-        }
+        return _budgetTable;
     }
 }
