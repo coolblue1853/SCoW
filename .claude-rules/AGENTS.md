@@ -64,3 +64,4 @@
 | `Docs/Handoff/PortedFromProjectB.md` *(저장소 루트)* | Project B 에서 옮긴 것·안 옮긴 것 목록 |
 | `Docs/AssetPlan.md` *(저장소 루트)* | 보유 에셋 SCoW 기준 재분류(적용·후보·안 맞음), 적용할 파일 경로, 트랙 C 도구 판단(Dialogue System·Master Audio 불채택), Unity 6 위험도 |
 | `Docs/ArtInventory.md` *(저장소 루트)* | 그래픽 현황 실측(폴더별 장수·해상도·도트 배율·PPU·필터·색 수), 불일치, 다듬기 우선순위 표 |
+| `Docs/GraphicsNeeds.md` *(저장소 루트)* | 기능 작업 중 생긴 임시 그래픽·필요 리소스 목록(ART-2 전달용, 금요일 픽셀렙 세션 전달, 자동 생성 금지) |
