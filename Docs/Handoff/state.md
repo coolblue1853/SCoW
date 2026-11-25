@@ -19,3 +19,5 @@
 - 11-21 저녁: P14a 실전투 플레이 확인(귀가길 하이브리드 적 처치까지·하수도 DeepOne1 다수 턴, 콘솔 error 0, 룰렛·피해 정상, 시드 동치는 EditMode). PT-0 구현: Core/Rules/CompanionDef.cs(CompanionDefs), Core/State/PartyState.cs(PartyKeys `party.*`·PartyState), PartyTests 9개. EditMode 216/216. SaveCodec·FlagKeys.cs(자동생성) 불변. 다음 PT-1(P14b-a).
 - 11-21 저녁: P14a 실전투 확인, PT-0(34b5d83)·PT-1(7a2d008·dba6cb8)·PT-2(88a045a·b2fd2b3)·KEYWORD K1~K4(d98b289·9a19ca1·cbf95f5·ec17159) push. EditMode 285. 에디터 포커스 원인 = MCP 서버 focus nudge(UNITY_MCP_DISABLE_FOCUS_NUDGE=1). 5시간 86% 로 정지, 11-22 10:03 재개 예약.
 - 다음: KEYWORD K5~K7 → PT-3(합류 스토리)·PT-4(탐색 보조) → PT-5(전투 View 다인원) → SEWER S0~ → 스토리 P0. 사용자 확인 필요: 실제 키보드로 KeywordPicker(비포커스라 주입 불가), 동료 복귀 HP 절반 가정, Q-K5.
+- 11-25 오전: KEYWORD K5~K7(effcef5·b4f3796·6f896de), UX 설계(d15d6c5), UX-1~6(988bfda·fed18ed·a4e192f·110b32d·828d4fd·a6864b6·ea628f9) push. EditMode 332. 에디터 기동 시 'Recovering Scene Backups' 모달 주의(백업 보관 후 No). 5시간 80% 로 정지, 14:52 재개.
+- 다음: UX-7(HUD SAN·HP·비네트·흔들림 끄기)·UX-8(대사창·글자 크기)·UX-9(수첩·힌트)·UX-10(타이틀·한글 글꼴) → PT-3·PT-4 → PT-5·UX-11 → SEWER → 스토리 P0 → ART-2(PixelLab, 생성 전 사용자 확인). 사용자 실조작 확인 필요: 키보드 F/F5/F9·마우스 경로 전반.
