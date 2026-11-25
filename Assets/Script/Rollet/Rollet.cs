@@ -1,4 +1,5 @@
 using SCoW.Core.Rules;
+using SCoW.Core.State;
 using SCoW.Core.Ui;
 using System.Collections;
 using System.Collections.Generic;
@@ -49,6 +50,16 @@ public class Rollet : MonoBehaviour
     private static Rollet instance = null;
     public GameObject endButton;
     string @string;
+    // PT-4 탐색 보조(도움 보너스 다이스 / 대신 판정). 도움 0개면 기존 판정과 난수 소비·결과가 같다.
+    private string pointName;
+    private int fabianPoint;
+    private int assistDice;
+    private readonly int[] assistTens = new int[SkillCheck.MaxAssistDice];
+    private AssistOption assistChoice;
+    private Condition ActiveCondition
+    {
+        get { return assistChoice != null && assistChoice.Mode == AssistMode.Swap ? Condition.Nomal : SkillCheck.ParseCondition(DataBaseManager.condition); }
+    }
     public GameObject rolletUI;
     private void Update()
     {
@@ -68,13 +79,14 @@ public class Rollet : MonoBehaviour
                 BattleManager.Instance.battleState = BattlePhase.SelectEnemy;
                 BattleManager.Instance.PlayerSetDeftness();
             }
+            AssistChipsView.CloseIfAny();
             rolletSetUi.SetActive(false);
             DataBaseManager.isRollet = false;
             DataBaseManager.isActiveDialog1 = false;
             DataBaseManager.isDirecting = false;
             UiGate.Remove(PanelKind.Rollet);
         }
-        if (setUI.activeSelf == true && GameInput.InteractDown && activeCheck == true)
+        if (setUI.activeSelf == true && GameInput.InteractDown && activeCheck == true && !ChipsUnderPointer())
         {
             activeCheck = false;
             ActiveRollet();
@@ -102,6 +114,10 @@ public class Rollet : MonoBehaviour
             EndSanRollet();
         }
     }
+    private void OnDestroy()
+    {
+        AssistChipsView.CloseIfAny();
+    }
     void Awake()
     {
         isClick = false;
@@ -127,6 +143,7 @@ public class Rollet : MonoBehaviour
     }
     public void SetRollet(string skill, string point_sting, int point_int, string subject, string Enemy = "")
     {
+        AssistChipsView.CloseIfAny();
         point_int = SkillCheck.ClampTarget(point_int);
         enemySubject = Enemy;
         SoundManager.Instance.PaperClipPlay();
@@ -147,6 +164,10 @@ public class Rollet : MonoBehaviour
         }
         skillPoint = point_int;
         @string = point_sting;
+        pointName = point_sting;
+        fabianPoint = point_int;
+        assistChoice = null;
+        assistDice = 0;
         if (DataBaseManager.condition == "Nomal")
         {
             ResetRolletDice();
@@ -190,12 +211,88 @@ public class Rollet : MonoBehaviour
             skillPoint1 = point_int % 10;
             skillPoint10 = point_int / 10;
         }
-        // 성공 확률은 Core SkillCheck 가 Evaluate 로 센 값 하나만 쓴다(표시·구간 문구 모두).
-        Condition condition = SkillCheck.ParseCondition(DataBaseManager.condition);
-        double chance = SkillCheck.SuccessChance(condition, point_int, DataBaseManager.isDebuffPerfectionism);
-        succesProbability = (float)chance;
-        expect.text = "Probability : " + ProbabilityLabel(succesProbability) + PercentSuffix(skill, chance);
+        RefreshExpect();
+        OpenAssist(subject);
         Invoke("WaitOneSec", 0.1f);
+    }
+    // 성공 확률은 Core SkillCheck 가 Evaluate 로 센 값 하나만 쓴다(표시·구간 문구 모두). 도움·대신을 고르면 다시 센다.
+    private void RefreshExpect()
+    {
+        double chance = SkillCheck.SuccessChance(ActiveCondition, skillPoint, DataBaseManager.isDebuffPerfectionism, assistDice);
+        succesProbability = (float)chance;
+        expect.text = "Probability : " + ProbabilityLabel(succesProbability) + PercentSuffix(subDialog, chance);
+    }
+    private static bool ChipsUnderPointer()
+    {
+        return AssistChipsView.ClickOnAnyChip;
+    }
+    private void OpenAssist(string subj)
+    {
+        if (subDialog != null && subDialog.StartsWith("???", System.StringComparison.Ordinal))
+        {
+            return; // 기능치를 가린 판정은 칩이 수치를 드러내지 않게 열지 않는다
+        }
+        GameState state = GameRoot.Instance.State;
+        System.Collections.Generic.List<AssistOption> options = PartyAssist.Options(state, subj, pointName, fabianPoint);
+        if (options.Count == 0)
+        {
+            return;
+        }
+        AssistChipsView.Get().Open(options, OnAssistChanged);
+    }
+    private void OnAssistChanged(AssistOption choice)
+    {
+        assistChoice = choice;
+        assistDice = choice != null && choice.Mode == AssistMode.Assist ? 1 : 0;
+        bool swap = choice != null && choice.Mode == AssistMode.Swap;
+        skillPoint = swap ? SkillCheck.ClampTarget(choice.Skill) : fabianPoint;
+        point.text = pointName + " : " + skillPoint + (swap ? " (" + choice.Def.DisplayName + ")" : string.Empty);
+        RefreshExpect();
+    }
+    private static System.Collections.Generic.IList<SCoW.Core.Story.StoryLine> partyLines;
+    private static string ReactionText(string companionId, ReactionKind kind, bool success)
+    {
+        if (partyLines == null)
+        {
+            TextAsset ta = Resources.Load<TextAsset>("Party");
+            partyLines = ta != null ? SCoW.Core.Story.StoryCsvParser.Parse(ta.text).Lines : new System.Collections.Generic.List<SCoW.Core.Story.StoryLine>();
+        }
+        return PartyAssist.FindReactionText(partyLines, PartyAssist.ReactionId(companionId, kind, success));
+    }
+    // 판정 결과에 대한 동료 반응: 도움·대신 한 줄, 또는 공유 SAN 장면의 동료 자동 판정(Party.md 3-4). 합류 동료가 없으면 아무 일도 없다.
+    private void ReactToResult()
+    {
+        GameState state = GameRoot.Instance.State;
+        if (state == null)
+        {
+            return;
+        }
+        string line = null;
+        if (assistChoice != null)
+        {
+            bool swap = assistChoice.Mode == AssistMode.Swap;
+            string text = ReactionText(assistChoice.Def.Id, swap ? ReactionKind.Swap : ReactionKind.Assist, IsResultSuccess);
+            line = assistChoice.Def.DisplayName + ": " + text;
+            if (swap && !IsResultSuccess)
+            {
+                int lost = PartyAssist.ApplySwapPenalty(state, assistChoice.Def, resultLevel);
+                line += lost > 0 ? " (HP -" + lost + ")" : string.Empty;
+            }
+        }
+        else if (@string == "Sanity" && PartyAssist.IsSharedSanSubject(subject))
+        {
+            System.Collections.Generic.List<SanAutoResult> results = PartyAssist.AutoSanChecks(state, UnityRng.Instance);
+            for (int i = 0; i < results.Count; i++)
+            {
+                SanAutoResult r = results[i];
+                string part = r.Def.DisplayName + ": " + ReactionText(r.Def.Id, ReactionKind.San, r.Success) + (r.Loss > 0 ? " (SAN -" + r.Loss + ")" : string.Empty);
+                line = line == null ? part : line + "   " + part;
+            }
+        }
+        if (line != null)
+        {
+            AssistChipsView.Get().ShowReaction(line);
+        }
     }
     static string ProbabilityLabel(float chance)
     {
@@ -232,6 +329,7 @@ public class Rollet : MonoBehaviour
     }
     public void ActiveRollet()
     {
+        AssistChipsView.LockIfAny();
         setUI.SetActive(false);
         activeUI.SetActive(true);
         if (SettingsService.Current.FastRoll)
@@ -269,6 +367,15 @@ public class Rollet : MonoBehaviour
     {
         isActiveRollet = true;
         DiceFaces f = SkillCheck.RollFaces(UnityRng.Instance);
+        // 도움 다이스는 기존 눈 6개 뒤에 이어 굴린다(도움 0개면 난수 소비 동일).
+        for (int i = 0; i < assistDice; i++)
+        {
+            assistTens[i] = UnityRng.Instance.Next(0, 10) * 10;
+        }
+        if (assistDice > 0)
+        {
+            AssistChipsView.Get().ShowAssistDie(assistTens, assistDice);
+        }
         nomalRollet1Txt.text = f.Units.ToString();
         nomalRollet10Txt.text = TensText(f.Tens);
         badRollet1Txt.text = f.BadUnits.ToString();
@@ -286,7 +393,7 @@ public class Rollet : MonoBehaviour
         DiceFaces faces = new DiceFaces(int.Parse(nomalRollet1Txt.text), int.Parse(nomalRollet10Txt.text),
             int.Parse(badRollet1Txt.text), int.Parse(badRollet10Txt.text),
             int.Parse(goodRollet1Txt.text), int.Parse(goodRollet10Txt.text));
-        resultInt = SkillCheck.ResolveValue(SkillCheck.ParseCondition(DataBaseManager.condition), faces);
+        resultInt = SkillCheck.ResolveValueWithBonus(ActiveCondition, faces, assistDice, assistTens);
         resultString.text = "Dice : " + resultInt.ToString();
         Invoke("GetStringResult", SettingsService.Current.FastRoll ? 0f : 0.5f);
     }
@@ -301,6 +408,7 @@ public class Rollet : MonoBehaviour
         SoundManager.Instance.PenCircle();
         resultLevel = SkillCheck.Evaluate(resultInt, skillPoint, DataBaseManager.isDebuffPerfectionism);
         resultEnd.text = SkillCheck.ToLegacyString(resultLevel);
+        ReactToResult();
         if (@string == "Sanity")
         {
             Invoke("OpenSanRollet", 1f);
@@ -312,6 +420,9 @@ public class Rollet : MonoBehaviour
     }
     public void EndRollet()
     {
+        AssistChipsView.CloseIfAny();
+        assistChoice = null;
+        assistDice = 0;
         SoundManager.Instance.EndDice();
         UiGate.Remove(PanelKind.Rollet);
         DataBaseManager.isRollet = false;

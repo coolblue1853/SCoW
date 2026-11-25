@@ -133,12 +133,79 @@ namespace SCoW.Core.Rules
             return Resolve(condition, RollFaces(rng), target, perfectionism);
         }
 
+        /// <summary>도움(보너스 다이스)으로 추가할 수 있는 최대 개수. 컨디션 포함 합계는 -2~+2 로 클램프한다(Party.md 3-1).</summary>
+        public const int MaxAssistDice = 2;
+
+        /// <summary>
+        /// 도움 보너스 다이스(10의 자리 추가 굴림, 낮은 쪽 채택)를 더한 최종 d100 값(1~100). assistBonusDice 가 0 이하면 ResolveValue 와 같다.
+        /// 컨디션 Best 는 이미 보너스 다이스 1개(GoodTens)이고 Worst 는 불리 다이스 1개라 도움이 이를 상쇄한다. Good/Bad 의 1의 자리 변종은 그대로 둔다.
+        /// </summary>
+        /// <param name="extraTens">추가로 굴린 10의 자리(0~90) 최소 assistBonusDice 개</param>
+        public static int ResolveValueWithBonus(Condition condition, DiceFaces f, int assistBonusDice, int[] extraTens)
+        {
+            int assist = assistBonusDice > MaxAssistDice ? MaxAssistDice : assistBonusDice;
+            if (assist <= 0)
+            {
+                return ResolveValue(condition, f);
+            }
+            int units = f.Units;
+            if (condition == Condition.Good && f.Units > f.GoodUnits)
+            {
+                units = f.GoodUnits;
+            }
+            else if (condition == Condition.Bad && f.Units <= f.BadUnits)
+            {
+                units = f.BadUnits;
+            }
+            int tens = f.Tens;
+            int pool = assist + (condition == Condition.Best ? 1 : 0);
+            int net = pool - (condition == Condition.Worst ? 1 : 0);
+            if (net > MaxAssistDice)
+            {
+                net = MaxAssistDice;
+            }
+            int used = 0;
+            if (condition == Condition.Best && net > 0)
+            {
+                tens = f.GoodTens < tens ? f.GoodTens : tens;
+                used = 1;
+            }
+            for (int i = 0; used < net; i++, used++)
+            {
+                int e = extraTens != null && i < extraTens.Length ? extraTens[i] : f.Tens;
+                tens = e < tens ? e : tens;
+            }
+            int v = tens + units;
+            return v == 0 ? 100 : v;
+        }
+
+        /// <summary>
+        /// 도움 보너스 다이스를 반영한 판정. 난수는 RollFaces(6개) 뒤에 도움 개수만큼(각 Next(0,10)*10) 더 쓴다.
+        /// 도움 0개면 난수 소비·결과 모두 Roll 과 같다(회귀 불변).
+        /// </summary>
+        public static RollResult RollWithAssist(IRng rng, int target, Condition condition, int assistBonusDice, bool perfectionism = false)
+        {
+            DiceFaces faces = RollFaces(rng);
+            int assist = assistBonusDice < 0 ? 0 : (assistBonusDice > MaxAssistDice ? MaxAssistDice : assistBonusDice);
+            int[] extra = assist > 0 ? new int[assist] : null;
+            for (int i = 0; i < assist; i++)
+            {
+                extra[i] = rng.Next(0, 10) * 10;
+            }
+            int v = ResolveValueWithBonus(condition, faces, assist, extra);
+            return new RollResult(v, target, Evaluate(v, target, perfectionism));
+        }
+
         /// <summary>
         /// 성공(일반+대성공) 확률 0~1. Evaluate 를 컨디션별 주사위 눈 10^4 가지(1·10의 자리 + 보너스/페널티 눈 한 쌍)에 전부 돌려 센다.
         /// 룰렛 표시는 이 값을 쓴다(손으로 쓴 식과 어긋나지 않게). 난수는 쓰지 않는다.
         /// </summary>
-        public static double SuccessChance(Condition condition, int target, bool perfectionism = false)
+        public static double SuccessChance(Condition condition, int target, bool perfectionism = false, int assistBonusDice = 0)
         {
+            if (assistBonusDice > 0)
+            {
+                return SuccessChanceWithAssist(condition, target, perfectionism, assistBonusDice);
+            }
             int clamped = ClampTarget(target);
             int hits = 0;
             for (int u = 0; u < 10; u++)
@@ -162,10 +229,47 @@ namespace SCoW.Core.Rules
             return hits / 10000.0;
         }
 
-        /// <summary>룰렛에 표시하는 성공 확률 정수 %. SuccessChance 를 반올림한다.</summary>
-        public static int SuccessPercent(Condition condition, int target, bool perfectionism = false)
+        /// <summary>
+        /// 도움 보너스 다이스가 있을 때의 성공 확률. 1·10의 자리 + 컨디션 눈 한 쌍 + 추가 10의 자리(최대 2개) 전부를 센다.
+        /// ResolveValueWithBonus 를 그대로 쓰므로 RollWithAssist 의 분포와 어긋나지 않는다.
+        /// </summary>
+        private static double SuccessChanceWithAssist(Condition condition, int target, bool perfectionism, int assistBonusDice)
         {
-            return PercentOf(SuccessChance(condition, target, perfectionism));
+            int clamped = ClampTarget(target);
+            int assist = assistBonusDice > MaxAssistDice ? MaxAssistDice : assistBonusDice;
+            int extraCombos = assist >= 2 ? 100 : 10;
+            int[] extra = new int[2];
+            long hits = 0;
+            for (int u = 0; u < 10; u++)
+            {
+                for (int t = 0; t < 10; t++)
+                {
+                    for (int xu = 0; xu < 10; xu++)
+                    {
+                        for (int xt = 0; xt < 10; xt++)
+                        {
+                            DiceFaces f = new DiceFaces(u, t * 10, xu, xt * 10, xu, xt * 10);
+                            for (int c = 0; c < extraCombos; c++)
+                            {
+                                extra[0] = (c % 10) * 10;
+                                extra[1] = (c / 10) * 10;
+                                SuccessLevel level = Evaluate(ResolveValueWithBonus(condition, f, assist, extra), clamped, perfectionism);
+                                if (level == SuccessLevel.Success || level == SuccessLevel.CriticalSuccess)
+                                {
+                                    hits++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return hits / (10000.0 * extraCombos);
+        }
+
+        /// <summary>룰렛에 표시하는 성공 확률 정수 %. SuccessChance 를 반올림한다.</summary>
+        public static int SuccessPercent(Condition condition, int target, bool perfectionism = false, int assistBonusDice = 0)
+        {
+            return PercentOf(SuccessChance(condition, target, perfectionism, assistBonusDice));
         }
 
         /// <summary>SuccessChance 값(0~1)을 표시용 정수 %로. 표시 경로는 모두 이 한 곳을 지난다.</summary>

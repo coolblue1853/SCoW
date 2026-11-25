@@ -1,0 +1,13 @@
+ID,캐릭터이름,대사,메모
+1,Albert,@Leave it to me. I have seen worse.@,Albert help success
+2,Albert,@Hm. That did not go the way I hoped.@,Albert help fail
+3,Albert,@Stand aside. I will handle this.@,Albert swap success
+4,Albert,@Damn. I should have been more careful.@,Albert swap fail
+5,Albert,@Steady. It is only a feeling.@,Albert SAN success
+6,Albert,@...I will be fine. Keep moving.@,Albert SAN fail
+7,Maeve,@Easy. Watch how it is done.@,Maeve help success
+8,Maeve,@Well. Not every door opens.@,Maeve help fail
+9,Maeve,@Let me go first. Trust me.@,Maeve swap success
+10,Maeve,@Oh. That one is on me.@,Maeve swap fail
+11,Maeve,@I have seen stranger things down here.@,Maeve SAN success
+12,Maeve,@Do not look at me like that. I am fine.@,Maeve SAN fail

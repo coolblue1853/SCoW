@@ -96,7 +96,7 @@ namespace SCoW.Tests
         public void LegacyCsvFiles_AllParseWithoutErrors()
         {
             string dir = Path.GetFullPath(Path.Combine(UnityEngine.Application.dataPath, "Script/Asset/Resources"));
-            string[] files = Directory.GetFiles(dir, "*.csv");
+            string[] files = System.Array.FindAll(Directory.GetFiles(dir, "*.csv"), p => Path.GetFileName(p) != "Party.csv"); // Party.csv 는 PT-4 신규(PartyAssistTests 가 따로 검증)
             Assert.AreEqual(15, files.Length);
             foreach (string f in files)
             {
