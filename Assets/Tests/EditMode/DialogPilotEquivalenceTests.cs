@@ -105,6 +105,16 @@ namespace SCoW.Tests
             "InSewer/Ending_PartyAlbert", "InSewer/Ending_PartyMaeve", "InSewer/Ending_PartyMaeveDead",
         };
 
+        // SEWER S2 신규 노드(조사 포인트): 옛 코드에 없어 골든 행이 없다. SewerPointTests 가 배치·플래그를 따로 덮는다.
+        internal static readonly HashSet<string> SewerS2Nodes = new HashSet<string>
+        {
+            "InSewer/Sewer_Z2a_Log",
+            "Sewer : Graffiti@0", "Sewer : Graffiti@0.ok", "Sewer : Graffiti@0.fail",
+            "Sewer : Workwear@0", "Sewer : Workwear@0.ok", "Sewer : Workwear@0.fail",
+            "Sewer : Footprints@0", "Sewer : Footprints@0.ok", "Sewer : Footprints@0.fail",
+            "Sewer : Signboard@0", "Sewer : Signboard@0.ok", "Sewer : Signboard@0.fail",
+        };
+
         internal static void CheckGolden(string goldenPath, int minRows)
         {
             string[] rows = File.ReadAllLines(Path.Combine(Path.GetDirectoryName(Application.dataPath), goldenPath));
@@ -152,7 +162,7 @@ namespace SCoW.Tests
             {
                 foreach (string nodeId in kv.Value.Nodes.Keys)
                 {
-                    if (PartyOnlyNodes.Contains(kv.Key + "/" + nodeId)) { continue; }
+                    if (PartyOnlyNodes.Contains(kv.Key + "/" + nodeId) || SewerS2Nodes.Contains(kv.Key + "/" + nodeId)) { continue; }
                     Assert.IsTrue(reached.Contains(kv.Key + "/" + nodeId), "프리셋이 덮지 못한 노드: " + kv.Key + "/" + nodeId);
                 }
             }

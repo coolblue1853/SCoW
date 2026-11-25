@@ -45,6 +45,7 @@ namespace SCoW.Core.Sewer
     public sealed class SewerRoomDef
     {
         private readonly List<SewerExit> _exits = new List<SewerExit>();
+        private readonly List<SewerPoint> _points = new List<SewerPoint>();
 
         public string Id { get; private set; }
         public string Zone { get; private set; }
@@ -61,6 +62,17 @@ namespace SCoW.Core.Sewer
         public IList<SewerExit> Exits
         {
             get { return _exits; }
+        }
+
+        /// <summary>방 안 조사 포인트(S2).</summary>
+        public IList<SewerPoint> Points
+        {
+            get { return _points; }
+        }
+
+        internal void AddPoint(SewerPoint p)
+        {
+            _points.Add(p);
         }
 
         /// <summary>샛길 문이 있으면 씬의 SideRoad 소품이 필요하다.</summary>

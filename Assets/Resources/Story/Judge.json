@@ -2,6 +2,38 @@
  "id": "Judge",
  "topics": [
   {
+   "id": "Sewer : Graffiti",
+   "cases": [
+    {
+     "node": "Sewer : Graffiti@0"
+    }
+   ]
+  },
+  {
+   "id": "Sewer : Workwear",
+   "cases": [
+    {
+     "node": "Sewer : Workwear@0"
+    }
+   ]
+  },
+  {
+   "id": "Sewer : Footprints",
+   "cases": [
+    {
+     "node": "Sewer : Footprints@0"
+    }
+   ]
+  },
+  {
+   "id": "Sewer : Signboard",
+   "cases": [
+    {
+     "node": "Sewer : Signboard@0"
+    }
+   ]
+  },
+  {
    "id": "Newspaper : Read",
    "cases": [
     {
@@ -458,6 +490,50 @@
   }
  ],
  "nodes": {
+  "Sewer : Graffiti@0.ok": {
+   "text": "InSewer:426-428",
+   "onEnter": "set:intelSewerClueGraffiti"
+  },
+  "Sewer : Graffiti@0.fail": {
+   "text": "InSewer:429"
+  },
+  "Sewer : Graffiti@0": {
+   "onSuccess": "Sewer : Graffiti@0.ok",
+   "onFail": "Sewer : Graffiti@0.fail"
+  },
+  "Sewer : Workwear@0.ok": {
+   "text": "InSewer:430-431",
+   "onEnter": "set:intelSewerClueWorkwear"
+  },
+  "Sewer : Workwear@0.fail": {
+   "text": "InSewer:432"
+  },
+  "Sewer : Workwear@0": {
+   "onSuccess": "Sewer : Workwear@0.ok",
+   "onFail": "Sewer : Workwear@0.fail"
+  },
+  "Sewer : Footprints@0.ok": {
+   "text": "InSewer:436-438",
+   "onEnter": "set:intelSewerClueFootprints"
+  },
+  "Sewer : Footprints@0.fail": {
+   "text": "InSewer:439"
+  },
+  "Sewer : Footprints@0": {
+   "onSuccess": "Sewer : Footprints@0.ok",
+   "onFail": "Sewer : Footprints@0.fail"
+  },
+  "Sewer : Signboard@0.ok": {
+   "text": "InSewer:440-442",
+   "onEnter": "set:intelSewerClueSignboard"
+  },
+  "Sewer : Signboard@0.fail": {
+   "text": "InSewer:443"
+  },
+  "Sewer : Signboard@0": {
+   "onSuccess": "Sewer : Signboard@0.ok",
+   "onFail": "Sewer : Signboard@0.fail"
+  },
   "Newspaper : Read@0.ok": {
    "text": "1st_DetectiveOffice:30-39"
   },

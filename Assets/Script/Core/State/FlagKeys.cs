@@ -267,6 +267,12 @@ namespace SCoW.Core.State
         public const string intelSewerGhostStory4 = "intelSewerGhostStory4";
         public const string intelSewerGhostStory5 = "intelSewerGhostStory5";
         public const string intelSewerGhostStory6 = "intelSewerGhostStory6";
+        // SEWER S2 조사 포인트 단서(추가만).
+        public const string intelSewerClueGraffiti = "intelSewerClueGraffiti";
+        public const string intelSewerClueWorkwear = "intelSewerClueWorkwear";
+        public const string intelSewerClueLog = "intelSewerClueLog";
+        public const string intelSewerClueFootprints = "intelSewerClueFootprints";
+        public const string intelSewerClueSignboard = "intelSewerClueSignboard";
         public const string intelMissingPeople1 = "intelMissingPeople1";
         public const string intelMissingPeople2 = "intelMissingPeople2";
         public const string intelMissingPeople3 = "intelMissingPeople3";
@@ -747,6 +753,11 @@ namespace SCoW.Core.State
             intelSewer4,
             intelSewer5,
             intelSewer6,
+            intelSewerClueGraffiti,
+            intelSewerClueWorkwear,
+            intelSewerClueLog,
+            intelSewerClueFootprints,
+            intelSewerClueSignboard,
             intelUniversity1,
             intelUniversity2,
             intelUniversity3,

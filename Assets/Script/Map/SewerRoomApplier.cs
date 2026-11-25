@@ -32,6 +32,7 @@ public static class SewerRoomApplier
                 break;
         }
         SyncBattle(t);
+        SewerInvestigatePoint.Rebuild(d);
         t.leftSewerPotal.SetActive(d.HasDoor(SewerDoor.Left));
         t.rightSewerPotal.SetActive(d.HasDoor(SewerDoor.Right));
     }

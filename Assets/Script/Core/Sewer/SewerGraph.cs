@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using SCoW.Core.Rules;
+using SCoW.Core.State;
 
 namespace SCoW.Core.Sewer
 {
@@ -12,6 +13,8 @@ namespace SCoW.Core.Sewer
     /// </summary>
     public sealed class SewerGraph
     {
+        /// <summary>조사 포인트의 방 안 x(씬 월드). 왼쪽 문(-1243)과 샛길(-1211) 사이.</summary>
+        public const float PointX = -1229f;
         public const string EntranceId = "z0";
         public const string GateRoomId = "z3_2";
         public const SewerDoor GateDoor = SewerDoor.Right;
@@ -154,6 +157,13 @@ namespace SCoW.Core.Sewer
             Link("z3_2", SewerDoor.Middle, "z4_1", SewerDoor.Left);
             Link("z3_2", SewerDoor.Right, "z5_1", SewerDoor.Left);
             Link("z5_1", SewerDoor.Right, "z5_2", SewerDoor.Left);
+
+            // S2 조사 포인트 5곳. 구역마다 한 곳씩(Z1·Z2a 둘·Z2b·Z3), 샛길 문(x -1211 근처)을 피해 왼쪽 벽에 둔다.
+            _byId["z1_2"].AddPoint(new SewerPoint("graffiti", "Graffiti", "Sewer : Graffiti", SewerCheck.Observation, FlagKeys.intelSewerClueGraffiti, PointX));
+            _byId["z2a_1"].AddPoint(new SewerPoint("workwear", "Workwear", "Sewer : Workwear", SewerCheck.Luck, FlagKeys.intelSewerClueWorkwear, PointX));
+            _byId["z2a_3"].AddPoint(new SewerPoint("log", "Work log", "Sewer_Z2a_Log", SewerCheck.None, FlagKeys.intelSewerClueLog, PointX));
+            _byId["z2b_2"].AddPoint(new SewerPoint("footprints", "Footprints", "Sewer : Footprints", SewerCheck.Observation, FlagKeys.intelSewerClueFootprints, PointX));
+            _byId["z3_1"].AddPoint(new SewerPoint("signboard", "Signboard", "Sewer : Signboard", SewerCheck.Intelligence, FlagKeys.intelSewerClueSignboard, PointX));
 
             for (int i = 0; i < _rooms.Count; i++)
             {

@@ -2,6 +2,14 @@
  "id": "InSewer",
  "topics": [
   {
+   "id": "Sewer_Z2a_Log",
+   "cases": [
+    {
+     "node": "Sewer_Z2a_Log"
+    }
+   ]
+  },
+  {
    "id": "Sewer_LadderUP",
    "cases": [
     {
@@ -243,6 +251,10 @@
   }
  ],
  "nodes": {
+  "Sewer_Z2a_Log": {
+   "text": "InSewer:433-435",
+   "onEnter": "set:intelSewerClueLog"
+  },
   "Sewer_LadderUP": {
    "text": "InSewer:93-105"
   },

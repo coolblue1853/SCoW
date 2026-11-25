@@ -11,6 +11,8 @@ namespace SCoW.Core.Sewer
         public const string Visited = "sewer.visited";
         public const string Defeated = "sewer.defeated";
         public const string Seed = "sewer.seed";
+        /// <summary>조사한 포인트 목록(쉼표, "방ID:포인트ID"). S2 에서 추가.</summary>
+        public const string Looked = "sewer.looked";
         public const string EncPrefix = "sewer.enc.";
 
         public static string Enc(string roomId) { return EncPrefix + roomId; }
@@ -47,6 +49,11 @@ namespace SCoW.Core.Sewer
 
         public static void Defeat(GameState s, string roomId) { AddTo(s, SewerKeys.Defeated, roomId); }
 
+        public static bool IsLooked(GameState s, string roomId, string pointId) { return InList(s.GetText(SewerKeys.Looked), roomId + ":" + pointId); }
+
+        /// <summary>포인트를 조사했다고 기록한다(판정 성공 여부와 무관, 한 번만 시도).</summary>
+        public static void Look(GameState s, string roomId, string pointId) { AddTo(s, SewerKeys.Looked, roomId + ":" + pointId); }
+
         /// <summary>방의 조우 번호(1~3). 아직 안 나왔으면 0.</summary>
         public static int EncounterOf(GameState s, string roomId) { return s.GetCounter(SewerKeys.Enc(roomId)); }
 
@@ -73,6 +80,7 @@ namespace SCoW.Core.Sewer
             s.SetText(SewerKeys.Room, null);
             s.SetText(SewerKeys.Visited, null);
             s.SetText(SewerKeys.Defeated, null);
+            s.SetText(SewerKeys.Looked, null);
             s.SetCounter(SewerKeys.Seed, 0);
             for (int i = 1; i <= SewerGraph.EncounterCount; i++)
             {
