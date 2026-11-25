@@ -70,8 +70,14 @@ public class ManageMain : MonoBehaviour
         // 요약은 영문 포맷. TMP 글꼴에 한글이 없으면 장소·시간 이름도 영문으로 맞춘다.
         bool prevForce = SaveText.ForceEnglish;
         SaveText.ForceEnglish = t.font == null || !t.font.HasCharacter('가', true);
-        t.text = SlotSummary.Line(meta.Day, SaveText.TimeOfDay(meta.TimeCount), SaveText.PlaceName(meta.PlaceId), meta.SavedAtUtc.ToLocalTime());
-        SaveText.ForceEnglish = prevForce;
+        try
+        {
+            t.text = SlotSummary.Line(meta.Day, SaveText.TimeOfDay(meta.TimeCount), SaveText.PlaceName(meta.PlaceId), meta.SavedAtUtc.ToLocalTime());
+        }
+        finally
+        {
+            SaveText.ForceEnglish = prevForce;
+        }
         RectTransform rt = (RectTransform)go.transform;
         rt.anchorMin = new Vector2(0.5f, 0.5f);
         rt.anchorMax = new Vector2(0.5f, 0.5f);
