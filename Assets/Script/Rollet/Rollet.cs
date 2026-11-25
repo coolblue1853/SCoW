@@ -88,11 +88,7 @@ public class Rollet : MonoBehaviour
             {
                 if (GameInput.AdvanceDown || GameInput.InteractDown)
                 {
-                    SoundManager.Instance.EndDice();
-                    CancelInvoke();
-                    isClick = true;
-                    isActiveRollet = false;
-                    Invoke("GetIntResult", 0.5f);
+                    StopRollet(SettingsService.Current.FastRoll ? 0f : 0.5f);
                 }
             }
         }
@@ -157,7 +153,6 @@ public class Rollet : MonoBehaviour
             conditon.text = "Condition : Nomal";
             skillPoint1 = point_int % 10;
             skillPoint10 = point_int / 10;
-            succesProbability = skillPoint10 * 0.1f + skillPoint1 * 0.01f;
         }
         else if (DataBaseManager.condition == "Good")
         {
@@ -167,7 +162,6 @@ public class Rollet : MonoBehaviour
             good1Rollet.SetActive(true);
             skillPoint1 = point_int % 10;
             skillPoint10 = point_int / 10;
-            succesProbability = skillPoint10 * 0.1f + (skillPoint1 * skillPoint1 + 2 * skillPoint1 * (10 - skillPoint1)) * 0.001f;
         }
         else if (DataBaseManager.condition == "Best")
         {
@@ -177,7 +171,6 @@ public class Rollet : MonoBehaviour
             good10Rollet.SetActive(true);
             skillPoint1 = point_int % 10;
             skillPoint10 = point_int / 10;
-            succesProbability = (skillPoint10 * skillPoint10 + 2 * skillPoint10 * (10 - skillPoint10)) * 0.01f + skillPoint1 * 0.001f;
         }
         else if (DataBaseManager.condition == "Bad")
         {
@@ -187,7 +180,6 @@ public class Rollet : MonoBehaviour
             bad1Rollet.SetActive(true);
             skillPoint1 = point_int % 10;
             skillPoint10 = point_int / 10;
-            succesProbability = skillPoint10 * 0.1f + skillPoint1 * skillPoint1 * 0.001f;
         }
         else if (DataBaseManager.condition == "Worst")
         {
@@ -197,29 +189,42 @@ public class Rollet : MonoBehaviour
             bad10Rollet.SetActive(true);
             skillPoint1 = point_int % 10;
             skillPoint10 = point_int / 10;
-            succesProbability = (skillPoint10 * skillPoint10 * 0.01f) + skillPoint1 * 0.001f;
         }
-        if (succesProbability < 0.20)
-        {
-            expect.text = "Probability : Very Hard";
-        }
-        else if (succesProbability < 0.40)
-        {
-            expect.text = "Probability : Hard";
-        }
-        else if (succesProbability < 0.60)
-        {
-            expect.text = "Probability : Nomal";
-        }
-        else if (succesProbability < 0.80)
-        {
-            expect.text = "Probability : Easy";
-        }
-        else if (succesProbability < 1)
-        {
-            expect.text = "Probability : Very Easy";
-        }
+        // 성공 확률은 Core SkillCheck 가 Evaluate 로 센 값 하나만 쓴다(표시·구간 문구 모두).
+        Condition condition = SkillCheck.ParseCondition(DataBaseManager.condition);
+        double chance = SkillCheck.SuccessChance(condition, point_int, DataBaseManager.isDebuffPerfectionism);
+        succesProbability = (float)chance;
+        expect.text = "Probability : " + ProbabilityLabel(succesProbability) + PercentSuffix(skill, chance);
         Invoke("WaitOneSec", 0.1f);
+    }
+    static string ProbabilityLabel(float chance)
+    {
+        if (chance < 0.20f)
+        {
+            return "Very Hard";
+        }
+        if (chance < 0.40f)
+        {
+            return "Hard";
+        }
+        if (chance < 0.60f)
+        {
+            return "Nomal";
+        }
+        if (chance < 0.80f)
+        {
+            return "Easy";
+        }
+        return "Very Easy";
+    }
+    // Q-UX2 임시 가정: 룰렛이 열린 뒤 성공 확률(n%)을 공개하고 ShowHints 로 숨긴다. 기능치를 가린 판정(??? : Deftness)은 확률도 가린다. TODO I2
+    static string PercentSuffix(string skillName, double chance)
+    {
+        if (!SettingsService.Current.ShowHints || skillName == "??? : Deftness")
+        {
+            return string.Empty;
+        }
+        return " (" + SkillCheck.PercentOf(chance) + "%)";
     }
     public void WaitOneSec()
     {
@@ -229,8 +234,32 @@ public class Rollet : MonoBehaviour
     {
         setUI.SetActive(false);
         activeUI.SetActive(true);
+        if (SettingsService.Current.FastRoll)
+        {
+            // 빠른 판정(UX-6): 굴림 0.3초 뒤 자동 정지, 결과는 지연 없이. 규칙·눈 굴리는 방식은 그대로다.
+            InvokeRepeating("ChangeRollet", 0f, 0.05f);
+            Invoke("DiceSound", 0f);
+            Invoke("FastStop", FastRollSec);
+            return;
+        }
         InvokeRepeating("ChangeRollet", 0.5f, 0.05f);
         Invoke("DiceSound", 0.5f);
+    }
+    const float FastRollSec = 0.3f;
+    void FastStop()
+    {
+        if (isClick == false && isActiveRollet == true)
+        {
+            StopRollet(0f);
+        }
+    }
+    void StopRollet(float resultDelay)
+    {
+        SoundManager.Instance.EndDice();
+        CancelInvoke();
+        isClick = true;
+        isActiveRollet = false;
+        Invoke("GetIntResult", resultDelay);
     }
     void DiceSound()
     {
@@ -259,12 +288,19 @@ public class Rollet : MonoBehaviour
             int.Parse(goodRollet1Txt.text), int.Parse(goodRollet10Txt.text));
         resultInt = SkillCheck.ResolveValue(SkillCheck.ParseCondition(DataBaseManager.condition), faces);
         resultString.text = "Dice : " + resultInt.ToString();
-        Invoke("GetStringResult", 0.5f);
+        Invoke("GetStringResult", SettingsService.Current.FastRoll ? 0f : 0.5f);
+    }
+    // 판정 결과. 분기는 문자열이 아니라 이 값으로 한다(resultEnd.text 는 표시와 옛 콜백 전달용).
+    SuccessLevel resultLevel;
+    bool IsResultSuccess
+    {
+        get { return resultLevel == SuccessLevel.Success || resultLevel == SuccessLevel.CriticalSuccess; }
     }
     void GetStringResult()
     {
         SoundManager.Instance.PenCircle();
-        resultEnd.text = SkillCheck.ToLegacyString(SkillCheck.Evaluate(resultInt, skillPoint, DataBaseManager.isDebuffPerfectionism));
+        resultLevel = SkillCheck.Evaluate(resultInt, skillPoint, DataBaseManager.isDebuffPerfectionism);
+        resultEnd.text = SkillCheck.ToLegacyString(resultLevel);
         if (@string == "Sanity")
         {
             Invoke("OpenSanRollet", 1f);
@@ -297,11 +333,7 @@ public class Rollet : MonoBehaviour
             if (DataBaseManager.nowItem == "First aid kit")
             {
                 DataBaseManager.firstaidkit -= 1;
-                if (resultEnd.text == "Result : Success")
-                {
-                    BillowUIManager.Instance.HpUp((Random.Range(1, 7)) * 5);
-                }
-                else if (resultEnd.text == "Result : Critical Success")
+                if (IsResultSuccess)
                 {
                     BillowUIManager.Instance.HpUp((Random.Range(1, 7)) * 5);
                 }
@@ -309,11 +341,7 @@ public class Rollet : MonoBehaviour
             if (DataBaseManager.nowItem == "Bandages")
             {
                 DataBaseManager.bandages -= 1;
-                if (resultEnd.text == "Result : Success")
-                {
-                    BillowUIManager.Instance.HpUp((Random.Range(1, 4)) * 5);
-                }
-                else if (resultEnd.text == "Result : Critical Success")
+                if (IsResultSuccess)
                 {
                     BillowUIManager.Instance.HpUp((Random.Range(1, 4)) * 5);
                 }
@@ -321,11 +349,7 @@ public class Rollet : MonoBehaviour
             if (DataBaseManager.nowItem == "Painkillers")
             {
                 DataBaseManager.painkillers -= 1;
-                if (resultEnd.text == "Result : Success")
-                {
-                    BillowUIManager.Instance.SanUp((Random.Range(1, 4)) * 5);
-                }
-                else if (resultEnd.text == "Result : Critical Success")
+                if (IsResultSuccess)
                 {
                     BillowUIManager.Instance.SanUp((Random.Range(1, 4)) * 5);
                 }
@@ -479,7 +503,7 @@ public class Rollet : MonoBehaviour
         SoundManager.Instance.PaperClipPlay();
         sanRollet.SetActive(true);
         Invoke("WaitOneSec2", 0.1f);
-        if (resultEnd.text == "Result : Fumble" || resultEnd.text == "Result : Failure")
+        if (resultLevel == SuccessLevel.Fumble || resultLevel == SuccessLevel.Failure)
         {
             SanCheck.FailurePercents(DataBaseManager.debuff, DataBaseManager.condition == "Worst", out int p1, out int p2, out int p3);
             sanName.text = "!Sanity check failed!";
@@ -1015,6 +1039,7 @@ public class Rollet : MonoBehaviour
         goodRollet10Txt.text = "--";
         resultString.text = "Dice : --";
         resultEnd.text = "Result : --";
+        resultLevel = SuccessLevel.Fumble;
     }
     private void ResetRolletDice()
     {

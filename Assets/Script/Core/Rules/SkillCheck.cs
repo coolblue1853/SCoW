@@ -133,6 +133,47 @@ namespace SCoW.Core.Rules
             return Resolve(condition, RollFaces(rng), target, perfectionism);
         }
 
+        /// <summary>
+        /// 성공(일반+대성공) 확률 0~1. Evaluate 를 컨디션별 주사위 눈 10^4 가지(1·10의 자리 + 보너스/페널티 눈 한 쌍)에 전부 돌려 센다.
+        /// 룰렛 표시는 이 값을 쓴다(손으로 쓴 식과 어긋나지 않게). 난수는 쓰지 않는다.
+        /// </summary>
+        public static double SuccessChance(Condition condition, int target, bool perfectionism = false)
+        {
+            int clamped = ClampTarget(target);
+            int hits = 0;
+            for (int u = 0; u < 10; u++)
+            {
+                for (int t = 0; t < 10; t++)
+                {
+                    for (int xu = 0; xu < 10; xu++)
+                    {
+                        for (int xt = 0; xt < 10; xt++)
+                        {
+                            DiceFaces f = new DiceFaces(u, t * 10, xu, xt * 10, xu, xt * 10);
+                            SuccessLevel level = Evaluate(ResolveValue(condition, f), clamped, perfectionism);
+                            if (level == SuccessLevel.Success || level == SuccessLevel.CriticalSuccess)
+                            {
+                                hits++;
+                            }
+                        }
+                    }
+                }
+            }
+            return hits / 10000.0;
+        }
+
+        /// <summary>룰렛에 표시하는 성공 확률 정수 %. SuccessChance 를 반올림한다.</summary>
+        public static int SuccessPercent(Condition condition, int target, bool perfectionism = false)
+        {
+            return PercentOf(SuccessChance(condition, target, perfectionism));
+        }
+
+        /// <summary>SuccessChance 값(0~1)을 표시용 정수 %로. 표시 경로는 모두 이 한 곳을 지난다.</summary>
+        public static int PercentOf(double chance)
+        {
+            return (int)System.Math.Round(chance * 100.0);
+        }
+
         /// <summary>기존 InteractionController 등이 비교하는 문자열 4종.</summary>
         public static string ToLegacyString(SuccessLevel level)
         {

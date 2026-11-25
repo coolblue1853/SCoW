@@ -296,5 +296,74 @@ namespace SCoW.Tests
             Assert.AreEqual(5, rng.Next(5, 5));
             Assert.AreEqual(5, rng.Next(5, 3));
         }
+
+        // UX-6: 룰렛 표시 확률 = Evaluate 가 성공으로 판정하는 비율. 보통 컨디션은 value 1~100 에서 value <= target 이라 target %.
+        [Test]
+        public void SuccessChance_Nomal_EqualsTargetPercent()
+        {
+            for (int target = 0; target <= 90; target++)
+            {
+                Assert.AreEqual(target, SkillCheck.SuccessPercent(Condition.Nomal, target), "target " + target);
+            }
+        }
+
+        [Test]
+        public void SuccessChance_ClampsTargetLikeSetRollet()
+        {
+            Assert.AreEqual(SkillCheck.SuccessPercent(Condition.Nomal, 90), SkillCheck.SuccessPercent(Condition.Nomal, 150));
+            Assert.AreEqual(0, SkillCheck.SuccessPercent(Condition.Nomal, -5));
+        }
+
+        // 표시 값이 실제 판정과 같은지: 보너스/페널티 눈까지 전부 돌려 Evaluate 로 다시 센다(다른 경로로 센 값과 대조).
+        [TestCase(Condition.Good, 45)]
+        [TestCase(Condition.Best, 45)]
+        [TestCase(Condition.Bad, 45)]
+        [TestCase(Condition.Worst, 45)]
+        [TestCase(Condition.Nomal, 45)]
+        [TestCase(Condition.Good, 7)]
+        [TestCase(Condition.Worst, 90)]
+        public void SuccessChance_MatchesFullEnumeration(Condition condition, int target)
+        {
+            int hits = 0;
+            int total = 0;
+            for (int u = 0; u < 10; u++)
+            for (int t = 0; t < 10; t++)
+            for (int xu = 0; xu < 10; xu++)
+            for (int xt = 0; xt < 10; xt++)
+            {
+                RollResult r = SkillCheck.Resolve(condition, new DiceFaces(u, t * 10, xu, xt * 10, xu, xt * 10), target);
+                total++;
+                if (r.IsSuccess)
+                {
+                    hits++;
+                }
+            }
+            Assert.AreEqual(10000, total);
+            Assert.AreEqual(hits / 10000.0, SkillCheck.SuccessChance(condition, target), 1e-12);
+            Assert.AreEqual((int)System.Math.Round(hits / 100.0), SkillCheck.SuccessPercent(condition, target));
+            Assert.AreEqual(SkillCheck.SuccessPercent(condition, target), SkillCheck.PercentOf(SkillCheck.SuccessChance(condition, target)));
+        }
+
+        [Test]
+        public void SuccessChance_ConditionOrdering()
+        {
+            double worst = SkillCheck.SuccessChance(Condition.Worst, 45);
+            double bad = SkillCheck.SuccessChance(Condition.Bad, 45);
+            double nomal = SkillCheck.SuccessChance(Condition.Nomal, 45);
+            double good = SkillCheck.SuccessChance(Condition.Good, 45);
+            double best = SkillCheck.SuccessChance(Condition.Best, 45);
+            Assert.Less(worst, bad);
+            Assert.Less(bad, nomal);
+            Assert.Less(nomal, good);
+            Assert.Less(good, best);
+        }
+
+        // 완벽주의 디버프는 일반 성공을 실패로 강등 → 성공 확률은 대성공(value <= target/3) 비율만 남는다.
+        [Test]
+        public void SuccessChance_Perfectionism_OnlyCritical()
+        {
+            Assert.AreEqual(20, SkillCheck.SuccessPercent(Condition.Nomal, 60, true));
+            Assert.AreEqual(30, SkillCheck.SuccessPercent(Condition.Nomal, 99, true), "target 클램프 90 -> 30%");
+        }
     }
 }

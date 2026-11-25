@@ -202,6 +202,14 @@
 
 우선순위 요약: **P0 = UX-A1~A7(7개)** → 단계 UX-1·2·3·4·5. P1 → UX-6~11. P2 → UX-12.
 
+### UX-6 구현 기록 (11-25)
+- `Rollet.cs` 는 P1(d89dda4)에서 이미 UTF-8 로 변환돼 있어 변환 커밋은 필요 없었다(strict 디코드 통과·U+FFFD 0).
+- 결과 분기는 `SuccessLevel resultLevel` 로 한다(`resultEnd.text` 는 표시와 옛 콜백 전달용으로만 남김). 판정 규칙·난수 소비 불변.
+- 성공 확률 `n%`: Core `SkillCheck.SuccessChance/SuccessPercent`(Evaluate 를 눈 10^4 가지에 돌려 센 값). 룰렛 `Probability : <구간> (n%)` 에 붙이고 구간 문구도 같은 값에서 나온다(옛 손식 `succesProbability` 대체). Q-UX2 가정대로 `ShowHints` OFF·`??? : Deftness` 는 숨김. 문구는 TODO I2.
+- 빠른 판정: `SettingsData.FastRoll` ON 이면 굴림 시작 즉시 눈 갱신, 0.3초 뒤 자동 정지, 결과 지연 0. 손으로 정지해도 지연 0.
+- 함정: 기능치가 10의 배수(예 50)면 `00+0=100` 규칙 때문에 Good 이 Nomal 과 같은 확률이 된다(이득·손실 상쇄, 규칙 그대로).
+- `BattleRollet.cs` 는 이번 범위 밖(옛 손식·문자열 비교 유지).
+
 ## 7. 공통 검증 기준
 
 - 새 UI는 마우스·키보드·패드 세 경로 각각 한 번씩 완결 확인(에디터 비포커스 한계로 자동 주입 불가한 것은 "미검증"으로 기록, 사용자 확인 필요 목록에 추가: `Docs/Handoff/state.md`).
