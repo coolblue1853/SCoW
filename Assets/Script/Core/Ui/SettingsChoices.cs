@@ -27,6 +27,13 @@ namespace SCoW.Core.Ui
             return Math.Min(max, Math.Max(min, v));
         }
 
+        /// <summary>설정의 자동 대기(초)를 Runner 기본 대기로. 기본 1.5초 = 기존 AutoBase 1.0초(UX-8).</summary>
+        public static float AutoBaseOf(float sec)
+        {
+            float v = sec - 0.5f;
+            return v < 0.3f ? 0.3f : v;
+        }
+
         /// <summary>AutoWaitSec 후보 중 sec 에 가장 가까운 칸 번호.</summary>
         public static int NearestAutoWait(float sec)
         {

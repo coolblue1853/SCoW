@@ -69,6 +69,8 @@ namespace SCoW.Core.Story
         public RunnerState State { get; private set; }
         public Pending Pending { get; private set; }
         public bool AutoOn { get; set; }
+        /// <summary>자동 진행 기본 대기(초, UX-8 설정 연동). 기본은 AutoBase.</summary>
+        public float AutoBaseSec { get; set; } = AutoBase;
         /// <summary>true 면 안 읽은 줄도 스킵한다(설정). 기본은 읽은 것만.</summary>
         public bool SkipAll { get; set; }
         public Backlog Backlog { get { return _backlog; } }
@@ -197,7 +199,7 @@ namespace SCoW.Core.Story
             if (AutoOn && State == RunnerState.Waiting)
             {
                 _timer += dt;
-                if (_timer >= AutoWait(_textLength))
+                if (_timer >= AutoWait(_textLength, AutoBaseSec))
                 {
                     return Step();
                 }
@@ -207,7 +209,12 @@ namespace SCoW.Core.Story
 
         public static float AutoWait(int textLength)
         {
-            float w = AutoBase + (textLength < 0 ? 0 : textLength) * AutoPerChar;
+            return AutoWait(textLength, AutoBase);
+        }
+
+        public static float AutoWait(int textLength, float baseSec)
+        {
+            float w = baseSec + (textLength < 0 ? 0 : textLength) * AutoPerChar;
             return w > AutoMax ? AutoMax : w;
         }
 

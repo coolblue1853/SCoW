@@ -10,6 +10,7 @@ using System.Linq;
 using UnityEngine.Assertions;
 using DG.Tweening;
 using SCoW.Core.Story;
+using SCoW.Core.Ui;
 public class DialogManager : MonoBehaviour
 {
     public GameObject backGround;
@@ -117,6 +118,8 @@ public class DialogManager : MonoBehaviour
         EnsureRunner();
         ApplyTextSpeed();
         BuildExtraButtons();
+        CaptureTextBase();
+        SyncButtonStates(true);
     }
     // ---- P8: 대사 진행은 DialogueRunner(Core)가 정하고, 이 클래스는 그 결정을 화면에 옮기는 View 다. ----
     DialogueRunner _runner;
@@ -139,6 +142,7 @@ public class DialogManager : MonoBehaviour
         }
         _runner = new DialogueRunner(ReadLogService.Current, new Backlog());
         _runner.SkipAll = SettingsService.Current.SkipAll;
+        _runner.AutoBaseSec = SettingsChoices.AutoBaseOf(SettingsService.Current.AutoWaitSec);
         _textSpeedLevel = TextSpeed.Clamp(SettingsService.Current.TextSpeedLevel);
     }
 
@@ -192,7 +196,90 @@ public class DialogManager : MonoBehaviour
     {
         EnsureRunner();
         SettingPlayerCon();
+        ApplyTextScale();
+        _runner.AutoBaseSec = SettingsChoices.AutoBaseOf(SettingsService.Current.AutoWaitSec);
         TextCheker();
+    }
+
+    // ---- UX-8: 글자 크기 3단계·▼·버튼 ON 표시 ----
+    float _baseFontSize;
+    float _baseLineSpacing;
+    int _appliedScale = -1;
+    GameObject _nextMarker;
+    bool _lastAuto;
+    bool _lastSkipOn;
+
+    /// <summary>현재 적용된 글자 크기 단계(검증용). 아직 적용 전이면 -1.</summary>
+    public int AppliedTextScale
+    {
+        get { return _appliedScale; }
+    }
+
+    /// <summary>▼ 표시가 켜져 있는지(검증용).</summary>
+    public bool NextMarkerShown
+    {
+        get { return _nextMarker != null && _nextMarker.activeSelf; }
+    }
+
+    void CaptureTextBase()
+    {
+        if (txtDialog == null)
+        {
+            return;
+        }
+        _baseFontSize = txtDialog.fontSize;
+        _baseLineSpacing = txtDialog.lineSpacing;
+        if (goDialogBar != null && _nextMarker == null)
+        {
+            _nextMarker = DialogHudStyle.BuildNextMarker(goDialogBar.transform);
+        }
+        ApplyTextScale();
+    }
+
+    // 설정(TextScaleLevel)이 바뀌면 대사창 폰트 크기·줄 간격을 다시 맞춘다. 단계 비교 하나뿐이라 매 프레임 불러도 싸다.
+    void ApplyTextScale()
+    {
+        if (txtDialog == null || _baseFontSize <= 0f)
+        {
+            return;
+        }
+        int level = TextScale.Clamp(SettingsService.Current.TextScaleLevel);
+        if (level == _appliedScale)
+        {
+            return;
+        }
+        _appliedScale = level;
+        txtDialog.enableAutoSizing = false;
+        txtDialog.fontSize = TextScale.Scaled(_baseFontSize, level);
+        txtDialog.lineSpacing = _baseLineSpacing + TextScale.LineSpacingBonus;
+    }
+
+    // auto·skip 켜짐 표시와 ▼. 값이 바뀔 때만 칠한다.
+    void SyncButtonStates(bool force)
+    {
+        if (_runner == null)
+        {
+            return;
+        }
+        bool auto = _runner.AutoOn;
+        bool skip = _runner.SkipActive;
+        if (force || auto != _lastAuto || skip != _lastSkipOn)
+        {
+            _lastAuto = auto;
+            _lastSkipOn = skip;
+            DialogHudStyle.Paint(_autoButton, auto, auto ? UiText.DialogAutoOn : UiText.DialogAuto);
+            DialogHudStyle.Paint(_logButton, false, null);
+            DialogHudStyle.Paint(skipButton, false, UiText.DialogSkip);
+            DialogHudStyle.Paint(skipStopButton, true, UiText.DialogSkipOn);
+        }
+        if (_nextMarker != null)
+        {
+            bool show = isDialog && _runner.State == RunnerState.Waiting && _runner.Pending == Pending.None && !DataBaseManager.selectionOn;
+            if (_nextMarker.activeSelf != show)
+            {
+                _nextMarker.SetActive(show);
+            }
+        }
     }
 
     public void AlphaChange(float alhpa, float during)
@@ -223,6 +310,7 @@ public class DialogManager : MonoBehaviour
             HandleControls();
         }
         SyncSkipUi();
+        SyncButtonStates(false);
 
         RunnerAction action = RunnerAction.None;
         if (!UiGate.BlocksDialogueInput && (GameInput.InteractDown || (GameInput.AdvanceDown && !UiGate.PointerOverButton())))

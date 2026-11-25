@@ -1,0 +1,118 @@
+using DG.Tweening;
+using UnityEngine;
+using UnityEngine.UI;
+
+/// <summary>
+/// 대사창 보조 표시(UX-8, View). (1) log·auto·skip 버튼 ON/OFF 모양, (2) 글이 다 나온 뒤 입력을 기다릴 때의 ▼ 표시.
+/// 그래픽은 임시(ART-2). 문구는 UiText(TODO I2).
+/// </summary>
+public static class DialogHudStyle
+{
+    private static readonly Color OffBg = new Color(0.55f, 0.55f, 0.58f, 1f);
+    private static readonly Color OnBg = new Color(1f, 0.82f, 0.3f, 1f);
+    private static readonly Color OffText = new Color(0.95f, 0.95f, 0.95f, 1f);
+
+    /// <summary>버튼 배경·글자를 ON(강조)/OFF 로 칠한다. label 이 null 이 아니면 글자도 바꾼다.</summary>
+    public static void Paint(GameObject button, bool on, string label)
+    {
+        if (button == null)
+        {
+            return;
+        }
+        Image bg = button.GetComponent<Image>();
+        if (bg != null)
+        {
+            bg.color = on ? OnBg : OffBg;
+        }
+        Text t = button.GetComponentInChildren<Text>(true);
+        if (t != null)
+        {
+            t.color = on ? OnBg : OffText;
+            t.horizontalOverflow = HorizontalWrapMode.Overflow;
+            t.fontStyle = on ? FontStyle.Bold : FontStyle.Normal;
+            if (label != null)
+            {
+                t.text = label;
+            }
+        }
+    }
+
+    /// <summary>parent 오른쪽 아래에 ▼ 마커를 만든다(처음엔 꺼 둔다).</summary>
+    public static GameObject BuildNextMarker(Transform parent)
+    {
+        GameObject go = new GameObject("NextMarker", typeof(RectTransform), typeof(Image), typeof(DialogNextMarker));
+        go.transform.SetParent(parent, false);
+        RectTransform rt = (RectTransform)go.transform;
+        rt.anchorMin = new Vector2(1f, 0f);
+        rt.anchorMax = new Vector2(1f, 0f);
+        rt.pivot = new Vector2(1f, 0f);
+        rt.sizeDelta = new Vector2(28f, 20f);
+        rt.anchoredPosition = new Vector2(-24f, 14f);
+        Image img = go.GetComponent<Image>();
+        img.sprite = DialogNextMarker.TriangleSprite;
+        img.color = OnBg;
+        img.raycastTarget = false;
+        go.SetActive(false);
+        return go;
+    }
+}
+
+/// <summary>▼ 위아래 2px 반복(켜질 때 시작, 꺼지면 정리).</summary>
+public sealed class DialogNextMarker : MonoBehaviour
+{
+    private static Sprite _sprite;
+    private Tween _tween;
+    private float _baseY;
+
+    public static Sprite TriangleSprite
+    {
+        get
+        {
+            if (_sprite == null)
+            {
+                const int w = 28;
+                const int h = 20;
+                Texture2D t = new Texture2D(w, h, TextureFormat.RGBA32, false);
+                t.filterMode = FilterMode.Point;
+                Color32[] px = new Color32[w * h];
+                for (int y = 0; y < h; y++)
+                {
+                    // 위쪽(y 큰 쪽)이 넓고 아래로 갈수록 좁아지는 역삼각형.
+                    float half = (w * 0.5f) * (y / (float)(h - 1));
+                    for (int x = 0; x < w; x++)
+                    {
+                        bool inside = Mathf.Abs(x + 0.5f - w * 0.5f) <= half;
+                        px[y * w + x] = new Color32(255, 255, 255, (byte)(inside ? 255 : 0));
+                    }
+                }
+                t.SetPixels32(px);
+                t.Apply(false, true);
+                _sprite = Sprite.Create(t, new Rect(0, 0, w, h), new Vector2(0.5f, 0.5f), 100f);
+            }
+            return _sprite;
+        }
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetStatics()
+    {
+        _sprite = null;
+    }
+
+    private void OnEnable()
+    {
+        RectTransform rt = (RectTransform)transform;
+        _baseY = rt.anchoredPosition.y;
+        _tween = rt.DOAnchorPosY(_baseY + 4f, 0.5f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine).SetUpdate(true).SetLink(gameObject);
+    }
+
+    private void OnDisable()
+    {
+        if (_tween != null)
+        {
+            _tween.Kill();
+            _tween = null;
+        }
+        ((RectTransform)transform).anchoredPosition = new Vector2(((RectTransform)transform).anchoredPosition.x, _baseY);
+    }
+}
