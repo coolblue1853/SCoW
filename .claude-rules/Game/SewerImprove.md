@@ -177,3 +177,11 @@ P0 = S0·S1·S2·S3(4개). 하수도 외부 작업과 겹치는 파일: `TimeMan
 - **새 플래그**(`FlagKeys`, 추가만): `intelSewerClueGraffiti/Workwear/Log/Footprints/Signboard`. 성공 노드의 `onEnter` 가 켠다. 수첩 UI·`KeywordCatalog` 연결은 아직 없음(K4 연동 때).
 - **임시 가정**: ① 한 포인트는 한 번만 시도(실패해도 다시 못 함, 재시도는 이후 조정). ② 작업복 포인트는 단서만 주고 `wearCoat` 이동은 안 함. ③ 포인트는 왼쪽 문과 샛길 사이 x=-1229 고정. ④ 대사는 영문 초안, 스토리 담당 검수 필요. ⑤ 조사 표시 그래픽 없음(말풍선만).
 - **미검증**: 실제 키 입력으로 E 를 눌러 조사하는 흐름(플레이 모드에서 타이틀 상태라 상호작용 불가, `Investigate` 를 직접 호출해 기록·롤렛 열림·플래그 확인).
+
+## 8. S3 구현 메모 (11-25)
+- **Core**: `Core/Sewer/SewerSight.cs`(시야 반경·어둠·계단형 마스크 알파·깜빡임 허용 판정), `BulbFlicker`(깜빡임 타이머). 테스트 `Tests/EditMode/SewerSightTests.cs`(8건). **App**: `UI/SewerSightView.cs`(DontDestroyOnLoad 오버레이, 캔버스 정렬 -10: 씬 UI·대사·HUD 는 안 어두워진다). `SewerRoomApplier.Apply` 끝에서 `SewerSightView.Refresh()`.
+- **마스크**: 코드 생성 512x512 점 필터 텍스처(새 그림 파일 없음). 중심·반경을 화면 6px 격자에 맞춰 도트 느낌. 가운데 투명, 바깥으로 4칸 계단. 켜짐 조건 = `nowPlace=="InSewer"` 이고 Main 씬이고 전투(`sewerBattleChecker`) 아님. 0.25초마다 조건 확인, 위치는 매 프레임, SAN 은 `VitalsChanged` 이벤트.
+- **임시 값(조정 대상)**: 반경 = `lerp(0.55, 0.9, SAN비율)` + 전구 켜짐 0.15 / 꺼짐 -0.1 (화면 높이 절반 기준, 3-3절 그대로). 바깥 어둠 알파 0.85, SAN 30% 이하이면 0.65(위험 비네트와 겹쳐도 덜 어둡게). 깜빡임: SAN 70% 미만부터, 간격 `Random(8,20) x SAN비율`초(최소 1.5초), 꺼짐 0.1~0.3초, 밝기 25%로 떨어짐, 그동안 반경 20% 줄어듦. 깜빡임 대상 = `burb*` 스프라이트 + 하수도 영역(x<-1150, y<-150)의 `LightBulb*` Light2D(원래 세기 x 배율). 3-3절 "Light2D 코드 0건" 은 코드 기준이고 씬에는 Light2D 전구가 이미 있었다.
+- **설정**: 화면 흔들림 끄기(`ShakeEnabled`)이면 깜빡임을 완전히 끈다(광과민 배려, `ShakeGate` 재사용, SettingsData 필드 추가 없음). 마스크 자체는 남는다.
+- **검증**: EditMode 423 통과. 플레이 모드: SAN 60/60 반경 1.05, 12/60 반경 0.77, 15/60 약 20초에 깜빡임 6회, 흔들림 끄기 20초 0회, `nowPlace` 변경 시 마스크 꺼짐·밝기 1 복원. 스크린샷 `Logs/playtest/sewer_s3_san_hi.png`·`sewer_s3_san_lo.png`. **마스크 모양·밝기는 사용자 검토 대기.** 미검증: 실제 문 이동·전투 진입/종료 전환, 패드 입력.
+- **알려진 점**: 플레이어가 화면 왼쪽 끝에 서는 방이 많아 SAN 만땅에서도 오른쪽이 어둡다(높이 기준 반경 때문). 너비 기준으로 바꿀지는 사용자 검토 후 결정.
