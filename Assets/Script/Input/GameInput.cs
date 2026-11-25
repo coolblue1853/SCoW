@@ -157,6 +157,8 @@ public static class GameInput
     public static bool PageNextDown { get { return Down(_pageNext); } }
     public static bool PagePrevDown { get { return Down(_pagePrev); } }
     /// <summary>수첩 "할 일" 탭 열기·닫기(Q / 패드 오른쪽 스틱 누름, UX-3). 입력 에셋에 없으면 항상 false.</summary>
+    // 패드 오른쪽 스틱 누름은 DialogSkipToggle(Play 맵)과 같은 버튼이다. 겹침 방지: 수첩이 열리면(UiStack) DialogManager 는
+    // blocked(UiGate.AnyOpen)로 HandleControls 를 건너뛰고, TodoTab 은 수첩이 맨 위(IsTop(Intel))일 때만 읽는다. 둘은 동시에 반응하지 않는다.
     public static bool TodoTabDown { get { return Down(_todoTab); } }
 
     /// <summary>대사 백로그 열기(B / 마우스 휠 위 / 패드 LT).</summary>
