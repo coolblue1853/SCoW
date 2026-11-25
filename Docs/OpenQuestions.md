@@ -35,4 +35,6 @@
 - Q-UX2 (UX) 판정 성공률을 숫자(%)로 공개할지 — 임시 가정: 룰렛 열린 뒤 공개, `ShowHints` 로 숨김 가능 — 대기
 - Q-UX3 (UX) 현재 목표 힌트 수준 — 임시 가정: "아직 안 간 곳" 수준만, 정답 단서 언급 없음 — 대기
 - Q-UX4 (UX) 캐릭터 생성 재굴림 제한 — 임시 가정: 무제한, 이전 값 1개 보존·되돌리기 — 대기
-- Q-UX5 (UX) 한글 글꼴 도입(영문 도트 폰트 유지 + 한글 Fallback 도트 폰트) 방향 — 임시 가정: 위와 같음, 사용자 검토 후 적용(ART-2 와 조율) — 대기
+- Q-UX5 (UX) 한글 글꼴 도입(영문 도트 폰트 유지 + 한글 Fallback 도트 폰트) 방향 — 임시 가정: 위와 같음, 사용자 검토 후 적용(ART-2 와 조율) — 대기. 11-25 후보 Galmuri11 준비(미적용, `Assets/Font/Candidates/Galmuri/`), 미리보기 `Docs/Review/UX10_font_preview.png`, FaceDilate 0.25 임시
+- Q-PT3 (PARTY) 합류 트리거·대사 — 임시 가정: Albert(time>8)·Maeve(time>9) 에게 키워드 `Location` 제시 = 수락(보류 선택지 없음). 합류 대사·`Ending_PartyAlbert/Maeve/MaeveDead` 는 영문 초안(1st_PoliceOffice·1st_Bar 322~, InSewer 416~425) — 사용자 검토 대기
+- Q-PT4 (PARTY) 탐색 보조 규칙 — 임시 가정: 칩은 dialog 판정의 Rhetoric·Swin·Observation·Occult·Analysis·Medicine·Deftness·Str 에만(Stealth·Luck·Health·Sanity 제외), Ready 동료만. 대신 판정은 Nomal 컨디션, 실패 시 동료 HP -1(대실패 -3, 최소 1). 동료 SAN 자동 판정은 Sewer_FirstInSan·DeepOneFirstSan·BattleSan_* 3곳, Standby 만 제외. 도움 비용(Q16) 미적용 — 대기

@@ -21,3 +21,5 @@
 - 다음: KEYWORD K5~K7 → PT-3(합류 스토리)·PT-4(탐색 보조) → PT-5(전투 View 다인원) → SEWER S0~ → 스토리 P0. 사용자 확인 필요: 실제 키보드로 KeywordPicker(비포커스라 주입 불가), 동료 복귀 HP 절반 가정, Q-K5.
 - 11-25 오전: KEYWORD K5~K7(effcef5·b4f3796·6f896de), UX 설계(d15d6c5), UX-1~6(988bfda·fed18ed·a4e192f·110b32d·828d4fd·a6864b6·ea628f9) push. EditMode 332. 에디터 기동 시 'Recovering Scene Backups' 모달 주의(백업 보관 후 No). 5시간 80% 로 정지, 14:52 재개.
 - 다음: UX-7(HUD SAN·HP·비네트·흔들림 끄기)·UX-8(대사창·글자 크기)·UX-9(수첩·힌트)·UX-10(타이틀·한글 글꼴) → PT-3·PT-4 → PT-5·UX-11 → SEWER → 스토리 P0 → ART-2(PixelLab, 생성 전 사용자 확인). 사용자 실조작 확인 필요: 키보드 F/F5/F9·마우스 경로 전반.
+- 11-25 오후: UX-7·UX-8(59bbad0·12c4af7), UX-9(2522288·ec6e604), UX-10(02950e5·198b8e2, Galmuri 후보 미적용·미리보기 `Docs/Review/UX10_font_preview.png`), PT-3(2e4372f, 플레이 미검증), PT-4(844b923) push. EditMode 377. 임시 가정 Q-PT3·Q-PT4 기록.
+- 다음: PT-5(다인원 전투 View)·UX-11 → SEWER → 스토리 P0 → ART-2. 사용자 확인 필요: 글꼴 미리보기 검토, PT-3 합류 대사·엔딩 초안, 실조작(F/F5/F9·W/S·십자키·칩 A/D·LB/RB·마우스).
