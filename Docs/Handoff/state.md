@@ -23,3 +23,5 @@
 - 다음: UX-7(HUD SAN·HP·비네트·흔들림 끄기)·UX-8(대사창·글자 크기)·UX-9(수첩·힌트)·UX-10(타이틀·한글 글꼴) → PT-3·PT-4 → PT-5·UX-11 → SEWER → 스토리 P0 → ART-2(PixelLab, 생성 전 사용자 확인). 사용자 실조작 확인 필요: 키보드 F/F5/F9·마우스 경로 전반.
 - 11-25 오후: UX-7·UX-8(59bbad0·12c4af7), UX-9(2522288·ec6e604), UX-10(02950e5·198b8e2, Galmuri 후보 미적용·미리보기 `Docs/Review/UX10_font_preview.png`), PT-3(2e4372f, 플레이 미검증), PT-4(844b923) push. EditMode 377. 임시 가정 Q-PT3·Q-PT4 기록.
 - 다음: PT-5(다인원 전투 View)·UX-11 → SEWER → 스토리 P0 → ART-2. 사용자 확인 필요: 글꼴 미리보기 검토, PT-3 합류 대사·엔딩 초안, 실조작(F/F5/F9·W/S·십자키·칩 A/D·LB/RB·마우스).
+- 11-25 오후 2: PT-5·UX-11(5900ba8·4d01791), 전투 화면 겹침 수정(f877e6a), SEWER S0(aff336d, 분포표 SewerImprove 2-1)·S1(a1f5c86, 고정 그래프 15방·SewerState·구세이브 매핑) push. EditMode 411. 5시간 77% 로 정지, 19:53 재개.
+- 다음: SEWER S2(조사 포인트·단서) → S3(시야·깜빡임, 마스크는 사용자 검토) → S4·S7 → PT-6(입력 3경로) → PT-7 → 스토리 P0 → ART-2. 미검증: 하수도 실키 이동·실전투 후 승리 기록·실제 하수도 세이브 로드, 전투 1920x1080·패배/도주 경로. S1 임시 가정은 SewerImprove.md 6절.
