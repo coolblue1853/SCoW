@@ -47,7 +47,7 @@ public sealed class SewerSightView : MonoBehaviour
         get { return _instance != null && _instance._on; }
     }
 
-    /// <summary>현재 시야 반경(화면 높이 절반 대비, 검증용). 꺼져 있으면 0.</summary>
+    /// <summary>현재 시야 반경(화면 너비 대비, 검증용). 꺼져 있으면 0.</summary>
     public static float RadiusNow
     {
         get { return _instance != null && _instance._on ? _instance._radius : 0f; }
@@ -311,7 +311,7 @@ public sealed class SewerSightView : MonoBehaviour
         }
         float shrink = 1f - DimRadiusShrink * (1f - _level);
         _radius = SewerSight.Radius(_ratio, _bulbOn) * shrink;
-        float radiusPx = Snap(_radius * Screen.height * 0.5f);
+        float radiusPx = Snap(SewerSight.RadiusPixels(_radius, Screen.width));
         float halfSize = radiusPx / SewerSight.HoleEdge;
         Vector3 sp = _cam.WorldToScreenPoint(_player.position);
         _rt.sizeDelta = new Vector2(halfSize * 2f, halfSize * 2f);

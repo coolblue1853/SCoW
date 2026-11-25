@@ -11,11 +11,12 @@ namespace SCoW.Core.Sewer
     /// </summary>
     public static class SewerSight
     {
-        /// <summary>SAN 0 일 때 시야 반경(화면 높이 절반 대비).</summary>
-        public const float MinRadius = 0.55f;
-        /// <summary>SAN 가득일 때 시야 반경.</summary>
-        public const float MaxRadius = 0.9f;
-        public const float BulbOnBonus = 0.15f;
+        /// <summary>SAN 0 일 때 시야 반경(화면 너비 대비, 11-25 이후. 처음엔 높이 절반 기준이라 플레이어가 화면 끝이면 반대편이 어두웠다).</summary>
+        public const float MinRadius = 0.2f;
+        /// <summary>SAN 가득일 때 시야 반경. 1 이상이면 플레이어가 화면 끝에 있어도 반대편 끝까지 덮는다(여유 5%).</summary>
+        public const float MaxRadius = 1.05f;
+        public const float BulbOnBonus = 0.05f;
+        /// <summary>전구 꺼짐 감점. SAN 이 가득이면 0(너비를 덮는 조건 유지), 낮을수록 온전히 적용.</summary>
         public const float BulbOffPenalty = 0.1f;
         /// <summary>마스크 텍스처에서 완전히 뚫린 반경(텍스처 반폭 대비).</summary>
         public const float HoleEdge = 0.15f;
@@ -37,12 +38,18 @@ namespace SCoW.Core.Sewer
             return r < 0f ? 0f : (r > 1f ? 1f : r);
         }
 
-        /// <summary>시야 반경 = lerp(0.55, 0.9, r) + (전구 켜짐 +0.15 / 꺼짐 -0.1). 화면 높이 절반이 1.</summary>
+        /// <summary>시야 반경 = lerp(0.2, 1.05, r) + (전구 켜짐 +0.05 / 꺼짐 -0.1 x (1-r)). 화면 너비가 1. SAN 가득이면 전구 상태와 무관하게 1 이상.</summary>
         public static float Radius(float sanRatio, bool bulbOn)
         {
             float r = sanRatio < 0f ? 0f : (sanRatio > 1f ? 1f : sanRatio);
             float baseR = MinRadius + (MaxRadius - MinRadius) * r;
-            return baseR + (bulbOn ? BulbOnBonus : -BulbOffPenalty);
+            return baseR + (bulbOn ? BulbOnBonus : -BulbOffPenalty * (1f - r));
+        }
+
+        /// <summary>반경(화면 너비 대비)을 픽셀로. 화면 너비 기준이라 SAN 가득이면 결과가 항상 너비 이상이다.</summary>
+        public static float RadiusPixels(float radius, float screenWidth)
+        {
+            return radius * screenWidth;
         }
 
         /// <summary>바깥 어둠의 최대 알파.</summary>
