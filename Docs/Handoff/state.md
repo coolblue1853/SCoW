@@ -28,3 +28,5 @@
 - 11-25 저녁: SEWER S2(03f00d4, 조사 포인트 5곳·intelSewerClue* 5개, 임시 가정 SewerImprove 7절) push. EditMode 415. 5시간 98% 까지 사용(사용자: 5시간 창은 꽉 채움), 19:53 재개. ART-2 PixelLab 은 '픽셀렙 모션생성' 세션에 위임(파비안 시안 2판, 10회, `Docs/ArtCandidates/Fabian/`, 사용자 판정 대기).
 - 다음: S3 → S4·S7 → PT-6 → PT-7 → 스토리 P0. 미검증: S2 실제 E 키 흐름, 새 단서 플래그 수첩 미표시.
 - 11-25 밤: UX-12(키 리바인딩·엔딩 목록) + 리뷰 권장 3건. 설정창 탭 5개(키·엔딩 추가), `GameInput.Rebind`·`BindingStore`(SCoW.InputStore asmdef)·`EndingService`(endings.es3/endingsSeen). 미검증: 실제 키보드·패드 물리 입력 재지정(큐 이벤트로만 확인), 엔딩 기록 실제 엔딩 도달 경로.
+- 11-25 밤: SEWER S3(f8cace1)·S3 반경 너비(81f1f91)·S4(b46b606)·S7(f14b9e1), PT-6(a8f777b, 교체 Q/R·LB/RB), PT-7(809ec73, 3인 연속 승률 161/200 vs 솔로 19), 스토리 P0(96f31bb·ea98990), UX-12(ccbdd0c·0144a60·93e4252, 설정 탭 5개), S9 일부(a0fea5d, 씬 복제 14쌍 합치기는 보류 — 전투 카메라 좌표 재배치·육안 확인 필요) push. EditMode 489. 주간 약 36%(주중 상한 65%).
+- 다음: P15(싱글턴·DDOL 정리)·P16(오타·데드 코드) → S5(지도 UI, 아이콘 임시)·S9 씬 합치기(육안 필요) → 금요일 GraphicsNeeds 전달(cron). 사용자 확인 대기: 글꼴 미리보기, 동료·P0 영문 대사 초안(1st_DetectiveOffice 416~425 등), 하수도 시야 마스크 캡처, 실조작 전반(키 재설정·Q/R·F5/F9 등), OpenQuestions Q-PT3·Q-PT4·Q-P0-1~4.
