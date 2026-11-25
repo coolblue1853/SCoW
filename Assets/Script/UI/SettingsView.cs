@@ -139,6 +139,7 @@ public sealed class SettingsView : MonoBehaviour
         }
         AddChoice(2, SaveText.Pick("자동 진행 대기", "Auto Wait"), waits, () => SettingsChoices.NearestAutoWait(SettingsService.Current.AutoWaitSec), i => SaveSettings(d => d.AutoWaitSec = SettingsChoices.AutoWaitSec[i]));
         AddToggle(2, SaveText.Pick("키 안내 표시", "Key Hints"), () => SettingsService.Current.ShowHints, v => SaveSettings(d => d.ShowHints = v));
+        AddToggle(2, SaveText.Pick("시간 표시", "Time HUD"), () => SettingsService.Current.ShowTimeHud, v => SaveSettings(d => d.ShowTimeHud = v));
         AddToggle(2, SaveText.Pick("빠른 판정", "Fast Roll"), () => SettingsService.Current.FastRoll, v => SaveSettings(d => d.FastRoll = v));
     }
 

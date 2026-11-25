@@ -29,6 +29,8 @@ namespace SCoW.Core.Save
         public float AutoWaitSec = DefaultAutoWaitSec;
         /// <summary>화면 하단 키 안내(HintBar) 표시.</summary>
         public bool ShowHints = true;
+        /// <summary>시간·목표 HUD 표시(UX-3, Q-UX1 임시 가정: 항상 표시·설정에서 숨김). 옛 파일은 기본값 true.</summary>
+        public bool ShowTimeHud = true;
         /// <summary>빠른 판정(룰렛 연출 생략). 적용은 UX-6.</summary>
         public bool FastRoll = false;
         /// <summary>손상·수동 편집으로 범위를 벗어난 값을 안전한 값으로 되돌린다.</summary>

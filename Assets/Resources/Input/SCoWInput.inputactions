@@ -489,6 +489,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "TodoTab",
+                    "type": "Button",
+                    "id": "5b0d6a4e-3f1c-4a52-9c7e-2d8b41f6a9c3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -709,6 +718,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "PagePrev",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8e2f7c10-6b4d-4d39-a1f5-0c93d7e5b2a4",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "TodoTab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c47a1e95-2d08-4b6f-8e13-5f9a0b6d7c21",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "TodoTab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

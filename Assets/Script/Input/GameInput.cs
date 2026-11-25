@@ -17,7 +17,7 @@ public static class GameInput
     private static InputActionAsset _asset;
     private static InputAction _move, _interact, _present, _advance, _portal, _pointerPrimary;
     private static InputAction _cancel, _menu, _openIntel, _openMap, _openSIS;
-    private static InputAction _navUp, _navDown, _pageNext, _pagePrev;
+    private static InputAction _navUp, _navDown, _pageNext, _pagePrev, _todoTab;
     private static InputAction _dlgBacklog, _dlgSkipHold, _dlgSkipToggle, _dlgAutoToggle;
     private static Vector2 _lastPointer;
     private static IDisposable _anyPress;
@@ -123,6 +123,7 @@ public static class GameInput
         _navDown = Find(ui, "NavDown");
         _pageNext = Find(ui, "PageNext");
         _pagePrev = Find(ui, "PagePrev");
+        _todoTab = Find(ui, "TodoTab");
         _asset.Enable();
         if (_anyPress == null)
         {
@@ -155,6 +156,8 @@ public static class GameInput
     public static bool NavDownDown { get { return Down(_navDown); } }
     public static bool PageNextDown { get { return Down(_pageNext); } }
     public static bool PagePrevDown { get { return Down(_pagePrev); } }
+    /// <summary>수첩 "할 일" 탭 열기·닫기(Q / 패드 오른쪽 스틱 누름, UX-3). 입력 에셋에 없으면 항상 false.</summary>
+    public static bool TodoTabDown { get { return Down(_todoTab); } }
 
     /// <summary>대사 백로그 열기(B / 마우스 휠 위 / 패드 LT).</summary>
     public static bool DialogBacklogDown { get { return Down(_dlgBacklog); } }

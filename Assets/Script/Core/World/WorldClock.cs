@@ -14,6 +14,28 @@ namespace SCoW.Core.World
             return timeCount % PhasesPerDay;
         }
 
+        /// <summary>마지막 칸(4일차 밤). 이 칸까지 하수도로 못 가면 악몽 엔딩(Story.md 엔딩 D).</summary>
+        public const int LastSlot = 16;
+
+        /// <summary>일차(1부터). timeCount 가 1 미만이면 1(SaveMeta.Day 와 같은 식).</summary>
+        public static int Day(int timeCount)
+        {
+            return timeCount <= 0 ? 1 : (timeCount - 1) / PhasesPerDay + 1;
+        }
+
+        /// <summary>마감까지 남은 칸 수(지금 칸은 제외). 마지막 칸 이후는 0.</summary>
+        public static int SlotsLeft(int timeCount)
+        {
+            int left = LastSlot - timeCount;
+            return left < 0 ? 0 : left;
+        }
+
+        /// <summary>하루 안에서 지금까지 지난 칸 수(지금 칸 포함, 1~4). 음수·0 이면 1.</summary>
+        public static int SlotInDay(int timeCount)
+        {
+            return timeCount <= 0 ? 1 : (timeCount - 1) % PhasesPerDay + 1;
+        }
+
         public static bool IsNight(int timeCount)
         {
             return Phase(timeCount) == 0;

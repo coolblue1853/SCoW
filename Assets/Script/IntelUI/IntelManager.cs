@@ -101,6 +101,7 @@ public class IntelManager : MonoBehaviour
 
     public void OpenCharacter()
     {
+        IntelTodoTab.Hide(this, false);
         SoundManager.Instance.ClickSoundPlay();
         characterWindowOn.SetActive(true);
         eventWindowOn.SetActive(false);
@@ -113,6 +114,7 @@ public class IntelManager : MonoBehaviour
 
     public void OpenEvent()
     {
+        IntelTodoTab.Hide(this, false);
         SoundManager.Instance.ClickSoundPlay();
         characterWindowOn.SetActive(false);
         eventWindowOn.SetActive(true);
@@ -124,6 +126,7 @@ public class IntelManager : MonoBehaviour
     }
     public void OpenPlace()
     {
+        IntelTodoTab.Hide(this, false);
         SoundManager.Instance.ClickSoundPlay();
         characterWindowOn.SetActive(false);        
         eventWindowOn.SetActive(false);
@@ -141,6 +144,7 @@ public class IntelManager : MonoBehaviour
             UiGate.Push(PanelKind.Intel, CloseSetting);
             HintBar.Push(this, IntelHints);
             intelUI.SetActive(true);
+            IntelTodoTab.Ensure(this);
             KeywordToast.OnIntelOpened();
         }
     }
@@ -155,6 +159,7 @@ public class IntelManager : MonoBehaviour
     {
         UiGate.Remove(PanelKind.Intel);
         HintBar.Remove(this);
+        IntelTodoTab.Hide(this, true);
         intelUI.SetActive(false);
         IntelKeywordUseButton.Hide();
         KeywordPicker.OnIntelClosed();
@@ -173,6 +178,7 @@ public class IntelManager : MonoBehaviour
         UiGate.Push(PanelKind.Intel, CloseSetting);
         HintBar.Push(this, IntelHints);
         intelUI.SetActive(true);
+        IntelTodoTab.Ensure(this);
         _fromPickerFrame = Time.frameCount;
         switch (category)
         {
@@ -221,6 +227,10 @@ public class IntelManager : MonoBehaviour
         else if (intelUI.activeSelf == true && KeywordPicker.HiddenForIntel && GameInput.PresentDown && Time.frameCount != _fromPickerFrame)
         {
             UseForQuestion();
+        }
+        else if (intelUI.activeSelf && GameInput.TodoTabDown && UiGate.Stack.IsTop(PanelKind.Intel))
+        {
+            IntelTodoTab.Toggle(this);
         }
         else if (GameInput.OpenIntelDown && intelUI.activeSelf == false && !IsPresentKeyDown())
         {

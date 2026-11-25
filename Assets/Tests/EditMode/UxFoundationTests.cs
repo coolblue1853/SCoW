@@ -151,6 +151,7 @@ namespace SCoW.Tests
             Assert.AreEqual(SettingsData.DefaultAutoWaitSec, d.AutoWaitSec, 0.0001f);
             Assert.IsTrue(d.ShowHints);
             Assert.IsFalse(d.FastRoll);
+            Assert.IsTrue(d.ShowTimeHud);
         }
 
         [Test]

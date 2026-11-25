@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "rules": [
+    { "id": "deadline_last_night", "when": "time>=16", "exclusive": true, "ko": "마지막 밤이다. 날이 밝기 전에 하수도로 내려가야 한다.", "en": "Last night. You must go down to the sewers before dawn." },
+    { "id": "visit_client_news", "when": "!flag:aidenFirstDialog && time<8", "ko": "아직 의뢰인의 집이나 신문사에 가 보지 않았다.", "en": "You have not visited the client's house or the newspaper yet." },
+    { "id": "visit_university", "when": "!flag:univFirstDialog", "ko": "아직 대학교에 가 보지 않았다.", "en": "You have not visited the university yet." },
+    { "id": "visit_hospital", "when": "!flag:alanFirstDialog && !flag:kateNoonFirstDialog", "ko": "아직 병원에 가 보지 않았다.", "en": "You have not visited the hospital yet." },
+    { "id": "visit_police", "when": "!flag:aFirstDialog && !flag:albertFirstDialog", "ko": "아직 경찰서에 가 보지 않았다.", "en": "You have not visited the police office yet." },
+    { "id": "visit_slum", "when": "!flag:daveFirstDialog", "ko": "아직 빈민가에 가 보지 않았다.", "en": "You have not visited the slum yet." },
+    { "id": "visit_bar", "when": "!flag:maeveFirstDialog && !flag:workerFirstDialog", "ko": "아직 술집에 가 보지 않았다.", "en": "You have not visited the bar yet." },
+    { "id": "visit_riverside", "when": "!flag:sewerFirstDialog", "ko": "아직 강변을 둘러보지 않았다.", "en": "You have not looked around the riverside yet." },
+    { "id": "review_notebook", "fallback": true, "ko": "수첩을 다시 읽고, 키워드로 사람들에게 더 물어보자.", "en": "Reread your notebook and ask people more with keywords." }
+  ]
+}
