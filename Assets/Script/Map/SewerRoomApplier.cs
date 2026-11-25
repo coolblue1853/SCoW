@@ -130,22 +130,28 @@ public static class SewerRoomApplier
     }
 
     // 전투 배경 복제를 지금 방 소품과 같게(옛 MakeSewerMapEnemy 가 따로 난수로 맞추던 것). 사다리·샛길은 전투 배경에 쓰지 않는다.
+    // S9: 소품 ↔ 전투 복제 대응을 한 표로 모았다. 씬의 Battle 쪽 오브젝트는 별도 좌표계(전투 카메라)라 삭제를 보류하고, 동기화 지점만 이 표 하나로 둔다.
     private static void SyncBattle(TimeManagere t)
     {
-        t.groundWaterBattle.SetActive(t.groundWater.activeSelf);
-        t.groundWaterLand2Battle.SetActive(t.groundWaterLand2.activeSelf);
-        t.sewerFlatBattle.SetActive(t.sewerFlat.activeSelf);
-        t.sewerRoundBattle.SetActive(t.sewerRound.activeSelf);
-        t.burbFlet1Battle.SetActive(t.burbFlet1.activeSelf);
-        t.burbFlet2Battle.SetActive(t.burbFlet2.activeSelf);
-        t.burbRound1Battle.SetActive(t.burbRound1.activeSelf);
-        t.burbRound2Battle.SetActive(t.burbRound2.activeSelf);
-        t.holeBattle.SetActive(t.hole.activeSelf);
-        t.pipeBattle.SetActive(t.pipe.activeSelf);
-        t.houseBattle.SetActive(t.house.activeSelf);
-        t.cageBattle.SetActive(t.cage.activeSelf);
-        t.land2Battle.SetActive(t.land2.activeSelf);
-        t.ladderBattle.SetActive(false);
-        t.sideRoadBattle.SetActive(false);
+        CopyActive(t.groundWater, t.groundWaterBattle);
+        CopyActive(t.groundWaterLand2, t.groundWaterLand2Battle);
+        CopyActive(t.sewerFlat, t.sewerFlatBattle);
+        CopyActive(t.sewerRound, t.sewerRoundBattle);
+        CopyActive(t.burbFlet1, t.burbFlet1Battle);
+        CopyActive(t.burbFlet2, t.burbFlet2Battle);
+        CopyActive(t.burbRound1, t.burbRound1Battle);
+        CopyActive(t.burbRound2, t.burbRound2Battle);
+        CopyActive(t.hole, t.holeBattle);
+        CopyActive(t.pipe, t.pipeBattle);
+        CopyActive(t.house, t.houseBattle);
+        CopyActive(t.cage, t.cageBattle);
+        CopyActive(t.land2, t.land2Battle);
+        if (t.ladderBattle != null) { t.ladderBattle.SetActive(false); }
+        if (t.sideRoadBattle != null) { t.sideRoadBattle.SetActive(false); }
+    }
+
+    private static void CopyActive(GameObject src, GameObject dst)
+    {
+        if (src != null && dst != null) { dst.SetActive(src.activeSelf); }
     }
 }
