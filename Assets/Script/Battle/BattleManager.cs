@@ -180,7 +180,7 @@ public class BattleManager : MonoBehaviour
         if (enemyTrunSymbol1.activeSelf == false && enemyTrunSymbol2.activeSelf == false && enemyTrunSymbol3.activeSelf == false && DataBaseManager.sewerBattleChecker == true && DataBaseManager.nowPlace == "InSewer" && DataBaseManager.sewerBattleEndCheck == false)
         {
             DataBaseManager.sewerBattleChecker = false;
-            DataBaseManager.sewerBattleEndCheck = true;
+            DataBaseManager.sewerBattleEndCheck = true; SewerFlow.OnBattleWon(); // SEWER-1: 이 방의 적 처치 기록
             DataBaseManager.storyDirecting = false;
             FadingBackGround.Instance.FadeInOut();
             Invoke("EndSewerBattle", 1f);

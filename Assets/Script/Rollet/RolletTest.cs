@@ -84,7 +84,7 @@ public class RolletTest : MonoBehaviour
             // cam.transform.position = Cam_SecretHouse;
             player.transform.position = playerSymbol;
             cam.transform.position = camSymbol;
-            TimeManagere.Instance.MakeSighnLand();
+            SewerFlow.JumpToSymbol();
             DataBaseManager.nowPlace = "InSewer";
             DialogDatabaseManager.instance.check = true;
 
@@ -111,7 +111,7 @@ public class RolletTest : MonoBehaviour
         }
         if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.F9))
         {
-            TimeManagere.Instance.MakeSewerMapEnemy();
+            SewerFlow.ApplyCurrent();
 
         }
         if (GameInput.DebugKeyDown(UnityEngine.InputSystem.Key.Digit1))

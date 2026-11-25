@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using SCoW.Core.Sewer;
 public class PotalPoint : MonoBehaviour
 {
     float chInRommSize = 2.383215f; // -이면 왼쪽 +면 오른쪽
@@ -40,10 +41,6 @@ public class PotalPoint : MonoBehaviour
     // 해당 이동은 강가 하부의 통로를 통해 하수도에 들어갔을 때
     Vector2 playerSewer = new Vector3(-1241.24f, -193.57f);
     Vector3 camSewer = new Vector3(-1221.3f, -195f, -15);
-    Vector2 playerSewerRight = new Vector3(-1194.19f, -193.57f);
-    Vector3 camSewerRight = new Vector3(-1217.02f, -195f, -15);
-    Vector2 playerSewerLeft = new Vector3(-1243.64f, -193.57f);
-    Vector3 camSewerLeft = new Vector3(-1221.5f, -195f, -15);
     Vector2 playerSecretHouse = new Vector3(-1291.44f, -194.02f);
     Vector3 camSecretHouse = new Vector3(-1303f, -195f, -15);
     Vector2 playerInSewer = new Vector3(-1211.05f, -194.02f);
@@ -118,6 +115,10 @@ public class PotalPoint : MonoBehaviour
                     else if (DataBaseManager.nowPlace == "SewerOffice" && this.name == "GoInside" && DataBaseManager.sewerDoorOpenDeftness == false && DataBaseManager.sewerDoorOpen == false)
                     {
                     }
+                    else if (SewerFlow.IsBlocked(this.name))
+                    {
+                        // 하수도: 잠긴 문(문양실 길, 비밀기지 단서 필요)·없는 문은 페이드 없이 막는다. TODO(I2): 잠김 안내 문구.
+                    }
                     else
                     {
                         DataBaseManager.isDirecting = true;
@@ -135,6 +136,7 @@ public class PotalPoint : MonoBehaviour
     }
     void MovePlayer()
     {
+        SewerDoor sewerDoor;
         DataBaseManager.potalWait = true;
         //강가
         if (this.name == "RtoL")
@@ -255,46 +257,29 @@ public class PotalPoint : MonoBehaviour
             player.transform.localPosition = playerSewer;
             camera.transform.localPosition = camSewer;
 
-            TimeManagere.Instance.SewerByRiverSide();
+            SewerFlow.Enter();
             DataBaseManager.nowPlace = "InSewer";
             DialogDatabaseManager.instance.check = true;
             DataBaseManager.storyDirecting = true;
             SoundManager.Instance.BGMManage();
             Invoke("FirstSewerIn", 2f);
         }
-        else if (this.name == "Sewer_Left" || this.name == "Sewer_Right")
+        else if (SewerFlow.TryDoor(this.name, out sewerDoor))
         {
-            int RandInt = Random.Range(0, 2);
-            if (RandInt == 0)
+            // 고정 그래프 이동(SEWER-1 S1): 문 방향과 도착 방향이 일치하고, 돌아가면 직전 방이 같은 외형으로 복원된다.
+            SewerMove sewerMove = SewerFlow.Move(sewerDoor);
+            if (sewerMove != null)
             {
                 DataBaseManager.isDirecting = true;
-                player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
+                player.transform.localScale = new Vector3(SewerFlow.Facing(sewerMove.Arrival), chInRommSize, 1);
                 CameraManager.Instance.isCheckEnd = true;
-                player.transform.localPosition = playerSewerRight;
-                camera.transform.localPosition = camSewerRight;
-                TimeManagere.Instance.DeletRightSewerPotal();
-                TimeManagere.Instance.MakeSewer();
+                player.transform.localPosition = SewerFlow.PlayerPos(sewerMove.Arrival);
+                camera.transform.localPosition = SewerFlow.CamPos(sewerMove.Arrival);
             }
             else
             {
-                DataBaseManager.isDirecting = true;
-                player.transform.localScale = new Vector3(chInRommSize, chInRommSize, 1);
-                CameraManager.Instance.isCheckEnd = true;
-                player.transform.localPosition = playerSewerLeft;
-                camera.transform.localPosition = camSewerLeft;
-                TimeManagere.Instance.DeletLeftSewerPotal();
-                TimeManagere.Instance.MakeSewer();
+                DataBaseManager.potalWait = false;
             }
-        }
-        else if (this.name == "Sewer_Middle")
-        {
-            DataBaseManager.isDirecting = true;
-            player.transform.localScale = new Vector3(chInRommSize, chInRommSize, 1);
-            CameraManager.Instance.isCheckEnd = true;
-            player.transform.localPosition = playerSewerLeft;
-            camera.transform.localPosition = camSewerLeft;
-            TimeManagere.Instance.DeletLeftSewerPotal();
-            TimeManagere.Instance.MakeSewer();
         }
         else if (this.name == "MoveSecretHouse")
         {

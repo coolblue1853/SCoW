@@ -170,7 +170,8 @@ public static class SaveFlow
         {
             return r.Error;
         }
-        if (!IsSavePlace(r.State.GetText(TextKeys.nowPlace)))
+        string loadedPlace = r.State.GetText(TextKeys.nowPlace);
+        if (!IsSavePlace(loadedPlace) && loadedPlace != SCoW.Core.Sewer.SewerLegacy.SewerPlace)
         {
             return SaveError.PlaceUnsupported;
         }

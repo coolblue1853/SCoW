@@ -674,13 +674,12 @@ public class DirectingManager : MonoBehaviour
     }
     public void InSewerFabianMove()
     {
-        TimeManagere.Instance.MakeSewerMapNomal();
+        SewerFlow.ApplyCurrent();
         DataBaseManager.isDirecting = false;
         player.transform.localScale = new Vector3(-chInRommSize, chInRommSize, 1);
         CameraManager.Instance.isCheckEnd = true;
         player.transform.localPosition = playerSewerRight;
         camera.transform.localPosition = camSewerRight;
-        TimeManagere.Instance.DeletRightSewerPotal();
     }
     public void MeaveDialog()
     {

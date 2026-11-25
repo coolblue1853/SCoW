@@ -909,6 +909,15 @@ public class MapManager : MonoBehaviour
             case "Bar": p = playerBar; c = camBar; dir = chInRommSize; break;
             case "Gunshop": p = playerGunshop; c = camGunshop; break;
             case "SewerOffice": p = playerSewerOfficeMove; c = camSewerOfficeMove; break;
+            case "InSewer":
+                {
+                    // 하수도(출시판 세이브 포함): 방 상태·외형은 SewerFlow 가 복원한다.
+                    SCoW.Core.Sewer.SewerDoor arrival = SewerFlow.RestoreCurrent();
+                    p = SewerFlow.PlayerPos(arrival);
+                    c = SewerFlow.CamPos(arrival);
+                    dir = SewerFlow.Facing(arrival);
+                    break;
+                }
             default: return false;
         }
         player.transform.localScale = new Vector3(dir, chInRommSize, 1);
