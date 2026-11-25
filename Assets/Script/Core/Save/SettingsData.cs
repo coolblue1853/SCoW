@@ -9,6 +9,8 @@ namespace SCoW.Core.Save
         public const float DefaultVolume = 0.5f;
         public const float DefaultTextDelay = 0.07f;
         public const int ResolutionCount = 6;
+        public const float DefaultAutoWaitSec = 1.5f;
+        public const int TextScaleCount = 3;
 
         public float SoundVolume = DefaultVolume;
         public float SfxVolume = DefaultVolume;
@@ -19,7 +21,16 @@ namespace SCoW.Core.Save
         public int TextSpeedLevel = 3;
         /// <summary>스킵이 안 읽은 줄도 넘기나(P8). 기본은 읽은 것만.</summary>
         public bool SkipAll = false;
-
+        /// <summary>화면 흔들림(카메라·대사창 떨림) 허용. UX-2 에서 필드·창 추가, 적용은 UX-7. 옛 파일은 기본값 true.</summary>
+        public bool ShakeEnabled = true;
+        /// <summary>글자 크기 0=작게 1=보통 2=크게. 적용은 UX-8. 옛 파일은 기본값 1.</summary>
+        public int TextScaleLevel = 1;
+        /// <summary>자동 진행 대기 시간(초). 적용은 UX-8. 옛 파일은 기본값 1.5.</summary>
+        public float AutoWaitSec = DefaultAutoWaitSec;
+        /// <summary>화면 하단 키 안내(HintBar) 표시.</summary>
+        public bool ShowHints = true;
+        /// <summary>빠른 판정(룰렛 연출 생략). 적용은 UX-6.</summary>
+        public bool FastRoll = false;
         /// <summary>손상·수동 편집으로 범위를 벗어난 값을 안전한 값으로 되돌린다.</summary>
         public void Sanitize()
         {
@@ -36,6 +47,14 @@ namespace SCoW.Core.Save
             if (ResolutionIndex < 0 || ResolutionIndex >= ResolutionCount)
             {
                 ResolutionIndex = 1;
+            }
+            if (TextScaleLevel < 0 || TextScaleLevel >= TextScaleCount)
+            {
+                TextScaleLevel = 1;
+            }
+            if (float.IsNaN(AutoWaitSec) || float.IsInfinity(AutoWaitSec) || AutoWaitSec < 0.3f || AutoWaitSec > 10f)
+            {
+                AutoWaitSec = DefaultAutoWaitSec;
             }
         }
 

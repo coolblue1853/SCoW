@@ -74,7 +74,7 @@ public sealed class UxOverlay : MonoBehaviour
     private void RefreshBar()
     {
         HintStack stack = HintBar.Stack;
-        bool show = stack.Count > 0;
+        bool show = stack.Count > 0 && SettingsService.Current.ShowHints;
         if (_barRoot.activeSelf != show)
         {
             _barRoot.SetActive(show);
@@ -106,7 +106,11 @@ public sealed class UxOverlay : MonoBehaviour
     {
         EventSystem es = EventSystem.current;
         GameObject sel = es != null ? es.currentSelectedGameObject : null;
-        RectTransform target = sel != null && sel.activeInHierarchy ? sel.transform as RectTransform : null;
+        RectTransform target = FocusScope.Target;
+        if (target == null || !target.gameObject.activeInHierarchy)
+        {
+            target = sel != null && sel.activeInHierarchy ? sel.transform as RectTransform : null;
+        }
         bool show = target != null && GameInput.LastDevice != InputDeviceKind.Mouse;
         if (_ringRoot.activeSelf != show)
         {

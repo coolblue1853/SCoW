@@ -34,7 +34,7 @@ public class settingManager : MonoBehaviour
             changeInt = saved.ResolutionIndex;
             isFullScrean = saved.FullScreen;
             BuildSaveButtons();
-            BuildDialogOptions();
+            BuildView();
         }
         else
         {
@@ -114,94 +114,90 @@ public class settingManager : MonoBehaviour
         MakeSlotButton(key, "LoadButton", SaveText.Pick("◀ 불러오기", "◀ Load"), 22f, SlotMenuView.Mode.Load);
     }
 
-    // P8: 글자 속도 슬라이더(5단계)와 스킵 범위(읽은 것만/전부) 버튼을 사운드 칸 아래에 코드로 만든다.
-    private Text _skipModeLabel;
+    // UX-2: 설정 본문(탭 3개)은 SettingsView 가 코드로 만든다. 옛 Sound·SetResolution 칸은 숨기고(겹침 원인), 오른쪽 열 버튼은 그대로 쓴다.
+    private SettingsView _view;
 
-    private void BuildDialogOptions()
+    private void BuildView()
     {
-        Transform sound = settingUi != null ? settingUi.transform.Find("Sound") : null;
-        Transform key = settingUi != null ? settingUi.transform.Find("Key") : null;
-        Transform sfx = sound != null ? sound.Find("SFX") : null;
-        Transform label = sound != null ? sound.Find("Upper3") : null;
-        if (sfx == null || label == null || key == null)
+        if (settingUi == null)
         {
             return;
         }
-        GameObject s = Instantiate(sfx.gameObject, sound);
-        s.name = "TextSpeed";
-        Slider sl = s.GetComponent<Slider>();
-        sl.onValueChanged = new Slider.SliderEvent(); // 복제본이 SFX 슬라이더의 이벤트를 물려받지 않게
-        sl.minValue = 1f;
-        sl.maxValue = 5f;
-        sl.wholeNumbers = true;
-        sl.SetValueWithoutNotify(SettingsService.Current.TextSpeedLevel);
-        sl.onValueChanged.AddListener(OnTextSpeedChanged);
-        ((RectTransform)s.transform).anchoredPosition += new Vector2(0f, -65f);
-
-        GameObject l = Instantiate(label.gameObject, sound);
-        l.name = "Upper4";
-        ((RectTransform)l.transform).anchoredPosition += new Vector2(0f, -65f);
-        Text lt = l.GetComponentInChildren<Text>(true);
-        if (lt != null)
-        {
-            lt.text = UiText.SettingTextSpeed;
-        }
-
-        GameObject b = Instantiate(key.gameObject, key.parent);
-        b.name = "SkipModeButton";
-        Button old = b.GetComponent<Button>();
-        if (old != null)
-        {
-            DestroyImmediate(old);
-        }
-        UnityEngine.EventSystems.EventTrigger oldTrigger = b.GetComponent<UnityEngine.EventSystems.EventTrigger>();
-        if (oldTrigger != null)
-        {
-            DestroyImmediate(oldTrigger);
-        }
-        Button nb = b.AddComponent<Button>();
-        nb.targetGraphic = b.GetComponent<Image>();
-        nb.onClick.AddListener(ToggleSkipAll);
-        RectTransform rt = (RectTransform)b.transform;
-        rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, -148f); // 저장(-63)·불러오기(22) 버튼 아래 같은 열
+        Font font;
+        Sprite sprite;
+        GetButtonStyle(out font, out sprite);
+        Transform sound = settingUi.transform.Find("Sound");
         Transform res = settingUi.transform.Find("SetResolution");
+        if (sound != null)
+        {
+            sound.gameObject.SetActive(false);
+        }
         if (res != null)
         {
-            ((RectTransform)res).anchoredPosition += new Vector2(0f, -55f); // 글자 속도 줄이 들어갈 자리를 만든다
+            res.gameObject.SetActive(false);
         }
-        _skipModeLabel = b.GetComponentInChildren<Text>(true);
-        RefreshSkipModeLabel();
+        GameObject[] side =
+        {
+            FindChildObject("Tuto"),
+            FindChildObject("Key"),
+            FindChildObject("LoadButton"),
+            FindChildObject("SaveButton"),
+            toMainButton,
+        };
+        _view = SettingsView.Create((RectTransform)settingUi.transform, this, font, side);
     }
 
-    private void OnTextSpeedChanged(float value)
+    private GameObject FindChildObject(string childName)
     {
-        int level = Mathf.RoundToInt(value);
+        Transform t = settingUi.transform.Find(childName);
+        return t != null ? t.gameObject : null;
+    }
+
+    public bool FullScreen
+    {
+        get { return isFullScrean; }
+    }
+
+    public int ResolutionIndex
+    {
+        get { return changeInt; }
+    }
+
+    public void SetFullScreen(bool on)
+    {
+        isFullScrean = on;
+        ChangeResolution();
+        PersistSettings();
+    }
+
+    public void SetResolutionIndex(int index)
+    {
+        changeInt = Mathf.Clamp(index, 0, SettingsData.ResolutionCount - 1);
+        ChangeResolution();
+        PersistSettings();
+    }
+
+    /// <summary>글자 속도 1~5단계(P8).</summary>
+    public void ApplyTextSpeed(int level)
+    {
         SettingsService.Current.TextSpeedLevel = level;
         if (DialogManager.Instance != null)
         {
             DialogManager.Instance.SetTextSpeedLevel(level);
         }
-    }
-
-    private void ToggleSkipAll()
-    {
-        SoundManager.Instance.ClickSoundPlay();
-        SettingsData d = SettingsService.Current;
-        d.SkipAll = !d.SkipAll;
-        if (DialogManager.Instance != null && DialogManager.Instance.Runner != null)
-        {
-            DialogManager.Instance.Runner.SkipAll = d.SkipAll;
-        }
-        RefreshSkipModeLabel();
         SettingsService.Save();
     }
 
-    private void RefreshSkipModeLabel()
+    /// <summary>스킵 범위(읽은 것만/전부).</summary>
+    public void SetSkipAll(bool all)
     {
-        if (_skipModeLabel != null)
+        SettingsData d = SettingsService.Current;
+        d.SkipAll = all;
+        if (DialogManager.Instance != null && DialogManager.Instance.Runner != null)
         {
-            _skipModeLabel.text = SaveText.Pick(SettingsService.Current.SkipAll ? "스킵: 전부" : "스킵: 읽은 것만", SettingsService.Current.SkipAll ? "Skip: All" : "Skip: Read only");
+            DialogManager.Instance.Runner.SkipAll = all;
         }
+        SettingsService.Save();
     }
 
     private void MakeSlotButton(Transform template, string objName, string label, float y, SlotMenuView.Mode mode)
@@ -242,7 +238,9 @@ public class settingManager : MonoBehaviour
 
     private static readonly SCoW.Core.Ui.Hint[] SettingHints =
     {
-        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Page, "Load / Save"),
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Navigate, "Select"),
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Adjust, "Change"),
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Confirm, "Toggle / Press"),
         new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Cancel, "Close"),
     };
 
@@ -276,55 +274,12 @@ public class settingManager : MonoBehaviour
     }
     public void ChangeResolution()
     {
-        SoundManager.Instance.ClickSoundPlay();
-        if (changeInt == 0 && isFullScrean == false)
+        if (SoundManager.Instance != null)
         {
-            Screen.SetResolution(2560, 1440, false);
+            SoundManager.Instance.ClickSoundPlay();
         }
-        else if (changeInt == 1 && isFullScrean == false)
-        {
-            Screen.SetResolution(1920, 1080, false);
-        }
-        else if (changeInt == 2 && isFullScrean == false)
-        {
-            Screen.SetResolution(1600, 900, false);
-        }
-        else if (changeInt == 3 && isFullScrean == false)
-        {
-            Screen.SetResolution(1280, 720, false);
-        }
-        else if (changeInt == 4 && isFullScrean == false)
-        {
-            Screen.SetResolution(960, 540, false);
-        }
-        else if (changeInt == 5 && isFullScrean == false)
-        {
-            Screen.SetResolution(640, 360, false);
-        }
-        if (changeInt == 0 && isFullScrean == true)
-        {
-            Screen.SetResolution(2560, 1440, true);
-        }
-        else if (changeInt == 1 && isFullScrean == true)
-        {
-            Screen.SetResolution(1920, 1080, true);
-        }
-        else if (changeInt == 2 && isFullScrean == true)
-        {
-            Screen.SetResolution(1600, 900, true);
-        }
-        else if (changeInt == 3 && isFullScrean == true)
-        {
-            Screen.SetResolution(1280, 720, true);
-        }
-        else if (changeInt == 4 && isFullScrean == true)
-        {
-            Screen.SetResolution(960, 540, true);
-        }
-        else if (changeInt == 5 && isFullScrean == true)
-        {
-            Screen.SetResolution(640, 360, true);
-        }
+        int i = Mathf.Clamp(changeInt, 0, SettingsData.ResolutionCount - 1);
+        Screen.SetResolution(SettingsService.ResolutionWidth[i], SettingsService.ResolutionHeight[i], isFullScrean);
     }
     public void AddInt()
     {
@@ -356,18 +311,7 @@ public class settingManager : MonoBehaviour
         {
             OpenSetting();
         }
-        else if (setting.activeSelf == true && settingUi.activeSelf == true)
-        {
-            // 키보드·패드 경로: 페이지 다음(D/→/RB)=저장, 이전(A/←/LB)=불러오기
-            if (GameInput.PageNextDown)
-            {
-                OpenSlotMenu(SlotMenuView.Mode.Save);
-            }
-            else if (GameInput.PagePrevDown)
-            {
-                OpenSlotMenu(SlotMenuView.Mode.Load);
-            }
-        }
+        // 키보드·패드 조작은 SettingsView 가 맡는다(저장·불러오기는 오른쪽 열 버튼으로 W/S 이동 후 E).
         if (isFullScrean == true)
         {
             fullCheck.SetActive(true);

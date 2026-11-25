@@ -37,6 +37,7 @@ public sealed class SlotMenuView : MonoBehaviour
     private int _index;
     private int _confirmIndex = -1;
     private bool _closing;
+    private int _openedFrame;
 
     public static void Open(Mode mode, Action onClosed)
     {
@@ -48,6 +49,7 @@ public sealed class SlotMenuView : MonoBehaviour
         SlotMenuView v = go.AddComponent<SlotMenuView>();
         v._mode = mode;
         v._onClosed = onClosed;
+        v._openedFrame = Time.frameCount;
         v.Build();
         _current = v;
         UiGate.Push(PanelKind.SlotMenu, v.Close, true);
@@ -216,9 +218,9 @@ public sealed class SlotMenuView : MonoBehaviour
 
     private void Update()
     {
-        if (_closing)
+        if (_closing || Time.frameCount == _openedFrame)
         {
-            return;
+            return; // 열린 프레임의 입력(설정창에서 E 로 눌러 연 그 키)을 같은 프레임에 또 읽지 않게
         }
         if (GameInput.NavUpDown)
         {

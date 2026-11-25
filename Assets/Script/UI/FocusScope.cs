@@ -16,11 +16,28 @@ public static class FocusScope
     }
 
     private static readonly List<Entry> _stack = new List<Entry>(4);
+    private static object _targetOwner;
+    private static RectTransform _target;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetStatics()
     {
         _stack.Clear();
+        _targetOwner = null;
+        _target = null;
+    }
+
+    /// <summary>포커스 링을 그릴 대상(패널이 직접 고른 항목). 없으면 UxOverlay 가 EventSystem 선택을 쓴다.</summary>
+    public static RectTransform Target
+    {
+        get { return _target; }
+    }
+
+    /// <summary>owner 가 지금 포커스 항목을 알린다(EventSystem 선택을 건드리지 않는다: 이중 제출 방지).</summary>
+    public static void Highlight(object owner, RectTransform target)
+    {
+        _targetOwner = owner;
+        _target = target;
     }
 
     /// <summary>owner 의 포커스 범위를 시작한다. first 가 null 이면 현재 선택을 그대로 둔다.</summary>
@@ -51,6 +68,11 @@ public static class FocusScope
         if (index < 0)
         {
             return;
+        }
+        if (ReferenceEquals(_targetOwner, owner))
+        {
+            _targetOwner = null;
+            _target = null;
         }
         bool wasTop = index == _stack.Count - 1;
         GameObject previous = _stack[index].Previous;

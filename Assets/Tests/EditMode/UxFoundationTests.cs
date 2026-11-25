@@ -1,5 +1,7 @@
 using NUnit.Framework;
+using SCoW.Core.Save;
 using SCoW.Core.Ui;
+using UnityEngine;
 
 namespace SCoW.Tests
 {
@@ -106,6 +108,63 @@ namespace SCoW.Tests
             Assert.AreEqual(v0, h.Version);
             h.Push(a, new[] { new Hint(HintAction.Cancel, "Back") });
             Assert.AreNotEqual(v0, h.Version);
+        }
+
+        // ---- UX-2 설정창 ----
+
+        [Test]
+        public void CycleWrapsBothWays()
+        {
+            Assert.AreEqual(0, SettingsChoices.Cycle(2, 1, 3));
+            Assert.AreEqual(2, SettingsChoices.Cycle(0, -1, 3));
+            Assert.AreEqual(1, SettingsChoices.Cycle(0, 4, 3));
+            Assert.AreEqual(0, SettingsChoices.Cycle(5, 1, 1));
+        }
+
+        [Test]
+        public void StepSliderClampsAndRoundsToStep()
+        {
+            Assert.AreEqual(0.4f, SettingsChoices.StepSlider(0.3f, 1, 0.1f, 0f, 1f), 0.0001f);
+            Assert.AreEqual(1f, SettingsChoices.StepSlider(1f, 1, 0.1f, 0f, 1f), 0.0001f);
+            Assert.AreEqual(0f, SettingsChoices.StepSlider(0.05f, -1, 0.1f, 0f, 1f), 0.0001f);
+            Assert.AreEqual(4f, SettingsChoices.StepSlider(3f, 1, 1f, 1f, 5f), 0.0001f);
+        }
+
+        [Test]
+        public void NearestAutoWaitPicksClosestOption()
+        {
+            Assert.AreEqual(1, SettingsChoices.NearestAutoWait(1.5f));
+            Assert.AreEqual(3, SettingsChoices.NearestAutoWait(9f));
+            Assert.AreEqual(0, SettingsChoices.NearestAutoWait(0f));
+        }
+
+        [Test]
+        public void OldSettingsFileGetsNewFieldDefaults()
+        {
+            // 옛 설정 파일(새 필드 없음)을 읽은 것과 같은 상황: 생성자 기본값이 남는다.
+            SettingsData d = JsonUtility.FromJson<SettingsData>("{\"SoundVolume\":0.3,\"SfxVolume\":0.4,\"FullScreen\":false,\"ResolutionIndex\":2,\"TextSpeedLevel\":4}");
+            d.Sanitize();
+            Assert.AreEqual(0.3f, d.SoundVolume, 0.0001f);
+            Assert.AreEqual(2, d.ResolutionIndex);
+            Assert.IsTrue(d.ShakeEnabled);
+            Assert.AreEqual(1, d.TextScaleLevel);
+            Assert.AreEqual(SettingsData.DefaultAutoWaitSec, d.AutoWaitSec, 0.0001f);
+            Assert.IsTrue(d.ShowHints);
+            Assert.IsFalse(d.FastRoll);
+        }
+
+        [Test]
+        public void SanitizeFixesBrokenNewFields()
+        {
+            SettingsData d = new SettingsData();
+            d.TextScaleLevel = 9;
+            d.AutoWaitSec = float.NaN;
+            d.Sanitize();
+            Assert.AreEqual(1, d.TextScaleLevel);
+            Assert.AreEqual(SettingsData.DefaultAutoWaitSec, d.AutoWaitSec, 0.0001f);
+            d.AutoWaitSec = 99f;
+            d.Sanitize();
+            Assert.AreEqual(SettingsData.DefaultAutoWaitSec, d.AutoWaitSec, 0.0001f);
         }
     }
 }
