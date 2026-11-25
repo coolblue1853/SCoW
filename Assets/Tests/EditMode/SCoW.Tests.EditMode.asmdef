@@ -3,6 +3,8 @@
     "rootNamespace": "SCoW.Tests",
     "references": [
         "SCoW.Core",
+        "SCoW.InputStore",
+        "Unity.InputSystem",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"
     ],

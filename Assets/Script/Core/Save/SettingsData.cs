@@ -33,9 +33,15 @@ namespace SCoW.Core.Save
         public bool ShowTimeHud = true;
         /// <summary>빠른 판정(룰렛 연출 생략). 적용은 UX-6.</summary>
         public bool FastRoll = false;
+        /// <summary>키 재지정 결과(Input System SaveBindingOverridesAsJson). UX-12 추가 필드: 옛 파일에는 없고 기본값 빈 문자열(= 기본 키).</summary>
+        public string BindingOverridesJson = string.Empty;
         /// <summary>손상·수동 편집으로 범위를 벗어난 값을 안전한 값으로 되돌린다.</summary>
         public void Sanitize()
         {
+            if (BindingOverridesJson == null)
+            {
+                BindingOverridesJson = string.Empty;
+            }
             SoundVolume = Clamp01(SoundVolume, DefaultVolume);
             SfxVolume = Clamp01(SfxVolume, DefaultVolume);
             if (float.IsNaN(TextDelay) || float.IsInfinity(TextDelay) || TextDelay < 0f || TextDelay > 1f)

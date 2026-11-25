@@ -9,7 +9,7 @@ using UnityEngine.InputSystem.Utilities;
 /// 모든 조회는 "소비하지 않는" 순수 조회다(한 키를 여러 곳이 동시에 읽는 기존 동작 유지).
 /// 에셋: Resources/Input/SCoWInput.inputactions. 설계: Docs/Playtest/InputMigration.md.
 /// </summary>
-public static class GameInput
+public static partial class GameInput
 {
     private const string AssetPath = "Input/SCoWInput";
     private const float MoveDeadZone = 0.2f;
@@ -38,6 +38,7 @@ public static class GameInput
             _anyPress = null;
         }
 
+        ResetRebindStatics();
         _asset = null;
         _lastPointer = Vector2.zero;
         _lastDevice = InputDeviceKind.Keyboard;
@@ -129,6 +130,8 @@ public static class GameInput
         _quickLoad = Find(ui, "QuickLoad");
         _swapLeft = Find(ui, "SwapLeft");
         _swapRight = Find(ui, "SwapRight");
+        RestoreSavedBindings();
+        HintGlyphs.Resolver = ResolveGlyph;
         _asset.Enable();
         if (_anyPress == null)
         {

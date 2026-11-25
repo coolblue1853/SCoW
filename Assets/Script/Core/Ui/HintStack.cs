@@ -44,8 +44,19 @@ namespace SCoW.Core.Ui
     /// <summary>동작 → 장치별 글리프 글자. 입력 에셋 바인딩(SCoWInput) 기준. 바인딩이 바뀌면 여기만 고친다.</summary>
     public static class HintGlyphs
     {
+        /// <summary>키 재지정(UX-12)을 반영하는 해석기. GameInput 이 등록한다. null 을 돌려주면 아래 기본 표를 쓴다.</summary>
+        public static System.Func<HintAction, InputDeviceKind, string> Resolver;
+
         public static string Get(HintAction action, InputDeviceKind device)
         {
+            if (Resolver != null)
+            {
+                string custom = Resolver(action, device);
+                if (custom != null)
+                {
+                    return custom;
+                }
+            }
             bool pad = device == InputDeviceKind.Gamepad;
             bool mouse = device == InputDeviceKind.Mouse;
             switch (action)

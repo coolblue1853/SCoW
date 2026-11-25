@@ -27,3 +27,4 @@
 - 다음: SEWER S2(조사 포인트·단서) → S3(시야·깜빡임, 마스크는 사용자 검토) → S4·S7 → PT-6(입력 3경로) → PT-7 → 스토리 P0 → ART-2. 미검증: 하수도 실키 이동·실전투 후 승리 기록·실제 하수도 세이브 로드, 전투 1920x1080·패배/도주 경로. S1 임시 가정은 SewerImprove.md 6절.
 - 11-25 저녁: SEWER S2(03f00d4, 조사 포인트 5곳·intelSewerClue* 5개, 임시 가정 SewerImprove 7절) push. EditMode 415. 5시간 98% 까지 사용(사용자: 5시간 창은 꽉 채움), 19:53 재개. ART-2 PixelLab 은 '픽셀렙 모션생성' 세션에 위임(파비안 시안 2판, 10회, `Docs/ArtCandidates/Fabian/`, 사용자 판정 대기).
 - 다음: S3 → S4·S7 → PT-6 → PT-7 → 스토리 P0. 미검증: S2 실제 E 키 흐름, 새 단서 플래그 수첩 미표시.
+- 11-25 밤: UX-12(키 리바인딩·엔딩 목록) + 리뷰 권장 3건. 설정창 탭 5개(키·엔딩 추가), `GameInput.Rebind`·`BindingStore`(SCoW.InputStore asmdef)·`EndingService`(endings.es3/endingsSeen). 미검증: 실제 키보드·패드 물리 입력 재지정(큐 이벤트로만 확인), 엔딩 기록 실제 엔딩 도달 경로.

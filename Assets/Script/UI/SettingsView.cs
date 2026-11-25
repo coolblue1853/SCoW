@@ -13,12 +13,14 @@ using UnityEngine.UI;
 /// 마우스: 슬라이더 드래그, 행 클릭(선택 행은 좌/우 절반), 탭 클릭, 호버로 포커스. 포커스 링은 FocusScope.Highlight → UxOverlay.
 /// 값은 SettingsService.Current(SettingsData) 와 settingManager 가 소유한다. 그래픽은 임시(ART-2 교체), 문구는 SaveText.Pick 임시(TODO I2).
 /// </summary>
-public sealed class SettingsView : MonoBehaviour
+public sealed partial class SettingsView : MonoBehaviour
 {
     private const float RowH = 60f;
     private const float RowStep = 74f;
     private const float RowW = 580f;
-    private const int TabCount = 3;
+    private const int TabCount = 5;
+    private const int KeysTab = 3;
+    private const int EndingsTab = 4;
     private static readonly Color RowColor = new Color(0.13f, 0.12f, 0.14f, 1f);
     private static readonly Color FocusColor = new Color(0.36f, 0.27f, 0.1f, 1f);
     private static readonly Color TabOnColor = new Color(0.45f, 0.1f, 0.1f, 1f);
@@ -28,6 +30,7 @@ public sealed class SettingsView : MonoBehaviour
     {
         public GameObject Root;
         public Image Bg;
+        public Text Label;
         public Text Value;
         public Slider Slide;
         public Action<int> Adjust;
@@ -38,7 +41,7 @@ public sealed class SettingsView : MonoBehaviour
 
     private settingManager _owner;
     private Font _font;
-    private readonly List<Row>[] _tabRows = { new List<Row>(), new List<Row>(), new List<Row>() };
+    private readonly List<Row>[] _tabRows = { new List<Row>(), new List<Row>(), new List<Row>(), new List<Row>(), new List<Row>() };
     private readonly List<Row> _side = new List<Row>();
     private readonly List<Row> _focus = new List<Row>();
     private GameObject[] _tabRoots;
@@ -79,6 +82,7 @@ public sealed class SettingsView : MonoBehaviour
 
     private void OnDisable()
     {
+        GameInput.CancelRebind();
         FocusScope.Exit(this);
     }
 
@@ -102,6 +106,8 @@ public sealed class SettingsView : MonoBehaviour
         BuildSoundTab();
         BuildScreenTab();
         BuildGameTab();
+        BuildKeysTab();
+        BuildEndingsTab();
         for (int i = 0; sideButtons != null && i < sideButtons.Length; i++)
         {
             AddSideButton(sideButtons[i]);
@@ -157,7 +163,7 @@ public sealed class SettingsView : MonoBehaviour
         r.anchorMin = r.anchorMax = r.pivot = new Vector2(0.5f, 0.5f);
         r.anchoredPosition = new Vector2(0f, 100f);
         r.sizeDelta = new Vector2(RowW, 58f);
-        string[] names = { SaveText.Pick("소리", "Sound"), SaveText.Pick("화면", "Screen"), SaveText.Pick("게임", "Game") };
+        string[] names = { SaveText.Pick("소리", "Sound"), SaveText.Pick("화면", "Screen"), SaveText.Pick("게임", "Game"), SaveText.Pick("키", "Keys"), SaveText.Pick("엔딩", "Endings") };
         float w = RowW / TabCount;
         for (int t = 0; t < TabCount; t++)
         {
@@ -167,9 +173,12 @@ public sealed class SettingsView : MonoBehaviour
             RectTransform br = (RectTransform)b.transform;
             br.anchorMin = br.anchorMax = br.pivot = new Vector2(0.5f, 0.5f);
             br.sizeDelta = new Vector2(w - 8f, 52f);
-            br.anchoredPosition = new Vector2((t - 1) * w, 0f);
+            br.anchoredPosition = new Vector2((t - (TabCount - 1) * 0.5f) * w, 0f);
             _tabBg[t] = b.GetComponent<Image>();
             Text label = MakeText("Label", b.transform, names[t], TextAnchor.MiddleCenter);
+            label.resizeTextForBestFit = true; // 탭 5개: 좁은 칸에 영문 이름이 들어가게 줄인다
+            label.resizeTextMinSize = 12;
+            label.resizeTextMaxSize = 26;
             Stretch((RectTransform)label.transform);
             RowPointer p = b.GetComponent<RowPointer>();
             p.OnClick = e => { SetTab(tab); _index = 0; RebuildFocus(); ApplyFocus(); };
@@ -186,15 +195,18 @@ public sealed class SettingsView : MonoBehaviour
         go.transform.SetParent(_tabRoots[tab].transform, false);
         RectTransform rt = (RectTransform)go.transform;
         rt.anchorMin = rt.anchorMax = rt.pivot = new Vector2(0.5f, 0.5f);
-        rt.sizeDelta = new Vector2(RowW, RowH);
-        rt.anchoredPosition = new Vector2(0f, 20f - list.Count * RowStep);
+        bool compact = tab == KeysTab; // 키 탭은 행이 14개라 촘촘하게
+        float h = compact ? KeyRowH : RowH;
+        rt.sizeDelta = new Vector2(RowW, h);
+        rt.anchoredPosition = new Vector2(0f, compact ? KeyRowY0 - list.Count * KeyRowStep : 20f - list.Count * RowStep);
         Row row = new Row { Root = go, Bg = go.GetComponent<Image>() };
         row.Bg.color = RowColor;
         Text lt = MakeText("Label", go.transform, label, TextAnchor.MiddleLeft);
+        row.Label = lt;
         RectTransform lr = (RectTransform)lt.transform;
         lr.anchorMin = lr.anchorMax = lr.pivot = new Vector2(0f, 0.5f);
         lr.anchoredPosition = new Vector2(18f, 0f);
-        lr.sizeDelta = new Vector2(250f, RowH);
+        lr.sizeDelta = new Vector2(250f, h);
         RowPointer p = go.GetComponent<RowPointer>();
         p.OnEnter = () => FocusRow(row);
         list.Add(row);
@@ -353,7 +365,7 @@ public sealed class SettingsView : MonoBehaviour
 
     private void Update()
     {
-        if (!UiGate.Stack.IsTop(PanelKind.Setting) || SlotMenuView.IsOpen)
+        if (!UiGate.Stack.IsTop(PanelKind.Setting) || SlotMenuView.IsOpen || GameInput.IsRebinding)
         {
             return;
         }
