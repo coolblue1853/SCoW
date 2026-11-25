@@ -56,6 +56,7 @@ public static class StoryDatabase
         }
         if (res == null) { return false; }
         dialogs = ToDialogs(res);
+        EndingService.NoteTopic(scriptId, topicId); // UX-12: 엔딩 장면이 시작되면 전역 기록
         return true;
     }
 
@@ -77,6 +78,7 @@ public static class StoryDatabase
         }
         if (res == null || res.Lines.Count == 0) { return false; }
         dialogs = ToDialogs(res);
+        EndingService.NoteJudge(key);
         return true;
     }
 
