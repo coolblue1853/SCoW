@@ -155,10 +155,17 @@ public class IntelManager : MonoBehaviour
         {
             CloseSetting();
         }
-        else if (GameInput.OpenIntelDown && intelUI.activeSelf == false)
+        else if (GameInput.OpenIntelDown && intelUI.activeSelf == false && !IsPresentKeyDown())
         {
             OpenSetting();
         }
+    }
+
+    // K5: 패드 Y 는 OpenIntel 과 Present 가 같은 버튼이다. 키워드 제시가 가능한 선택 행에서는 Present 가 우선이다.
+    private static bool IsPresentKeyDown()
+    {
+        End_Look_Judge row = End_Look_Judge.Instance;
+        return GameInput.PresentDown && row != null && row.CanPresentKeyword;
     }
 
     private static IntelManager instance = null;

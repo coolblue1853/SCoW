@@ -54,7 +54,11 @@ public class Intel_ObtoUI : MonoBehaviour
         }
         previousState = DataBaseManager.nowSelecter;
 
-        if ((GameInput.InteractDown && UiGate.CanInteractWorld))
+        if (GameInput.PresentDown && UiGate.CanInteractWorld)
+        {
+            PresentDirect();
+        }
+        if ((GameInput.InteractDown && UiGate.CanInteractWorld) && !KeywordPicker.IsOpen)
         {
             if (this.transform.name == DataBaseManager.selectObject)
             {
@@ -284,6 +288,25 @@ public class Intel_ObtoUI : MonoBehaviour
         TMPro.TMP_Text label = keywordOb.GetComponentInChildren<TMPro.TMP_Text>(true);
         if (label != null) { label.text = "keyword (" + keywordCounter + ")"; }
     }
+    // K5: 선택 행에서 Present(F / 패드 Y) 를 누르면 탭 순환 없이 제시 창을 바로 연다. 대사 진행 중에는 선택 행이 없어 열리지 않는다.
+    private void PresentDirect()
+    {
+        End_Look_Judge row = End_Look_Judge.Instance;
+        if (row == null || !row.CanPresentKeyword || !canKeyword || this.transform.name != DataBaseManager.selectObject)
+        {
+            return;
+        }
+        if (DataBaseManager.isRollet || KeywordPicker.IsOpen || KeywordPicker.ClosedThisFrame)
+        {
+            return;
+        }
+        row.HighlightKeywordRow();
+        if (!KeywordPicker.Open(this.name, keywordCounter, OnKeywordPicked))
+        {
+            Debug.LogError("Intel_ObtoUI: 키워드 선택 창을 열지 못했다(" + this.name + ")");
+        }
+    }
+
     public void Onkeyword()
     {
         RefreshKeywordLabel();

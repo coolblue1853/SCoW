@@ -42,6 +42,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Present",
+                    "type": "Button",
+                    "id": "0f82a0cd-1a13-4249-8d2b-115671309e27",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "PointerPrimary",
                     "type": "Button",
                     "id": "b3d80bbc-2a66-4312-80a3-95fd63121e1d",
@@ -226,6 +235,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Portal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c02e3a74-f212-4f3e-8bdc-93c65a404044",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Present",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3eb1410d-2d57-4ec0-9e94-250db687d3da",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Present",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -53,6 +53,21 @@ public class End_Look_Judge : MonoBehaviour
         judge.SetActive(false);
         keyword.SetActive(false);
     }
+    /// <summary>선택 행이 떠 있고 키워드 칸이 열려 있는가(Present 로 Picker 를 바로 열 수 있는 상태).</summary>
+    public bool CanPresentKeyword
+    {
+        get { return checker != null && checker.activeSelf && !DataBaseManager.isSelect && keyword != null && keyword.activeSelf; }
+    }
+
+    /// <summary>선택 행의 하이라이트를 키워드 칸으로 옮긴다(Present 직행용).</summary>
+    public void HighlightKeywordRow()
+    {
+        DataBaseManager.nowSelecter = "Keyword";
+        endBack.DOFade(0, 0.00001f).SetAutoKill();
+        lookBack.DOFade(0, 0.00001f).SetAutoKill();
+        judgeBack.DOFade(0, 0.00001f).SetAutoKill();
+        keywordBack.DOFade(1, 0.00001f).SetAutoKill();
+    }
     public void OnEnd()
     {
         DataBaseManager.nowSelecter = "End";

@@ -52,7 +52,7 @@ public class PotalPoint : MonoBehaviour
     {
         if (playerInTrigger == true)
         {
-            if (GameInput.PortalDown && UiGate.CanUsePortal)
+            if (GameInput.PortalDown && UiGate.CanUsePortal && !KeywordPicker.IsOpen)
             {
                 if ((DataBaseManager.nowPlace == "Client'shouse" || DataBaseManager.nowPlace == "NoonEvent") && DataBaseManager.timeCount >= 6)
                 {

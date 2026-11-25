@@ -179,3 +179,7 @@ cat: /tmp/k3add.txt: No such file or directory
 - 완료: `Core/Keyword/KeywordNotice.cs`(순수) + `UI/KeywordToast.cs`(DontDestroyOnLoad 오버레이, 씬 무수정). 새 GameState 키만 추가: 카운터 `kwSeq`·`kwBadge`·`kwOrder:id`(획득 순번), 플래그 `kwSeen:id`·`kwNoticeBase`(기준선). 첫 동기화는 기준선(이미 풀린 키워드는 알림 없이 확인 처리, 구세이브 폭주 방지). `GameRoot.StateChanged` 구독(폴링 없음), 연출 중(`UiGate.IsBusy`)에 얻으면 큐에 쌓았다 끝나면 1.5초 토스트(한 번에 여럿이면 "+N"). 수첩 배지 = `NoteButton`(IntelManager.OpenSetting 를 부르는 버튼)에 코드로 붙인 빨간 원(개수). 수첩을 열면 배지만 끄고(`IntelManager.OpenSetting`), Picker 를 열면 `NEW` 를 한 번 보여 준 뒤 전부 확인 처리. Picker 목록은 획득 순서(K1 메모 처리).
 - 검증: EditMode 285(신규 7) 통과. 플레이(Main, 대사 중): 플래그 3개 → 큐 적재, 대사 끝나자 토스트 표시, 배지 3, Picker 에 `NEW` 3개·획득 순서, 다시 열면 `NEW` 소거, 콘솔 error 0(캡처 `Logs/playtest/screenshot-20261121-19113*.png`, `-191139`, `-191146`). 배지 자체는 인트로 검은 화면이라 육안 캡처 못 함(오브젝트 활성·텍스트 3 확인).
 - 임시: 문구 영문(TODO I2), 그래픽 임시(ART-2), 효과음 없음(사용자 검토 필요).
+
+## 9. K5 결과 (11-25)
+- 완료: `GameInput.PresentDown`(Gameplay 맵 `Present`, 키보드 F·패드 Y — Q-K3 임시 가정). `Intel_ObtoUI.PresentDirect` 가 선택 행(`End_Look_Judge.CanPresentKeyword`)에서 탭 순환 없이 Picker 를 연다. 겹침 처리: F=Portal 은 `PotalPoint` 에 `!KeywordPicker.IsOpen`, Y=OpenIntel 은 `IntelManager` 가 제시 가능한 선택 행에서 Present 우선, Interact 경로에도 `!IsOpen`.
+- 검증: EditMode 285, 플레이(가상 패드 Y)로 Picker 직행→A 제시→Ella 뉴스 장면 출력, 횟수 3→2. 캡처 `Logs/playtest/K5_present_*.png`. 강제 상태(인트로 대사 중)라 `DialogManager.cs:462` IndexOutOfRange 1건은 시험 설정 탓으로 추정(미확인).

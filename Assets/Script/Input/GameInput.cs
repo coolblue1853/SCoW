@@ -12,7 +12,7 @@ public static class GameInput
     private const float MoveDeadZone = 0.2f;
 
     private static InputActionAsset _asset;
-    private static InputAction _move, _interact, _advance, _portal, _pointerPrimary;
+    private static InputAction _move, _interact, _present, _advance, _portal, _pointerPrimary;
     private static InputAction _cancel, _menu, _openIntel, _openMap, _openSIS;
     private static InputAction _navUp, _navDown, _pageNext, _pagePrev;
     private static InputAction _dlgBacklog, _dlgSkipHold, _dlgSkipToggle, _dlgAutoToggle;
@@ -54,6 +54,7 @@ public static class GameInput
         InputActionMap ui = _asset.FindActionMap("UI");
         _move = Find(play, "Move");
         _interact = Find(play, "Interact");
+        _present = Find(play, "Present");
         _advance = Find(play, "Advance");
         _portal = Find(play, "Portal");
         _pointerPrimary = Find(play, "PointerPrimary");
@@ -85,6 +86,8 @@ public static class GameInput
     }
 
     public static bool InteractDown { get { return Down(_interact); } }
+    /// <summary>대화 선택 행에서 키워드 제시 창을 바로 연다(F / 패드 Y). 입력 에셋에 없으면 항상 false.</summary>
+    public static bool PresentDown { get { return Down(_present); } }
     public static bool AdvanceDown { get { return Down(_advance); } }
     public static bool PortalDown { get { return Down(_portal); } }
     public static bool CancelDown { get { return Down(_cancel); } }
