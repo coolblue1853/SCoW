@@ -13,11 +13,11 @@ public class CharacterButtonManage : MonoBehaviour
             ButtonManage();
         }
         int step = NotebookScroll.Step();
-        if (step < 0 && upButton.activeSelf == true)
+        if (step < 0 && upButton.activeInHierarchy)
         {
             ClickUPButton();
         }
-        else if (step > 0 && downButton.activeSelf == true)
+        else if (step > 0 && downButton.activeInHierarchy)
         {
             ClickDownButton();
         }

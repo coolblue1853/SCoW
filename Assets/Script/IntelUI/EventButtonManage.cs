@@ -13,11 +13,11 @@ public class EventButtonManage : MonoBehaviour
         }
 
         int step = NotebookScroll.Step();
-        if (step < 0 && upButton.activeSelf == true)
+        if (step < 0 && upButton.activeInHierarchy)
         {
             ClickUpButton();
         }
-        else if (step > 0 && downButton.activeSelf == true)
+        else if (step > 0 && downButton.activeInHierarchy)
         {
             ClickDownButton();
         }

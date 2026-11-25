@@ -13,22 +13,22 @@ public class PlaceButtonManage : MonoBehaviour
         int step = NotebookScroll.Step();
         if (step < 0)
         {
-            if (upButton2.activeSelf == true)
+            if (upButton2.activeInHierarchy)
             {
                 ClickUpButton2();
             }
-            else if (upButton.activeSelf == true)
+            else if (upButton.activeInHierarchy)
             {
                 ClickUpButton();
             }
         }
         else if (step > 0)
         {
-            if (downButton2.activeSelf == true)
+            if (downButton2.activeInHierarchy)
             {
                 ClickDownButton2();
             }
-            else if (downButton.activeSelf == true)
+            else if (downButton.activeInHierarchy)
             {
                 ClickDownButton();
             }
