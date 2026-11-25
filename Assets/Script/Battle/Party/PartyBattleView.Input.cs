@@ -4,7 +4,7 @@ using SCoW.Core.Rules;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-/// <summary>PartyBattleView 의 입력 처리(마우스·키보드·패드 같은 경로, GameInput 만 사용). 대열 교체는 PT-6.</summary>
+/// <summary>PartyBattleView 의 입력 처리(마우스·키보드·패드 같은 경로, GameInput 만 사용). 대열 교체 단축키 포함(PT-6).</summary>
 public sealed partial class PartyBattleView
 {
     // ---------- 입력 ----------
@@ -72,15 +72,17 @@ public sealed partial class PartyBattleView
         if (move != 0)
         {
             // 메뉴는 위에서 아래 순서로 그려지므로 아래 = 다음 줄. 비활성 줄은 건너뛴다.
-            for (int n = 0; n < _menu.Count; n++)
+            _menuEnabled.Clear();
+            for (int i = 0; i < _menu.Count; i++)
             {
-                _cursor = (_cursor + move + _menu.Count) % _menu.Count;
-                if (_menu[_cursor].Enabled)
-                {
-                    break;
-                }
+                _menuEnabled.Add(_menu[i].Enabled);
             }
+            _cursor = BattleSelectNav.MoveMenu(_menuEnabled, _cursor, move);
             PaintMenu();
+        }
+        if (TryQuickSwap())
+        {
+            return;
         }
         int hover = -1;
         if (moved || click)
@@ -104,6 +106,47 @@ public sealed partial class PartyBattleView
         }
     }
 
+    /// <summary>대열 교체 단축키(Q·R / LB·RB): 행동 메뉴에서 바로 이웃 칸과 자리를 바꾼다. 쓸 수 없으면 false.</summary>
+    private bool TryQuickSwap()
+    {
+        int dir = GameInput.SwapLeftDown ? -1 : (GameInput.SwapRightDown ? 1 : 0);
+        if (dir == 0 || _swapMenuIndex < 0 || _actor == null)
+        {
+            return false;
+        }
+        int rank = BattleSelectNav.SwapTargetRank(_actor.Rank, dir, _field.ValidTargets(_actor, ActionKind.Swap));
+        if (rank < 0)
+        {
+            return false;
+        }
+        QuickSwap(rank);
+        return true;
+    }
+
+    private void QuickSwap(int rank)
+    {
+        _pick.Side = Side.Ally;
+        _pick.Rank = rank;
+        _pick.QuickRank = rank;
+        Finish(_swapMenuIndex, false);
+    }
+
+    /// <summary>플레이 확인용: 대열 교체 단축키를 입력 없이 누른 것처럼 처리한다(dir -1 왼쪽, +1 오른쪽).</summary>
+    public bool DebugSwap(int dir)
+    {
+        if (_mode != Mode.Menu || _swapMenuIndex < 0 || _actor == null)
+        {
+            return false;
+        }
+        int rank = BattleSelectNav.SwapTargetRank(_actor.Rank, dir, _field.ValidTargets(_actor, ActionKind.Swap));
+        if (rank < 0)
+        {
+            return false;
+        }
+        QuickSwap(rank);
+        return true;
+    }
+
     private void UpdateTarget(bool confirm, bool cancel, bool click, bool moved, Vector2 pointer, int step)
     {
         if (cancel)
@@ -117,7 +160,7 @@ public sealed partial class PartyBattleView
         }
         if (step != 0)
         {
-            _cursor = Mathf.Clamp(_cursor + step, 0, _targets.Count - 1);
+            _cursor = BattleSelectNav.MoveTarget(_cursor, _targets.Count, step, _targetKeys[0].side);
             PaintTarget();
         }
         int hover = -1;

@@ -18,6 +18,7 @@ public static class GameInput
     private static InputAction _move, _interact, _present, _advance, _portal, _pointerPrimary;
     private static InputAction _cancel, _menu, _openIntel, _openMap, _openSIS;
     private static InputAction _navUp, _navDown, _pageNext, _pagePrev, _todoTab, _quickSave, _quickLoad;
+    private static InputAction _swapLeft, _swapRight;
     private static InputAction _dlgBacklog, _dlgSkipHold, _dlgSkipToggle, _dlgAutoToggle;
     private static Vector2 _lastPointer;
     private static IDisposable _anyPress;
@@ -126,6 +127,8 @@ public static class GameInput
         _todoTab = Find(ui, "TodoTab");
         _quickSave = Find(ui, "QuickSave");
         _quickLoad = Find(ui, "QuickLoad");
+        _swapLeft = Find(ui, "SwapLeft");
+        _swapRight = Find(ui, "SwapRight");
         _asset.Enable();
         if (_anyPress == null)
         {
@@ -166,6 +169,11 @@ public static class GameInput
     // 패드 오른쪽 스틱 누름은 DialogSkipToggle(Play 맵)과 같은 버튼이다. 겹침 방지: 수첩이 열리면(UiStack) DialogManager 는
     // blocked(UiGate.AnyOpen)로 HandleControls 를 건너뛰고, TodoTab 은 수첩이 맨 위(IsTop(Intel))일 때만 읽는다. 둘은 동시에 반응하지 않는다.
     public static bool TodoTabDown { get { return Down(_todoTab); } }
+
+    /// <summary>전투 대열 교체 단축키, 화면 왼쪽(Q / 패드 LB, PT-6). 입력 에셋에 없으면 항상 false.</summary>
+    public static bool SwapLeftDown { get { return Down(_swapLeft); } }
+    /// <summary>전투 대열 교체 단축키, 화면 오른쪽(R / 패드 RB, PT-6).</summary>
+    public static bool SwapRightDown { get { return Down(_swapRight); } }
 
     /// <summary>대사 백로그 열기(B / 마우스 휠 위 / 패드 LT).</summary>
     public static bool DialogBacklogDown { get { return Down(_dlgBacklog); } }

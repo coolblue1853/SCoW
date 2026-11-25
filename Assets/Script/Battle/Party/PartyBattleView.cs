@@ -24,6 +24,8 @@ public sealed class ViewPick
     public int Index = -1;
     public Side Side;
     public int Rank = -1;
+    /// <summary>대열 교체 단축키(Q/R·LB/RB)로 메뉴에서 바로 정한 이웃 칸. 없으면 -1.</summary>
+    public int QuickRank = -1;
     public bool Cancelled;
     public bool Done;
 }
@@ -64,6 +66,7 @@ public sealed partial class PartyBattleView : MonoBehaviour
     private readonly List<RectTransform> _menuRects = new List<RectTransform>();
     private readonly List<Image> _menuBgs = new List<Image>();
     private readonly List<ActionOption> _menu = new List<ActionOption>();
+    private readonly List<bool> _menuEnabled = new List<bool>();
     private readonly List<PartyBattlePanel> _targets = new List<PartyBattlePanel>();
     private readonly List<(Side side, int rank)> _targetKeys = new List<(Side, int)>();
 
@@ -84,6 +87,7 @@ public sealed partial class PartyBattleView : MonoBehaviour
     private ActionKind _targetKind;
     private string _activeId;
     private bool _blocked;
+    private int _swapMenuIndex = -1;
 
 
     private void Build()
@@ -349,6 +353,14 @@ public sealed partial class PartyBattleView : MonoBehaviour
             _menuRects.Add((RectTransform)bg.transform);
             _menuBgs.Add(bg);
         }
+        _swapMenuIndex = -1;
+        for (int i = 0; i < _menu.Count; i++)
+        {
+            if (_menu[i].Kind == ActionKind.Swap && _menu[i].Enabled)
+            {
+                _swapMenuIndex = i;
+            }
+        }
         _cursor = FirstEnabled();
         _menuRoot.gameObject.SetActive(true);
         SetPrompt(BattleTooltipText.UnitName(actor) + ": choose an action");
@@ -392,8 +404,20 @@ public sealed partial class PartyBattleView : MonoBehaviour
             SetPrompt(string.Empty);
             return;
         }
-        HintBar.Push(this, new Hint(HintAction.Navigate, mode == Mode.Menu ? "Choose" : "Target"), new Hint(HintAction.Confirm, "Select"),
-            new Hint(HintAction.Cancel, "Back"));
+        HintBar.Push(this, BuildHints(mode));
+    }
+
+    private Hint[] BuildHints(Mode mode)
+    {
+        if (mode == Mode.Target)
+        {
+            return new[] { new Hint(HintAction.Adjust, "Target"), new Hint(HintAction.Confirm, "Select"), new Hint(HintAction.Cancel, "Back") };
+        }
+        if (_swapMenuIndex >= 0)
+        {
+            return new[] { new Hint(HintAction.Navigate, "Choose"), new Hint(HintAction.Confirm, "Select"), new Hint(HintAction.Swap, "Swap") };
+        }
+        return new[] { new Hint(HintAction.Navigate, "Choose"), new Hint(HintAction.Confirm, "Select") };
     }
 
     private int FirstEnabled()

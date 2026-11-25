@@ -249,7 +249,11 @@ public sealed class PartyBattleDirector : MonoBehaviour
             yield return new WaitUntil(() => menu.Done);
             ActionOption opt = options[menu.Index];
             int rank = actor.Rank;
-            if (!opt.NoTarget)
+            if (menu.QuickRank >= 0)
+            {
+                rank = menu.QuickRank;
+            }
+            else if (!opt.NoTarget)
             {
                 ViewPick target = new ViewPick();
                 _view.OpenTargets(actor, opt.Kind, PartyBattleRules.TargetSideOf(Side.Ally, opt.Kind), _field.ValidTargets(actor, opt.Kind), target);

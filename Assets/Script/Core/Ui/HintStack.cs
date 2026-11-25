@@ -26,6 +26,7 @@ namespace SCoW.Core.Ui
         Scroll,
         Interact,
         Portal,
+        Swap,
     }
 
     public struct Hint
@@ -71,6 +72,8 @@ namespace SCoW.Core.Ui
                     return pad ? "A" : "E";
                 case HintAction.Portal:
                     return pad ? "D-Pad Up" : "F";
+                case HintAction.Swap:
+                    return pad ? "LB/RB" : "Q/R";
                 case HintAction.Scroll:
                     return mouse ? "Wheel" : (pad ? "D-Pad" : "W/S");
                 default:
