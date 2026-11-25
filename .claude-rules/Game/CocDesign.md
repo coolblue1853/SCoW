@@ -65,7 +65,7 @@
 
 | 항목 | 현재 구현 | 근거 |
 |---|---|---|
-| 조사 | `InteractionController`가 장소·오브젝트 클릭 → CSV 대사 재생 → 필요한 곳에서 `Intel_ObtoUI` 가 기능 판정 호출 → 성공/실패 대사 오브젝트 분기. 수사 수첩(`IntelUI`)이 키워드(인물/장소/사건)를 모음 | `Intel_ObtoUI.cs:275~317`, `KeyWordManager` |
+| 조사 | `InteractionController`가 장소·오브젝트 클릭 → CSV 대사 재생 → 필요한 곳에서 `Intel_ObtoUI` 가 기능 판정 호출 → 성공/실패 대사 오브젝트 분기. 수사 수첩(`IntelUI`)이 키워드(인물/장소/사건)를 모음 | `Intel_ObtoUI.cs:275~317`, `KeyWordManager`(K7(6f896de)에서 제거, 대체: KeywordBook/KeywordPicker) |
 | 심문·설득 | `selectionUIManager` 에서 화술/은신 등 일반 기능 판정(예 `:127` 설득, `:164` 은신). 상대 기능과의 **대립 판정 없음**(고정 난이도 = 내 기능치 그대로) | |
 | 직업·배경 선택지 | 없음. 선택지는 진행 플래그·키워드·아이템 소지로만 열림 | grep |
 | 대성공/대실패 연출 | 대사 분기는 성공(대성공 포함)/실패(대실패 포함) 이분. 대성공·대실패 전용 분기는 확인 못 함 | `InteractionController.cs:2617~2623` |

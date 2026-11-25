@@ -32,10 +32,10 @@
 | `dialogue` | 신 대화 시스템. CSV 파싱→대사 출력→선택지 | `DialogDatabaseManager`(장소별 CSV 선택), `DialogPaser`(`Resources.Load<TextAsset>`), `Dialog`/`DialogEvent`(데이터), `DialogManager`(출력, Text Animator), `InteractionController`, `interactionEvent`, `selectionUIManager`, `SelectionButton`, `SpriteManager` |
 | `old_Dialog` | 구 대화/전역 상태. **이름은 old 지만 현역**: 전역 정적 플래그 | `DataBaseManager`(`DatabaseManager.cs`, 정적 플래그·`ResetData`), `End_Look_Judge`(엔딩 판정), `DialogAutoClose` |
 | `IntelUI` | 수사 수첩(인물·장소·사건 정보) | `IntelManager`, `IntelCharacterDetail`, `IntelPlaceDetail`, `IntelEventDetail`, `*ButtonManage`, `IntelFloating`, `Test` |
-| `BillowUI` | 키워드·UI 매니저 | `BillowUIManager`, `KeyWordManager` |
+| `BillowUI` | 키워드·UI 매니저 | `BillowUIManager`, `KeyWordManager`(K7(6f896de)에서 제거, 대체: KeywordBook/KeywordPicker) |
 | `Rollet` | 판정 룰렛 | `Rollet`, `BattleRollet`, `RolletTest`(디버그) |
 | `Battle` | 턴제 전투 | `BattleManager`(DOTween 130회), `BattlePlayer`, `EnemyClass`, `InSewerEnemy`, `BattleItemManager`, `PlayerActionButton`, `EnemySelectButton`, `Battle/Detail/*`(검술·회피 등 행동 상세), `BattleCamera/BattleCameraMove` |
-| `UI` | 공용 UI: 아이템·상점·설정·사운드·튜토리얼 | `SoundManager`, `settingManager`, `SIS_UIManager`(스탯·인벤), `SIS_Debuff`, `ShopUI`, `ItemButton`, `KeyItemBox`, `UseItemBox`, `SelectedItemBox`, `KeywordButton`, `TutorialBox`, `UpperUiChecker`, `CheckBack`, `LightBulbContorol` |
+| `UI` | 공용 UI: 아이템·상점·설정·사운드·튜토리얼 | `SoundManager`, `settingManager`, `SIS_UIManager`(스탯·인벤), `SIS_Debuff`, `ShopUI`, `ItemButton`, `KeyItemBox`, `UseItemBox`, `SelectedItemBox`, `KeywordButton`(K7(6f896de)에서 제거, 대체: KeywordBook/KeywordPicker), `TutorialBox`, `UpperUiChecker`, `CheckBack`, `LightBulbContorol` |
 | `DirectringManager`(오타) | 스토리 연출 | `DirectingManager` |
 | `Asset` | 잡다: 인트로, 튜토리얼, 자간, 안전금고 등 + **대사 CSV** | `Intro`, `TutoralManage`, `BattleSymbolManager`, `SafeChecker`, `peopleCheck`, `LetterSpacing`, `Fixed`, `EnemySpriteChanger` |
 | `Asset/Resources` | 대사 CSV 15개(`1st_*.csv`, `2nd_NoonEvent`, `InSewer`, `SewerOffice`, `SCOW_SCV`) | 파일명이 `DialogDatabaseManager`에서 문자열로 하드코딩됨. 이름 변경 금지 |
@@ -56,7 +56,7 @@
 ## 5. 싱글턴·매니저, 트윈·텍스트 연출
 - 패턴: `public static X Instance`(또는 소문자 `instance`) + `Awake`에서 중복이면 `Destroy`, 아니면 `DontDestroyOnLoad`. 지연 생성 아님, 씬 배치 전제.
 - `DontDestroyOnLoad` 유지: `BillowUIManager`, `MapManager`, `FadingBackGround`, `DialogManager`, `InteractionController`, `selectionUIManager`, `IntelManager`, `IntelCharacterDetail`, `settingManager`, `SoundManager`, `End_Look_Judge`, `DataBaseManager`.
-- 씬 로컬 싱글턴: `KeyWordManager`, `BattleManager`, `BattleItemManager`, `BattleCameraMove`, `CameraManager`, `DirectingManager`, `Rollet`, `BattleRollet`, `TimeManagere`, `ShopUI`, `SIS_UIManager`, `DialogDatabaseManager`.
+- 씬 로컬 싱글턴: `KeyWordManager`(K7(6f896de)에서 제거, 대체: KeywordBook/KeywordPicker), `BattleManager`, `BattleItemManager`, `BattleCameraMove`, `CameraManager`, `DirectingManager`, `Rollet`, `BattleRollet`, `TimeManagere`, `ShopUI`, `SIS_UIManager`, `DialogDatabaseManager`.
 - DOTween(`using DG.Tweening`) 16개 파일: `BattleManager`(압도적), `FadingBackGround`, `SetCharacter_`, `setSkill`, `ManageMain`, `DialogManager`, `PotalPoint`, `MapManager`, `TimeManagere`, `DirectingManager`, `SoundManager`, `Intro`, `CameraManager`, `BattleCameraMove`, `EnemySelectButton`, `End_Look_Judge`. 대부분 페이드(`DOFade`)+`OnComplete`로 씬 전환/단계 진행.
 - Text Animator(`Febucci.UI`): `DialogManager`(`TextAnimatorPlayer textAnimatorPlayer`)에서만 사용. DamageNumbersPro 코드 사용은 `Assets/Script`에서 미발견.
 

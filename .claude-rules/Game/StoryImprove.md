@@ -127,7 +127,7 @@
 | 글자 떨림·지그재그 | Text Animator 태그(`<shake>`,`<wiggle>`)를 새 CSV 에 직접 | M1~M3 |
 | 화면 색조·비네팅 | 기존 `LightColorController.time`(밤 0.9) 활용 + 청록 오버레이 CanvasGroup, 투명도 0.05~0.3 | M2~M3 |
 | 소리 | `SoundManager` 에 물소리 루프·심장박동, 저역 필터는 믹서 그룹 | M1~ |
-| 수첩 왜곡 | `KeyWordManager` 표시 이름만 치환("Aiden's warning"→"Welcome home" 1개), 클릭 시 `Symbol/*` 처럼 무반응 | M3 |
+| 수첩 왜곡 | `KeyWordManager`(K7 에서 제거) 표시 이름만 치환("Aiden's warning"→"Welcome home" 1개), 클릭 시 `Symbol/*` 처럼 무반응 | M3 |
 | 거짓 선택지 | 대화 선택지 중 첫 줄에 번지는 색 글씨 1개, 선택 시 "손이 움직이지 않는다" 1줄 후 원래 선택지로 | M2~ |
 | 환각 NPC | 엘라가 사무소·집에 서 있음(Sprite 변경), 말하면 "Run away." 한 줄 후 사라짐(밤마다 1회) | M3 |
 | 낮잠 | 장소 도착 후 `timeCount` +1 강제(시간 대가), 악몽 짧은 장면 | M3 |

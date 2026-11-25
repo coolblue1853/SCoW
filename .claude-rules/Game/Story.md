@@ -74,7 +74,7 @@
 
 ## 5. 단서 → 키워드 → 수첩 → 결론
 
-`●n` 표식(예 `ⓡ(●1ⓟplanetary parade)ⓦ`)이 키워드 획득 지점이다(수첩 `IntelManager`/`KeyWordManager`). 장소 CSV 에서 단서를 얻고, **수첩에서 키워드를 골라 NPC 에 내밀면** `Keyword.json` 의 `인물/키워드 → 노드` 로 답이 나온다. 매핑 없는 조합은 `인물/*` 로 떨어져 "모른다"(`kaneNothing` 등).
+`●n` 표식(예 `ⓡ(●1ⓟplanetary parade)ⓦ`)이 키워드 획득 지점이다(수첩 `IntelManager`/`KeyWordManager`(K7(6f896de)에서 제거, 대체: KeywordBook/KeywordPicker)). 장소 CSV 에서 단서를 얻고, **수첩에서 키워드를 골라 NPC 에 내밀면** `Keyword.json` 의 `인물/키워드 → 노드` 로 답이 나온다. 매핑 없는 조합은 `인물/*` 로 떨어져 "모른다"(`kaneNothing` 등).
 
 ### 5-1. 핵심 사슬(결론까지)
 

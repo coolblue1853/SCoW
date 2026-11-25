@@ -8,9 +8,9 @@
 ### 1-1. 데이터 흐름
 | 단계 | 내용 | 근거 |
 |---|---|---|
-| 획득 | 키워드 = 수첩 정보 플래그. `intelXxxN`(예 `intelPlanetaryParade1~6`)이 true 가 되면 `KeyWordManager` 가 상위 리스트(사건/장소/인물)와 하위 리스트에 문자열을 `Add` | `KeyWordManager.cs:816`(KeywordUpdate, 상위), `:1198`(DownKeywordUpdater, 하위 ~470줄) |
-| 보관 | 하위 리스트가 주제마다 하나씩, 필드 약 30개(`ellaList`, `aidenList`, `sewerList` …). 각 `xxxKeywordNum`(현재 인덱스) | `KeyWordManager.cs:775~815`, `:177~475` |
-| 갱신 | `Update()` 매 프레임 `DownKeywordUpdater()`+`KeywordUpdate()` 가 전 플래그를 검사 | `KeyWordManager.cs:1672~1675` |
+| 획득 | 키워드 = 수첩 정보 플래그. `intelXxxN`(예 `intelPlanetaryParade1~6`)이 true 가 되면 `KeyWordManager`(K7 에서 제거) 가 상위 리스트(사건/장소/인물)와 하위 리스트에 문자열을 `Add` | `KeyWordManager.cs:816`(KeywordUpdate, 상위), `:1198`(DownKeywordUpdater, 하위 ~470줄) |
+| 보관 | 하위 리스트가 주제마다 하나씩, 필드 약 30개(`ellaList`, `aidenList`, `sewerList` …). 각 `xxxKeywordNum`(현재 인덱스) | `KeyWordManager.cs:775~815`(K7 에서 제거), `:177~475` |
+| 갱신 | `Update()` 매 프레임 `DownKeywordUpdater()`+`KeywordUpdate()` 가 전 플래그를 검사 | `KeyWordManager.cs:1672~1675`(K7 에서 제거) |
 | 선택 상태 | 정적 문자열 3개 `keywordMain`(Event/Character/Place)·`keywordUpper`·`keywordDowner` | `DatabaseManager.cs:263~265` |
 | 사용 가능 여부 | NPC 오브젝트(`Intel_ObtoUI`)의 `canKeyword`(WorldRules 가 켬) + 남은 질문 횟수 `keywordCounter` | `Intel_ObtoUI.cs:10,96~112`, `WorldRules.cs:60` |
 | 응답 | `KeywordDialog(npc)` → `StoryDatabase.TryRunKeyword(npc, keyword)`: `Keyword.json` 토픽 `"NPC/키워드"`, 없으면 `"NPC/*"` 폴백 | `InteractionController.cs:103`, `StoryDatabase.cs:97` |
@@ -21,28 +21,28 @@
 1. NPC 근처로 가서 상호작용(`GameInput.InteractDown`) → 첫 대화(`activeDilaog`). `Intel_ObtoUI.cs:57~112`.
 2. 대화가 끝나면 하단 선택 행 `End / Look / Judge / Keyword` 가 뜬다(`End_Look_Judge.cs`). 선택 상태는 각 `*Back` 이미지 알파 0/1 로 표현(`DOFade(…,0.00001f)`).
 3. `PageNext/PagePrev`(`End_Look_Judge.cs:92,162`)를 눌러 탭을 순환해 Keyword 에 도달. 탭 순서가 Look→Judge→Keyword→End 이고 조건(`isJudge`/`isKeyword`)에 따라 건너뛰기 분기가 8곳 흩어져 있다.
-4. Keyword 탭에 도달하면 `KeyWordManager` 의 3단 선택기가 보인다. 값을 바꾸는 메서드 `MainLeft/Right`, `UpperLeft/Right`, `DownerLeft/Right` 6개(`KeyWordManager.cs:43~477`)는 **UI 버튼 onClick 으로만 호출**된다. 코드에서 `GameInput` 호출 0건(grep). 즉 **키보드·패드로는 값을 못 바꾼다**.
+4. Keyword 탭에 도달하면 `KeyWordManager`(K7 에서 제거) 의 3단 선택기가 보인다. 값을 바꾸는 메서드 `MainLeft/Right`, `UpperLeft/Right`, `DownerLeft/Right` 6개(`KeyWordManager.cs:43~477`)는 **UI 버튼 onClick 으로만 호출**된다. 코드에서 `GameInput` 호출 0건(grep). 즉 **키보드·패드로는 값을 못 바꾼다**.
 5. 마우스로 Main(사건/인물/장소) → Upper(예 `PlanetaryParade`) → Downer(예 `Contents of a Newspaper`) 순서로 ◀▶ 를 눌러 원하는 항목까지 순환.
 6. `Interact` 로 제시 확정. `Intel_ObtoUI.cs:119~125`: `keywordCounter -= 1` 후 `KeywordDialog`.
 7. 대사 종료 → 2번으로 복귀. 다른 키워드를 또 내려면 3~6 반복.
 
-대안 경로: 수첩(IntelUI)에 키워드 이름(`Upper_Detail`) 단추가 있고 `KeywordButton.SeparateString()`(`KeywordButton.cs:11`)이 선택 3값을 직접 채운다(프리팹 연결은 추정, 미확인). 이 경로도 마우스 전용이고 대화 중 수첩을 열 수 있는지 불명.
+대안 경로: 수첩(IntelUI)에 키워드 이름(`Upper_Detail`) 단추가 있고 `KeywordButton.SeparateString()`(K7 에서 제거)(`KeywordButton.cs:11`)이 선택 3값을 직접 채운다(프리팹 연결은 추정, 미확인). 이 경로도 마우스 전용이고 대화 중 수첩을 열 수 있는지 불명.
 
 조작 수 추정: 인물 키워드 1개 제시 = 상호작용 1 + 탭 이동 1~3 + ◀▶ 클릭 3~12 + 확정 1 = **6~17회**, 그중 4~12회가 마우스 전용.
 
 ### 1-3. 어려운 점 (근거)
 | # | 문제 | 근거 | 영향 |
 |---|---|---|---|
-| P1 | **패드·키보드 불가**: 6개 선택 메서드가 마우스 버튼 전용. 탭 이동만 `PageNext` 로 되어 키보드로 키워드 탭까지 가고서 멈춤 | `KeyWordManager.cs` 전체 GameInput 0건, `End_Look_Judge.cs:92` | 필수 위반(3경로 원칙, 큐 INPUT-1 취지) |
-| P2 | **3단 순환 선택**: 목록을 한눈에 못 보고 한 번에 하나만 보임. 항목 N개면 평균 N/2 클릭. 주제(Upper)·세부(Downer) 이중 구조라 "무슨 키워드가 있나" 파악 불가 | `KeyWordManager.cs:102~477` | 발견성·단계 수 |
+| P1 | **패드·키보드 불가**: 6개 선택 메서드가 마우스 버튼 전용. 탭 이동만 `PageNext` 로 되어 키보드로 키워드 탭까지 가고서 멈춤 | `KeyWordManager.cs`(K7 에서 제거) 전체 GameInput 0건, `End_Look_Judge.cs:92` | 필수 위반(3경로 원칙, 큐 INPUT-1 취지) |
+| P2 | **3단 순환 선택**: 목록을 한눈에 못 보고 한 번에 하나만 보임. 항목 N개면 평균 N/2 클릭. 주제(Upper)·세부(Downer) 이중 구조라 "무슨 키워드가 있나" 파악 불가 | `KeyWordManager.cs:102~477`(K7 에서 제거) | 발견성·단계 수 |
 | P3 | **횟수 제한이 숨겨짐**: NPC 별 `keywordCounter`(3~5, 시간 5 시점에 초기화)가 줄지만 표시 코드 없음(`Intel_ObtoUI` 외 참조 없음). 질문이 갑자기 안 열림 | `Intel_ObtoUI.cs:104,122,738~787` | 피드백 없음 |
 | P4 | **틀린 제시도 횟수를 깎음**: `keywordCounter -= 1` 이 응답 판별 전. 폴백 `/*` 대사가 나와도 소모. 힌트 없이 찍기 → 제한 소진 | `Intel_ObtoUI.cs:122` | 틀렸을 때 패널티가 크고 이유가 안 보임 |
 | P5 | **틀렸을 때 반응이 빈약**: NPC 당 폴백 1개(`ellaKeyDisable` 등). Aiden 만 1회 차이(`aidenKeyFail1/2`). "이 사람에겐 의미 없음"과 "지금은 말 못 함"이 구분 안 됨 | `Keyword.json:14,26,58` | 반응 다양성 |
-| P6 | **새 키워드 알림 없음**: 수첩 플래그가 켜지면 리스트에 조용히 Add. 획득 토스트·수첩 배지 코드 없음 | `KeyWordManager.cs:828~` | 발견성 |
-| P7 | **내부 식별자가 그대로 표시**: `mainSetting/upperSetting/downerSetting.text` 에 `PlanetaryParade`, `Contents of a Newspaper` 같은 영문 키가 노출(현지화 키 없음) | `KeyWordManager.cs:818~820` | 가독성 |
-| P8 | **빈 목록 예외 위험**: 사건 리스트가 비어 있을 때만 건너뛰는 가드가 있고, 장소·인물 빈 상태에서 `upperPlaceKeywordList[nowPlace…]` 인덱스 접근 가드 없음 | `KeyWordManager.cs:55,80,98` | 초반 진행 중 예외 가능(미재현) |
-| P9 | 프레임당 약 100개 `GetFlag` 검사·30개 리스트 Count 재계산 | `KeyWordManager.cs:1672` | 성능(작지만 낭비) |
-| P10 | 1700줄 단일 클래스, 비슷한 if 블록 복붙(`KeywordButton.cs` 250줄도 같은 패턴). 키워드 추가 = 코드 수정 | 두 파일 | 확장성 |
+| P6 | **새 키워드 알림 없음**: 수첩 플래그가 켜지면 리스트에 조용히 Add. 획득 토스트·수첩 배지 코드 없음 | `KeyWordManager.cs:828~`(K7 에서 제거) | 발견성 |
+| P7 | **내부 식별자가 그대로 표시**: `mainSetting/upperSetting/downerSetting.text` 에 `PlanetaryParade`, `Contents of a Newspaper` 같은 영문 키가 노출(현지화 키 없음) | `KeyWordManager.cs:818~820`(K7 에서 제거) | 가독성 |
+| P8 | **빈 목록 예외 위험**: 사건 리스트가 비어 있을 때만 건너뛰는 가드가 있고, 장소·인물 빈 상태에서 `upperPlaceKeywordList[nowPlace…]` 인덱스 접근 가드 없음 | `KeyWordManager.cs:55,80,98`(K7 에서 제거) | 초반 진행 중 예외 가능(미재현) |
+| P9 | 프레임당 약 100개 `GetFlag` 검사·30개 리스트 Count 재계산 | `KeyWordManager.cs:1672`(K7 에서 제거) | 성능(작지만 낭비) |
+| P10 | 1700줄 단일 클래스, 비슷한 if 블록 복붙(`KeywordButton.cs`(K7 에서 제거) 250줄도 같은 패턴). 키워드 추가 = 코드 수정 | 두 파일 | 확장성 |
 
 ## 2. 장르 관례 정리 (참고, 코드 아님)
 - **역전재판 증거 제시**: 증언 중 언제든 "제시"(전용 버튼), 증거 목록은 한 줄 가로 아이콘 스크롤, 오답은 감점 + 즉시 반응. 정답 힌트는 "무엇을 제시할지"가 아니라 "증언의 모순"으로 준다.
@@ -74,7 +74,7 @@
 | `displayKey` | string | 새 I2 용어 키(`Keyword/<id 슬러그>`). 없으면 `id` 를 그대로 표시. 기존 I2 키는 건드리지 않고 **추가만**(I2 는 코드 미사용 상태이므로 우선 미사용·폴백 `id` 허용) |
 | `order` | int | 목록 표시 순서(기존 Add 순서 보존) |
 
-생성: `DownKeywordUpdater`(`KeyWordManager.cs:1198~1670`)를 읽는 에디터 도구로 초안을 뽑는다(수작업 복사 금지, 오타 위험). 동치 시험: 플래그 프리셋 N개에서 "옛 리스트 == 새 카탈로그 필터 결과"를 EditMode 테스트로 고정.
+생성: `DownKeywordUpdater`(`KeyWordManager.cs:1198~1670`(K7 에서 제거))를 읽는 에디터 도구로 초안을 뽑는다(수작업 복사 금지, 오타 위험). 동치 시험: 플래그 프리셋 N개에서 "옛 리스트 == 새 카탈로그 필터 결과"를 EditMode 테스트로 고정.
 
 `SCoW.Core` 에 순수 C#: `KeywordCatalog.Entries`, `KeywordBook.GetUnlocked(GameState)`(→ `unlockFlag` 평가), `KeywordBook.Reaction(string npc, string id)`(→ `Specific`/`Fallback`, `StoryScript.HasTopic` 이용).
 
@@ -96,7 +96,7 @@
   | 수첩 열기 | 수첩 버튼 | `OpenIntel` | (기존 바인딩) |
 - 탭 순환 규칙: 비어 있는 탭은 건너뜀(옛 `upperEventKeywordList.Count != 0` 분기 일반화). 빈 상태면 "아직 단서가 없다" 문구를 보이고 예외 없음(P8 해소).
 - 호출 경로: 대화 선택 행의 Keyword 탭을 확정하면 Picker 가 열림(기존 선택 행은 유지, 안의 3단 선택기만 제거). 닫으면 선택 행으로 복귀.
-- 기존 `KeywordButton`/`KeyWordManager` 6개 메서드는 **K7 에서 제거할 때까지 비활성**(씬 직렬화 호환용으로 껍데기만 남기고 호출을 끊는다).
+- 기존 `KeywordButton`/`KeyWordManager` 6개 메서드는 **K7(6f896de)에서 제거됨. 그 전까지 비활성**(씬 직렬화 호환용으로 껍데기만 남기고 호출을 끊는다).
 
 ### 3-4. 횟수·오답·반응 (K3)
 - 소모 규칙: 고유 토픽(`Specific`) 응답일 때만 `keywordCounter` 감소. 폴백(`Fallback`)은 환불(감소하지 않음)하고 "아무 반응이 없다" 연출. 단, 이미 물은 `AskedKeywords` 를 다시 내도 감소 안 함.
@@ -122,13 +122,13 @@
 - 수첩 항목 본문에는 손대지 않는다(스토리 담당).
 
 ### 3-8. 정리 (K7)
-`KeyWordManager`(1700줄)·`KeywordButton`(250줄)을 카탈로그 기반 `KeywordBook`+`KeywordPicker` 로 대체 후 삭제. 씬 오브젝트 참조가 끊기므로 씬 직렬화 확인(unity-traps), `DataBaseManager.keywordMain/Upper/Downer` 정적 3개는 호환 파사드로 남기고 사용처 0이 되면 제거. `Intel_ObtoUI` 의 `keywordCounter` 초기화(738~787 하드코딩 11분기)는 카탈로그와 함께 `NpcKeywordBudget`(NPC → 횟수) 표로 이관(JSON `Resources/Story/KeywordBudget.json`).
+`KeyWordManager`(1700줄)·`KeywordButton`(250줄)을 카탈로그 기반 `KeywordBook`+`KeywordPicker` 로 대체 후 삭제(K7(6f896de)에서 제거 완료). 씬 오브젝트 참조가 끊기므로 씬 직렬화 확인(unity-traps), `DataBaseManager.keywordMain/Upper/Downer` 정적 3개는 호환 파사드로 남기고 사용처 0이 되면 제거. `Intel_ObtoUI` 의 `keywordCounter` 초기화(738~787 하드코딩 11분기)는 카탈로그와 함께 `NpcKeywordBudget`(NPC → 횟수) 표로 이관(JSON `Resources/Story/KeywordBudget.json`).
 
 ## 4. 구현 단계 (builder 단위, 순서대로)
 
 | 단계 | 내용 | 파일 | 비용 | 우선 |
 |---|---|---|---|---|
-| K1 | 카탈로그 JSON 생성 도구 + `KeywordBook` + 동치 EditMode 테스트 | `Core/Keyword/*`, `Editor/KeywordCatalogExporter.cs`, `Resources/Story/KeywordCatalog.json` | M | P0 |
+| K1 | 카탈로그 JSON 생성 도구 + `KeywordBook` + 동치 EditMode 테스트 | `Core/Keyword/*`, `Editor/KeywordCatalogExporter.cs`(K7 에서 제거), `Resources/Story/KeywordCatalog.json` | M | P0 |
 | K2 | `KeywordPicker`(View) + 3경로 입력 + `UiStack` 등록, 선택 행 Keyword 확정 시 호출, 구 3단 선택기 비활성 | `UI/KeywordPicker.cs`, `End_Look_Judge.cs`, Main.unity UI | L | P0 |
 | K3 | 횟수 표시·오답 환불·`usedFallback`·반응 3종(대사는 TODO) | `Intel_ObtoUI.cs`, `InteractionController.cs`, `StoryDatabase.cs`, `Keyword.json` | M | P0 |
 | K4 | 새 키워드 토스트·수첩 배지·`NEW` 표시 | `UI/KeywordToast.cs`, `IntelManager` | S | P0 |
@@ -158,7 +158,7 @@
 9. 조작 횟수 측정: 인물 키워드 1개 제시를 입력 로그로 세어 목표(3~5) 이내.
 
 ## 6. K1 결과 (11-21)
-- 완료: `Editor/KeywordCatalogExporter.cs`(메뉴 `SCoW/Keyword/Export Catalog`, 옛 `KeyWordManager` 소스를 정규식으로 읽음) → `Resources/Story/KeywordCatalog.json`(상위 27·하위 57·의심 토픽 9). `Core/Keyword/KeywordCatalog.cs`·`KeywordBook.cs`(획득·분류·상위/하위 목록·NPC별 제시 가능·`Reaction`). 골든 `Golden/KeywordBook.golden.txt`(352 프리셋, 도구 `SCoW/Keyword/Dump Golden (Play Mode)`, 옛 매니저를 임시 생성해 덤프) 대조 `Tests/EditMode/KeywordBookTests.cs`. UI·씬 무변경.
+- 완료: `Editor/KeywordCatalogExporter.cs`(K7 에서 제거)(메뉴 `SCoW/Keyword/Export Catalog`, 옛 `KeyWordManager` 소스를 정규식으로 읽음) → `Resources/Story/KeywordCatalog.json`(상위 27·하위 57·의심 토픽 9). `Core/Keyword/KeywordCatalog.cs`·`KeywordBook.cs`(획득·분류·상위/하위 목록·NPC별 제시 가능·`Reaction`). 골든 `Golden/KeywordBook.golden.txt`(352 프리셋, 도구 `SCoW/Keyword/Dump Golden (Play Mode)`, 옛 매니저를 임시 생성해 덤프) 대조 `Tests/EditMode/KeywordBookTests.cs`. UI·씬 무변경.
 - 카탈로그 `suspect`(기록만, 고치지 않음): ① 케인(`Osborn Louis Kane`/`노교수`)·강가(`Riverside`/`미스캐토닉 강`)는 옛 3단이 하위를 다른 이름으로 비교해 옛 UI 로 하위 선택 불가(K2 에서 자연 해소). ② `Keyword.json` 어느 NPC 에도 전용 토픽이 없는 키워드. ③ `suspectTopics`: 대학생·케인 노드 범위 오류(StoryImprove A-1, 스토리 P0 몫).
 - 순서: 목록 순서는 옛 코드 검사 순서. 옛 실제 동작은 획득 순서였으므로 K4 의 본 키워드 집합으로 획득 순서를 얹을 것. `displayKey` 는 예약값(I2 미등록, 표시는 `id` 폴백).
 - `unlockFlag` 로 `KeywordBook` 은 `GameState` 를 직접 받는다(`IStateReader` 어댑터 불필요).
@@ -194,4 +194,4 @@ cat: /tmp/k3add.txt: No such file or directory
 - 함께 삭제한 개발 도구: `Editor/KeywordCatalogExporter.cs`·`KeywordGoldenTool.cs`(옛 매니저 소스·인스턴스가 입력이라 쓸 수 없음). `KeywordCatalog.json`과 `Golden/KeywordBook.golden.txt` 는 이제 고정 스냅샷이며 카탈로그는 JSON 을 직접 고쳐 갱신한다(`KeywordBookTests`가 골든 대조).
 - 예산 이관: `Resources/Story/KeywordBudget.json` + `Core/Keyword/KeywordBudget.cs`(순수), `Intel_ObtoUI.ResetKeyCount` 11분기 → 표 조회(표에 없는 NPC 는 불변). `KeywordBudgetTests` 3개.
 - 검증: EditMode 290 통과, 플레이: 예산 Ella 3·Maeve 5 동일·GunshopMan 불변, Present→Picker→A 제시 경로 동작. `DialogManager.cs:462` IndexOutOfRange 는 인트로 대사가 도는 중에 대사를 강제로 얹은 시험 설정(lineCount 공유) 때문이며 K5 시점부터 같았다.
-- 발견(미착수): 수첩 항목 버튼 이름이 `상위_하위`(예 `Nightmare_Water and Nightmare`)라 항목 단위 "질문에 사용"을 새 컴포넌트로 되살릴 수 있다(옛 `KeywordButton` 이 하던 자리).
+- 발견(미착수): 수첩 항목 버튼 이름이 `상위_하위`(예 `Nightmare_Water and Nightmare`)라 항목 단위 "질문에 사용"을 새 컴포넌트로 되살릴 수 있다(옛 `KeywordButton`(K7 에서 제거) 이 하던 자리).

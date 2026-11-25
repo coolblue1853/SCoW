@@ -26,7 +26,7 @@
 - [ ] **STORY-1** 대사 CSV 전수 읽고 `Game/Story.md`(줄거리·인물·단서·엔딩) + `Game/StoryImprove.md`(세부 수정·흐름·자유도·광기 연출). designer 진행 중.
 - [ ] **SEWER-1** 하수도 내부 개선(사용자: "되게 별로"). 구조·탐색·연출·전투 배치 문제 실측 → 개선 설계 → 구현.
 - [ ] **PARTY-1** 동료 동행: 스토리의 친구 2명을 최대 3인 파티로 탐색·전투에 데리고 다님. 동료 능력치로 판정 보조(도움 판정·대신 판정 등). STORY-1 결과로 인물 확정 후 설계. **P14b(전투 View)는 파티 설계 확정 뒤 진행**(전투 엔진이 다인원 전제를 가져야 함). 사용자(11-21): 전투는 다키스트 던전과 약간 비슷한 결(횡스크롤 대열·턴 순서·스트레스(SAN) 연동) → 파티 설계에 대열 위치·위치별 행동·SAN 피해를 함께 검토. 장르 관례만 참고하고 고유 표현은 따라 하지 않음.
-- [ ] **KEYWORD-1** 키워드 시스템 사용성 개선(사용자: "쓰기 어려워 보임"). 현행 흐름 실측(KeyWordManager·Intel_ObtoUI·수첩) → 마우스·키보드·패드 3경로 개선 설계 → 구현. 기존 세이브·I2 키 유지.
+- [ ] **KEYWORD-1** 키워드 시스템 사용성 개선(사용자: "쓰기 어려워 보임"). 현행 흐름 실측(KeyWordManager(K7 에서 제거)·Intel_ObtoUI·수첩) → 마우스·키보드·패드 3경로 개선 설계 → 구현. 기존 세이브·I2 키 유지.
 - [ ] **P14b 메모(P14a 리뷰 권장, 4bbac2e)**: 실전투 플레이 확인(MCP 서버 다운으로 미검증). EnemyState 5필드·이름 박힌 슬롯 분기(46곳+)를 EnemyState[]+인덱스 루프로, BattleManager.cs:595 `EnemyDefs.DeepOne1` 하드코딩 → 슬롯 state.Def, EnemyDefs.Get(id)/All. ChooseIntent 종류 분기 → EnemyDef 가중치 데이터. 피해식은 Def.AttackDamage 로 통일(현재 BattleDamage 직접 호출), PoisonTickDamage·StepGauge out 미사용 정리, battleState 문자열 → enum. SymbolUp 매 프레임 문자열 비교 → bool. EnemyClass 빈 껍데기 삭제(P15). 파티(PARTY-1) 다인원 전제로 설계.
 - [ ] **ASSET-1** 보유 에셋 86종 SCoW 기준 재분류 `Docs/AssetPlan.md`(적용/후보/안 맞음, 트랙 C 도구 판단). 적용분은 필요한 파일만 임포트(MCP 복구 후), 그래픽은 사용자 검토 후. 문서 builder 진행 중.
 - [ ] **ART-1** 그래픽 현황 `Docs/ArtInventory.md` + `Game/ArtStyle.md` 초안(림버스 연출+도트 탐정·호러). PixelLab 생성은 11-25 이후, 생성 전 상세 설정 사용자 확인. 문서 builder 진행 중.
