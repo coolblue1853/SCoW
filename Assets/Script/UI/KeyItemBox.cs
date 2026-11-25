@@ -70,12 +70,9 @@ public class KeyItemBox : MonoBehaviour
             InteractionController.Instance.StartSafeLook("Map_Look");
             sisUI.SetActive(false);
         }
-        if (DataBaseManager.nowItem == "OldMap")
-        {
-            UiGate.Remove(PanelKind.Inventory);
-            InteractionController.Instance.StartSafeLook("OldMap_Look");
-            sisUI.SetActive(false);
-        }
+        // OldMap 은 "보기" 대사가 없다: SafeLook.json 에 OldMap_Look 토픽이 삭제돼 호출하면 무반응이었다(리뷰 지적).
+        // 없는 토픽을 부르지 않도록 분기를 막는다. 대사를 새로 쓰면 SafeLook.json 에 OldMap_Look 을 추가하고 이 분기를 되살린다.
+        // TODO: 씬의 "보기" 버튼도 OldMap 일 때 숨긴다(씬 직렬화라 ART/씬 작업 때).
     }
     public void UseButton()
     {

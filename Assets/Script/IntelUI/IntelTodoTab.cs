@@ -178,6 +178,7 @@ public static class IntelTodoTab
         System.Text.StringBuilder sb = new System.Text.StringBuilder();
         sb.Append(ObjectiveBoard.Pick("할 일", "To-Do")).Append("\n");
         int now = DataBaseManager.timeCount;
+        // TODO(I2): 날짜 줄 ko/en 은 WorldClock.DateLine 이 직접 만든다. I2 키로 옮기면 Pick 두 번 호출을 없앤다(할 일 제목 줄과 같은 임시 방식).
         sb.Append(ObjectiveBoard.Pick(SCoW.Core.World.WorldClock.DateLine(now, true), SCoW.Core.World.WorldClock.DateLine(now, false))).Append("\n\n");
         if (lines.Count == 0)
         {

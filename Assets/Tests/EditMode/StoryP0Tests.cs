@@ -156,6 +156,38 @@ namespace SCoW.Tests
             Assert.IsFalse(Ids("Judge", "SanCheck/ThirdDayStartSan", At(1)).Contains("423"), "3일차 아침 전에는 안 나온다");
         }
 
+        // 우편 case 가 SAN 줄 앞에 있어도 SAN 줄(306-309 악몽 / 313-316 평소)은 어느 경우든 한 번만 나온다(중복 재생 없음).
+        [Test]
+        public void V4_MorningMail_SanLinesPlayExactlyOnce()
+        {
+            GameState nightmareMail = At(9);
+            nightmareMail.SetFlag("intelNightmare3", true);
+            AssertSanGroupsOnce(Ids("Judge", "SanCheck/ThirdDayStartSan", nightmareMail), "306", "313");
+            AssertSanGroupsOnce(Ids("Judge", "SanCheck/ThirdDayStartSan", At(9)), "313", "306");
+            GameState nightmareNoMail = At(1);
+            nightmareNoMail.SetFlag("intelNightmare3", true);
+            AssertSanGroupsOnce(Ids("Judge", "SanCheck/ThirdDayStartSan", nightmareNoMail), "306", "313");
+            AssertSanGroupsOnce(Ids("Judge", "SanCheck/ThirdDayStartSan", At(1)), "313", "306");
+        }
+
+        private static void AssertSanGroupsOnce(string ids, string present, string absent)
+        {
+            Assert.AreEqual(1, CountOf(ids, "1st_DetectiveOffice:" + present + ","), ids);
+            Assert.AreEqual(0, CountOf(ids + ",", "1st_DetectiveOffice:" + absent + ","), ids);
+        }
+
+        private static int CountOf(string text, string needle)
+        {
+            int n = 0;
+            int i = 0;
+            while ((i = text.IndexOf(needle, i, System.StringComparison.Ordinal)) >= 0)
+            {
+                n++;
+                i += needle.Length;
+            }
+            return n;
+        }
+
         // V-4 / B-2: 사물함 관찰 실패 → 다음 시간대에 다시 시도 가능. 열쇠를 얻으면 풀지 않는다.
         [Test]
         public void V4_LockerRetry_NextSlot_WhenNoKey()
