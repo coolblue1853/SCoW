@@ -25,6 +25,28 @@ namespace SCoW.Tests
             Assert.AreEqual(1, ResumeRules.LatestIndex(new long[] { 0, 500, 500 }));
         }
 
+        // 슬롯 순서: 0 자동, 1~3 수동, 4 빠른 저장. 빠른 슬롯이 가장 최근이면 이어하기·재개 후보가 된다.
+        [Test]
+        public void LatestIndex_QuickSlotNewest_IsPicked()
+        {
+            Assert.AreEqual(4, ResumeRules.LatestIndex(new long[] { 100, 200, 0, 300, 400 }));
+        }
+
+        [Test]
+        public void LatestIndex_QuickSlotOlderOrMissing_IsNotPicked()
+        {
+            Assert.AreEqual(0, ResumeRules.LatestIndex(new long[] { 500, 0, 0, 0, 400 }));
+            Assert.AreEqual(1, ResumeRules.LatestIndex(new long[] { 0, 200, 0, 0, 0 }));
+        }
+
+        // 새 게임 시작 때 빠른 슬롯을 비우면(읽기 실패 = 0) 이전 판의 빠른 저장은 후보에서 빠진다.
+        [Test]
+        public void LatestIndex_QuickSlotInvalidated_FallsBackOrNone()
+        {
+            Assert.AreEqual(-1, ResumeRules.LatestIndex(new long[] { 0, 0, 0, 0, 0 }));
+            Assert.AreEqual(2, ResumeRules.LatestIndex(new long[] { 0, 0, 100, 0, 0 }));
+        }
+
         [Test]
         public void DeathChoices_ResumeOnlyWithSave()
         {

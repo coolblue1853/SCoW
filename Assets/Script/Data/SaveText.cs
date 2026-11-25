@@ -88,6 +88,10 @@ public static class SaveText
 
     public static string SlotName(int slot)
     {
+        if (slot == SaveService.QuickSlot)
+        {
+            return Pick("빠른 저장", "Quick Save");
+        }
         return slot == SaveService.AutoSlot ? Pick("자동 저장", "Auto Save") : Pick("슬롯 ", "Slot ") + slot;
     }
 

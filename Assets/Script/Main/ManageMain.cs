@@ -180,6 +180,8 @@ public class ManageMain : MonoBehaviour
     }
     public void GoSetCharacter()
     {
+        // 타이틀 Start 가 확정된 새 판의 시작점(FadeIn 완료). 캐릭터 생성에는 타이틀로 돌아가는 길이 없다.
+        SaveFlow.InvalidateQuickSlot();
         SceneRouter.Go(SceneIds.SetCharacter);
     }
     public void OpenTile()

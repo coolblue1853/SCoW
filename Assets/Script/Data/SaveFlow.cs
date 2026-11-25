@@ -149,13 +149,13 @@ public static class SaveFlow
     /// <summary>사망 후 재개용 "마지막 저장": 자동·수동·빠른 슬롯 중 읽히는 가장 최근 것. 없으면 -1.</summary>
     public static int LatestResumeSlot()
     {
-        long[] ticks = new long[SaveService.QuickSlot + 1];
-        for (int s = 0; s < ticks.Length; s++)
-        {
-            SaveMeta m;
-            ticks[s] = SaveService.ReadMeta(s, out m) == SaveError.None ? m.SavedAtUtcTicks : 0L;
-        }
-        return ResumeRules.LatestIndex(ticks);
+        return LatestSlot();
+    }
+
+    /// <summary>새 게임을 시작할 때 빠른 슬롯을 비운다. 빠른 저장은 한 판 안에서만 쓰므로, 새 판이 이전 판의 빠른 저장으로 재개되지 않게 한다.</summary>
+    public static void InvalidateQuickSlot()
+    {
+        SaveService.Delete(SaveService.QuickSlot);
     }
 
     /// <summary>슬롯을 읽어 GameState 를 주입하고 Main 씬을 연다. 실패하면 오류만 돌려주고 아무것도 바꾸지 않는다.</summary>
@@ -189,7 +189,7 @@ public static class SaveFlow
     /// <summary>손상 여부와 관계없이 저장 파일이 하나라도 있나(타이틀 "이어하기" 표시용).</summary>
     public static bool AnySave()
     {
-        for (int s = 0; s < SaveService.SlotCount; s++)
+        for (int s = 0; s <= SaveService.QuickSlot; s++)
         {
             if (SaveService.Exists(s))
             {
@@ -199,20 +199,15 @@ public static class SaveFlow
         return false;
     }
 
-    /// <summary>이어하기 후보: 존재하고 읽히는 슬롯 중 가장 최근 저장. 없으면 -1.</summary>
+    /// <summary>이어하기·사망 재개 후보: 자동·수동·빠른 슬롯 중 읽히는 가장 최근 저장. 없으면 -1.</summary>
     public static int LatestSlot()
     {
-        int best = -1;
-        long bestTicks = long.MinValue;
-        for (int s = 0; s < SaveService.SlotCount; s++)
+        long[] ticks = new long[SaveService.QuickSlot + 1];
+        for (int s = 0; s < ticks.Length; s++)
         {
             SaveMeta m;
-            if (SaveService.ReadMeta(s, out m) == SaveError.None && m.SavedAtUtcTicks > bestTicks)
-            {
-                best = s;
-                bestTicks = m.SavedAtUtcTicks;
-            }
+            ticks[s] = SaveService.ReadMeta(s, out m) == SaveError.None ? m.SavedAtUtcTicks : 0L;
         }
-        return best;
+        return ResumeRules.LatestIndex(ticks);
     }
 }

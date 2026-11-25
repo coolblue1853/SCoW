@@ -30,9 +30,11 @@ public sealed class SlotMenuView : MonoBehaviour
     private Action _onClosed;
     private Font _font;
     private Sprite _sprite;
-    private readonly Image[] _rows = new Image[SaveService.SlotCount];
-    private readonly Text[] _rowTexts = new Text[SaveService.SlotCount];
-    private readonly SaveError[] _slotErrors = new SaveError[SaveService.SlotCount];
+    // 자동 1 + 수동 3 + 빠른 저장 1(불러오기에만 보인다).
+    private const int RowCount = SaveService.QuickSlot + 1;
+    private readonly Image[] _rows = new Image[RowCount];
+    private readonly Text[] _rowTexts = new Text[RowCount];
+    private readonly SaveError[] _slotErrors = new SaveError[RowCount];
     private Text _message;
     private int _index;
     private int _confirmIndex = -1;
@@ -103,7 +105,7 @@ public sealed class SlotMenuView : MonoBehaviour
         Text t = MakeText("Title", panel, title, 44, TextAnchor.MiddleCenter);
         SetRect(t.rectTransform, new Vector2(0.5f, 1f), new Vector2(0f, -54f), new Vector2(1100f, 70f));
 
-        for (int i = 0; i < SaveService.SlotCount; i++)
+        for (int i = 0; i < RowCount; i++)
         {
             int slot = i;
             RectTransform row = MakeImage("Slot" + i, panel, Color.white, _sprite);
@@ -123,6 +125,7 @@ public sealed class SlotMenuView : MonoBehaviour
             rt.rectTransform.offsetMin = new Vector2(28f, 0f);
             rt.rectTransform.offsetMax = new Vector2(-28f, 0f);
             _rowTexts[i] = rt;
+            row.gameObject.SetActive(_mode == Mode.Load || slot != SaveService.QuickSlot);
         }
 
         _message = MakeText("Message", panel, string.Empty, 28, TextAnchor.MiddleCenter);
@@ -146,7 +149,7 @@ public sealed class SlotMenuView : MonoBehaviour
 
     private bool IsSelectable(int slot)
     {
-        return !(_mode == Mode.Save && slot == SaveService.AutoSlot);
+        return !(_mode == Mode.Save && (slot == SaveService.AutoSlot || slot == SaveService.QuickSlot));
     }
 
     private int FirstSelectable()
@@ -161,7 +164,7 @@ public sealed class SlotMenuView : MonoBehaviour
 
     private void Refresh()
     {
-        for (int i = 0; i < SaveService.SlotCount; i++)
+        for (int i = 0; i < RowCount; i++)
         {
             SaveMeta m;
             SaveError e = SaveService.ReadMeta(i, out m);
