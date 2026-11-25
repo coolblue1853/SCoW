@@ -119,6 +119,7 @@ public sealed class WorldBinder : MonoBehaviour, IWorldScene
         _objects[WorldIds.BarPeople1] = r.barPeople1;
         _objects[WorldIds.BarPeople2] = r.barPeople2;
         _objects[WorldIds.Albert] = r.albert;
+        _objects[WorldIds.MeaveNpc] = r.meave != null ? r.meave.gameObject : null;
         _objects[WorldIds.Dave] = r.dave;
         _objects[WorldIds.Swain] = r.swain;
         _objects[WorldIds.Journalist] = r.journalist;

@@ -594,7 +594,7 @@ public class DirectingManager : MonoBehaviour
             DataBaseManager.endingisPromise = false;
             InteractionController.Instance.InSewerDialog("Ending_isPromise");
         }
-        if (DataBaseManager.endingAfterPromiseDialog == true && DataBaseManager.isActiveDialog1 == false && DataBaseManager.albertDeathKeyword == true)
+        if (DataBaseManager.endingAfterPromiseDialog == true && DataBaseManager.isActiveDialog1 == false && DataBaseManager.albertDead)
         {
             DataBaseManager.endingAfterPromiseDialog = false;
             InteractionController.Instance.InSewerDialog("Ending_IfNoPromiseAlbertDeath");

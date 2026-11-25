@@ -205,7 +205,19 @@
    "id": "Ending_isPromise",
    "cases": [
     {
-     "when": "flag:intelMeiv2 && !flag:albertDeathKeyword",
+     "when": "flag:intelMeiv2 && flag:party.maeve.dead && !any(flag:albertDeathKeyword,flag:party.albert.dead)",
+     "node": "Ending_PartyMaeveDead"
+    },
+    {
+     "when": "flag:intelMeiv2 && flag:party.albert.joined && !any(flag:albertDeathKeyword,flag:party.albert.dead)",
+     "node": "Ending_PartyAlbert"
+    },
+    {
+     "when": "flag:intelMeiv2 && any(flag:albertDeathKeyword,flag:party.albert.dead) && flag:party.maeve.joined && !flag:party.maeve.dead",
+     "node": "Ending_PartyMaeve"
+    },
+    {
+     "when": "flag:intelMeiv2 && !any(flag:albertDeathKeyword,flag:party.albert.dead)",
      "node": "Ending_isPromise.0"
     },
     {
@@ -313,6 +325,15 @@
   },
   "Sewer_SymbolLook.2": {
    "text": "InSewer:59"
+  },
+  "Ending_PartyMaeveDead": {
+   "text": "InSewer:416-418"
+  },
+  "Ending_PartyAlbert": {
+   "text": "InSewer:419-420"
+  },
+  "Ending_PartyMaeve": {
+   "text": "InSewer:421-425"
   },
   "Ending_isPromise.0": {
    "text": "InSewer:146-147"

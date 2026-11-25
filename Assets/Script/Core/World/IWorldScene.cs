@@ -18,6 +18,8 @@ namespace SCoW.Core.World
         public const string SewerOfficeWindow = "sewerOfficeWindow";
         public const string SewerOfficeLocker = "sewerOfficeLocker";
         public const string Meave = "meave";
+        /// <summary>바의 메이브 NPC 오브젝트(Meave 는 같은 대상의 Intel_ObtoUI 쪽 창구).</summary>
+        public const string MeaveNpc = "meaveNpc";
         public const string BfNoonEvent = "bfNoonEvent";
         public const string AfNoonEvent = "afNoonEvent";
         public const string PoliceLine = "policeLine";

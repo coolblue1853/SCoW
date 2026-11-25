@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using SCoW.Core.Rules;
 using SCoW.Core.State;
 
 namespace SCoW.Core.World
@@ -13,7 +14,12 @@ namespace SCoW.Core.World
         /// <summary>이 키가 바뀌면 월드를 다시 평가해야 한다(WorldBinder 가 변경 통지를 거를 때 쓴다).</summary>
         public static bool Affects(string key)
         {
-            return key != null && AffectingKeys.Contains(key);
+            return key != null && (AffectingKeys.Contains(key) || IsJoinedKey(key));
+        }
+
+        private static bool IsJoinedKey(string key)
+        {
+            return key.StartsWith(PartyKeys.Prefix, System.StringComparison.Ordinal) && key.EndsWith(".joined", System.StringComparison.Ordinal);
         }
 
         private static readonly HashSet<string> AffectingKeys = new HashSet<string>
@@ -89,7 +95,17 @@ namespace SCoW.Core.World
                 w.SetActive(WorldIds.BarPeople1, false);
                 w.SetActive(WorldIds.BarPeople2, false);
             }
-            if (s.GetFlag(FlagKeys.albertDeathKeyword) && w.IsActive(WorldIds.Albert) && phase == 0 && t >= 8)
+            // 동료 합류(PT-3): 합류한 NPC 는 자리에서 사라지고, 알버트가 파티에 있으면 밤 소멸 규칙은 건너뛴다.
+            bool albertJoined = PartyState.IsJoined(s, CompanionDefs.AlbertId);
+            if (albertJoined && w.IsActive(WorldIds.Albert))
+            {
+                w.SetActive(WorldIds.Albert, false);
+            }
+            if (PartyState.IsJoined(s, CompanionDefs.MaeveId) && w.IsActive(WorldIds.MeaveNpc))
+            {
+                w.SetActive(WorldIds.MeaveNpc, false);
+            }
+            if (!albertJoined && s.GetFlag(FlagKeys.albertDeathKeyword) && w.IsActive(WorldIds.Albert) && phase == 0 && t >= 8)
             {
                 s.SetFlag(FlagKeys.thirdDayPoliceADialog, true);
                 s.SetFlag(FlagKeys.thirdDayPoliceBDialog, true);

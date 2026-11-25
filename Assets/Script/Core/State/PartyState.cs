@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using SCoW.Core.Rules;
+using SCoW.Core.Story;
 
 namespace SCoW.Core.State
 {
@@ -31,14 +32,21 @@ namespace SCoW.Core.State
         /// <summary>합류. HP·SAN 을 최대로 채우고 상태 Ready, 거절 해제, 대열 끝에 추가(처음이면 파비안 먼저).</summary>
         public static void Join(GameState s, CompanionDef def)
         {
-            s.SetFlag(PartyKeys.Joined(def.Id), true);
-            s.SetFlag(PartyKeys.Declined(def.Id), false);
-            s.SetFlag(PartyKeys.Standby(def.Id), false);
-            s.SetCounter(PartyKeys.Hp(def.Id), def.MaxHp);
-            s.SetCounter(PartyKeys.San(def.Id), def.MaxSan);
-            s.SetCounter(PartyKeys.Status(def.Id), (int)UnitStatus.Ready);
-            s.SetCounter(PartyKeys.BackAt(def.Id), 0);
-            List<string> order = GetOrder(s);
+            GameStateAccess a = new GameStateAccess(s);
+            Join(a, a, def);
+        }
+
+        /// <summary>스토리 효과(join:id)용. 읽기·쓰기 창구만 쓴다.</summary>
+        public static void Join(IStateReader r, IStateWriter w, CompanionDef def)
+        {
+            w.SetFlag(PartyKeys.Joined(def.Id), true);
+            w.SetFlag(PartyKeys.Declined(def.Id), false);
+            w.SetFlag(PartyKeys.Standby(def.Id), false);
+            w.SetCounter(PartyKeys.Hp(def.Id), def.MaxHp);
+            w.SetCounter(PartyKeys.San(def.Id), def.MaxSan);
+            w.SetCounter(PartyKeys.Status(def.Id), (int)UnitStatus.Ready);
+            w.SetCounter(PartyKeys.BackAt(def.Id), 0);
+            List<string> order = ParseOrder(r.GetText(PartyKeys.Order));
             if (order.Count == 0)
             {
                 order.Add(CompanionDefs.LeaderId);
@@ -47,7 +55,7 @@ namespace SCoW.Core.State
             {
                 order.Add(def.Id);
             }
-            SetOrder(s, order);
+            w.SetText(PartyKeys.Order, string.Join(",", order));
         }
 
         /// <summary>영구 사망. 합류 기록은 남기고 활성 목록에서만 빠진다.</summary>
@@ -84,8 +92,12 @@ namespace SCoW.Core.State
         /// <summary>대열 순서(파비안 포함, 콤마 목록). 없으면 빈 목록.</summary>
         public static List<string> GetOrder(GameState s)
         {
+            return ParseOrder(s.GetText(PartyKeys.Order));
+        }
+
+        private static List<string> ParseOrder(string text)
+        {
             List<string> list = new List<string>();
-            string text = s.GetText(PartyKeys.Order);
             if (string.IsNullOrEmpty(text))
             {
                 return list;

@@ -130,6 +130,8 @@ public class DataBaseManager : MonoBehaviour
 
     public static bool daveDeathKeyword { get => S.GetFlag(FlagKeys.daveDeathKeyword); set => S.SetFlag(FlagKeys.daveDeathKeyword, value); }
     public static bool albertDeathKeyword { get => S.GetFlag(FlagKeys.albertDeathKeyword); set => S.SetFlag(FlagKeys.albertDeathKeyword, value); }
+    /// <summary>알버트가 죽은 것으로 보는 합집합(PT-3): 치명 키워드 밤 소멸 OR 파티 사망. 에필로그 분기가 읽는다.</summary>
+    public static bool albertDead { get => albertDeathKeyword || S.GetFlag(SCoW.Core.State.PartyKeys.Dead(SCoW.Core.Rules.CompanionDefs.AlbertId)); }
     public static bool swainDeathKeyword { get => S.GetFlag(FlagKeys.swainDeathKeyword); set => S.SetFlag(FlagKeys.swainDeathKeyword, value); }
 
     public static bool albertFirstAfterEvent { get => S.GetFlag(FlagKeys.albertFirstAfterEvent); set => S.SetFlag(FlagKeys.albertFirstAfterEvent, value); }

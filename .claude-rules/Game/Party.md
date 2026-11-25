@@ -362,3 +362,5 @@ namespace SCoW.Core.Rules {
   - **환원**: `Core/State/PartyBattleBridge`. `BuildRoster(state, leader, timeCount)` = `party.order` 순서(최대 3, standby·dead 제외, 복귀 시각 지난 Recovering·Broken 은 되살림: Recovering HP 최소 MaxHp/2, Broken SAN +5). `WriteBack` = Settle 뒤 HP·SAN·상태·`backAt`(Recovering = timeCount+1, Broken = 다음 일차 아침) 기록. 사망 원본은 `PartyMember.Dead`(Died 이벤트는 알림). Broken 은 `Departed` 이벤트, 어느 결과든 파티 이탈. 파비안은 Settle 에서 승리 시 Downed·Stable -> Ready(HP 5 이상), 패배·도주는 그대로.
   - 골든(`PartyBattlePT2.golden.txt`)은 이벤트 형식(판정 단계·r/hp/san 열)과 순서(Hit -> Down, Compact 추가) 변경으로 재생성했다. 규칙·난수 소비 순서는 그대로.
   - **미구현(PT-5/7)**: 던지기·특수(Cover/Warning/Dirty trick/Stiff drink)·재장전·탄약·아이템 구현·턴 칸 매핑 표 제거(View 쪽).
+
+- PT-3 구현 메모: 합류 트리거는 카탈로그의 `Location`(상위 Sewage MA Office, 플래그 intelSewageMaintenanceOffice1) 제시로 `Keyword.json` 의 `Albert Bradley/Location`(time>8)·`Maeve/Location`(time>9) 토픽이 `pre: join:id` 효과를 실행한다. 수락/보류 선택지 UI 와 `Old route` 는 미구현(키워드 제시 = 수락, 임시 가정). 새 대사 CSV: 1st_PoliceOffice·1st_Bar 322~, InSewer 416~425(엔딩 변주 3종). 플레이 모드 검증은 미실시.

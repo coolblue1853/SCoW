@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Globalization;
+using SCoW.Core.Rules;
+using SCoW.Core.State;
 
 namespace SCoW.Core.Story
 {
@@ -71,6 +73,19 @@ namespace SCoW.Core.Story
         }
     }
 
+    /// <summary>동료 합류(join:id). 이미 합류했으면 아무것도 하지 않는다(체력 재충전 방지). 모르는 id 는 무시한다.</summary>
+    public sealed class JoinParty : Effect
+    {
+        public readonly string CompanionId;
+        public JoinParty(string id) { CompanionId = id; }
+        public override void Apply(IStateWriter w, IStateReader r, IStoryHost host)
+        {
+            CompanionDef def = CompanionDefs.Get(CompanionId);
+            if (def == null || r.GetFlag(PartyKeys.Joined(def.Id))) { return; }
+            PartyState.Join(r, w, def);
+        }
+    }
+
     public static class EffectRunner
     {
         public static void ApplyAll(Effect[] effects, IStateWriter w, IStateReader r, IStoryHost host)
@@ -85,7 +100,7 @@ namespace SCoW.Core.Story
 
     /// <summary>
     /// 효과 DSL. ';' 로 여러 개 구분. set:flag, clear:flag, add:counter,정수, setc:counter,정수,
-    /// goto:node, battle:id, check:skill,difficulty,okNode,failNode. 빈 문자열은 효과 없음.
+    /// join:동료id, goto:node, battle:id, check:skill,difficulty,okNode,failNode. 빈 문자열은 효과 없음.
     /// </summary>
     public static class EffectParser
     {
@@ -137,6 +152,10 @@ namespace SCoW.Core.Story
                 case "setc":
                     if (a.Length != 2 || a[0].Length == 0 || !TryInt(a[1], out n)) { return "setc:이름,정수 형식"; }
                     list.Add(new SetCounter(a[0], n));
+                    return null;
+                case "join":
+                    if (a.Length != 1 || CompanionDefs.Get(a[0]) == null) { return "join 인자는 동료 id(albert, maeve)"; }
+                    list.Add(new JoinParty(a[0]));
                     return null;
                 case "goto":
                     if (a.Length != 1 || a[0].Length == 0) { return "goto 인자 1개 필요"; }

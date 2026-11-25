@@ -13,6 +13,7 @@ namespace SCoW.Core.Story
     {
         void SetFlag(string key, bool value);
         void SetCounter(string key, int value);
+        void SetText(string key, string value);
     }
 
     /// <summary>상태 밖 부작용(노드 이동·판정·전투). 엔진(P8)이 구현한다.</summary>
@@ -38,6 +39,7 @@ namespace SCoW.Core.Story
         public string GetText(string key) { return _s.GetText(key); }
         public void SetFlag(string key, bool value) { _s.SetFlag(key, value); }
         public void SetCounter(string key, int value) { _s.SetCounter(key, value); }
+        public void SetText(string key, string value) { _s.SetText(key, value); }
     }
 
     /// <summary>파서 결과. Error 가 null 이 아니면 Value 는 신뢰하지 않는다.</summary>

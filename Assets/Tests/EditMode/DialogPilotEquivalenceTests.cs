@@ -98,6 +98,13 @@ namespace SCoW.Tests
             Assert.AreEqual(npcs.Count, defaults.Count, "기본 토픽(NPC/*) 없는 NPC 가 있다");
         }
 
+        // PT-3 신규 노드: 옛 코드에 없어 골든 행이 없다. PartyStoryTests 가 따로 덮는다.
+        private static readonly HashSet<string> PartyOnlyNodes = new HashSet<string>
+        {
+            "Keyword/albertKeyJoin", "Keyword/maeveKeyJoin",
+            "InSewer/Ending_PartyAlbert", "InSewer/Ending_PartyMaeve", "InSewer/Ending_PartyMaeveDead",
+        };
+
         internal static void CheckGolden(string goldenPath, int minRows)
         {
             string[] rows = File.ReadAllLines(Path.Combine(Path.GetDirectoryName(Application.dataPath), goldenPath));
@@ -145,6 +152,7 @@ namespace SCoW.Tests
             {
                 foreach (string nodeId in kv.Value.Nodes.Keys)
                 {
+                    if (PartyOnlyNodes.Contains(kv.Key + "/" + nodeId)) { continue; }
                     Assert.IsTrue(reached.Contains(kv.Key + "/" + nodeId), "프리셋이 덮지 못한 노드: " + kv.Key + "/" + nodeId);
                 }
             }
