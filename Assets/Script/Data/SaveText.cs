@@ -10,6 +10,9 @@ public static class SaveText
 {
     private static bool? _fontHasHangul;
 
+    /// <summary>true 면 글꼴 검사와 무관하게 영문만 쓴다. 호출 쪽 TMP 글꼴에 한글이 없을 때 잠깐 켠다(UX-10 타이틀 요약).</summary>
+    public static bool ForceEnglish { get; set; }
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetStatics()
     {
@@ -24,6 +27,10 @@ public static class SaveText
     {
         get
         {
+            if (ForceEnglish)
+            {
+                return false;
+            }
             string lang = LocalizationManager.CurrentLanguage;
             return !string.IsNullOrEmpty(lang) && lang.StartsWith("Ko", StringComparison.OrdinalIgnoreCase) && FontHasHangul();
         }

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using SCoW.Core.Save;
+using SCoW.Core.Ui;
 
 public class ManageMain : MonoBehaviour
 {
@@ -19,6 +21,7 @@ public class ManageMain : MonoBehaviour
 
     // P4: 타이틀 "이어하기"(저장 파일이 있을 때만). 씬을 고치지 않고 시작 버튼을 복제해 코드로 만든다.
     private GameObject _continueButton;
+    private const float SummaryGap = 36f; // 슬롯 요약 한 줄이 들어갈 이어하기·옵션 사이 여백
 
     // 키보드·패드 탐색: 시작·(이어하기)·옵션·종료 순. NavUp/Down 으로 고르고 Interact 로 누른다.
     private readonly List<Transform> _navItems = new List<Transform>();
@@ -28,6 +31,83 @@ public class ManageMain : MonoBehaviour
     {
         BuildContinueButton();
         BuildNavItems();
+        BuildVersionLabel();
+        // TODO(I2): 임시 영문 문구. 새 I2 키로 옮긴다.
+        HintBar.Push(this,
+            new Hint(HintAction.Navigate, "Select"),
+            new Hint(HintAction.Confirm, "OK"));
+    }
+
+    private void OnDestroy()
+    {
+        HintBar.Remove(this);
+        FocusScope.Highlight(this, null);
+    }
+
+    // 최근 슬롯 요약(일차·시간·장소·저장 시각)을 이어하기 버튼 아래에 작게 보인다.
+    private void BuildSlotSummary(GameObject button, TMPro.TextMeshProUGUI label)
+    {
+        int slot = SaveFlow.LatestSlot();
+        SaveMeta meta;
+        if (slot < 0 || SaveService.ReadMeta(slot, out meta) != SaveError.None)
+        {
+            return;
+        }
+        GameObject go = new GameObject("SlotSummary", typeof(RectTransform));
+        go.transform.SetParent(button.transform, false);
+        TMPro.TextMeshProUGUI t = go.AddComponent<TMPro.TextMeshProUGUI>();
+        if (label != null)
+        {
+            t.font = label.font;
+            t.fontSharedMaterial = label.fontSharedMaterial;
+        }
+        t.raycastTarget = false;
+        t.fontSize = 13f;
+        t.alignment = TMPro.TextAlignmentOptions.Center;
+        t.color = new Color(0.85f, 0.85f, 0.85f, 0.9f);
+        t.enableWordWrapping = false;
+        t.overflowMode = TMPro.TextOverflowModes.Overflow;
+        // 요약은 영문 포맷. TMP 글꼴에 한글이 없으면 장소·시간 이름도 영문으로 맞춘다.
+        bool prevForce = SaveText.ForceEnglish;
+        SaveText.ForceEnglish = t.font == null || !t.font.HasCharacter('가', true);
+        t.text = SlotSummary.Line(meta.Day, SaveText.TimeOfDay(meta.TimeCount), SaveText.PlaceName(meta.PlaceId), meta.SavedAtUtc.ToLocalTime());
+        SaveText.ForceEnglish = prevForce;
+        RectTransform rt = (RectTransform)go.transform;
+        rt.anchorMin = new Vector2(0.5f, 0.5f);
+        rt.anchorMax = new Vector2(0.5f, 0.5f);
+        rt.pivot = new Vector2(0.5f, 0.5f);
+        rt.anchoredPosition = new Vector2(0f, -16f); // 버튼 자식 단위(버튼 배율이 커서 값이 작다)
+        rt.sizeDelta = new Vector2(600f, 24f);
+    }
+
+    // 화면 우하단 버전 표기(Player Settings 의 Version).
+    private void BuildVersionLabel()
+    {
+        Canvas canvas = select1 != null ? select1.GetComponentInParent<Canvas>() : null;
+        if (canvas == null)
+        {
+            return;
+        }
+        TMPro.TextMeshProUGUI src = select1.transform.parent.GetComponentInChildren<TMPro.TextMeshProUGUI>(true);
+        GameObject go = new GameObject("VersionLabel", typeof(RectTransform));
+        go.transform.SetParent(canvas.transform, false);
+        TMPro.TextMeshProUGUI t = go.AddComponent<TMPro.TextMeshProUGUI>();
+        if (src != null)
+        {
+            t.font = src.font;
+            t.fontSharedMaterial = src.fontSharedMaterial;
+        }
+        t.raycastTarget = false;
+        t.fontSize = 14f;
+        t.alignment = TMPro.TextAlignmentOptions.BottomRight;
+        t.color = new Color(1f, 1f, 1f, 0.7f);
+        t.text = SlotSummary.VersionLabel(Application.version);
+        RectTransform rt = (RectTransform)go.transform;
+        rt.anchorMin = new Vector2(1f, 0f);
+        rt.anchorMax = new Vector2(1f, 0f);
+        rt.pivot = new Vector2(1f, 0f);
+        rt.anchoredPosition = new Vector2(-24f, 72f);
+        rt.sizeDelta = new Vector2(300f, 36f);
     }
 
     private void BuildNavItems()
@@ -42,8 +122,8 @@ public class ManageMain : MonoBehaviour
         {
             _navItems.Add(_continueButton.transform);
         }
-        _navItems.Add(select2.transform.parent);
         _navItems.Add(select3.transform.parent);
+        _navItems.Add(select2.transform.parent);
     }
 
     private void MoveNav(int dir)
@@ -55,6 +135,7 @@ public class ManageMain : MonoBehaviour
         SetNavHighlight(_navIndex, false);
         _navIndex = _navIndex < 0 ? (dir > 0 ? 0 : _navItems.Count - 1) : (_navIndex + dir + _navItems.Count) % _navItems.Count;
         SetNavHighlight(_navIndex, true);
+        FocusScope.Highlight(this, _navItems[_navIndex] as RectTransform);
     }
 
     private void SetNavHighlight(int index, bool on)
@@ -77,8 +158,8 @@ public class ManageMain : MonoBehaviour
             return;
         }
         Transform start = select1.transform.parent;
-        Transform option = select2.transform.parent;
-        Transform quit = select3.transform.parent;
+        Transform option = select3.transform.parent; // select3 = OptionButton, select2 = QuitButton
+        Transform quit = select2.transform.parent;
         GameObject go = Instantiate(start.gameObject, start.parent);
         go.name = "ContinueButton";
         Button oldButton = go.GetComponent<Button>();
@@ -110,9 +191,10 @@ public class ManageMain : MonoBehaviour
         float step = 84f;
         ((RectTransform)start).anchoredPosition = new Vector2(x, top);
         ((RectTransform)go.transform).anchoredPosition = new Vector2(x, top - step);
-        ((RectTransform)option).anchoredPosition = new Vector2(x, top - step * 2f);
-        ((RectTransform)quit).anchoredPosition = new Vector2(x, top - step * 3f);
+        ((RectTransform)option).anchoredPosition = new Vector2(x, top - step * 2f - SummaryGap);
+        ((RectTransform)quit).anchoredPosition = new Vector2(x, top - step * 3f - SummaryGap);
         _continueButton = go;
+        BuildSlotSummary(go, label);
     }
 
     private static void AddHover(UnityEngine.EventSystems.EventTrigger trig, UnityEngine.EventSystems.EventTriggerType type, Transform target, bool on)
