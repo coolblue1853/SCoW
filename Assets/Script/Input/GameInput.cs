@@ -17,7 +17,7 @@ public static class GameInput
     private static InputActionAsset _asset;
     private static InputAction _move, _interact, _present, _advance, _portal, _pointerPrimary;
     private static InputAction _cancel, _menu, _openIntel, _openMap, _openSIS;
-    private static InputAction _navUp, _navDown, _pageNext, _pagePrev, _todoTab;
+    private static InputAction _navUp, _navDown, _pageNext, _pagePrev, _todoTab, _quickSave, _quickLoad;
     private static InputAction _dlgBacklog, _dlgSkipHold, _dlgSkipToggle, _dlgAutoToggle;
     private static Vector2 _lastPointer;
     private static IDisposable _anyPress;
@@ -124,6 +124,8 @@ public static class GameInput
         _pageNext = Find(ui, "PageNext");
         _pagePrev = Find(ui, "PagePrev");
         _todoTab = Find(ui, "TodoTab");
+        _quickSave = Find(ui, "QuickSave");
+        _quickLoad = Find(ui, "QuickLoad");
         _asset.Enable();
         if (_anyPress == null)
         {
@@ -156,6 +158,10 @@ public static class GameInput
     public static bool NavDownDown { get { return Down(_navDown); } }
     public static bool PageNextDown { get { return Down(_pageNext); } }
     public static bool PagePrevDown { get { return Down(_pagePrev); } }
+    /// <summary>빠른 저장(F5 / 패드 L1+십자 아래). 입력 에셋에 없으면 항상 false.</summary>
+    public static bool QuickSaveDown { get { return Down(_quickSave); } }
+    /// <summary>빠른 불러오기(F9 / 패드 L1+십자 위).</summary>
+    public static bool QuickLoadDown { get { return Down(_quickLoad); } }
     /// <summary>수첩 "할 일" 탭 열기·닫기(Q / 패드 오른쪽 스틱 누름, UX-3). 입력 에셋에 없으면 항상 false.</summary>
     // 패드 오른쪽 스틱 누름은 DialogSkipToggle(Play 맵)과 같은 버튼이다. 겹침 방지: 수첩이 열리면(UiStack) DialogManager 는
     // blocked(UiGate.AnyOpen)로 HandleControls 를 건너뛰고, TodoTab 은 수첩이 맨 위(IsTop(Intel))일 때만 읽는다. 둘은 동시에 반응하지 않는다.

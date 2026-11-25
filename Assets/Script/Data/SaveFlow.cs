@@ -111,12 +111,51 @@ public static class SaveFlow
                 if (e != SaveError.None)
                 {
                     Debug.LogWarning("자동 저장 실패: " + e);
+                    SaveToast.Show(SaveText.Pick("자동 저장 실패: ", "Auto-save failed: ") + SaveText.ErrorMessage(e), true);
+                }
+                else
+                {
+                    SaveToast.Show(SaveText.Pick("자동 저장됨", "Auto-saved"), false);
                 }
                 yield break;
             }
             waited += 0.5f;
             yield return AutoSaveWait;
         }
+    }
+
+    /// <summary>빠른 저장(F5). 저장 불가 사유·성공·실패를 토스트로 알린다. 빠른 슬롯 전용 파일을 쓴다.</summary>
+    public static SaveError QuickSave()
+    {
+        string ko;
+        string en;
+        if (!CanSave(out ko, out en))
+        {
+            SaveToast.Show(SaveText.Pick(ko, en), true);
+            return SaveError.NotAllowed;
+        }
+        SaveError e = Save(SaveService.QuickSlot);
+        if (e == SaveError.None)
+        {
+            SaveToast.Show(SaveText.Pick("빠른 저장됨", "Quick saved"), false);
+        }
+        else
+        {
+            SaveToast.Show(SaveText.Pick("빠른 저장 실패: ", "Quick save failed: ") + SaveText.ErrorMessage(e), true);
+        }
+        return e;
+    }
+
+    /// <summary>사망 후 재개용 "마지막 저장": 자동·수동·빠른 슬롯 중 읽히는 가장 최근 것. 없으면 -1.</summary>
+    public static int LatestResumeSlot()
+    {
+        long[] ticks = new long[SaveService.QuickSlot + 1];
+        for (int s = 0; s < ticks.Length; s++)
+        {
+            SaveMeta m;
+            ticks[s] = SaveService.ReadMeta(s, out m) == SaveError.None ? m.SavedAtUtcTicks : 0L;
+        }
+        return ResumeRules.LatestIndex(ticks);
     }
 
     /// <summary>슬롯을 읽어 GameState 를 주입하고 Main 씬을 연다. 실패하면 오류만 돌려주고 아무것도 바꾸지 않는다.</summary>

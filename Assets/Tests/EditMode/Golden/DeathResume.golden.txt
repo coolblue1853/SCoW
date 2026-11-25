@@ -1,0 +1,23 @@
+SCOW-STATE 1
+F	bgmChangeChecker
+F	endingDoorCheck
+C	analysisPoint	30
+C	deftnessPoint	20
+C	disguisePoint	10
+C	evasionPoint	30
+C	gunShotPoint	15
+C	listeningPoint	30
+C	martialArtsPoint	25
+C	medicinePoint	10
+C	nowHP	9
+C	nowSan	40
+C	observationPoint	20
+C	occultPoint	5
+C	psychotherapyPoint	5
+C	rhetoricPoint	20
+C	stealthPoint	15
+C	swimingPoint	10
+C	swordPoint	20
+C	timeCount	6
+T	nowPlace	Policeoffice
+END 21

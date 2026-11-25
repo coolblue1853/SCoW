@@ -166,10 +166,12 @@ public class DirectingManager : MonoBehaviour
         if (DataBaseManager.nowHP <= 0 || DataBaseManager.nowSan <= 0)
         {
             endGame.SetActive(true);
+            DeathMenuView.Show(); // UX-5: 마지막 저장 재개 / 타이틀 / 종료 3지선다(옛 endGame 버튼 위를 덮는다)
         }
         else
         {
             endGame.SetActive(false);
+            DeathMenuView.Hide();
         }
         if (DataBaseManager.fstDetectivTimeOn >= 2)
         {

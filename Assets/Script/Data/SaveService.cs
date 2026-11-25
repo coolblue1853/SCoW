@@ -20,6 +20,8 @@ public static class SaveService
     public const int AutoSlot = 0;
     public const int ManualSlotCount = 3;
     public const int SlotCount = ManualSlotCount + 1;
+    /// <summary>빠른 저장 전용 슬롯(UX-5). 슬롯 목록(SlotCount)에는 넣지 않고 새 파일(slot_quick.es3)을 쓴다.</summary>
+    public const int QuickSlot = SlotCount;
 
     private const string SlotKey = "slot";
     private const string TempSuffix = ".new";
@@ -29,12 +31,16 @@ public static class SaveService
 
     public static string FileName(int slot)
     {
+        if (slot == QuickSlot)
+        {
+            return FilePrefix + "slot_quick.es3";
+        }
         return FilePrefix + (slot == AutoSlot ? "slot_auto.es3" : "slot_" + slot + ".es3");
     }
 
     public static bool IsValidSlot(int slot)
     {
-        return slot >= AutoSlot && slot < SlotCount;
+        return slot >= AutoSlot && slot <= QuickSlot;
     }
 
     public static bool Exists(int slot)

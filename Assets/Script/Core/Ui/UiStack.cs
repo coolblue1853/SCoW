@@ -15,6 +15,7 @@ namespace SCoW.Core.Ui
         SlotMenu,
         Backlog,
         Keyword,
+        Death,
     }
 
     /// <summary>
