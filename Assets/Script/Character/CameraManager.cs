@@ -51,7 +51,7 @@ public class CameraManager : MonoBehaviour
     }
     public void ShakeCam()
     {
-        this.transform.DOShakePosition(1, 2, 90);
+        ShakeFx.Position(this.transform, 1, 2, 90);
     }
     // Update is called once per frame
     void Update()

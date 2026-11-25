@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DamageNumbersPro;
+using SCoW.Core.State;
+using SCoW.Core.Ui;
 
 using UnityEngine.Serialization;
 public class BillowUIManager : MonoBehaviour
@@ -67,15 +69,73 @@ public class BillowUIManager : MonoBehaviour
         nomalizedSan = 1 / fullSan;
     }
 
-    // Update is called once per frame
+    // UX-7: HP·SAN 문자열은 값이 바뀔 때(GameRoot.StateChanged)만 다시 만든다. Update 는 변화량 만료만 본다.
+    private readonly VitalsTracker _vitals = new VitalsTracker();
+
+    /// <summary>HUD 값 추적(검증용 ChangeCount·변화량).</summary>
+    public VitalsTracker Vitals
+    {
+        get { return _vitals; }
+    }
+
+    /// <summary>HP·SAN 이 바뀌어 표시가 갱신될 때(HP 변화량, SAN 변화량). 비네트 연출이 구독한다.</summary>
+    public static event System.Action<int, int> VitalsChanged;
+
+    void OnEnable()
+    {
+        GameRoot.StateChanged += OnStateChanged;
+        RefreshVitals(true);
+    }
+
+    void OnDisable()
+    {
+        GameRoot.StateChanged -= OnStateChanged;
+    }
+
+    void OnStateChanged(string key)
+    {
+        if (key == null)
+        {
+            RefreshVitals(true);
+        }
+        else if (key == CounterKeys.nowHP || key == CounterKeys.nowSan || key == CounterKeys.hp || key == CounterKeys.san)
+        {
+            RefreshVitals(false);
+        }
+    }
+
     void Update()
     {
-        HpIntMagaer();
+        if (_vitals.HasDelta && _vitals.Tick(Time.unscaledDeltaTime))
+        {
+            ApplyVitalsText();
+        }
     }
-    void HpIntMagaer()
+
+    void RefreshVitals(bool silent)
     {
-        hpText.text = "HP : " + DataBaseManager.nowHP;
-        sanText.text = "SAN : " + DataBaseManager.nowSan;
+        if (!_vitals.Observe(DataBaseManager.nowHP, DataBaseManager.nowSan, DataBaseManager.hp, DataBaseManager.san, silent))
+        {
+            return;
+        }
+        ApplyVitalsText();
+        System.Action<int, int> handler = VitalsChanged;
+        if (handler != null)
+        {
+            handler(_vitals.HpDelta, _vitals.SanDelta);
+        }
+    }
+
+    void ApplyVitalsText()
+    {
+        if (hpText != null)
+        {
+            hpText.text = _vitals.HpText;
+        }
+        if (sanText != null)
+        {
+            sanText.text = _vitals.SanText;
+        }
     }
     private static BillowUIManager instance = null;
 

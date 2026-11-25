@@ -622,7 +622,7 @@ public class BattleManager : MonoBehaviour
         .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
         .AppendCallback(() => battlePlayer.PlayerHittedSanAttack())
         .AppendCallback(() => SoundManager.Instance.BattleSound("San_Attack"))
-        .Join(cam.transform.DOShakePosition(1, 2, 90))
+        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
         .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
         .AppendInterval(0.5f) // 2초 대기
         .AppendCallback(() => Rollet.Instance.SetRollet("SAN : Check", "Sanity", DataBaseManager.nowSan, "BattleSan_DeepOne1"));
@@ -720,8 +720,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
                     .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid1].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(player.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(player.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -769,8 +769,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid2].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(player.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(player.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -819,8 +819,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
                     .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid3].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(player.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(player.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -867,8 +867,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
                     .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid4].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(player.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(player.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -916,8 +916,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnDamageObject("player", _enemies[SlotDeepOne1].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(player.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(player.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -954,8 +954,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => CamRotate(+5))
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(deepOneHybrid1Ob.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(deepOneHybrid1Ob.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 8f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x + 2, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -976,8 +976,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
                     .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid1].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(player.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(player.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1010,8 +1010,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => CamRotate(+5))
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(deepOneHybrid2Ob.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(deepOneHybrid2Ob.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 8f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x + 2, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1033,8 +1033,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid2].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(player.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(player.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1068,8 +1068,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => CamRotate(+5))
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(deepOneHybrid3Ob.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(deepOneHybrid3Ob.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 8f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x + 2, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1090,8 +1090,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnSpriteChangeComplete(playerRender, hitted))
                     .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid3].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(player.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(player.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1124,8 +1124,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => CamRotate(+1))
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(deepOneHybrid4Ob.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(deepOneHybrid4Ob.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 8f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x + 2, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1146,8 +1146,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
                     .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid4].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(player.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(player.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1180,8 +1180,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => CamRotate(+1))
                     .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(deepOne1Ob.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(deepOne1Ob.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 8f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x + 2, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1203,8 +1203,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnDamageObject("player", _enemies[SlotDeepOne1].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => battlePlayer.PlayerHittedDagger())
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(player.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(player.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(player.transform.position.x + 1f, player.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1235,8 +1235,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => deepOneHybrid1SC.HittedByPunchChange())
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(obj.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1261,8 +1261,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid1].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .AppendCallback(() => CamRotate(-5))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(deepOneHybrid1Ob.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(deepOneHybrid1Ob.transform, 1, 2, 90))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1289,8 +1289,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => deepOneHybrid2SC.HittedByPunchChange())
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(obj.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1315,8 +1315,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid2].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .AppendCallback(() => CamRotate(-5))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(deepOneHybrid2Ob.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(deepOneHybrid2Ob.transform, 1, 2, 90))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1343,8 +1343,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => deepOneHybrid3SC.HittedByPunchChange())
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(obj.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1369,8 +1369,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid3].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                     .AppendCallback(() => CamRotate(-5))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(deepOneHybrid3Ob.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(deepOneHybrid3Ob.transform, 1, 2, 90))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1396,8 +1396,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => deepOneHybrid4SC.HittedByPunchChange())
                     .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(obj.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1423,8 +1423,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid4].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .AppendCallback(() => CamRotate(-1))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(deepOneHybrid4Ob.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(deepOneHybrid4Ob.transform, 1, 2, 90))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1451,8 +1451,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => deepOne1SC.HittedByPunchChange())
                     .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Hit1D3.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(obj.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1478,8 +1478,8 @@ public class BattleManager : MonoBehaviour
                     .AppendCallback(() => OnDamageObject("player", _enemies[SlotDeepOne1].Def.AttackDamage.Roll(UnityRng.Instance)))
                     .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                     .AppendCallback(() => CamRotate(-1))
-                    .Join(cam.transform.DOShakePosition(1, 2, 90))
-                    .Join(deepOne1Ob.transform.DOShakePosition(1, 2, 90))
+                    .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                    .Join(ShakeFx.Position(deepOne1Ob.transform, 1, 2, 90))
                     .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                     .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                     .AppendInterval(0.5f) // 2초 대기
@@ -1523,8 +1523,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, daggerAttack))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Dagger.Roll(UnityRng.Instance)))//1D4 + 2
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -1542,8 +1542,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, batAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Bat.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Bat_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -1561,8 +1561,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, axeAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Axe.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Axe_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -1600,8 +1600,8 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid1].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
-                   .Join(cam.transform.DOShakePosition(1, 2, 90))
-                   .Join(deepOneHybrid1Ob.transform.DOShakePosition(1, 2, 90))
+                   .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                   .Join(ShakeFx.Position(deepOneHybrid1Ob.transform, 1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                    .AppendInterval(0.5f) // 2초 대기
@@ -1623,8 +1623,8 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid1].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
-                   .Join(cam.transform.DOShakePosition(1, 2, 90))
-                   .Join(deepOneHybrid1Ob.transform.DOShakePosition(1, 2, 90))
+                   .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                   .Join(ShakeFx.Position(deepOneHybrid1Ob.transform, 1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                    .AppendInterval(0.5f) // 2초 대기
@@ -1646,8 +1646,8 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid1].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
-                   .Join(cam.transform.DOShakePosition(1, 2, 90))
-                   .Join(deepOneHybrid1Ob.transform.DOShakePosition(1, 2, 90))
+                   .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                   .Join(ShakeFx.Position(deepOneHybrid1Ob.transform, 1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                    .AppendInterval(0.5f) // 2초 대기
@@ -1687,8 +1687,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, daggerAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Dagger.Roll(UnityRng.Instance)))//1D4 + 2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -1706,8 +1706,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, batAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Bat.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Bat_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -1725,8 +1725,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, axeAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Axe.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Axe_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -1764,8 +1764,8 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid2].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
-                   .Join(cam.transform.DOShakePosition(1, 2, 90))
-                   .Join(deepOneHybrid2Ob.transform.DOShakePosition(1, 2, 90))
+                   .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                   .Join(ShakeFx.Position(deepOneHybrid2Ob.transform, 1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                    .AppendInterval(0.5f) // 2초 대기
@@ -1788,8 +1788,8 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid2].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
-                   .Join(cam.transform.DOShakePosition(1, 2, 90))
-                   .Join(deepOneHybrid2Ob.transform.DOShakePosition(1, 2, 90))
+                   .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                   .Join(ShakeFx.Position(deepOneHybrid2Ob.transform, 1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                    .AppendInterval(0.5f) // 2초 대기
@@ -1812,8 +1812,8 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid2].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
-                   .Join(cam.transform.DOShakePosition(1, 2, 90))
-                   .Join(deepOneHybrid2Ob.transform.DOShakePosition(1, 2, 90))
+                   .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                   .Join(ShakeFx.Position(deepOneHybrid2Ob.transform, 1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                    .AppendInterval(0.5f) // 2초 대기
@@ -1854,8 +1854,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, daggerAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Dagger.Roll(UnityRng.Instance)))//1D4 + 2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -1873,8 +1873,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, batAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Bat.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Bat_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -1892,8 +1892,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, axeAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Axe.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Axe_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -1931,8 +1931,8 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid3].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
-                   .Join(cam.transform.DOShakePosition(1, 2, 90))
-                   .Join(deepOneHybrid3Ob.transform.DOShakePosition(1, 2, 90))
+                   .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                   .Join(ShakeFx.Position(deepOneHybrid3Ob.transform, 1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                    .AppendInterval(0.5f) // 2초 대기
@@ -1954,8 +1954,8 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid3].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
-                   .Join(cam.transform.DOShakePosition(1, 2, 90))
-                   .Join(deepOneHybrid3Ob.transform.DOShakePosition(1, 2, 90))
+                   .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                   .Join(ShakeFx.Position(deepOneHybrid3Ob.transform, 1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                    .AppendInterval(0.5f) // 2초 대기
@@ -1977,8 +1977,8 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid3].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
                    .AppendCallback(() => CamRotate(-5))
-                   .Join(cam.transform.DOShakePosition(1, 2, 90))
-                   .Join(deepOneHybrid3Ob.transform.DOShakePosition(1, 2, 90))
+                   .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                   .Join(ShakeFx.Position(deepOneHybrid3Ob.transform, 1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                    .AppendInterval(0.5f) // 2초 대기
@@ -2019,8 +2019,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, daggerAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Dagger.Roll(UnityRng.Instance)))//1D4 + 2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2039,8 +2039,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, batAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Bat.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Bat_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2059,8 +2059,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, axeAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Axe.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Axe_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2099,8 +2099,8 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid4].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
-                   .Join(cam.transform.DOShakePosition(1, 2, 90))
-                   .Join(deepOneHybrid4Ob.transform.DOShakePosition(1, 2, 90))
+                   .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                   .Join(ShakeFx.Position(deepOneHybrid4Ob.transform, 1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                    .AppendInterval(0.5f) // 2초 대기
@@ -2124,8 +2124,8 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid4].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
-                   .Join(cam.transform.DOShakePosition(1, 2, 90))
-                   .Join(deepOneHybrid4Ob.transform.DOShakePosition(1, 2, 90))
+                   .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                   .Join(ShakeFx.Position(deepOneHybrid4Ob.transform, 1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                    .AppendInterval(0.5f) // 2초 대기
@@ -2149,8 +2149,8 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid4].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
-                   .Join(cam.transform.DOShakePosition(1, 2, 90))
-                   .Join(deepOneHybrid4Ob.transform.DOShakePosition(1, 2, 90))
+                   .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                   .Join(ShakeFx.Position(deepOneHybrid4Ob.transform, 1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                    .AppendInterval(0.5f) // 2초 대기
@@ -2191,8 +2191,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, daggerAttack))
                         .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Dagger.Roll(UnityRng.Instance)))//1D4 + 2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2211,8 +2211,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, batAttack))
                         .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Bat.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Bat_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2231,8 +2231,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, axeAttack))
                         .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Axe.Roll(UnityRng.Instance)))//1D8
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Axe_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2271,8 +2271,8 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotDeepOne1].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
-                   .Join(cam.transform.DOShakePosition(1, 2, 90))
-                   .Join(deepOne1Ob.transform.DOShakePosition(1, 2, 90))
+                   .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                   .Join(ShakeFx.Position(deepOne1Ob.transform, 1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                    .AppendInterval(0.5f) // 2초 대기
@@ -2296,8 +2296,8 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotDeepOne1].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
-                   .Join(cam.transform.DOShakePosition(1, 2, 90))
-                   .Join(deepOne1Ob.transform.DOShakePosition(1, 2, 90))
+                   .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                   .Join(ShakeFx.Position(deepOne1Ob.transform, 1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                    .AppendInterval(0.5f) // 2초 대기
@@ -2321,8 +2321,8 @@ public class BattleManager : MonoBehaviour
                    .AppendCallback(() => OnDamageObject("player", _enemies[SlotDeepOne1].Def.AttackDamage.Roll(UnityRng.Instance)))
                    .AppendCallback(() => SoundManager.Instance.BattleSound("Dagger_Attack"))
                    .AppendCallback(() => CamRotate(-1))
-                   .Join(cam.transform.DOShakePosition(1, 2, 90))
-                   .Join(deepOne1Ob.transform.DOShakePosition(1, 2, 90))
+                   .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                   .Join(ShakeFx.Position(deepOne1Ob.transform, 1, 2, 90))
                    .Join(player.transform.DOMove(new Vector3(obj.transform.position.x - 7f, obj.transform.position.y, -1), 1f))
                    .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x - 3f, obj.transform.position.y), 1.5f))
                    .AppendInterval(0.5f) // 2초 대기
@@ -2372,8 +2372,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.SmallPistol.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2391,8 +2391,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Revolver.Roll(UnityRng.Instance)))//1d10+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2410,8 +2410,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Rifle.Roll(UnityRng.Instance)))//2D6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2429,8 +2429,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Shotgun.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2547,8 +2547,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.SmallPistol.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Attack"))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2566,8 +2566,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Revolver.Roll(UnityRng.Instance)))//1d10+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2585,8 +2585,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Rifle.Roll(UnityRng.Instance)))//2D6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2604,8 +2604,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Shotgun.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2721,8 +2721,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.SmallPistol.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Attack"))//1D6
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2740,8 +2740,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Revolver.Roll(UnityRng.Instance)))//1d10+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2759,8 +2759,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Rifle.Roll(UnityRng.Instance)))//2D6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2778,8 +2778,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Shotgun.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2895,8 +2895,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, smallPistolAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.SmallPistol.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Attack"))//1D6
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2915,8 +2915,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Revolver.Roll(UnityRng.Instance)))//1d10+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2935,8 +2935,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Rifle.Roll(UnityRng.Instance)))//2D6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -2955,8 +2955,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Shotgun.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -3078,8 +3078,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.SmallPistol.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Attack"))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("SmallPisol_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 1f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -3098,8 +3098,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Revolver.Roll(UnityRng.Instance)))//1d10+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Revolver_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -3118,8 +3118,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Rifle.Roll(UnityRng.Instance)))//2D6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rifle_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 3f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -3138,8 +3138,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Shotgun.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Attack"))
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Shotgun_Hit"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x - 4f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -3255,8 +3255,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Rock.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rock_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -3273,8 +3273,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid1", BattleDamage.Molotov.Roll(UnityRng.Instance)))//2d6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Molotov_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -3349,8 +3349,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Rock.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rock_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -3367,8 +3367,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid2", BattleDamage.Molotov.Roll(UnityRng.Instance)))//2d6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Molotov_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -3442,8 +3442,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Rock.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rock_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -3460,8 +3460,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid3", BattleDamage.Molotov.Roll(UnityRng.Instance)))//2d6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Molotov_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -3535,8 +3535,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Rock.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rock_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -3554,8 +3554,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => OnDamageObject("DeepOneHybrid4", BattleDamage.Molotov.Roll(UnityRng.Instance)))//2d6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Molotov_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -3631,8 +3631,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Rock.Roll(UnityRng.Instance)))//1D6
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Rock_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -3650,8 +3650,8 @@ public class BattleManager : MonoBehaviour
                         .AppendCallback(() => OnSpriteChangeComplete(playerRender, deftnessAttack))
                         .AppendCallback(() => OnDamageObject("DeepOne1", BattleDamage.Molotov.Roll(UnityRng.Instance)))//2d6+2
                         .AppendCallback(() => SoundManager.Instance.BattleSound("Molotov_Attack"))
-                        .Join(cam.transform.DOShakePosition(1, 2, 90))
-                        .Join(obj.transform.DOShakePosition(1, 2, 90))
+                        .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                        .Join(ShakeFx.Position(obj.transform, 1, 2, 90))
                         .Join(obj.transform.DOMove(new Vector3(obj.transform.position.x + 3f, obj.transform.position.y), 1.5f))
                         .Join(player.transform.DOMove(new Vector3(playerOrigin.x + 2f, playerOrigin.y, -1), 1f))
                         .AppendInterval(0.5f) // 2초 대기
@@ -3723,8 +3723,8 @@ public class BattleManager : MonoBehaviour
                 .AppendCallback(() => OnDamageObject("player", _enemies[SlotHybrid3].Def.AttackDamage.Roll(UnityRng.Instance)))
                 .AppendCallback(() => battlePlayer.PlayerHittedRock())
                 .AppendCallback(() => SoundManager.Instance.BattleSound("MartialArts"))
-                .Join(cam.transform.DOShakePosition(1, 2, 90))
-                .Join(player.transform.DOShakePosition(1, 2, 90))
+                .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                .Join(ShakeFx.Position(player.transform, 1, 2, 90))
                 .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                 .AppendInterval(0.5f) // 2초 대기
                 .AppendCallback(() => deepOneHybrid3SC.StandChange())
@@ -3767,8 +3767,8 @@ public class BattleManager : MonoBehaviour
                 .AppendCallback(() => DataBaseManager.posionDebuff = 3)
                 .AppendCallback(() => battlePlayer.PlayerHittedPosion())
                 .AppendCallback(() => SoundManager.Instance.BattleSound("Posion_Attack"))
-                .Join(cam.transform.DOShakePosition(1, 2, 90))
-                .Join(player.transform.DOShakePosition(1, 2, 90))
+                .Join(ShakeFx.Position(cam.transform, 1, 2, 90))
+                .Join(ShakeFx.Position(player.transform, 1, 2, 90))
                 .Join(player.transform.DOMove(new Vector3(player.transform.position.x - 3f, player.transform.position.y, -1), 1f))
                 .AppendInterval(0.5f) // 2초 대기
                 .AppendCallback(() => deepOne1SC.StandChange())
