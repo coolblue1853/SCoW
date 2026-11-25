@@ -673,25 +673,25 @@ Keyword|Berkeley Swain/Way to Escape|kw2_t1_c0_1111|n=9|first=1st_DailyNews:216|
 Keyword|Berkeley Swain/*|kw2_t1_c0_1111|n=1|first=1st_DailyNews:69|last=1st_DailyNews:69|ids=69|post=-
 Keyword|University student/Contents of a Newspaper|kw3_t1_c0_|n=8|first=1st_University:12|last=1st_University:19|ids=12-19|post=-
 Keyword|University student/Newspaper Article|kw3_t1_c0_|n=2|first=1st_University:20|last=1st_University:21|ids=20-21|post=-
-Keyword|University student/Content of a Nightmare|kw3_t1_c0_|n=5|first=1st_University:43|last=1st_University:47|ids=43-47|post=-
-Keyword|University student/Water and Nightmare|kw3_t1_c0_|n=3|first=1st_University:48|last=1st_University:50|ids=48-50|post=-
-Keyword|University student/Rumor|kw3_t1_c0_|n=1|first=1st_University:51|last=1st_University:51|ids=51|post=-
-Keyword|University student/Source speculation|kw3_t1_c0_|n=1|first=1st_University:52|last=1st_University:52|ids=52|post=-
-Keyword|University student/Sewer & FishySmell|kw3_t1_c0_|n=1|first=1st_University:52|last=1st_University:52|ids=52|post=-
-Keyword|University student/Cause of Fishy smell|kw3_t1_c0_|n=1|first=1st_University:52|last=1st_University:52|ids=52|post=-
-Keyword|University student/Details|kw3_t1_c0_|n=11|first=1st_University:53|last=1st_University:63|ids=53-63|post=-
+Keyword|University student/Content of a Nightmare|kw3_t1_c0_|n=4|first=1st_University:24|last=1st_University:27|ids=24-27|post=-
+Keyword|University student/Water and Nightmare|kw3_t1_c0_|n=4|first=1st_University:28|last=1st_University:31|ids=28-31|post=-
+Keyword|University student/Rumor|kw3_t1_c0_|n=3|first=1st_University:32|last=1st_University:34|ids=32-34|post=-
+Keyword|University student/Source speculation|kw3_t1_c0_|n=4|first=1st_University:35|last=1st_University:38|ids=35-38|post=-
+Keyword|University student/Sewer & FishySmell|kw3_t1_c0_|n=4|first=1st_University:35|last=1st_University:38|ids=35-38|post=-
+Keyword|University student/Cause of Fishy smell|kw3_t1_c0_|n=4|first=1st_University:35|last=1st_University:38|ids=35-38|post=-
+Keyword|University student/Details|kw3_t1_c0_|n=4|first=1st_University:39|last=1st_University:42|ids=39-42|post=-
 Keyword|University student/*|kw3_t1_c0_|n=1|first=1st_University:22|last=1st_University:22|ids=22|post=-
 Keyword|Kane/Strange Point|kw4_t1_c0_00|n=20|first=1st_Riverside:29|last=1st_Riverside:48|ids=29-48|post=-
-Keyword|Kane/Fishy Slime|kw4_t1_c0_00|n=9|first=1st_Riverside:66|last=1st_Riverside:74|ids=66-74|post=-
+Keyword|Kane/Fishy Slime|kw4_t1_c0_00|n=9|first=1st_University:66|last=1st_University:74|ids=66-74|post=-
 Keyword|Kane/*|kw4_t1_c0_00|n=1|first=1st_Riverside:11|last=1st_Riverside:11|ids=11|post=-
 Keyword|Kane/Strange Point|kw4_t1_c0_10|n=20|first=1st_Riverside:29|last=1st_Riverside:48|ids=29-48|post=-
-Keyword|Kane/Fishy Slime|kw4_t1_c0_10|n=11|first=1st_Riverside:53|last=1st_Riverside:63|ids=53-63|post=-
+Keyword|Kane/Fishy Slime|kw4_t1_c0_10|n=13|first=1st_University:53|last=1st_University:65|ids=53-65|post=-
 Keyword|Kane/*|kw4_t1_c0_10|n=1|first=1st_Riverside:11|last=1st_Riverside:11|ids=11|post=-
 Keyword|Kane/Strange Point|kw4_t1_c0_01|n=21|first=1st_Riverside:49|last=1st_Riverside:69|ids=49-69|post=-
-Keyword|Kane/Fishy Slime|kw4_t1_c0_01|n=9|first=1st_Riverside:66|last=1st_Riverside:74|ids=66-74|post=-
+Keyword|Kane/Fishy Slime|kw4_t1_c0_01|n=9|first=1st_University:66|last=1st_University:74|ids=66-74|post=-
 Keyword|Kane/*|kw4_t1_c0_01|n=1|first=1st_Riverside:11|last=1st_Riverside:11|ids=11|post=-
 Keyword|Kane/Strange Point|kw4_t1_c0_11|n=21|first=1st_Riverside:49|last=1st_Riverside:69|ids=49-69|post=-
-Keyword|Kane/Fishy Slime|kw4_t1_c0_11|n=11|first=1st_Riverside:53|last=1st_Riverside:63|ids=53-63|post=-
+Keyword|Kane/Fishy Slime|kw4_t1_c0_11|n=13|first=1st_University:53|last=1st_University:65|ids=53-65|post=-
 Keyword|Kane/*|kw4_t1_c0_11|n=1|first=1st_Riverside:11|last=1st_Riverside:11|ids=11|post=-
 Keyword|Albert Bradley/Contents of a Newspaper|kw5_t1_c0_0000|n=2|first=1st_PoliceOffice:39|last=1st_PoliceOffice:40|ids=39-40|post=-
 Keyword|Albert Bradley/Newspaper Article|kw5_t1_c0_0000|n=3|first=1st_PoliceOffice:41|last=1st_PoliceOffice:43|ids=41-43|post=-

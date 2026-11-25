@@ -38,3 +38,7 @@
 - Q-UX5 (UX) 한글 글꼴 도입(영문 도트 폰트 유지 + 한글 Fallback 도트 폰트) 방향 — 임시 가정: 위와 같음, 사용자 검토 후 적용(ART-2 와 조율) — 대기. 11-25 후보 Galmuri11 준비(미적용, `Assets/Font/Candidates/Galmuri/`), 미리보기 `Docs/Review/UX10_font_preview.png`, FaceDilate 0.25 임시
 - Q-PT3 (PARTY) 합류 트리거·대사 — 임시 가정: Albert(time>8)·Maeve(time>9) 에게 키워드 `Location` 제시 = 수락(보류 선택지 없음). 합류 대사·`Ending_PartyAlbert/Maeve/MaeveDead` 는 영문 초안(1st_PoliceOffice·1st_Bar 322~, InSewer 416~425) — 사용자 검토 대기
 - Q-PT4 (PARTY) 탐색 보조 규칙 — 임시 가정: 칩은 dialog 판정의 Rhetoric·Swin·Observation·Occult·Analysis·Medicine·Deftness·Str 에만(Stealth·Luck·Health·Sanity 제외), Ready 동료만. 대신 판정은 Nomal 컨디션, 실패 시 동료 HP -1(대실패 -3, 최소 1). 동료 SAN 자동 판정은 Sewer_FirstInSan·DeepOneFirstSan·BattleSan_* 3곳, Standby 만 제외. 도움 비용(Q16) 미적용 — 대기
+- Q-P0-1 (스토리 P0, 임시안 적용) A-5: `Aiden_Judge_psychotherapy_Sucsses` 는 getSafe 에 따라 149-169/170-190 으로 직결, `OldMap_Look` 은 토픽 삭제로 숨김. `_Sucsses_End`(115-123) 는 실제 판정 경로(Judge.json `Aiden : Calming down`)가 쓰지 않아 그대로 둠. 새 대사(에이든 힌트 6~8줄, 지도 설명)는 사용자 승인 대기.
+- Q-P0-2 (스토리 P0) B-2: 사물함 관찰만 다음 칸 재시도로 풀었음(열쇠 없을 때). 창문(`tryBrokenWindow`)은 성공·실패 모두 진입되므로(실패는 체력만 감소) 그대로 둠. 구제 우편(`Fab_MorningMail`)은 익명 봉투+열쇠(⊙②)로 지급, 발신자(알버트/케이트) 분기는 안 함 — 발신자 지정은 기획 확인 대기.
+- Q-P0-3 (스토리 P0) B-3: 날짜는 1일차=7/11~4일차=7/14, D-day 15일 밤으로 가정(StoryImprove A-8 의 15일 통일 전제). 4일차 밤(마지막) D-day 대사는 넣지 않음.
+- Q-P0-4 (스토리 P0) A-1: 문서의 `WaterNightmare=29-31` 은 CSV 메모상 28번이 시작이라 28-31 로 교정함. `Kane/Strange Point`(Riverside 29-48/49-69)은 범위가 맞아 그대로.

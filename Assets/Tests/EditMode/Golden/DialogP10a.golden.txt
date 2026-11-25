@@ -157,7 +157,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t1_000|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_000|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_000|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_000|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_000|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_000|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_000|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_000|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
@@ -194,7 +194,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t1_100|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_100|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_100|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_100|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_100|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_100|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_100|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_100|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
@@ -231,7 +231,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t1_010|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_010|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_010|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_010|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_010|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_010|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_010|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_010|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
@@ -268,7 +268,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t1_110|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_110|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_110|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_110|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_110|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_110|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_110|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_110|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
@@ -305,7 +305,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t1_001|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_001|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_001|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_001|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_001|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_001|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_001|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_001|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
@@ -342,7 +342,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t1_101|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_101|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_101|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_101|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_101|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_101|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_101|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_101|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
@@ -379,7 +379,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t1_011|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_011|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_011|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_011|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_011|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_011|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_011|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_011|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
@@ -416,7 +416,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t1_111|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t1_111|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t1_111|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_111|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t1_111|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t1_111|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t1_111|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t1_111|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
@@ -453,7 +453,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t6_000|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t6_000|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t6_000|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_000|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_000|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t6_000|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t6_000|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t6_000|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
@@ -490,7 +490,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t6_100|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t6_100|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t6_100|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_100|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_100|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t6_100|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t6_100|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t6_100|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
@@ -527,7 +527,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t6_010|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t6_010|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t6_010|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_010|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_010|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t6_010|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t6_010|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t6_010|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
@@ -564,7 +564,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t6_110|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t6_110|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t6_110|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_110|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_110|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t6_110|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t6_110|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t6_110|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
@@ -601,7 +601,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t6_001|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t6_001|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t6_001|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_001|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_001|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t6_001|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t6_001|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t6_001|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
@@ -638,7 +638,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t6_101|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t6_101|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t6_101|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_101|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_101|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t6_101|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t6_101|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t6_101|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
@@ -675,7 +675,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t6_011|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t6_011|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t6_011|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_011|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_011|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t6_011|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t6_011|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t6_011|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-
@@ -712,7 +712,7 @@
 1st_Client'sHouse|Aiden_key_Fail2|ch_t6_111|n=5|first=1st_Client'sHouse:91|last=1st_Client'sHouse:95|ids=91-95|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Sucsses|ch_t6_111|n=3|first=1st_Client'sHouse:97|last=1st_Client'sHouse:99|ids=97-99|post=-
 1st_Client'sHouse|Aiden_Judge_medicine_Fail|ch_t6_111|n=1|first=1st_Client'sHouse:100|last=1st_Client'sHouse:100|ids=100|post=-
-1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_111|n=12|first=1st_Client'sHouse:101|last=1st_Client'sHouse:112|ids=101-112|post=-
+1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses|ch_t6_111|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_Safe|ch_t6_111|n=21|first=1st_Client'sHouse:149|last=1st_Client'sHouse:169|ids=149-169|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_NoSafe|ch_t6_111|n=21|first=1st_Client'sHouse:170|last=1st_Client'sHouse:190|ids=170-190|post=-
 1st_Client'sHouse|Aiden_Judge_psychotherapy_Sucsses_End|ch_t6_111|n=9|first=1st_Client'sHouse:115|last=1st_Client'sHouse:123|ids=115-123|post=-

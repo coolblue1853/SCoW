@@ -89,14 +89,14 @@
     { "id": "Astronomical show", "category": "Place", "upper": "Univ of Miscatonic", "unlockFlag": "intelUniversity1", "displayKey": "Keyword/Univ_of_Miscatonic/Astronomical_show", "order": 56 }
   ],
   "suspectTopics": [
-    { "topic": "University student/Content of a Nightmare", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 수정, 카탈로그는 기록만" },
-    { "topic": "University student/Water and Nightmare", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 수정, 카탈로그는 기록만" },
-    { "topic": "University student/Rumor", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 수정, 카탈로그는 기록만" },
-    { "topic": "University student/Source speculation", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 수정, 카탈로그는 기록만" },
-    { "topic": "University student/Sewer & FishySmell", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 수정, 카탈로그는 기록만" },
-    { "topic": "University student/Cause of Fishy smell", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 수정, 카탈로그는 기록만" },
-    { "topic": "University student/Details", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 수정, 카탈로그는 기록만" },
-    { "topic": "Kane/Strange Point", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 수정, 카탈로그는 기록만" },
-    { "topic": "Kane/Fishy Slime", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 수정, 카탈로그는 기록만" }
+    { "topic": "University student/Content of a Nightmare", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 Keyword.json 범위를 교정함(A-1), 카탈로그는 이력으로 남김" },
+    { "topic": "University student/Water and Nightmare", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 Keyword.json 범위를 교정함(A-1), 카탈로그는 이력으로 남김" },
+    { "topic": "University student/Rumor", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 Keyword.json 범위를 교정함(A-1), 카탈로그는 이력으로 남김" },
+    { "topic": "University student/Source speculation", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 Keyword.json 범위를 교정함(A-1), 카탈로그는 이력으로 남김" },
+    { "topic": "University student/Sewer & FishySmell", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 Keyword.json 범위를 교정함(A-1), 카탈로그는 이력으로 남김" },
+    { "topic": "University student/Cause of Fishy smell", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 Keyword.json 범위를 교정함(A-1), 카탈로그는 이력으로 남김" },
+    { "topic": "University student/Details", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 Keyword.json 범위를 교정함(A-1), 카탈로그는 이력으로 남김" },
+    { "topic": "Kane/Strange Point", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 Keyword.json 범위를 교정함(A-1), 카탈로그는 이력으로 남김" },
+    { "topic": "Kane/Fishy Slime", "reason": "StoryImprove A-1: 노드가 가리키는 CSV 범위가 실제 대사와 다름(대학생 노드가 케인 대사를 가리킴 / 케인 점액 범위 오류). 스토리 P0 에서 Keyword.json 범위를 교정함(A-1), 카탈로그는 이력으로 남김" }
   ]
 }
