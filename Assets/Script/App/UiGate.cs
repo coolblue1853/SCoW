@@ -121,6 +121,35 @@ public static class UiGate
         Stack.Push(kind);
     }
 
+    /// <summary>
+    /// 올리면서 닫기 동작을 등록한다(UX-1). Esc/패드 B(menuToo 면 Menu 도)는 UxOverlay 가 프레임 맨 앞에서 PumpCancel 로
+    /// 맨 위 패널의 close 하나만 부른다. close 안에서 UiGate.Remove 를 불러도 되고 안 불러도 된다.
+    /// </summary>
+    public static void Push(PanelKind kind, System.Action close, bool menuToo = false)
+    {
+        Stack.Push(kind, close, menuToo);
+    }
+
+    /// <summary>프레임당 한 번(UxOverlay): Cancel 로 맨 위 패널 하나를 닫는다. 이번 프레임에 이미 소비됐으면 건너뛴다.</summary>
+    public static void PumpCancel()
+    {
+        if (CancelConsumedThisFrame)
+        {
+            return;
+        }
+        bool cancel = GameInput.CancelDown;
+        bool menu = GameInput.MenuDown;
+        if (!cancel && !menu)
+        {
+            return;
+        }
+        if (Stack.TryCloseTop(cancel, menu))
+        {
+            _cancelFrame = Time.frameCount;
+            _closeFrame = Time.frameCount; // 닫은 입력이 같은 프레임에 대사를 넘기지 않게
+        }
+    }
+
     public static void Remove(PanelKind kind)
     {
         if (Stack.Remove(kind))
@@ -133,6 +162,7 @@ public static class UiGate
     public static void Clear()
     {
         Stack.Clear();
+        HintBar.Clear();
     }
 
     /// <summary>이번 프레임에 Cancel 로 패널이 이미 닫혔나. 같은 키로 설정창이 곧바로 열리는 것을 막을 때 쓴다.</summary>

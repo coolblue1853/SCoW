@@ -50,12 +50,21 @@ public sealed class SlotMenuView : MonoBehaviour
         v._onClosed = onClosed;
         v.Build();
         _current = v;
-        UiGate.Push(PanelKind.SlotMenu);
+        UiGate.Push(PanelKind.SlotMenu, v.Close, true);
+        HintBar.Push(v, SlotHints);
     }
+
+    private static readonly SCoW.Core.Ui.Hint[] SlotHints =
+    {
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Navigate, "Select"),
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Confirm, "Confirm"),
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Cancel, "Back"),
+    };
 
     private void OnDestroy()
     {
         UiGate.Remove(PanelKind.SlotMenu);
+        HintBar.Remove(this);
         if (_current == this)
         {
             _current = null;
@@ -116,9 +125,7 @@ public sealed class SlotMenuView : MonoBehaviour
 
         _message = MakeText("Message", panel, string.Empty, 28, TextAnchor.MiddleCenter);
         SetRect(_message.rectTransform, new Vector2(0.5f, 0f), new Vector2(0f, 100f), new Vector2(1100f, 70f));
-        Text hint = MakeText("Hint", panel, SaveText.Pick("위아래: 선택   확인: 결정   취소: 닫기", "Up/Down: Select   Confirm: OK   Cancel: Close"), 24, TextAnchor.MiddleCenter);
-        hint.color = new Color(0.7f, 0.7f, 0.7f, 1f);
-        SetRect(hint.rectTransform, new Vector2(0.5f, 0f), new Vector2(0f, 40f), new Vector2(1100f, 44f));
+
 
         Refresh();
         _index = FirstSelectable();
@@ -225,10 +232,7 @@ public sealed class SlotMenuView : MonoBehaviour
         {
             Activate(_index);
         }
-        else if (UiGate.TryCancel(PanelKind.SlotMenu, true))
-        {
-            Close();
-        }
+
     }
 
     private static bool EnterPressed()

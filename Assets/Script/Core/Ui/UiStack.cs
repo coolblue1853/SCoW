@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace SCoW.Core.Ui
@@ -22,7 +23,14 @@ namespace SCoW.Core.Ui
     /// </summary>
     public sealed class UiStack
     {
+        private struct Closer
+        {
+            public Action Close;
+            public bool MenuToo;
+        }
+
         private readonly List<PanelKind> _items = new List<PanelKind>(4);
+        private readonly Dictionary<PanelKind, Closer> _closers = new Dictionary<PanelKind, Closer>();
 
         public int Count
         {
@@ -82,9 +90,64 @@ namespace SCoW.Core.Ui
             _items.Add(kind);
         }
 
+        /// <summary>
+        /// 올리면서 닫기 동작을 등록한다(UX-1). Cancel(Esc/패드 B) 은 맨 위 패널의 close 하나만 부른다(TryCloseTop).
+        /// menuToo 면 Menu 키도 같은 취소로 본다. 이미 있는 패널을 다시 올리면 맨 위로 옮기고 닫기 동작을 바꾼다.
+        /// </summary>
+        public void Push(PanelKind kind, Action close, bool menuToo = false)
+        {
+            Push(kind);
+            if (close != null)
+            {
+                Closer c;
+                c.Close = close;
+                c.MenuToo = menuToo;
+                _closers[kind] = c;
+            }
+        }
+
+        public bool HasCloser(PanelKind kind)
+        {
+            return _closers.ContainsKey(kind);
+        }
+
+        /// <summary>
+        /// 맨 위 패널에 닫기 동작이 등록돼 있고 cancel(또는 menu 이면서 MenuToo)이면 그 하나만 닫는다.
+        /// 맨 위가 닫기 미등록이면 아무것도 닫지 않고 false(아래 패널을 건드리지 않는다).
+        /// </summary>
+        public bool TryCloseTop(bool cancel, bool menu)
+        {
+            PanelKind top;
+            Closer c;
+            if (!TryPeek(out top) || !_closers.TryGetValue(top, out c))
+            {
+                return false;
+            }
+            if (!(cancel || (menu && c.MenuToo)))
+            {
+                return false;
+            }
+            try
+            {
+                c.Close();
+            }
+            finally
+            {
+                Remove(top); // close 가 이미 뺐으면 아무 일도 없다. close 가 던져도 스택이 막히지 않게 한다.
+            }
+            return true;
+        }
+
+        /// <summary>Cancel 입력으로 맨 위 패널 하나를 닫는다.</summary>
+        public bool TryCloseTop()
+        {
+            return TryCloseTop(true, false);
+        }
+
         /// <summary>스택 어디에 있든 뺀다. 있었으면 true.</summary>
         public bool Remove(PanelKind kind)
         {
+            _closers.Remove(kind);
             return _items.Remove(kind);
         }
 
@@ -96,12 +159,14 @@ namespace SCoW.Core.Ui
                 return false;
             }
             _items.RemoveAt(_items.Count - 1);
+            _closers.Remove(popped);
             return true;
         }
 
         public void Clear()
         {
             _items.Clear();
+            _closers.Clear();
         }
     }
 }

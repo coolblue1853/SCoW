@@ -37,8 +37,16 @@ public sealed class BacklogView : MonoBehaviour
         v._openedFrame = Time.frameCount;
         v.Build(log, font);
         _current = v;
-        UiGate.Push(PanelKind.Backlog);
+        UiGate.Push(PanelKind.Backlog, CloseCurrent, true);
+        HintBar.Push(v, BacklogHints);
     }
+
+    private static readonly SCoW.Core.Ui.Hint[] BacklogHints =
+    {
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Scroll, "Scroll"),
+
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Cancel, "Close"),
+    };
 
     public static void CloseCurrent()
     {
@@ -51,6 +59,7 @@ public sealed class BacklogView : MonoBehaviour
     private void OnDestroy()
     {
         UiGate.Remove(PanelKind.Backlog);
+        HintBar.Remove(this);
         if (_current == this)
         {
             _current = null;
@@ -59,11 +68,6 @@ public sealed class BacklogView : MonoBehaviour
 
     private void Update()
     {
-        if (UiGate.TryCancel(PanelKind.Backlog, true))
-        {
-            Destroy(gameObject);
-            return;
-        }
         if (Time.frameCount != _openedFrame && GameInput.DialogBacklogDown && !ScrollWheelUp())
         {
             Destroy(gameObject);
@@ -171,9 +175,7 @@ public sealed class BacklogView : MonoBehaviour
             AddEntry(log[i].Speaker, log[i].Text, font);
         }
 
-        TextMeshProUGUI hint = MakeText("Hint", panel, "B: Close   W S / Wheel: Scroll   Esc: Close", 26, font, TextAlignmentOptions.Center);
-        hint.color = new Color(0.7f, 0.7f, 0.7f, 1f);
-        Anchor(hint.rectTransform, new Vector2(0.5f, 0f), new Vector2(0f, 28f), new Vector2(1400f, 40f));
+
 
         Canvas.ForceUpdateCanvases();
         LayoutRebuilder.ForceRebuildLayoutImmediate(_content);

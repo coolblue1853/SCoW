@@ -1,5 +1,8 @@
+using System;
+using SCoW.Core.Ui;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 /// <summary>
 /// 게임 전역 입력 래퍼(New Input System). 레거시 Input.* 대체.
@@ -17,6 +20,8 @@ public static class GameInput
     private static InputAction _navUp, _navDown, _pageNext, _pagePrev;
     private static InputAction _dlgBacklog, _dlgSkipHold, _dlgSkipToggle, _dlgAutoToggle;
     private static Vector2 _lastPointer;
+    private static IDisposable _anyPress;
+    private static InputDeviceKind _lastDevice = InputDeviceKind.Keyboard;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetStatics()
@@ -26,8 +31,55 @@ public static class GameInput
             _asset.Disable();
         }
 
+        if (_anyPress != null)
+        {
+            _anyPress.Dispose();
+            _anyPress = null;
+        }
+
         _asset = null;
         _lastPointer = Vector2.zero;
+        _lastDevice = InputDeviceKind.Keyboard;
+    }
+
+    /// <summary>
+    /// 마지막으로 입력이 들어온 장치(키보드·마우스·패드). 키 안내 글리프와 포커스 링 표시가 쓴다.
+    /// 버튼 입력은 이벤트로, 마우스 이동·스틱 기울임은 조회할 때 감지한다(조회만 하고 입력은 소비하지 않는다).
+    /// </summary>
+    public static InputDeviceKind LastDevice
+    {
+        get
+        {
+            Ensure();
+            Mouse mouse = Mouse.current;
+            if (mouse != null && mouse.delta.ReadValue().sqrMagnitude > 1f)
+            {
+                _lastDevice = InputDeviceKind.Mouse;
+            }
+            Gamepad pad = Gamepad.current;
+            if (pad != null && (pad.leftStick.ReadValue().sqrMagnitude > 0.25f || pad.dpad.ReadValue().sqrMagnitude > 0.1f))
+            {
+                _lastDevice = InputDeviceKind.Gamepad;
+            }
+            return _lastDevice;
+        }
+    }
+
+    private static void OnAnyButton(InputControl control)
+    {
+        InputDevice device = control.device;
+        if (device is Keyboard)
+        {
+            _lastDevice = InputDeviceKind.Keyboard;
+        }
+        else if (device is Mouse)
+        {
+            _lastDevice = InputDeviceKind.Mouse;
+        }
+        else if (device is Gamepad || device is Joystick)
+        {
+            _lastDevice = InputDeviceKind.Gamepad;
+        }
     }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -72,6 +124,10 @@ public static class GameInput
         _pageNext = Find(ui, "PageNext");
         _pagePrev = Find(ui, "PagePrev");
         _asset.Enable();
+        if (_anyPress == null)
+        {
+            _anyPress = InputSystem.onAnyButtonPress.Call(OnAnyButton);
+        }
     }
 
     private static InputAction Find(InputActionMap map, string name)

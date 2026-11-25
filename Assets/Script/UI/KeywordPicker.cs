@@ -97,7 +97,8 @@ public sealed class KeywordPicker : MonoBehaviour
         p.Build();
         KeywordNotice.MarkAllSeen(book, GameRoot.Instance.State); // NEW 는 이번에 한 번 보여 주고 지운다
         _current = p;
-        UiGate.Push(PanelKind.Keyword);
+        UiGate.Push(PanelKind.Keyword, p.Close, false);
+        HintBar.Push(p, PickerHints);
         return true;
     }
 
@@ -109,11 +110,21 @@ public sealed class KeywordPicker : MonoBehaviour
         }
     }
 
+    private static readonly SCoW.Core.Ui.Hint[] PickerHints =
+    {
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Navigate, "Select"),
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Page, "Tab"),
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Present, "Present"),
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Notebook, "Notebook"),
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Cancel, "Close"),
+    };
+
     // 닫기 한 곳: Destroy 는 프레임 끝이라, 스택·정적 상태·닫힌 프레임을 먼저 정리한다.
     private void Close()
     {
         _done = true;
         _closedFrame = Time.frameCount;
+        HintBar.Remove(this);
         if (GameRoot.Instance != null)
         {
             UiGate.Remove(PanelKind.Keyword);
@@ -196,6 +207,7 @@ public sealed class KeywordPicker : MonoBehaviour
 
     private void OnDestroy()
     {
+        HintBar.Remove(this);
         if (_hidden)
         {
             IntelKeywordUseButton.Hide();
@@ -214,11 +226,6 @@ public sealed class KeywordPicker : MonoBehaviour
     {
         if (_done)
         {
-            return;
-        }
-        if (UiGate.TryCancel(PanelKind.Keyword, false))
-        {
-            Close();
             return;
         }
         if (_hidden)
@@ -463,12 +470,12 @@ public sealed class KeywordPicker : MonoBehaviour
 
         _noticeText = MakeText("Notice", panel, string.Empty, 28, TextAlignmentOptions.Center);
         _noticeText.color = new Color(1f, 0.55f, 0.45f, 1f);
-        Anchor(_noticeText.rectTransform, new Vector2(0.5f, 0f), new Vector2(0f, 66f), new Vector2(960f, 40f));
+        Anchor(_noticeText.rectTransform, new Vector2(0.5f, 0f), new Vector2(0f, 112f), new Vector2(960f, 40f));
         _noticeText.gameObject.SetActive(false);
 
-        TextMeshProUGUI hint = MakeText("Hint", panel, "W S: Select  A D: Tab  E: Present  1: Notebook  Esc: Close  * reacts  ● asked", 18, TextAlignmentOptions.Center);
+        TextMeshProUGUI hint = MakeText("Hint", panel, "* reacts   ● asked", 22, TextAlignmentOptions.Center);
         hint.color = new Color(0.7f, 0.7f, 0.7f, 1f);
-        Anchor(hint.rectTransform, new Vector2(0.5f, 0f), new Vector2(0f, 22f), new Vector2(960f, 36f));
+        Anchor(hint.rectTransform, new Vector2(0.5f, 0f), new Vector2(0f, 72f), new Vector2(960f, 36f));
 
         RebuildRows();
     }

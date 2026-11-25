@@ -35,6 +35,7 @@ public static class SceneRouter
     {
         // 안전망: 씬이 바뀌면 이전 씬 패널은 모두 사라졌으므로 스택을 비운다(P5 리뷰 권장).
         GameRoot.Instance.Panels.Clear();
+        HintBar.Clear();
         Action<string> handler = SceneEntered;
         if (handler != null)
         {

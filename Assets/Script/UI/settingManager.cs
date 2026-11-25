@@ -58,7 +58,8 @@ public class settingManager : MonoBehaviour
         if (UiGate.CanOpen(PanelKind.Setting))
         {
             SoundManager.Instance.PaperClipPlay();
-            UiGate.Push(PanelKind.Setting);
+            UiGate.Push(PanelKind.Setting, CloseSetting, true);
+            HintBar.Push(this, SettingHints);
             setting.SetActive(true);
 
         }
@@ -95,6 +96,7 @@ public class settingManager : MonoBehaviour
     public void HideForLoad()
     {
         UiGate.Remove(PanelKind.Setting);
+        HintBar.Remove(this);
         setting.SetActive(false);
         settingUi.SetActive(true);
         tutorial.SetActive(false);
@@ -238,11 +240,18 @@ public class settingManager : MonoBehaviour
         SlotMenuView.Open(mode, null);
     }
 
+    private static readonly SCoW.Core.Ui.Hint[] SettingHints =
+    {
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Page, "Load / Save"),
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Cancel, "Close"),
+    };
+
     public void CloseSetting()
     {
         PersistSettings();
         SoundManager.Instance.ClickSoundPlay();
         UiGate.Remove(PanelKind.Setting);
+        HintBar.Remove(this);
         setting.SetActive(false);
         settingUi.SetActive(true);
         tutorial.SetActive(false);
@@ -342,10 +351,6 @@ public class settingManager : MonoBehaviour
         if (SlotMenuView.IsOpen)
         {
             // 저장/불러오기 창이 입력(메뉴·취소 키)을 쓰는 동안 설정창은 가만히 둔다.
-        }
-        else if (setting.activeSelf == true && UiGate.TryCancel(PanelKind.Setting, true))
-        {
-            CloseSetting();
         }
         else if (GameInput.MenuDown && setting.activeSelf == false && !UiGate.CancelConsumedThisFrame)
         {

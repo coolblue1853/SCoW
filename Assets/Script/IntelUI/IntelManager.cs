@@ -138,14 +138,23 @@ public class IntelManager : MonoBehaviour
         if (UiGate.CanOpen(PanelKind.Intel))
         {
             SoundManager.Instance.PaperClipPlay();
-            UiGate.Push(PanelKind.Intel);
+            UiGate.Push(PanelKind.Intel, CloseSetting);
+            HintBar.Push(this, IntelHints);
             intelUI.SetActive(true);
             KeywordToast.OnIntelOpened();
         }
     }
+    private static readonly SCoW.Core.Ui.Hint[] IntelHints =
+    {
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Navigate, "Select"),
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Page, "Page"),
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Cancel, "Close"),
+    };
+
     public void CloseSetting()
     {
         UiGate.Remove(PanelKind.Intel);
+        HintBar.Remove(this);
         intelUI.SetActive(false);
         IntelKeywordUseButton.Hide();
         KeywordPicker.OnIntelClosed();
@@ -161,7 +170,8 @@ public class IntelManager : MonoBehaviour
             return false;
         }
         SoundManager.Instance.PaperClipPlay();
-        UiGate.Push(PanelKind.Intel);
+        UiGate.Push(PanelKind.Intel, CloseSetting);
+        HintBar.Push(this, IntelHints);
         intelUI.SetActive(true);
         _fromPickerFrame = Time.frameCount;
         switch (category)
@@ -204,7 +214,7 @@ public class IntelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (intelUI.activeSelf == true && (UiGate.TryCancel(PanelKind.Intel) || (GameInput.OpenIntelDown && UiGate.Stack.IsTop(PanelKind.Intel) && Time.frameCount != _fromPickerFrame)))
+        if (intelUI.activeSelf == true && GameInput.OpenIntelDown && UiGate.Stack.IsTop(PanelKind.Intel) && Time.frameCount != _fromPickerFrame)
         {
             CloseSetting();
         }
