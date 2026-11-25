@@ -146,9 +146,25 @@ public class BattleManager : MonoBehaviour
         }
         if (startBattle == true && (enemyTrunSymbol1.activeSelf == true || enemyTrunSymbol2.activeSelf == true || enemyTrunSymbol3.activeSelf == true))
         {
+            if (_partyChecked == false)
+            {
+                _partyChecked = true;
+                if (PartyBattleDirector.TryStart(this))
+                {
+                    return;
+                }
+            }
+            else if (PartyBattleDirector.Running)
+            {
+                return;
+            }
             EnemyHealthCheck();
             TimeWait();
             StateChecker();
+        }
+        else
+        {
+            _partyChecked = false;
         }
         if (DataBaseManager.nowPlace == "BattleRoad")
         {
@@ -168,6 +184,67 @@ public class BattleManager : MonoBehaviour
             DataBaseManager.storyDirecting = false;
             FadingBackGround.Instance.FadeInOut();
             Invoke("EndSewerBattle", 1f);
+        }
+    }
+    // ---- PT-5: 다인원 전투 View(PartyBattleDirector)가 칸·적을 가져가는 입구. 솔로(동료 없음)는 쓰지 않는다. ----
+    private bool _partyChecked;
+    /// <summary>지금 켜져 있는 턴 심볼의 적 상태와 적 인덱스(턴 심볼 칸 순서).</summary>
+    public List<EnemyState> PartyEnemies(List<int> indices)
+    {
+        bool inSewer = DataBaseManager.nowPlace == "InSewer";
+        List<EnemyState> list = new List<EnemyState>();
+        for (int i = 0; i < _enemySymbols.Length; i++)
+        {
+            int enemy = EnemyIndexForSymbol(i, inSewer);
+            if (enemy >= 0 && _enemySymbols[i].activeSelf == true)
+            {
+                list.Add(_enemies[enemy]);
+                indices.Add(enemy);
+            }
+        }
+        return list;
+    }
+    public Sprite PlayerSprite()
+    {
+        return playerRender != null ? playerRender.sprite : null;
+    }
+    public Sprite EnemySprite(int enemy)
+    {
+        SpriteRenderer r = enemy >= 0 && enemy < _enemyObs.Length && _enemyObs[enemy] != null ? _enemyObs[enemy].GetComponentInChildren<SpriteRenderer>(true) : null;
+        return r != null ? r.sprite : null;
+    }
+    /// <summary>파티 전투 종료 정산: 죽은 적을 옛 EnemyHealthCheck 와 같이 처리하고, 승리면 옛 종료 흐름(턴 심볼 꺼짐 감지)에 맡기고, 도주는 옛 도주 성공 흐름을 부른다.</summary>
+    public void PartyBattleEnd(List<int> enemyIndices, BattleOutcome outcome)
+    {
+        startBattle = false;
+        for (int i = 0; i < enemyIndices.Count; i++)
+        {
+            int enemy = enemyIndices[i];
+            if (_enemies[enemy].IsDead)
+            {
+                _enemies[enemy].DeathHandled = true;
+                _enemyObs[enemy].SetActive(false);
+                _enemySymbols[SymbolSlotOf(enemy)].SetActive(false);
+                DataBaseManager.enemyDeathCount += 1;
+            }
+        }
+        if (outcome == BattleOutcome.Win)
+        {
+            for (int i = 0; i < _enemySymbols.Length; i++)
+            {
+                _enemySymbols[i].SetActive(false);
+            }
+        }
+        else if (outcome == BattleOutcome.Fled)
+        {
+            if (DataBaseManager.nowPlace != "InSewer")
+            {
+                ExBattleEnd();
+            }
+            else
+            {
+                EndSewerBattle();
+            }
         }
     }
     public void CloseButtonUI()

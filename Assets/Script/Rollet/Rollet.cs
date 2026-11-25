@@ -537,6 +537,10 @@ public class Rollet : MonoBehaviour
                 }
             }
         }
+        if (subject == "PT_Fabian") // PT-5: 다인원 전투 View 가 기다리는 파비안 판정
+        {
+            PartyBattleDirector.OnLeaderRoll(resultLevel);
+        }
         if (subject == "EnemyDeftness")
         {
             BattleManager.Instance.RetrunRolletResult(subject, resultEnd.text, enemySubject);
