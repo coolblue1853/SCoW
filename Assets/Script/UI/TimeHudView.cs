@@ -25,10 +25,31 @@ public sealed class TimeHudView : MonoBehaviour
 
     private static TimeHudView _instance;
 
+    /// <summary>true 면 목표 줄을 숨기고 패널을 작게 줄인다(전투 화면용, PT-5).</summary>
+    public static bool Compact
+    {
+        get { return _compact; }
+        set
+        {
+            if (_compact == value)
+            {
+                return;
+            }
+            _compact = value;
+            if (_instance != null)
+            {
+                _instance.ApplyCompact();
+            }
+        }
+    }
+
+    private static bool _compact;
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetStatics()
     {
         _instance = null;
+        _compact = false;
         PunchCount = 0;
     }
 
@@ -136,6 +157,15 @@ public sealed class TimeHudView : MonoBehaviour
         }
     }
 
+    private void ApplyCompact()
+    {
+        _dirty = true;
+        if (_panelRt != null)
+        {
+            _panelRt.sizeDelta = new Vector2(_compact ? 500f : 640f, _compact ? 100f : 190f);
+        }
+    }
+
     private static int TimeNow()
     {
         return GameRoot.Instance.State.GetCounter(CounterKeys.timeCount);
@@ -157,7 +187,7 @@ public sealed class TimeHudView : MonoBehaviour
         string deadline = left == 0
             ? ObjectiveBoard.Pick("마감 직전", "Deadline now")
             : ObjectiveBoard.Pick("마감까지 " + left + "칸", "Deadline in " + left);
-        string goal = ObjectiveBoard.CurrentLine();
+        string goal = _compact ? string.Empty : ObjectiveBoard.CurrentLine();
         _text.text = head + "\n" + deadline + (goal.Length > 0 ? "\n<size=75%>" + goal + "</size>" : string.Empty);
         int filled = WorldClock.SlotInDay(t);
         for (int i = 0; i < _pips.Length; i++)

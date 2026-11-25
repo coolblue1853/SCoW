@@ -37,8 +37,9 @@ public sealed partial class PartyBattleView : MonoBehaviour
 {
     private const float AllyX = 150f;
     private const float RankStep = 250f;
-    private const float RowY = 40f;
+    private const float RowY = 105f; // 패널 아래끝이 대사창 이름표·버튼 위(참조 해상도 중앙 기준 -40)에 오도록
     private const int OrderChips = 8;
+    private const int LogLines = 4;
 
     private enum Mode { None, Menu, Target }
 
@@ -112,9 +113,11 @@ public sealed partial class PartyBattleView : MonoBehaviour
         ((RectTransform)_prompt.transform.parent).anchoredPosition = new Vector2(0f, -140f);
 
         RectTransform logRoot = NewAnchored("Log", _root, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f));
-        logRoot.anchoredPosition = new Vector2(440f, 130f);
-        logRoot.sizeDelta = new Vector2(800f, 150f);
-        _logText = PartyBattleUi.Label(logRoot, _font, "LogText", new Vector2(800f, 150f), Vector2.zero, 24, TextAnchor.LowerLeft);
+        // 대사창 안쪽 오른쪽(▼ 표시 왼쪽), 창 폭 안에서 줄바꿈한다
+        logRoot.anchoredPosition = new Vector2(400f, 165f); // 아래끝은 HintBar 위
+        logRoot.sizeDelta = new Vector2(640f, 180f);
+        _logText = PartyBattleUi.Label(logRoot, _font, "LogText", new Vector2(640f, 180f), Vector2.zero, 22, TextAnchor.LowerLeft);
+        _logText.horizontalOverflow = HorizontalWrapMode.Wrap;
         _logText.color = new Color(0.9f, 0.9f, 0.85f);
 
         _menuRoot = NewAnchored("Menu", _root, new Vector2(0f, 0f), new Vector2(0f, 0f));
@@ -141,6 +144,7 @@ public sealed partial class PartyBattleView : MonoBehaviour
         ClearPanels();
         _field = field;
         _root.gameObject.SetActive(true);
+        TimeHudView.Compact = true;
         _log.Clear();
         _logText.text = string.Empty;
         for (int side = 0; side < 2; side++)
@@ -190,6 +194,7 @@ public sealed partial class PartyBattleView : MonoBehaviour
         TooltipView.HideAll();
         ClearPanels();
         HintBar.Remove(this);
+        TimeHudView.Compact = false;
         _root.gameObject.SetActive(false);
     }
 
@@ -204,7 +209,7 @@ public sealed partial class PartyBattleView : MonoBehaviour
     public void AppendLog(string line)
     {
         _log.Add(line);
-        while (_log.Count > 5)
+        while (_log.Count > LogLines)
         {
             _log.RemoveAt(0);
         }
@@ -284,11 +289,11 @@ public sealed partial class PartyBattleView : MonoBehaviour
         {
             IBattleUnit u = next[i];
             bool ally = u.Side == Side.Ally;
-            Image chip = PartyBattleUi.Box(_orderRoot, "Chip" + i, new Vector2(68f, 56f), new Vector2((i - (OrderChips - 1) * 0.5f) * 76f, 0f),
+            Image chip = PartyBattleUi.Box(_orderRoot, "Chip" + i, new Vector2(64f, 56f), new Vector2((i - (OrderChips - 1) * 0.5f) * 76f, 0f),
                 ally ? new Color(0.25f, 0.4f, 0.65f, 0.95f) : new Color(0.6f, 0.25f, 0.25f, 0.95f));
             chip.raycastTarget = true;
             string name = BattleTooltipText.UnitName(u);
-            Text t = PartyBattleUi.Label((RectTransform)chip.transform, _font, "L", new Vector2(68f, 56f), Vector2.zero, 24, TextAnchor.MiddleCenter);
+            Text t = PartyBattleUi.Label((RectTransform)chip.transform, _font, "L", new Vector2(64f, 56f), Vector2.zero, 18, TextAnchor.MiddleCenter);
             t.text = name.Length > 3 ? name.Substring(0, 3) : name;
             if (u.Id == _activeId)
             {

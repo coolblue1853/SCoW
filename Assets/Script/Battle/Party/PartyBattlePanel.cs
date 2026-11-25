@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public sealed class PartyBattlePanel
 {
     public const float Width = 220f;
-    public const float Height = 320f;
+    public const float Height = 290f;
     private const float BarWidth = 200f;
 
     public readonly string Id;
@@ -46,17 +46,17 @@ public sealed class PartyBattlePanel
 
         _outline = PartyBattleUi.Box(Rect, "Outline", new Vector2(Width + 12f, Height + 12f), new Vector2(0f, 0f), new Color(1f, 0.85f, 0.3f, 0f));
         Image back = PartyBattleUi.Box(Rect, "Back", new Vector2(Width, Height), Vector2.zero, new Color(0.08f, 0.08f, 0.1f, 0.85f));
-        _portrait = PartyBattleUi.Box(Rect, "Portrait", new Vector2(Width - 20f, 180f), new Vector2(0f, 40f), sprite == null ? color : Color.white);
+        _portrait = PartyBattleUi.Box(Rect, "Portrait", new Vector2(Width - 20f, 130f), new Vector2(0f, 38f), sprite == null ? color : Color.white);
         if (sprite != null)
         {
             _portrait.sprite = sprite;
             _portrait.preserveAspect = true;
         }
-        _name = PartyBattleUi.Label(Rect, font, "Name", new Vector2(Width, 34f), new Vector2(0f, 142f), 26, TextAnchor.MiddleCenter);
-        _status = PartyBattleUi.Label(Rect, font, "Status", new Vector2(Width, 28f), new Vector2(0f, -62f), 20, TextAnchor.MiddleCenter);
-        _hpFill = PartyBattleUi.Bar(Rect, "Hp", new Vector2(0f, -88f), BarWidth, new Color(0.75f, 0.15f, 0.15f, 1f));
-        _sanFill = PartyBattleUi.Bar(Rect, "San", new Vector2(0f, -108f), BarWidth, new Color(0.25f, 0.45f, 0.85f, 1f));
-        _hpText = PartyBattleUi.Label(Rect, font, "Vitals", new Vector2(Width, 40f), new Vector2(0f, -134f), 16, TextAnchor.MiddleCenter);
+        _name = PartyBattleUi.Label(Rect, font, "Name", new Vector2(Width, 34f), new Vector2(0f, 122f), 26, TextAnchor.MiddleCenter);
+        _status = PartyBattleUi.Label(Rect, font, "Status", new Vector2(Width, 28f), new Vector2(0f, -46f), 20, TextAnchor.MiddleCenter);
+        _hpFill = PartyBattleUi.Bar(Rect, "Hp", new Vector2(0f, -72f), BarWidth, new Color(0.75f, 0.15f, 0.15f, 1f));
+        _sanFill = PartyBattleUi.Bar(Rect, "San", new Vector2(0f, -92f), BarWidth, new Color(0.25f, 0.45f, 0.85f, 1f));
+        _hpText = PartyBattleUi.Label(Rect, font, "Vitals", new Vector2(Width, 36f), new Vector2(0f, -118f), 16, TextAnchor.MiddleCenter);
         back.raycastTarget = true;
         _name.text = BattleTooltipText.UnitName(unit);
         Refresh(unit);
