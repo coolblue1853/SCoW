@@ -151,8 +151,14 @@ public static class SewerFlow
         {
             return;
         }
+        int no = SewerState.EncounterOf(State, SewerState.Room(State));
         if (SewerNav.DefeatCurrent(State, Graph))
         {
+            int bandages = SewerRewards.GrantClear(State, no);
+            if (bandages > 0)
+            {
+                SaveToast.Show("Found a bandage x" + bandages, false); // TODO(I2)
+            }
             SewerRoomApplier.HideEnemies(TimeManagere.Instance);
         }
     }

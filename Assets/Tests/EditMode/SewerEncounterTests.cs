@@ -151,5 +151,34 @@ namespace SCoW.Tests
             SewerState.Clear(s);
             Assert.AreEqual(0, s.GetCounter(SewerRest.RestKey));
         }
+
+        [Test]
+        public void Clear_reward_is_one_bandage_for_e1_e2_and_once_only()
+        {
+            GameState s = GameState.New();
+            s.SetCounter(CounterKeys.bandages, 2);
+            Assert.AreEqual(1, SewerRewards.GrantClear(s, 1));
+            Assert.AreEqual(3, s.GetCounter(CounterKeys.bandages));
+            Assert.AreEqual(0, SewerRewards.GrantClear(s, 1), "같은 조우 보상은 한 번만");
+            Assert.AreEqual(1, SewerRewards.GrantClear(s, 2));
+            Assert.AreEqual(4, s.GetCounter(CounterKeys.bandages));
+            Assert.AreEqual(0, SewerRewards.GrantClear(s, 3), "E3 는 보상 없음");
+            Assert.AreEqual(0, SewerRewards.GrantClear(s, 0));
+            Assert.AreEqual(4, s.GetCounter(CounterKeys.bandages));
+        }
+
+        [Test]
+        public void Clear_reward_per_zone_is_at_most_one_item_and_resets_on_clear()
+        {
+            for (int i = 1; i <= SewerEncounters.Count; i++)
+            {
+                Assert.LessOrEqual(SewerEncounters.ByNo(i).Bandages, 1);
+            }
+            GameState s = GameState.New();
+            SewerRewards.GrantClear(s, 1);
+            SewerState.Clear(s);
+            Assert.AreEqual(0, s.GetCounter(SewerRewards.RewardKey(1)));
+            Assert.AreEqual("sewer.reward.1", SewerRewards.RewardKey(1));
+        }
     }
 }

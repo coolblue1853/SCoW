@@ -86,6 +86,7 @@ namespace SCoW.Core.Sewer
             for (int i = 1; i <= SewerGraph.EncounterCount; i++)
             {
                 s.SetCounter(SewerKeys.Enc(SewerGraph.EncounterRoom(i)), 0);
+                s.SetCounter(SewerRewards.RewardKey(i), 0);
             }
         }
 

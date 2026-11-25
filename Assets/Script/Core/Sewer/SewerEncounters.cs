@@ -2,19 +2,22 @@ using SCoW.Core.State;
 
 namespace SCoW.Core.Sewer
 {
-    /// <summary>조우 한 번의 데이터(SEWER-1 S4). 방·도착 대사를 한 줄로 둔다.</summary>
+    /// <summary>조우 한 번의 데이터(SEWER-1 S4). 방·도착 대사·클리어 보상을 한 줄로 둔다.</summary>
     public sealed class SewerEncounterDef
     {
         public readonly int No;
         public readonly string RoomId;
         /// <summary>조우 방에 들어온 뒤 1초 뒤 띄우는 대사 노드(Story JSON ID).</summary>
         public readonly string Dialog;
+        /// <summary>처음 처치했을 때 받는 붕대 수(S7). 구역 첫 클리어마다 1개 이하.</summary>
+        public readonly int Bandages;
 
-        public SewerEncounterDef(int no, string roomId, string dialog)
+        public SewerEncounterDef(int no, string roomId, string dialog, int bandages)
         {
             No = no;
             RoomId = roomId;
             Dialog = dialog;
+            Bandages = bandages;
         }
     }
 
@@ -31,11 +34,12 @@ namespace SCoW.Core.Sewer
         public const float ShakeBelowRatio = 0.7f;
 
         // E1 침수 구간 입구(첫 딥원 계열 연출을 여기 붙임), E2 허브(순찰 마주침), E3 문양실 앞(필수 전투).
+        // 보상: E1·E2 처치마다 붕대 1개(구역 첫 클리어), E3 는 없음(클라이맥스 뒤 문양실이 바로 이어진다).
         private static readonly SewerEncounterDef[] Defs =
         {
-            new SewerEncounterDef(1, "z2b_1", "Sewer_FirstDeepOne"),
-            new SewerEncounterDef(2, "z3_2", DefaultDialog),
-            new SewerEncounterDef(3, "z5_1", DefaultDialog),
+            new SewerEncounterDef(1, "z2b_1", "Sewer_FirstDeepOne", 1),
+            new SewerEncounterDef(2, "z3_2", DefaultDialog, 1),
+            new SewerEncounterDef(3, "z5_1", DefaultDialog, 0),
         };
 
         public static int Count
