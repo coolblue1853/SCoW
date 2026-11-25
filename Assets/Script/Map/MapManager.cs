@@ -377,6 +377,7 @@ public class MapManager : MonoBehaviour
                 DataBaseManager.workSound = false;
                 UiGate.Push(PanelKind.Map);
                 mapChainingUI.SetActive(true);
+                MapFocusNav.Begin(mapChainingUI);
             }
         }
         else
@@ -389,6 +390,7 @@ public class MapManager : MonoBehaviour
                     DataBaseManager.workSound = false;
                     UiGate.Push(PanelKind.Map);
                     mapChainingUI.SetActive(true);
+                    MapFocusNav.Begin(mapChainingUI);
                 }
 
             }
@@ -399,6 +401,7 @@ public class MapManager : MonoBehaviour
         SoundManager.Instance.ClickSoundPlay();
         UiGate.Remove(PanelKind.Map);
         mapChainingUI.SetActive(false);
+        MapFocusNav.End();
     }
     public GameObject NomalMap;
     public GameObject SewerMap;
@@ -433,6 +436,7 @@ public class MapManager : MonoBehaviour
             {
                 UiGate.Remove(PanelKind.Map);
                 mapChainingUI.SetActive(false);
+                MapFocusNav.End();
             }
         }
     }

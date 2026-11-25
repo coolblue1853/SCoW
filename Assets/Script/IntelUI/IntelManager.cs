@@ -150,7 +150,7 @@ public class IntelManager : MonoBehaviour
     }
     private static readonly SCoW.Core.Ui.Hint[] IntelHints =
     {
-        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Navigate, "Select"),
+        new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Scroll, "Scroll"),
         new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Page, "Page"),
         new SCoW.Core.Ui.Hint(SCoW.Core.Ui.HintAction.Cancel, "Close"),
     };

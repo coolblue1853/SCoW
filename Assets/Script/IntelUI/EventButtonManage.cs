@@ -12,19 +12,14 @@ public class EventButtonManage : MonoBehaviour
             DetailUpdate();
         }
 
-         if (upButton.activeSelf == true)
+        int step = NotebookScroll.Step();
+        if (step < 0 && upButton.activeSelf == true)
         {
-            if (GameInput.NavUpDown)
-            {
-                ClickUpButton();
-            }
+            ClickUpButton();
         }
-         if (downButton.activeSelf == true)
+        else if (step > 0 && downButton.activeSelf == true)
         {
-            if (GameInput.NavDownDown)
-            {
-                ClickDownButton();
-            }
+            ClickDownButton();
         }
     }
     public GameObject upButton;

@@ -78,6 +78,8 @@ public sealed class VitalsFxView : MonoBehaviour
         BillowUIManager.VitalsChanged -= OnVitals;
         SceneRouter.SceneEntered -= OnScene;
         KillTween();
+        _flashAlpha = 0f;
+        Paint();
     }
 
     private void OnDestroy()

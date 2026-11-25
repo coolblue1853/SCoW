@@ -24,6 +24,8 @@ namespace SCoW.Core.Ui
         Present,
         Backlog,
         Scroll,
+        Interact,
+        Portal,
     }
 
     public struct Hint
@@ -65,6 +67,10 @@ namespace SCoW.Core.Ui
                     return pad ? "Y" : "F";
                 case HintAction.Backlog:
                     return pad ? "LT" : "B";
+                case HintAction.Interact:
+                    return pad ? "A" : "E";
+                case HintAction.Portal:
+                    return pad ? "D-Pad Up" : "F";
                 case HintAction.Scroll:
                     return mouse ? "Wheel" : (pad ? "D-Pad" : "W/S");
                 default:

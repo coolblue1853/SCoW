@@ -184,6 +184,16 @@ public static class GameInput
         }
     }
 
+    /// <summary>이번 프레임 마우스 휠 세로 변화(위로 굴리면 양수). 마우스가 없으면 0. 수첩 목록 스크롤(UX-9)이 쓴다.</summary>
+    public static float ScrollY
+    {
+        get
+        {
+            Mouse mouse = Mouse.current;
+            return mouse != null ? mouse.scroll.ReadValue().y : 0f;
+        }
+    }
+
     /// <summary>누르고 있는 동안 true(레거시 GetMouseButton).</summary>
     public static bool PointerHeld
     {

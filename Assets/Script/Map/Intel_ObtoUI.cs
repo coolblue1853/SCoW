@@ -752,6 +752,8 @@ public class Intel_ObtoUI : MonoBehaviour
         {
             DataBaseManager.selectObject = this.transform.name;
             BillowUIManager.Instance.SetIntelUi(name, detail);
+            // TODO(I2): 문구를 I2 키로.
+            InteractHintView.Enter(transform, SCoW.Core.Ui.HintAction.Interact, "Inspect", 2.2f);
         }
     }
     public void ExDetailChange()
@@ -766,6 +768,7 @@ public class Intel_ObtoUI : MonoBehaviour
         {
             DataBaseManager.selectObject = "";
             BillowUIManager.Instance.ResetIntelUi();
+            InteractHintView.Exit(transform);
         }
     }
     public void CancelJudge()

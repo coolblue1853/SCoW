@@ -350,6 +350,8 @@ public class PotalPoint : MonoBehaviour
         if (collision.tag == "Player")
         {
             playerInTrigger = true;
+            // TODO(I2): 문구를 I2 키로.
+            InteractHintView.Enter(transform, SCoW.Core.Ui.HintAction.Portal, "Move", 2.2f);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -357,6 +359,7 @@ public class PotalPoint : MonoBehaviour
         if (collision.tag == "Player")
         {
             playerInTrigger = false;
+            InteractHintView.Exit(transform);
         }
     }
 }

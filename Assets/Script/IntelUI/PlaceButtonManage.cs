@@ -10,30 +10,25 @@ public class PlaceButtonManage : MonoBehaviour
         {
             ButtonDetail();
         }
-        if (upButton2.activeSelf == true)
+        int step = NotebookScroll.Step();
+        if (step < 0)
         {
-            if (GameInput.NavUpDown)
+            if (upButton2.activeSelf == true)
             {
                 ClickUpButton2();
             }
-        }
-        else if (upButton.activeSelf == true)
-        {
-            if (GameInput.NavUpDown)
+            else if (upButton.activeSelf == true)
             {
                 ClickUpButton();
             }
         }
-        if (downButton2.activeSelf == true)
+        else if (step > 0)
         {
-            if (GameInput.NavDownDown)
+            if (downButton2.activeSelf == true)
             {
                 ClickDownButton2();
             }
-        }
-        else if (downButton.activeSelf == true)
-        {
-            if (GameInput.NavDownDown)
+            else if (downButton.activeSelf == true)
             {
                 ClickDownButton();
             }

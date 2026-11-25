@@ -675,6 +675,28 @@
                 },
                 {
                     "name": "",
+                    "id": "3f1d6a52-7c0e-4b8a-9d21-5a6e0c9b1f01",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "NavUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f1d6a52-7c0e-4b8a-9d21-5a6e0c9b1f02",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "NavDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c5079bd5-56f1-4593-bb1e-a56e6287a685",
                     "path": "<Keyboard>/d",
                     "interactions": "",
