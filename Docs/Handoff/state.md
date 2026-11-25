@@ -25,3 +25,5 @@
 - 다음: PT-5(다인원 전투 View)·UX-11 → SEWER → 스토리 P0 → ART-2. 사용자 확인 필요: 글꼴 미리보기 검토, PT-3 합류 대사·엔딩 초안, 실조작(F/F5/F9·W/S·십자키·칩 A/D·LB/RB·마우스).
 - 11-25 오후 2: PT-5·UX-11(5900ba8·4d01791), 전투 화면 겹침 수정(f877e6a), SEWER S0(aff336d, 분포표 SewerImprove 2-1)·S1(a1f5c86, 고정 그래프 15방·SewerState·구세이브 매핑) push. EditMode 411. 5시간 77% 로 정지, 19:53 재개.
 - 다음: SEWER S2(조사 포인트·단서) → S3(시야·깜빡임, 마스크는 사용자 검토) → S4·S7 → PT-6(입력 3경로) → PT-7 → 스토리 P0 → ART-2. 미검증: 하수도 실키 이동·실전투 후 승리 기록·실제 하수도 세이브 로드, 전투 1920x1080·패배/도주 경로. S1 임시 가정은 SewerImprove.md 6절.
+- 11-25 저녁: SEWER S2(03f00d4, 조사 포인트 5곳·intelSewerClue* 5개, 임시 가정 SewerImprove 7절) push. EditMode 415. 5시간 98% 까지 사용(사용자: 5시간 창은 꽉 채움), 19:53 재개. ART-2 PixelLab 은 '픽셀렙 모션생성' 세션에 위임(파비안 시안 2판, 10회, `Docs/ArtCandidates/Fabian/`, 사용자 판정 대기).
+- 다음: S3 → S4·S7 → PT-6 → PT-7 → 스토리 P0. 미검증: S2 실제 E 키 흐름, 새 단서 플래그 수첩 미표시.
