@@ -115,6 +115,7 @@ public static class SewerFlow
         }
         SewerRoomApplier.Apply(TimeManagere.Instance, m.To);
         Present(m.Encounter);
+        OnArrived(m.To, m.Encounter);
         return m;
     }
 
@@ -154,6 +155,30 @@ public static class SewerFlow
         {
             SewerRoomApplier.HideEnemies(TimeManagere.Instance);
         }
+    }
+
+    /// <summary>지금 방이 휴식 구역인가(시야 마스크가 읽는다).</summary>
+    public static bool InRestRoom()
+    {
+        SewerRoomDef d = Graph.Get(SewerState.Room(State));
+        return d != null && d.Rest;
+    }
+
+    // 새 방에 도착한 뒤: 휴식 구역이면 SAN 회복(처음 한 번), 아니면 조우 전조(SAN 연동 깜빡임·흔들림).
+    private static void OnArrived(SewerRoomDef room, int encounter)
+    {
+        int gain = SewerRest.Recover(State, room, UnityRng.Instance);
+        if (gain > 0)
+        {
+            SaveToast.Show("Rested a moment. SAN +" + gain, false); // TODO(I2)
+        }
+        if (encounter > 0 || room.Rest)
+        {
+            return;
+        }
+        int distance = SewerEncounters.OmenDistance(State, Graph, room.Id);
+        float ratio = SewerSight.Ratio(DataBaseManager.nowSan, DataBaseManager.san);
+        SewerSightView.PlayOmen(SewerEncounters.Omen(distance, ratio));
     }
 
     // 옛 MakeSewer 의 적 등장 처리: 적 표시, 코트면 변장 판정만, 아니면 1초 뒤 조우 대사.

@@ -186,3 +186,11 @@ P0 = S0·S1·S2·S3(4개). 하수도 외부 작업과 겹치는 파일: `TimeMan
 - **검증**: EditMode 423 통과. 플레이 모드: SAN 60/60 반경 1.05, 12/60 반경 0.77, 15/60 약 20초에 깜빡임 6회, 흔들림 끄기 20초 0회, `nowPlace` 변경 시 마스크 꺼짐·밝기 1 복원. 스크린샷 `Logs/playtest/sewer_s3_san_hi.png`·`sewer_s3_san_lo.png`. **마스크 모양·밝기는 사용자 검토 대기.** 미검증: 실제 문 이동·전투 진입/종료 전환, 패드 입력.
 - **알려진 점**: 플레이어가 화면 왼쪽 끝에 서는 방이 많아 SAN 만땅에서도 오른쪽이 어둡다(높이 기준 반경 때문). 너비 기준으로 바꿀지는 사용자 검토 후 결정.
 - **시야 반경 너비 기준으로 수정(11-25 결정)**: 반경 단위를 화면 높이 절반에서 **화면 너비**로 바꿨다. `SewerSight.Radius` = `lerp(0.2, 1.05, SAN비율)` + 전구 켜짐 +0.05 / 꺼짐 -0.1 x (1-비율). SAN 가득이면 전구 상태와 무관하게 반경 >= 1(너비) 이라 플레이어가 화면 끝에 서도 반대편이 보인다(`RadiusPixels`, 테스트 `Full_san_radius_covers_screen_width_even_at_the_edge`). SAN 이 낮을수록 줄어드는 곡선은 유지(0 에서 0.1~0.25, 높이 기준일 때와 비슷한 좁기). 위 수치 중 "화면 높이 절반" 은 이 결정으로 대체됨.
+
+## 9. S4 구현 메모 (11-25)
+- **데이터**: `Core/Sewer/SewerEncounters.cs` 의 표가 조우 배치 원본(번호·방·도착 대사). E1 `z2b_1`·E2 `z3_2`·E3 `z5_1`(S1 위치 유지), `SewerGraph` 가 방의 `HasEnemy` 를 여기서 정한다. `SewerRoomDef.Rest` = `z4_1`(비밀기지) 하나. 도착 대사는 `TimeManagere.PrintBattleDialog` 가 `SewerEncounters.DialogFor` 로 고른다(전투 진입·PT-4 SAN 자동 판정 호출 그대로).
+- **전조**: `SewerEncounters.OmenDistance` = 앞(오른쪽 문)으로 1~2칸 안에 처치 못 한 조우가 있으면 그 칸 수. 조우 방 자신·휴식 구역은 없음. 연출 계획 `Omen(거리, SAN비율)`: 깜빡임 거리1=2회·거리2=1회, SAN 70% 미만이면 화면 흔들림(세기 = 근접계수 x (0.4+0.6 x (1-SAN비율))). 뷰 `SewerSightView.PlayOmen` 이 기존 전구 밝기 경로(`BulbFlicker.DimLevel`)와 `ShakeFx.Position`(카메라, 0.6초)을 재사용, 흔들림 끄기 설정이면 전조 전체 생략. 새 소리·그림 없음(S6 사운드 때 소리 추가).
+- **휴식 구역**: `SewerSight.Radius(비율, 전구, rest)` 는 rest 면 최소 1.1(너비 이상), `FlickerActive` 가 rest 에서 false. 처음 들어오면 SAN +1d3(최대 SAN 이 상한, 한 번만, Counters `sewer.rest` 추가, `SewerState.Clear` 에서 초기화) + `SaveToast`("Rested a moment. SAN +n", TODO I2).
+- **첫 딥원 연출 이동(임시 가정)**: `Sewer_FirstDeepOne` 대사를 2번째에서 E1 로 옮겼다(문서 3-4절). 단 E1 전투 구성은 옛 그대로(혼혈=딥원 계열 4마리 구성 `SetDeepOneHybrid4`), 딥원 본체 등장은 E2. 대사가 딥원 본체를 가리키는 문구면 스토리 담당 검수 필요.
+- **임시 가정**: ① 전조는 조우 방 직전 구간만(환청·환영은 S8). ② 휴식 SAN 회복 1d3 는 사용자 판단 대기(Q-S2). ③ 코트 회피(E1)는 기존 `wearCoat` 흐름 그대로.
+- **검증**: EditMode 434 통과(새 11건: 배치·전조 거리·계획·휴식 규칙). 플레이 모드(`execute_code` 직접 호출): 입구에서 오른쪽 이동 시 `z1_2`·`z1_3` 에서 전조 2회, `z2b_1` 조우, E1 처치 후 전조 없음, SAN 15/60 `z3_1` 에서 전조 + 카메라 트윈 동작, `z3_2` -> `z4_1` 에서 SAN 15->18·반경 1.1·깜빡임 0(4초 관찰)·토스트. 콘솔 error 0(락 소음 제외). **미검증**: 실제 키 입력 이동, 실전투 진입·승리 후 흐름, 스크린샷 육안 확인(흔들림 세기 조정 대상), 패드.

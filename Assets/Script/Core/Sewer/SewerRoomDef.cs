@@ -58,6 +58,8 @@ namespace SCoW.Core.Sewer
         public bool LadderHigh { get; internal set; }
         /// <summary>적이 나오는 방(조우). 몇 번째 조우인지는 SewerGraph.EncounterRoom 순서.</summary>
         public bool HasEnemy { get; internal set; }
+        /// <summary>휴식 구역(S4): 적 없음, 시야가 넓고 전구가 깜빡이지 않으며 처음 들어오면 SAN 을 조금 회복한다.</summary>
+        public bool Rest { get; internal set; }
 
         public IList<SewerExit> Exits
         {

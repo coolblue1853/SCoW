@@ -18,6 +18,8 @@ namespace SCoW.Core.Sewer
         public const float BulbOnBonus = 0.05f;
         /// <summary>전구 꺼짐 감점. SAN 이 가득이면 0(너비를 덮는 조건 유지), 낮을수록 온전히 적용.</summary>
         public const float BulbOffPenalty = 0.1f;
+        /// <summary>휴식 구역의 최소 시야 반경(화면 너비 대비). 어느 SAN 에서도 너비를 덮는다.</summary>
+        public const float RestRadius = 1.1f;
         /// <summary>마스크 텍스처에서 완전히 뚫린 반경(텍스처 반폭 대비).</summary>
         public const float HoleEdge = 0.15f;
         /// <summary>계단 한 칸 폭(텍스처 반폭 대비).</summary>
@@ -44,6 +46,19 @@ namespace SCoW.Core.Sewer
             float r = sanRatio < 0f ? 0f : (sanRatio > 1f ? 1f : sanRatio);
             float baseR = MinRadius + (MaxRadius - MinRadius) * r;
             return baseR + (bulbOn ? BulbOnBonus : -BulbOffPenalty * (1f - r));
+        }
+
+        /// <summary>휴식 구역이면 SAN 과 전구에 상관없이 반경을 RestRadius 이상으로 넓힌다(S4).</summary>
+        public static float Radius(float sanRatio, bool bulbOn, bool rest)
+        {
+            float r = Radius(sanRatio, bulbOn);
+            return rest && r < RestRadius ? RestRadius : r;
+        }
+
+        /// <summary>전구 깜빡임을 낼지: 설정이 허용하고 휴식 구역이 아닐 때만(휴식 구역은 깜빡임이 멈춘다).</summary>
+        public static bool FlickerActive(SettingsData settings, bool rest)
+        {
+            return !rest && FlickerAllowed(settings);
         }
 
         /// <summary>반경(화면 너비 대비)을 픽셀로. 화면 너비 기준이라 SAN 가득이면 결과가 항상 너비 이상이다.</summary>

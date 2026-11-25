@@ -57,14 +57,8 @@ public class TimeManagere : MonoBehaviour
     }
     public void PrintBattleDialog()
     {
-        if (DataBaseManager.sewerEnemyCounter == 2)
-        {
-            InteractionController.Instance.InSewerDialog("Sewer_FirstDeepOne");
-        }
-        else
-        {
-            InteractionController.Instance.InSewerDialog("Sewer_EnemySpawn");
-        }
+        // 조우별 도착 대사는 Core 데이터(SewerEncounters)에서: E1 = Sewer_FirstDeepOne, 그 외 Sewer_EnemySpawn.
+        InteractionController.Instance.InSewerDialog(SewerEncounters.DialogFor(DataBaseManager.sewerEnemyCounter));
     }
 
 

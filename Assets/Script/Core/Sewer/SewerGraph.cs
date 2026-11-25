@@ -21,8 +21,6 @@ namespace SCoW.Core.Sewer
         public const string ClueRoomId = "z4_1";
         public const string SymbolRoomId = "z5_2";
 
-        private static readonly string[] EncounterRooms = { "z2b_1", "z3_2", "z5_1" };
-
         private readonly Dictionary<string, SewerRoomDef> _byId = new Dictionary<string, SewerRoomDef>();
         private readonly List<SewerRoomDef> _rooms = new List<SewerRoomDef>();
 
@@ -35,12 +33,13 @@ namespace SCoW.Core.Sewer
 
         public static string EncounterRoom(int encounterNo)
         {
-            return encounterNo >= 1 && encounterNo <= EncounterRooms.Length ? EncounterRooms[encounterNo - 1] : null;
+            SewerEncounterDef d = SewerEncounters.ByNo(encounterNo);
+            return d == null ? null : d.RoomId;
         }
 
         public static int EncounterCount
         {
-            get { return EncounterRooms.Length; }
+            get { return SewerEncounters.Count; }
         }
 
         /// <summary>시드로 외형을 정한 그래프를 만든다. 같은 시드는 같은 외형.</summary>
@@ -133,14 +132,21 @@ namespace SCoW.Core.Sewer
             Add("z2a_1", "Z2a", SewerLook.Normal, false);
             Add("z2a_2", "Z2a", SewerLook.Cage, false);
             Add("z2a_3", "Z2a", SewerLook.Normal, false);
-            Add("z2b_1", "Z2b", SewerLook.Normal, true);
+            Add("z2b_1", "Z2b", SewerLook.Normal, false);
             Add("z2b_2", "Z2b", SewerLook.Normal, false);
             Add("z2b_3", "Z2b", SewerLook.Normal, false);
             Add("z3_1", "Z3", SewerLook.Normal, false);
-            Add("z3_2", "Z3", SewerLook.Normal, true);
+            Add("z3_2", "Z3", SewerLook.Normal, false);
             Add("z4_1", "Z4", SewerLook.House, false);
-            Add("z5_1", "Z5", SewerLook.Normal, true);
+            Add("z5_1", "Z5", SewerLook.Normal, false);
             Add("z5_2", "Z5", SewerLook.Symbol, false);
+
+            // 조우 배치(S4)와 휴식 구역은 데이터 표(SewerEncounters)가 원본이다.
+            for (int i = 1; i <= SewerEncounters.Count; i++)
+            {
+                _byId[SewerEncounters.ByNo(i).RoomId].HasEnemy = true;
+            }
+            _byId[ClueRoomId].Rest = true;
 
             Link("z0", SewerDoor.Right, "z1_1", SewerDoor.Left);
             Link("z1_1", SewerDoor.Right, "z1_2", SewerDoor.Left);

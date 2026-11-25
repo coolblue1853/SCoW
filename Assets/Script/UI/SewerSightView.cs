@@ -1,3 +1,4 @@
+using DG.Tweening;
 using SCoW.Core.Sewer;
 using SCoW.Core.Ui;
 using UnityEngine;
@@ -16,6 +17,11 @@ public sealed class SewerSightView : MonoBehaviour
     /// <summary>화면 6px = 도트 1칸(320x180 을 6배, 1080p 기준). 중심·반경을 이 격자에 맞춘다.</summary>
     private const float GridPx = 6f;
     private const float DimRadiusShrink = 0.2f;
+    private const float OmenGap = 0.25f;
+    private const float OmenDark = 0.15f;
+    private const float OmenShakeSeconds = 0.6f;
+    private const float OmenShakeMin = 0.1f;
+    private const float OmenShakeMax = 0.6f;
     /// <summary>하수도 방은 맵 좌표 x &lt; -1150, y &lt; -150 영역에 있다(SewerFlow 의 도착 좌표 기준). 이 안의 LightBulb 조명만 깜빡인다.</summary>
     private const float SewerAreaMaxX = -1150f;
     private const float SewerAreaMaxY = -150f;
@@ -27,6 +33,7 @@ public sealed class SewerSightView : MonoBehaviour
     {
         _instance = null;
         DimCount = 0;
+        OmenCount = 0;
     }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -62,6 +69,24 @@ public sealed class SewerSightView : MonoBehaviour
     /// <summary>지금까지 전구가 깜빡인 횟수(검증용).</summary>
     public static int DimCount { get; private set; }
 
+    /// <summary>전조 연출 횟수(검증용).</summary>
+    public static int OmenCount { get; private set; }
+
+    /// <summary>지금 휴식 구역 규칙(넓은 시야·깜빡임 없음)을 적용 중인가(검증용).</summary>
+    public static bool RestNow
+    {
+        get { return _instance != null && _instance._on && _instance._rest; }
+    }
+
+    /// <summary>조우 방 직전의 전조: 전구를 SAN 연동 횟수만큼 깜빡이고 불안 이하이면 화면을 흔든다. 흔들림 끄기 설정이면 아무것도 하지 않는다.</summary>
+    public static void PlayOmen(SewerOmen omen)
+    {
+        if (_instance != null && omen.Any)
+        {
+            _instance.StartOmen(omen);
+        }
+    }
+
     /// <summary>켜짐 여부와 SAN 을 즉시 다시 계산한다(진입·이동 직후 호출).</summary>
     public static void Refresh()
     {
@@ -85,6 +110,11 @@ public sealed class SewerSightView : MonoBehaviour
     private bool _on;
     private bool _bulbOn;
     private bool _wasDim;
+    private bool _rest;
+    private int _omenDims;
+    private float _omenTimer;
+    private bool _omenDark;
+    private Tween _omenShake;
     private float _ratio = 1f;
     private float _radius;
     private float _level = 1f;
@@ -159,7 +189,7 @@ public sealed class SewerSightView : MonoBehaviour
         {
             return;
         }
-        _level = _flicker.Tick(Time.unscaledDeltaTime, _ratio, SewerSight.FlickerAllowed(SettingsService.Current));
+        _level = Mathf.Min(_flicker.Tick(Time.unscaledDeltaTime, _ratio, SewerSight.FlickerActive(SettingsService.Current, _rest)), TickOmen(Time.unscaledDeltaTime));
         bool dim = _level < 1f;
         if (dim && !_wasDim)
         {
@@ -179,6 +209,7 @@ public sealed class SewerSightView : MonoBehaviour
         {
             ReadSan();
             _bulbOn = AnyBulbOn();
+            _rest = SewerFlow.InRestRoom();
         }
         SetOn(want);
     }
@@ -296,11 +327,58 @@ public sealed class SewerSightView : MonoBehaviour
                 ApplyBulbLevel();
             }
             _flicker.Reset();
+            _omenDims = 0;
         }
         if (_canvas != null)
         {
             _canvas.enabled = on;
         }
+    }
+
+    private void StartOmen(SewerOmen omen)
+    {
+        if (!_on || !ShakeFx.Allowed)
+        {
+            return;
+        }
+        OmenCount++;
+        _omenDims = omen.Dims;
+        _omenTimer = OmenGap;
+        _omenDark = false;
+        if (_omenShake != null && _omenShake.IsActive())
+        {
+            _omenShake.Kill();
+        }
+        if (omen.Shake > 0f && _cam != null)
+        {
+            float strength = OmenShakeMin + (OmenShakeMax - OmenShakeMin) * omen.Shake;
+            _omenShake = ShakeFx.Position(_cam.transform, OmenShakeSeconds, strength, 40).SetLink(_cam.gameObject);
+        }
+    }
+
+    // 전조 깜빡임 타이머: 어두움 0.15초 / 밝음 0.25초를 Dims 번 되풀이. 지금 전구 밝기 배율(1 = 정상)을 돌려준다.
+    private float TickOmen(float dt)
+    {
+        if (_omenDims <= 0)
+        {
+            return 1f;
+        }
+        _omenTimer -= dt;
+        if (_omenTimer <= 0f)
+        {
+            if (_omenDark)
+            {
+                _omenDark = false;
+                _omenDims--;
+                _omenTimer = OmenGap;
+            }
+            else
+            {
+                _omenDark = true;
+                _omenTimer = OmenDark;
+            }
+        }
+        return _omenDark ? BulbFlicker.DimLevel : 1f;
     }
 
     private void Layout()
@@ -310,7 +388,7 @@ public sealed class SewerSightView : MonoBehaviour
             return;
         }
         float shrink = 1f - DimRadiusShrink * (1f - _level);
-        _radius = SewerSight.Radius(_ratio, _bulbOn) * shrink;
+        _radius = SewerSight.Radius(_ratio, _bulbOn, _rest) * shrink;
         float radiusPx = Snap(SewerSight.RadiusPixels(_radius, Screen.width));
         float halfSize = radiusPx / SewerSight.HoleEdge;
         Vector3 sp = _cam.WorldToScreenPoint(_player.position);

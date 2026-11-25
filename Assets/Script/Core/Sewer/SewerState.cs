@@ -82,6 +82,7 @@ namespace SCoW.Core.Sewer
             s.SetText(SewerKeys.Defeated, null);
             s.SetText(SewerKeys.Looked, null);
             s.SetCounter(SewerKeys.Seed, 0);
+            s.SetCounter(SewerRest.RestKey, 0);
             for (int i = 1; i <= SewerGraph.EncounterCount; i++)
             {
                 s.SetCounter(SewerKeys.Enc(SewerGraph.EncounterRoom(i)), 0);
