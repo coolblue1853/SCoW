@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace SCoW.Core.Rules
 {
     /// <summary>룰렛에서 플레이어·적 판정 단계를 비교하는 대립 판정 종류(옛 BattleRollet.subject).</summary>
@@ -185,6 +187,24 @@ namespace SCoW.Core.Rules
                 return !(dex > second);
             }
             return false;
+        }
+
+        /// <summary>
+        /// 하수도 입구 단체 은신(Party.md 3-3): 전원 중 가장 낮은 은신치로 SewerDisguiseFails 를 한 번만 판정한다.
+        /// 값이 하나면 SewerDisguiseFails(values[0]) 와 난수 소비·결과가 같다. 값이 없으면 판정하지 않고 통과(false).
+        /// </summary>
+        public static bool SewerPartyDisguiseFails(IReadOnlyList<int> values, IRng rng)
+        {
+            if (values == null || values.Count == 0)
+            {
+                return false;
+            }
+            int lowest = values[0];
+            for (int i = 1; i < values.Count; i++)
+            {
+                lowest = values[i] < lowest ? values[i] : lowest;
+            }
+            return SewerDisguiseFails(lowest, rng);
         }
     }
 }

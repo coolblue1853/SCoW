@@ -1,4 +1,6 @@
 using SCoW.Core.Rules;
+using SCoW.Core.Sewer;
+using SCoW.Core.State;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -804,33 +806,29 @@ public class DirectingManager : MonoBehaviour
         battleRoadLight.SetActive(false);
         battleObject.transform.localPosition = battlePlayerSewer;
         BattleManager.Instance.OriginPointChange();
-        if (DataBaseManager.sewerEnemyCounter == 1)
+        // PT-7: 조우 번호와 파티 인원으로 적 구성을 정한다(솔로 = 옛 구성). 환원은 방별 조우 전에 한 번.
+        GameState partyState = GameRoot.Instance.State;
+        PartyBattleBridge.RestoreForSewer(partyState);
+        int[] sewerEnemies = SewerPartyRules.EnemyIndices(DataBaseManager.sewerEnemyCounter, SewerPartyRules.PartySize(partyState));
+        bool hybrid4 = System.Array.IndexOf(sewerEnemies, SewerPartyRules.Hybrid4) >= 0;
+        bool deepOne = System.Array.IndexOf(sewerEnemies, SewerPartyRules.DeepOne1) >= 0;
+        bool hybrid3 = System.Array.IndexOf(sewerEnemies, SewerPartyRules.Hybrid3) >= 0;
+        sewerEnemy1.SetActive(hybrid4);
+        sewerEnemy2.SetActive(deepOne);
+        enemyTrunSymbol1.SetActive(hybrid4);
+        enemyTrunSymbol2.SetActive(deepOne);
+        enemyTrunSymbol3.SetActive(hybrid3);
+        if (hybrid4)
         {
-            sewerEnemy1.SetActive(true);
-            sewerEnemy2.SetActive(false);
-            enemyTrunSymbol1.SetActive(true);
-            enemyTrunSymbol2.SetActive(false);
-            enemyTrunSymbol3.SetActive(false);
             BattleManager.Instance.SetDeepOneHybrid4();
         }
-        else if (DataBaseManager.sewerEnemyCounter == 2)
+        if (deepOne)
         {
-            sewerEnemy1.SetActive(false);
-            sewerEnemy2.SetActive(true);
-            enemyTrunSymbol1.SetActive(false);
-            enemyTrunSymbol2.SetActive(true);
-            enemyTrunSymbol3.SetActive(false);
             BattleManager.Instance.SetDeepOne1();
         }
-        else
+        if (hybrid3)
         {
-            sewerEnemy1.SetActive(true);
-            sewerEnemy2.SetActive(true);
-            enemyTrunSymbol1.SetActive(true);
-            enemyTrunSymbol2.SetActive(true);
-            enemyTrunSymbol3.SetActive(false);
-            BattleManager.Instance.SetDeepOneHybrid4();
-            BattleManager.Instance.SetDeepOne1();
+            BattleManager.Instance.SetDeepOneHybrid3();
         }
         roadBattleBackground.SetActive(false);
         sewerBattleBackground.SetActive(true);

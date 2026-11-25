@@ -366,3 +366,19 @@ namespace SCoW.Core.Rules {
 - PT-3 구현 메모: 합류 트리거는 카탈로그의 `Location`(상위 Sewage MA Office, 플래그 intelSewageMaintenanceOffice1) 제시로 `Keyword.json` 의 `Albert Bradley/Location`(time>8)·`Maeve/Location`(time>9) 토픽이 `pre: join:id` 효과를 실행한다. 수락/보류 선택지 UI 와 `Old route` 는 미구현(키워드 제시 = 수락, 임시 가정). 새 대사 CSV: 1st_PoliceOffice·1st_Bar 322~, InSewer 416~425(엔딩 변주 3종). 플레이 모드 검증은 미실시.
 - PT-5 구현 메모(11-25): View `Battle/Party/`(PartyBattleView·Panel·BattleEventPlayer·PartyBattleDirector), 순수 연출 순서 `Core/Ui/BattleCue.cs`(BattleCueBuilder), 예상 성공률 `BattleField.PreviewAttack`, 툴팁 `UI/TooltipView·TooltipTarget`(UX-11 공유). 진입: `BattleManager.Update` 가 전투 시작 때 한 번 `PartyBattleDirector.TryStart` 를 불러 명단(파비안+동료)이 2명 이상이면 View 가 전투를 넘겨받고, 1명(솔로)이면 옛 경로 그대로. 종료는 `BattleManager.PartyBattleEnd`(죽은 적 정산·승리 시 턴 심볼 끄기·도주는 옛 도주 흐름). 파비안 판정은 `Rollet.SetRollet(..., "PT_Fabian")` -> `EndRollet` 이 `PartyBattleDirector.OnLeaderRoll` 로 PreRolled 주입. 임시 가정: 동료 초상화는 색 사각형+이름, 순서 바는 `Preview(8)`, 동료 사격 탄은 무제한(Core 미추적), 대열 교체는 행동 메뉴 Swap 만(드래그·Q/E 는 PT-6), 하수도 옛 심볼 매핑상 적은 2마리까지(3v3 는 `Begin` 직접 호출). 플레이 모드 3v3 한 판(룰렛·압축·승리) 확인, 솔로 경로는 옛 틱 동작 확인.
 - PT-6 구현 메모(11-25): 순수 규칙 `Core/Ui/BattleSelectNav.cs`(메뉴 이동·대상 이동·교체 이웃 칸), 입력 `PartyBattleView.Input.cs`. 대열 교체 단축키는 `UI` 맵의 `SwapLeft`/`SwapRight` 액션: 키보드 **Q/R**(E 는 Interact 확정과 충돌해 R 로 변경), 패드 LB/RB. 행동 메뉴에서 누르면 Swap 줄+이웃 칸을 한 번에 확정(`ViewPick.QuickRank`). 화면 방향 기준(아군은 칸 번호가 클수록 왼쪽 → 좌우 이동 시 칸 증감 반전, 이전에는 아군 대상 좌우가 거꾸로였다). Q 는 수첩 TodoTab 과 같은 키지만 수첩이 열릴 때만 읽혀 전투 View 와 겹치지 않는다. HintBar: 메뉴 `Navigate/Confirm/Swap`, 대상 `Adjust/Confirm/Cancel`(장치별 글리프 `HintGlyphs`). 숫자키 1~6 행동 선택은 1/2/3 이 OpenIntel/Map/SIS 와 겹쳐 보류. 포커스 링은 PT-5 `PartyBattlePanel.SetFocus` 재사용(새 그래픽 없음). 검증: EditMode 441 통과, 플레이 모드 3v3 에서 `DebugSwap` 으로 교체·교체 대상 선택 확인. 에디터 비포커스라 실제 키·패드 이벤트는 처리되지 않아 **키/패드 실입력은 미검증**, 마우스 클릭 취소도 미검증.
+- PT-7 구현 메모(11-25): 코드 `Core/Sewer/SewerPartyRules.cs`(은신 값 모으기·파티 인원·조우별 적 구성), `BattleEngine.SewerPartyDisguiseFails`, `PartyBattleBridge.RestoreForSewer`. 연결: `InSewerEnemy`(입구 은신), `DirectingManager.GotoBattleSewer`(조우 전 환원 + 적 구성 + 턴 심볼), `BattleManager.SewerSymbolEnemy` 3칸째 = 혼혈3. 전투 진입은 PT-5 `TryStart` 그대로(명단 2명 이상이면 다인원 View, 1명이면 옛 솔로 경로).
+  - **단체 은신(임시 가정)**: 값 = 파비안 DEX(옛 판정) + 동료 은신 기능치(알버트 15·메이브 40), 가장 낮은 값 하나로 `SewerDisguiseFails` 한 번. 코트(`wearCoat`) 착용이면 동료는 변장으로 가려져 파비안 값만. 죽은·대기 동료는 제외. 값이 하나면 옛 판정과 난수 소비까지 같다(구세이브·솔로 동치). 메이브 "내가 앞장서겠다"(대신 판정) 선택지는 대사 작업이 필요해 **미구현**.
+  - **방별 조우 전 환원(임시 가정)**: 하수도 안은 시간이 안 흐르고 이탈·귀가가 안 되므로(1-2절) 복귀 시각을 기다리지 않는다. 조우 시작 때 Recovering 은 HP 최소 MaxHp/2(복귀 HP 절반 그대로), Broken 은 SAN +5(한 번)로 Ready 가 된다. Downed·Stable 이 전투 밖에 남아 있으면 Ready(HP 최소 5). 죽은·대기 동료는 그대로. 전투 후 쓰러짐 정산(승리 Recovering, 도주·패배 사망)은 PT-2 그대로라 한 전투 뒤 다음 조우에서 되살아난다.
+  - **조우 적 구성(임시 가정)**: 솔로는 옛 구성(E1 혼혈4, E2 심해인1, E3 둘). 파티(2명 이상)는 한 마리 추가: E1 혼혈4+혼혈3, E2 심해인1+혼혈4, E3 혼혈4+심해인1+혼혈3. 하수도 턴 심볼은 3칸이고 칸마다 적 하나(혼혈4 칸1·심해인1 칸2·혼혈3 칸3)라 더 늘릴 수 없다.
+  - **밸런스 1차(EditMode `PartySewerTests`, 각 200판·시드 고정·승리 수)**: 파비안 = HP50·SAN52·DEX52·무술50·권총(사격40, 탄 무제한이라 솔로에 유리), 정책은 자동(응급·진정·사격·근접 순). 연속 = E1→E2→E3, 사이에 환원.
+
+    | 조우 | 솔로 | 2인 | 3인 |
+    |---|---|---|---|
+    | E1 | 198 | 200 | 200 |
+    | E2 | 162 | 185 | 196 |
+    | E3 | 76 | 160 | 188 |
+    | E1~E3 연속 | 19 | 102 | 161 |
+
+    판독: 적 한 마리 추가에도 동료는 확실한 편의(연속 클리어 솔로 9.5% → 3인 80.5%). 솔로는 탄·룰렛·도주가 없는 모의라 실제와 다르다. 3인이 너무 쉬우면 적 HP 보정을 검토(칸 한계로 마릿수는 못 늘림). 플레이 감으로 재조정.
+  - **구세이브**: 파티 키가 없으면 인원 1·환원 0·은신 값 [dex]·구성 솔로(`OldSave_WithoutPartyKeysRunsAsSolo`).
+  - **검증**: EditMode 454(새 13) 통과. 플레이 모드: Recovering 알버트 + 메이브 합류 상태로 `GotoBattleSewer`(E1) -> 환원(알버트 HP 1 -> 37, Ready) 후 아군 3 대 적 2 다인원 View 가 메뉴 모드까지 진행, 콘솔 error 0. **미검증**: 전투를 끝까지 이어 다음 조우로 넘어가는 연속 플레이, 입구 단체 은신 대사 실제 호출, 3칸째 적(혼혈3)의 전투 맵 오브젝트 표시.

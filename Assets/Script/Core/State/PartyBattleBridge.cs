@@ -80,6 +80,41 @@ namespace SCoW.Core.State
             return PartyMember.FromCompanion(def, PartyState.GetHp(s, def.Id), PartyState.GetSan(s, def.Id));
         }
 
+        /// <summary>
+        /// 하수도 방별 조우 전 환원(PT-7). 하수도 안에서는 시간이 안 흐르고 귀가·이탈이 안 되므로(Party.md 1-2) 복귀 시각(backAt)을 기다리지 않고
+        /// Recovering·Broken 동료를 바로 되살린다(Recovering HP 최소 MaxHp/2, Broken SAN +5 한 번). Downed·Stable 이 남아 있으면 Ready, HP 최소 5.
+        /// 죽은 동료·대기(standby)·미합류는 건드리지 않는다. 되살린 동료 수를 돌려준다. 동료가 없는 구세이브는 아무 일도 없다.
+        /// </summary>
+        public static int RestoreForSewer(GameState s)
+        {
+            int count = 0;
+            for (int i = 0; i < CompanionDefs.All.Length; i++)
+            {
+                CompanionDef def = CompanionDefs.All[i];
+                if (!PartyState.IsJoined(s, def.Id) || PartyState.IsDead(s, def.Id) || PartyState.IsStandby(s, def.Id))
+                {
+                    continue;
+                }
+                UnitStatus status = PartyState.GetStatus(s, def.Id);
+                if (status == UnitStatus.Recovering || status == UnitStatus.Broken)
+                {
+                    Revive(s, def, status);
+                    count++;
+                }
+                else if (status == UnitStatus.Downed || status == UnitStatus.Stable)
+                {
+                    PartyState.SetHp(s, def, Math.Max(PartyState.GetHp(s, def.Id), DownedReturnHp));
+                    PartyState.SetStatus(s, def.Id, UnitStatus.Ready);
+                    s.SetCounter(PartyKeys.BackAt(def.Id), 0);
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        /// <summary>쓰러짐·안정 상태가 전투 밖에 남았을 때 돌아오는 HP 하한(BattleField.Settle 과 같은 값).</summary>
+        public const int DownedReturnHp = 5;
+
         private static void Revive(GameState s, CompanionDef def, UnitStatus from)
         {
             if (from == UnitStatus.Recovering)

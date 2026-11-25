@@ -116,7 +116,7 @@ public class BattleManager : MonoBehaviour
     // 지금(1:1 외형 유지)은 장소별 고정표다: 귀가길 혼혈1~3 이 칸0~2, 하수도 혼혈4 가 칸0, 심해인1 이 칸1 을 쓴다(칸이 겹친다).
     // PT-2 에서 BattleField.Enemies[3]/Rank 로 "등장하는 적 -> 칸" 을 매 전투 만들며 이 표를 없앤다.
     private static readonly int[] RoadSymbolEnemy = { SlotHybrid1, SlotHybrid2, SlotHybrid3 };
-    private static readonly int[] SewerSymbolEnemy = { SlotHybrid4, SlotDeepOne1, -1 };
+    private static readonly int[] SewerSymbolEnemy = { SlotHybrid4, SlotDeepOne1, SlotHybrid3 }; // 3칸째는 파티 조우(PT-7)만 켠다
     private static readonly int[] EnemySymbolSlot = { 0, 1, 2, 0, 1 };
     private static int EnemyIndexForSymbol(int symbolSlot, bool inSewer)
     {
