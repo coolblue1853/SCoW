@@ -165,6 +165,12 @@ public static class UiGate
         HintBar.Clear();
     }
 
+    /// <summary>화면 전용 컨트롤러(캐릭터 생성 등)가 이번 프레임의 Cancel 을 직접 처리했음을 알린다. 같은 키(Esc)로 설정창이 함께 열리는 것을 막는다.</summary>
+    public static void ConsumeCancel()
+    {
+        _cancelFrame = Time.frameCount;
+    }
+
     /// <summary>이번 프레임에 Cancel 로 패널이 이미 닫혔나. 같은 키로 설정창이 곧바로 열리는 것을 막을 때 쓴다.</summary>
     public static bool CancelConsumedThisFrame
     {
