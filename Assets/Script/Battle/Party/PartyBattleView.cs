@@ -48,7 +48,7 @@ public sealed partial class PartyBattleView : MonoBehaviour
     public static PartyBattleView Create()
     {
         GameObject go = new GameObject("PartyBattleView");
-        DontDestroyOnLoad(go);
+        Persist.Keep(go);
         PartyBattleView v = go.AddComponent<PartyBattleView>();
         v.Build();
         return v;

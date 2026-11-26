@@ -72,7 +72,7 @@ public sealed class TooltipView : MonoBehaviour
         if (_instance == null)
         {
             GameObject go = new GameObject("TooltipView");
-            DontDestroyOnLoad(go);
+            Persist.Keep(go);
             _instance = go.AddComponent<TooltipView>();
             _instance.Build();
         }

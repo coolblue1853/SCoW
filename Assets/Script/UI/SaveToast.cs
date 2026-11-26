@@ -36,7 +36,7 @@ public sealed class SaveToast : MonoBehaviour
         if (_instance == null)
         {
             GameObject go = new GameObject("SaveToast");
-            DontDestroyOnLoad(go);
+            Persist.Keep(go);
             _instance = go.AddComponent<SaveToast>();
             _instance.Build();
         }

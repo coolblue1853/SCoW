@@ -87,7 +87,6 @@ public class DataBaseManager : MonoBehaviour
     public static bool mapLooked { get => S.GetFlag(FlagKeys.mapLooked); set => S.SetFlag(FlagKeys.mapLooked, value); }
     public static bool mapFirstDialog { get => S.GetFlag(FlagKeys.mapFirstDialog); set => S.SetFlag(FlagKeys.mapFirstDialog, value); }
     public static bool sewerageKey { get => S.GetFlag(FlagKeys.sewerageKey); set => S.SetFlag(FlagKeys.sewerageKey, value); }
-    public static bool isTest = false;
     public static bool judgeSafeTryOpen { get => S.GetFlag(FlagKeys.judgeSafeTryOpen); set => S.SetFlag(FlagKeys.judgeSafeTryOpen, value); }
     public static bool judgeCoatTryDisguise { get => S.GetFlag(FlagKeys.judgeCoatTryDisguise); set => S.SetFlag(FlagKeys.judgeCoatTryDisguise, value); }
     public static bool gainCoat { get => S.GetFlag(FlagKeys.gainCoat); set => S.SetFlag(FlagKeys.gainCoat, value); }
@@ -412,7 +411,7 @@ public class DataBaseManager : MonoBehaviour
         }
         else
         {
-            DontDestroyOnLoad(this.gameObject);
+            Persist.Keep(this.gameObject);
             instance = this;
         }
         isPresentation = false;

@@ -21,7 +21,7 @@ public sealed class QuickSaveInput : MonoBehaviour
     private static void Boot()
     {
         GameObject go = new GameObject("QuickSaveInput");
-        DontDestroyOnLoad(go);
+        Persist.Keep(go);
         go.AddComponent<QuickSaveInput>();
     }
 

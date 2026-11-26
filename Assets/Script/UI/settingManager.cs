@@ -28,7 +28,7 @@ public class settingManager : MonoBehaviour
         if (null == instance)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            Persist.Keep(this.gameObject);
             // P4: 저장된 설정(해상도·전체화면)을 화면 UI 상태에 반영하고 저장/불러오기 버튼을 만든다.
             SettingsData saved = SettingsService.Current;
             changeInt = saved.ResolutionIndex;

@@ -31,7 +31,7 @@ public sealed class MapFocusNav : MonoBehaviour
         if (_instance == null)
         {
             GameObject go = new GameObject("MapFocusNav");
-            DontDestroyOnLoad(go);
+            Persist.Keep(go);
             _instance = go.AddComponent<MapFocusNav>();
         }
         _instance.Open(root);

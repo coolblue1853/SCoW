@@ -38,7 +38,7 @@ public sealed class InteractHintView : MonoBehaviour
             return;
         }
         GameObject go = new GameObject("InteractHintView");
-        DontDestroyOnLoad(go);
+        Persist.Keep(go);
         go.AddComponent<InteractHintView>();
     }
 

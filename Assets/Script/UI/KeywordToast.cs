@@ -35,7 +35,7 @@ public sealed class KeywordToast : MonoBehaviour
             return;
         }
         GameObject go = new GameObject("KeywordToast");
-        DontDestroyOnLoad(go);
+        Persist.Keep(go);
         go.AddComponent<KeywordToast>();
     }
 

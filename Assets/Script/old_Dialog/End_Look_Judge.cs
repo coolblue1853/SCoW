@@ -270,7 +270,7 @@ public class End_Look_Judge : MonoBehaviour
         if (null == instance)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            Persist.Keep(this.gameObject);
         }
         else
         {

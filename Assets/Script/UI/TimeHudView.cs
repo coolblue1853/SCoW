@@ -61,7 +61,7 @@ public sealed class TimeHudView : MonoBehaviour
             return;
         }
         GameObject go = new GameObject("TimeHudView");
-        DontDestroyOnLoad(go);
+        Persist.Keep(go);
         go.AddComponent<TimeHudView>();
     }
 

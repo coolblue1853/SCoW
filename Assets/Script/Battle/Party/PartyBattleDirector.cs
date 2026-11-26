@@ -95,7 +95,7 @@ public sealed class PartyBattleDirector : MonoBehaviour
         if (Instance == null)
         {
             GameObject go = new GameObject("PartyBattleDirector");
-            DontDestroyOnLoad(go);
+            Persist.Keep(go);
             Instance = go.AddComponent<PartyBattleDirector>();
         }
         Instance.Begin(roster, enemies, indices, manager, null);

@@ -35,7 +35,7 @@ public sealed class VitalsFxView : MonoBehaviour
             return;
         }
         GameObject go = new GameObject("VitalsFxView");
-        DontDestroyOnLoad(go);
+        Persist.Keep(go);
         go.AddComponent<VitalsFxView>();
     }
 

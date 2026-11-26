@@ -31,7 +31,7 @@ public sealed class UxOverlay : MonoBehaviour
             return;
         }
         GameObject go = new GameObject("UxOverlay");
-        DontDestroyOnLoad(go);
+        Persist.Keep(go);
         go.AddComponent<UxOverlay>();
     }
 

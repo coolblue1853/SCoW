@@ -44,7 +44,7 @@ public sealed class SewerSightView : MonoBehaviour
             return;
         }
         GameObject go = new GameObject("SewerSightView");
-        DontDestroyOnLoad(go);
+        Persist.Keep(go);
         go.AddComponent<SewerSightView>();
     }
 

@@ -31,7 +31,7 @@ public sealed class AssistChipsView : MonoBehaviour
         if (_instance == null)
         {
             GameObject go = new GameObject("AssistChipsView");
-            DontDestroyOnLoad(go);
+            Persist.Keep(go);
             _instance = go.AddComponent<AssistChipsView>();
             _instance.Build();
         }

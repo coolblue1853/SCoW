@@ -123,14 +123,7 @@ public class DirectingManager : MonoBehaviour
     }
     void StartGame()
     {
-        if (DataBaseManager.isTest == false)
-        {
-            InteractionController.Instance.Start1stDetectiveOffice("start");
-        }
-        else
-        {
-            DataBaseManager.fstDetectiveEndFirstDialog = true;
-        }
+        InteractionController.Instance.Start1stDetectiveOffice("start");
 
     }
 
