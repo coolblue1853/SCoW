@@ -58,6 +58,8 @@ namespace SCoW.Core.Rules
         public readonly bool ZoomInEvadeFail;
         /// <summary>MA·SS·MS·Deftness 마무리에 CamRotate(0) 호출(H1~H3 는 없음, TurnEnd 의 ResetCam 에 의존). evasion·counter 는 전 슬롯 있음.</summary>
         public readonly bool CamRotateResetOnAttack;
+        /// <summary>MA 마무리에서 CamRotate(0) 이 TurnEnd 앞(H4 만). 나머지(D1)는 TurnEnd 뒤. CamRotateResetOnAttack 가 true 일 때만 의미 있다.</summary>
+        public readonly bool CamResetBeforeTurnEnd;
 
         public EnemyFxProfile(
             CamZoom zoom,
@@ -68,8 +70,10 @@ namespace SCoW.Core.Rules
             float evadeMoveSec,
             bool evadeYFromEnemy,
             bool zoomInEvadeFail,
-            bool camRotateResetOnAttack)
+            bool camRotateResetOnAttack,
+            bool camResetBeforeTurnEnd = false)
         {
+            CamResetBeforeTurnEnd = camResetBeforeTurnEnd;
             Zoom = zoom;
             RotateDeg = rotateDeg;
             EvadeFailHit = evadeFailHit;
@@ -117,7 +121,7 @@ namespace SCoW.Core.Rules
                 new PlayerHitReaction(PlayerHitStyle.Dagger, Dagger, false, true),
                 new PlayerHitReaction(PlayerHitStyle.Dagger, Dagger, false, true),
                 new PlayerHitReaction(PlayerHitStyle.Dagger, Dagger, false, true),
-                1f, false, false, true),
+                1f, false, false, true, true),
             // DeepOne1
             new EnemyFxProfile(
                 CamZoom.None, 1f,

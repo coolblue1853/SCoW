@@ -113,7 +113,7 @@ private void PlayDeftness(int slot, bool success);         // Deftness_attack, E
 | F0 **완료(11-27)** | 값 추출 도구 + 프로필 표·테스트. `Assets/Editor` 에 일회용 스크립트로 BattleManager.cs 를 정규식 파싱해 행동x슬롯별 `DOMove`/`DORotate`/사운드/콜백 문자열을 정규화해 5슬롯끼리 diff, 위 표의 "추출" 칸을 채우고 슬롯 간 불일치 목록을 `Docs/`에 남긴다. **코드 변경 없음, 프로필 데이터와 테스트만 커밋** | 0 |
 | F1 **완료(11-27)** | evasion → `PlayEvade`(BattleManager). 5슬롯 x 성공/실패 10조합을 구 코드·신 코드로 120프레임 트레이스(위치·카메라 회전/줌·스프라이트·HP) 비교해 전부 동일 확인 | -170 |
 | F2 **완료(11-27)** | counterattack → `PlayCounter`(실패 체인은 `AppendPlayerHit` 로 evasion 과 공유). 5슬롯 x 성공/실패 10조합을 구·신 코드 120프레임 트레이스 비교(위치·카메라·스프라이트·HP·적 피해량) 전부 동일. 줌은 성공·실패 모두 항상(evasion 과 다름), 적 Id 는 `Def.Id`, 반격 피해 `Hit1D3` 유지 | -280 |
-| F3 | MA_attack_Counter → `PlayMartialAttack` | -270 |
+| F3 **완료(11-27)** | MA_attack_Counter → `PlayMartialAttack`(슬롯 선택은 `IsPointer`, 실패 피격은 `MartialFailHit`). 5슬롯 x 성공/실패 10조합 구·신 120프레임 트레이스 동일(위치·카메라·스프라이트·플레이어 HP·적 피해량). 불일치 보존: `CamRotate(0)` 위치가 H4 는 TurnEnd 앞·D1 은 뒤·H1~H3 없음 → 프로필 `CamResetBeforeTurnEnd`(H4 만 true) 추가, 성공 적 Id 는 `Def.Id` | -180 |
 | F4 | EnemyDeftness/DeepOneDeftness + Deftness_attack → `PlayDeftness` (돌·화염병 2무기) | -450 |
 | F5 | SS_attack_Counter → `PlayMelee` (3무기) | -700 |
 | F6 | MS_attack → `PlayShoot` (4무기, 가장 큼) | -800 |
