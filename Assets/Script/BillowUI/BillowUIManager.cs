@@ -33,8 +33,33 @@ public class BillowUIManager : MonoBehaviour
 
     public TextMeshProUGUI intelNameText;
     public TextMeshProUGUI intelDetailText;
+    // BATTLE-UI-1: HP·SAN 글자는 3자리(HP 300)·변화량 괄호가 붙어도 칸 안에 들어가게 자동 크기로 줄인다.
+    private static void FitText(TextMeshProUGUI t)
+    {
+        if (t == null)
+        {
+            return;
+        }
+        // 글자 칸이 부모 틀 오른쪽 밖으로 나가 있어 뒤 UI 에 잘리므로, 칸 오른쪽 끝을 부모 틀 안으로 줄여 그 안에서 자동 크기가 맞게 한다.
+        RectTransform rt = t.rectTransform;
+        RectTransform parent = rt.parent as RectTransform;
+        if (parent != null && Mathf.Approximately(rt.anchorMin.x, rt.anchorMax.x))
+        {
+            float anchorX = parent.rect.xMin + rt.anchorMax.x * parent.rect.width;
+            Vector2 max = rt.offsetMax;
+            max.x = Mathf.Min(max.x, parent.rect.xMax - anchorX);
+            rt.offsetMax = max;
+        }
+        float size = t.fontSize;
+        t.textWrappingMode = TextWrappingModes.NoWrap;
+        t.enableAutoSizing = true;
+        t.fontSizeMax = size;
+        t.fontSizeMin = size * 0.5f;
+    }
     void Start()
     {
+        FitText(hpText);
+        FitText(sanText);
         if (DataBaseManager.hp == 0)
         {
             Invoke("ResetMHp", 1);

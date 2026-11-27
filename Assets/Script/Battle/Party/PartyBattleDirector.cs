@@ -125,6 +125,7 @@ public sealed class PartyBattleDirector : MonoBehaviour
         }
         _player = new BattleEventPlayer(_view);
         _view.Setup(_field, SpriteOf);
+        PartyBattleOldUi.Hide(manager); // BATTLE-UI-1: 옛 전투 스프라이트·날짜 박스·턴 게이지는 파티 화면 뒤로 비치지 않게 감춘다
         _running = true;
         StartCoroutine(Run());
     }

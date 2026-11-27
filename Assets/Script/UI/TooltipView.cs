@@ -29,12 +29,18 @@ public sealed class TooltipView : MonoBehaviour
 
     public static void Show(object owner, string text, RectTransform anchor)
     {
+        Show(owner, text, anchor, false);
+    }
+
+    /// <summary>beside 가 true 면 앵커 아래 대신 오른쪽 옆에 둔다(세로 메뉴가 가려지지 않게).</summary>
+    public static void Show(object owner, string text, RectTransform anchor, bool beside)
+    {
         if (owner == null || anchor == null || string.IsNullOrEmpty(text))
         {
             Hide(owner);
             return;
         }
-        Get().Place(owner, text, anchor);
+        Get().Place(owner, text, anchor, beside);
     }
 
     public static void Hide(object owner)
@@ -134,7 +140,16 @@ public sealed class TooltipView : MonoBehaviour
         panel.SetActive(false);
     }
 
-    private void Place(object owner, string text, RectTransform anchor)
+    // 캔버스를 막 만든 첫 프레임은 CanvasScaler 가 아직 돌지 않아 scaleFactor 가 1 이다(첫 툴팁이 엉뚱한 곳에 뜨던 원인). 설정값으로 직접 계산한다.
+    private float CanvasScaleNow()
+    {
+        float w = Mathf.Max(1f, Screen.width);
+        float h = Mathf.Max(1f, Screen.height);
+        float s = Mathf.Pow(2f, Mathf.Lerp(Mathf.Log(w / 1920f, 2f), Mathf.Log(h / 1080f, 2f), 0.5f));
+        return s > 0f ? s : 1f;
+    }
+
+    private void Place(object owner, string text, RectTransform anchor, bool beside)
     {
         _owner = owner;
         _text.text = text;
@@ -143,7 +158,7 @@ public sealed class TooltipView : MonoBehaviour
         float h = _text.cachedTextGeneratorForLayout.GetPreferredHeight(text, settings) / _text.pixelsPerUnit + PadY * 2f;
         _panel.sizeDelta = new Vector2(w, h);
         anchor.GetWorldCorners(_corners);
-        float scale = _canvas.scaleFactor > 0f ? _canvas.scaleFactor : 1f;
+        float scale = CanvasScaleNow();
         float cx = (_corners[0].x + _corners[2].x) * 0.5f / scale;
         float bottom = _corners[0].y / scale;
         float top = _corners[2].y / scale;
@@ -151,7 +166,14 @@ public sealed class TooltipView : MonoBehaviour
         float screenH = Screen.height / scale;
         float x;
         float y;
-        BattleTooltipText.Place(cx, top, bottom, w, h, screenW, screenH, out x, out y);
+        if (beside)
+        {
+            BattleTooltipText.PlaceBeside(_corners[0].x / scale, _corners[2].x / scale, top, w, h, screenW, screenH, out x, out y);
+        }
+        else
+        {
+            BattleTooltipText.Place(cx, top, bottom, w, h, screenW, screenH, out x, out y);
+        }
         _panel.anchoredPosition = new Vector2(x, y);
         _panel.gameObject.SetActive(true);
         _panel.SetAsLastSibling();

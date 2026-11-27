@@ -92,6 +92,33 @@ namespace SCoW.Core.Ui
             return sb.ToString();
         }
 
+        /// <summary>
+        /// 앵커 오른쪽 옆에 툴팁을 둔다(BATTLE-UI-1: 세로 메뉴에서 아래 항목을 가리지 않게). 오른쪽이 모자라면 왼쪽, 세로는 앵커 위끝에 맞추고 화면 안으로 넣는다.
+        /// </summary>
+        public static void PlaceBeside(float anchorLeft, float anchorRight, float anchorTop, float width, float height, float screenW, float screenH,
+            out float x, out float y)
+        {
+            const float gap = 12f;
+            x = anchorRight + gap;
+            if (x + width > screenW)
+            {
+                x = anchorLeft - gap - width;
+            }
+            if (x < 0f)
+            {
+                x = 0f;
+            }
+            y = anchorTop - height;
+            if (y + height > screenH)
+            {
+                y = screenH - height;
+            }
+            if (y < 0f)
+            {
+                y = 0f;
+            }
+        }
+
         /// <summary>툴팁 상자를 화면 안으로 넣는다(좌하단 기준 좌표, 앵커 아래쪽 우선, 넘치면 위쪽).</summary>
         public static void Place(float anchorX, float anchorTop, float anchorBottom, float width, float height, float screenW, float screenH,
             out float x, out float y)

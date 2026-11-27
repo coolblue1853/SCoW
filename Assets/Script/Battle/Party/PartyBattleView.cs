@@ -198,6 +198,7 @@ public sealed partial class PartyBattleView : MonoBehaviour
         TooltipView.HideAll();
         ClearPanels();
         HintBar.Remove(this);
+        PartyBattleOldUi.Restore();
         TimeHudView.Compact = false;
         _root.gameObject.SetActive(false);
     }
@@ -206,6 +207,7 @@ public sealed partial class PartyBattleView : MonoBehaviour
     {
         HintBar.Remove(this);
         TooltipView.HideAll();
+        PartyBattleOldUi.Restore();
     }
 
     // ---------- 표시 ----------
@@ -345,7 +347,7 @@ public sealed partial class PartyBattleView : MonoBehaviour
         _menuBgs.Clear();
         for (int i = 0; i < _menu.Count; i++)
         {
-            Image bg = PartyBattleUi.Box(_menuRoot, "Opt" + i, new Vector2(300f, 46f), new Vector2(150f, 30f + (_menu.Count - 1 - i) * 52f), Color.gray);
+            Image bg = PartyBattleUi.Box(_menuRoot, "Opt" + i, new Vector2(360f, 46f), new Vector2(180f, 30f + (_menu.Count - 1 - i) * 52f), Color.gray);
             bg.raycastTarget = true;
             Text t = PartyBattleUi.Label((RectTransform)bg.transform, _font, "L", new Vector2(290f, 46f), Vector2.zero, 28, TextAnchor.MiddleLeft);
             t.text = (i + 1) + ". " + _menu[i].Label;
@@ -449,7 +451,7 @@ public sealed partial class PartyBattleView : MonoBehaviour
         }
         if (_cursor >= 0 && _cursor < _menu.Count)
         {
-            TooltipView.Show(this, _menu[_cursor].Label + "\n" + _menu[_cursor].Tip, _menuRects[_cursor]);
+            TooltipView.Show(this, _menu[_cursor].Label + "\n" + _menu[_cursor].Tip, _menuRects[_cursor], true);
         }
     }
 

@@ -25,7 +25,7 @@ public sealed class TimeHudView : MonoBehaviour
 
     private static TimeHudView _instance;
 
-    /// <summary>true 면 목표 줄을 숨기고 패널을 작게 줄인다(전투 화면용, PT-5).</summary>
+    /// <summary>true 면 패널을 통째로 숨긴다(전투 화면용, PT-5 에서 작게 줄이던 것을 BATTLE-UI-1 에서 숨김으로 바꿈).</summary>
     public static bool Compact
     {
         get { return _compact; }
@@ -142,7 +142,7 @@ public sealed class TimeHudView : MonoBehaviour
 
     private void Update()
     {
-        bool show = SceneRouter.IsActive(SceneIds.Main) && SettingsService.Current.ShowTimeHud;
+        bool show = SceneRouter.IsActive(SceneIds.Main) && SettingsService.Current.ShowTimeHud && !_compact && !InSoloBattle(); // 전투 중에는 턴 게이지·패널과 겹치므로 숨긴다(파티=compact, 솔로=startBattle)
         if (_panel.activeSelf != show)
         {
             _panel.SetActive(show);
@@ -155,6 +155,11 @@ public sealed class TimeHudView : MonoBehaviour
         {
             Refresh();
         }
+    }
+
+    private static bool InSoloBattle()
+    {
+        return BattleManager.Instance != null && BattleManager.Instance.startBattle;
     }
 
     private void ApplyCompact()

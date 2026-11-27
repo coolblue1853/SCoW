@@ -160,7 +160,7 @@ public class DirectingManager : MonoBehaviour
         }
         if (DataBaseManager.nowHP <= 0 || DataBaseManager.nowSan <= 0)
         {
-            endGame.SetActive(true);
+            endGame.SetActive(false); // BATTLE-UI-1: 옛 "You Died!"·Go to Main 은 DeathMenuView 밑으로 비치므로 켜지 않는다
             DeathMenuView.Show(); // UX-5: 마지막 저장 재개 / 타이틀 / 종료 3지선다(옛 endGame 버튼 위를 덮는다)
         }
         else

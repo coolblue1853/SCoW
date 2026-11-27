@@ -195,6 +195,13 @@ namespace SCoW.Tests
             BattleTooltipText.Place(10f, 80f, 20f, 300f, 100f, 1920f, 1080f, out x, out y);
             Assert.AreEqual(0f, x);
             Assert.AreEqual(80f, y, "아래가 모자라면 앵커 위쪽");
+            // 옆 배치: 오른쪽 우선, 세로는 앵커 위끝 맞춤, 바닥 아래로 못 나감
+            BattleTooltipText.PlaceBeside(40f, 340f, 90f, 400f, 120f, 1920f, 1080f, out x, out y);
+            Assert.AreEqual(352f, x);
+            Assert.AreEqual(0f, y, "위끝 맞춤이 바닥 아래면 0");
+            BattleTooltipText.PlaceBeside(1500f, 1800f, 600f, 400f, 120f, 1920f, 1080f, out x, out y);
+            Assert.AreEqual(1088f, x, "오른쪽이 모자라면 왼쪽");
+            Assert.AreEqual(480f, y);
         }
 
         [Test]
