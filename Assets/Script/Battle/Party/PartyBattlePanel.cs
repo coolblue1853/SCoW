@@ -56,7 +56,8 @@ public sealed class PartyBattlePanel
         _status = PartyBattleUi.Label(Rect, font, "Status", new Vector2(Width, 28f), new Vector2(0f, -46f), 20, TextAnchor.MiddleCenter);
         _hpFill = PartyBattleUi.Bar(Rect, "Hp", new Vector2(0f, -72f), BarWidth, new Color(0.75f, 0.15f, 0.15f, 1f));
         _sanFill = PartyBattleUi.Bar(Rect, "San", new Vector2(0f, -92f), BarWidth, new Color(0.25f, 0.45f, 0.85f, 1f));
-        _hpText = PartyBattleUi.Label(Rect, font, "Vitals", new Vector2(Width, 36f), new Vector2(0f, -118f), 16, TextAnchor.MiddleCenter);
+        _hpText = PartyBattleUi.Label(Rect, font, "Vitals", new Vector2(Width, 44f), new Vector2(0f, -120f), 16, TextAnchor.MiddleCenter);
+        _hpText.lineSpacing = 1.35f; // HP·SAN 두 줄이 붙어 겹쳐 보이던 문제
         back.raycastTarget = true;
         _name.text = BattleTooltipText.UnitName(unit);
         Refresh(unit);

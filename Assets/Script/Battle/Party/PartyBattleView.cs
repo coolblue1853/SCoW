@@ -349,7 +349,11 @@ public sealed partial class PartyBattleView : MonoBehaviour
         {
             Image bg = PartyBattleUi.Box(_menuRoot, "Opt" + i, new Vector2(360f, 46f), new Vector2(180f, 30f + (_menu.Count - 1 - i) * 52f), Color.gray);
             bg.raycastTarget = true;
-            Text t = PartyBattleUi.Label((RectTransform)bg.transform, _font, "L", new Vector2(290f, 46f), Vector2.zero, 28, TextAnchor.MiddleLeft);
+            Text t = PartyBattleUi.Label((RectTransform)bg.transform, _font, "L", new Vector2(340f, 46f), Vector2.zero, 28, TextAnchor.MiddleLeft);
+            t.horizontalOverflow = HorizontalWrapMode.Wrap;
+            t.resizeTextForBestFit = true; // 긴 항목명(First Aid)이 칸 밖으로 넘치지 않게
+            t.resizeTextMinSize = 16;
+            t.resizeTextMaxSize = 28;
             t.text = (i + 1) + ". " + _menu[i].Label;
             t.color = _menu[i].Enabled ? Color.white : new Color(1f, 1f, 1f, 0.35f);
             _menuRects.Add((RectTransform)bg.transform);

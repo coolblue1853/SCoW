@@ -86,6 +86,7 @@ public sealed class TooltipView : MonoBehaviour
     }
 
     private Canvas _canvas;
+    private CanvasScaler _scaler;
     private RectTransform _panel;
     private Text _text;
     private object _owner;
@@ -105,6 +106,7 @@ public sealed class TooltipView : MonoBehaviour
         _canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         _canvas.sortingOrder = 90;
         CanvasScaler scaler = gameObject.AddComponent<CanvasScaler>();
+        _scaler = scaler;
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         scaler.referenceResolution = new Vector2(1920f, 1080f);
         scaler.matchWidthOrHeight = 0.5f;
@@ -143,9 +145,14 @@ public sealed class TooltipView : MonoBehaviour
     // 캔버스를 막 만든 첫 프레임은 CanvasScaler 가 아직 돌지 않아 scaleFactor 가 1 이다(첫 툴팁이 엉뚱한 곳에 뜨던 원인). 설정값으로 직접 계산한다.
     private float CanvasScaleNow()
     {
+        if (_scaler == null || _scaler.uiScaleMode != CanvasScaler.ScaleMode.ScaleWithScreenSize)
+        {
+            return _canvas.scaleFactor > 0f ? _canvas.scaleFactor : 1f;
+        }
+        Vector2 reference = _scaler.referenceResolution;
         float w = Mathf.Max(1f, Screen.width);
         float h = Mathf.Max(1f, Screen.height);
-        float s = Mathf.Pow(2f, Mathf.Lerp(Mathf.Log(w / 1920f, 2f), Mathf.Log(h / 1080f, 2f), 0.5f));
+        float s = Mathf.Pow(2f, Mathf.Lerp(Mathf.Log(w / reference.x, 2f), Mathf.Log(h / reference.y, 2f), _scaler.matchWidthOrHeight));
         return s > 0f ? s : 1f;
     }
 

@@ -34,7 +34,9 @@ public class BillowUIManager : MonoBehaviour
     public TextMeshProUGUI intelNameText;
     public TextMeshProUGUI intelDetailText;
     // BATTLE-UI-1: HP·SAN 글자는 3자리(HP 300)·변화량 괄호가 붙어도 칸 안에 들어가게 자동 크기로 줄인다.
-    private static void FitText(TextMeshProUGUI t)
+    private float _hpBaseSize;
+    private float _sanBaseSize;
+    private static void FitText(TextMeshProUGUI t, ref float baseSize)
     {
         if (t == null)
         {
@@ -50,7 +52,11 @@ public class BillowUIManager : MonoBehaviour
             max.x = Mathf.Min(max.x, parent.rect.xMax - anchorX);
             rt.offsetMax = max;
         }
-        float size = t.fontSize;
+        if (baseSize <= 0f)
+        {
+            baseSize = t.fontSize; // Start 가 두 번 돌아도 기준 크기가 줄어들지 않게 처음 값을 기억
+        }
+        float size = baseSize;
         t.textWrappingMode = TextWrappingModes.NoWrap;
         t.enableAutoSizing = true;
         t.fontSizeMax = size;
@@ -58,8 +64,8 @@ public class BillowUIManager : MonoBehaviour
     }
     void Start()
     {
-        FitText(hpText);
-        FitText(sanText);
+        FitText(hpText, ref _hpBaseSize);
+        FitText(sanText, ref _sanBaseSize);
         if (DataBaseManager.hp == 0)
         {
             Invoke("ResetMHp", 1);

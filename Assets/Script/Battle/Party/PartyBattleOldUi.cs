@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public static class PartyBattleOldUi
 {
-    private static readonly string[] HiddenUiPaths = { "UI/UpperUI", "BattleCanvus/TurnTime" };
+    private static readonly string[] HiddenUiPaths = { "UI/UpperUI", "BattleCanvus/TurnTime", "BattleCanvus/Action", "UI/Uibuttn", "UI/Back", "BillowUICanvus/BillowUI" };
 
     private static readonly List<CanvasGroup> Groups = new List<CanvasGroup>();
     private static readonly List<bool> GroupAdded = new List<bool>();
@@ -34,10 +34,8 @@ public static class PartyBattleOldUi
 
     public static void Hide(BattleManager manager)
     {
-        if (_hidden)
-        {
-            return;
-        }
+        // Persist 로 씬이 바뀌어도 이전 상태가 남을 수 있으니, 이미 가려 있으면 먼저 되돌리고 목록을 새로 만든다.
+        Restore();
         _hidden = true;
         for (int i = 0; i < HiddenUiPaths.Length; i++)
         {
