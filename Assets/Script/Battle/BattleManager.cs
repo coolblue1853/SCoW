@@ -848,7 +848,7 @@ public class BattleManager : MonoBehaviour
     {
         if (PlayerAction == "evasion")
         {
-            for (int slot = 0; slot < _enemies.Length; slot++)
+            for (int slot = 0; slot < _enemies.Length && slot < EnemyFxProfiles.All.Length; slot++)
             {
                 if (IsEnemyAttack(slot))
                 {
