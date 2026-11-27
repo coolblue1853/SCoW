@@ -35,3 +35,4 @@
 - 남은 것: P14b RetrunRolletResult 슬롯 복제(연출 프로필 먼저), DataBaseManager 파사드 치환(보류), Story P1 M급(C-2·C-3·B-5~7, 새 대사 필요), B-4 보류, DDOL 비루트 경고 8건(씬 수정), Missing script 5(BillowUI HPBar 4·End_Look 1). 사용자 확인: Q-BAL1·Q-ENC1·Q-P1-1~5·Q-S5. 미검증: 실제 키·패드·마우스 입력 전반, 1280x720·2560x1440.
 - 11-27 밤: 6800edd push — Persist.Keep 비루트 건너뜀(DDOL 경고 8건 제거, 동작 불변), Main 씬 Missing script 5개 제거(스크립트 GUID 실존 0 확인). EditMode 532. 남은 콘솔 경고: SRP Batcher 머티리얼, MonoBehaviour 'new' 키워드(위치 미상).
 - 11-27 밤: P14b 설계 BattleFxProfile.md(08b8159, Hit1D3=플레이어 맨손 피해·수치 보존, Q-FX1), F0(5436277, EnemyFxProfiles 표·값 고정 테스트, BattleManager 무변경). EditMode 537. 다음: F1~(문서 단계표, 단계마다 BattlePlaytestDriver 전후 스샷).
+- 11-27 밤: P14b F1(be93047·후속 가드) push — evasion 5슬롯 통합, 구·신 120프레임 트레이스 10조합 동일(시드 777). 로컬 태그 p14b-f1-pre(push 안 함). 남은 임시 파일 Assets/Editor/FxF1Capture.cs(+meta) untracked — 삭제가 권한 분류기에 막혀 사용자 삭제 대기. 다음: F2~.
