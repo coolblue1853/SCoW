@@ -208,3 +208,5 @@ Deftness 단일 블록: EnemyDeftness(H3) 성공=`PlayerHittedRock`+`MartialArts
 10. (F1 에서 발견) evasion 성공 이동에서 H1 은 `new Vector3(x-4, 적y)` 라 **z=0**, 나머지는 z=-1. 프로필 `EvadeYFromEnemy` 가 y 와 z 를 함께 재현한다.
 
 미확인: DOMove 접근·밀려남 좌표가 5슬롯 같다는 것은 evasion·counter 는 diff 로 확인(차이는 위 목록뿐), MA·SS·MS·Deftness 는 줌·회전·사운드·피격 호출 개수 비교까지만 확인(DOMove 수치 diff 는 F3 이후 해당 단계에서 전체 diff 로 재확인).
+
+- F8 정리 대기(리뷰 권장): 시퀀스 SetLink 일괄, RotateDeg int 명시, daggerFirst 를 프로필 필드(DaggerBeforeDamage)로 명시.
