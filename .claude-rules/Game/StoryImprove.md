@@ -31,13 +31,13 @@
 | A-3 | P0 | S | NoonEvent:4, 5 | 전화 분기 1(실종 없음, 2-16): ID 4 가 알버트 입으로 파비안 서술("I could see Ella dead...")이며, 5 의 파비안 질문 "why are you asking about her?" 앞에 알버트의 "엘라 기억하나?"(20, 37)가 빠짐 | ID 4 를 `Albert,@Do you remember Ms. Ella Triss^ who came to your office yesterday in the morning?@` 로 교체 |
 | A-4 | P0 | S | PoliceOffice:13-14 | 화자 뒤바뀜: 알버트가 "It's been a while, Albert", 파비안이 "Oh, Fabian." | 13 `Fabian: Hey^ Albert. It's been a while.` / 14 `Albert: Oh^ Fabian. Long time no see.` |
 | A-5 | P0 | S(임시)·M(작성) | CH:101-123, Item:28-30 (`Aiden_Judge_psychotherapy_Sucsses`, `_End`, `OldMap_Look`) | 정신분석 성공 시 빈 대사창 12개, 끝 9개, 지도 3개(Q5). 첫 번째는 성공해도 이어서 `149-190`이 나오는지 미확인 | 임시: JSON 에서 `Sucsses` 노드를 `Safe`/`NoSafe`(149-190)로 직결, `OldMap_Look` 숨김. 작성: 에이든이 "금고 번호는 잊었지만 엘라 생일의 거꾸로"류 힌트를 주는 6~8줄(사용자 승인 필요, Q5) |
-| A-6 | P1 | S | `Judge.json:580-583` | `Maeve : Persuasion@0.ok` 가 `noonEventAccessAuthorization`(경찰 설득 보상 플래그)을 세움. 복붙 오류 | `onEnter` 삭제 또는 새 플래그 `maeveDrinkOk` |
-| A-7 | P1 | S | DailyNews:54-55, 42-68, `Keyword.json:33-34` | 알버트에게 실종 정보를 이미 들었는데도 스웨인이 처음 알려주면 파비안이 "I didn't hear anything" | `Husband's job` 첫 케이스에 `flag:intelMissingPeople2` 변형(Fabian "Albert mentioned something like that.")을 앞에 추가 |
-| A-8 | P1 | S | DetectiveOffice:21, PoliceOffice:108, Bar:49, InSewer:146 | 행성 직렬 시작 7월 15일, 알버트 "14일 밤", 메이브 "15일 저녁", 에필로그 "약속에 늦음" | **15일 저녁**으로 통일(Q7). PoliceOffice:108, InSewer:146 수정. 에필로그는 "새벽을 지나 해가 중천… 저녁 약속에 늦지 않았다/못 갔다"로 |
-| A-9 | P1 | S | Bar:72, PoliceOffice:106 | 에이든(남)을 "her shoulder", 메이브(여)를 "him" | "his shoulder", "how is she doing" |
-| A-10 | P1 | S | DailyNews:101, 152 / Hospital:115 / PoliceOffice:143,152 / Riverside:46 / Item:27 / CSV 곳곳 | 같은 곳을 sewage maintenance facilities / sewerage office / sewage office / sewerge office / sewage treatment office 로 부름 | 표준 **Sewerage Maintenance Office** (Item:27 기준). 키워드 라벨(`●1ⓢ`)과 대사 동시 수정 |
+| A-6 | P1 ✅완료(11-27) | S | `Judge.json:580-583` | `Maeve : Persuasion@0.ok` 가 `noonEventAccessAuthorization`(경찰 설득 보상 플래그)을 세움. 복붙 오류 | `onEnter` 삭제 또는 새 플래그 `maeveDrinkOk` |
+| A-7 | P1 ✅완료(11-27) | S | DailyNews:54-55, 42-68, `Keyword.json:33-34` | 알버트에게 실종 정보를 이미 들었는데도 스웨인이 처음 알려주면 파비안이 "I didn't hear anything" | `Husband's job` 첫 케이스에 `flag:intelMissingPeople2` 변형(Fabian "Albert mentioned something like that.")을 앞에 추가 |
+| A-8 | P1 ✅완료(11-27, 문구 Q-P1-1) | S | DetectiveOffice:21, PoliceOffice:108, Bar:49, InSewer:146 | 행성 직렬 시작 7월 15일, 알버트 "14일 밤", 메이브 "15일 저녁", 에필로그 "약속에 늦음" | **15일 저녁**으로 통일(Q7). PoliceOffice:108, InSewer:146 수정. 에필로그는 "새벽을 지나 해가 중천… 저녁 약속에 늦지 않았다/못 갔다"로 |
+| A-9 | P1 ✅완료(11-27) | S | Bar:72, PoliceOffice:106 | 에이든(남)을 "her shoulder", 메이브(여)를 "him" | "his shoulder", "how is she doing" |
+| A-10 | P1 ✅완료(11-27) | S | DailyNews:101, 152 / Hospital:115 / PoliceOffice:143,152 / Riverside:46 / Item:27 / CSV 곳곳 | 같은 곳을 sewage maintenance facilities / sewerage office / sewage office / sewerge office / sewage treatment office 로 부름 | 표준 **Sewerage Maintenance Office** (Item:27 기준). 키워드 라벨(`●1ⓢ`)과 대사 동시 수정 |
 | A-11 | P1 | M | Bar:81-89, SewerOffice:52-54 | 바의 해고 노동자 둘이 "비릿한 냄새의 근원"으로 묘사되나, 이들은 해고된 진짜 노동자이고 냄새 나는 건 새로 투입된 딥원. 플레이어가 "노동자=범인"으로 굳어짐 | 바 대사에 해고자 발언 추가: "The new crew doesn't talk. They smell like the bottom of the river." 근원을 "새로 온 일꾼"으로 모아 정리 단계(DetectiveOffice 270-290)에서도 "sewer workers"를 "the new crew at the sewer office"로 |
-| A-12 | P1 | S | PoliceOffice:168,203 + NoonEvent:170-174 | 파비안이 시신 팔찌를 훔쳐도(`DeadBody : Stealing`) 알버트는 "귀금속 안 가져감" 무반응 | 새 플래그 `braceletStolen`, 알버트 3일차 대사에 `when flag:braceletStolen` 케이스(알버트가 팔찌 분실 언급 → 데이브에게 판 뒤라면 거래 후회, 에이든 에필로그에서 반환 가능은 C-6) |
+| A-12 | P1 ✅완료(11-27, 문구 Q-P1-2) | S | PoliceOffice:168,203 + NoonEvent:170-174 | 파비안이 시신 팔찌를 훔쳐도(`DeadBody : Stealing`) 알버트는 "귀금속 안 가져감" 무반응 | 새 플래그 `braceletStolen`, 알버트 3일차 대사에 `when flag:braceletStolen` 케이스(알버트가 팔찌 분실 언급 → 데이브에게 판 뒤라면 거래 후회, 에이든 에필로그에서 반환 가능은 C-6) |
 
 ### 1-2. 반복·어색한 대사·말투·오타
 
@@ -61,7 +61,7 @@
 | B-1 | P0 | S | 엘라 집 첫 방문 `t<6`(`places.json:5`). 놓치면 에이든 영영 못 만남. 1일차 이동은 2번뿐(`MapManager:704~790`) | 1일차 밤 정리(Fab_EndDay 182-207) 앞에 `when: !flag:aidenFirstDialog` 변형 노드 추가: `"I haven't seen Aiden himself yet. Tomorrow might be too late... something feels off."` 2일차 아침 첫 대사에도 동일. 선택지는 막지 않음 |
 | B-2 | P0 | M | 하수도 진입: 소장 설득/절도 → 창문(힘)·사물함(관찰력) 1회성 → 강변 자물쇠(손재주) → 맨홀(자료조사 성공 필요). 모두 실패 가능, 일부 재시도 불가 | (1) **핵심 단서(진입)는 판정 무관 경로 1개 보장**: 3일차 아침 알버트(생존 시) 또는 병원 케이트의 사촌 단서로 "하수도 정비소 설계도"를 우편·전언으로 지급하는 구제 노드(`counter:timeCount>=9 && !flag:sewerageKey` 일 때 `Fab_MorningMail`). (2) 창문·사물함 실패 재시도: 하루에 1번 → 다음 시간대에 다시(`tryBrokenWindow` 를 phase 별로 리셋) 또는 행운 소모 |
 | B-3 | P0 | S | 4일차 밤 악몽 엔딩 예고 없음(`DetectiveOffice 343-361`). 시간 경과 안내가 대사 속에 없음 | 밤 정리(2일차 254-290, 3일차 신규)에 "별이 모두 늘어서는 건 15일 밤. 오늘이 몇 일이지?" 형태의 D-day 대사, 남은 밤 수 표시. 수첩에 `날짜: 7/11~7/14` 한 줄 |
-| B-4 | P1 | S | 새벽 시간대 NPC 부재(`Kate ◎⑦`, 학생 저녁 부재, 하수도 소장 저녁 부재)의 이유가 대사에 없음 | 도착 시 한 줄: "No one's here at this hour." 가 아니라 이유 한 줄("The ward is closed to visitors after noon.") — Topic `when time%4==…` 에 새 노드 |
+| B-4 | P1 ⏸보류(Q-P1-3) | S | 새벽 시간대 NPC 부재(`Kate ◎⑦`, 학생 저녁 부재, 하수도 소장 저녁 부재)의 이유가 대사에 없음 | 도착 시 한 줄: "No one's here at this hour." 가 아니라 이유 한 줄("The ward is closed to visitors after noon.") — Topic `when time%4==…` 에 새 노드 |
 
 ### 2-2. 핵심 단서 대체 경로(실패해도 이야기가 이어진다)
 
@@ -88,7 +88,7 @@
 | C-1 | P1 | M(코드) | 일차당 방문 2곳(낮·저녁), 엘라 집 데드라인, 2일차 낮 강제 이벤트 | 강제 이벤트 발동을 `time>=6 && (flag:aidenFirstDialog \|\| time>=7)` 로 완화(코드: `PotalPoint.cs:61`, `MapManager.cs:498`). 에이든을 놓친 채 2일차 낮이면 이벤트 인트로에 "He is still in the bedroom" 변형 없이 현행 유지. 대안: 아침(t=5)에 이동하면 방문 순서 선택 가능하도록 1일 4칸으로 확장(L) |
 | C-2 | P1 | M | 하수도 진입이 소장·침입 판정 위주 | **사회 경로 2개 신설**: ① 메이브(Bar 101-102 "내가 하수도 밀수로를 썼다") 키워드 `Manhole`·`Way to Escape` → 옛 밀수로 열쇠·약도(언변·호감 판정 없이, 대가는 "인스머스 술 한 모금" SAN 또는 알버트 숨기기). ② 알버트(PoliceOffice 62) 키워드 `Manhole` → 경찰 도면(생존·`!albertDeathKeyword` 일 때만). 새 Topic: `Maeve/Old route`, `Albert/Blueprint`, 새 키워드 이름 `Old route`·`Blueprint`는 새 키 |
 | C-3 | P1 | M | 금고: 힘/언변/정신분석 | 4번째: **엘라를 올려 보내 설득**(비판정, 시간 대가: 엘라 귀가 대사에서 "내가 올라가 볼게요" 선택지 추가, 키워드 `Ella Triss/Aiden's Safe` 사용 후). 5번째: 행운 소모(CocDesign #4)로 실패한 힘·언변 판정을 성공 전환 |
-| C-4 | P1 | S | 시신 입장 설득 실패면 엿듣기만 | 비판정: 알버트 통화 후 `Albert's Information` 키워드가 있으면 문경찰 "알버트가 보냈다" 선택지(NoonEvent 96-113 `when flag:intelMissingPeople2`) |
+| C-4 | P1 ⏸보류(Q-P1-3) | S | 시신 입장 설득 실패면 엿듣기만 | 비판정: 알버트 통화 후 `Albert's Information` 키워드가 있으면 문경찰 "알버트가 보냈다" 선택지(NoonEvent 96-113 `when flag:intelMissingPeople2`) |
 | C-5 | P2 | M | 의뢰 수락/거절 차이가 에필로그 한 줄 | 거절 시 2일차 밤 정리(254-290)에 `!ifGotRequset` 변형: "She came to me and I sent her away." 죄책감 대사. 수락 시 엘라 피살 직전 장면에서 "I'll check on her tomorrow" 회상. 한 줄씩이라도 반응 |
 | C-6 | P2 | S | 팔찌 매각($10) 선택에 결과 없음 | 팔찌 매각 시 에필로그에서 에이든이 "Ella's bracelet... did you see it?" 한 줄(`flag:braceletSold`). 안 팔고 가지고 있다 돌려주면 감사·SAN 소량 회복 |
 | C-7 | P2 | M | 인스머스·딥원이 일지 읽기 전엔 연결 불가 | 신규 키워드 `Innsmouth liquor`(Bar 105-108, 127-134): 메이브 → 케인(샘플 분석: 비늘 조각) → 앨런. 일지 없이도 "인스머스 = 딥원" 추리 가능(`Keyword.json` 신규 토픽, CSV 신규 `1st_Innsmouth.csv` 또는 기존 파일 끝 ID 추가) |

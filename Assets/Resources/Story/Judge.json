@@ -662,8 +662,7 @@
    "onFail": "Police : Persuasion@0.fail"
   },
   "Maeve : Persuasion@0.ok": {
-   "text": "1st_Bar:183-192",
-   "onEnter": "set:noonEventAccessAuthorization"
+   "text": "1st_Bar:183-192"
   },
   "Maeve : Persuasion@0.fail": {
    "text": "1st_Bar:199"
@@ -741,7 +740,8 @@
    "onFail": "DeadBody : Check@0.fail"
   },
   "DeadBody : Stealing@0.ok": {
-   "text": "2nd_NoonEvent:170-172"
+   "text": "2nd_NoonEvent:170-172",
+   "onEnter": "set:braceletStolen"
   },
   "DeadBody : Stealing@0.fail": {
    "text": "2nd_NoonEvent:173-174"

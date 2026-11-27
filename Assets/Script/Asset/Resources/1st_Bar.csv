@@ -69,7 +69,7 @@ ID,캐릭터이름,대사,
 68,Maeve,@I don't know^ but it smells horribly fishy. Go smell it.@,
 69,Maeve,@They do smell awful in there. I can understand the suspicion.@,비릿한냄새  - Source of the smell
 70,Fabian,@Have you ever heard of ⓖ(Aiden Triss)ⓦ? He's a Journalist for the ⓑ(Daily News)ⓦ over there.@,에이든트리스
-71,Maeve,@Journalist Tris? I know^ because my henchman put a bullet in her shoulder.@,
+71,Maeve,@Journalist Tris? I know^ because my henchman put a bullet in his shoulder.@,
 72,Fabian,@Uh?? Really?@,
 73,Maeve,@Yeah^ it was a couple months ago^ but he's been taking pictures in our territory and doing interviews.@,
 74,Maeve,@I gave him a kick in the pants to let him know I'd 'kick his ass' if he bothered me too much.@,
@@ -173,7 +173,7 @@ ID,캐릭터이름,대사,
 172,Maeve,@Uh^ I think that was ⓡ(●1ⓩsewer workers' outfit)ⓦ.@,  - 인부복의 주인획득
 173,Maeve,@I remember a few of their guys came over for drinks recently.@,
 174,Fabian,@ⓖ(Sewer worker)ⓦ? So you're saying the case was done by them?@,
-175,Maeve,@I don't know why ⓑ(●1ⓢsewerge office)ⓦ people do that^ but I think so.@,–하수 정비시설 위치 획득
+175,Maeve,@I don't know why ⓑ(●1ⓢSewerage Maintenance Office)ⓦ people do that^ but I think so.@,–하수 정비시설 위치 획득
 176,Fabian,@The ⓡ(fishy smell)ⓦ^ ⓡ(disappearances)ⓦ^ and the ⓡ(murders)ⓦ all seem to be connected.@,키워드 살인사건 -실종사건과 비릿한 냄새 (시체 살펴보기)>> <<비릿한냄새 - 소스 스페큘레이션이 없다면>>
 177,Fabian,@ⓖ(Aiden)ⓦ was also ⓡ(missing)ⓦ and ⓖ(Ella)ⓦ's body there smelled ⓡ(fishy)ⓦ.@,
 178,Fabian,@What if the ⓡ(murder)ⓦ was the result of a mistake on the part of the ⓡ(culprit)ⓦ^ who was originally responsible for the ⓡ(disappearance)ⓦ?@,

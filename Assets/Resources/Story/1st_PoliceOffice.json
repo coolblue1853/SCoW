@@ -14,6 +14,7 @@
     { "id": "Albert_FirstDialog", "cases": [
       { "when": "time<7 && !flag:albertFirstDialog", "pre": "set:albertFirstDialog", "node": "albert_first" },
       { "when": "time<7", "node": "albert_dialog" },
+      { "when": "time>8 && !flag:thirdDayAlbertDialog && flag:braceletStolen", "pre": "set:thirdDayAlbertDialog", "node": "albert_third_first_bracelet" },
       { "when": "time>8 && !flag:thirdDayAlbertDialog", "pre": "set:thirdDayAlbertDialog", "node": "albert_third_first" },
       { "when": "time>8", "node": "albert_dialog" },
       { "when": "!flag:albertFirstDialog", "pre": "set:albertFirstDialog; set:albertFirstAfterEvent", "node": "albert_first_after_event" },
@@ -34,6 +35,7 @@
     "albert_first": { "text": "1st_PoliceOffice:13-37" },
     "albert_dialog": { "text": "1st_PoliceOffice:38" },
     "albert_third_first": { "text": "1st_PoliceOffice:192-212" },
+    "albert_third_first_bracelet": { "text": "1st_PoliceOffice:192-202,1st_PoliceOffice:330-331,1st_PoliceOffice:204-212" },
     "albert_first_after_event": { "text": "1st_PoliceOffice:116-134" },
     "albert_first_new": { "text": "1st_PoliceOffice:135-139" },
     "A_Look": { "text": "1st_PoliceOffice:48" },

@@ -118,6 +118,7 @@ namespace SCoW.Core.State
         public const string deadBodyObservational = "deadBodyObservational";
         public const string deadBodyAnalyzing = "deadBodyAnalyzing";
         public const string deadBodyDeftness = "deadBodyDeftness";
+        public const string braceletStolen = "braceletStolen";
         public const string deadBodyGotoSwere = "deadBodyGotoSwere";
         public const string siteAnalyzing = "siteAnalyzing";
         public const string thinWallets = "thinWallets";
@@ -806,6 +807,7 @@ namespace SCoW.Core.State
             intelWharf4,
             intelWharf5,
             intelWharf6,
+            braceletStolen,
         };
 
         /// <summary>초기값이 true 인 플래그(New() 가 넣는다).</summary>

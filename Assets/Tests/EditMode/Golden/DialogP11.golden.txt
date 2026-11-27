@@ -229,7 +229,7 @@ Keyword|Berkeley Swain/Aiden's Nightmare|kw2_t1_c0_0100|n=1|first=1st_DailyNews:
 Keyword|Berkeley Swain/Husband's Condition|kw2_t1_c0_0100|n=3|first=1st_DailyNews:29|last=1st_DailyNews:31|ids=29-31|post=-
 Keyword|Berkeley Swain/Client|kw2_t1_c0_0100|n=4|first=1st_DailyNews:32|last=1st_DailyNews:35|ids=32-35|post=-
 Keyword|Berkeley Swain/Subject to request|kw2_t1_c0_0100|n=6|first=1st_DailyNews:36|last=1st_DailyNews:41|ids=36-41|post=-
-Keyword|Berkeley Swain/Husband's job|kw2_t1_c0_0100|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-68|post=+flag:isSwainTalkMissingpeople
+Keyword|Berkeley Swain/Husband's job|kw2_t1_c0_0100|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-53,322,55-68|post=+flag:isSwainTalkMissingpeople
 Keyword|Berkeley Swain/Albert's Information|kw2_t1_c0_0100|n=1|first=1st_DailyNews:69|last=1st_DailyNews:69|ids=69|post=-
 Keyword|Berkeley Swain/Source of the smell?|kw2_t1_c0_0100|n=2|first=1st_DailyNews:77|last=1st_DailyNews:78|ids=77-78|post=-
 Keyword|Berkeley Swain/Contents of a GhostStory|kw2_t1_c0_0100|n=3|first=1st_DailyNews:79|last=1st_DailyNews:81|ids=79-81|post=-
@@ -261,7 +261,7 @@ Keyword|Berkeley Swain/Aiden's Nightmare|kw2_t1_c0_1100|n=1|first=1st_DailyNews:
 Keyword|Berkeley Swain/Husband's Condition|kw2_t1_c0_1100|n=3|first=1st_DailyNews:29|last=1st_DailyNews:31|ids=29-31|post=-
 Keyword|Berkeley Swain/Client|kw2_t1_c0_1100|n=4|first=1st_DailyNews:32|last=1st_DailyNews:35|ids=32-35|post=-
 Keyword|Berkeley Swain/Subject to request|kw2_t1_c0_1100|n=6|first=1st_DailyNews:36|last=1st_DailyNews:41|ids=36-41|post=-
-Keyword|Berkeley Swain/Husband's job|kw2_t1_c0_1100|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-68|post=+flag:isSwainTalkMissingpeople
+Keyword|Berkeley Swain/Husband's job|kw2_t1_c0_1100|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-53,322,55-68|post=+flag:isSwainTalkMissingpeople
 Keyword|Berkeley Swain/Albert's Information|kw2_t1_c0_1100|n=1|first=1st_DailyNews:69|last=1st_DailyNews:69|ids=69|post=-
 Keyword|Berkeley Swain/Source of the smell?|kw2_t1_c0_1100|n=2|first=1st_DailyNews:77|last=1st_DailyNews:78|ids=77-78|post=-
 Keyword|Berkeley Swain/Contents of a GhostStory|kw2_t1_c0_1100|n=3|first=1st_DailyNews:79|last=1st_DailyNews:81|ids=79-81|post=-
@@ -357,7 +357,7 @@ Keyword|Berkeley Swain/Aiden's Nightmare|kw2_t1_c0_0110|n=1|first=1st_DailyNews:
 Keyword|Berkeley Swain/Husband's Condition|kw2_t1_c0_0110|n=3|first=1st_DailyNews:29|last=1st_DailyNews:31|ids=29-31|post=-
 Keyword|Berkeley Swain/Client|kw2_t1_c0_0110|n=4|first=1st_DailyNews:32|last=1st_DailyNews:35|ids=32-35|post=-
 Keyword|Berkeley Swain/Subject to request|kw2_t1_c0_0110|n=6|first=1st_DailyNews:36|last=1st_DailyNews:41|ids=36-41|post=-
-Keyword|Berkeley Swain/Husband's job|kw2_t1_c0_0110|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-68|post=-
+Keyword|Berkeley Swain/Husband's job|kw2_t1_c0_0110|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-53,322,55-68|post=-
 Keyword|Berkeley Swain/Albert's Information|kw2_t1_c0_0110|n=1|first=1st_DailyNews:69|last=1st_DailyNews:69|ids=69|post=-
 Keyword|Berkeley Swain/Source of the smell?|kw2_t1_c0_0110|n=2|first=1st_DailyNews:77|last=1st_DailyNews:78|ids=77-78|post=-
 Keyword|Berkeley Swain/Contents of a GhostStory|kw2_t1_c0_0110|n=3|first=1st_DailyNews:79|last=1st_DailyNews:81|ids=79-81|post=-
@@ -485,7 +485,7 @@ Keyword|Berkeley Swain/Aiden's Nightmare|kw2_t1_c0_0101|n=1|first=1st_DailyNews:
 Keyword|Berkeley Swain/Husband's Condition|kw2_t1_c0_0101|n=3|first=1st_DailyNews:29|last=1st_DailyNews:31|ids=29-31|post=-
 Keyword|Berkeley Swain/Client|kw2_t1_c0_0101|n=4|first=1st_DailyNews:32|last=1st_DailyNews:35|ids=32-35|post=-
 Keyword|Berkeley Swain/Subject to request|kw2_t1_c0_0101|n=6|first=1st_DailyNews:36|last=1st_DailyNews:41|ids=36-41|post=-
-Keyword|Berkeley Swain/Husband's job|kw2_t1_c0_0101|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-68|post=+flag:isSwainTalkMissingpeople
+Keyword|Berkeley Swain/Husband's job|kw2_t1_c0_0101|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-53,322,55-68|post=+flag:isSwainTalkMissingpeople
 Keyword|Berkeley Swain/Albert's Information|kw2_t1_c0_0101|n=1|first=1st_DailyNews:69|last=1st_DailyNews:69|ids=69|post=-
 Keyword|Berkeley Swain/Source of the smell?|kw2_t1_c0_0101|n=2|first=1st_DailyNews:77|last=1st_DailyNews:78|ids=77-78|post=-
 Keyword|Berkeley Swain/Contents of a GhostStory|kw2_t1_c0_0101|n=3|first=1st_DailyNews:79|last=1st_DailyNews:81|ids=79-81|post=-
@@ -517,7 +517,7 @@ Keyword|Berkeley Swain/Aiden's Nightmare|kw2_t1_c0_1101|n=1|first=1st_DailyNews:
 Keyword|Berkeley Swain/Husband's Condition|kw2_t1_c0_1101|n=3|first=1st_DailyNews:29|last=1st_DailyNews:31|ids=29-31|post=-
 Keyword|Berkeley Swain/Client|kw2_t1_c0_1101|n=4|first=1st_DailyNews:32|last=1st_DailyNews:35|ids=32-35|post=-
 Keyword|Berkeley Swain/Subject to request|kw2_t1_c0_1101|n=6|first=1st_DailyNews:36|last=1st_DailyNews:41|ids=36-41|post=-
-Keyword|Berkeley Swain/Husband's job|kw2_t1_c0_1101|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-68|post=+flag:isSwainTalkMissingpeople
+Keyword|Berkeley Swain/Husband's job|kw2_t1_c0_1101|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-53,322,55-68|post=+flag:isSwainTalkMissingpeople
 Keyword|Berkeley Swain/Albert's Information|kw2_t1_c0_1101|n=1|first=1st_DailyNews:69|last=1st_DailyNews:69|ids=69|post=-
 Keyword|Berkeley Swain/Source of the smell?|kw2_t1_c0_1101|n=2|first=1st_DailyNews:77|last=1st_DailyNews:78|ids=77-78|post=-
 Keyword|Berkeley Swain/Contents of a GhostStory|kw2_t1_c0_1101|n=3|first=1st_DailyNews:79|last=1st_DailyNews:81|ids=79-81|post=-
@@ -613,7 +613,7 @@ Keyword|Berkeley Swain/Aiden's Nightmare|kw2_t1_c0_0111|n=1|first=1st_DailyNews:
 Keyword|Berkeley Swain/Husband's Condition|kw2_t1_c0_0111|n=3|first=1st_DailyNews:29|last=1st_DailyNews:31|ids=29-31|post=-
 Keyword|Berkeley Swain/Client|kw2_t1_c0_0111|n=4|first=1st_DailyNews:32|last=1st_DailyNews:35|ids=32-35|post=-
 Keyword|Berkeley Swain/Subject to request|kw2_t1_c0_0111|n=6|first=1st_DailyNews:36|last=1st_DailyNews:41|ids=36-41|post=-
-Keyword|Berkeley Swain/Husband's job|kw2_t1_c0_0111|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-68|post=-
+Keyword|Berkeley Swain/Husband's job|kw2_t1_c0_0111|n=27|first=1st_DailyNews:42|last=1st_DailyNews:68|ids=42-53,322,55-68|post=-
 Keyword|Berkeley Swain/Albert's Information|kw2_t1_c0_0111|n=1|first=1st_DailyNews:69|last=1st_DailyNews:69|ids=69|post=-
 Keyword|Berkeley Swain/Source of the smell?|kw2_t1_c0_0111|n=2|first=1st_DailyNews:77|last=1st_DailyNews:78|ids=77-78|post=-
 Keyword|Berkeley Swain/Contents of a GhostStory|kw2_t1_c0_0111|n=3|first=1st_DailyNews:79|last=1st_DailyNews:81|ids=79-81|post=-

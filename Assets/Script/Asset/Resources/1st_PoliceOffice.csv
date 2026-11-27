@@ -104,9 +104,9 @@ ID,캐릭터이름,대사,
 103,Fabian,@I'm thinking about it.@,
 104,Albert,@Okay^ let me know if there's anything I can do to help.@,
 105,Fabian,@I saw Maeve for the first time in a long time.@,Promise
-106,Albert,@I haven't seen him much lately due to work^ so how is she doing?@,
+106,Albert,@I haven't seen her much lately due to work^ so how is she doing?@,
 107,Fabian,@It's the same as usual. More than that^ remember the ⓡ(planetary parade)ⓦ in the newspaper article last time?@,
-108,Fabian,@Maeve says how about going to see an astronomical show on the night of the 14th ⓑ(Miscatonic University)ⓦ. What do you think?@,
+108,Fabian,@Maeve says how about going to see an astronomical show on the evening of the 15th ⓑ(Miscatonic University)ⓦ. What do you think?@,
 109,Albert,@Let's see... it's not an on-call day^ so no problem.@,
 110,Fabian,@So we'll get together that day?@,
 111,Albert,@ⓡ(●2ⓟYeah^ yeah)ⓦ.@,천문쇼 키워드 획득
@@ -141,7 +141,7 @@ ID,캐릭터이름,대사,
 140,Fabian,@Mr. ⓖ(Aiden)ⓦ^ who seems to have been ⓡ(kidnapped)ⓦ^ mentioned something about ⓑ(sewers)ⓦ.@,낮 강제 이벤트 이후 추가 키워드하수도 - 에이든의 경고 -- 알버트 연금당함
 141,Albert,@ⓑ(sewer)ⓦ?@,
 142,Fabian,@Yeah^ he said to be careful with the ⓑ(sewer)ⓦ and all the people who work there.@,
-143,Albert,@ⓑ(Sewer)ⓦ... Maybe I should pay a visit to the ⓑ(●1ⓢsewerge office)ⓦ.@,하수정비 사무소 - 주소 획득)
+143,Albert,@ⓑ(Sewer)ⓦ... Maybe I should pay a visit to the ⓑ(●1ⓢSewerage Maintenance Office)ⓦ.@,하수정비 사무소 - 주소 획득)
 144,Fabian,@Well^ at least it's safer than walking right into a ⓑ(sewer)ⓦ.@,
 145,Albert,@I'm thinking the same thing^ I'll have to take a few people out there and check it out.@,
 146,Fabian,@I think the ⓑ(sewer)ⓦ is the root of everything.@,하수도 - 문제의 근원 -- 알버트 연금당함
@@ -150,7 +150,7 @@ ID,캐릭터이름,대사,
 149,Fabian,@I'm still a bit skeptical^ but...@,
 150,Fabian,@ⓖ(Aiden)ⓦ said that the ⓡ(fishy smell)ⓦ^ the ⓡ(insomnia)ⓦ^ all of it^ right before he went missing^ came from the ⓑ(sewers)ⓦ.@,
 151,Fabian,@I didn't understand it when I heard it^ but the person who said it^ Mr. ⓖ(Aiden)ⓦ^ is missing.@,
-152,Albert,@ⓑ(Sewer)ⓦ... Maybe I should pay a visit to the ⓑ(●1ⓢsewerge office)ⓦ.@,하수정비 사무소 - 주소 획득)
+152,Albert,@ⓑ(Sewer)ⓦ... Maybe I should pay a visit to the ⓑ(●1ⓢSewerage Maintenance Office)ⓦ.@,하수정비 사무소 - 주소 획득)
 153,Fabian,@Well^ at least it's safer than walking right into a ⓑ(sewer)ⓦ.@,
 154,Albert,@I'm thinking the same thing^ I'll have to take a few people out there and check it out.@,
 155,Fabian,@I mean^ it's not even common in Arkham^ to be murdered in own home in a place that's not even a slum.@,엘라 - 살해당한 의뢰자 (기본 획득)>>
@@ -328,3 +328,5 @@ ID,캐릭터이름,대사,
 327,Fabian,@Thank you^ Albert.@,
 328,Albert,@Don't thank me yet. Just make sure we both come back alive.@,
 329,Fabian,(Albert joined you.),
+330,Albert,@Only odd thing^ the bracelet she was wearing is missing from the body. Nothing else was taken^ so I don't think it was a robbery...@,스토리 P1 A-12 팔찌 훔친 경우 203 대체 TODO(story)
+331,Fabian,'I kept my face perfectly still.',스토리 P1 A-12 TODO(story)

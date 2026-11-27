@@ -121,6 +121,8 @@ namespace SCoW.Tests
             "Fab_MorningMail", "Fab_MorningMailB",
             "1st_DetectiveOffice/Fab_FirstDialog_NoAiden", "1st_DetectiveOffice/Fab_FirstDialog_Night3",
             "2nd_DetectiveOffice/Fab_Case1After", "2nd_DetectiveOffice/Fab_Case2SuccAfter", "2nd_DetectiveOffice/Fab_Case2Fail",
+            // 스토리 P1: A-7 스웨인 Albert 먼저 들은 변형, A-12 팔찌 훔친 뒤 알버트 3일차 변형.
+            "Keyword/swainKeyDailyNews1AlbertTold", "1st_PoliceOffice/albert_third_first_bracelet",
         };
 
         internal static void CheckGolden(string goldenPath, int minRows)

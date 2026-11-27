@@ -145,8 +145,8 @@ J|DeadBody : Check||Result : Critical Success|jd13|calls=1|n=4,first=2nd_NoonEve
 J|DeadBody : Check||Result : Failure|jd13|calls=1|n=1,first=2nd_NoonEvent:169,last=2nd_NoonEvent:169,ids=169|post=+flag:deadBodyAnalyzing|ext=-
 J|DeadBody : Check||Result : Fumble|jd13|calls=1|n=1,first=2nd_NoonEvent:169,last=2nd_NoonEvent:169,ids=169|post=+flag:deadBodyAnalyzing|ext=-
 J|DeadBody : Check||Result : --|jd13|calls=0|post=+flag:deadBodyAnalyzing|ext=-
-J|DeadBody : Stealing||Result : Success|jd13|calls=1|n=3,first=2nd_NoonEvent:170,last=2nd_NoonEvent:172,ids=170-172|post=+flag:deadBodyDeftness|ext=-
-J|DeadBody : Stealing||Result : Critical Success|jd13|calls=1|n=3,first=2nd_NoonEvent:170,last=2nd_NoonEvent:172,ids=170-172|post=+flag:deadBodyDeftness|ext=-
+J|DeadBody : Stealing||Result : Success|jd13|calls=1|n=3,first=2nd_NoonEvent:170,last=2nd_NoonEvent:172,ids=170-172|post=+flag:braceletStolen,+flag:deadBodyDeftness|ext=-
+J|DeadBody : Stealing||Result : Critical Success|jd13|calls=1|n=3,first=2nd_NoonEvent:170,last=2nd_NoonEvent:172,ids=170-172|post=+flag:braceletStolen,+flag:deadBodyDeftness|ext=-
 J|DeadBody : Stealing||Result : Failure|jd13|calls=1|n=2,first=2nd_NoonEvent:173,last=2nd_NoonEvent:174,ids=173-174|post=+flag:deadBodyDeftness|ext=-
 J|DeadBody : Stealing||Result : Fumble|jd13|calls=1|n=2,first=2nd_NoonEvent:173,last=2nd_NoonEvent:174,ids=173-174|post=+flag:deadBodyDeftness|ext=-
 J|DeadBody : Stealing||Result : --|jd13|calls=0|post=+flag:deadBodyDeftness|ext=-
@@ -155,8 +155,8 @@ J|Accident Site : Check||Result : Critical Success|jd13|calls=1|n=4,first=2nd_No
 J|Accident Site : Check||Result : Failure|jd13|calls=1|n=1,first=2nd_NoonEvent:187,last=2nd_NoonEvent:187,ids=187|post=+flag:siteAnalyzing|ext=-
 J|Accident Site : Check||Result : Fumble|jd13|calls=1|n=1,first=2nd_NoonEvent:187,last=2nd_NoonEvent:187,ids=187|post=+flag:siteAnalyzing|ext=-
 J|Accident Site : Check||Result : --|jd13|calls=0|post=+flag:siteAnalyzing|ext=-
-J|Maeve : Persuasion||Result : Success|jd14|calls=1|n=10,first=1st_Bar:183,last=1st_Bar:192,ids=183-192|post=+flag:noonEventAccessAuthorization|ext=-
-J|Maeve : Persuasion||Result : Critical Success|jd14|calls=1|n=10,first=1st_Bar:183,last=1st_Bar:192,ids=183-192|post=+flag:noonEventAccessAuthorization|ext=-
+J|Maeve : Persuasion||Result : Success|jd14|calls=1|n=10,first=1st_Bar:183,last=1st_Bar:192,ids=183-192|post=-|ext=-
+J|Maeve : Persuasion||Result : Critical Success|jd14|calls=1|n=10,first=1st_Bar:183,last=1st_Bar:192,ids=183-192|post=-|ext=-
 J|Maeve : Persuasion||Result : Failure|jd14|calls=1|n=1,first=1st_Bar:199,last=1st_Bar:199,ids=199|post=-|ext=-
 J|Maeve : Persuasion||Result : Fumble|jd14|calls=1|n=1,first=1st_Bar:199,last=1st_Bar:199,ids=199|post=-|ext=-
 J|Maeve : Persuasion||Result : --|jd14|calls=0|post=-|ext=-

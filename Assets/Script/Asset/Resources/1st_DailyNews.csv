@@ -99,7 +99,7 @@ ID,캐릭터이름,대사,
 98,Swain,@You know^ it just occurred to me^ there's been a lot of ⓡ(missing people)ⓦ lately^ right?@,Reporting by Swain 있으면
 99,Swain,@It started circulating around the same time. that ⓡ(fishy smell)ⓦ... @,
 100,Swain,@Hmm... my ⓖ(●1ⓧjournalistic instincts)ⓦ are whispering something to me.@,
-101,Swain,@It might not be bad to look into ⓑ(●1ⓢsewage maintenance facilities)ⓦ.@,위치 키워드 획득^ 스와인 하수도조사 획득
+101,Swain,@It might not be bad to look into ⓑ(●1ⓢSewerage Maintenance Office)ⓦ.@,위치 키워드 획득^ 스와인 하수도조사 획득
 102,Swain,@Anyway^ thanks for the info.@,
 103,Fabian,@I'm glad you found this helpful.@,
 104,Fabian,@During our investigation^ I learned that the recent ⓡ(fishy smell)ⓦ is related to ⓖ(sewer workers)ⓦ or ⓑ(sewers)ⓦ.@,비릿한근원 3개
@@ -150,7 +150,7 @@ ID,캐릭터이름,대사,
 149,Swain,@Hmm... I have to go in person because the situation is urgent.@,
 150,Swain,@Maybe that's what he's been investigating lately ⓡ(sewer ghost stories)ⓦ.@,
 151,Fabian,@Where are you going to go?@,
-152,Swain,@Well^ it's a ⓑ(●1ⓢsewerage office)ⓦ. It's not like it's hidden.@,(하수정비 사무소) - 위치 키워드
+152,Swain,@Well^ it's a ⓑ(●1ⓢSewerage Maintenance Office)ⓦ. It's not like it's hidden.@,(하수정비 사무소) - 위치 키워드
 153,Swain,@If I do disappear^ don't forget to report it.@,
 154,Fabian,(With that^ Swain took out his notebook and wrote something down.),
 155,Fabian,@ⓖ(Ella triss)ⓦ ended up...@,키워드 - 살해당한 의뢰자 >
@@ -182,16 +182,16 @@ ID,캐릭터이름,대사,
 181,Fabian,@I overheard a witness giving a statement to the police.@,
 182,Fabian,@A man in a ⓡ(workman's uniform)ⓦ came running out^ carrying a large sack.@,
 183,Fabian,(And then I went on to describe what a workman's uniform looks like.),
-184,Swain,@Umm... I think it's a ⓡ(workman's uniform)ⓦ from the ⓑ(●4ⓦsewerage office)ⓦ.@,"(하수도 노동자) - 인부복의 주인 키워드,"
+184,Swain,@Umm... I think it's a ⓡ(workman's uniform)ⓦ from the ⓑ(●4ⓦSewerage Maintenance Office)ⓦ.@,"(하수도 노동자) - 인부복의 주인 키워드,"
 185,Swain,@By the way^ a big sack^ did they put ⓖ(Aiden)ⓦ in a sack and ⓡ(kidnap)ⓦ him?@,
-186,Swain,@I need to get to the ⓑ(●1ⓢsewerage office)ⓦ right away@,하수정비사무소 위치 키워드
+186,Swain,@I need to get to the ⓑ(●1ⓢSewerage Maintenance Office)ⓦ right away@,하수정비사무소 위치 키워드
 187,Fabian,(He write something in his notebook and prepares to leave.),
-188,Fabian,'ⓑ(Sewerage office)ⓦ... Should I go there^ too?',하수정비시설 위치 키워드 
+188,Fabian,'ⓑ(Sewerage Maintenance Office)ⓦ... Should I go there^ too?',하수정비시설 위치 키워드 
 189,Fabian,@While investigating the crime scene^ I got some special information.@♣④,키워드 - 사건의 범인 > 사용시 스와인이 사망합니다.
 190,Fabian,@The ⓡ(fishy smell)ⓦ that's been circulating lately is also coming from ⓖ(Ella)ⓦ's corpse.@,
 191,Fabian,@And the source of that ⓡ(fishy smell)ⓦ seems to be a high probability ⓖ(sewer worker)ⓦ.@,
 192,Swain,@Are you saying that the ⓡ(culprit)ⓦ in this case is the ⓖ(sewer worker)ⓦ?@,
-193,Fabian,@It looks like it. Maybe if you go to the ⓑ(●1ⓢsewerage office)ⓦ^ they can tell you something.@,
+193,Fabian,@It looks like it. Maybe if you go to the ⓑ(●1ⓢSewerage Maintenance Office)ⓦ^ they can tell you something.@,
 194,Swain,@If everything you say is true^ it's a plausible story.@,
 195,Fabian,(I can see him pondering something on his face).,
 196,Swain,@I'll have to go talk to there too.@,
@@ -320,3 +320,4 @@ ID,캐릭터이름,대사,
 319,,,
 320,,,
 321,,,
+322,Fabian,@ⓡ(Missing people)ⓦ? Albert mentioned something like that.@,스토리 P1 A-7 Albert 먼저 들은 경우 54 대체 TODO(story)
