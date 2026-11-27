@@ -13,6 +13,7 @@ public static class PartyBattleOldUi
     private static readonly List<CanvasGroup> Groups = new List<CanvasGroup>();
     private static readonly List<bool> GroupAdded = new List<bool>();
     private static readonly List<float> GroupAlpha = new List<float>();
+    private static readonly List<bool> GroupRaycast = new List<bool>();
     private static readonly List<Renderer> Renderers = new List<Renderer>();
     private static bool _hidden;
 
@@ -22,6 +23,7 @@ public static class PartyBattleOldUi
         Groups.Clear();
         GroupAdded.Clear();
         GroupAlpha.Clear();
+        GroupRaycast.Clear();
         Renderers.Clear();
         _hidden = false;
     }
@@ -53,7 +55,9 @@ public static class PartyBattleOldUi
             Groups.Add(g);
             GroupAdded.Add(added);
             GroupAlpha.Add(g.alpha);
+            GroupRaycast.Add(g.blocksRaycasts);
             g.alpha = 0f;
+            g.blocksRaycasts = false; // 보이지 않는 옛 버튼(Note/Map/Menu)이 클릭을 받지 않게
         }
         if (manager == null)
         {
@@ -81,6 +85,7 @@ public static class PartyBattleOldUi
                 continue;
             }
             Groups[i].alpha = GroupAlpha[i];
+            Groups[i].blocksRaycasts = GroupRaycast[i];
             if (GroupAdded[i])
             {
                 Object.Destroy(Groups[i]);
@@ -89,6 +94,7 @@ public static class PartyBattleOldUi
         Groups.Clear();
         GroupAdded.Clear();
         GroupAlpha.Clear();
+        GroupRaycast.Clear();
         for (int i = 0; i < Renderers.Count; i++)
         {
             if (Renderers[i] != null)
