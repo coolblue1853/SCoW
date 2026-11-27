@@ -206,6 +206,11 @@ public sealed class SewerMinimapView : MonoBehaviour
     private void Rebuild()
     {
         GameState s = GameRoot.Instance.State;
+        if (SewerState.Seed(s) == 0)
+        {
+            // 시드 확정 전에는 그래프를 읽지 않는다(SewerFlow.Graph 가 시드를 만들어 버린다).
+            return;
+        }
         string sig = SewerState.Room(s) + "|" + s.GetText(SewerKeys.Visited) + "|" + SewerMapLayout.HasMapItem(s) + "|" + _expanded + "|" + Screen.height;
         if (sig == _sig)
         {
@@ -230,9 +235,10 @@ public sealed class SewerMinimapView : MonoBehaviour
         float labelRoom = _expanded ? 72f * scale : 0f;
         float w = (m.MaxX - m.MinX) * step + pad * 2f;
         float h = (m.MaxY - m.MinY) * step + pad * 2f + labelRoom;
-        _panel.anchorMin = _panel.anchorMax = _expanded ? new Vector2(0.5f, 0.5f) : new Vector2(1f, 1f);
-        _panel.pivot = _expanded ? new Vector2(0.5f, 0.5f) : new Vector2(1f, 1f);
-        _panel.anchoredPosition = _expanded ? Vector2.zero : new Vector2(-Margin * scale, -Margin * scale);
+        _panel.anchorMin = _panel.anchorMax = _expanded ? new Vector2(0.5f, 1f) : new Vector2(1f, 1f);
+        // 크게 보기는 화면 위쪽 가운데(아래쪽 대사창을 피한다).
+        _panel.pivot = _expanded ? new Vector2(0.5f, 1f) : new Vector2(1f, 1f);
+        _panel.anchoredPosition = _expanded ? new Vector2(0f, -Margin * 3f * scale) : new Vector2(-Margin * scale, -Margin * scale);
         _panel.sizeDelta = new Vector2(w, h);
         _panelImg.color = ColPanel;
         _content.anchoredPosition = Vector2.zero;
