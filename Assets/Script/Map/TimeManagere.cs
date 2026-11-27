@@ -34,11 +34,9 @@ public class TimeManagere : MonoBehaviour
     public GameObject burbRound2Battle;
     public GameObject burbFlet1Battle;
     public GameObject burbFlet2Battle;
-    public GameObject ladderBattle;
     public GameObject holeBattle;
     public GameObject houseBattle;
     public GameObject land2Battle;
-    public GameObject sideRoadBattle;
     public GameObject pipeBattle;
     public GameObject cageBattle;
     public GameObject groundWaterBattle;

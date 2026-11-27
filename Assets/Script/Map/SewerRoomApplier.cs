@@ -129,7 +129,7 @@ public static class SewerRoomApplier
         t.groundWaterLand2.SetActive(true);
     }
 
-    // 전투 배경 복제를 지금 방 소품과 같게(옛 MakeSewerMapEnemy 가 따로 난수로 맞추던 것). 사다리·샛길은 전투 배경에 쓰지 않는다.
+    // 전투 배경 복제를 지금 방 소품과 같게(옛 MakeSewerMapEnemy 가 따로 난수로 맞추던 것). 사다리·샛길 전투 복제는 항상 꺼져 있어 S9 에서 삭제했다.
     // S9: 소품 ↔ 전투 복제 대응을 한 표로 모았다. 씬의 Battle 쪽 오브젝트는 별도 좌표계(전투 카메라)라 삭제를 보류하고, 동기화 지점만 이 표 하나로 둔다.
     private static void SyncBattle(TimeManagere t)
     {
@@ -146,8 +146,6 @@ public static class SewerRoomApplier
         CopyActive(t.house, t.houseBattle);
         CopyActive(t.cage, t.cageBattle);
         CopyActive(t.land2, t.land2Battle);
-        if (t.ladderBattle != null) { t.ladderBattle.SetActive(false); }
-        if (t.sideRoadBattle != null) { t.sideRoadBattle.SetActive(false); }
     }
 
     private static void CopyActive(GameObject src, GameObject dst)
