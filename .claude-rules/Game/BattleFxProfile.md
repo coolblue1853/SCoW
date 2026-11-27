@@ -33,10 +33,10 @@
 | 카메라 회전 크기 | 5 | 5 | 5 | 1 | 1 | `cam.transform.DORotate(new Vector3(0,0,±n), 0.5f)` |
 | 회전 부호 | 피격·회피 계열(evasion·counterattack·EnemyDeftness)은 `-`, 공격 계열(MA·SS·MS·Deftness)은 `+` | | | | | DeepOneDeftness 도 `-1` |
 | 적 오브젝트 | `deepOneHybrid1Ob` | `...2Ob` | `...3Ob` | `...4Ob` | `deepOne1Ob` | 스프라이트 컨트롤러 `deepOneHybridNSC`/`deepOne1SC` |
-| 피격 연출(evasion 실패, 플레이어 쪽) | 사운드 `MartialArts`, `PlayerHitted*` 없음, `resetPlayer` 없음 | 사운드 `Dagger_Attack` + `battlePlayer.PlayerHittedDagger()` + 끝에 `resetPlayer()` | 추출 | 추출 | 사운드 `Dagger_Attack` + `PlayerHittedDagger()` + `resetPlayer()` | 슬롯마다 피격 스타일이 다름 |
+| 피격 연출(evasion 실패, 플레이어 쪽) | 사운드 `MartialArts`, `PlayerHitted*` 없음, `resetPlayer` 없음 | 사운드 `Dagger_Attack` + `battlePlayer.PlayerHittedDagger()` + 끝에 `resetPlayer()` | H1 과 같음(F0 확인) | `PlayerHittedDagger()` + `Dagger_Attack` + `resetPlayer()`, **hitted 스프라이트 없음**(F0 확인) | 사운드 `Dagger_Attack` + `PlayerHittedDagger()` + `resetPlayer()` | 슬롯마다 피격 스타일이 다름 |
 | 피격 연출(EnemyDeftness 성공) | | | `PlayerHittedRock()` + `MartialArts` + `resetPlayer()` | | | H3 전용 하드코딩 |
-| evasion 성공 시 플레이어 이동 | y = `deepOneHybrid1Ob.transform.position.y`(적 y, 버그성 의존), 0.7s | y = `playerOrigin.y`, **1s** | 추출 | 추출 | `playerOrigin.y`, 1s | H1 만 y 기준·지속시간이 다름 |
-| 마무리 `CamRotate(0)` | 있음 | 있음 | 있음 | 있음 | 있음 | **Deftness_attack H1 성공/실패 시퀀스에는 없음**(TurnEnd 의 ResetCam 에 의존). 다른 슬롯은 추출 |
+| evasion 성공 시 플레이어 이동 | y = `deepOneHybrid1Ob.transform.position.y`(적 y, 버그성 의존), 0.7s | y = `playerOrigin.y`, **1s** | `playerOrigin.y`, 1s(F0 확인) | `playerOrigin.y`, 1s(F0 확인) | `playerOrigin.y`, 1s | H1 만 y 기준·지속시간이 다름 |
+| 마무리 `CamRotate(0)` | 있음 | 있음 | 있음 | 있음 | 있음 | **evasion·counterattack 은 5슬롯 모두 있음. MA·SS·MS·Deftness_attack 은 H1·H2·H3 에 없고(TurnEnd 의 ResetCam 에 의존) H4·D1 에만 있음**(F0 기계 확인) |
 | 피격 연출 적이 맞을 때 | `HittedByPunchChange`(counter), `HittedByShotgunChange`(돌), `HittedByMolotovChange`(화염병) 등 | | | | | 무기별 적 스프라이트 상태. 슬롯 공통이면 프로필 불필요 |
 
 ### 1-2. 슬롯 공통(프로필 불필요)으로 보이는 값
@@ -59,13 +59,13 @@ namespace SCoW.Core.Rules {
   public readonly struct EnemyFxProfile {
     public readonly CamZoom Zoom;
     public readonly float RotateDeg;        // 크기(양수). 부호는 행동이 결정
-    public readonly PlayerHitStyle PlayerHit;   // 플레이어가 맞을 때
+    public readonly PlayerHitStyle PlayerHit;   // 플레이어가 맞을 때 (F0 구현은 PlayerHitReaction 3개로 확장, §7)
     public readonly string HitSound;        // "MartialArts"/"Dagger_Attack"
     public readonly bool ResetPlayerAfterHit;   // battlePlayer.resetPlayer()
     public readonly float EvadeMoveSec;     // evasion 성공 때 플레이어 이동 시간 (H1 0.7, 나머지 1)
     public readonly bool EvadeYFromEnemy;   // H1 true: 이동 y 를 적 y 로 계산하는 옛 동작 보존
     public readonly bool ZoomInEvadeFail;   // H4 false: 옛 주석 처리 보존
-    public readonly bool CamRotateResetOnDeftness; // H1 false (CamRotate(0) 없음), 나머지 추출
+    public readonly bool CamRotateResetOnDeftness; // (F0 구현명 CamRotateResetOnAttack, 값은 §7)
   }
   public static class EnemyFxProfiles { public static readonly EnemyFxProfile[] All; /* EnemyDefs.All 과 같은 인덱스 */ }
 }
@@ -77,11 +77,11 @@ namespace SCoW.Core.Rules {
 |---|---|---|---|---|---|
 | Zoom | Midle | Down | Up | Up | None |
 | RotateDeg | 5 | 5 | 5 | 1 | 1 |
-| PlayerHit(evasion 실패) | None | Dagger | 추출 | 추출 | Dagger |
-| HitSound | MartialArts | Dagger_Attack | 추출 | 추출 | Dagger_Attack |
-| ResetPlayerAfterHit | false | true | 추출 | 추출 | true |
-| EvadeMoveSec | 0.7 | 1 | 추출 | 추출 | 1 |
-| EvadeYFromEnemy | true | false | 추출 | 추출 | false |
+| PlayerHit(evasion 실패) | None | Dagger | None | Dagger | Dagger |
+| HitSound | MartialArts | Dagger_Attack | MartialArts | Dagger_Attack | Dagger_Attack |
+| ResetPlayerAfterHit | false | true | false | true | true |
+| EvadeMoveSec | 0.7 | 1 | 1 | 1 | 1 |
+| EvadeYFromEnemy | true | false | false | false | false |
 | ZoomInEvadeFail | true | true | true | **false** | (Zoom None) |
 
 테스트: `EnemyFxProfileDataTests`(EditMode)로 위 표를 고정한다(EnemyDefDataTests 와 같은 방식).
@@ -110,7 +110,7 @@ private void PlayDeftness(int slot, bool success);         // Deftness_attack, E
 
 | 단계 | 내용 | 줄 감소 예상 |
 |---|---|---|
-| F0 | 값 추출 도구 + 프로필 표·테스트. `Assets/Editor` 에 일회용 스크립트로 BattleManager.cs 를 정규식 파싱해 행동x슬롯별 `DOMove`/`DORotate`/사운드/콜백 문자열을 정규화해 5슬롯끼리 diff, 위 표의 "추출" 칸을 채우고 슬롯 간 불일치 목록을 `Docs/`에 남긴다. **코드 변경 없음, 프로필 데이터와 테스트만 커밋** | 0 |
+| F0 **완료(11-27)** | 값 추출 도구 + 프로필 표·테스트. `Assets/Editor` 에 일회용 스크립트로 BattleManager.cs 를 정규식 파싱해 행동x슬롯별 `DOMove`/`DORotate`/사운드/콜백 문자열을 정규화해 5슬롯끼리 diff, 위 표의 "추출" 칸을 채우고 슬롯 간 불일치 목록을 `Docs/`에 남긴다. **코드 변경 없음, 프로필 데이터와 테스트만 커밋** | 0 |
 | F1 | evasion → `PlayEvade`. 가장 작음(5블록 x 2 = ~250줄). 비교 틀 확립 | -200 |
 | F2 | counterattack → `PlayCounter` | -280 |
 | F3 | MA_attack_Counter → `PlayMartialAttack` | -270 |
@@ -177,3 +177,33 @@ private void PlayDeftness(int slot, bool success);         // Deftness_attack, E
 되돌리기: 단계당 1커밋, 커밋 직전 `git tag p14b-f<n>-pre`. 스샷 diff 가 틀어지면 해당 커밋만 `git revert`. F0 데이터·테스트는 F1 이전에 독립 커밋이라 남겨도 무해. 전체 롤백 기준점: F0 커밋.
 
 미검증: 이 문서는 대표 블록과 grep 으로만 작성. 5슬롯 전부의 값 비교는 F0 에서 기계로 확인한다.
+
+## 7. F0 결과 (11-27, 완료)
+
+방법: 일회용 정규식 스크립트(저장소 밖)로 행동 6종 x 슬롯 5개 블록을 잘라 슬롯 이름(`deepOneHybridN`/`deepOne1`/`Slot*`)을 정규화한 뒤 H1 과 줄 단위 diff, 줌·회전·사운드·`PlayerHitted*`·`resetPlayer`·hitted 스프라이트·`CamRotate(0)` 개수를 슬롯별로 비교. 코드 변경 없음. 구현: `Assets/Script/Core/Rules/EnemyFx.cs`(`EnemyFxProfiles.All`, `EnemyDefs.All` 과 같은 인덱스), 고정 테스트 `Assets/Tests/EditMode/EnemyFxProfileDataTests.cs`.
+
+### 7-1. 표 확장 (원본 확인으로 추가된 필드)
+- 피격 반응이 행동별로 다르다 → `PlayerHitReaction{PlayerHit, HitSound, HittedSprite, ResetPlayer}` 를 `EvadeFailHit`(evasion·counterattack 공통) / `MartialFailHit`(MA) / `MeleeFailHit`(SS, 무기 3종 공통)로 3개 둔다.
+- `CamRotateResetOnDeftness` → `CamRotateResetOnAttack`(MA·SS·MS·Deftness 전체에 해당).
+
+| 반응(실패 시) | H1 | H2 | H3 | H4 | D1 |
+|---|---|---|---|---|---|
+| EvadeFail(evasion·counter): Hit/Sound/hitted/reset | None/MartialArts/o/x | Dagger/Dagger_Attack/o/o | = H1 | Dagger/Dagger_Attack/**x**/o | Dagger/Dagger_Attack/o/o |
+| MartialFail(MA): 〃 | None/MartialArts/o/x | **None**/Dagger_Attack/o/o | = H1 | Dagger/Dagger_Attack/x/o | **None**/Dagger_Attack/o/o |
+| MeleeFail(SS): 〃 | None/MartialArts/o/x | None/**MartialArts**/o/o | = H1 | Dagger/Dagger_Attack/x/o | None/Dagger_Attack/o/o |
+| CamRotateResetOnAttack | x | x | x | o | o |
+
+Deftness 단일 블록: EnemyDeftness(H3) 성공=`PlayerHittedRock`+`MartialArts`+`resetPlayer`, 실패=`Evaision` 이동만. DeepOneDeftness(D1) 성공=`posionDebuff=3`+`PlayerHittedPosion`+`Posion_Attack`+`resetPlayer`, 실패=`Evaision` 이동만. 둘 다 표에 안 넣음(F4 에서 단일 처리).
+
+### 7-2. 슬롯 간 불일치 목록 (통합 때 평준화 금지)
+1. evasion 성공 이동: H1 만 y=적 오브젝트 y, 0.7s. 나머지 `playerOrigin.y`, 1s.
+2. evasion 실패 줌: H4 만 줌 주석 처리(성공은 줌). D1 은 줌 자체 없음.
+3. evasion·counter 에서 H4 만 hitted 스프라이트 없이 `PlayerHittedDagger`. MA·SS 도 H4 만 `PlayerHittedDagger` 호출(H2·D1 은 hitted+`resetPlayer` 만, PlayerHittedDagger 없음).
+4. SS 실패 사운드: H2 는 `resetPlayer` 가 있지만 사운드는 `MartialArts`(MA 의 H2 는 `Dagger_Attack`).
+5. 호출 순서가 슬롯마다 다르다: `PlayerHittedDagger` 가 `OnDamageObject` 앞(H4) 또는 뒤(H2·D1), 체인 순서 재배열 금지(§6).
+6. counterattack(`CamRotate(+n)` 1회)·MA(`CamRotate(-n)` 1회)·SS(`CamRotate(-n)` 3회)는 `DORotate` 외에 콜백 회전을 더 부른다. 크기 n 은 슬롯별 RotateDeg(5/5/5/1/1)와 같고 부호·위치는 F2·F3 에서 원본 줄 그대로 옮긴다.
+7. MS_attack 의 H3·H4 에는 `SmallPisol_Hit` 사운드 호출이 없다(H1·H2·D1 은 있음, 사운드 키 `SmallPisol_*` 오타 유지).
+8. 줌 호출 위치: evasion 만 성공·실패 각각 안, 나머지는 슬롯 분기 첫 줄(문서 §1-1 확인).
+9. `CamRotate(0)`: 위 표 마지막 줄. 문서 초안의 "Deftness_attack H1 만 없음"은 틀렸고 H1~H3 가 모두 없다.
+
+미확인: DOMove 접근·밀려남 좌표가 5슬롯 같다는 것은 evasion·counter 는 diff 로 확인(차이는 위 목록뿐), MA·SS·MS·Deftness 는 줌·회전·사운드·피격 호출 개수 비교까지만 확인(DOMove 수치 diff 는 F3 이후 해당 단계에서 전체 diff 로 재확인).
