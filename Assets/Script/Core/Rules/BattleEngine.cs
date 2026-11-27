@@ -58,6 +58,12 @@ namespace SCoW.Core.Rules
         private const float PlayerGaugeSpeed = 2f;
         private const float EnemyGaugeSpeed = 1.9f;
 
+        /// <summary>플레이어가 쓰러졌는가(HP 또는 SAN 이 0 이하). 사망 화면(DirectingManager)과 같은 조건이다.</summary>
+        public static bool IsPlayerDown(int hp, int san)
+        {
+            return hp <= 0 || san <= 0;
+        }
+
         /// <summary>게이지가 가득 찼는가(턴 시작). 옛 SymbolUp 의 `y < 130` 의 반대.</summary>
         public static bool IsGaugeFull(float y)
         {

@@ -159,6 +159,11 @@ public class BattleManager : MonoBehaviour
             {
                 return;
             }
+            if (BattleEngine.IsPlayerDown(DataBaseManager.nowHP, DataBaseManager.nowSan))
+            {
+                // 사망 화면이 뜬 뒤에는 새 차례를 열지 않는다(사망 오버레이 밑에서 적이 계속 행동하던 문제).
+                return;
+            }
             EnemyHealthCheck();
             TimeWait();
             StateChecker();

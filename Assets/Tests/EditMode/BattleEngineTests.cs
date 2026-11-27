@@ -512,6 +512,15 @@ namespace SCoW.Tests
         }
 
         [Test]
+        public void IsPlayerDown_HpOrSanZeroOrLess()
+        {
+            Assert.IsFalse(BattleEngine.IsPlayerDown(1, 1));
+            Assert.IsTrue(BattleEngine.IsPlayerDown(0, 50));
+            Assert.IsTrue(BattleEngine.IsPlayerDown(-22, 50));
+            Assert.IsTrue(BattleEngine.IsPlayerDown(50, 0));
+        }
+
+        [Test]
         public void BattleLog_MatchesGolden()
         {
             string[] r;
