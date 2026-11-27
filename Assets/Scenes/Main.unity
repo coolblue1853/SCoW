@@ -7445,11 +7445,9 @@ MonoBehaviour:
   burbRound2Battle: {fileID: 16660181}
   burbFlet1Battle: {fileID: 1557001506}
   burbFlet2Battle: {fileID: 608256765}
-  ladderBattle: {fileID: 0}
   holeBattle: {fileID: 676593611}
   houseBattle: {fileID: 1922439772}
   land2Battle: {fileID: 1371032787}
-  sideRoadBattle: {fileID: 0}
   pipeBattle: {fileID: 2128490645}
   cageBattle: {fileID: 1262367018}
   groundWaterBattle: {fileID: 332406167}
@@ -34035,7 +34033,6 @@ GameObject:
   - component: {fileID: 248288771}
   - component: {fileID: 248288774}
   - component: {fileID: 248288773}
-  - component: {fileID: 248288772}
   m_Layer: 5
   m_Name: HPBar
   m_TagString: Untagged
@@ -34062,18 +34059,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5.0816, y: -134.0241}
   m_SizeDelta: {x: 35.1923, y: 34.8814}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &248288772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248288770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d9a9c3b9b9947b4b9b6b42f381d6cc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &248288773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132343,7 +132328,6 @@ GameObject:
   - component: {fileID: 947369705}
   - component: {fileID: 947369707}
   - component: {fileID: 947369706}
-  - component: {fileID: 947369708}
   m_Layer: 5
   m_Name: HPDamageBar
   m_TagString: Untagged
@@ -132408,18 +132392,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947369704}
   m_CullTransparentMesh: 1
---- !u!114 &947369708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 947369704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d9a9c3b9b9947b4b9b6b42f381d6cc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &947535652
 GameObject:
   m_ObjectHideFlags: 0
@@ -219514,7 +219486,6 @@ GameObject:
   - component: {fileID: 1571645437}
   - component: {fileID: 1571645440}
   - component: {fileID: 1571645439}
-  - component: {fileID: 1571645438}
   m_Layer: 5
   m_Name: HPBar
   m_TagString: Untagged
@@ -219541,18 +219512,6 @@ RectTransform:
   m_AnchoredPosition: {x: 48.393414, y: -134.02762}
   m_SizeDelta: {x: 36.402, y: 36.0804}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1571645438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571645436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d9a9c3b9b9947b4b9b6b42f381d6cc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1571645439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234607,7 +234566,6 @@ GameObject:
   - component: {fileID: 1678379175}
   - component: {fileID: 1678379178}
   - component: {fileID: 1678379177}
-  - component: {fileID: 1678379176}
   m_Layer: 5
   m_Name: HPDamageBar
   m_TagString: Untagged
@@ -234634,18 +234592,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5.0816, y: -134.024}
   m_SizeDelta: {x: 35.1923, y: 34.8814}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1678379176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1678379174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d9a9c3b9b9947b4b9b6b42f381d6cc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1678379177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287171,7 +287117,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2059984730}
-  - component: {fileID: 2059984731}
   m_Layer: 8
   m_Name: End_Look
   m_TagString: Untagged
@@ -287199,18 +287144,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2059984731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059984729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a42bca3dd70d9849b2bec07097b9d16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2061162697
 GameObject:
   m_ObjectHideFlags: 0

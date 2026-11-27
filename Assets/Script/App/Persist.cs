@@ -9,7 +9,8 @@ public static class Persist
 {
     public static void Keep(GameObject go)
     {
-        if (go != null)
+        // DontDestroyOnLoad 는 루트 오브젝트에만 동작한다. 비루트는 원래 효과가 없었으므로 경고 없이 건너뛴다(동작 불변).
+        if (go != null && go.transform.parent == null)
         {
             Object.DontDestroyOnLoad(go);
         }
