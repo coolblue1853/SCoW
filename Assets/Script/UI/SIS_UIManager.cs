@@ -83,7 +83,6 @@ public class SIS_UIManager : MonoBehaviour
     public GameObject disorder2;
     public GameObject disorder3;
     public GameObject itemBoxNomal;
-    string inputString; // 사용자가 입력한 문자열
     string[] resultArray; // 문자열을 저장할 배열
     int arrayInt = 0;
     public GameObject visionLoss;

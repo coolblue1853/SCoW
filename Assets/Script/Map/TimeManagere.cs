@@ -51,10 +51,6 @@ public class TimeManagere : MonoBehaviour
     {
         oldMap.SetActive(false);
     }
-    public void EnemySpawn()
-    {
-        DataBaseManager.storyDirecting = true;
-    }
     public void PrintBattleDialog()
     {
         // 조우별 도착 대사는 Core 데이터(SewerEncounters)에서: E1 = Sewer_FirstDeepOne, 그 외 Sewer_EnemySpawn.

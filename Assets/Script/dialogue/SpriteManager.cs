@@ -22,33 +22,8 @@ public class SpriteManager : MonoBehaviour
     public GameObject ella1;
     GameObject beforeImage = null;
     bool isFirstShow = true;
-    bool isFirstImage = false;
     public GameObject ella2;
 
-    public void Master1()
-    {
-        PrintImg(master1);
-    }
-    public void Master2()
-    {
-        PrintImg(master2);
-    }
-    public void Master3()
-    {
-        PrintImg(master3);
-    }
-    public void Master4()
-    {
-        PrintImg(master4);
-    }
-    public void Master5()
-    {
-        PrintImg(master5);
-    }
-    public void Master6()
-    {
-        PrintImg(master6);
-    }
     public void Albert1()
     {
         PrintImg(fabian1);

@@ -158,7 +158,6 @@ public class IntelCharacterDetail : MonoBehaviour
     int countElla = 0;
     public GameObject ellaContents;
     public GameObject ellaDetail;
-    public static int ellaIntelInt;
     public GameObject nextButtonElla;
     public GameObject prevButtonElla;
 
@@ -178,7 +177,6 @@ public class IntelCharacterDetail : MonoBehaviour
      int countAiden = 0;
     public GameObject aidenContents;
     public GameObject aidenDetail;
-    public static int aidenIntelInt;
     public GameObject nextButtonAiden;
     public GameObject prevButtonAiden;
     //
@@ -199,7 +197,6 @@ public class IntelCharacterDetail : MonoBehaviour
     int countSwain = 0;
     public GameObject swainContents;
     public GameObject swainDetail;
-    public static int swainIntelInt;
     public GameObject nextButtonSwain;
     public GameObject prevButtonSwain;
 
@@ -220,7 +217,6 @@ public class IntelCharacterDetail : MonoBehaviour
     int countCane = 0;
     public GameObject caneContents;
     public GameObject caneDetail;
-    public static int caneIntelInt;
     public GameObject nextButtonCane;
     public GameObject prevButtonCane;
 
@@ -239,7 +235,6 @@ public class IntelCharacterDetail : MonoBehaviour
     int countAlbert = 0;
     public GameObject albertContents;
     public GameObject albertDetail;
-    public static int albertIntelInt;
     public GameObject nextButtonAlbert;
     public GameObject prevButtonAlbert;
 
@@ -258,7 +253,6 @@ public class IntelCharacterDetail : MonoBehaviour
     int countMeiv = 0;
     public GameObject meivContents;
     public GameObject meivDetail;
-    public static int meivIntelInt;
     public GameObject nextButtonMeiv;
     public GameObject prevButtonMeiv;
 
@@ -277,7 +271,6 @@ public class IntelCharacterDetail : MonoBehaviour
     int countBlackWell = 0;
     public GameObject blackWellContents;
     public GameObject blackWellDetail;
-    public static int blackWellIntelInt;
     public GameObject nextButtonBlackWell;
     public GameObject prevButtonBlackWell;
 
@@ -297,7 +290,6 @@ public class IntelCharacterDetail : MonoBehaviour
     int countSewerWorker = 0;
     public GameObject sewerWorkerContents;
     public GameObject sewerWorkerDetail;
-    public static int sewerWorkerIntelInt;
     public GameObject nextButtonSewerWorker;
     public GameObject prevButtonSewerWorker;
 
@@ -317,7 +309,6 @@ public class IntelCharacterDetail : MonoBehaviour
     public int countDave = 0;
     public GameObject daveContents;
     public GameObject daveDetail;
-    public static int daveIntelInt;
     public GameObject nextButtonDave;
     public GameObject prevButtonDave;
 

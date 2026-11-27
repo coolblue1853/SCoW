@@ -55,12 +55,6 @@ public class BattleItemManager : MonoBehaviour
     {
         if (DataBaseManager.battleWeapon == "")
         {
-           // Name.text = "";
-           // Detail.text = "";
-           // Use_Name.text = "";
-           // Use_Detail.text = "";
-           // Key_Name.text = "";
-           // Key_Detail.text = "";
         }
     }
     public void ManageItem()

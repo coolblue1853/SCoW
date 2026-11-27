@@ -258,7 +258,6 @@ public class DirectingManager : MonoBehaviour
         if (DataBaseManager.endDemo == true && DataBaseManager.isActiveDialog1 == false)
         {
             DataBaseManager.endDemo = false;
-            // FadingBackGround.Instance.DemoEnd_FadeIn();
             MapManager.Instance.MapOn();
         }
         if ((DataBaseManager.timeCount == 4) && DataBaseManager.nowPlace == "DetectiveOffice" && once == false)
@@ -564,7 +563,6 @@ public class DirectingManager : MonoBehaviour
         if (DataBaseManager.nowHP <= 0 && DataBaseManager.timeCount > 1)
         {
             //죽었을때
-            //DataBaseManager.EndDemo = true;
         }
         if (DataBaseManager.endingSwin == true && DataBaseManager.isActiveDialog1 == false)
         {
@@ -786,7 +784,6 @@ public class DirectingManager : MonoBehaviour
         BattleManager.Instance.StartReload();
         battleUI.SetActive(true);
         cameraMove.enabled = true;
-        //DialogManager.SetActive(false);
         cameraManager.enabled = false;
         camera.transform.position = camBattlePos;
         Invoke("SetBattle", 3);
@@ -828,7 +825,6 @@ public class DirectingManager : MonoBehaviour
         BattleManager.Instance.StartReload();
         battleUI.SetActive(true);
         cameraMove.enabled = false;
-        //DialogManager.SetActive(false);
         cameraManager.enabled = false;
         camera.transform.position = camBattleSewerPos;
         Invoke("SetBattle", 3);
@@ -916,7 +912,6 @@ public class DirectingManager : MonoBehaviour
     {
         DataBaseManager.isDirecting = true;
         FadingBackGround.Instance.FadeInOut();
-        // SoundManager.Instance.Door_Sound();
         Invoke("MoveInside", 1f);
     }
     void MoveInside()
@@ -937,7 +932,6 @@ public class DirectingManager : MonoBehaviour
         DataBaseManager.isDirecting = true;
         FadingBackGround.Instance.FadeInOut();
         Invoke("MoveUpsair", 1f);
-        // DataBaseManager.isDirecting = true;
     }
     void MoveUpsair()
     {
@@ -948,11 +942,6 @@ public class DirectingManager : MonoBehaviour
         Invoke("UpstairDialog", 1f);
     }
     void UpstairDialog()
-    {
-        DataBaseManager.isDirecting = false;
-        InteractionController.Instance.Start1stClientsHouse("Ella_FirstUpstair");
-    }
-    void FirstRoomDialog()
     {
         DataBaseManager.isDirecting = false;
         InteractionController.Instance.Start1stClientsHouse("Ella_FirstUpstair");

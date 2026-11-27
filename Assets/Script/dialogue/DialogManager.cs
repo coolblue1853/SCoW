@@ -94,7 +94,6 @@ public class DialogManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI txtDialog;
     [SerializeField] TextMeshProUGUI txtName;
     Dialog[] dialogs;
-   // public Mins min;
     bool isDialog = false;
     bool isNext = false; // 특정 키 입력 대기.
     public bool isSelectButton = false;
@@ -489,19 +488,6 @@ public class DialogManager : MonoBehaviour
         showChoice = false;
         ChoiceExNextPageT();
     }
-    public void DeleteChilds(GameObject stressBackground)
-    {
-        Transform[] childList = stressBackground.GetComponentsInChildren<Transform>(true);
-        if (childList != null)
-        {
-            for (int i = 2; i < childList.Length; i++)
-            {
-                if (childList[i] != transform)
-                    Destroy(childList[i].gameObject);
-            }
-        }
-
-    }
     public void EndDialog()
     {
         DataBaseManager.isItemUI = false;
@@ -548,14 +534,6 @@ public class DialogManager : MonoBehaviour
         txtName.text = "";
         dialogs = P_dialogs;
         StartCoroutine(TypeWriter());
-    }
-    public void TypeWriterForce()
-    {
-        SettingUI(true);
-        string t_ReplaceText = dialogs[lineCount].contexts[contextCount];
-        t_ReplaceText = t_ReplaceText.Replace("^", ",");
-        txtDialog.text = t_ReplaceText;
-        isNext = true;
     }
     IEnumerator TypeWriter()
     {
@@ -1239,7 +1217,6 @@ public class DialogManager : MonoBehaviour
                     }
                     if (t_ReplaceText[i + 1] == '③')
                     {
-                        //DataBaseManager.SelectionOn = true;
                         selectionUIManager.Instance.Open1stSlumDave();
                         DataBaseManager.daveCheck = true;
                     }
@@ -1332,8 +1309,6 @@ public class DialogManager : MonoBehaviour
                 case '※':// 연출 관련
                     if (t_ReplaceText[i + 1] == '①')
                     {
-                      //  DataBaseManager.isDirecting = false;
-                       // DataBaseManager.secondisDirecting = false;
                         DataBaseManager.storyDirecting = false; 
                     }
                     if (t_ReplaceText[i + 1] == '②')
@@ -1748,12 +1723,4 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public void OnButtonSetterT()
-    {
-        isSelectButton = true;
-    }
-    public void OnButtonSetterF()
-    {
-        isSelectButton = false;
-    }
 }

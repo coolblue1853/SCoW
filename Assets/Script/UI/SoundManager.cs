@@ -253,10 +253,6 @@ public class SoundManager : MonoBehaviour
     {
         sfxSecendSource.PlayOneShot(nockClip);
     }
-    public void ClickSound()
-    {
-        sfxSecendSource.PlayOneShot(setSfxClip);
-    }
     public void ClickSoundPlay()
     {
         sfxSecendSource.PlayOneShot(clickSound);
@@ -295,7 +291,6 @@ public class SoundManager : MonoBehaviour
         sfxSource.volume = DataBaseManager.sfxVolume;
         sfxSecendSource.volume = DataBaseManager.sfxVolume;
         sfxGearSource.volume = DataBaseManager.sfxVolume;
-        //  오디오소스_기어.volume = DataBaseManager.sfx_Volume;
     }
 
     public void SetSlideBgm()

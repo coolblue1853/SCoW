@@ -19,7 +19,6 @@ public class IntelEventDetail : MonoBehaviour
     int countPlanetarySequence = 0;
     public GameObject planetarySequenceContents;
     public GameObject planetarySequenceDetail;
-    public static int planetarySequenceIntelInt;
     public GameObject nextButtonPlanetarySequence;
     public GameObject prevButtonPlanetarySequence;
     string nowPage;
@@ -39,7 +38,6 @@ public class IntelEventDetail : MonoBehaviour
     int countNightmare = 0;
     public GameObject nightmareContents;
     public GameObject nightmareDetail;
-    public static int nightmareIntelInt;
     public GameObject nextButtonNightmare;
     public GameObject prevButtonNightmare;
 
@@ -58,7 +56,6 @@ public class IntelEventDetail : MonoBehaviour
     int countParanoia = 0;
     public GameObject paranoiaContents;
     public GameObject paranoiaDetail;
-    public static int paranoiaIntelInt;
     public GameObject nextButtonParanoia;
     public GameObject prevButtonParanoia;
 
@@ -77,7 +74,6 @@ public class IntelEventDetail : MonoBehaviour
     int countInsomnia = 0;
     public GameObject insomniaContents;
     public GameObject insomniaDetail;
-    public static int insomniaIntelInt;
     public GameObject nextButtonInsomnia;
     public GameObject prevButtonInsomnia;
 
@@ -96,7 +92,6 @@ public class IntelEventDetail : MonoBehaviour
     int countSewerGhostStory = 0;
     public GameObject sewerGhostStoryContents;
     public GameObject sewerGhostStoryDetail;
-    public static int sewerGhostStoryIntelInt;
     public GameObject nextButtonSewerGhostStory;
     public GameObject prevButtonSewerGhostStory;
 
@@ -115,7 +110,6 @@ public class IntelEventDetail : MonoBehaviour
     int countMissingPeople = 0;
     public GameObject missingPeopleContents;
     public GameObject missingPeopleDetail;
-    public static int missingPeopleIntelInt;
     public GameObject nextButtonMissingPeople;
     public GameObject prevButtonMissingPeople;
 
@@ -134,7 +128,6 @@ public class IntelEventDetail : MonoBehaviour
     int countFishySmell = 0;
     public GameObject fishySmellContents;
     public GameObject fishySmellDetail;
-    public static int fishySmellIntelInt;
     public GameObject nextButtonFishySmell;
     public GameObject prevButtonFishySmell;
 
@@ -153,7 +146,6 @@ public class IntelEventDetail : MonoBehaviour
     int countRiverWaterQuality = 0;
     public GameObject riverWaterQualityContents;
     public GameObject riverWaterQualityDetail;
-    public static int riverWaterQualityIntelInt;
     public GameObject nextButtonRiverWaterQuality;
     public GameObject prevButtonRiverWaterQuality;
 
@@ -172,7 +164,6 @@ public class IntelEventDetail : MonoBehaviour
     int countCreepyEyes = 0;
     public GameObject creepyEyesContents;
     public GameObject creepyEyes_etail;
-    public static int creepyEyesIntelInt;
     public GameObject nextButtonCreepyEyes;
     public GameObject prevButtonCreepyEyes;
 
@@ -191,7 +182,6 @@ public class IntelEventDetail : MonoBehaviour
     int countSafe = 0;
     public GameObject safeContents;
     public GameObject safeDetail;
-    public static int safeIntelInt;
     public GameObject nextButtonSafe;
     public GameObject prevButtonSafe;
 
@@ -210,7 +200,6 @@ public class IntelEventDetail : MonoBehaviour
     int countMurderCase = 0;
     public GameObject murderCaseContents;
     public GameObject murderCaseDetail;
-    public static int murderCaseIntelInt;
     public GameObject nextButtonMurderCase;
     public GameObject prevButtonMurderCase;
     void Awake()

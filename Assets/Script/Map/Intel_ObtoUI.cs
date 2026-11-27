@@ -19,7 +19,6 @@ public class Intel_ObtoUI : MonoBehaviour
     bool isKeyword = false;
     public string activeDilaog;
     public string lookDilaog;
-    //  public string Select_Object;
 
     public void Update()
     {
@@ -742,7 +741,6 @@ public class Intel_ObtoUI : MonoBehaviour
     }
     private void Reset()
     {
-        // DataBaseManager.NowSelecter = "End";
         DataBaseManager.isActiveDialog2 = false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -755,10 +753,6 @@ public class Intel_ObtoUI : MonoBehaviour
             // TODO(I2): 문구를 I2 키로.
             InteractHintView.Enter(transform, SCoW.Core.Ui.HintAction.Interact, "Inspect", 2.2f);
         }
-    }
-    public void ExDetailChange()
-    {
-        BillowUIManager.Instance.SetIntelUi(name, detail);
     }
 
     private void OnTriggerExit2D(Collider2D collision)

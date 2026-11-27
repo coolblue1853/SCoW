@@ -306,20 +306,10 @@ public class PotalPoint : MonoBehaviour
     {
         DataBaseManager.sewerFirstIn = true;
     }
-    public void Force2st()
-    {
-        InteractionController.Instance.Start1stClientsHouse("Aiden_key_FailForce");
-    }
     public void Ex2Room()
     {
         DataBaseManager.isDirecting = false;
         InteractionController.Instance.Start1stClientsHouse("into_FirstRoom");
-    }
-    public void ExOutto1st()
-    {
-        CameraManager.Instance.isCheckEnd = true;
-        player.transform.localPosition = playerOutsideTo1st;
-        camera.transform.localPosition = camOutsideTo1st;
     }
     void EndIsDerecting()
     {

@@ -74,12 +74,6 @@ public class EnemySpriteChanger : MonoBehaviour
         ResetAll();
         hittedByShotgun.SetActive(true);
     }
-    public void HittedByRockChange()
-    {
-        spriteRenderer.sprite = hitted;
-        ResetAll();
-        hittedByRock.SetActive(true);
-    }
     public void HittedByMolotovChange()
     {
         spriteRenderer.sprite = hitted;

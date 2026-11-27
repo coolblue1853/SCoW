@@ -10,12 +10,6 @@ public class SetCharacter_ : MonoBehaviour
     public Image backGroundImg;
     public GameObject demoEndBackOb;
     public Image demoEndBackGroundImg;
-    public void DemoEndFadeOut()
-    {
-        demoEndBackOb.SetActive(true);
-        mySequence = DOTween.Sequence()
-        .Append(demoEndBackGroundImg.DOFade(0, 1.5f).SetAutoKill());
-    }
     Sequence mySequence;
     Sequence mySequence2;
     // Start is called before the first frame update

@@ -18,7 +18,6 @@ public class IntelPlaceDetail : MonoBehaviour
     int countDetectiveOffice = 0;
     public GameObject detectiveOfficeContents;
     public GameObject detectiveOfficeDetail;
-    public static int detectiveOfficeIntelInt;
     public GameObject nextButtonDetectiveOffice;
     public GameObject prevButtonDetectiveOffice;
     string nowPage;
@@ -38,7 +37,6 @@ public class IntelPlaceDetail : MonoBehaviour
     int countHospital = 0;
     public GameObject hospitalContents;
     public GameObject hospitalDetail;
-    public static int hospitalIntelInt;
     public GameObject nextButtonHospital;
     public GameObject prevButtonHospital;
 
@@ -57,7 +55,6 @@ public class IntelPlaceDetail : MonoBehaviour
     int countNewspaper = 0;
     public GameObject newspaperContents;
     public GameObject newspaperDetail;
-    public static int newspaperIntelInt;
     public GameObject nextButtonNewspaper;
     public GameObject prevButtonNewspaper;
 
@@ -76,7 +73,6 @@ public class IntelPlaceDetail : MonoBehaviour
     int countQuestHouse = 0;
     public GameObject questHouseContents;
     public GameObject questHouseDetail;
-    public static int questHouseIntelInt;
     public GameObject nextButtonQuestHouse;
     public GameObject prevButtonQuestHouse;
 
@@ -95,7 +91,6 @@ public class IntelPlaceDetail : MonoBehaviour
     int countStation = 0;
     public GameObject stationContents;
     public GameObject stationDetail;
-    public static int stationIntelInt;
     public GameObject nextButtonStation;
     public GameObject prevButtonStation;
 
@@ -114,7 +109,6 @@ public class IntelPlaceDetail : MonoBehaviour
     int countSewer = 0;
     public GameObject sewerContents;
     public GameObject sewerDetail;
-    public static int sewerIntelInt;
     public GameObject nextButtonSewer;
     public GameObject prevButtonSewer;
 
@@ -133,7 +127,6 @@ public class IntelPlaceDetail : MonoBehaviour
     int countUniversity = 0;
     public GameObject universityContents;
     public GameObject universityDetail;
-    public static int universityIntelInt;
     public GameObject nextButtonUniversity;
     public GameObject prevButtonUniversity;
 
@@ -152,7 +145,6 @@ public class IntelPlaceDetail : MonoBehaviour
     int countRiverside = 0;
     public GameObject riversideContents;
     public GameObject riversideDetail;
-    public static int riversideIntelInt;
     public GameObject nextButtonRiverside;
     public GameObject prevButtonRiverside;
 
@@ -171,7 +163,6 @@ public class IntelPlaceDetail : MonoBehaviour
     int countBar = 0;
     public GameObject barContents;
     public GameObject barDetail;
-    public static int barIntelInt;
     public GameObject nextButtonBar;
     public GameObject prevButtonBar;
 
@@ -191,7 +182,6 @@ public class IntelPlaceDetail : MonoBehaviour
     int countSlum = 0;
     public GameObject slumContents;
     public GameObject slumDetail;
-    public static int slumIntelInt;
     public GameObject nextButtonSlum;
     public GameObject prevButtonSlum;
 
@@ -210,7 +200,6 @@ public class IntelPlaceDetail : MonoBehaviour
     int countPoliceOffice = 0;
     public GameObject policeOfficeContents;
     public GameObject policeOfficeDetail;
-    public static int policeOfficeIntelInt;
     public GameObject nextButtonPoliceOffice;
     public GameObject prevButtonPoliceOffice;
 
@@ -229,7 +218,6 @@ public class IntelPlaceDetail : MonoBehaviour
     int countGunsmith = 0;
     public GameObject gunsmithContents;
     public GameObject gunsmithDetail;
-    public static int gunsmithIntelInt;
     public GameObject nextButtonGunsmith;
     public GameObject prevButtonGunsmith;
 
@@ -248,7 +236,6 @@ public class IntelPlaceDetail : MonoBehaviour
     int countSewageMaintenanceOffice = 0;
     public GameObject sewageMaintenanceOfficeContents;
     public GameObject sewageMaintenanceOfficeDetail;
-    public static int sewageMaintenanceOfficeIntelInt;
     public GameObject nextButtonSewageMaintenanceOffice;
     public GameObject prevButtonSewageMaintenanceOffice;
 
@@ -267,7 +254,6 @@ public class IntelPlaceDetail : MonoBehaviour
     int countWharf = 0;
     public GameObject wharfContents;
     public GameObject wharfDetail;
-    public static int wharfIntelInt;
     public GameObject nextButtonWharf;
     public GameObject prevButtonWharf;
     void Awake()

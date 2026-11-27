@@ -92,12 +92,6 @@ public class IntelManager : MonoBehaviour
             }
         }
     }
-    public void QuitIntelWindow()
-    {
-        SoundManager.Instance.ClickSoundPlay();
-        //DataBaseManager.옵션창여부 = false;
-        intelWindow.SetActive(false);
-    }
 
     public void OpenCharacter()
     {

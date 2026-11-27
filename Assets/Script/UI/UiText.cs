@@ -10,5 +10,4 @@ public static class UiText
     public const string DialogSkip = "skip";
     public const string DialogSkipOn = "SKIP ON";
     // TODO I2: 영문 고정 표기
-    public const string SettingTextSpeed = "TEXT";
 }

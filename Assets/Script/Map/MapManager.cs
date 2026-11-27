@@ -40,8 +40,6 @@ public class MapManager : MonoBehaviour
     Vector3 playerDetectiveOffice = new Vector3(-774.2f, 2.6f);
     Vector3 camDetectiveOffice = new Vector3(-797.2f, 1.690001f, -15);
 
-    Vector3 playerNoonEventFirst = new Vector3(-981.2974f, 2.86f);
-
     Vector3 playerClientsHouse = new Vector3(-977.8177f, 3.072989f);
     Vector3 camClientsHouse = new Vector3(-988.6172f, 1.5f, -15);
 
@@ -523,7 +521,6 @@ public class MapManager : MonoBehaviour
                 DataBaseManager.nowPlace = "BattleRoad";
                 DialogDatabaseManager.instance.check = true;
                 CloseMap();
-                //DirectingManager.Instance.GotoBattle();
 
                 FadingBackGround.Instance.FadeInOut();
                 Invoke("BattleDialog", 1f);
@@ -542,7 +539,6 @@ public class MapManager : MonoBehaviour
                 DataBaseManager.nowPlace = "BattleRoad";
                 DialogDatabaseManager.instance.check = true;
                 CloseMap();
-                //DirectingManager.Instance.GotoBattle();
                 FadingBackGround.Instance.FadeInOut();
                 Invoke("BattleDialog", 1f);
             }

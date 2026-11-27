@@ -19,8 +19,4 @@ public class Directing_Object : MonoBehaviour
             InteractionController.Instance.InSewerDialog("Ending_DoorEnd");
         }
     }
-    void Destory()
-    {
-        Destroy(this.gameObject);
-    }
 }
