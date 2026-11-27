@@ -73,6 +73,7 @@ public class BattleManager : MonoBehaviour
     private const int SlotDeepOne1 = 4;
     private readonly EnemyState[] _enemies = CreateEnemies();
     private GameObject[] _enemyObs;
+    private EnemySpriteChanger[] _enemySCs;
     private GameObject[] _enemySymbols;
     //적 오브젝트 관련
     public GameObject deepOneHybrid1Ob;
@@ -295,6 +296,7 @@ public class BattleManager : MonoBehaviour
     {
         playerRender = player.GetComponent<SpriteRenderer>();
         _enemyObs = new[] { deepOneHybrid1Ob, deepOneHybrid2Ob, deepOneHybrid3Ob, deepOneHybrid4Ob, deepOne1Ob };
+        _enemySCs = new[] { deepOneHybrid1SC, deepOneHybrid2SC, deepOneHybrid3SC, deepOneHybrid4SC, deepOne1SC };
         _enemySymbols = new[] { enemyTrunSymbol1, enemyTrunSymbol2, enemyTrunSymbol3 };
         for (int i = 0; i < _enemies.Length; i++)
         {
@@ -692,7 +694,7 @@ public class BattleManager : MonoBehaviour
     }
     public void DeepOneSanAttack()
     {
-        deepOne1SC.DeepOneSanAttackChange();
+        _enemySCs[_actingEnemy].DeepOneSanAttackChange();
         cam.transform.DORotate(new Vector3(0, 0, -1), 0.5f);
         // 연출 삽입
         Sequence sequence = DOTween.Sequence()
@@ -707,7 +709,7 @@ public class BattleManager : MonoBehaviour
     public void EndDeepOneSanAttack()
     {
         Sequence sequence = DOTween.Sequence()
-        .AppendCallback(() => deepOne1SC.StandChange())
+        .AppendCallback(() => _enemySCs[_actingEnemy].StandChange())
         .AppendCallback(() => OnSpriteChangeComplete(playerRender, stand))
         .AppendCallback(() => battlePlayer.resetPlayer())
         .AppendCallback(() => TurnEnd())
@@ -716,11 +718,11 @@ public class BattleManager : MonoBehaviour
     }
     public void DeepOnePosionAttack()
     {
-        Rollet.Instance.SetRollet("??? : Deftness", "Deftness", _enemies[SlotDeepOne1].Dex, "DeepOneDeftness", "DeepOne");
+        Rollet.Instance.SetRollet("??? : Deftness", "Deftness", _enemies[_actingEnemy].Dex, "DeepOneDeftness", "DeepOne");
     }
     public void EnemyAttackWithDeftness()
     {
-        Rollet.Instance.SetRollet("??? : Deftness", "Deftness", _enemies[SlotHybrid3].Dex, "EnemyDeftness", "DeepOneHybrid");
+        Rollet.Instance.SetRollet("??? : Deftness", "Deftness", _enemies[_actingEnemy].Dex, "EnemyDeftness", "DeepOneHybrid");
     }
     public void ChoiceEvasion()
     {
