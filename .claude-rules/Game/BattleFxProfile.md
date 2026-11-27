@@ -111,7 +111,7 @@ private void PlayDeftness(int slot, bool success);         // Deftness_attack, E
 | 단계 | 내용 | 줄 감소 예상 |
 |---|---|---|
 | F0 **완료(11-27)** | 값 추출 도구 + 프로필 표·테스트. `Assets/Editor` 에 일회용 스크립트로 BattleManager.cs 를 정규식 파싱해 행동x슬롯별 `DOMove`/`DORotate`/사운드/콜백 문자열을 정규화해 5슬롯끼리 diff, 위 표의 "추출" 칸을 채우고 슬롯 간 불일치 목록을 `Docs/`에 남긴다. **코드 변경 없음, 프로필 데이터와 테스트만 커밋** | 0 |
-| F1 | evasion → `PlayEvade`. 가장 작음(5블록 x 2 = ~250줄). 비교 틀 확립 | -200 |
+| F1 **완료(11-27)** | evasion → `PlayEvade`(BattleManager). 5슬롯 x 성공/실패 10조합을 구 코드·신 코드로 120프레임 트레이스(위치·카메라 회전/줌·스프라이트·HP) 비교해 전부 동일 확인 | -170 |
 | F2 | counterattack → `PlayCounter` | -280 |
 | F3 | MA_attack_Counter → `PlayMartialAttack` | -270 |
 | F4 | EnemyDeftness/DeepOneDeftness + Deftness_attack → `PlayDeftness` (돌·화염병 2무기) | -450 |
@@ -205,5 +205,6 @@ Deftness 단일 블록: EnemyDeftness(H3) 성공=`PlayerHittedRock`+`MartialArts
 7. MS_attack 의 H3·H4 에는 `SmallPisol_Hit` 사운드 호출이 없다(H1·H2·D1 은 있음, 사운드 키 `SmallPisol_*` 오타 유지).
 8. 줌 호출 위치: evasion 만 성공·실패 각각 안, 나머지는 슬롯 분기 첫 줄(문서 §1-1 확인).
 9. `CamRotate(0)`: 위 표 마지막 줄. 문서 초안의 "Deftness_attack H1 만 없음"은 틀렸고 H1~H3 가 모두 없다.
+10. (F1 에서 발견) evasion 성공 이동에서 H1 은 `new Vector3(x-4, 적y)` 라 **z=0**, 나머지는 z=-1. 프로필 `EvadeYFromEnemy` 가 y 와 z 를 함께 재현한다.
 
 미확인: DOMove 접근·밀려남 좌표가 5슬롯 같다는 것은 evasion·counter 는 diff 로 확인(차이는 위 목록뿐), MA·SS·MS·Deftness 는 줌·회전·사운드·피격 호출 개수 비교까지만 확인(DOMove 수치 diff 는 F3 이후 해당 단계에서 전체 diff 로 재확인).
