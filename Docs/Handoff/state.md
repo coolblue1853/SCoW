@@ -36,3 +36,4 @@
 - 11-27 밤: 6800edd push — Persist.Keep 비루트 건너뜀(DDOL 경고 8건 제거, 동작 불변), Main 씬 Missing script 5개 제거(스크립트 GUID 실존 0 확인). EditMode 532. 남은 콘솔 경고: SRP Batcher 머티리얼, MonoBehaviour 'new' 키워드(위치 미상).
 - 11-27 밤: P14b 설계 BattleFxProfile.md(08b8159, Hit1D3=플레이어 맨손 피해·수치 보존, Q-FX1), F0(5436277, EnemyFxProfiles 표·값 고정 테스트, BattleManager 무변경). EditMode 537. 다음: F1~(문서 단계표, 단계마다 BattlePlaytestDriver 전후 스샷).
 - 11-27 밤: P14b F1(be93047·후속 가드) push — evasion 5슬롯 통합, 구·신 120프레임 트레이스 10조합 동일(시드 777). 로컬 태그 p14b-f1-pre(push 안 함). 남은 임시 파일 Assets/Editor/FxF1Capture.cs(+meta) untracked — 삭제가 권한 분류기에 막혀 사용자 삭제 대기. 다음: F2~.
+- 11-27 밤: P14b F2(354ff79, counterattack 5슬롯 통합, 트레이스 10조합 동일) push. 리뷰 권장(시퀀스 SetLink, RotateDeg int 명시)은 F8 정리 때. LIMB-1 설계(c169eae, LimbLoss.md, Q-LIMB-1~8) push, 파비안 레이어 분리 규격을 픽셀렙 세션에 공유. 임시 Assets/Editor/FxF1Capture.cs untracked(사용자 삭제 대기, 또는 BattlePlaytestDriver 로 이관). 다음: P14b F3~, LIMB-1 L0.
