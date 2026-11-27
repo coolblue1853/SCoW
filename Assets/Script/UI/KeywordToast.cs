@@ -10,7 +10,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 새 키워드 알림(KEYWORD-1 K4, View). 상태 변경 통지(GameRoot.StateChanged)를 구독해 새로 풀린 키워드를 KeywordNotice(Core)로 가려내고,
 /// 우상단 토스트("New keyword: …")와 수첩 버튼 배지를 보여 준다. 코드로 만드는 오버레이라 씬 수정이 없다(KeywordPicker 와 같은 방식).
-/// 대사·판정 등 연출 중(UiGate.IsBusy)에 얻은 알림은 큐에 쌓았다가 끝나면 한 개씩 띄운다. 폴링하지 않는다(큐가 비어 있으면 Update 는 바로 반환).
+/// 대사·판정 등 연출 중(UiGate.IsBusy)이거나 설정·수첩 등 패널이 열려 있는(UiGate.AnyOpen) 동안 얻은 알림은 큐에 쌓았다가 끝나면 한 개씩 띄운다. 폴링하지 않는다(큐가 비어 있으면 Update 는 바로 반환).
 /// 그래픽·효과음은 임시(ART-2). TODO(I2): 문구를 새 I2 키로 옮긴다.
 /// </summary>
 public sealed class KeywordToast : MonoBehaviour
@@ -157,7 +157,7 @@ public sealed class KeywordToast : MonoBehaviour
 
     private void Update()
     {
-        if (_showing || _queue.Count == 0 || UiGate.IsBusy)
+        if (!KeywordNotice.CanShowToast(_showing, _queue.Count, UiGate.IsBusy, UiGate.AnyOpen))
         {
             return;
         }

@@ -167,7 +167,7 @@ public sealed class TimeHudView : MonoBehaviour
         _dirty = true;
         if (_panelRt != null)
         {
-            _panelRt.sizeDelta = new Vector2(_compact ? 500f : 640f, _compact ? 100f : 190f);
+            _panelRt.sizeDelta = new Vector2(_compact ? 500f : 640f, _compact ? 112f : 230f);
         }
     }
 
@@ -257,7 +257,7 @@ public sealed class TimeHudView : MonoBehaviour
         _panelRt.anchorMax = new Vector2(0f, 1f);
         _panelRt.pivot = new Vector2(0f, 1f);
         _panelRt.anchoredPosition = new Vector2(24f, -150f);
-        _panelRt.sizeDelta = new Vector2(640f, 190f);
+        _panelRt.sizeDelta = new Vector2(640f, 230f);
         Image bg = _panel.GetComponent<Image>();
         bg.color = new Color(0.05f, 0.05f, 0.05f, 0.65f);
         bg.raycastTarget = false;
@@ -270,7 +270,7 @@ public sealed class TimeHudView : MonoBehaviour
         _text.color = Normal;
         _text.textWrappingMode = TextWrappingModes.Normal;
         _text.overflowMode = TextOverflowModes.Overflow;
-        _text.lineSpacing = 6f;
+        _text.lineSpacing = 22f;
         _text.raycastTarget = false;
         RectTransform tr = _text.rectTransform;
         tr.anchorMin = Vector2.zero;

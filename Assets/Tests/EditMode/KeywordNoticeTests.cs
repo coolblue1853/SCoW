@@ -18,6 +18,16 @@ namespace SCoW.Tests
             return new KeywordBook(r.Catalog);
         }
 
+        [Test]
+        public void ToastDelaysWhilePanelOpenOrBusy()
+        {
+            Assert.IsTrue(KeywordNotice.CanShowToast(false, 1, false, false));
+            Assert.IsFalse(KeywordNotice.CanShowToast(false, 1, false, true), "패널 열림");
+            Assert.IsFalse(KeywordNotice.CanShowToast(false, 1, true, false), "연출 중");
+            Assert.IsFalse(KeywordNotice.CanShowToast(true, 1, false, false), "표시 중");
+            Assert.IsFalse(KeywordNotice.CanShowToast(false, 0, false, false), "큐 비어 있음");
+        }
+
         // 기준선만 깔린 새 게임 상태.
         private static GameState Baselined(KeywordBook book)
         {

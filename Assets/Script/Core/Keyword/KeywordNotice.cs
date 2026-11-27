@@ -18,6 +18,12 @@ namespace SCoW.Core.Keyword
         public const string OrderPrefix = "kwOrder:";
         public const string SeenPrefix = "kwSeen:";
 
+        /// <summary>토스트를 지금 띄워도 되나(UI 겹침 방지). 이미 표시 중·큐 비어 있음·연출 중·전체 화면 패널(설정·수첩 등)이 열려 있으면 미룬다.</summary>
+        public static bool CanShowToast(bool showing, int queued, bool busy, bool panelOpen)
+        {
+            return !showing && queued > 0 && !busy && !panelOpen;
+        }
+
         public static string OrderKey(string id)
         {
             return OrderPrefix + id;
