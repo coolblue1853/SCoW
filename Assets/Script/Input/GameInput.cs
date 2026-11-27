@@ -18,7 +18,7 @@ public static partial class GameInput
     private static InputAction _move, _interact, _present, _advance, _portal, _pointerPrimary;
     private static InputAction _cancel, _menu, _openIntel, _openMap, _openSIS;
     private static InputAction _navUp, _navDown, _pageNext, _pagePrev, _todoTab, _quickSave, _quickLoad;
-    private static InputAction _swapLeft, _swapRight;
+    private static InputAction _swapLeft, _swapRight, _sewerMinimap;
     private static InputAction _dlgBacklog, _dlgSkipHold, _dlgSkipToggle, _dlgAutoToggle;
     private static Vector2 _lastPointer;
     private static IDisposable _anyPress;
@@ -130,6 +130,7 @@ public static partial class GameInput
         _quickLoad = Find(ui, "QuickLoad");
         _swapLeft = Find(ui, "SwapLeft");
         _swapRight = Find(ui, "SwapRight");
+        _sewerMinimap = Find(ui, "SewerMinimap");
         RestoreSavedBindings();
         HintGlyphs.Resolver = ResolveGlyph;
         _asset.Enable();
@@ -177,6 +178,8 @@ public static partial class GameInput
     public static bool SwapLeftDown { get { return Down(_swapLeft); } }
     /// <summary>전투 대열 교체 단축키, 화면 오른쪽(R / 패드 RB, PT-6).</summary>
     public static bool SwapRightDown { get { return Down(_swapRight); } }
+    /// <summary>하수도 미니맵 크게/작게(SEWER-1 S5). 키보드 M, 패드 십자 아래.</summary>
+    public static bool SewerMinimapDown { get { return Down(_sewerMinimap); } }
 
     /// <summary>대사 백로그 열기(B / 마우스 휠 위 / 패드 LT).</summary>
     public static bool DialogBacklogDown { get { return Down(_dlgBacklog); } }

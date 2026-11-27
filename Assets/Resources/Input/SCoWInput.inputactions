@@ -534,6 +534,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SewerMinimap",
+                    "type": "Button",
+                    "id": "5e3b9a10-62c4-4f7d-8b21-0a6d4c9e7f01",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -930,6 +939,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "SwapRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5e3b9a10-62c4-4f7d-8b21-0a6d4c9e7f02",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SewerMinimap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5e3b9a10-62c4-4f7d-8b21-0a6d4c9e7f03",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SewerMinimap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

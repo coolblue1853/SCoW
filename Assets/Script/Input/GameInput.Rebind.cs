@@ -42,6 +42,7 @@ public static partial class GameInput
         new RebindSlot("UI", "TodoTab", "할 일 탭", "To-Do Tab"),
         new RebindSlot("UI", "SwapLeft", "대열 교체(왼쪽)", "Swap Left"),
         new RebindSlot("UI", "SwapRight", "대열 교체(오른쪽)", "Swap Right"),
+        new RebindSlot("UI", "SewerMinimap", "하수도 지도 확대", "Sewer Map"),
     };
 
     private static InputActionRebindingExtensions.RebindingOperation _rebindOp;
