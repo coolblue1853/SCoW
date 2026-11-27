@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SCoW.Core.Story;
 public class Intel_ObtoUI : MonoBehaviour
 {
     private static Intel_ObtoUI instance = null;
@@ -43,6 +44,10 @@ public class Intel_ObtoUI : MonoBehaviour
         {
             SetBlackWell();
         }
+        else if (this.name == "DoorPolice")
+        {
+            canJudge = DoorPoliceCurrentOptions() != DoorPoliceOption.None;
+        }
         if (DataBaseManager.cancelJudge == true)
         {
             CancelJudge();
@@ -57,7 +62,7 @@ public class Intel_ObtoUI : MonoBehaviour
         {
             PresentDirect();
         }
-        if ((GameInput.InteractDown && UiGate.CanInteractWorld) && !KeywordPicker.IsOpen)
+        if ((GameInput.InteractDown && UiGate.CanInteractWorld) && !KeywordPicker.IsOpen && !NpcChoiceView.ClosedThisFrame)
         {
             if (this.transform.name == DataBaseManager.selectObject)
             {
@@ -363,9 +368,7 @@ public class Intel_ObtoUI : MonoBehaviour
         }
         if (DataBaseManager.selectObject == "DoorPolice")
         {
-            canJudge = false;
-            isJudge = true;
-            Rollet.Instance.SetRollet("Police : Persuasion", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
+            DoorPoliceJudge();
         }
         if (DataBaseManager.selectObject == "DeadBody")
         {
@@ -469,6 +472,61 @@ public class Intel_ObtoUI : MonoBehaviour
                 }
             }
         }
+    }
+    // C-4: 문 경찰 앞에서 쓸 수 있는 방법(설득 판정은 한 번, 알버트에게 실종자 정보를 들었으면 "알버트가 보냈다" 비판정 입장).
+    private static DoorPoliceOption DoorPoliceCurrentOptions()
+    {
+        return NoonEventRules.DoorPoliceOptions(DataBaseManager.noonEventAccessAuthorization, DataBaseManager.intelMissingPeople2, DataBaseManager.doorPolicePersuadeTried);
+    }
+    private void StartDoorPolicePersuasion()
+    {
+        canJudge = false;
+        isJudge = true;
+        Rollet.Instance.SetRollet("Police : Persuasion", "Rhetoric", DataBaseManager.rhetoricPoint, "dialog");
+    }
+    private void DoorPoliceJudge()
+    {
+        DoorPoliceOption opts = DoorPoliceCurrentOptions();
+        if (opts == DoorPoliceOption.Persuade)
+        {
+            StartDoorPolicePersuasion();
+            return;
+        }
+        if (opts == DoorPoliceOption.None)
+        {
+            DataBaseManager.cancelJudge = true;
+            return;
+        }
+        List<DoorPoliceOption> order = new List<DoorPoliceOption>(2);
+        List<string> labels = new List<string>(3);
+        if ((opts & DoorPoliceOption.Persuade) != 0)
+        {
+            order.Add(DoorPoliceOption.Persuade);
+            labels.Add(SaveText.Pick("말로 설득한다 (언변 판정)", "Try to persuade him (Rhetoric)"));
+        }
+        order.Add(DoorPoliceOption.AlbertSent);
+        labels.Add(SaveText.Pick("알버트가 보냈다고 말한다", "Say that Albert sent you"));
+        labels.Add(SaveText.Pick("그만둔다", "Never mind"));
+        string title = SaveText.Pick("문을 지키는 경찰", "The officer at the door");
+        NpcChoiceView.Show(title, labels.ToArray(),
+            i =>
+            {
+                if (i >= order.Count)
+                {
+                    DataBaseManager.cancelJudge = true;
+                }
+                else if (order[i] == DoorPoliceOption.Persuade)
+                {
+                    StartDoorPolicePersuasion();
+                }
+                else
+                {
+                    canJudge = false;
+                    isJudge = true;
+                    InteractionController.Instance.Start2ndNoonEvent("NoonEvent_DoorPolice_AlbertSent");
+                }
+            },
+            () => { DataBaseManager.cancelJudge = true; });
     }
     string aidenJudge;
     void SetAiden()

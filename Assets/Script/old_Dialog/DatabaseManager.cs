@@ -157,6 +157,9 @@ public class DataBaseManager : MonoBehaviour
     public static bool noonEventAccessAuthorization { get => S.GetFlag(FlagKeys.noonEventAccessAuthorization); set => S.SetFlag(FlagKeys.noonEventAccessAuthorization, value); }
     public static bool witnessFirstDailog { get => S.GetFlag(FlagKeys.witnessFirstDailog); set => S.SetFlag(FlagKeys.witnessFirstDailog, value); }
     public static bool doorPoliceFirstDailog { get => S.GetFlag(FlagKeys.doorPoliceFirstDailog); set => S.SetFlag(FlagKeys.doorPoliceFirstDailog, value); }
+    // 스토리 P1 C-1·C-4: 사건을 한 칸 미뤘다 / 문 경찰 설득 판정을 이미 했다.
+    public static bool noonEventDelayed { get => S.GetFlag(FlagKeys.noonEventDelayed); set => S.SetFlag(FlagKeys.noonEventDelayed, value); }
+    public static bool doorPolicePersuadeTried { get => S.GetFlag(FlagKeys.doorPolicePersuadeTried); set => S.SetFlag(FlagKeys.doorPolicePersuadeTried, value); }
     public static bool noonEventFirstDoor { get => S.GetFlag(FlagKeys.noonEventFirstDoor); set => S.SetFlag(FlagKeys.noonEventFirstDoor, value); }
     public static bool noonEventSanCheck { get => S.GetFlag(FlagKeys.noonEventSanCheck); set => S.SetFlag(FlagKeys.noonEventSanCheck, value); }
     public static bool insidePoliceFirstDailog { get => S.GetFlag(FlagKeys.insidePoliceFirstDailog); set => S.SetFlag(FlagKeys.insidePoliceFirstDailog, value); }

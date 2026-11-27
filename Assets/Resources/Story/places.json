@@ -2,7 +2,7 @@
   "places": [
     { "id": "DetectiveOffice", "scripts": [ { "script": "1st_DetectiveOffice" } ] },
     { "id": "Bar", "scripts": [ { "script": "1st_Bar" } ] },
-    { "id": "Client'shouse", "scripts": [ { "when": "time<6", "script": "1st_Client'sHouse" }, { "script": "2nd_NoonEvent" } ] },
+    { "id": "Client'shouse", "scripts": [ { "when": "time<6 || (flag:noonEventDelayed && time<7)", "script": "1st_Client'sHouse" }, { "script": "2nd_NoonEvent" } ] },
     { "id": "DailyNews", "scripts": [ { "script": "1st_DailyNews" } ] },
     { "id": "University", "scripts": [ { "script": "1st_University" } ] },
     { "id": "Riverside", "scripts": [ { "script": "1st_Riverside" } ] },

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using SCoW.Core.Rules;
 using SCoW.Core.State;
+using SCoW.Core.Story;
 
 namespace SCoW.Core.World
 {
@@ -31,7 +32,7 @@ namespace SCoW.Core.World
             FlagKeys.endingDoorCheck, FlagKeys.deadBodyGotoSwere, FlagKeys.sewerPicingSucc, FlagKeys.sewerageKey,
             FlagKeys.blackRechSuccCanTalck, FlagKeys.sewerDoorOpen, FlagKeys.sewerDoorOpenDeftness, FlagKeys.sewerDoorOpenCheck,
             FlagKeys.tryBrokenWindow, FlagKeys.tryObserLokcer,
-            FlagKeys.albertDeathKeyword, FlagKeys.daveDeathKeyword, FlagKeys.swainDeathKeyword
+            FlagKeys.albertDeathKeyword, FlagKeys.daveDeathKeyword, FlagKeys.swainDeathKeyword, FlagKeys.noonEventDelayed
         };
 
         public static void Apply(GameState s, IWorldScene w)
@@ -71,14 +72,16 @@ namespace SCoW.Core.World
             ApplyLockerRetry(s, t);
             ApplySewerDoor(s, w, phase);
 
-            if (t >= 6 && w.LocalY(WorldIds.AfNoonEvent) > 30)
+            // C-1: 사건 칸은 보통 6, 에이든을 놓쳐 미뤘다면 7(NoonEventRules).
+            bool noonDelayed = s.GetFlag(FlagKeys.noonEventDelayed);
+            if (NoonEventRules.IsEventTime(t, noonDelayed) && w.LocalY(WorldIds.AfNoonEvent) > 30)
             {
                 w.MoveTo(WorldIds.BfNoonEvent, 0, 60, 0);
                 w.MoveTo(WorldIds.AfNoonEvent, 0, 0, 0);
                 w.MoveTo(WorldIds.PoliceLine, -58.1f, 4.06f, 0);
                 w.SetClientsHouseRoomMessy();
             }
-            if (t >= 7 && w.IsActive(WorldIds.Witness))
+            if (NoonEventRules.IsAfterEventSlot(t, noonDelayed) && w.IsActive(WorldIds.Witness))
             {
                 w.SetCanJudge(WorldIds.Meave, true);
                 w.SetActive(WorldIds.Witness, false);

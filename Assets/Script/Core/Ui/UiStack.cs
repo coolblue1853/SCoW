@@ -16,6 +16,7 @@ namespace SCoW.Core.Ui
         Backlog,
         Keyword,
         Death,
+        NpcChoice,
     }
 
     /// <summary>

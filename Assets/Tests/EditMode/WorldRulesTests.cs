@@ -134,6 +134,23 @@ namespace SCoW.Tests
         }
 
         [Test]
+        public void NoonEvent_DelayedWaitsOneSlot()
+        {
+            // C-1: 에이든 접촉을 놓쳐 사건이 미뤄졌으면 6 에서는 아직 평소 상태, 7 에서 사건 직후 상태가 된다.
+            FakeScene w = new FakeScene();
+            w.Pos[WorldIds.AfNoonEvent] = new[] { 0f, 60f, 0f };
+            GameState s = At(6);
+            s.SetFlag(FlagKeys.noonEventDelayed, true);
+            WorldRules.Apply(s, w);
+            Assert.IsFalse(w.Messy);
+            Assert.AreEqual(60f, w.LocalY(WorldIds.AfNoonEvent));
+            s.SetCounter(CounterKeys.timeCount, 7);
+            WorldRules.Apply(s, w);
+            Assert.IsTrue(w.Messy);
+            Assert.AreEqual(0f, w.LocalY(WorldIds.AfNoonEvent));
+        }
+
+        [Test]
         public void Witness_RemovedAt7_MeaveJudgeOffAt11()
         {
             FakeScene w = new FakeScene();

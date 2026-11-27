@@ -2,7 +2,7 @@
   "id": "1st_DailyNews",
   "topics": [
     { "id": "Swain_FirstDialog", "cases": [
-      { "when": "!flag:aidenFirstDialog && time<6", "pre": "set:aidenFirstDialog", "node": "swain_first" },
+      { "when": "!flag:aidenFirstDialog && (time<6 || (flag:noonEventDelayed && time<7))", "pre": "set:aidenFirstDialog", "node": "swain_first" },
       { "when": "!flag:aidenFirstDialog", "pre": "set:aidenFirstDialog", "node": "swain_nocontact_first" },
       { "node": "swain_dialog" }
     ] },

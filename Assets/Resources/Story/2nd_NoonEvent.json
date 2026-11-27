@@ -17,6 +17,7 @@
       { "node": "doorpolice_repeat" }
     ] },
     { "id": "NoonEvent_DoorPolice_Look", "cases": [ { "node": "NoonEvent_DoorPolice_Look" } ] },
+    { "id": "NoonEvent_DoorPolice_AlbertSent", "cases": [ { "pre": "set:noonEventAccessAuthorization", "node": "doorpolice_albert" } ] },
     { "id": "NoonEvent_FirstDoor", "cases": [ { "node": "NoonEvent_FirstDoor" } ] },
     { "id": "NoonEvent_InsidePolice_Dialog", "cases": [
       { "when": "!flag:insidePoliceFirstDailog", "pre": "set:insidePoliceFirstDailog", "node": "insidepolice_first" },
@@ -45,6 +46,7 @@
     "NoonEvent_Witness_Look": { "text": "2nd_NoonEvent:61" },
     "doorpolice_first": { "text": "2nd_NoonEvent:96-100" },
     "doorpolice_repeat": { "text": "2nd_NoonEvent:101" },
+    "doorpolice_albert": { "text": "2nd_NoonEvent:276-281" },
     "NoonEvent_DoorPolice_Look": { "text": "2nd_NoonEvent:102-103" },
     "NoonEvent_FirstDoor": { "text": "2nd_NoonEvent:114-119" },
     "insidepolice_first": { "text": "2nd_NoonEvent:122-124" },

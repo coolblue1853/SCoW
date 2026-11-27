@@ -6,7 +6,7 @@ public class ChangeMapButton : MonoBehaviour
 {
     public void ButtonClick()
     {
-        if (DataBaseManager.timeCount == 5 && DataBaseManager.noonMorningMove == true)
+        if (SCoW.Core.Story.NoonEventRules.IsForcedDeparture(DataBaseManager.timeCount, DataBaseManager.noonMorningMove, DataBaseManager.noonEventDelayed))
         {
             MapManager.Instance.MapOn();
             DataBaseManager.nowPlace = "NoonEvent";

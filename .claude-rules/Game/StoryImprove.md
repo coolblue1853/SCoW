@@ -85,10 +85,10 @@
 
 | ID | 우선 | 비용 | 현재 제약 | 제안 |
 |---|---|---|---|---|
-| C-1 | P1 | M(코드) | 일차당 방문 2곳(낮·저녁), 엘라 집 데드라인, 2일차 낮 강제 이벤트 | 강제 이벤트 발동을 `time>=6 && (flag:aidenFirstDialog \|\| time>=7)` 로 완화(코드: `PotalPoint.cs:61`, `MapManager.cs:498`). 에이든을 놓친 채 2일차 낮이면 이벤트 인트로에 "He is still in the bedroom" 변형 없이 현행 유지. 대안: 아침(t=5)에 이동하면 방문 순서 선택 가능하도록 1일 4칸으로 확장(L) |
+| C-1 | P1 ✅완료(11-27, 해석 Q-P1-5) | M(코드) | 일차당 방문 2곳(낮·저녁), 엘라 집 데드라인, 2일차 낮 강제 이벤트 | 강제 이벤트 발동을 `time>=6 && (flag:aidenFirstDialog \|\| time>=7)` 로 완화(코드: `PotalPoint.cs:61`, `MapManager.cs:498`). 에이든을 놓친 채 2일차 낮이면 이벤트 인트로에 "He is still in the bedroom" 변형 없이 현행 유지. 대안: 아침(t=5)에 이동하면 방문 순서 선택 가능하도록 1일 4칸으로 확장(L) |
 | C-2 | P1 | M | 하수도 진입이 소장·침입 판정 위주 | **사회 경로 2개 신설**: ① 메이브(Bar 101-102 "내가 하수도 밀수로를 썼다") 키워드 `Manhole`·`Way to Escape` → 옛 밀수로 열쇠·약도(언변·호감 판정 없이, 대가는 "인스머스 술 한 모금" SAN 또는 알버트 숨기기). ② 알버트(PoliceOffice 62) 키워드 `Manhole` → 경찰 도면(생존·`!albertDeathKeyword` 일 때만). 새 Topic: `Maeve/Old route`, `Albert/Blueprint`, 새 키워드 이름 `Old route`·`Blueprint`는 새 키 |
 | C-3 | P1 | M | 금고: 힘/언변/정신분석 | 4번째: **엘라를 올려 보내 설득**(비판정, 시간 대가: 엘라 귀가 대사에서 "내가 올라가 볼게요" 선택지 추가, 키워드 `Ella Triss/Aiden's Safe` 사용 후). 5번째: 행운 소모(CocDesign #4)로 실패한 힘·언변 판정을 성공 전환 |
-| C-4 | P1 ⏸보류(Q-P1-3) | S | 시신 입장 설득 실패면 엿듣기만 | 비판정: 알버트 통화 후 `Albert's Information` 키워드가 있으면 문경찰 "알버트가 보냈다" 선택지(NoonEvent 96-113 `when flag:intelMissingPeople2`) |
+| C-4 | P1 ✅완료(11-27, 문구 Q-P1-5) | M(코드) | 시신 입장 설득 실패면 엿듣기만 | 비판정: 알버트 통화 후 `Albert's Information` 키워드가 있으면 문경찰 "알버트가 보냈다" 선택지(NoonEvent 96-113 `when flag:intelMissingPeople2`) |
 | C-5 | P2 | M | 의뢰 수락/거절 차이가 에필로그 한 줄 | 거절 시 2일차 밤 정리(254-290)에 `!ifGotRequset` 변형: "She came to me and I sent her away." 죄책감 대사. 수락 시 엘라 피살 직전 장면에서 "I'll check on her tomorrow" 회상. 한 줄씩이라도 반응 |
 | C-6 | P2 | S | 팔찌 매각($10) 선택에 결과 없음 | 팔찌 매각 시 에필로그에서 에이든이 "Ella's bracelet... did you see it?" 한 줄(`flag:braceletSold`). 안 팔고 가지고 있다 돌려주면 감사·SAN 소량 회복 |
 | C-7 | P2 | M | 인스머스·딥원이 일지 읽기 전엔 연결 불가 | 신규 키워드 `Innsmouth liquor`(Bar 105-108, 127-134): 메이브 → 케인(샘플 분석: 비늘 조각) → 앨런. 일지 없이도 "인스머스 = 딥원" 추리 가능(`Keyword.json` 신규 토픽, CSV 신규 `1st_Innsmouth.csv` 또는 기존 파일 끝 ID 추가) |

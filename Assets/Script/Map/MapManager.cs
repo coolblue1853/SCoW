@@ -1,4 +1,5 @@
 using SCoW.Core.Ui;
+using SCoW.Core.Story;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -488,6 +489,8 @@ public class MapManager : MonoBehaviour
         {
             DataBaseManager.isMorningMapMove = true;
             DataBaseManager.noonMorningMove = true;
+            // C-1: 에이든 접촉을 놓쳤으면 사건을 한 칸 미뤄 낮에 의뢰인의 집을 다녀올 수 있게 한다(결정은 여기서 한 번).
+            DataBaseManager.noonEventDelayed = NoonEventRules.ShouldDelay(DataBaseManager.aidenFirstDialog);
             DataBaseManager.secondisDirecting = true;
 
             DataBaseManager.morningMove2nd = true;
@@ -497,7 +500,7 @@ public class MapManager : MonoBehaviour
             Invoke("WaitFade", 4f);
             Invoke("TimeMinus", 1f);
         }
-        else if (DataBaseManager.timeCount == 5 && isNoonEvent == false)
+        else if (NoonEventRules.IsForcedDeparture(DataBaseManager.timeCount, true, DataBaseManager.noonEventDelayed) && isNoonEvent == false)
         {
             DataBaseManager.isMorningMapMove = false;
             isNoonEvent = true;
@@ -724,7 +727,7 @@ public class MapManager : MonoBehaviour
             camera.transform.localPosition = camClientsHouse;
             mapChainingUI.SetActive(false);
             mapUI.SetActive(false);
-            if(DataBaseManager.firstClientsHouseEnd == false && DataBaseManager.timeCount <6)
+            if(DataBaseManager.firstClientsHouseEnd == false && !NoonEventRules.IsEventTime(DataBaseManager.timeCount, DataBaseManager.noonEventDelayed))
             {
                 DataBaseManager.storyDirecting = true;
                 Invoke("FirstClientsHouseArrive", 2);
@@ -945,7 +948,7 @@ public class MapManager : MonoBehaviour
     }
     public void SewerDialog()
     {
-        if(DataBaseManager.timeCount < 7)
+        if(!NoonEventRules.IsAfterEventSlot(DataBaseManager.timeCount, DataBaseManager.noonEventDelayed))
         {
             InteractionController.Instance.Start2ndNoonEvent("NoonEvent_DeadBody_analysisSuccAfter");
         }

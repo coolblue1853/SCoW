@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using SCoW.Core.Sewer;
+using SCoW.Core.Story;
 public class PotalPoint : MonoBehaviour
 {
     float chInRommSize = 2.383215f; // -이면 왼쪽 +면 오른쪽
@@ -51,11 +52,11 @@ public class PotalPoint : MonoBehaviour
         {
             if (GameInput.PortalDown && UiGate.CanUsePortal && !KeywordPicker.IsOpen)
             {
-                if ((DataBaseManager.nowPlace == "Client'shouse" || DataBaseManager.nowPlace == "NoonEvent") && DataBaseManager.timeCount >= 6)
+                if ((DataBaseManager.nowPlace == "Client'shouse" || DataBaseManager.nowPlace == "NoonEvent") && NoonEventRules.IsEventTime(DataBaseManager.timeCount, DataBaseManager.noonEventDelayed))
                 {
                     if (DataBaseManager.noonEventAccessAuthorization == true)
                     {
-                        if (DataBaseManager.timeCount == 6)
+                        if (DataBaseManager.timeCount == NoonEventRules.EventSlot(DataBaseManager.noonEventDelayed))
                         {
                             if (DataBaseManager.noonEventFirstDoor == false)
                             {
@@ -214,7 +215,7 @@ public class PotalPoint : MonoBehaviour
         }
         else if (this.name == "2sttoRoom")
         {
-            if (DataBaseManager.isFirstRoom == true || DataBaseManager.timeCount >= 6)
+            if (DataBaseManager.isFirstRoom == true || NoonEventRules.IsEventTime(DataBaseManager.timeCount, DataBaseManager.noonEventDelayed))
             {
                 DataBaseManager.isDirecting = true;
                 player.transform.localScale = new Vector3(chInRommSize, chInRommSize, 1);

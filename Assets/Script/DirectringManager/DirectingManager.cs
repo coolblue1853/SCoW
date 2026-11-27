@@ -207,7 +207,7 @@ public class DirectingManager : MonoBehaviour
             DetectiveOfficeFadeOut("EndSelectDirecting");
         }
         // 의뢰자의 집
-        if (DataBaseManager.firstClientsHouse == true && DataBaseManager.timeCount < 6)
+        if (DataBaseManager.firstClientsHouse == true && !SCoW.Core.Story.NoonEventRules.IsEventTime(DataBaseManager.timeCount, DataBaseManager.noonEventDelayed))
         {
             DataBaseManager.firstClientsHouse = false;
             DataBaseManager.firstClientsHouseEnd = true;

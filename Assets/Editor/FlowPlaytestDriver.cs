@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Text;
 using SCoW.Core.Sewer;
 using SCoW.Core.State;
+using SCoW.Core.Story;
 using UnityEngine;
 
 /// <summary>
@@ -130,5 +131,94 @@ public static class FlowPlaytestDriver
     {
         FieldInfo f = typeof(DataBaseManager).GetField(name, BindingFlags.Static | BindingFlags.Public);
         return f == null ? "NO_FIELD" : name + "=" + f.GetValue(null);
+    }
+
+    // ---- 스토리 P1 C-1·C-4 확인 ----
+
+    private static void Healthy()
+    {
+        GameState s = State;
+        s.SetCounter("str", 60); s.SetCounter("dex", 60); s.SetCounter("intl", 70); s.SetCounter("luk", 55); s.SetCounter("weal", 50);
+        s.SetCounter("hp", 60); s.SetCounter("nowHP", 60); s.SetCounter("san", 65); s.SetCounter("nowSan", 65);
+        s.SetCounter(CounterKeys.rhetoricPoint, 60);
+    }
+
+    /// <summary>C-1: 2일차 상태를 만들고(시각 t, 에이든 접촉 여부) 아침 결정(ShouldDelay)을 적용한 뒤 월드를 다시 평가한다.</summary>
+    public static string StoryC1Setup(int t, bool aiden)
+    {
+        Healthy();
+        GameState s = State;
+        DataBaseManager.aidenFirstDialog = aiden;
+        DataBaseManager.noonMorningMove = true;
+        DataBaseManager.noonEventDelayed = NoonEventRules.ShouldDelay(aiden);
+        s.SetCounter(CounterKeys.timeCount, t);
+        DataBaseManager.nowPlace = "Client'shouse";
+        GameRoot.NotifyTransient(SCoW.Core.World.WorldIds.RefreshKey);
+        return StoryC1Info();
+    }
+
+    public static string StoryC1Info()
+    {
+        TimeManagere r = TimeManagere.Instance;
+        StringBuilder sb = new StringBuilder();
+        int t = DataBaseManager.timeCount;
+        bool d = DataBaseManager.noonEventDelayed;
+        sb.Append("t=").Append(t).Append(" aiden=").Append(DataBaseManager.aidenFirstDialog).Append(" delayed=").Append(d);
+        sb.Append(" eventTime=").Append(NoonEventRules.IsEventTime(t, d));
+        sb.Append(" forcedNow=").Append(NoonEventRules.IsForcedDeparture(t, DataBaseManager.noonMorningMove, d));
+        sb.Append(" afNoonY=").Append(r.afNoonEvent.transform.localPosition.y.ToString("F1"));
+        sb.Append(" policeLineX=").Append(r.policeLine.transform.localPosition.x.ToString("F1"));
+        sb.Append(" witness=").Append(r.witness.activeSelf);
+        return sb.ToString();
+    }
+
+    /// <summary>C-1: 지도 버튼(이름)을 실제로 눌러 강제 이동 여부(nowPlace)를 본다. 시각·플래그는 StoryC1Setup 이 먼저 정한다.</summary>
+    public static string StoryC1Click(string placeName)
+    {
+        ChangeMapButton[] all = Object.FindObjectsByType<ChangeMapButton>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        for (int i = 0; i < all.Length; i++)
+        {
+            if (all[i].name == placeName)
+            {
+                DataBaseManager.nowPlace = "DetectiveOffice";
+                all[i].ButtonClick();
+                return "click " + placeName + " -> nowPlace=" + DataBaseManager.nowPlace + " | " + StoryC1Info();
+            }
+        }
+        return "NO_BUTTON " + placeName;
+    }
+
+    /// <summary>C-4: 문 경찰 앞 선택지를 연다(시각 6, 사건 현장). 열린 선택지 문구를 돌려준다.</summary>
+    public static string StoryC4Open(bool albertKnows, bool tried, bool access)
+    {
+        Healthy();
+        GameState s = State;
+        s.SetCounter(CounterKeys.timeCount, 6);
+        DataBaseManager.nowPlace = "NoonEvent";
+        DataBaseManager.intelMissingPeople2 = albertKnows;
+        DataBaseManager.doorPolicePersuadeTried = tried;
+        DataBaseManager.noonEventAccessAuthorization = access;
+        DataBaseManager.isDirecting = false;
+        DataBaseManager.storyDirecting = false;
+        HideDialog();
+        Intel_ObtoUI[] all = Object.FindObjectsByType<Intel_ObtoUI>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        for (int i = 0; i < all.Length; i++)
+        {
+            if (all[i].name == "DoorPolice")
+            {
+                DataBaseManager.selectObject = "DoorPolice";
+                typeof(Intel_ObtoUI).GetMethod("SetJudge", Bf).Invoke(all[i], null);
+                string[] labels = NpcChoiceView.CurrentLabels;
+                return "open=" + NpcChoiceView.IsOpen + " labels=" + (labels == null ? "-" : string.Join(" / ", labels)) + " rolletOpen=" + DataBaseManager.isRollet;
+            }
+        }
+        return "NO_DOORPOLICE";
+    }
+
+    public static string StoryC4Pick(int index)
+    {
+        bool ok = NpcChoiceView.TestPick(index);
+        return "picked=" + ok + " access=" + DataBaseManager.noonEventAccessAuthorization + " tried=" + DataBaseManager.doorPolicePersuadeTried
+            + " rollet=" + DataBaseManager.isRollet + " dialog=" + DataBaseManager.isActiveDialog1 + " open=" + NpcChoiceView.IsOpen;
     }
 }

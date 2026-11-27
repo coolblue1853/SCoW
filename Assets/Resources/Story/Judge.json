@@ -658,6 +658,7 @@
    "text": "2nd_NoonEvent:111-113"
   },
   "Police : Persuasion@0": {
+   "onEnter": "set:doorPolicePersuadeTried",
    "onSuccess": "Police : Persuasion@0.ok",
    "onFail": "Police : Persuasion@0.fail"
   },
