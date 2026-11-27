@@ -235,10 +235,10 @@ public sealed class SewerMinimapView : MonoBehaviour
         float labelRoom = _expanded ? 72f * scale : 0f;
         float w = (m.MaxX - m.MinX) * step + pad * 2f;
         float h = (m.MaxY - m.MinY) * step + pad * 2f + labelRoom;
-        _panel.anchorMin = _panel.anchorMax = _expanded ? new Vector2(0.5f, 1f) : new Vector2(1f, 1f);
-        // 크게 보기는 화면 위쪽 가운데(아래쪽 대사창을 피한다).
-        _panel.pivot = _expanded ? new Vector2(0.5f, 1f) : new Vector2(1f, 1f);
-        _panel.anchoredPosition = _expanded ? new Vector2(0f, -Margin * 3f * scale) : new Vector2(-Margin * scale, -Margin * scale);
+        _panel.anchorMin = _panel.anchorMax = new Vector2(1f, 1f);
+        // 크게 보기는 화면 위쪽 오른쪽(아래쪽 대사창과 왼쪽 위 목표 HUD 를 피한다).
+        _panel.pivot = new Vector2(1f, 1f);
+        _panel.anchoredPosition = new Vector2(-Margin * scale, _expanded ? -Margin * 3f * scale : -Margin * scale);
         _panel.sizeDelta = new Vector2(w, h);
         _panelImg.color = ColPanel;
         _content.anchoredPosition = Vector2.zero;
