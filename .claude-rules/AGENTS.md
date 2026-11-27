@@ -37,6 +37,7 @@
 | `Game/Party.md` | 동료 동행(PARTY-1): 알버트·메이브 합류·능력치, 탐색 판정 보조, 3칸 대열 전투·SAN 발작·쓰러짐, 엔진 인터페이스, 세이브·입력, 단계 PT-0~7 |
 | `Game/KeywordUX.md` | KEYWORD-1: 키워드 시스템 현행 조작 단계·문제(파일:줄), 카탈로그·KeywordPicker·3경로 입력·횟수/오답·새 키워드 알림 개선 설계, 단계 K1~K7 |
 | `Game/UxImprove.md` | UX-1: 화면별 UI/UX 실측(타이틀·설정·생성·월드·대사·수첩·룰렛·HUD·전투·저장·사망)·장르 관례 대비, 개선안 P0~P2 표(3경로), 시간·목표 HUD·설정 재구성·HintBar·저장 토스트, 단계 UX-1~12 |
+| `Game/BattleFxProfile.md` | P14b 잔여: RetrunRolletResult 6행동x5슬롯 복제 블록 목록·슬롯별 연출 값, EnemyFxProfile 순수 C# 표, 행동별 통합 메서드와 단계 F0~F8(전후 스샷 비교), Hit1D3(플레이어 맨손)·Def.AttackDamage 구분, 위험·되돌리기 |
 | `Game/SewerImprove.md` | SEWER-1: 하수도 내부 현행 실측(랜덤 방·운 판정·조명/소리 없음)과 가설, 고정 그래프·조사 포인트·SAN 연동 공포 연출·조우 리듬, 단계 S0~S9 |
 
 ## 레퍼런스 게임 분석 (Project B 에서 옮김, 원본 추출 자료는 ProjectB 쪽 경로)
