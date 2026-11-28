@@ -15,7 +15,7 @@
 |---|------|---------|------|
 | 1 | **신체 손상 그래픽 방식** (확정) | 월드 | 11-28 사용자 확정: 결손 상태별 통짜 스프라이트를 새로 그린다(35상태 x 대기·걷기·달리기). 스티커·레이어 분리 폐기. 얼굴(눈·혀)은 사용자 직접. 상세는 `.claude-rules/Game/LimbLoss.md` 0-0절 |
 | 2 | **파비안 키** (확정) | 월드 | 11-28 사용자 확정: **54px**(`Docs/ArtCandidates/Fabian/noline/1_lineonly.png` 그대로, 64px 캔버스, 폭 22px). 자세(11-28 확정): 허리 짚은 자세는 기본 상태 대기 모션에서만, 걷기·달리기는 팔 흔드는 일반 자세. PixelLab 누적 53회(예산 50 초과) |
-| 3 | 파비안 플레이어블 도트 + 대기·걷기·달리기 | 월드 | 대기 합격(11-28): `Docs/ArtCandidates/Fabian/idle_n7/f1~f8`(64 캔버스, 8프레임, 0.16초/장 권장), 레시피 `Docs/ArtCandidates/Fabian/RECIPE.md`. 게임 적용은 사용자 소폭 수정 후. 다음 걷기. PixelLab 누적 59회 |
+| 3 | 파비안 플레이어블 도트 + 대기·걷기·달리기 | 월드 | 대기 합격(11-28): `Docs/ArtCandidates/Fabian/idle_n7/f1~f8`(64 캔버스, 8프레임, 0.16초/장 권장), 레시피 `Docs/ArtCandidates/Fabian/RECIPE.md`. 게임 적용은 사용자 소폭 수정 후. 걷기 합격(11-28): `Docs/ArtCandidates/Fabian/walk_2h8b/f1~f8`(64 캔버스, 8프레임, 0.11초/장 권장, 팔 내린 기준 `noline/10_armsdown.png`), 발목 돌아가는 프레임은 사용자 직접 수정, 게임 적용 안 함. 다음 달리기. PixelLab 누적 68회 |
 
 ## 2순위 — 항상 보이는 화면 (P0)
 
